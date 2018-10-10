@@ -4,7 +4,7 @@ import LoginForm from './login_form';
 
 const mapStateToProps = state => {
   return {
-    loginForm: {email: ''}
+    loginForm: {email: '', password: ''}
   };
 };
 

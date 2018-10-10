@@ -10,49 +10,64 @@ ActiveRecord::Base.transaction do
 
   categories = {
     '1' => {
-      'name' => 'Art'
+      'name' => 'Art',
+      'description' => 'Discover the artists and organizations using Kickstarter to realize ambitious projects in visual art, dance, and performance.'
     },
     '2' => {
-      'name' => 'Comics'
+      'name' => 'Comics & Illustration',
+      'description' => 'Explore fantastical worlds and original characters from Kickstarter’s community of comics creators and illustrators.'
     },
     '3' => {
-      'name' => 'Crafts'
+      'name' => 'Crafts',
+      'description' => ''
     },
     '4' => {
-      'name' => 'Dance'
+      'name' => 'Dance',
+      'description' =>
     },
     '5' => {
-      'name' => 'Design'
+      'name' => 'Design',
+      'description' =>
     },
     '6' => {
-      'name' => 'Fashion'
+      'name' => 'Fashion',
+      'description' =>
     },
     '7' => {
-      'name' => 'Film & Video'
+      'name' => 'Film & Video',
+      'description' =>
     },
     '8' => {
-      'name' => 'Food'
+      'name' => 'Food',
+      'description' =>
     },
     '9' => {
-      'name' => 'Games'
+      'name' => 'Games',
+      'description' =>
     },
     '10' => {
-      'name' => 'Journalism'
+      'name' => 'Journalism',
+      'description' =>
     },
     '11' => {
-      'name' => 'Music'
+      'name' => 'Music',
+      'description' =>
     },
     '12' => {
-      'name' => 'Photography'
+      'name' => 'Photography',
+      'description' =>
     },
     '13' => {
-      'name' => 'Publishing'
+      'name' => 'Publishing',
+      'description' =>
     },
     '14' => {
-      'name' => 'Technology'
+      'name' => 'Technology',
+      'description' =>
     },
     '15' => {
-      'name' => 'Theater'
+      'name' => 'Theater',
+      'description' =>
     }
   }
 end
