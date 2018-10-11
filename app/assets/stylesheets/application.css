@@ -556,3 +556,134 @@ nav {
   font-weight: 100;
   font-family: Helvetica;
 }
+
+.step-one-main {
+  display: block;
+  width: 100%;
+  height: 689px;
+  justify-content: space-around;
+  font-family: Helvetica;
+}
+
+.step-one-header {
+  width: 895px;
+  height: 270px;
+  padding-top: 113px;
+  margin: auto;
+}
+
+.step-one-title {
+  display: block;
+  width: 498px;
+  height: 270px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-one-title-content {
+  display: block;
+  width: 498px;
+  height: 186px;
+  padding-bottom: 84px;
+  border-bottom: 1px solid #f1eeea;
+}
+
+.step-one-title-content h2 {
+  display: block;
+  width: 498px;
+  height: 36px;
+  margin-bottom: 12px;
+  font-size: 28px;
+  text-align: center;
+  font-weight: 300;
+}
+
+.step-one-title-content h3 {
+  display: block;
+  width: 450px;
+  height: 48px;
+  margin-bottom: 36px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 100;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.select-your-category {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  padding: 20px;
+  border-radius: 0;
+  background-color: white;
+  font-size: 18px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border: none;
+  font-weight: 100;
+  box-shadow: #DCDEDD 0 2px 5px;
+  color: rgb(155,158,158);
+  width: 498px;
+  height: 54px;
+}
+
+.page-info {
+  width: 871px;
+  height: 29px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7px;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.fa-caret-down {
+  position: relative;
+}
+
+.select-your-category:hover {
+  border: 1px solid black;
+  transition: border 0.25s ease-in-out;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
+}
+
+.step-one-next-step {
+  display: block;
+  width: 895px;
+  height: 79px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-one-next-step-content {
+  display: block;
+  width: 498px;
+  height: 79px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-one-next-step-inner {
+  display: block;
+  width: 498px;
+  height: 42px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.select-your-category-dropdown {
+  position: relative;
+}
+
+.select-your-category-arrow {
+  position: absolute;
+}

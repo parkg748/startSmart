@@ -19,7 +19,7 @@ class Homepage extends React.Component {
           <Link to='/explore' className='explore'>Explore</Link>
           <Link to='/learn' className='project'>Start a project</Link>
         </section>
-        <img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' />
+        <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
         <section className='search-signin'>
           <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
           {profile}
