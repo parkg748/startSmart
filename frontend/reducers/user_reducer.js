@@ -8,7 +8,7 @@ export default (state = _nullSession, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, {user: action.currentUser.user});
+      return Object.assign({}, {user: action.user.user});
     case LOGOUT_CURRENT_USER:
       return Object.assign({}, {currentUser: null});
     default:

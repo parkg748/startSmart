@@ -3,7 +3,7 @@ import StartProjectPageOne from './start_project_pageone';
 
 const mapStateToProps = state => {
   return {
-
+    class: {button: 'disabled', category: '', className: 'disabled-yes'}
   };
 };
 

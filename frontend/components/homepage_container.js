@@ -2,9 +2,9 @@ import Homepage from './homepage';
 import {connect} from 'react-redux';
 import {receiveCurrentUser} from '../actions/session_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
-    currentUser: state.entities.session.currentUser
+    user: state.entities.user.user
   };
 };
 
