@@ -110,17 +110,6 @@ form h2 {
   margin-bottom: 0.9rem;
 }
 
-.login-form-container input {
-  display: flex;
-  box-sizing: border-box;
-  padding: 12px;
-  font-size: 14px;
-  line-height: 17px;
-  width: 100%;
-  border: 1px solid #DCDEDD;
-  background-color: white;
-}
-
 .error-email-msg {
   display: none;
 }
@@ -147,14 +136,6 @@ form h2 {
 .create-account-container {
   margin-top: 2.2rem;
   margin-bottom: 0.8rem;
-}
-
-.green-box {
-  width: 100%;
-  background-color: rgb(0, 158, 116);
-  justify-content: center;
-  text-align: center;
-  font-weight: 100;
 }
 
 .create-account-container input {
@@ -302,4 +283,34 @@ nav {
 
 .login-link-signup {
   color: #2752ff;
+}
+
+.login-email:focus {
+  border: 1px solid rgb(0, 158, 116);
+  background-color: transparent;
+}
+
+.login-password:focus {
+  border: 1px solid rgb(0, 158, 116);
+}
+
+.login-form-container input {
+  display: flex;
+  box-sizing: border-box;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 17px;
+  width: 100%;
+  justify-content: center;
+}
+
+.grey-border {
+  border: 1px solid #DCDEDD;
+}
+
+.green-box {
+  width: 100%;
+  background-color: rgb(0, 158, 116);
+  text-align: center;
+  font-weight: 100;
 }

@@ -24,8 +24,8 @@ class LoginForm extends React.Component {
               <form onSubmit={() => this.handleSubmit()}>
                 <h2>Log in</h2>
                 <div className='login-form-container'>
-                  <input onChange={this.update('email')} className='login-email' type='text' placeholder='Email' value={this.state.email} />
-                  <input onChange={this.update('password')} className='login-password' type='password' placeholder='Password' value={this.state.password} />
+                  <input onChange={this.update('email')} className='grey-border login-email' type='text' placeholder='Email' value={this.state.email} />
+                  <input onChange={this.update('password')} className='grey-border login-password' type='password' placeholder='Password' value={this.state.password} />
                   <a className='forgot-your-password'>Forgot your password?</a>
                   <div className='green-box'><input type='submit' value='Log me in!' /></div>
                 </div>

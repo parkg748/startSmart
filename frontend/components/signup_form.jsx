@@ -39,12 +39,12 @@ class SignupForm extends React.Component {
                 </div>
                 <h2>Sign up</h2>
                 <div className='login-form-container'>
-                  <input className='login-email' onChange={this.update('name')} type='text' value={this.state.name} placeholder='Name'/>
-                  <input className='login-email' onChange={this.update('email')} type='text' value={this.state.email} placeholder='Email' />
+                  <input className='grey-border login-email' onChange={this.update('name')} type='text' value={this.state.name} placeholder='Name'/>
+                  <input className='grey-border login-email' onChange={this.update('email')} type='text' value={this.state.email} placeholder='Email' />
                   <div className={this.state.emailError}><i className="fas fa-exclamation-circle"></i> <div className='error-email-text'>Please include '@' in the email address. &#39;{this.state.email}&#39; is missing an &#39;@&#39;.</div></div>
-                  <input className='login-email' onChange={this.update('reemail')} type='text' value={this.state.reemail} placeholder='Re-enter email' />
-                  <input className='login-email' onChange={this.update('password')} type='password' value={this.state.password} placeholder='Password'/>
-                  <input className='login-email' onChange={this.update('repassword')} type='password' value={this.state.repassword} placeholder='Re-enter password'/>
+                  <input className='grey-border login-email' onChange={this.update('reemail')} type='text' value={this.state.reemail} placeholder='Re-enter email' />
+                  <input className='grey-border login-email' onChange={this.update('password')} type='password' value={this.state.password} placeholder='Password'/>
+                  <input className='grey-border login-email' onChange={this.update('repassword')} type='password' value={this.state.repassword} placeholder='Re-enter password'/>
                 </div>
                 <label className='weekly-newsletter'>
                   <div className='signup-weekly-checkbox'>
