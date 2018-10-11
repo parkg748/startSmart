@@ -1,0 +1,259 @@
+html, body, header, nav, h1, a, ul, li, strong, main, button, i, section, img, div, h2, p, form, fieldset, label, input, textarea, span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+input[type='submit'] {
+  cursor: pointer;
+}
+
+input[type='password'],
+input[type='email'],
+input[type='text'],
+input[type='submit'],
+textarea, button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.explore-project {
+  display: block;
+  float: left;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  padding-left: 1.8rem;
+}
+
+.explore {
+  margin-right: 1.2rem;
+}
+
+.project {
+  padding-right: 1.8rem;
+  margin-right: 1.2rem;
+}
+
+.search-signin {
+  display: block;
+  float: right;
+  padding-right: 2.4rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.search {
+  margin-left: 0.6rem;
+  display: inline-block;
+}
+
+.login {
+  margin-left: 0.8rem;
+}
+
+.grey-box {
+  border-top: 1px solid black;
+  background-color: #F0F0F0;
+}
+
+.login-outer-container {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  padding-right: 1.8rem;
+  padding-left: 1.8rem;
+}
+
+.login-middle-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.login-container {
+  background-color: white;
+}
+
+.signup-top-login {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #F1EEEA;
+  background-color: rgba(241, 238, 234, 0.2);
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.link-signup {
+  color: #2752ff;
+  font-weight: normal !important;
+}
+
+form {
+  padding: 20px;
+}
+
+form h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin-bottom: 30px;
+  font-weight: 200;
+}
+
+.login-form-container {
+  margin-bottom: 0.9rem;
+}
+
+.login-form-container input {
+  display: flex;
+  box-sizing: border-box;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 17px;
+  width: 100%;
+  border: 1px solid #DCDEDD;
+  background-color: white;
+}
+
+.error-email-msg {
+  display: none;
+}
+
+.error-email-text {
+  display: block;
+}
+
+.signup-weekly-checkbox {
+  display: inline;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 12px;
+  width: 10px;
+  margin-right: 0;
+}
+
+.signup-weekly-newsletter {
+  display: inline;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.create-account-container {
+  margin-top: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.green-box {
+  width: 100%;
+  background-color: rgb(0, 158, 116);
+  text-align: center;
+  font-weight: 100;
+}
+
+.create-account-container input {
+  box-sizing: border-box;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 17px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.green-box input {
+  background-color: transparent;
+  color: white;
+}
+
+.signup-disclaimer {
+  margin-top: 10px;
+  font-size: 11.8px;
+  text-align: center;
+  color: black;
+  line-height: 19px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.policy-link {
+  color: #2752ff;
+}
+
+.login-or {
+  padding-top: 5px;
+  text-align: center;
+}
+
+.line {
+  width: 90%;
+  background-color: #f1eeea;
+  height: 1px;
+  margin-left: 5%;
+  display: inline-block;
+}
+
+.text {
+  background-color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.blue-box {
+  width: 100%;
+  background-color: #39579a;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 100;
+}
+
+.blue-box input {
+  background-color: transparent;
+  color: white;
+}
+
+.login-facebook-disclaimer {
+  margin-top: 10px;
+  font-size: 11.8px;
+  text-align: center;
+  color: rgba(40,40,40,0.5);
+  line-height: 19px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.footer-nav-bar {
+  border-top: 2px solid rgb(155,158,158);
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  font-size: 13.5px;
+  justify-content: space-between;
+  background-color: white;
+  font-weight: 100;
+}
+
+.footer-category {
+  display: block;
+}
+
+.footer-links {
+  float: left;
+  padding-top: 1.9rem;
+  padding-bottom: 1.9rem;
+  padding-left: 30px;
+}
+
+.footer-link {
+  padding-left: 20px;
+}
