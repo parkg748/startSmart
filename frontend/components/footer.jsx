@@ -92,7 +92,7 @@ class Footer extends React.Component {
               <option value='francais'>Français</option>
               <option value='japanese'>日本語</option>
             </select>
-            <i class="first-arrow fas fa-caret-down"></i>
+            <i className="first-arrow fas fa-caret-down"></i>
             <select className='currency' defaultValue='usd'>
               <option value='euro'>€ Euro (EUR)</option>
               <option value='australian'>$ Australian Dollar (AUD)</option>
@@ -109,7 +109,7 @@ class Footer extends React.Component {
               <option value='singapore'>$ Singapore Dollar (SGD)</option>
               <option value='usd'>$ US Dollar (USD)</option>
             </select>
-            <i class="second-arrow fas fa-caret-down"></i>
+            <i className="second-arrow fas fa-caret-down"></i>
           </form>
         </div>
         <div className='policies'>

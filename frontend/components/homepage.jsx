@@ -7,16 +7,22 @@ class Homepage extends React.Component {
   }
 
   render() {
+    let profile = undefined;
+    if (this.props.currentUser != null) {
+      profile = <div className='profile-circle'></div>;
+    } else {
+      profile = <Link to='/login' className='login'>Sign in</Link>;
+    }
     return (
       <nav>
         <section className='explore-project'>
           <Link to='/explore' className='explore'>Explore</Link>
-          <Link to='/project' className='project'>Start a project</Link>
+          <Link to='/learn' className='project'>Start a project</Link>
         </section>
         <img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' />
         <section className='search-signin'>
           <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
-          <Link to='/login' className='login'>Sign in</Link>
+          {profile}
         </section>
       </nav>
     );

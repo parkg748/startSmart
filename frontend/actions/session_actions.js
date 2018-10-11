@@ -29,3 +29,7 @@ export const login = userForm => dispatch => (
 export const logout = userForm => dispatch => (
   APIUtil.logout(userForm).then(() => dispatch(receiveCurrentUser(null)))
 );
+
+export const fetchUser = userForm => dispatch => (
+  APIUtil.fetchUser(userForm).then(user => dispatch(receiveCurrentUser(user)))
+);

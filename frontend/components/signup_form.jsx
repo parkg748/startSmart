@@ -12,12 +12,11 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit() {
-    if (this.props.errors.length > 0) {
-      this.props.receiveErrors(this.props.errors);
-    } else if (!this.state.email.includes('@') || !this.state.reemail.includes('@')) {
+    if (!this.state.email.includes('@') || !this.state.reemail.includes('@')) {
       this.setState({emailError: 'error-email-msg-show'});
-      // window.setTimeout(() => this.setState({emailError: 'error-email-msg'}), 5000);
+      window.setTimeout(() => this.setState({emailError: 'error-email-msg'}), 5000);
     } else if ((this.state.email === this.state.reemail) && (this.state.password === this.state.repassword)) {
+      this.props.clearErrors(this.props.errors);
       this.props.signup({name: this.state.name, email: this.state.email, password: this.state.password}).then(() => this.props.history.push('/recommendations'));
     }
   }
@@ -32,12 +31,12 @@ class SignupForm extends React.Component {
                 <p>Have an account? <Link className='login-link-signup' to='/login'>Log in</Link></p>
               </div>
               <form onSubmit={() => this.handleSubmit()}>
+                <h2>Sign up</h2>
                 <div className='error-messages-red'>
                   <ul>
-                    {this.props.errors.map(error => <li>{error}</li>)}
+                    {this.props.errors.map((error, id) => <li key={id}>{error}</li>)}
                   </ul>
                 </div>
-                <h2>Sign up</h2>
                 <div className='login-form-container'>
                   <input className='grey-border login-email' onChange={this.update('name')} type='text' value={this.state.name} placeholder='Name'/>
                   <input className='grey-border login-email' onChange={this.update('email')} type='text' value={this.state.email} placeholder='Email' />

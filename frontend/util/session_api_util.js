@@ -1,5 +1,12 @@
 import React from 'react';
 
+export const fetchUser = user => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${user}`
+  });
+};
+
 export const signup = user => {
   return $.ajax({
     method: 'POST',
