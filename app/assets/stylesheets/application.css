@@ -152,6 +152,7 @@ form h2 {
 .green-box {
   width: 100%;
   background-color: rgb(0, 158, 116);
+  justify-content: center;
   text-align: center;
   font-weight: 100;
 }
@@ -256,4 +257,49 @@ nav {
 
 .footer-link {
   padding-left: 20px;
+}
+
+.search i {
+  margin-left: 0.6rem;
+  display: inline-block;
+}
+
+.login-email {
+  margin-bottom: 1.1rem;
+}
+
+.fa-facebook {
+  color: white;
+  margin-right: 5px;
+}
+
+.forgot-your-password {
+  font-size: 12px;
+  color: #2752ff;
+  padding-top: 10px;
+  padding-bottom: 13px;
+  display: block;
+  font-weight: 100;
+}
+
+.remember-me {
+  font-size: 13.5px;
+  font-weight: 100;
+}
+
+.remember-me-checkbox {
+  margin-right: 10px;
+}
+
+.login-bottom-signup {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #F1EEEA;
+  background-color: rgba(241, 238, 234, 0.2);
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.login-link-signup {
+  color: #2752ff;
 }

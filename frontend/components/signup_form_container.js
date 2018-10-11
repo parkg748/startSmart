@@ -1,4 +1,4 @@
-import {connect} from 'react-router-dom';
+import {connect} from 'react-redux';
 import SignupForm from './signup_form';
 import {receiveErrors, clearErrors} from '../actions/session_actions';
 
