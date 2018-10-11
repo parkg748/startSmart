@@ -16,7 +16,7 @@ class SignupForm extends React.Component {
       this.props.receiveErrors(this.props.errors);
     } else if (!this.state.email.includes('@') || !this.state.reemail.includes('@')) {
       this.setState({emailError: 'error-email-msg-show'});
-      window.setTimeout(() => this.setState({emailError: 'error-email-msg'}), 5000);
+      // window.setTimeout(() => this.setState({emailError: 'error-email-msg'}), 5000);
     } else if ((this.state.email === this.state.reemail) && (this.state.password === this.state.repassword)) {
       this.props.signup({name: this.state.name, email: this.state.email, password: this.state.password}).then(() => this.props.history.push('/recommendations'));
     }
