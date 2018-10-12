@@ -4,7 +4,7 @@ import projectReducer from './project_reducer';
 import categoryReducer from './category_reducer';
 
 const entitiesReducer = combineReducers({
-  user: userReducer,
+  users: userReducer,
   project: projectReducer,
   category: categoryReducer
 });

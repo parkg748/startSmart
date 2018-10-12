@@ -7,11 +7,8 @@ class LoginForm extends React.Component {
     this.state = this.props.loginForm;
   }
 
-  componentDidMount() {
-    this.props.fetchCategories();
-  }
-
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.login(this.state).then(() => this.props.history.push('/recommendations'));
   }
 
@@ -25,7 +22,7 @@ class LoginForm extends React.Component {
         <div className='login-outer-container'>
           <div className='login-middle-container'>
             <section className='login-container'>
-              <form onSubmit={() => this.handleSubmit()}>
+              <form onSubmit={(e) => this.handleSubmit(e)}>
                 <h2>Log in</h2>
                 <div className='login-form-container'>
                   <input onChange={this.update('email')} className='grey-border login-email' type='text' placeholder='Email' value={this.state.email} />

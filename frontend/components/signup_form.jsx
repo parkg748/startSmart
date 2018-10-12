@@ -11,7 +11,8 @@ class SignupForm extends React.Component {
     return (e) => this.setState({[field]: e.target.value});
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     if (!this.state.email.includes('@') || !this.state.reemail.includes('@')) {
       this.setState({emailError: 'error-email-msg-show'});
       window.setTimeout(() => this.setState({emailError: 'error-email-msg'}), 5000);
@@ -30,7 +31,7 @@ class SignupForm extends React.Component {
               <div className='signup-top-login'>
                 <p>Have an account? <Link className='login-link-signup' to='/login'>Log in</Link></p>
               </div>
-              <form onSubmit={() => this.handleSubmit()}>
+              <form onSubmit={(e) => this.handleSubmit(e)}>
                 <h2>Sign up</h2>
                 <div className='error-messages-red'>
                   <ul>

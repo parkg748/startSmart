@@ -26,25 +26,36 @@ class Homepage extends React.Component {
             {profile}
           </section>
         </nav>
-        <div className='step-three-top'>
-          <div className='page-3'>3 of 3</div>
-        </div>
-        <div className='step-three-box'>
-          <div className='step-three-box-inner'>
-            <div className='step-three-box-inner-inner'>
-              <h2>Finally, let's confirm your eligibility.</h2>
-              <h3>Tell us where you're based and confirm a few other details before we proceed.</h3>
-              <div className='country-dropdown'>
-                <i className="fas fa-caret-down"></i>
-                <select className='select-your-category' defaultValue='your-category'>
-                  <option value='your-category' disabled>Select your category</option>
-                  debugger;
-                  {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
-                    return <option key={obj.id} value={obj.name}>Film & Video</option>
-                  } else {
-                    return <option key={obj.id} value={obj.name}>{obj.name}</option>
-                  }})}
-                </select>
+        <div className='edit-background'>
+          <ul>
+            <li><Link className='edit-button' to='/'>Our Rules</Link></li>
+            <li><Link className='edit-button' to='/'>Help</Link></li>
+            <li><Link className='edit-button' to='/'>Creator Handbook</Link></li>
+          </ul>
+          <div className='edit-page-content'>
+            <div className='edit-page-navbar'>
+              <div className='edit-page-navbar-inner'>
+                <ul>
+                  <li className='exit-editor'><Link to='/'><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
+                  <li className='edit-options'>
+                    <ul>
+                      <li className='edit-option-basics'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
+                      <li className='edit-option-rewards'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
+                      <li className='edit-option-story'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
+                      <li className='edit-option-about-you'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
+                      <li className='edit-option-account'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
+                      <li className='preview'><Link to='/'>Preview</Link></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className='edit-form'>
+              <div className='edit-form-title'>
+                <div className='edit-form-title-inner'>
+                  <h2>Let's get started.</h2>
+                  <p>Make a great first impression with your project's title and image, and set your funding goal, campaign duration, and project category.</p>
+                </div>
               </div>
             </div>
           </div>

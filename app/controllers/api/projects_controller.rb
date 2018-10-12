@@ -14,6 +14,6 @@ class Api::ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:title, :description, :duration, :starting_bid, :eta, :shipping, :limit, :city, :state)
+    params.require(:project).permit(:title, :description, :duration, :starting_bid, :eta, :shipping, :limit, :city, :state, :country)
   end
 end

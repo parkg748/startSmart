@@ -9,6 +9,8 @@ import StartProjectContainer from './start_project_container';
 import FooterContainer from './footer_container';
 // import RecommendationsContainer from './recommendations_container';
 import StartProjectPageOneContainer from './start_project_pageone_container';
+import UserProjectContainer from './user_project_container';
+import EditProjectContainer from './edit_project_container';
 
 const App = () => (
   <div>
@@ -18,6 +20,8 @@ const App = () => (
       <Route path='/login' component={LoginFormContainer} />
       <Route path='/signup' component={SignupFormContainer} />
       <Route path='/start' component={StartProjectPageOneContainer} />
+      <Route path='/users/:userId/projects/:projectId' component={UserProjectContainer} />
+      <Route path='/users/:user_id/projects/:id/edit' component={EditProjectContainer} />
     </header>
     <footer>
       <Route path='/' component={FooterContainer} />
