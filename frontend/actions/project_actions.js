@@ -31,8 +31,8 @@ export const fetchProjectsByCategory = category => dispatch => (
   ProjectApiUtil.fetchProjectsByCategory(category).then(projects => dispatch(receiveAllProjects(projects)))
 );
 
-export const createProject = projectForm => dispatch => (
-  ProjectApiUtil.createProject(projectForm).then(project => dispatch(receiveProject(project)))
+export const createProject = (user, data) => dispatch => (
+  ProjectApiUtil.createProject(user, data).then(project => dispatch(receiveProject(project)))
 );
 
 export const updateProject = projectForm => dispatch => (

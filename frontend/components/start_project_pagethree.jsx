@@ -1,21 +1,8 @@
 import React from 'react';
 
-class StartProjectPageOne extends React.Component {
+class StartProjectPageThree extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.project;
-    this.update = this.update.bind(this);
-  }
-
-  update(category) {
-    return (e) => {
-      if (category === 'your-category') {
-        this.setState({button: this.state.button, className: 'disabled-yes'});
-      } else {
-        debugger;
-        this.setState({button: '', category_id: this.props.extractCategoryId(this.props.category, e.target.value), className: 'disabled-no'});
-      }
-    }
   }
 
   render() {
@@ -26,24 +13,24 @@ class StartProjectPageOne extends React.Component {
         <div className='step-one-header'>
           <div className='step-one-title'>
             <div className='step-one-title-content'>
-              <h2>First, let's get you set up.</h2>
-              <h3>Pick a project category to connect with a specific community. You can always update this later.</h3>
+              <h2>First, let's confirm your eligibility.</h2>
+              <h3>Tell us where you're based and confirm a few other details before we proceed.</h3>
               <div className='select-your-category-dropdown'>
                 <i className="select-your-category-arrow fas fa-caret-down"></i>
                 <select className='select-your-category' onChange={this.update('category')} defaultValue='your-category'>
-                  <option value='your-category' disabled>Select your category</option>
-                  <option value='Art'>Art</option>
-                  <option value='Comics'>Comics</option>
-                  <option value='Crafts'>Crafts</option>
-                  <option value='Dance'>Dance</option>
-                  <option value='Design'>Design</option>
-                  <option value='Fashion'>Fashion</option>
-                  <option value='Film'>Film & Video</option>
-                  <option value='Food'>Food</option>
-                  <option value='Games'>Games</option>
-                  <option value='Journalism'>Journalism</option>
-                  <option value='Music'>Music</option>
-                  <option value='Photography'>Photography</option>
+                  <option value='your-category' disabled>Select your country</option>
+                  <option value='Australia'>Australia</option>
+                  <option value='Austria'>Austria</option>
+                  <option value='Belgium'>Belgium</option>
+                  <option value='Canada'>Canada</option>
+                  <option value='Denmark'>Denmark</option>
+                  <option value='France'>France</option>
+                  <option value='Germany'>Germany</option>
+                  <option value='Hong Kong'>Hong Kong</option>
+                  <option value='Ireland'>Ireland</option>
+                  <option value='Italy'>Italy</option>
+                  <option value='Japan'>Japan</option>
+                  <option value='Luxembourg'>Luxembourg</option>
                   <option value='Publishing'>Publishing</option>
                   <option value='Technology'>Technology</option>
                   <option value='Theater'>Theater</option>
@@ -70,4 +57,4 @@ class StartProjectPageOne extends React.Component {
   }
 }
 
-export default StartProjectPageOne;
+export default StartProjectPageThree;

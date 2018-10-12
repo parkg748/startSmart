@@ -6,3 +6,10 @@ export const fetchCategory = category => {
     url: `/api/categories/${category}`
   });
 };
+
+export const fetchCategories = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/categories'
+  });
+};

@@ -21,11 +21,11 @@ export const fetchProject = project => {
   });
 };
 
-export const createProject = project => {
+export const createProject = (user, data) => {
   return $.ajax({
     method: 'POST',
-    url: '/api/projects',
-    data: { project }
+    url: `/api/users/${user}/projects`,
+    data: { project: data }
   });
 };
 

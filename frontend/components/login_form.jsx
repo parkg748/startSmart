@@ -7,6 +7,10 @@ class LoginForm extends React.Component {
     this.state = this.props.loginForm;
   }
 
+  componentDidMount() {
+    this.props.fetchCategories();
+  }
+
   handleSubmit() {
     this.props.login(this.state).then(() => this.props.history.push('/recommendations'));
   }
