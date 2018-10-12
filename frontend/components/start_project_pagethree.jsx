@@ -31,19 +31,34 @@ class StartProjectPageThree extends React.Component {
                   <option value='Italy'>Italy</option>
                   <option value='Japan'>Japan</option>
                   <option value='Luxembourg'>Luxembourg</option>
-                  <option value='Publishing'>Publishing</option>
-                  <option value='Technology'>Technology</option>
-                  <option value='Theater'>Theater</option>
+                  <option value='Mexico'>Mexico</option>
+                  <option value='New Zealand'>New Zealand</option>
+                  <option value='Norway'>Norway</option>
+                  <option value='Singapore'>Singapore</option>
+                  <option value='Spain'>Spain</option>
+                  <option value='Sweden'>Sweden</option>
+                  <option value='Switzerland'>Switzerland</option>
+                  <option value='the Netherlands'>the Netherlands</option>
+                  <option value='the United Kingdom'>the United Kingdom</option>
+                  <option value='the United States'>the United States</option>
                 </select>
               </div>
             </div>
           </div>
         </div>
+        <div>
+          <p>What if my country isn't listed?</p>
+          <ul>
+            <li>I am at least 18 years old.</li>
+            <li>I can verify a bank account and government-issued ID.</li>
+            <li>I have a debit and/or credit card.</li>
+          </ul>
+        </div>
         <div className='step-one-next-step'>
           <div className='step-one-next-step-content'>
             <div className='step-one-next-step-inner'>
-              <label className={this.state.className}><input type='submit' value='' /><p>Next: Project Idea</p></label>
-              <span>Welcome back.</span>
+              <label className={this.state.className}><input type='submit' value='' /><p>Continue</p></label>
+              <div><i class="fas fa-long-arrow-alt-left"></i><span>Project idea</span></div>
             </div>
           </div>
         </div>

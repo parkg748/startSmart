@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {login} from '../actions/session_actions';
-import {fetchCategories} from '../actions/category_actions';
 import LoginForm from './login_form';
+import {fetchCategories} from '../actions/category_actions';
 
 const mapStateToProps = state => {
   return {

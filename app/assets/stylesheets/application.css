@@ -596,8 +596,8 @@ nav {
   height: 36px;
   margin-bottom: 12px;
   font-size: 28px;
-  text-align: center;
   font-weight: 300;
+  text-align: center;
 }
 
 .step-one-title-content h3 {
@@ -608,6 +608,7 @@ nav {
   font-size: 18px;
   text-align: center;
   font-weight: 100;
+  color: rgba(0,0,0,0.6);
   margin-left: auto;
   margin-right: auto;
 }
@@ -633,7 +634,7 @@ nav {
 }
 
 .page-info {
-  width: 871px;
+  width: 790px;
   height: 29px;
   padding-left: 12px;
   padding-right: 12px;
@@ -679,6 +680,7 @@ nav {
   padding-top: 18px;
   padding-bottom: 18px;
   position: relative;
+  align-items: center;
 }
 
 .select-your-category-dropdown {
@@ -704,7 +706,7 @@ nav {
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
-.step-one-next-step-inner label {
+.step-one-next-step-inner button {
   display: block;
   width: 114px;
   height: 42px;
@@ -718,12 +720,13 @@ nav {
   position: relative;
 }
 
-.step-one-next-step-inner p {
+.step-two-next-step-inner p {
   position: absolute;
   bottom: 14px;
+  left: 20px;
 }
 
-.step-one-next-step-inner span {
+.step-two-next-step-inner span {
   position: absolute;
   text-align: left;
   display: block;
@@ -766,4 +769,298 @@ nav {
 
 .disabled-no {
   background-color: black;
+}
+
+.description-box {
+  display: block;
+  width: 406px;
+  height: 54px;
+  border: 1px solid #f1eeea;
+  font-size: 13px;
+  color: #9B9E9E;
+  font-weight: 100;
+  padding: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.description-box input {
+  display: block;
+  width: 406px;
+}
+
+.description-num {
+  display: block;
+  width: 432px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.description-num-inner {
+  display: block;
+  float: right;
+  height: 21px;
+  font-weight: 100;
+  font-size: 13px;
+  padding-top: 8px;
+  color: rgba(0,0,0,0.6);
+}
+
+.category-next-location {
+  display: block;
+  width: 498px;
+  height: 42px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  position: relative;
+  align-items: center;
+}
+
+.fa-long-arrow-alt-left {
+  display: inline-block;
+  float: left;
+  padding-right: 5px;
+}
+
+.next-location {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  bottom: 14px;
+  left: 10px;
+}
+
+.line-two {
+  width: 406px;
+  background-color: #f1eeea;
+  height: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.fa-long-arrow-alt-left span {
+  display: flex;
+  height: 20px;
+  color: rgba(0,0,0,0.6);
+}
+
+.step-two-title {
+  display: block;
+  width: 432px;
+  height: 230px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-two-title-content {
+  display: block;
+  width: 432px;
+  height: 166px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid #f1eeea;
+}
+
+.step-two-next-step-content {
+  display: block;
+  width: 432px;
+  height: 79px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-two-next-step-inner {
+  display: block;
+  width: 432px;
+  height: 42px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  position: relative;
+  align-items: center;
+}
+
+.step-two-title-content h2 {
+  display: block;
+  width: 432px;
+  height: 36px;
+  margin-bottom: 12px;
+  font-size: 28px;
+  text-align: center;
+  font-weight: 300;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-two-next-step {
+  display: block;
+  width: 895px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-two-next-step-inner button {
+  display: block;
+  width: 114px;
+  height: 42px;
+  padding-left: 18px;
+  padding-right: 18px;
+  float: right;
+  font-size: 14px;
+  color: white;
+  font-weight: 100;
+  text-align: center;
+  position: relative;
+}
+
+.step-one-next-step-inner p {
+  position: absolute;
+  bottom: 14px;
+}
+
+.step-one-next-step-inner span {
+  position: absolute;
+  text-align: left;
+  display: block;
+  top: 30px;
+  font-weight: 100;
+  font-size: 14px;
+  width: 98px;
+  height: 24px;
+}
+
+.step-two-title-content h3 {
+  display: block;
+  width: 432px;
+  height: 24px;
+  margin-bottom: 42px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 100;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(0,0,0,0.6);
+}
+
+.step-two-header {
+  width: 895px;
+  height: 250px;
+  padding-top: 113px;
+  margin: auto;
+}
+
+.description-box:hover {
+  border: 1px solid rgb(0, 158, 116);
+}
+
+.description-box:focus {
+  border: 1px solid black;
+}
+
+.step-three-top {
+  display: flex;
+  width: 758px;
+  height: 29px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.page-3 {
+  float: left;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.step-three-box {
+  width: 782px;
+  height: 505px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 68px;
+}
+
+.step-three-box-inner {
+  width: 432px;
+  height: 505px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-three-box-inner-inner {
+  width: 432px;
+  height: 457px;
+  padding-bottom: 48px;
+}
+
+.step-three-box-inner-inner h2 {
+  width: 412px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 72px;
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.step-three-box-inner-inner h3 {
+  width: 432px;
+  height: 48px;
+  margin-bottom: 36px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 100;
+  color: rgba(0,0,0,0.6);
+}
+
+.country-dropdown {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  border-radius: 0;
+  background-color: white;
+  font-size: 18px;
+  border: none;
+  font-weight: 100;
+  box-shadow: #DCDEDD 0 2px 5px;
+  color: rgb(155,158,158);
+  width: 432px;
+  height: 0;
+}
+
+.select-your-country:hover {
+  border: 1px solid black;
+  transition: border 0.25s ease-in-out;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
+}
+
+.select-your-country {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  padding: 20px;
+  border-radius: 0;
+  background-color: white;
+  font-size: 18px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border: none;
+  font-weight: 100;
+  box-shadow: #DCDEDD 0 2px 5px;
+  color: rgb(155,158,158);
+  width: 432px;
+  height: 30px;
 }
