@@ -1,8 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class UserProject extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchCategories();
+    this.props.fetchProject(Object.values(this.props.user)[0].id, Object.values(this.props.project)[0].id);
   }
 
   render() {
@@ -11,8 +17,8 @@ class UserProject extends React.Component {
         <div className='project-front-header'>
           <div className='project-front-header-inner'>
             <div className='project-front-header-title'>
-              <h2> Project</h2>
-              <h3>by {this.props.user}</h3>
+              <h2>{this.props.category[Object.values(this.props.project)[0].categoryId].name} Project</h2>
+              <h3>by {Object.values(this.props.user)[0].name}</h3>
             </div>
             <div className='project-preview'>
               <div className='project-preview-inner'>
@@ -126,5 +132,7 @@ class UserProject extends React.Component {
     );
   }
 }
+
+
 
 export default UserProject;

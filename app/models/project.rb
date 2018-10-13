@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  validates :title, :description, :category_id, :subcategory_id, :city, :state, :user_id, presence: true
+  validates :title, :description, :category_id, :city, :state, :user_id, presence: true
 
   belongs_to :category,
     primary_key: :id,

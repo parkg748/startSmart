@@ -14,10 +14,10 @@ export const fetchProjectsByCategory = category => {
   });
 };
 
-export const fetchProject = project => {
+export const fetchProject = (user, project) => {
   return $.ajax({
     method: 'GET',
-    url: `/api/projects/${project}`
+    url: `/api/users/${user}/projects/${project}`
   });
 };
 

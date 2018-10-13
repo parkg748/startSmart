@@ -57,6 +57,76 @@ class Homepage extends React.Component {
                   <p>Make a great first impression with your project's title and image, and set your funding goal, campaign duration, and project category.</p>
                 </div>
               </div>
+              <div className='edit-form-box'>
+                <div className='edit-form-box-inner'>
+                  <div className='edit-form-input'>
+                    <div className='edit-form-input-inner'>
+                      <form>
+                        <div className='project-image'>
+                          <div className='project-image-inner'>
+                            <div className='project-image-inner-title'>Project image</div>
+                            <div className='project-image-inner-content'>
+                              <div className='project-image-upload'>
+                                <div className='project-image-upload-inner'>
+                                  <span className='choose-an-image'>Choose an image from your computer</span>
+                                  <span className='choose-an-image-description'>This is the main image associated with your project. Make it count!</span>
+                                  <span className='choose-an-image-description'>JPEG, PNG, GIF, or BMP • 200MB file limit</span>
+                                  <span className='choose-an-image-description'>At least 1024x576 pixels • 16:9 aspect ratio</span>
+                                </div>
+                                <div className='project-image-content'>
+                                  <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. <Link className='some-tips' to='/'>Here are some tips.</Link></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='project-title-box'>
+                          <div className='project-title-content'>
+                            <div className='project-image-inner-title'>Project title</div>
+                            <div className='project-title-content-inner'>
+                              <div className='title-input'>
+                                <input type='text' value='' />
+                                <span>60/60</span>
+                              </div>
+                              <div className='project-title-description'>
+                                <p className='project-title-description-one'>Our search looks through words from your project title and blurb, so make them clear and descriptive of what you’re making. Your profile name will be searchable, too.</p>
+                                <p className='project-title-description-two'>These words will help people find your project, so choose them wisely! Your name will be searchable too.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='short-blurb-box'>
+                          <div className='short-blurb-content'>
+                            <div className='project-image-inner-title'>Short blurb</div>
+                            <div className='short-blurb-content-inner'>
+                              <div className='short-blurb-input'>
+                                <input type='text' value='' />
+                                <span>135/135</span>
+                              </div>
+                              <div className='short-blurb-description'>
+                                <p>Give people a sense of what you’re doing. Skip “Help me” and focus on what you’re making.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='category-box'>
+                          <div className='category-content'>
+                            <div className='project-image-inner-title'>Category</div>
+                            <div className='category-content-inner'>
+                              <select className='category-dropdown' defaultValue='testing'>
+                                <option value='testing'>Testing</option>
+                              </select>
+                              <select className='category-dropdown-two' defaultValue='testing'>
+                                <option value='testing'>Testing</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

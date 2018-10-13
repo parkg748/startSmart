@@ -9,47 +9,48 @@ class StartProjectPageOne extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchCategories();
+  }
+
   handleSubmit() {
     if (this.state.pageNo === 1) {
       this.setState({button: 'disabled', className: 'disabled-yes', pageNo: 2});
     } else if (this.state.pageNo === 2) {
       this.setState({button: 'disabled', className: 'disabled-yes', pageNo: 3})
     } else if (this.state.pageNo === 3) {
-      this.props.createProject(this.props.currentUser.id, {title: this.state.title, description: this.state.description, duration: this.state.duration, starting_bid: this.state.starting_bid, eta: this.state.eta, shipping: this.state.shipping, limit: this.state.limit, city: this.state.city, state: this.state.state, country: this.state.country}).then(() => this.props.history.push('/recommendations'));
+      this.props.createProject(Object.values(this.props.currentUser)[0].id,
+        {title: this.state.title,
+          description: this.state.description,
+          duration: this.state.duration,
+          pledge_amt: this.state.pledge_amt,
+          eta: this.state.eta,
+          shipping: this.state.shipping,
+          limit: this.state.limit,
+          city: this.state.city,
+          state: this.state.state,
+          country: this.state.country,
+          user_id: this.state.user_id,
+          category_id: this.state.category_id}).then(action => {
+            let project = Object.values(action.project)[0];
+            this.props.history.push(`/users/${project.userId}/projects/${project.id}`);
+          });
     }
   }
 
   handleClick(button) {
-    if (button === 'ageButton' && this.state.ageButton === 'far fa-check-circle') {
-      this.setState({ageButton: 'fas fa-check-circle', ageButtonColor: 'green-button', ageButtonBorder: 'green-border', bankButtonBorder: '', cardButtonBorder: ''});
-      if (this.state.ageButtonColor === 'green-button' && this.state.bankButtonColor === 'green-button' && this.state.cardButtonColor === 'green-button') {
-        this.setState({className: 'disabled-no', button: ''});
-      }
-    } else if (button === 'bankButton' && this.state.bankButton === 'far fa-check-circle') {
-      this.setState({bankButton: 'fas fa-check-circle', bankButtonColor: 'green-button', ageButtonBorder: '', bankButtonBorder: 'green-border', cardButtonBorder: ''});
-      if (this.state.ageButtonColor === 'green-button' && this.state.bankButtonColor === 'green-button' && this.state.cardButtonColor === 'green-button') {
-        this.setState({className: 'disabled-no', button: ''});
-      }
-    } else if (button === 'cardButton' && this.state.cardButton === 'far fa-check-circle') {
-      this.setState({cardButton: 'fas fa-check-circle', cardButtonColor: 'green-button', ageButtonBorder: '', bankButtonBorder: '', cardButtonBorder: 'green-border'});
-      if (this.state.ageButtonColor === 'green-button' && this.state.bankButtonColor === 'green-button' && this.state.cardButtonColor === 'green-button') {
-        this.setState({className: 'disabled-no', button: ''});
-      }
-    } else if (button === 'ageButton' && this.state.ageButton === 'fas fa-check-circle') {
-      this.setState({ageButton: 'far fa-check-circle', ageButtonColor: 'white-button', ageButtonBorder: '', bankButtonBorder: '', cardButtonBorder: ''});
-      if (this.state.ageButtonColor === 'green-button' && this.state.bankButtonColor === 'green-button' && this.state.cardButtonColor === 'green-button') {
-        this.setState({className: 'disabled-no', button: ''});
-      }
-    } else if (button === 'bankButton' && this.state.bankButton === 'fas fa-check-circle') {
-      this.setState({bankButton: 'far fa-check-circle', bankButtonColor: 'white-button', ageButtonBorder: '', bankButtonBorder: '', cardButtonBorder: ''});
-      if (this.state.ageButtonColor === 'green-button' && this.state.bankButtonColor === 'green-button' && this.state.cardButtonColor === 'green-button') {
-        this.setState({className: 'disabled-no', button: ''});
-      }
-    } else if (button === 'cardButton' && this.state.cardButton === 'fas fa-check-circle') {
-      this.setState({cardButton: 'far fa-check-circle', cardButtonColor: 'white-button', ageButtonBorder: '', bankButtonBorder: '', cardButtonBorder: ''});
-      if (this.state.ageButtonColor === 'green-button' && this.state.bankButtonColor === 'green-button' && this.state.cardButtonColor === 'green-button') {
-        this.setState({className: 'disabled-no', button: ''});
-      }
+    if (button === 'ageButton' && this.state.ageButton === 'verification-button far fa-check-circle') {
+      this.setState({ageButton: 'verification-button fas fa-check-circle', ageButtonColor: 'green-button', ageButtonBorder: 'green-border', bankButtonBorder: '', cardButtonBorder: ''});
+    } else if (button === 'bankButton' && this.state.bankButton === 'verification-button far fa-check-circle') {
+      this.setState({bankButton: 'verification-button fas fa-check-circle', bankButtonColor: 'green-button', ageButtonBorder: '', bankButtonBorder: 'green-border', cardButtonBorder: ''});
+    } else if (button === 'cardButton' && this.state.cardButton === 'verification-button far fa-check-circle') {
+      this.setState({cardButton: 'verification-button fas fa-check-circle', cardButtonColor: 'green-button', ageButtonBorder: '', bankButtonBorder: '', cardButtonBorder: 'green-border', className: 'disabled-no', button: ''});
+    } else if (button === 'ageButton' && this.state.ageButton === 'verification-button fas fa-check-circle') {
+      this.setState({ageButton: 'verification-button far fa-check-circle', ageButtonColor: 'white-button', ageButtonBorder: '', bankButtonBorder: '', cardButtonBorder: ''});
+    } else if (button === 'bankButton' && this.state.bankButton === 'verification-button fas fa-check-circle') {
+      this.setState({bankButton: 'verification-button far fa-check-circle', bankButtonColor: 'white-button', ageButtonBorder: '', bankButtonBorder: '', cardButtonBorder: ''});
+    } else if (button === 'cardButton' && this.state.cardButton === 'verification-button fas fa-check-circle') {
+      this.setState({cardButton: 'verification-button far fa-check-circle', cardButtonColor: 'white-button', ageButtonBorder: '', bankButtonBorder: '', cardButtonBorder: ''});
     }
 
   }
@@ -72,7 +73,7 @@ class StartProjectPageOne extends React.Component {
         if (category === 'your-category') {
           this.setState({button: 'disabled', className: 'disabled-yes'});
         } else {
-          this.setState({button: '', className: 'disabled-no', [category]: e.target.value});
+          this.setState({[category]: e.target.value});
         }
       }
     }
@@ -93,7 +94,6 @@ class StartProjectPageOne extends React.Component {
                   <i className="select-your-category-arrow fas fa-caret-down"></i>
                   <select className='select-your-category' onChange={this.update('category')} defaultValue='your-category'>
                     <option value='your-category' disabled>Select your category</option>
-                    debugger;
                     {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
                       return <option key={obj.id} value={obj.name}>Film & Video</option>
                     } else {
@@ -176,9 +176,9 @@ class StartProjectPageOne extends React.Component {
                 </div>
                 <div className='faqs'><Link to='/'><i className="far fa-question-circle"></i> What if my country isn’t listed?</Link></div>
                 <div className='verification'>
-                  <button onClick={() => this.handleClick('ageButton')} className='age-verification'><i className={`${this.state.ageButton} ${this.state.ageButtonColor} ${this.state.ageButtonBorder}`}></i><span>I am at least 18 years old.</span></button>
-                  <button onClick={() => this.handleClick('bankButton')} className='bank-verification'><i className={`${this.state.bankButton} ${this.state.bankButtonColor} ${this.state.bankButtonBorder}`}></i><span>I can verify a bank account and government-issued ID.</span></button>
-                  <button onClick={() => this.handleClick('cardButton')} className='credit-card-verification'><i className={`${this.state.cardButton} ${this.state.cardButtonColor} ${this.state.cardButtonBorder}`}></i><span>I have a debit and/or credit card</span></button>
+                  <button onClick={() => this.handleClick('ageButton')} className={`age-verification ${this.state.ageButtonBorder}`}><i className={`${this.state.ageButton} ${this.state.ageButtonColor}`}></i><span>I am at least 18 years old.</span></button>
+                  <button onClick={() => this.handleClick('bankButton')} className={`bank-verification ${this.state.bankButtonBorder}`}><i className={`${this.state.bankButton} ${this.state.bankButtonColor}`}></i><span>I can verify a bank account and government-issued ID.</span></button>
+                  <button onClick={() => this.handleClick('cardButton')} className={`credit-card-verification ${this.state.cardButtonBorder}`}><i className={`${this.state.cardButton} ${this.state.cardButtonColor}`}></i><span>I have a debit and/or credit card</span></button>
                 </div>
               </div>
             </div>

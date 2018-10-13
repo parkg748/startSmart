@@ -21,7 +21,7 @@ const App = () => (
       <Route path='/signup' component={SignupFormContainer} />
       <Route path='/start' component={StartProjectPageOneContainer} />
       <Route path='/users/:userId/projects/:projectId' component={UserProjectContainer} />
-      <Route path='/users/:user_id/projects/:id/edit' component={EditProjectContainer} />
+      <Route path='/users/:userId/projects/:projectId/edit' component={EditProjectContainer} />
     </header>
     <footer>
       <Route path='/' component={FooterContainer} />

@@ -5,11 +5,6 @@ class Recommendations extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    debugger;
-    this.props.fetchCategories();
-  }
-
   render() {
   }
 }
