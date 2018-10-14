@@ -1603,7 +1603,7 @@ nav {
 
 .edit-background {
   width: 100%;
-  height: 2000px;
+  height: 1750px;
   background-color: #F0F0F0;
 }
 
@@ -2058,13 +2058,14 @@ nav {
 .category-box {
   width: 640px;
   height: 109px;
+  margin-right: 0;
 }
 
 .category-content {
   width: 632px;
   height: 83px;
   margin-bottom: 18px;
-  padding: 4px;
+  padding: 4px 0 4px 4px;
   background-color: #F8F9FD;
   border-radius: 6px;
   float: left;
@@ -2111,4 +2112,830 @@ nav {
   border-radius: 0;
   font-size: 19px;
   margin-top: 3px;
+}
+
+.location-box {
+  width: 640px;
+  height: 66px;
+}
+
+.location-content {
+  width: 632px;
+  height: 42px;
+  margin-bottom: 18px;
+  padding: 4px;
+  background-color: #F8F9FD;
+  border-radius: 6px;
+  float: left;
+}
+
+.location-input {
+  width: 449px;
+  height: 40px;
+  background-color: white;
+  border: 1px solid #DCDEDD;
+  position: relative;
+  float: left;
+}
+
+.location-search {
+  position: absolute;
+  color: #F1EEEA;
+  font-size: 12px;
+  top: 13px;
+  left: 11px;
+}
+
+.location-input input {
+  width: 407px;
+  height: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 30px;
+}
+
+.location-none-display {
+  display: none;
+}
+
+.location-display {
+
+}
+
+.location-options {
+  width: 449px;
+  height: 449px;
+}
+
+.location-input ul {
+  width: 447px;
+  height: 429px;
+  background-color: white;
+  border: 1px solid #F1EEEA;
+  border-radius: 6px;
+  color: #3D3D66;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.funding-duration {
+  width: 640px;
+  height: 211px;
+}
+
+.funding-duration-content {
+  width: 632px;
+  height: 185px;
+  padding: 4px;
+  margin-bottom: 18px;
+  background-color: #F8F9FD;
+  border-radius: 6px;
+  float: left;
+}
+
+.funding-duration-content-inner {
+  width: 449px;
+  height: 185px;
+  float: left;
+}
+
+.funding-duration-content-form {
+  width: 449px;
+  height: 133px;
+}
+
+.funding-duration-content-form-inner {
+  width: 449px;
+  height: 90px;
+  margin-bottom: 3px;
+}
+
+.number-of-days {
+  width: 161px;
+  height: 68px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 5px;
+  background-color: white;
+  border: 1px solid #F1EEEA;
+  float: left;
+}
+
+.number-of-days input {
+  margin-right: 5px;
+}
+
+.number-of-days span {
+  font-size: 12px;
+  padding-left: 3px;
+  font-weight: 100;
+}
+
+.number-of-days-input {
+  width: 269px;
+  height: 88px;
+  background-color: white;
+  border: 1px solid #DCDEDD;
+  float: left;
+}
+
+.number-of-days-input-inner {
+  width: 245px;
+  height: 64px;
+  padding: 12px;
+}
+
+.number-of-days-input-inner input {
+  width: 223px;
+  height: 18px;
+  padding: 10px;
+  border: 1px solid #DCDEDD;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.number-of-days-input-inner-inner {
+  width: 245px;
+  height: 18px;
+  padding-top: 6px;
+  color: #3D3D66;
+  font-weight: 100;
+  font-size: 11px;
+}
+
+.end-on-date {
+  width: 447px;
+  height: 38px;
+  background-color: white;
+  border: 1px solid #F1EEEA;
+}
+
+.end-on-date-inner {
+  width: 162px;
+  height: 18px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 5px;
+}
+
+.end-on-date-inner input {
+  margin-right: 5px;
+}
+
+.end-on-date-inner span {
+  font-size: 12px;
+  padding-left: 3px;
+  font-weight: 100;
+}
+
+.calendar {
+  width: 265px;
+  height: 275px;
+}
+
+.month {
+  width: 264px;
+  height: 31px;
+}
+
+.month th {
+  width: 264px;
+  height: 25px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.time {
+  width: 264px;
+  height: 57px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.time-content {
+  width: 162px;
+  height: 35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.time-text {
+  width: 53px;
+  height: 13px;
+  padding: 10px;
+  margin-left: 5px;
+  border: 1px solid #DCDEDD;
+}
+
+.funding-duration-disclaimer {
+  width: 449px;
+  height: 32px;
+  padding-top: 10px;
+}
+
+.funding-duration-disclaimer p {
+  width: 449px;
+  height: 32px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 16px;
+}
+
+.funding-goal {
+  width: 640px;
+  height: 216px;
+}
+
+.funding-goal-content {
+  width: 632px;
+  height: 208px;
+  padding: 4px;
+  background-color: #F8F9FD;
+  border-radius: 6px;
+  float: left;
+}
+
+.funding-goal-content-inner {
+  width: 449px;
+  height: 208px;
+  float: left;
+}
+
+.funding-goal-content-input {
+  width: 427px;
+  height: 18px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #DCDEDD;
+  position: relative;
+  float: left;
+  font-size: 14px;
+  font-weight: 100;
+  display: block;
+}
+
+.funding-goal-disclaimer {
+  width: 449px;
+  height: 148px;
+  padding-top: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 100;
+  float: left;
+}
+
+.funding-goal-disclaimer-one {
+  width: 449px;
+  height: 64px;
+  margin-bottom: 10px;
+}
+
+.funding-goal-disclaimer-two {
+  width: 449px;
+  height: 48px;
+  margin-bottom: 10px;
+}
+
+.funding-goal-disclaimer-three {
+  color: #2752ff;
+}
+
+.project-collaborators {
+  width: 640px;
+  height: 114px;
+}
+
+.project-collaborators-content {
+  width: 632px;
+  height: 88px;
+  padding: 4px;
+  margin-top: 18px;
+  background-color: #F8F9FD;
+  border-radius: 6px;
+}
+
+.project-collaborators-inner {
+  width: 449px;
+  height: 88px;
+  float: left;
+}
+
+.project-collaborators-inner p {
+  width: 449px;
+  height: 16px;
+  margin-top: 12px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 100;
+}
+
+.project-collaborators-inner button {
+  width: 113px;
+  height: 14px;
+  padding-top: 10px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid #2752ff;
+  background-color: #2752ff;
+  margin-bottom: 12px;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.edit-side-bar {
+  width: 220px;
+  height: 573px;
+  padding-left: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+}
+
+.edit-side-bar-content {
+  width: 220px;
+  height: 563px;
+  position: relative;
+}
+
+.how-to-make-project {
+  width: 168px;
+  height: 32px;
+  padding: 12px 10px 10px 42px;
+  margin-bottom: 30px;
+  background-color: #F0F0F0;
+}
+
+.how-to-make-project span {
+  font-size: 11px;
+  font-weight: 100;
+  display: block;
+}
+
+.fa-lightbulb {
+  position: absolute;
+  left: 16px;
+  top: 15px;
+}
+
+.how-to-make-project-link {
+  font-size: 13px !important;
+  font-weight: normal !important;
+  color: #2752ff;
+  float: left;
+}
+
+.edit-side-bar-content h5 {
+  width: 220px;
+  height: 17px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.edit-side-bar-content p {
+  width: 220px;
+  height: 34px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 17px;
+}
+
+.preparing-for-project-link {
+  color: #2752ff;
+}
+
+.score-tracker {
+  width: 218px;
+  height: 320px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: 1px solid #F1EEEA;
+}
+
+.project-thumbnail {
+  width: 218px;
+  height: 122px;
+}
+
+.project-card-content {
+  width: 198px;
+  height: 43px;
+  padding: 10px;
+}
+
+.project-card-content p {
+  width: 198px;
+  height: 15px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.project-card-footer {
+  width: 198px;
+  height: 81px;
+  padding: 45px 10px 10px 10px;
+}
+
+.project-card-footer-icon {
+  width: 198px;
+  height: 24px;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.fa-map-marker-alt {
+  font-size: 12px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+}
+
+.project-stats {
+  width: 198px;
+  height: 52px;
+}
+
+.progress-bar {
+  width: 198px;
+  height: 6px;
+  margin-bottom: 10px;
+}
+
+.project-funding-info {
+  width: 198px;
+  height: 36px;
+  margin-top: 5px;
+}
+
+.funded-amount {
+  width: 39px;
+  height: 36px;
+  margin-right: 7px;
+  float: left;
+}
+
+.funded-amount-integer {
+  font-size: 12px;
+  display: block;
+  font-weight: bold;
+}
+
+.funded-amount-context {
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.amount-pledged {
+  width: 45px;
+  height: 36px;
+  margin-right: 5px;
+  float: left;
+}
+
+.amount-pledged-integer {
+  font-size: 12px;
+  display: block;
+  font-weight: bold;
+}
+
+.amount-pledged-context {
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.delete-project {
+  width: 129px;
+  height: 44px;
+  margin-top: 24px;
+  margin-left: 12px;
+  font-size: 13px;
+  font-weight: 100;
+  float: right;
+}
+
+.fa-times {
+  margin-right: 10px;
+}
+
+.edit-page-footer {
+  width: 100%;
+  height: 38px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.edit-page-footer-changes {
+  float: right;
+  width: 204px;
+  height: 38px;
+  margin-right: 12px;
+}
+
+.edit-page-footer-changes {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.edit-page-footer-changes button {
+  width: 75px;
+  height: 38px;
+  margin-left: 20px;
+  background-color: #007460;
+  color: white;
+  text-align: center;
+}
+
+.reward-box {
+  width: 640px;
+  height: 473px;
+}
+
+.reward-box-inner {
+  width: 640px;
+  height: 373px;
+  background-color: #F8F9FD;
+  border-radius: 6px;
+}
+
+.reward-box-inner-inner {
+  width: 632px;
+  height: 365px;
+  padding: 4px;
+  margin-bottom: 18px;
+}
+
+.reward-title {
+  width: 159px;
+  height: 42px;
+  padding: 10px 5px 10px 10px;
+  float: left;
+}
+
+.reward-title-number {
+  font-size: 14px;
+  display: block;
+}
+
+.num-of-backers {
+  font-weight: 100;
+  font-size: 12px;
+  width: 159px;
+  height: 18px;
+  margin-top: 10px;
+  color: #80809E;
+}
+
+.reward-form-field {
+  float: left;
+  width: 453px;
+  height: 320px;
+  border-top: 1px solid #dad7d4;
+  border-left: 1px solid #dad7d4;
+  border-right: 1px solid #dad7d4;
+  background-color: white;
+}
+
+.reward-form-field-title {
+  width: 453px;
+  height: 38px;
+  border-bottom: 1px solid #dad7d4;
+}
+
+.reward-form-field-title-desc {
+  width: 100px;
+  height: 18px;
+  padding: 10px 5px 10px 10px;
+  border-right: 1px solid #dad7d4;
+  font-size: 12px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  float: left;
+}
+
+.reward-form-field-title-input {
+  width: 311px;
+  height: 18px;
+  padding: 10px;
+  float: left;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.reward-form-field-description {
+  width: 453px;
+  height: 107px;
+  border-bottom: 1px solid #dad7d4;
+}
+
+.reward-form-field-description-desc {
+  width: 100px;
+  height: 18px;
+  padding: 10px 5px 10px 10px;
+  font-size: 12px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  float: left;
+}
+
+.reward-form-field-description-textarea {
+  width: 317px;
+  height: 48px;
+  padding: 10px;
+  border-left: 1px solid #dad7d4;
+  font-size: 14px;
+  font-weight: 100;
+  float: left;
+  border-bottom: 1px solid #dad7d4;
+}
+
+.add-an-item {
+  width: 331px;
+  height: 39px;
+  float: left;
+  border-left: 1px solid #dad7d4;
+}
+
+.add-an-item-inner {
+  width: 319px;
+  height: 38px;
+  padding: 0 6px 0 6px;
+}
+
+.add-an-item-inner-inner {
+  width: 299px;
+  height: 18px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.fa-plus {
+  padding-right: 5px;
+}
+
+.reward-form-field-description-inner {
+  width: 316px;
+  height: 106px;
+  float: left;
+}
+
+.estimated-delivery {
+  width: 453px;
+  height: 56px;
+  border-bottom: 1px solid #dad7d4;
+}
+
+.estimated-delivery-title {
+  width: 95px;
+  height: 36px;
+  padding: 10px 10px 10px 10px;
+  border-right: 1px solid #dad7d4;
+  font-size: 12px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  float: left;
+  line-height: 18px;
+}
+
+.estimated-delivery-date {
+  width: 333px;
+  height: 38px;
+  float: left;
+}
+
+.estimated-delivery-date-month select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  width: 186px;
+  height: 18px;
+  padding: 10px 9px 10px 7px;
+  float: left;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.estimated-delivery-date-year select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  width: 112px;
+  height: 18px;
+  padding: 10px 9px 10px 7px;
+  float: left;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.shipping-options select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  width: 315px;
+  height: 18px;
+  padding: 10px 9px 10px 7px;
+  float: left;
+  font-size: 14px;
+  font-weight: 100;
+  display: block;
+}
+
+.limit-container {
+  width: 331px;
+  height: 38px;
+  float: left;
+}
+
+.limit-container-inner {
+  width: 331px;
+  height: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+}
+
+.limit-container-inner input {
+  margin-right: 9px;
+  margin-left: 9px;
+}
+
+.reward-form-delete {
+  width: 56px;
+  height: 18px;
+  padding: 12px;
+  float: right;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.delete-rewards {
+  margin-right: 5px;
+  float: left;
+}
+
+.add-new-reward {
+  width: 638px;
+  height: 80px;
+  border: 1px dashed #E6E4E2;
+}
+
+.add-new-reward-text {
+  width: 578px;
+  height: 20px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-new-reward-plus {
+  margin-right: 6px;
+}
+
+.add-new-reward-text span {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.edit-side-bar-content ul {
+  width: 200px;
+  height: 306px;
+  margin-bottom: 20px;
+  list-style-type: disc;
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 17px;
+  margin-left: 20px;
+}
+
+.what-to-offer-content {
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 100;
+  margin-bottom: 20px;
+  width: 220px;
+  height: 51px !important;
+}
+
+.what-is-prohibited {
+  font-size: 12px;
 }
