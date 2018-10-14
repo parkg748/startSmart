@@ -7,6 +7,7 @@ class Homepage extends React.Component {
     this.state = this.props.class;
     this.clickHandler = this.clickHandler.bind(this);
     // this.changeDisplay = this.changeDisplay.bind(this);
+    this.clickHandlerSection = this.clickHandlerSection.bind(this);
   }
 
   componentDidMount() {
@@ -16,6 +17,14 @@ class Homepage extends React.Component {
   // changeDisplay() {
   //   this.setState({displayNone: ''});
   // }
+
+  clickHandlerSection(section) {
+    if (section === 'new-noteworthy') {
+      this.setState({newNoteworthySection: 'navbar-black', popularSection: ''});
+    } else if (section === 'popular') {
+      this.setState({newNoteworthySection: '', popularSection: 'navbar-black'});
+    }
+  }
 
   clickHandler(category) {
     if (category === 'Film') {
@@ -127,12 +136,59 @@ class Homepage extends React.Component {
                         <span className='category-contents-left-title'>Testing</span>
                         <span className='category-contents-left-author'>TESTING</span>
                       </div>
+                      <div className='category-contents-project-funded'>33% FUNDED</div>
                   </div>
+                  </div>
+                </div>
+                <div className='category-contents-right'>
+                  <div className='category-contents-right-title'>
+                    <ul>
+                      <li><button className={`${this.state.newNoteworthySection}`} onClick={() => this.clickHandlerSection('new-noteworthy')}>NEW & NOTEWORTHY</button></li>
+                      <li><button className={`${this.state.popularSection}`} onClick={() => this.clickHandlerSection('popular')}>POPULAR</button></li>
+                    </ul>
+                  </div>
+                  <div className='category-contents-right-body'>
+                    <ul>
+                      <li>
+                        <i className="category-contents-right-heart far fa-heart"></i>
+                        <img />
+                        <div className='category-contents-right-body-content'>
+                          <span>Testing</span>
+                          <p>16% funded</p>
+                        </div>
+                      </li>
+                      <li>
+                        <i className="category-contents-right-heart far fa-heart"></i>
+                        <img />
+                        <div className='category-contents-right-body-content'>
+                          <span>Testing</span>
+                          <p>16% funded</p>
+                        </div>
+                      </li>
+                      <li>
+                        <i className="category-contents-right-heart far fa-heart"></i>
+                        <img />
+                        <div className='category-contents-right-body-content'>
+                          <span>Testing</span>
+                          <p>16% funded</p>
+                        </div>
+                      </li>
+                      <li>
+                        <i className="category-contents-right-heart far fa-heart"></i>
+                        <img />
+                        <div className='category-contents-right-body-content'>
+                          <span>Testing</span>
+                          <p>16% funded</p>
+                        </div>
+                      </li>
+                    </ul>
+                    <button className='category-contents-right-view-all'>VIEW ALL</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     );

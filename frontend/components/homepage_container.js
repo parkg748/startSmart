@@ -6,7 +6,7 @@ import {fetchProjects} from '../actions/project_actions';
 const mapStateToProps = state => {
   return {
     user: state.entities.users[state.session.id],
-    class: {displayNone: 'error-email-msg', currentCategory: 'Film', filmBlack: 'navbar-black', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''}
+    class: {displayNone: 'error-email-msg', newNoteworthySection: 'navbar-black', popularSection: '', currentCategory: 'Film', filmBlack: 'navbar-black', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''}
   };
 };
 
