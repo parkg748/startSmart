@@ -3703,3 +3703,32 @@ strong {
   background-color: #F8F9FD;
   border-radius: 6px;
 }
+
+.account-side-bar {
+  width: 220px;
+  height: 475px;
+  float: left;
+  margin-left: 15px;
+}
+
+.account-side-bar h5 {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.account-side-bar p {
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+
+.account-side-bar ul {
+  margin-bottom: 20px;
+  list-style-type: disc;
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 17px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
