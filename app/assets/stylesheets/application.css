@@ -4135,3 +4135,140 @@ strong {
   display: flex;
   justify-content: center;
 }
+
+.projects-we-love {
+  padding: 60px 0 60px 0;
+  width: 977px;
+  height: 805px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.projects-we-love-content {
+  width: 857px;
+  height: 804px;
+  padding: 0 60px 0 60px;
+}
+
+.projects-we-love-title {
+  width: 857px;
+  height: 54px;
+  padding: 0 12px 0 12px;
+}
+
+.projects-we-love-title-inner {
+  width: 760px;
+  height: 24px;
+  float: left;
+  margin-bottom: 30px;
+  font-size: 17px;
+  font-weight: 100;
+}
+
+.projects-we-love-view-all {
+  width: 74px;
+  height: 18px;
+  margin-bottom: 30px;
+  font-size: 12px;
+  float: left;
+  font-weight: bold;
+}
+
+.projects-we-love-arrow {
+  font-size: 12px;
+  display: inline;
+  padding-left: 5px;
+}
+
+.projects-we-love-body-inner {
+  width: 403px;
+  height: 339px;
+  margin-bottom: 36px;
+}
+
+.projects-we-love-body-inner img {
+  background-color: black;
+  width: 403px;
+  height: 234px;
+  margin-bottom: 12px;
+}
+
+.projects-we-love-body-inner p {
+  margin-bottom: 12px;
+  line-height: 23px;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.projects-we-love-body-inner span {
+  font-size: 12px;
+  font-weight: 100;
+  color: #9B9E9E;
+}
+
+.projects-we-love-body-left {
+  width: 403px;
+  height: 375px;
+  padding: 0 12px 0 12px;
+  float: left;
+}
+
+.projects-we-love-body-right {
+  width: 403px;
+  height: 375px;
+  padding: 0 12px 0 12px;
+  float: right;
+}
+
+.people-quotes {
+  width: 977px;
+  height: 325px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.people-quotes-content {
+  width: 977px;
+  height: 204px;
+  padding: 60px 0 60px 0;
+}
+
+.people-quotes-content-inner {
+  width: 857px;
+  height: 204px;
+  padding: 0 60px 0 60px;
+}
+
+.people-quotes-content-inner img {
+  width: 72px;
+  height: 65px;
+  margin: 24px 60px 0 60px;
+  float: left;
+}
+
+.people-quotes-content-body {
+  width: 665px;
+  height: 204px;
+  float: left;
+}
+
+.people-quotes-content-body-title {
+  width: 617px;
+  height: 108px;
+  margin: 0 48px 36px 0;
+  float: left;
+  font-family: Georgia;
+  font-size: 45px;
+  line-height: 58px;
+}
+
+.people-quotes-content-body-title span {
+  font-weight: 100;
+  font-size: 11px;
+}
+
+.people-quotes-content-body-title strong {
+  font-weight: bold;
+}

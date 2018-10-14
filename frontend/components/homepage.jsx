@@ -188,7 +188,59 @@ class Homepage extends React.Component {
               </div>
             </div>
           </div>
-
+          <div className='projects-we-love'>
+            <div className='projects-we-love-content'>
+              <div className='projects-we-love-title'>
+                <div className='projects-we-love-title-inner'>
+                  Projects We Love
+                </div>
+                <div className='projects-we-love-view-all'>
+                  <span>VIEW ALL</span><i className="projects-we-love-arrow fas fa-long-arrow-alt-right"></i>
+                </div>
+              </div>
+              <div className='projects-we-love-body-left'>
+                <div className='projects-we-love-body-inner'>
+                  <img/>
+                  <p>The last unpublished manuscript of the late poet and provocateur Jonathan Williams with photographs by Roger Manley and Guy Mendes</p>
+                  <span>92% funded</span>
+                </div>
+              </div>
+              <div className='projects-we-love-body-right'>
+                <div className='projects-we-love-body-inner'>
+                  <img/>
+                  <p>The last unpublished manuscript of the late poet and provocateur Jonathan Williams with photographs by Roger Manley and Guy Mendes</p>
+                  <span>92% funded</span>
+                </div>
+              </div>
+              <div className='projects-we-love-body-left'>
+                <div className='projects-we-love-body-inner'>
+                  <img/>
+                  <p>The last unpublished manuscript of the late poet and provocateur Jonathan Williams with photographs by Roger Manley and Guy Mendes</p>
+                  <span>92% funded</span>
+                </div>
+              </div>
+              <div className='projects-we-love-body-right'>
+                <div className='projects-we-love-body-inner'>
+                  <img/>
+                  <p>The last unpublished manuscript of the late poet and provocateur Jonathan Williams with photographs by Roger Manley and Guy Mendes</p>
+                  <span>92% funded</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='people-quotes'>
+            <div className='people-quotes-content'>
+              <div className='people-quotes-content-inner'>
+                <img src='https://i.imgur.com/0c4pkkv.png' />
+                <div className='people-quotes-content-body'>
+                  <div className='people-quotes-content-body-title'>
+                    To get good at anything, you have to fail a lot at it.
+                  </div>
+                  <span>WRITER DANIEL ALARCÓN IN <strong><Link to='/'>THE CREATIVE INDEPENDENT</Link></strong>, A KICKSTARTER-PUBLISHED RESOURCE FOR CREATIVE PEOPLE</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
