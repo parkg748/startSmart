@@ -4,10 +4,37 @@ import {Link} from 'react-router-dom';
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.class;
+    this.clickHandler = this.clickHandler.bind(this);
+    // this.changeDisplay = this.changeDisplay.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
+  }
+
+  // changeDisplay() {
+  //   this.setState({displayNone: ''});
+  // }
+
+  clickHandler(category) {
+    if (category === 'Film') {
+      this.setState({currentCategory: 'Film', filmBlack: 'navbar-black', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
+    } else if (category === 'Arts') {
+      this.setState({currentCategory: 'Arts', filmBlack: '', artsBlack: 'navbar-black', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
+    } else if (category === 'Design & Tech') {
+      this.setState({currentCategory: 'Design & Tech', filmBlack: '', artsBlack: '', designBlack: 'navbar-black', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
+    } else if (category === 'Comics & Illustration') {
+      this.setState({currentCategory: 'Comics & Illustration', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: 'navbar-black', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
+    } else if (category === 'Games') {
+      this.setState({currentCategory: 'Games', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: 'navbar-black', foodBlack: '', musicBlack: '', publishingBlack: ''});
+    } else if (category === 'Food & Craft') {
+      this.setState({currentCategory: 'Food & Craft', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: 'navbar-black', musicBlack: '', publishingBlack: ''});
+    } else if (category === 'Music') {
+      this.setState({currentCategory: 'Music', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: 'navbar-black', publishingBlack: ''});
+    } else if (category === 'Publishing') {
+      this.setState({currentCategory: 'Publishing', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: 'navbar-black'});
+    }
   }
 
   render() {
@@ -46,6 +73,62 @@ class Homepage extends React.Component {
                   <div className='homepage-stats-statistic'>Bringing creative projects to life.</div>
                 </div>
                 <div className='total-backers'>
+                  <div className='homepage-stats-title'>TOTAL BACKERS</div>
+                  <div className='homepage-stats-statistic'>Testing</div>
+                </div>
+                <div className='funded-projects'>
+                  <div className='homepage-stats-title'>FUNDED PROJECTS</div>
+                  <div className='homepage-stats-statistic'>Testing</div>
+                </div>
+                <div className='live-projects'>
+                  <div className='homepage-stats-title'>LIVE PROJECTS</div>
+                  <div className='homepage-stats-statistic'>Testing</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='homepage-content'>
+            <div className='homepage-categories'>
+              <div className='homepage-categories-inner'>
+                <div className='homepage-categories-inner-inner'>
+                  <div className='homepage-categories-navbar'>
+                    <ul>
+                      <li><button className={`${this.state.filmBlack}`} onClick={() => this.clickHandler('Film')}>Film</button></li>
+                      <li><button className={`${this.state.artsBlack}`} onClick={() => this.clickHandler('Arts')}>Arts</button></li>
+                      <li><button className={`${this.state.designBlack}`} onClick={() => this.clickHandler('Design & Tech')}>Design & Tech</button></li>
+                      <li><button className={`${this.state.comicsBlack}`} onClick={() => this.clickHandler('Comics & Illustration')}>Comics & Illustration</button></li>
+                      <li><button className={`${this.state.gamesBlack}`} onClick={() => this.clickHandler('Games')}>Games</button></li>
+                      <li><button className={`${this.state.foodBlack}`} onClick={() => this.clickHandler('Food & Craft')}>Food & Craft</button></li>
+                      <li><button className={`${this.state.musicBlack}`} onClick={() => this.clickHandler('Music')}>Music</button></li>
+                      <li><button className={`${this.state.publishingBlack}`} onClick={() => this.clickHandler('Publishing')}>Publishing</button></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className='homepage-category-title'>
+                <div className='homepage-category-title-inner'>
+                  <div className='homepage-category-title-inner-inner'>{this.state.currentCategory}</div>
+                  <div className='view-all'>VIEW ALL <i className="view-all-arrow fas fa-long-arrow-alt-right"></i></div>
+                </div>
+              </div>
+            </div>
+            <div className='category-contents'>
+              <div className='category-contents-inner'>
+                <div className='category-contents-left'>
+                  <div className='category-contents-left-title'>
+                    FEATURED PROJECT
+                  </div>
+                  <div className='category-contents-left-body'>
+                    <i className="far fa-heart"></i>
+                    <img />
+                    <div className={`remind-me ${this.state.displayNone}`}>Remind Me</div>
+                    <div className='category-contents-left-description'>
+                      <div className='category-contents-left-description-title'>
+                        <span className='category-contents-left-title'>Testing</span>
+                        <span className='category-contents-left-author'>TESTING</span>
+                      </div>
+                  </div>
+                  </div>
                 </div>
               </div>
             </div>
