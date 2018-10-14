@@ -5,6 +5,8 @@ class Recommendations extends React.Component {
     super(props);
   }
 
+
+
   render() {
   }
 }

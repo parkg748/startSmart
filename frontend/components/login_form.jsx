@@ -7,6 +7,11 @@ class LoginForm extends React.Component {
     this.state = this.props.loginForm;
   }
 
+  clickHandler(e) {
+    e.preventDefault();
+    this.props.login({email: 'divadkrap@gmail.com', password: 'starwars'}).then(() => this.props.history.push('/recommendations'));
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state).then(() => this.props.history.push('/recommendations'));
@@ -29,8 +34,9 @@ class LoginForm extends React.Component {
                   <input onChange={this.update('password')} className='grey-border login-password' type='password' placeholder='Password' value={this.state.password} />
                   <a className='forgot-your-password'>Forgot your password?</a>
                   <div className='green-box'><input type='submit' value='Log me in!' /></div>
+                  <div className='green-box demo-user'><button onClick={(e) => this.clickHandler(e)}>Demo user</button></div>
                 </div>
-                <label><input className='remember-me-checkbox' type='checkbox' /><span className='remember-me'>Remember me</span></label>
+                <label className='remember-me-login'><input className='remember-me-checkbox' type='checkbox' /><span className='remember-me'>Remember me</span></label>
                 <div className='login-or'>
                   <div className='line'></div>
                   <div className='text'>or</div>

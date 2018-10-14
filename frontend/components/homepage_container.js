@@ -1,6 +1,7 @@
 import Homepage from './homepage';
 import {connect} from 'react-redux';
 import {receiveCurrentUser} from '../actions/session_actions';
+import {fetchProjects} from '../actions/project_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    receiveCurrentUser: user => dispatch(receiveCurrentUser(user))
+    receiveCurrentUser: user => dispatch(receiveCurrentUser(user)),
+    fetchProjects: () => dispatch(fetchProjects())
   };
 };
 

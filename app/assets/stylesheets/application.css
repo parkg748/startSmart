@@ -39,6 +39,14 @@ ul {
   z-index: 1;
 }
 
+.explore:hover {
+  color: #037362;
+}
+
+.project:hover {
+  color: #037362;
+}
+
 .explore {
   margin-right: 1.2rem;
 }
@@ -49,16 +57,24 @@ ul {
 }
 
 .search-signin {
-  display: inline;
   float: right;
   padding-right: 2.4rem;
   padding-top: 1.7rem;
   padding-bottom: 1.7rem;
+  position: relative;
+}
+
+.search:hover {
+  color: #037362;
 }
 
 .search {
   margin-left: 0.6rem;
-  display: inline-block;
+  float: left;
+}
+
+.login:hover {
+  color: #037362;
 }
 
 .login {
@@ -176,6 +192,7 @@ form h2 {
   padding-top: 5px;
   text-align: center;
   margin-bottom: 26px;
+  position: relative;
 }
 
 .line {
@@ -192,7 +209,10 @@ form h2 {
   font-size: 14px;
   display: block;
   z-index: 1;
-  top: 400px;
+  top: -8px;
+  left: 158px;
+  position: absolute;
+  font-weight: 100;
 }
 
 .blue-box {
@@ -204,6 +224,9 @@ form h2 {
   font-size: 14px;
   line-height: 17px;
   font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-box input {
@@ -264,7 +287,8 @@ nav {
 
 .fa-facebook {
   color: white;
-  margin-right: 5px;
+  margin-right: 7px;
+  font-size: 17px;
 }
 
 .forgot-your-password {
@@ -296,6 +320,7 @@ nav {
 
 .login-link-signup {
   color: #2752ff;
+  font-weight: normal !important;
 }
 
 .login-email:focus {
@@ -693,17 +718,16 @@ nav {
   top: 18px;
 }
 
-.profile-circle {
-  width: 30px;
-  height: 30px;
-}
-
 .profile-circle img {
   display: inline;
-  float: right;
+  float: left;
   width: 30px;
-  border-radius: 15px;
+  height: 30px;
+  border-radius: 50%;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  left: 95px;
+  top: 17px;
 }
 
 .step-one-next-step-inner button {
@@ -3731,4 +3755,79 @@ strong {
   line-height: 17px;
   margin-left: 20px;
   margin-bottom: 20px;
+}
+
+.demo-user {
+  margin-top: 10px !important;
+  width: 360px;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+}
+
+.remember-me-login {
+  display: block;
+  margin-bottom: 17px;
+}
+
+.navbar-width {
+  width: 115px;
+}
+
+.homepage-body {
+  width: 977px;
+  height: 3688px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage-stats {
+  width: 977px;
+  height: 90px;
+  margin-bottom: 60px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.homepage-stats-content {
+  width: 857px;
+  height: 90px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.homepage-stats-content-inner {
+  width: 857px;
+  height: 90px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bringing-creative-projects {
+  width: 231px;
+  height: 42px;
+  padding: 24px 12px 24px 0;
+  display: block;
+  border-right: 2px solid #DCDEDD;
+}
+
+.homepage-stats-title {
+  color: #656969;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.homepage-stats-statistic {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.total-backers {
+  
 }
