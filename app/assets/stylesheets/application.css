@@ -3587,3 +3587,119 @@ strong {
   font-weight: 100;
   line-height: 17px;
 }
+
+.account-box {
+  width: 640px;
+  height: 237px;
+}
+
+.account-box-inner {
+  width: 632px;
+  height: 211px;
+  padding: 4px;
+  margin-bottom: 18px;
+  background-color: #F8F9FD;
+  border-radius: 6px;
+}
+
+.account-box-inner-inner {
+  width: 163px;
+  height: 18px;
+  padding: 10px 5px 10px 10px;
+  font-size: 14px;
+  float: left;
+}
+
+.account-box-content {
+  width: 449px;
+  height: 211px;
+  float: left;
+}
+
+.account-box-input {
+  width: 447px;
+  height: 209px;
+  background-color: white;
+  border: 1px solid #DCDEDD;
+}
+
+.account-box-input-title {
+  width: 447px;
+  height: 38px;
+}
+
+.account-box-input-title-inner {
+  width: 136px;
+  height: 18px;
+  padding: 10px 5px 10px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.account-box-input-info {
+  width: 326px;
+  height: 171px;
+  float: right;
+  border-left: 1px solid #DCDEDD;
+  border-top: 1px solid #DCDEDD;
+}
+
+.account-box-input-info-header {
+  width: 305px;
+  height: 18px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #DCDEDD;
+}
+
+.account-box-input-info-header span {
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.account-box-input-info-verification {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.account-box-input-info-desc {
+  width: 305px;
+  height: 112px;
+  padding: 10px;
+}
+
+.account-box-input-info-desc p {
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.send-verification-email {
+  width: 151px;
+  height: 18px;
+  padding: 10px 20px 10px 20px;
+  background-color: #2752ff;
+  color: white;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.funds-recipient {
+  width: 640px;
+  height: 64px;
+}
+
+.funds-recipient-content {
+  width: 632px;
+  height: 38px;
+  padding: 4px;
+  margin-bottom: 18px;
+  background-color: #F8F9FD;
+  border-radius: 6px;
+}
