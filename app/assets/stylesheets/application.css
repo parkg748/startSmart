@@ -4227,6 +4227,7 @@ strong {
   height: 325px;
   margin-left: auto;
   margin-right: auto;
+  border-bottom: 1px solid black;
 }
 
 .people-quotes-content {
@@ -4264,11 +4265,190 @@ strong {
   line-height: 58px;
 }
 
-.people-quotes-content-body-title span {
+.people-quotes-content-body span {
   font-weight: 100;
+  font-size: 12px;
+  color: #656969;
+  margin-bottom: 6px;
+  width: 665px;
+}
+
+.people-quotes-content-body strong {
+  font-weight: bold;
+  color: black;
+}
+
+.people-quotes-content-body p {
+  margin-top: 6px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.homepage-ad {
+  width: 977px;
+  height: 222px;
+  padding: 48px 0 48px 0;
+  border-bottom: 1px solid black;
+}
+
+.homepage-ad-content {
+  width: 857px;
+  height: 222px;
+  padding: 0 60px 0 60px;
+}
+
+.homepage-ad-content-left {
+  width: 416px;
+  height: 222px;
+  padding-right: 12px;
+  float: left;
+  position: relative;
+}
+
+.homepage-ad-content-left img {
+  width: 416px;
+  height: 222px;
+}
+
+.homepage-ad-content-right {
+  width: 416px;
+  height: 222px;
+  margin-left: 12px;
+  float: left;
+  background-color: #4848f0;
+  position: relative;
+}
+
+.homepage-ad-content-left-content {
+  width: 352px;
+  height: 117px;
+  position: absolute;
+  top: 53px;
+  left: 32px;
+}
+
+.homepage-ad-content-left-content-top {
+  width: 352px;
+  height: 66px;
+}
+
+.homepage-ad-content-left-content-top span {
+  font-family: Georgia;
+  font-size: 30px;
+  font-weight: 100;
+  padding: 5px 10px 5px 10px;
+  background-color: white;
+}
+
+.homepage-ad-content-left-content-top p {
+  padding: 5px 10px 5px 10px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: 100;
+  margin-right: 0;
+  width: 132px;
+}
+
+.start-small-project {
+  width: 180px;
+  height: 21px;
+  padding: 6px 10px 6px 10px;
+  background-color: white;
+  font-size: 14px;
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.homepage-ad-content-left:hover {
+  color: #037362;
+}
+
+.homepage-ad-content-right-content {
+  position: absolute;
+  top: 70px;
+  left: 42px;
+  width: 333px;
+  height: 79px;
+}
+
+.what-were-reading {
+  width: 977px;
+  height: 747px;
+  padding: 60px 0 60px 0;
+  border-bottom: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.what-were-reading-content {
+  width: 857px;
+  height: 747px;
+  padding: 0 60px 0 60px;
+}
+
+.what-were-reading-content-inner {
+  width: 881px;
+  height: 517px;
+  margin: 0 -12px 0 -12px;
+}
+
+.what-were-reading-title {
+  width: 857px;
+  height: 30px;
+  padding: 0 12px 0 12px;
+  margin-bottom: 18px;
+  font-size: 17px;
+  font-weight: 100;
+}
+
+.what-were-reading-body {
+  width: 269px;
+  height: 469px;
+  padding: 0 12px 0 12px;
+  float: left;
+  position: relative;
+}
+
+.what-were-reading-body:hover {
+  color: #037362;
+  text-decoration: underline;
+}
+
+.what-were-reading-body img {
+  width: 267px;
+  height: 269px;
+  background-color: black;
+  border-top: 1px solid #DCDEDD;
+  border-left: 1px solid #DCDEDD;
+  border-right: 1px solid #DCDEDD;
+}
+
+.what-were-reading-body-content {
+  width: 231px;
+  height: 114px;
+  padding: 18px;
+  border: 1px solid #DCDEDD;
+  float: left;
+  position: absolute;
+  top: 270px;
+}
+
+.what-were-reading-body-content p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  margin-bottom: 12px;
+}
+
+.read-on-startsmart {
+  margin-top: 40px;
   font-size: 11px;
 }
 
-.people-quotes-content-body-title strong {
-  font-weight: bold;
+.what-were-reading-arrow:hover {
+  color: #037362;
+  font-size: 9px;
+  text-decoration: none !important;
+  padding-left: 0 !important;
 }

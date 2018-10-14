@@ -237,6 +237,58 @@ class Homepage extends React.Component {
                     To get good at anything, you have to fail a lot at it.
                   </div>
                   <span>WRITER DANIEL ALARCÓN IN <strong><Link to='/'>THE CREATIVE INDEPENDENT</Link></strong>, A KICKSTARTER-PUBLISHED RESOURCE FOR CREATIVE PEOPLE</span>
+                  <p>READ MORE <i className="projects-we-love-arrow fas fa-long-arrow-alt-right"></i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='homepage-ad'>
+            <div className='homepage-ad-content'>
+              <div className='homepage-ad-content-left'>
+                <img src='https://d3mlfyygrfdi2i.cloudfront.net/quickstarterCrop.jpg' />
+                <div className='homepage-ad-content-left-content'>
+                  <div className='homepage-ad-content-left-content-top'>
+                    <span>StartSmart</span>
+                    <p>It's OK to think small.</p>
+                  </div>
+                  <div className='start-small-project'>START A SMALL PROJECT</div>
+                </div>
+              </div>
+              <div className='homepage-ad-content-right'>
+                <div className='homepage-ad-content-right-content'></div>
+              </div>
+            </div>
+          </div>
+          <div className='what-were-reading'>
+            <div className='what-were-reading-content'>
+              <div className='what-were-reading-content-inner'>
+                <div className='what-were-reading-title'>What we're reading</div>
+                <div className='what-were-reading-body'>
+                  <img />
+                  <div className='what-were-reading-body-content'>
+                    <p>The rebel girls who wrote a real-life role models into fairy tales, a podcast, and an interactive journal</p>
+                    <div className='read-on-startsmart'>
+                      READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
+                    </div>
+                  </div>
+                </div>
+                <div className='what-were-reading-body'>
+                  <img />
+                  <div className='what-were-reading-body-content'>
+                    <p>The rebel girls who wrote a real-life role models into fairy tales, a podcast, and an interactive journal</p>
+                    <div className='read-on-startsmart'>
+                      READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
+                    </div>
+                  </div>
+                </div>
+                <div className='what-were-reading-body'>
+                  <img />
+                  <div className='what-were-reading-body-content'>
+                    <p>The rebel girls who wrote a real-life role models into fairy tales, a podcast, and an interactive journal</p>
+                    <div className='read-on-startsmart'>
+                      READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
