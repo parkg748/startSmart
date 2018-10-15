@@ -2,14 +2,23 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class EditAboutYouProject extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = this.props.aboutYou;
+  }
+
+  update(field) {
+    return (e) => this.setState({[field]: e.target.value});
+  }
+
   render() {
     return (
       <div>
         <div className='edit-background'>
           <ul>
-            <li><Link className='edit-button' to='/'>Our Rules</Link></li>
-            <li><Link className='edit-button' to='/'>Help</Link></li>
-            <li><Link className='edit-button' to='/'>Creator Handbook</Link></li>
+            <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
+            <li><Link className='edit-button' to='/hc/en-us'>Help</Link></li>
+            <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
           </ul>
           <div className='edit-page-content'>
             <div className='edit-page-navbar'>
@@ -61,7 +70,7 @@ class EditAboutYouProject extends React.Component {
                             <div className='profile-photo-title'>Name</div>
                             <div className='name-content-inner'>
                               <div className='name-input'>
-                                <input type='text' defaultValue='' />
+                                <input onChange={this.update('name')} type='text' defaultValue={this.state.name} />
                               </div>
                               <div className='name-description'>
                                 <p>Heads up: Once you launch a project, you cannot make changes to your name on Kickstarter.</p>
@@ -87,7 +96,7 @@ class EditAboutYouProject extends React.Component {
                               <div className='profile-photo-title'>Biography</div>
                               <div className='biography-content-inner'>
                                 <div className='biography-input'>
-                                  <input type='text' />
+                                  <textarea onChange={this.update('biography')}></textarea>
                                 </div>
                               </div>
                             </div>
@@ -107,7 +116,7 @@ class EditAboutYouProject extends React.Component {
                               <div className='websites-content-inner'>
                                 <div className='websites-content-inner-input'>
                                   <div className='websites-input'>
-                                    <input type='text' />
+                                    <input onChange={this.update('websites')} type='text' defaultValue={this.state.websites} />
                                   </div>
                                   <button className='websites-add-button'>Add</button>
                                 </div>
@@ -122,10 +131,10 @@ class EditAboutYouProject extends React.Component {
                               <div className='profile-photo-title'>Google Analytics</div>
                               <div className='google-analytics-content-inner'>
                                 <div className='google-analytics-content-input'>
-                                  <input type='text' placeholder='UA-XXXXXXXX-X' />
+                                  <input onChange={this.update('google_analytics')} type='text' placeholder='UA-XXXXXXXX-X' value={this.state.google_analytics} />
                                 </div>
                                 <div className='google-analytics-description'>
-                                  <p>Enter your tracking ID to enable Google Analytics for your project. <Link className='policy-link' to='/'>Check out our FAQ for more info</Link>.</p>
+                                  <p>Enter your tracking ID to enable Google Analytics for your project. <Link className='creator-faq policy-link' to='/hc/en-us/articles/115005138613'>Check out our FAQ for more info</Link>.</p>
                                 </div>
                               </div>
                             </div>

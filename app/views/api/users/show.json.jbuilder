@@ -1,6 +1,6 @@
 json.user do
   json.set! @user.id do
-    json.extract! @user, :id, :name, :email
+    json.extract! @user, :id, :name, :email, :biography, :websites, :google_analytics
   end
 end
 

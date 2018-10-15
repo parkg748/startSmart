@@ -3,7 +3,8 @@ import EditStoryProject from './edit_story_project';
 
 const mapStateToProps = state => {
   return {
-
+    user_id: Object.values(state.entities.users)[0].id,
+    project_id: Object.values(state.entities.project)[0].id
   };
 };
 

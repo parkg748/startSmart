@@ -2,6 +2,7 @@ class Api::ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
+    @project.category_id = 7
     if @project.save!
       render 'api/projects/show'
     else

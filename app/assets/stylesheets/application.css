@@ -188,6 +188,10 @@ form h2 {
   color: #2752ff;
 }
 
+.policy-link:hover {
+  color: black;
+}
+
 .login-or {
   padding-top: 5px;
   text-align: center;
@@ -1112,6 +1116,10 @@ nav {
 
 .fa-question-circle {
   padding-right: 5px;
+}
+
+.fa-question-circle:hover {
+  color: #009E74;
 }
 
 .verification {
@@ -2816,8 +2824,8 @@ nav {
   float: left;
 }
 
-.reward-form-field-title-input {
-  width: 311px;
+.reward-form-field-title-input input {
+  width: 314px;
   height: 18px;
   padding: 10px;
   float: left;
@@ -2988,6 +2996,11 @@ nav {
   border: 1px dashed #E6E4E2;
 }
 
+.add-new-reward:hover {
+  background-color: #F8F9FD;
+  color: #2752ff;
+}
+
 .add-new-reward-text {
   width: 578px;
   height: 20px;
@@ -3086,6 +3099,18 @@ nav {
   border: 1px dashed #586BE9;
   border-radius: 6px;
   background-color: white;
+}
+
+.creator-faq:hover {
+  color: black;
+}
+
+.project-video-content-link:hover {
+  color: black;
+}
+
+.project-video-upload-inner:hover {
+  background-color: #F8F9FD;
 }
 
 .project-video-upload-inner {
@@ -3314,6 +3339,10 @@ iframe {
   left: 65px;
 }
 
+.play-button:hover {
+  background-color: #009E74;
+}
+
 .fa-play {
   color: white;
   font-size: 20px;
@@ -3400,6 +3429,10 @@ strong {
   background-color: white;
 }
 
+.profile-photo-upload:hover {
+  background-color: #F8F9FD;
+}
+
 .profile-photo-upload-inner {
   width: 407px;
   height: 38px;
@@ -3444,6 +3477,13 @@ strong {
   height: 18px;
   padding: 10px;
   border: 1px solid #DCDEDD;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.name-input input {
+  width: 427px;
+  height: 18px;
 }
 
 .name-description {
@@ -3530,6 +3570,12 @@ strong {
   font-weight: 100;
 }
 
+.biography-input textarea {
+  width: 427px;
+  height: 128px;
+  resize: none;
+}
+
 .your-location {
   width: 640px;
   height: 66px;
@@ -3596,6 +3642,13 @@ strong {
   border: 1px solid #DCDEDD;
   background-color: white;
   float: left;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.websites-input input {
+  width: 298px;
+  height: 18px;
 }
 
 .websites-add-button {
@@ -3647,6 +3700,11 @@ strong {
   font-size: 14px;
   font-weight: 100;
   background-color: white;
+}
+
+.google-analytics-content-input input {
+  width: 427px;
+  height: 18px;
 }
 
 .google-analytics-description {
@@ -5260,4 +5318,8 @@ strong {
   margin-left: auto;
   margin-right: auto;
   font-size: 12px;
+}
+
+.what-to-offer-content:hover {
+  color: black;
 }

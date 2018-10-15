@@ -8,4 +8,9 @@ class Project < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id,
     class_name: 'User'
+
+  has_many :rewards,
+    primary_key: :id,
+    foreign_key: :project_id,
+    class_name: 'Reward'
 end

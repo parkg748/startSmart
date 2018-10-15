@@ -51,9 +51,9 @@ class EditProject extends React.Component {
         </nav>
         <div className='edit-background'>
           <ul>
-            <li><Link className='edit-button' to='/'>Our Rules</Link></li>
-            <li><Link className='edit-button' to='/'>Help</Link></li>
-            <li><Link className='edit-button' to='/'>Creator Handbook</Link></li>
+            <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
+            <li><Link className='edit-button' to='/hc/en-us'>Help</Link></li>
+            <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
           </ul>
           <div className='edit-page-content'>
             <div className='edit-page-navbar'>
@@ -150,7 +150,7 @@ class EditProject extends React.Component {
                             <div className='project-image-inner-title'>Location</div>
                             <div className='location-input'>
                               <i className="location-search fas fa-search"></i>
-                              <input type='text' defaultValue={`${this.state.city}, ${this.state.state}`} />
+                              <input type='text' defaultValue='' />
                               <div className='location-options location-none-display'>
                                 <i className="fas fa-caret-up"></i>
                                 <ul>

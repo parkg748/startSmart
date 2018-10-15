@@ -2,14 +2,28 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class EditRewardProject extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = this.props.reward;
+  }
+
+  update(field) {
+    return (e) => this.setState({[field]: e.target.value});
+  }
+
+  moveToTrash(e) {
+    e.preventDefault();
+    this.props.deleteReward(this.state).then(() => this.props.history.push(`/users/${this.props.user_id}/projects/${this.props.project_id}/rewards`));
+  }
+
   render() {
     return (
       <div>
         <div className='edit-background'>
           <ul>
-            <li><Link className='edit-button' to='/'>Our Rules</Link></li>
-            <li><Link className='edit-button' to='/'>Help</Link></li>
-            <li><Link className='edit-button' to='/'>Creator Handbook</Link></li>
+            <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
+            <li><Link className='edit-button' to='/hc/en-us'>Help</Link></li>
+            <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
           </ul>
           <div className='edit-page-content'>
             <div className='edit-page-navbar'>
@@ -51,17 +65,17 @@ class EditRewardProject extends React.Component {
                               <div className='reward-form-field'>
                                 <div className='reward-form-field-title'>
                                   <div className='reward-form-field-title-desc'>Title</div>
-                                  <div className='reward-form-field-title-input'><input type='text' /></div>
+                                  <div className='reward-form-field-title-input'><input onChange={this.update('title')} type='text' /></div>
                                 </div>
                                 <div className='reward-form-field-title'>
                                   <div className='reward-form-field-title-desc'>Pledge amount</div>
-                                  <div className='reward-form-field-title-input'><input type='text' defaultValue='€0' /></div>
+                                  <div className='reward-form-field-title-input'><input onChange={this.update('pledge_amt')} type='text' defaultValue='€0' /></div>
                                 </div>
                                 <div className='reward-form-field-description'>
                                   <div className='reward-form-field-description-desc'>Description</div>
                                   <div className='reward-form-field-description-inner'>
                                     <div className='reward-form-field-description-textarea'>
-                                      <input type='text' />
+                                      <input onChange={this.update('description')} type='text' />
                                     </div>
                                     <div className='add-an-item'>
                                       <div className='add-an-item-inner'>
@@ -76,7 +90,7 @@ class EditRewardProject extends React.Component {
                                   <div className='estimated-delivery-title'>Estimated delivery</div>
                                   <div className='estimated-delivery-date'>
                                     <div className='estimated-delivery-date-month'>
-                                      <select defaultValue='october'>
+                                      <select onChange={this.update('month')} defaultValue='october'>
                                         <option value='january'>January</option>
                                         <option value='february'>February</option>
                                         <option value='march'>March</option>
@@ -92,7 +106,7 @@ class EditRewardProject extends React.Component {
                                       </select>
                                     </div>
                                     <div className='estimated-delivery-date-year'>
-                                      <select defaultValue='2018'>
+                                      <select onChange={this.update('year')} defaultValue='2018'>
                                         <option value='2013'>2013</option>
                                         <option value='2014'>2014</option>
                                         <option value='2015'>2015</option>
@@ -111,7 +125,7 @@ class EditRewardProject extends React.Component {
                                 <div className='reward-form-field-title'>
                                   <div className='reward-form-field-title-desc'>Shipping details</div>
                                   <div className='shipping-options'>
-                                    <select defaultValue='select-an-option'>
+                                    <select onChange={this.update('shipping')} defaultValue='select-an-option'>
                                       <option value='select-an-option' disabled></option>
                                       <option value='no-shipping-involved'>No shipping involved</option>
                                       <option value='only-ships-certain-countries'>Only ships to certain countries</option>
@@ -149,7 +163,7 @@ class EditRewardProject extends React.Component {
                       <div className='how-to-make-project'>
                         <i className="far fa-lightbulb"></i>
                         <span>How to:</span>
-                        <span className='how-to-make-project-link'>Create great rewards</span>
+                        <span className='how-to-make-project-link'><Link to='/help/handbook/rewards'>Create great rewards</Link></span>
                       </div>
                       <h5>What to offer</h5>
                       <p className='what-to-offer-content'>Copies of what you're making, unique experiences, and limited editions work great.</p>
@@ -170,7 +184,7 @@ class EditRewardProject extends React.Component {
                         <li>For more, please review our <Link className='policy-link' to='/'>list of prohibited items and subject matter</Link></li>
                       </ul>
                       <h5>Need ideas for rewards?</h5>
-                      <p className='what-to-offer-content'>Campus has <Link className='policy-link' to='/'>a discussion on that</Link> — and plenty more.</p>
+                      <p className='what-to-offer-content'>Campus has <Link className='policy-link' to='/campus/questions/what-makes-a-great-startsmart-reward-and-whats-a-terrible-idea-for-one'>a discussion on that</Link> — and plenty more.</p>
                     </div>
                   </div>
                 </div>

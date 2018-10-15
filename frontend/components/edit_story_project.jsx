@@ -2,13 +2,21 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class EditStoryProject extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  update(field) {
+    return (e) => this.setState({[field]: e.target.value});
+  }
+
   render() {
     return (
       <div className='edit-background'>
         <ul>
-          <li><Link className='edit-button' to='/'>Our Rules</Link></li>
-          <li><Link className='edit-button' to='/'>Help</Link></li>
-          <li><Link className='edit-button' to='/'>Creator Handbook</Link></li>
+          <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
+          <li><Link className='edit-button' to='/hc/en-us'>Help</Link></li>
+          <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
         </ul>
         <div className='edit-page-content'>
           <div className='edit-page-navbar'>
@@ -50,7 +58,7 @@ class EditStoryProject extends React.Component {
                                 <span className='choose-an-image-description'>MOV, MPEG, AVI, MP4, 3GP, WMV, or FLV • 5GB file limit</span>
                               </div>
                               <div className='project-video-content'>
-                                <p>Have fun – add a video! Projects with a video have a much higher chance of success. For a dose of inspiration, check out the <Link className='policy-link' to='/'>Creator Handbook</Link>. Need some help? Visit our <Link className='policy-link' to='/'>Creator FAQ</Link>.</p>
+                                <p>Have fun – add a video! Projects with a video have a much higher chance of success. For a dose of inspiration, check out the <Link className='project-video-content-link policy-link' to='/help/handbook/your_story'>Creator Handbook</Link>. Need some help? Visit our <Link className='creator-faq policy-link' to='/hc/en-us/articles/115005128494'>Creator FAQ</Link>.</p>
                               </div>
                             </div>
                           </div>
@@ -103,7 +111,7 @@ class EditStoryProject extends React.Component {
                           <div className='project-faq-title'>Project FAQs</div>
                           <div className='project-faq-description'>
                             <div className='project-faq-description-text'>
-                              <p>You can add frequently asked questions to the FAQ tab on your project page once it goes live. <Link className='policy-link' to='/'>Learn more</Link></p>
+                              <p>You can add frequently asked questions to the FAQ tab on your project page once it goes live. <Link className='creator-faq policy-link' to='/hc/en-us/categories/115000492154-Creator-questions'>Learn more</Link></p>
                             </div>
                           </div>
                         </div>
@@ -124,11 +132,11 @@ class EditStoryProject extends React.Component {
                       <span>Make an awesome video</span>
                     </div>
                     <h5>Looking for advice?</h5>
-                    <p>Visit Campus to read about <Link className='preparing-for-project-link' to='/'>making great videos</Link> and more.</p>
+                    <p>Visit Campus to read about <Link className='preparing-for-project-link' to='/campus/questions/what-tips-do-you-have-for-making-a-great-project-video-on-a-limited-budget'>making great videos</Link> and more.</p>
                     <h5>Important reminder</h5>
-                    <p>Kickstarter is a global community, and including translations of your description and rewards, or using our <Link className='policy-link' to='/'>Captions & Subtitles</Link> to make your videos more accessible, will help your project have a wider appeal. If you're including text or audio in a language outside of those that we currently support (English, French, German, and Spanish), we also ask that you include English translations or subtitles.</p>
+                    <p>Kickstarter is a global community, and including translations of your description and rewards, or using our <Link className='creator-faq policy-link' to='/blog/introducing-subtitles-and-captions'>Captions & Subtitles</Link> to make your videos more accessible, will help your project have a wider appeal. If you're including text or audio in a language outside of those that we currently support (English, French, German, and Spanish), we also ask that you include English translations or subtitles.</p>
                     <p>Don't use music, images, video, or other content that you don't have the rights to. Reusing copyrighted material is almost always against the law and can lead to <strong>expensive lawsuits</strong> down the road. The easiest way to avoid copyright troubles is to create all the content yourself or use content that is free for public use.</p>
-                    <p>For legal, mostly free alternatives, check out some of these great resources: <Link className='policy-link' to='/'>SoundCloud</Link>, <Link className='policy-link' to='/'>Vimeo Music Store</Link>, <Link className='policy-link' to='/'>Free Music Archive</Link>, and <Link className='policy-link' to='/'>ccMixter</Link>.</p>
+                    <p>For legal, mostly free alternatives, check out some of these great resources: <a className='creator-faq policy-link' href='https://soundcloud.com/'>SoundCloud</a>, <a className='creator-faq policy-link' href='https://help.vimeo.com/hc/en-us/articles/236022047-Music-Store'>Vimeo Music Store</a>, <a className='creator-faq policy-link' href='http://freemusicarchive.org/'>Free Music Archive</a>, and <a className='creator-faq policy-link' href='http://ccmixter.org/'>ccMixter</a>.</p>
                   </div>
                 </div>
               </div>

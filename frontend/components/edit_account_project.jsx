@@ -2,14 +2,18 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class EditAccountProject extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
         <div className='edit-background'>
           <ul>
-            <li><Link className='edit-button' to='/'>Our Rules</Link></li>
-            <li><Link className='edit-button' to='/'>Help</Link></li>
-            <li><Link className='edit-button' to='/'>Creator Handbook</Link></li>
+            <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
+            <li><Link className='edit-button' to='/hc/en-us'>Help</Link></li>
+            <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
           </ul>
           <div className='edit-page-content'>
             <div className='edit-page-navbar'>
@@ -50,7 +54,7 @@ class EditAccountProject extends React.Component {
                                   <div className='account-box-input-title-inner'>Email</div>
                                   <div className='account-box-input-info'>
                                     <div className='account-box-input-info-header'>
-                                      <span>parkg748@newschool.edu</span>
+                                      <span>{this.props.user.email}</span>
                                       <div className='account-box-input-info-verification'>Unverified</div>
                                     </div>
                                     <div className='account-box-input-info-desc'>
@@ -83,7 +87,7 @@ class EditAccountProject extends React.Component {
                   </div>
                   <div className='account-side-bar'>
                     <h5>Eligibility requirements</h5>
-                    <p>To be eligible to start a Kickstarter project as a creator in Belgium, you need to meet the following requirements:</p>
+                    <p>To be eligible to start a StartSmart project as a creator in Belgium, you need to meet the following requirements:</p>
                     <ul>
                       <li>You are 18 years of age or older.</li>
                       <li>You are a permanent resident of Belgium.</li>
@@ -93,7 +97,7 @@ class EditAccountProject extends React.Component {
                       <li>You have a major credit or debit card.</li>
                     </ul>
                     <h5>Questions about taxes?</h5>
-                    <p>Check out <Link className='policy-link' to='/'>Kickstarter and Taxes</Link></p>
+                    <p>Check out <Link className='policy-link' to='/help/taxes'>StartSmart and Taxes</Link></p>
                   </div>
                 </div>
                 <div className='delete-project'>
