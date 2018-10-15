@@ -7,18 +7,39 @@ class UserProject extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.props.fetchCategories();
-    this.props.fetchProject(Object.values(this.props.user)[0].id, Object.values(this.props.project)[0].id);
+    this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
   }
 
   render() {
+    let profile = undefined;
+    let navbarWidth = '';
+    if (this.props.user != null) {
+      profile = <div className='profile-circle'><button><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      navbarWidth = 'navbar-width';
+    } else {
+      profile = <Link to='/login' className='login'>Sign in</Link>;
+    }
     return (
       <div>
+        <nav>
+          <section className='explore-project'>
+            <Link to='/help/handbook' className='creator-handbook-navbar'>Creator Handbook</Link>
+            <Link to='/campus' className='campus-navbar'>Campus</Link>
+            <Link to='/help' className='help-navbar'>Help</Link>
+            <Link to='/rules' className='rules-navbar'>Project Rules</Link>
+          </section>
+          <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
+          <section className={`search-signin ${navbarWidth}`}>
+            {profile}
+          </section>
+        </nav>
         <div className='project-front-header'>
           <div className='project-front-header-inner'>
             <div className='project-front-header-title'>
               <h2>{this.props.category[Object.values(this.props.project)[0].categoryId].name} Project</h2>
-              <h3>by {Object.values(this.props.user)[0].name}</h3>
+              <h3>by {this.props.user.name}</h3>
             </div>
             <div className='project-preview'>
               <div className='project-preview-inner'>

@@ -7,7 +7,7 @@ import StartProjectContainer from './start_project_container';
 // import HomepageCategoriesContainer from './homepage_categories_container';
 // import CategoryContainer from './category_container';
 import FooterContainer from './footer_container';
-// import RecommendationsContainer from './recommendations_container';
+import RecommendationsContainer from './recommendations_container';
 import StartProjectPageOneContainer from './start_project_pageone_container';
 import UserProjectContainer from './user_project_container';
 import EditProjectContainer from './edit_project_container';
@@ -24,6 +24,7 @@ const App = () => (
       <Route path='/login' component={LoginFormContainer} />
       <Route path='/signup' component={SignupFormContainer} />
       <Route path='/start' component={StartProjectPageOneContainer} />
+      <Route path='/recommendations' component={RecommendationsContainer} />
       <Route exact path='/users/:userId/projects/:projectId' component={UserProjectContainer} />
       <Route exact path='/users/:userId/projects/:projectId/basics' component={EditProjectContainer} />
       <Route exact path='/users/:userId/projects/:projectId/rewards' component={EditRewardProjectContainer} />

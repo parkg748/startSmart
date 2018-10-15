@@ -23,9 +23,9 @@ export const fetchProjects = () => dispatch => (
   ProjectApiUtil.fetchProjects().then(projects => dispatch(receiveAllProjects(projects)))
 );
 
-export const fetchProject = (user, projectForm) => dispatch => (
-  ProjectApiUtil.fetchProject(user, projectForm).then(project => dispatch(receiveProject(project)))
-);
+export const fetchProject = (user, projectForm) => dispatch => {
+  return ProjectApiUtil.fetchProject(user, projectForm).then(project => dispatch(receiveProject(project)))
+};
 
 export const fetchProjectsByCategory = category => dispatch => (
   ProjectApiUtil.fetchProjectsByCategory(category).then(projects => dispatch(receiveAllProjects(projects)))

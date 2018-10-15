@@ -33,7 +33,7 @@ class SignupForm extends React.Component {
               </div>
               <form onSubmit={(e) => this.handleSubmit(e)}>
                 <h2>Sign up</h2>
-                <div className='error-messages-red'>
+                <div className={(this.props.errors.length != 0) ? 'error-messages-red' : ''}>
                   <ul>
                     {this.props.errors.map((error, id) => <li key={id}>{error}</li>)}
                   </ul>

@@ -3,13 +3,13 @@ import Recommendations from './recommendations';
 
 const mapStateToProps = state => {
   return {
-
+    class: {display: 'location-none-display'}
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    
+
   };
 };
 
