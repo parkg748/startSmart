@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class EditAboutYouProject extends React.Component {
   render() {
@@ -17,11 +18,11 @@ class EditAboutYouProject extends React.Component {
                   <li className='exit-editor'><Link to='/'><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
                   <li className='edit-options'>
                     <ul>
-                      <li className='edit-option-basics'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
-                      <li className='edit-option-rewards'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
-                      <li className='edit-option-story'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
-                      <li className='edit-option-about-you'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
-                      <li className='edit-option-account'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
+                      <li className='edit-option-basics'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/basics`}><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
+                      <li className='edit-option-rewards'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/rewards`}><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
+                      <li className='edit-option-story'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/story`}><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
+                      <li className='edit-option-about-you'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/about-you`}><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
+                      <li className='edit-option-account'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/account`}><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
                       <li className='preview'><Link to='/'>Preview</Link></li>
                     </ul>
                   </li>
@@ -157,3 +158,5 @@ class EditAboutYouProject extends React.Component {
     );
   }
 }
+
+export default EditAboutYouProject;

@@ -291,6 +291,31 @@ class Homepage extends React.Component {
                   </div>
                 </div>
               </div>
+              <div className='what-were-reading-content-bottom'>
+                <div className='what-were-reading-content-bottom-section'>
+                  <div className='what-were-reading-content-bottom-inner'>
+                    <p>New life for a 1902 manual about color</p>
+                    <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
+                    <img />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='subscribe-weekly-newsletter'>
+            <div className='subscribe-weekly-newsletter-content'>
+              <div className='subscribe-weekly-newsletter-title'>
+                <div className='subscribe-weekly-newsletter-title-inner'>Subscribe to our weekly newsletter</div>
+              </div>
+              <div className='weekly-newsletter-content'>
+                <div className='weekly-newsletter-content-inner'>
+                  <p>A weekly roundup of the best and brightest projects on StartSmart, handpicked by our team.</p>
+                  <div className='subscribe-input'>
+                    <div className='subscribe-input-inner'><input type='text' placeholder='Enter email address' /></div>
+                    <button className='subscribe-input-button'>Subscribe now</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

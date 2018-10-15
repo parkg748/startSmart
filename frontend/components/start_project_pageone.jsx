@@ -80,41 +80,62 @@ class StartProjectPageOne extends React.Component {
   }
 
   render() {
+    let profile = undefined;
+    let navbarWidth = '';
+    if (this.props.user != null) {
+      profile = <div className='profile-circle'><button><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      navbarWidth = 'navbar-width';
+    } else {
+      profile = <Link to='/login' className='login'>Sign in</Link>;
+    }
     if (this.state.pageNo === 1) {
       return (
-        <div className='step-one-main'>
-          <div className='line'></div>
-          <div className='page-info'>1 of 3</div>
-          <div className='step-one-header'>
-            <div className='step-one-title'>
-              <div className='step-one-title-content'>
-                <h2>First, let's get you set up.</h2>
-                <h3>Pick a project category to connect with a specific community. You can always update this later.</h3>
-                <div className='select-your-category-dropdown'>
-                  <i className="select-your-category-arrow fas fa-caret-down"></i>
-                  <select className='select-your-category' onChange={this.update('category')} defaultValue='your-category'>
-                    <option value='your-category' disabled>Select your category</option>
-                    {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
-                      return <option key={obj.id} value={obj.name}>Film & Video</option>
-                    } else {
-                      return <option key={obj.id} value={obj.name}>{obj.name}</option>
-                    }})}
-                  </select>
+        <div>
+          <nav>
+            <section className='explore-project'>
+              <Link to='/explore' className='explore'>Explore</Link>
+              <Link to='/learn' className='project'>Start a project</Link>
+            </section>
+            <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
+            <section className={`search-signin ${navbarWidth}`}>
+              <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
+              {profile}
+            </section>
+          </nav>
+          <div className='step-one-main'>
+            <div className='line'></div>
+            <div className='page-info'>1 of 3</div>
+            <div className='step-one-header'>
+              <div className='step-one-title'>
+                <div className='step-one-title-content'>
+                  <h2>First, let's get you set up.</h2>
+                  <h3>Pick a project category to connect with a specific community. You can always update this later.</h3>
+                  <div className='select-your-category-dropdown'>
+                    <i className="select-your-category-arrow fas fa-caret-down"></i>
+                    <select className='select-your-category' onChange={this.update('category')} defaultValue='your-category'>
+                      <option value='your-category' disabled>Select your category</option>
+                      {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
+                        return <option key={obj.id} value={obj.name}>Film & Video</option>
+                      } else {
+                        return <option key={obj.id} value={obj.name}>{obj.name}</option>
+                      }})}
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className='step-one-next-step'>
-            <div className='step-one-next-step-content'>
-              <div className='step-one-next-step-inner'>
-                <button onClick={() => this.handleSubmit()} className={this.state.className}><p>Next: Project Idea</p></button>
-                <span>Welcome back.</span>
+            <div className='step-one-next-step'>
+              <div className='step-one-next-step-content'>
+                <div className='step-one-next-step-inner'>
+                  <button onClick={() => this.handleSubmit()} className={this.state.className}><p>Next: Project Idea</p></button>
+                  <span>Welcome back.</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className='step-one-disclaimer'>
-            <div className='step-one-disclaimer-content'>
-              <span>To create a project, you're required to provide your location, age, national ID, banking and tax information, email, and mailing address. This information is necessary to prevent fraud, comply with the law, and — if your project is successful — to deliver funds. Please note: after launch, your ability to edit, hide, or delete a project is limited.</span>
+            <div className='step-one-disclaimer'>
+              <div className='step-one-disclaimer-content'>
+                <span>To create a project, you're required to provide your location, age, national ID, banking and tax information, email, and mailing address. This information is necessary to prevent fraud, comply with the law, and — if your project is successful — to deliver funds. Please note: after launch, your ability to edit, hide, or delete a project is limited.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -123,34 +144,47 @@ class StartProjectPageOne extends React.Component {
       const randomPlaceholders = ['An album of songs based on Pablo Neruda poems.', 'A novel written in three languages.', 'A short claymation about boba.', 'A set of handmade greeting cards and stationery.'];
       let randPlaceholder = randomPlaceholders[Math.floor(Math.random() * randomPlaceholders.length)];
       return (
-        <div className='step-one-main'>
-          <div className='line'></div>
-          <div className='page-info'>2 of 3</div>
-          <div className='step-two-header'>
-            <div className='step-two-title'>
-              <div className='step-two-title-content'>
-                <h2>Describe what you'll be creating.</h2>
-                <h3>And don't worry, you can edit this later, too.</h3>
-                <div className='description-box'>
-                  <input onChange={this.update('description')} type='text' placeholder={randPlaceholder} value={this.state.description} />
-                </div>
-                <div className='description-num'>
-                  <div className='description-num-inner'>{this.state.wordCount}/135</div>
+        <div>
+          <nav>
+            <section className='explore-project'>
+              <Link to='/explore' className='explore'>Explore</Link>
+              <Link to='/learn' className='project'>Start a project</Link>
+            </section>
+            <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
+            <section className={`search-signin ${navbarWidth}`}>
+              <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
+              {profile}
+            </section>
+          </nav>
+          <div className='step-one-main'>
+            <div className='line'></div>
+            <div className='page-info'>2 of 3</div>
+            <div className='step-two-header'>
+              <div className='step-two-title'>
+                <div className='step-two-title-content'>
+                  <h2>Describe what you'll be creating.</h2>
+                  <h3>And don't worry, you can edit this later, too.</h3>
+                  <div className='description-box'>
+                    <input onChange={this.update('description')} type='text' placeholder={randPlaceholder} value={this.state.description} />
+                  </div>
+                  <div className='description-num'>
+                    <div className='description-num-inner'>{this.state.wordCount}/135</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className='step-two-next-step'>
-            <div className='step-two-next-step-content'>
-              <div className='step-two-next-step-inner'>
-                <button onClick={() => this.handleSubmit()} className={this.state.className}><p className='next-location'>Next: Location</p></button>
-                <div><i className="fas fa-long-arrow-alt-left"></i><span>Category</span></div>
+            <div className='step-two-next-step'>
+              <div className='step-two-next-step-content'>
+                <div className='step-two-next-step-inner'>
+                  <button onClick={() => this.handleSubmit()} className={this.state.className}><p className='next-location'>Next: Location</p></button>
+                  <div className='category-arrow'><i className="fas fa-long-arrow-alt-left"></i><span>Category</span></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className='step-one-disclaimer'>
-            <div className='step-one-disclaimer-content'>
-              <span>To create a project, you're required to provide your location, age, national ID, banking and tax information, email, and mailing address. This information is necessary to prevent fraud, comply with the law, and — if your project is successful — to deliver funds. Please note: after launch, your ability to edit, hide, or delete a project is limited.</span>
+            <div className='step-one-disclaimer'>
+              <div className='step-one-disclaimer-content'>
+                <span>To create a project, you're required to provide your location, age, national ID, banking and tax information, email, and mailing address. This information is necessary to prevent fraud, comply with the law, and — if your project is successful — to deliver funds. Please note: after launch, your ability to edit, hide, or delete a project is limited.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -159,6 +193,17 @@ class StartProjectPageOne extends React.Component {
       const countries = ['Australia', 'Austria', 'Belgium', 'Canada', 'Denmark', 'France', 'Germany', 'Hong Kong', 'Ireland', 'Italy', 'Japan', 'Luxembourg', 'Mexico', 'New Zealand', 'Norway', 'Singapore', 'Spain', 'Sweden', 'Switzerland', 'the Netherlands', 'the United Kingdom', 'the United States'];
       return (
         <div>
+          <nav>
+            <section className='explore-project'>
+              <Link to='/explore' className='explore'>Explore</Link>
+              <Link to='/learn' className='project'>Start a project</Link>
+            </section>
+            <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
+            <section className={`search-signin ${navbarWidth}`}>
+              <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
+              {profile}
+            </section>
+          </nav>
           <div className='step-three-top'>
             <div className='page-3'>3 of 3</div>
           </div>

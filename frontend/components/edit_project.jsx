@@ -1,13 +1,54 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class EditProject extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.project;
+  }
+
+  submitChanges(e) {
+    e.preventDefault();
+    this.props.updateProject(this.state).then(() => this.props.history.push(`/users/${this.props.user_id}/projects/${this.props.project_id}/basics`));
+  }
+
+  update(field) {
+    return (e) => {if (field === 'title') {
+      this.setState({[field]: e.target.value, titleWordCount: (60 - e.target.value.length)});
+    } else if (field === 'description') {
+      this.setState({[field]: e.target.value, shortBlurbWordCount: (135 - e.target.value.length)});
+    } else if ((field === 'duration') && (this.state.radioChecked === 'checked')) {
+      this.setState({[field]: e.target.value});
+    } else if (field === 'end-of-date') {
+      this.setState({radioChecked: ''});
+    } else if (field === 'funding_goal') {
+      this.setState({[field]: e.target.value, radioChecked: 'checked'});
+    }};
   }
 
   render() {
+    let profile = undefined;
+    let navbarWidth = '';
+    if (this.props.user != null) {
+      profile = <div className='profile-circle'><button><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      navbarWidth = 'navbar-width';
+    } else {
+      profile = <Link to='/login' className='login'>Sign in</Link>;
+    }
     return (
       <div>
+        <nav>
+          <section className='explore-project'>
+            <Link to='/help/handbook' className='creator-handbook-navbar'>Creator Handbook</Link>
+            <Link to='/campus' className='campus-navbar'>Campus</Link>
+            <Link to='/help' className='help-navbar'>Help</Link>
+            <Link to='/rules' className='rules-navbar'>Project Rules</Link>
+          </section>
+          <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
+          <section className={`search-signin ${navbarWidth}`}>
+            {profile}
+          </section>
+        </nav>
         <div className='edit-background'>
           <ul>
             <li><Link className='edit-button' to='/'>Our Rules</Link></li>
@@ -18,14 +59,14 @@ class EditProject extends React.Component {
             <div className='edit-page-navbar'>
               <div className='edit-page-navbar-inner'>
                 <ul>
-                  <li className='exit-editor'><Link to='/'><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
+                  <li className='exit-editor'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}`}><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
                   <li className='edit-options'>
                     <ul>
-                      <li className='edit-option-basics'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
-                      <li className='edit-option-rewards'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
-                      <li className='edit-option-story'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
-                      <li className='edit-option-about-you'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
-                      <li className='edit-option-account'><Link to='/'><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
+                      <li className='edit-option-basics'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/basics`}><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
+                      <li className='edit-option-rewards'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/rewards`}><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
+                      <li className='edit-option-story'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/story`}><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
+                      <li className='edit-option-about-you'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/about-you`}><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
+                      <li className='edit-option-account'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/account`}><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
                       <li className='preview'><Link to='/'>Preview</Link></li>
                     </ul>
                   </li>
@@ -56,7 +97,7 @@ class EditProject extends React.Component {
                                   <span className='choose-an-image-description'>At least 1024x576 pixels • 16:9 aspect ratio</span>
                                 </div>
                                 <div className='project-image-content'>
-                                  <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. <Link className='some-tips' to='/'>Here are some tips.</Link></p>
+                                  <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. <Link className='some-tips' to='/help/images'>Here are some tips.</Link></p>
                                 </div>
                               </div>
                             </div>
@@ -67,8 +108,8 @@ class EditProject extends React.Component {
                             <div className='project-image-inner-title'>Project title</div>
                             <div className='project-title-content-inner'>
                               <div className='title-input'>
-                                <input type='text' defaultValue='' />
-                                <span>60/60</span>
+                                <input onChange={this.update('title')} type='text' defaultValue={this.state.title} />
+                                <span>{this.state.titleWordCount}/60</span>
                               </div>
                               <div className='project-title-description'>
                                 <p className='project-title-description-one'>Our search looks through words from your project title and blurb, so make them clear and descriptive of what you’re making. Your profile name will be searchable, too.</p>
@@ -82,8 +123,8 @@ class EditProject extends React.Component {
                             <div className='project-image-inner-title'>Short blurb</div>
                             <div className='short-blurb-content-inner'>
                               <div className='short-blurb-input'>
-                                <input type='text' defaultValue='' />
-                                <span>135/135</span>
+                                <textarea onChange={this.update('description')} defaultValue={this.state.description}></textarea>
+                                <span>{this.state.shortBlurbWordCount}/135</span>
                               </div>
                               <div className='short-blurb-description'>
                                 <p>Give people a sense of what you’re doing. Skip “Help me” and focus on what you’re making.</p>
@@ -109,7 +150,7 @@ class EditProject extends React.Component {
                             <div className='project-image-inner-title'>Location</div>
                             <div className='location-input'>
                               <i className="location-search fas fa-search"></i>
-                              <input type='text' defaultValue='' />
+                              <input type='text' defaultValue={`${this.state.city}, ${this.state.state}`} />
                               <div className='location-options location-none-display'>
                                 <i className="fas fa-caret-up"></i>
                                 <ul>
@@ -125,19 +166,19 @@ class EditProject extends React.Component {
                               <div className='funding-duration-content-form'>
                                 <div className='funding-duration-content-form-inner'>
                                   <div className='number-of-days'>
-                                    <input type='radio' />
+                                    <input type='radio' checked />
                                     <span>Number of days</span>
                                   </div>
                                   <div className='number-of-days-input'>
                                     <div className='number-of-days-input-inner'>
-                                      <input type='text' defaultValue='30'/>
+                                      <input onChange={this.update('duration')} type='text' defaultValue='30'/>
                                       <div className='number-of-days-input-inner-inner'>Up to 60 days, but we recommend 30 or fewer</div>
                                     </div>
                                   </div>
                                 </div>
                                 <div className='end-on-date'>
                                   <div className='end-on-date-inner'>
-                                    <input type='radio' />
+                                    <input onChange={this.update('end-of-date')} type='radio' />
                                     <span>End on date & time</span>
                                   </div>
                                   <div className='calendar location-none-display'>
@@ -231,7 +272,7 @@ class EditProject extends React.Component {
                           <div className='funding-goal-content'>
                             <div className='project-image-inner-title'>Funding goal</div>
                             <div className='funding-goal-content-inner'>
-                              <div className='funding-goal-content-input'><input type='text' defaultValue='€0' /></div>
+                              <div className='funding-goal-content-input'><input onChange={this.update('funding_goal')} type='text' defaultValue='€0' /></div>
                               <div className='funding-goal-disclaimer'>
                                 <p className='funding-goal-disclaimer-one'>Funding on Kickstarter is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
                                 <p className='funding-goal-disclaimer-two'>If your project is successfully funded, the following fees will be collected from your funding total: Kickstarter’s 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.</p>
@@ -257,10 +298,10 @@ class EditProject extends React.Component {
                       <div className='how-to-make-project'>
                         <i className="far fa-lightbulb"></i>
                         <span>How to:</span>
-                        <span className='how-to-make-project-link'>Make an awesome project</span>
+                        <span className='how-to-make-project-link'><Link to='/help/handbook/getting_started'>Make an awesome project</Link></span>
                       </div>
                       <h5>Need advice?</h5>
-                      <p>Visit Campus to read discussions about <Link className='preparing-for-project-link' to='/'>preparing for a project</Link> and more.</p>
+                      <p>Visit Campus to read discussions about <Link className='preparing-for-project-link' to='/campus/questions/what-three-things-do-you-know-now-that-you-wish-you-knew-before-you-launched-your-project'>preparing for a project</Link> and more.</p>
                       <div className='score-tracker'>
                         <div className='project-thumbnail'>
                         </div>
@@ -301,7 +342,7 @@ class EditProject extends React.Component {
         <div className='edit-page-footer'>
           <div className='edit-page-footer-changes'>
             <span>Discard changes</span>
-            <button>Save</button>
+            <button onClick={(e) => this.submitChanges(e)}>Save</button>
           </div>
         </div>
       </div>

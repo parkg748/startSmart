@@ -2,10 +2,6 @@ class Api::ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-    @project.title = 'hello'
-    @project.city = 'san francisc'
-    @project.state = 'ca'
-    @project.category_id = 7
     if @project.save!
       render 'api/projects/show'
     else

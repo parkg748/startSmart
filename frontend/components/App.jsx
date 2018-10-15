@@ -11,17 +11,25 @@ import FooterContainer from './footer_container';
 import StartProjectPageOneContainer from './start_project_pageone_container';
 import UserProjectContainer from './user_project_container';
 import EditProjectContainer from './edit_project_container';
+import EditRewardProjectContainer from './edit_reward_project_container';
+import EditStoryProjectContainer from './edit_story_project_container';
+import EditAboutYouProjectContainer from './edit_about_you_project_container';
+import EditAccountProjectContainer from './edit_account_project_container';
 
 const App = () => (
   <div>
     <header>
-      <Route path='/' component={HomepageContainer} />
+      <Route exact path='/' component={HomepageContainer} />
       <Route path='/learn' component={StartProjectContainer} />
       <Route path='/login' component={LoginFormContainer} />
       <Route path='/signup' component={SignupFormContainer} />
       <Route path='/start' component={StartProjectPageOneContainer} />
-      <Route path='/users/:userId/projects/:projectId' component={UserProjectContainer} />
-      <Route path='/users/:userId/projects/:projectId/edit' component={EditProjectContainer} />
+      <Route exact path='/users/:userId/projects/:projectId' component={UserProjectContainer} />
+      <Route exact path='/users/:userId/projects/:projectId/basics' component={EditProjectContainer} />
+      <Route exact path='/users/:userId/projects/:projectId/rewards' component={EditRewardProjectContainer} />
+      <Route exact path='/users/:userId/projects/:projectId/story' component={EditStoryProjectContainer} />
+      <Route exact path='/users/:userId/projects/:projectId/about-you' component={EditAboutYouProjectContainer} />
+      <Route exact path='/users/:userId/projects/:projectId/account' component={EditAccountProjectContainer} />
     </header>
     <footer>
       <Route path='/' component={FooterContainer} />
