@@ -8,6 +8,7 @@ class Homepage extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     // this.changeDisplay = this.changeDisplay.bind(this);
     this.clickHandlerSection = this.clickHandlerSection.bind(this);
+    this.clickProfileIcon = this.clickProfileIcon.bind(this);
   }
 
   componentDidMount() {
@@ -17,6 +18,19 @@ class Homepage extends React.Component {
   // changeDisplay() {
   //   this.setState({displayNone: ''});
   // }
+
+  logoutUser(e) {
+    e.preventDefault();
+    this.props.logout().then(() => {this.props.history.push(`/`), this.setState({displayProfileMenu: 'js-modal-close'})});
+  }
+
+  clickProfileIcon() {
+    if (this.state.displayProfileMenu === 'js-modal-close') {
+      this.setState({displayProfileMenu: ''});
+    } else {
+      this.setState({displayProfileMenu: 'js-modal-close'});
+    }
+  }
 
   clickHandlerSection(section) {
     if (section === 'new-noteworthy') {
@@ -49,8 +63,8 @@ class Homepage extends React.Component {
   render() {
     let profile = undefined;
     let navbarWidth = '';
-    if (this.props.user != null) {
-      profile = <div className='profile-circle'><button><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+    if (this.props.user != null && Object.values(this.props.user)[0] != null) {
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -73,6 +87,69 @@ class Homepage extends React.Component {
             {profile}
           </section>
         </nav>
+        <div className={`profile-icon-menu ${this.state.displayProfileMenu}`}>
+          <div className='profile-menu-header'>Grace</div>
+          <div className='profile-menu-body'>
+            <div className='profile-menu-body-left'>
+              <div className='profile-menu-body-left-header'>MY STUFF</div>
+              <ul>
+                <li><Link to='/profile/following/find_creators'>Follow creators</Link></li>
+                <li><Link to='/profile/following/welcome'>Follow Facebook friends</Link></li>
+                <li>Recommended for you</li>
+                <li>Messages</li>
+                <li>Activity</li>
+                <li>Profile</li>
+                <li>Backed projects</li>
+                <li>My projects</li>
+                <li>Saved projects</li>
+              </ul>
+            </div>
+            <div className='profile-menu-body-middle'>
+              <div className='profile-menu-body-left-header'>SETTINGS</div>
+              <ul>
+                <li>Account</li>
+                <li>Edit profile</li>
+                <li>Notifications</li>
+              </ul>
+            </div>
+            <div className='profile-menu-body-right'>
+              <div className='profile-menu-body-left-header'>MY PROJECTS</div>
+              <ul>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className='profile-menu-footer'><button onClick={(e) => this.logoutUser(e)}>Log out</button></div>
+        </div>
         <div className='homepage-body'>
           <div className='homepage-stats'>
             <div className='homepage-stats-content'>

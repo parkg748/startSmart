@@ -40,14 +40,14 @@ class Recommendations extends React.Component {
                           return <option key={obj.id} value={obj.name}>{obj.name}</option>
                         }})}
                       </select>
-                      <i class="all-categories-caret fas fa-caret-down"></i>
+                      <i className="all-categories-caret fas fa-caret-down"></i>
                     </div>
                     <span className='on-recommendations'>on</span>
                     <div className='recommendations-third-box'>
                       <select className='select-your-third-category' defaultValue='earth'>
                         <option value='earth' disabled>Earth</option>
                       </select>
-                      <i class="earth-caret fas fa-caret-down"></i>
+                      <i className="earth-caret fas fa-caret-down"></i>
                     </div>
                     <span className='that-are'>that are</span>
                     <div className='recommendations-fourth-box'>
@@ -76,7 +76,7 @@ class Recommendations extends React.Component {
                         <option value='most-funded'>Most Funded</option>
                         <option value='most-backed'>Most Backed</option>
                       </select>
-                      <i class="magic-caret fas fa-caret-down"></i>
+                      <i className="magic-caret fas fa-caret-down"></i>
                     </div>
                   </div>
                   <div className='filter-section'>
@@ -118,9 +118,9 @@ class Recommendations extends React.Component {
                               </div>
                               <div className='recommendations-body-seven-description'>The essential nonstick pan, redefined. No gimmicks. No BS marketing claims. Just premium, long-lasting performance at an honest price.</div>
                               <div className='recommendations-body-seven-category'>
-                                <a><i class="fab fa-stripe-s"></i>Project We Love</a>
-                                <a><i class="far fa-square"></i>Brooklyn, NY</a>
-                                <a className='product-design-category'><i class="far fa-square"></i>Product Design</a>
+                                <a><i className="fab fa-stripe-s"></i>Project We Love</a>
+                                <a><i className="far fa-square"></i>Brooklyn, NY</a>
+                                <a className='product-design-category'><i className="far fa-square"></i>Product Design</a>
                               </div>
                             </div>
                           </div>

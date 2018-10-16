@@ -42,7 +42,8 @@ class EditProject extends React.Component {
   }
 
   render() {
-    if (Object.values(this.props.project).length === 0) return null;
+    debugger;
+    if (Object.values(this.props.project).length === 0 || Object.values(this.props.category).length === 0) return null;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -51,7 +52,6 @@ class EditProject extends React.Component {
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
-    debugger;
     return (
       <div>
         <nav>
@@ -76,14 +76,14 @@ class EditProject extends React.Component {
             <div className='edit-page-navbar'>
               <div className='edit-page-navbar-inner'>
                 <ul>
-                  <li className='exit-editor'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}`}><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
+                  <li className='exit-editor'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`}><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
                   <li className='edit-options'>
                     <ul>
-                      <li className='edit-option-basics current-page-button-highlight'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/basics`}><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
-                      <li className='edit-option-rewards'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/rewards`}><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
-                      <li className='edit-option-story'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/story`}><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
-                      <li className='edit-option-about-you'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/about-you`}><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
-                      <li className='edit-option-account'><Link to={`/users/${this.props.user_id}/projects/${this.props.project_id}/account`}><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
+                      <li className='edit-option-basics current-page-button-highlight'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/basics`}><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
+                      <li className='edit-option-rewards'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/rewards`}><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
+                      <li className='edit-option-story'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/story`}><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
+                      <li className='edit-option-about-you'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/about-you`}><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
+                      <li className='edit-option-account'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/account`}><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
                       <li className='preview'><Link to='/'>Preview</Link></li>
                     </ul>
                   </li>
@@ -193,117 +193,115 @@ class EditProject extends React.Component {
                             </div>
                           </div>
                         </div>
-                        <form>
-                          <div className='funding-duration'>
-                            <div className='funding-duration-content'>
-                              <div className='project-image-inner-title'>Funding duration</div>
-                              <div className='funding-duration-content-inner'>
-                                <div className='funding-duration-content-form'>
-                                  <div className='funding-duration-content-form-inner'>
-                                    <div className='number-of-days'>
-                                      <input type='radio' checked />
-                                      <span>Number of days</span>
+                        <div className='funding-duration'>
+                          <div className='funding-duration-content'>
+                            <div className='project-image-inner-title'>Funding duration</div>
+                            <div className='funding-duration-content-inner'>
+                              <div className='funding-duration-content-form'>
+                                <div className='funding-duration-content-form-inner'>
+                                  <div className='number-of-days'>
+                                    <input type='radio' checked />
+                                    <span>Number of days</span>
+                                  </div>
+                                  <div className='number-of-days-input'>
+                                    <div className='number-of-days-input-inner'>
+                                      <input onChange={this.update('duration')} type='text' defaultValue='30'/>
+                                      <div className='number-of-days-input-inner-inner'>Up to 60 days, but we recommend 30 or fewer</div>
                                     </div>
-                                    <div className='number-of-days-input'>
-                                      <div className='number-of-days-input-inner'>
-                                        <input onChange={this.update('duration')} type='text' defaultValue='30'/>
-                                        <div className='number-of-days-input-inner-inner'>Up to 60 days, but we recommend 30 or fewer</div>
+                                  </div>
+                                </div>
+                                <div className='end-on-date'>
+                                  <div className='end-on-date-inner'>
+                                    <input onChange={this.update('end-of-date')} type='radio' />
+                                    <span>End on date & time</span>
+                                  </div>
+                                  <div className='calendar location-none-display'>
+                                    <table>
+                                      <thead className='month'>
+                                        <tr>
+                                          <th>
+                                            <i className="fas fa-angle-left"></i>
+                                            <i className="fas fa-angle-right"></i>
+                                            <span>November</span>
+                                            <span>2018</span>
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      <thead className='days-of-week'>
+                                        <tr>
+                                          <th>S</th>
+                                          <th>M</th>
+                                          <th>T</th>
+                                          <th>W</th>
+                                          <th>T</th>
+                                          <th>F</th>
+                                          <th>S</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                        </tr>
+                                        <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                        </tr>
+                                        <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                        </tr>
+                                        <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                        </tr>
+                                        <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    <div className='time'>
+                                      <div className='time-content'>
+                                        Time:
+                                        <input type='time-text'/>
+                                        PDT
                                       </div>
                                     </div>
                                   </div>
-                                  <div className='end-on-date'>
-                                    <div className='end-on-date-inner'>
-                                      <input onChange={this.update('end-of-date')} type='radio' />
-                                      <span>End on date & time</span>
-                                    </div>
-                                    <div className='calendar location-none-display'>
-                                      <table>
-                                        <thead className='month'>
-                                          <tr>
-                                            <th>
-                                              <i className="fas fa-angle-left"></i>
-                                              <i className="fas fa-angle-right"></i>
-                                              <span>November</span>
-                                              <span>2018</span>
-                                            </th>
-                                          </tr>
-                                        </thead>
-                                        <thead className='days-of-week'>
-                                          <tr>
-                                            <th>S</th>
-                                            <th>M</th>
-                                            <th>T</th>
-                                            <th>W</th>
-                                            <th>T</th>
-                                            <th>F</th>
-                                            <th>S</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                          </tr>
-                                          <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                          </tr>
-                                          <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                          </tr>
-                                          <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                          </tr>
-                                          <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                      <div className='time'>
-                                        <div className='time-content'>
-                                          Time:
-                                          <input type='time-text'/>
-                                          PDT
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div className='funding-duration-disclaimer'>
-                                    <p>Projects with shorter durations have higher success rates. You won’t be able to adjust your duration after you launch.</p>
-                                  </div>
+                                </div>
+                                <div className='funding-duration-disclaimer'>
+                                  <p>Projects with shorter durations have higher success rates. You won’t be able to adjust your duration after you launch.</p>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </form>
+                        </div>
                         <div className='funding-goal'>
                           <div className='funding-goal-content'>
                             <div className='project-image-inner-title'>Funding goal</div>
@@ -344,7 +342,7 @@ class EditProject extends React.Component {
                         <div className='project-card-content'>
                           <span>{this.state.title}</span>
                           <p>{this.props.user.name}</p>
-                          <p>{this.state.description}</p>
+                          <p>{Object.values(this.props.project)[0].description}</p>
                         </div>
                         <div className='project-card-footer'>
                           <div className='project-card-footer-icon'>

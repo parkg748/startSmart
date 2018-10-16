@@ -15,6 +15,8 @@ import EditRewardProjectContainer from './edit_reward_project_container';
 import EditStoryProjectContainer from './edit_story_project_container';
 import EditAboutYouProjectContainer from './edit_about_you_project_container';
 import EditAccountProjectContainer from './edit_account_project_container';
+import FollowingContainer from './following_container';
+import FollowingFacebookContainer from './following_facebook_container';
 
 const App = () => (
   <div>
@@ -31,6 +33,8 @@ const App = () => (
       <Route exact path='/users/:userId/projects/:projectId/story' component={EditStoryProjectContainer} />
       <Route exact path='/users/:userId/projects/:projectId/about-you' component={EditAboutYouProjectContainer} />
       <Route exact path='/users/:userId/projects/:projectId/account' component={EditAccountProjectContainer} />
+      <Route exact path='/profile/following/find_creators' component={FollowingContainer} />
+      <Route exact path='/profile/following/welcome' component={FollowingFacebookContainer} />
     </header>
     <footer>
       <Route path='/' component={FooterContainer} />

@@ -7,10 +7,15 @@ import {fetchCategories} from '../actions/category_actions';
 const mapStateToProps = state => {
   return {
     user: state.entities.users[state.session.id],
-    class: {titleWordCount: 60, shortBlurbWordCount: (135 - Object.values(state.entities.project)[0].description.length), radioChecked: 'checked', category: '', subcategory: ''},
-    user_id: Object.values(state.entities.users)[0].id,
-    project: state.entities.project
-    // project_id: Object.values(state.entities.project)[0].id
+    class: {
+      titleWordCount: 60,
+      shortBlurbWordCount: Object.values(state.entities.project).length > 0 ? (135 - Object.values(state.entities.project)[0].description.length) : 135,
+      radioChecked: 'checked',
+      category: '',
+      subcategory: ''
+    },
+    project: state.entities.project,
+    category: state.entities.category
   };
 };
 
