@@ -95,10 +95,10 @@ class Homepage extends React.Component {
               <ul>
                 <li><Link to='/profile/following/find_creators'>Follow creators</Link></li>
                 <li><Link to='/profile/following/welcome'>Follow Facebook friends</Link></li>
-                <li>Recommended for you</li>
-                <li>Messages</li>
-                <li>Activity</li>
-                <li>Profile</li>
+                <li><Link to='/recommendations'>Recommended for you</Link></li>
+                <li><Link to='/messages/inbox'>Messages</Link></li>
+                <li><Link to='/activity'>Activity</Link></li>
+                <li><Link to='/profile'>Profile</Link></li>
                 <li>Backed projects</li>
                 <li>My projects</li>
                 <li>Saved projects</li>

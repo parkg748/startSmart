@@ -6642,14 +6642,14 @@ strong {
 }
 
 .facebook-friends-left-four {
-  height: 103px;
+  height: 57px;
   margin-top: 24px;
   display: flex;
   justify-content: center;
 }
 
 .facebook-friends-left-four button {
-    width: 193px;
+    width: 194px;
     height: 17px;
     padding: 18px 30px 18px 30px;
     border: 2px solid #3b5998;
@@ -6663,17 +6663,323 @@ strong {
     float: left;
 }
 
-.facebook-friends-left-four h5 {
+.facebook-friends-left-one h5 {
+  margin-top: 15px;
   width: 648px;
   height: 40px;
-  padding-top: 6px;
   margin-bottom: 10px;
   text-align: center;
-  font-size: 9px;
-  line-height: 14px;
+  font-size: 12px;
+  line-height: 19px;
   color: #282828;
   font-weight: 100;
-  float: left;
+}
+
+.facebook-friends-facebook-button {
+  width: 648px;
+  height: 57px;
   display: flex;
+  justify-content: center;
+}
+
+.facebook-friends-right {
+  float: left;
+  height: 393px;
+}
+
+.facebook-friends-right-one {
+  width: 463px;
+  height: 322px;
+  padding: 24px 18px 24px 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.facebook-friends-right-two {
+  height: 298px;
+  padding: 27px 0 12px 47px;
+}
+
+.facebook-friends-right-two h2 {
+  height: 40px;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.facebook-friends-right-two p {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 100;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.facebook-friends-right-three {
+  padding-top: 19px;
+}
+
+.facebook-friends-right-three h5 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 100;
+}
+
+.messages-inbox {
+  height: 708px;
+  border-top: 1px solid black;
+  background-color: #FBFBFA;
+}
+
+.messages-inbox-one {
+  width: 1200px;
+  height: 570px;
+  padding: 60px 0 78px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.messages-inbox-two {
+  width: 1080px;
+  height: 98px;
+  padding: 0 60px 0 60px;
+  margin-bottom: 36px;
+}
+
+.messages-inbox-header {
+  width: 1118px;
+  height: 54px;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+.messages-inbox-header-one {
+  height: 54px;
+  padding: 0 18px 0 18px;
+}
+
+.messages-inbox-header-one h2 {
+  height: 42px;
+  margin-bottom: 12px;
+  font-size: 38px;
+}
+
+.messages-inbox-header-content {
+  width: 1118px;
+  height: 44px;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+.messages-inbox-three {
+  width: 1080px;
+  height: 44px;
+  padding: 0 18px 0 18px;
+}
+
+.messages-inbox-three {
+  height: 24px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 100;
+  color: #656969;
+}
+
+.messages-inbox-four {
+  width: 1200px;
+  height: 436px;
+}
+
+.messages-inbox-five {
+  height: 42px;
+  padding: 0 60px 0 60px;
+}
+
+.messages-inbox-six {
+  height: 42px;
+  margin: 0 -18px 30px -18px;
+}
+
+.messages-inbox-seven {
+  height: 42px;
+  padding: 0 18px 0 18px;
+}
+
+.messages-search-messages {
+  float: left;
+  width: 300px;
+  height: 42px;
+  font-size: 14px;
+  border: 1px solid #DCDEDD;
+  color: #282828;
+  font-weight: 100;
+  background-color: white;
+  position: relative;
+}
+
+.messages-search-messages input {
+  width: 204px;
+  height: 30px;
+  padding: 6px 48px 6px 48px;
+}
+
+.messages-search-icon {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  color: #282828;
+}
+
+.messages-dropdpown {
+
+}
+
+.messages-dropdown-one {
+  position: relative;
+}
+
+.messages-dropdown-caret {
+  position: absolute;
+  right: 18px;
+  top: 13px;
+}
+
+.messages-dropdown-select {
+  padding: 6px 18px 6px 18px;
+  height: 30px;
+  width: 190px;
+  height: 42px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: 100;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
+  float: right;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   display: block;
+  padding: 20px;
+  border-radius: 0;
+  background-color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border: none;
+  font-weight: 100;
+  box-shadow: #DCDEDD 0 2px 5px;
+}
+
+.messages-inbox-eight {
+  padding: 0 60px 0 60px;
+  height: 364px;
+  margin-top: 30px;
+}
+
+.messages-inbox-nine {
+  margin-left: -18px;
+  margin-right: -18px;
+  height: 364px;
+}
+
+.messages-inbox-ten {
+  padding: 0 18px 0 18px;
+  height: 364px;
+}
+
+.messages-inbox-eleven {
+  height: 266px;
+  padding: 48px 0 48px 0;
+  border: 1px solid #E8E8E8;
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.17);
+  background-color: white;
+}
+
+.messages-inbox-eleven p {
+  font-size: 16px;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.messages-inbox-eleven img {
+  width: 172px;
+  height: 222px;
+  margin-left: 454px;
+}
+
+.activity-container {
+  height: 275px;
+  background-color: #FBFBFA;
+  border-top: 1px solid black;
+}
+
+.activity-container-one {
+  height: 115px;
+  padding: 42px 0 42px 0;
+}
+
+.activity-container-two {
+  height: 115px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.activity-container-three {
+  height: 115px;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+.activity-container-four {
+  margin-left: 89px;
+  padding: 0 18px 0 18px;
+  height: 45px;
+  font-size: 14px;
+}
+
+.activity-container-four li {
+  margin-right: 24px;
+  float: right;
+  font-weight: bold;
+}
+
+.activity-container-four li:hover {
+  color: #037362;
+}
+
+.activity-container-five {
+  height: 70px;
+  padding: 0 18px 0 18px;
+  margin-left: 89px;
+}
+
+.activity-container-five h1 {
+  height: 50px;
+  margin-bottom: 20px;
+  font-size: 52px;
+}
+
+.activity-container-six {
+  height: 76px;
+}
+
+.activity-container-seven {
+  height: 76px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.activity-container-eight {
+  height: 76px;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+.activity-container-eight p {
+  margin-left: 179px;
+  margin-bottom: 20px;
+  padding: 0 225px 0 18px;
+  font-size: 21px;
+  line-height: 27px;
+  font-weight: 100;
 }
