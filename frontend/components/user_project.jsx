@@ -7,12 +7,12 @@ class UserProject extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
   }
 
   render() {
+    if (Object.values(this.props.category).length === 0 || Object.values(this.props.project).length === 0) return null;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -56,7 +56,7 @@ class UserProject extends React.Component {
                 <div className='edit-project-page-inner-inner-inner-inner'>
                   <div className='edit-project-form-container'>
                     <h3>Project overview</h3>
-                    <Link to={`/users/${Object.values(this.props.user)[0].id}/projects/${Object.values(this.props.project)[0].id}/basics`}>
+                    <Link to={`/users/${this.props.user.id}/projects/${Object.values(this.props.project)[0].id}/basics`}>
                       <div className='basics'>
                         <i className="far fa-check-circle"></i>
                         <div className='basics-content'>
@@ -65,7 +65,7 @@ class UserProject extends React.Component {
                         </div>
                       </div>
                     </Link>
-                    <Link to={`/users/${Object.values(this.props.user)[0].id}/projects/${Object.values(this.props.project)[0].id}/rewards`}>
+                    <Link to={`/users/${this.props.user.id}/projects/${Object.values(this.props.project)[0].id}/rewards`}>
                       <div className='rewards'>
                         <i className="far fa-check-circle"></i>
                         <div className='basics-content'>
@@ -74,7 +74,7 @@ class UserProject extends React.Component {
                         </div>
                       </div>
                     </Link>
-                    <Link to={`/users/${Object.values(this.props.user)[0].id}/projects/${Object.values(this.props.project)[0].id}/story`}>
+                    <Link to={`/users/${this.props.user.id}/projects/${Object.values(this.props.project)[0].id}/story`}>
                       <div className='rewards'>
                         <i className="far fa-check-circle"></i>
                         <div className='basics-content'>
@@ -83,7 +83,7 @@ class UserProject extends React.Component {
                         </div>
                       </div>
                     </Link>
-                    <Link to={`/users/${Object.values(this.props.user)[0].id}/projects/${Object.values(this.props.project)[0].id}/about-you`}>
+                    <Link to={`/users/${this.props.user.id}/projects/${Object.values(this.props.project)[0].id}/about-you`}>
                       <div className='rewards'>
                         <i className="far fa-check-circle"></i>
                         <div className='basics-content'>
@@ -92,7 +92,7 @@ class UserProject extends React.Component {
                         </div>
                       </div>
                     </Link>
-                    <Link to={`/users/${Object.values(this.props.user)[0].id}/projects/${Object.values(this.props.project)[0].id}/account`}>
+                    <Link to={`/users/${this.props.user.id}/projects/${Object.values(this.props.project)[0].id}/account`}>
                       <div className='account'>
                         <i className="far fa-check-circle"></i>
                         <div className='account-content'>

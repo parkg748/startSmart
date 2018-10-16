@@ -2178,8 +2178,7 @@ nav {
   -moz-appearance: none;
   box-sizing: border-box;
   display: block;
-  width: 431px;
-  height: 18px;
+  width: 450px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 7px;
@@ -2188,7 +2187,20 @@ nav {
   background-color: white;
   float: left;
   border-radius: 0;
-  font-size: 19px;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.category-dropdown-container-arrow {
+  position: absolute;
+  top: 12px;
+  left: 427px;
+}
+
+.category-dropdown-two-container-arrow {
+  position: absolute;
+  top: 54px;
+  left: 427px;
 }
 
 .category-dropdown-two {
@@ -2196,8 +2208,7 @@ nav {
   -moz-appearance: none;
   box-sizing: border-box;
   display: block;
-  width: 431px;
-  height: 18px;
+  width: 450px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 7px;
@@ -2206,7 +2217,8 @@ nav {
   background-color: white;
   float: left;
   border-radius: 0;
-  font-size: 19px;
+  font-weight: 100;
+  font-size: 14px;
   margin-top: 3px;
 }
 

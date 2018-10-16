@@ -1,14 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import merge from 'lodash/merge';
 
 class EditProject extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = this.props.project;
+    this.state = this.props.class;
+    this.addCollaborators = this.addCollaborators.bind(this);
   }
 
   componentDidMount() {
+    this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
+  }
+
+  addCollaborators() {
+    alert('Leave site?\nChanges you made may not be saved.');
   }
 
   submitChanges(e) {
@@ -27,10 +34,15 @@ class EditProject extends React.Component {
       this.setState({radioChecked: ''});
     } else if (field === 'funding_goal') {
       this.setState({[field]: e.target.value, radioChecked: 'checked'});
+    } else if (field === 'category') {
+      this.setState({[field]: e.target.value});
+    } else if (field === 'subcategory') {
+      this.setState({[field]: e.target.value});
     }};
   }
 
   render() {
+    if (Object.values(this.props.project).length === 0) return null;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -39,6 +51,7 @@ class EditProject extends React.Component {
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
+    debugger;
     return (
       <div>
         <nav>
@@ -127,7 +140,7 @@ class EditProject extends React.Component {
                             <div className='project-image-inner-title'>Short blurb</div>
                             <div className='short-blurb-content-inner'>
                               <div className='short-blurb-input'>
-                                <textarea onChange={this.update('description')} defaultValue={this.state.description}></textarea>
+                                <textarea onChange={this.update('description')} defaultValue={Object.values(this.props.project)[0].description}></textarea>
                                 <span>{this.state.shortBlurbWordCount}/135</span>
                               </div>
                               <div className='short-blurb-description'>
@@ -141,13 +154,28 @@ class EditProject extends React.Component {
                             <div className='project-image-inner-title'>Category</div>
                             <div className='category-content-inner'>
                               <div className='category-dropdown-container'>
-                                <select className='category-dropdown' defaultValue='testing'>
-                                  <option defaultValue='testing'>Testing</option>
+                                <i class="category-dropdown-container-arrow fas fa-angle-down"></i>
+                                <select className='category-dropdown' onChange={this.update('category')} defaultValue='testing'>
+                                  {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
+                                    if (obj.id === getState().entities.project.categoryId) {
+                                      return <option key={obj.id} value={obj.name} selected>Film & Video</option>
+                                    } else {
+                                      return <option key={obj.id} value={obj.name}>Film & Video</option>
+                                    }
+                                  } else {
+                                    if (obj.id === getState().entities.project.categoryId) {
+                                      return <option key={obj.id} value={obj.name}>{obj.name}</option>
+                                    } else {
+                                      return <option key={obj.id} value={obj.name}>{obj.name}</option>
+                                    }
+                                  }})}
+                                </select>
+                                <i class="category-dropdown-two-container-arrow fas fa-angle-down"></i>
+                                <select onChange={this.update('subcategory')} className='category-dropdown-two' defaultValue='your-category'>
+                                  <option value='your-category'>Subcategory (optional)</option>
+                                  {getState().entities.category[Object.values(getState().entities.project)[0].categoryId].subcategories.map(subcategory => <option key={subcategory.id} value={subcategory}>{subcategory}</option>)}
                                 </select>
                               </div>
-                              <select className='category-dropdown-two' defaultValue='testing'>
-                                <option defaultValue='testing'>Testing</option>
-                              </select>
                             </div>
                           </div>
                         </div>
@@ -294,7 +322,7 @@ class EditProject extends React.Component {
                             <div className='project-image-inner-title'>Project collaborators</div>
                             <div className='project-collaborators-inner'>
                               <p>Grant your teammates access to help with your project.</p>
-                              <button>Add collaborators</button>
+                              <button onClick={() => this.addCollaborators()}>Add collaborators</button>
                             </div>
                           </div>
                         </div>
