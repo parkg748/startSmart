@@ -98,7 +98,7 @@ class Homepage extends React.Component {
                 <li><Link to='/recommendations'>Recommended for you</Link></li>
                 <li><Link to='/messages/inbox'>Messages</Link></li>
                 <li><Link to='/activity'>Activity</Link></li>
-                <li><Link to='/profile'>Profile</Link></li>
+                <li><Link to={`/profile/${Object.values(this.props.user)[0].id}`}>Profile</Link></li>
                 <li>Backed projects</li>
                 <li>My projects</li>
                 <li>Saved projects</li>

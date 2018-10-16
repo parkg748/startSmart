@@ -19,6 +19,7 @@ import FollowingContainer from './following_container';
 import FollowingFacebookContainer from './following_facebook_container';
 import MessagesContainer from './messages_container';
 import ActivityContainer from './activity_container';
+import ProfileContainer from './profile_container';
 
 const App = () => (
   <div>
@@ -39,6 +40,7 @@ const App = () => (
       <Route exact path='/profile/following/welcome' component={FollowingFacebookContainer} />
       <Route exact path='/messages/inbox' component={MessagesContainer} />
       <Route exact path='/activity' component={ActivityContainer} />
+      <Route exact path='/profile/:userId' component={ProfileContainer} />
     </header>
     <footer>
       <Route path='/' component={FooterContainer} />
