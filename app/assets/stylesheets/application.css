@@ -4038,14 +4038,13 @@ strong {
 }
 
 .homepage-body {
-  width: 977px;
+  width: 100%;
   height: 3640px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .homepage-stats {
-  width: 977px;
   height: 90px;
   margin-bottom: 60px;
   border-top: 1px solid black;
@@ -4053,23 +4052,21 @@ strong {
 }
 
 .homepage-stats-content {
-  width: 857px;
   height: 90px;
   padding-left: 60px;
   padding-right: 60px;
+  margin-left: 37px;
+  margin-right: 37px;
 }
 
 .homepage-stats-content-inner {
-  width: 857px;
   height: 90px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .bringing-creative-projects {
-  width: 231px;
+  width: 328px;
   height: 42px;
   padding: 24px 12px 24px 0;
   display: block;
@@ -4089,7 +4086,7 @@ strong {
 }
 
 .total-backers {
-  width: 125px;
+  width: 222px;
   height: 42px;
   padding: 24px 36px 24px 36px;
   border-right: 2px solid #DCDEDD;
@@ -4097,7 +4094,7 @@ strong {
 }
 
 .funded-projects {
-  width: 145px;
+  width: 242px;
   height: 42px;
   padding: 24px 36px 24px 36px;
   border-right: 2px solid #DCDEDD;
@@ -4112,34 +4109,30 @@ strong {
 }
 
 .homepage-content {
-  width: 977px;
   height: 750px;
 }
 
 .homepage-categories {
-  width: 857px;
   height: 105px;
   padding-left: 60px;
   padding-right: 60px;
+  margin-left: 37px;
+  margin-right: 37px;
 }
 
 .homepage-categories-inner {
-  width: 881px;
   height: 67px;
-  margin-left: -12px;
-  margin-right: -12px;
+  margin-left: -18px;
+  margin-right: -18px;
 }
 
 .homepage-categories-inner-inner {
-  width: 857px;
   height: 67px;
-  padding: 0 12px 0 12px;
+  padding: 0 18px 0 18px;
 }
 
 .homepage-categories-navbar {
-  width: 857px;
   height: 31px;
-  margin-bottom: 36px;
   border-bottom: 1px solid #DCDEDD;
 }
 
@@ -4205,31 +4198,29 @@ strong {
 }
 
 .category-contents {
-  width: 857px;
-  height: 560px;
+  height: 655px;
   padding: 0 60px 0 60px;
-  margin-top: 24px;
+  margin: 24px 37px 0 37px;
 }
 
 .category-contents-inner {
-  width: 881px;
-  height: 560px;
-  margin-left: -12px;
-  margin-right: -12px;
+  height: 655px;
+  margin-left: -18px;
+  margin-right: -18px;
 }
 
 .category-contents-left {
   float: left;
-  width: 416px;
-  height: 560px;
-  padding: 0 12px 0 12px;
+  width: 605px;
+  height: 655px;
+  padding: 0 18px 0 18px;
 }
 
 .category-contents-left-title {
   width: 416px;
   height: 18px;
   margin-bottom: 12px;
-  font-size: 12px;
+  font-size: 12px !important;
   font-weight: 100;
 }
 
@@ -4240,7 +4231,7 @@ strong {
 }
 
 .category-contents-left-body img {
-  width: 416px;
+  width: 605px;
   height: 416px;
   margin-bottom: 6px;
   background-color: black;
@@ -4308,15 +4299,15 @@ strong {
 }
 
 .category-contents-right {
-  width: 416px;
-  height: 560px;
-  padding-left: 12px;
-  padding-right: 12px;
+  width: 605px;
+  height: 504px;
+  padding-left: 18px;
+  padding-right: 18px;
   float: left;
 }
 
 .category-contents-right-title {
-  width: 416px;
+  width: 605px;
   height: 34px;
   border-bottom: 1px solid #DCDEDD;
 }
@@ -4342,7 +4333,7 @@ strong {
 }
 
 .category-contents-right-body li {
-  width: 416px;
+  width: 605px;
   height: 72px;
   padding: 18px 0 18px 0;
   border-bottom: 1px solid #DCDEDD;
@@ -4380,7 +4371,7 @@ strong {
 .category-contents-right-heart {
   position: absolute;
   top: 43px;
-  left: 390px;
+  left: 586px;
   color: #DCDEDD;
   font-size: 18px;
 }
@@ -4398,7 +4389,6 @@ strong {
 
 .projects-we-love {
   padding: 60px 0 60px 0;
-  width: 977px;
   height: 805px;
   margin-left: auto;
   margin-right: auto;
@@ -4410,6 +4400,8 @@ strong {
   width: 857px;
   height: 804px;
   padding: 0 60px 0 60px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projects-we-love-title {
@@ -4483,7 +4475,6 @@ strong {
 }
 
 .people-quotes {
-  width: 977px;
   height: 325px;
   margin-left: auto;
   margin-right: auto;
@@ -4494,6 +4485,8 @@ strong {
   width: 977px;
   height: 204px;
   padding: 60px 0 60px 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .people-quotes-content-inner {
@@ -4545,7 +4538,6 @@ strong {
 }
 
 .homepage-ad {
-  width: 977px;
   height: 222px;
   padding: 48px 0 48px 0;
   border-bottom: 1px solid black;
@@ -4555,6 +4547,8 @@ strong {
   width: 857px;
   height: 222px;
   padding: 0 60px 0 60px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .homepage-ad-content-left {
@@ -4633,7 +4627,6 @@ strong {
 }
 
 .what-were-reading {
-  width: 977px;
   height: 747px;
   padding: 60px 0 60px 0;
   border-bottom: 1px solid black;
@@ -4645,6 +4638,8 @@ strong {
   width: 857px;
   height: 747px;
   padding: 0 60px 0 60px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .what-were-reading-content-inner {
