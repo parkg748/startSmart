@@ -70,6 +70,72 @@ class Account extends React.Component {
                 </form>
               </div>
               <div className='account-container-body-three'>
+                <div className='account-container-body-four'>
+                  <ul>
+                    <li>
+                      <span><strong>Privacy</strong></span>
+                      <ul>
+                        <li className='no-padding policy-link'>Opt out of Following</li>
+                        <li className='no-padding policy-link'>Turn off recommendations</li>
+                        <li className='no-padding policy-link'>Request my personal data</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <span><strong>Facebook</strong></span>
+                      <button><i className="fab fa-facebook"></i> Log in with Facebook</button>
+                    </li>
+                    <li>
+                      <span><strong>Security</strong></span>
+                      <ul>
+                        <li className='add-line-height policy-link'>Verify your email to enable two-factor authentication</li>
+                        <li className='no-padding policy-link'>Log me out on all other devices</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <span><strong>Delete Account</strong></span>
+                      <ul>
+                        <li className='no-padding policy-link'>Delete my StartSmart account</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className='account-container-login-history'>
+              <div className='account-container-login-history-one'>
+                <h3>Login History</h3>
+                <p>This feature provides information about your account usage and other related changes. If you see any suspicious activity, change your password immediately.</p>
+                <div className='login-history-header'>
+                  <div className='login-history-activity'>
+                    <h5>Activity</h5>
+                  </div>
+                  <div className='login-history-time'>
+                    <h5>Time</h5>
+                  </div>
+                  <div className='login-history-location'>
+                    <h5>Location</h5>
+                  </div>
+                  <div className='login-history-ip-address'>
+                    <h5>IP Address</h5>
+                  </div>
+                </div>
+                <div className='login-history-header-info'>
+                  <ul>
+                    <li>
+                      <div className='login-history-header-info-one'>
+                        <div className='login-history-header-info-two'>
+                          <div className='login-history-header-login-successful'>Login successful</div>
+                          <div className='login-history-header-time-info'>Tue, October 16 2018 9:49 AM PDT</div>
+                          <div className='login-history-header-location-info'>San Francisco, 94133, US</div>
+                          <div className='login-history-header-ipaddress-info'>12.23.56.98</div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div className='login-history-load-more'>
+                    <button>Load more</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

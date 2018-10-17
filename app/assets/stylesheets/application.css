@@ -7166,7 +7166,7 @@ strong {
 }
 
 .account-container {
-  height: 993px;
+  height: 1083px;
   border-top: 1px solid black;
 }
 
@@ -7225,6 +7225,7 @@ strong {
   height: 408px;
   margin-left: -18px;
   margin-right: -18px;
+  border-bottom: 1px solid #DCDEDD;
 }
 
 .account-container-body-two {
@@ -7573,6 +7574,193 @@ strong {
 .account-container-body-four {
   height: 366px;
   margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 100;
 }
 
-.account-container-body-four li
+.account-container-body-four li {
+  padding: 12px 0;
+}
+
+.add-line-height {
+  line-height: 21px;
+  padding: 0 0 1px 0 !important;
+}
+
+.account-container-body-four button {
+  width: 278px;
+  height: 14px;
+  padding: 10px 20px 14px 20px;
+  border: 2px solid #3b5998;
+  color: white;
+  font-size: 14px;
+  background-color: #3b5998;
+  display: flex;
+  justify-content: center;
+}
+
+.account-container-body-four span {
+  margin-bottom: 5px !important;
+  display: block;
+}
+
+.no-padding {
+  padding: 0 0 5px 0 !important;
+}
+
+.account-container-login-history {
+  height: 355px;
+  margin-bottom: 60px;
+}
+
+.account-container-login-history-one {
+  height: 270px;
+  padding: 42px 0 42px 0;
+}
+
+.account-container-login-history-one h3 {
+  font-size: 24px;
+  height: 30px;
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+
+.account-container-login-history-one p {
+  height: 48px;
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+
+.login-history-header {
+  height: 30px;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+.login-history-activity {
+  height: 30px;
+  padding: 0 18px 0 18px;
+  width: 412px;
+  float: left;
+}
+
+.login-history-activity h5 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  height: 20px;
+  margin-top: 0;
+}
+
+.login-history-time {
+  height: 30px;
+  padding: 0 18px 0 18px;
+  width: 233px;
+  float: left;
+}
+
+.login-history-time h5 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  height: 20px;
+  margin-top: 0;
+}
+
+.login-history-location {
+  height: 30px;
+  padding: 0 18px 0 18px;
+  width: 143px;
+  float: left;
+}
+
+.login-history-location h5 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  height: 20px;
+  margin-top: 0;
+}
+
+.login-history-ip-address {
+  height: 30px;
+  padding: 0 18px 0 18px;
+  width: 143px;
+  float: left;
+}
+
+.login-history-ip-address h5 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  height: 20px;
+  margin-top: 0;
+  float: right;
+}
+
+.login-history-header-info {
+  height: 122px;
+}
+
+.login-history-header-info ul {
+  height: 65px;
+  border-top: 1px solid #DCDEDD;
+}
+
+.login-history-header-info-one {
+  height: 40px;
+  padding: 12px 0 12px 0;
+  border-bottom: 1px solid #DCDEDD;
+}
+
+.login-history-header-info-two {
+  height: 40px;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+.login-history-header-login-successful {
+  width: 421px;
+  float: left;
+  padding: 0 18px 0 18px;
+  font-size: 14px;
+}
+
+.login-history-header-time-info {
+  width: 233px;
+  float: left;
+  padding: 0 18px 0 10px;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.login-history-header-location-info {
+  width: 143px;
+  float: left;
+  padding: 0 18px 0 18px;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.login-history-header-ipaddress-info {
+  width: 143px;
+  float: right;
+  padding: 0 18px 0 18px;
+  font-size: 14px;
+  font-weight: 100;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-history-load-more {
+  height: 38px;
+  padding-top: 18px;
+}
+
+.login-history-load-more button {
+  width: 67px;
+  height: 14px;
+  padding: 10px 20px 13px 20px;
+  border: 2px solid #3D3D66;
+  background-color: #3D3D66;
+  font-size: 14px;
+  color: white;
+}

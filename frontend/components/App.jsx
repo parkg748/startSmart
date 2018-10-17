@@ -24,6 +24,7 @@ import BackedProjectsContainer from './backed_project_container';
 import CreatedProjectsContainer from './created_project_container';
 import SavedProjectsContainer from './saved_project_container';
 import AccountContainer from './account_container';
+import EditProfileContainer from './edit_profile_container';
 
 const App = () => (
   <div>
@@ -48,6 +49,7 @@ const App = () => (
         <Route exact path='/profile/projects' component={CreatedProjectsContainer} />
         <Route exact path='/profile/starred' component={SavedProjectsContainer} />
         <Route exact path='/settings/account' component={AccountContainer} />
+        <Route exact path='/settings/profile' component={EditProfileContainer} />
         <Route exact path= '/profile/:userId' component={ProfileContainer} />
         <Route exact path='/' component={HomepageContainer} />
       </Switch>
