@@ -61,7 +61,6 @@ class Homepage extends React.Component {
   }
 
   render() {
-    debugger;
     if (this.props.user.user === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
