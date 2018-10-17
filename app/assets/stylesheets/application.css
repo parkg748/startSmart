@@ -7343,7 +7343,7 @@ strong {
   float: left;
   width: 502px;
   height: 496px;
-  padding: 11px 18px 0 18px;
+  padding: 7px 18px 0 18px;
   margin-bottom: 20px;
 }
 
@@ -7401,6 +7401,24 @@ strong {
   font-size: 14px;
   font-weight: 100;
   background-color: white;
+}
+
+.time-zone-select {
+  position: relative;
+}
+
+.time-zone-select-arrow {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+
+.edit-profile-right-one span {
+  font-size: 14px;
+  margin-bottom: 6px;
+  line-height: 21px;
+  font-weight: 100;
+  display: block;
 }
 
 .account-container-body-two input {

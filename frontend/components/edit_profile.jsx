@@ -90,6 +90,7 @@ class EditProfile extends React.Component {
                     <li>
                       <span><strong>Time zone</strong></span>
                       <div className='time-zone-select'>
+                        <i className="time-zone-select-arrow fas fa-sort-down"></i>
                         <select>
                           <option>(GMT-10:00) America/Adak</option>
                           <option>(GMT-10:00) Hawaii</option>
@@ -139,14 +140,27 @@ class EditProfile extends React.Component {
                           <option>(GMT-04:00) Caracas</option>
                           <option>(GMT-04:00) Georgetown</option>
                           <option>(GMT-04:00) La Paz</option>
-                          <option>(GMT-04:00) Caracas</option>
+                          <option>(GMT-04:00) Santiago</option>
+                          <option>(GMT-03:30) Newfoundland</option>
+                          <option>(GMT-03:00) Brasilia</option>
+                          <option>(GMT-03:00) Buenos Aires</option>
+                          <option>(GMT-03:00) Greenland</option>
+                          <option>(GMT-03:00) Montevideo</option>
+                          <option>(GMT-02:00) Mid-Atlantic</option>
+                          <option>(GMT-01:00) Azores</option>
+                          <option>(GMT-01:00) Cape Verde Is.</option>
+                          <option>(GMT+00:00) Casablanca</option>
+                          <option>(GMT+00:00) Edinburgh</option>
                         </select>
                       </div>
+                      <span>Most time zones are automatically adjusted for you. We&#39;ll use this setting for emails.</span>
                     </li>
                     <li>
-                      <span><strong>Security</strong></span>
+                      <span><strong>Vanity URL</strong></span>
                       <ul>
-                        <li className='add-line-height policy-link'>Verify your email to enable two-factor authentication</li>
+                        <li>
+                          <strong>https:&#47;&#47;startsmart.com</strong>
+                        </li>
                         <li className='no-padding policy-link'>Log me out on all other devices</li>
                       </ul>
                     </li>
