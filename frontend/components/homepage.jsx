@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -61,6 +61,8 @@ class Homepage extends React.Component {
   }
 
   render() {
+    debugger;
+    if (this.props.user.user === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null && Object.values(this.props.user)[0] != null) {
@@ -168,7 +170,7 @@ class Homepage extends React.Component {
                 </div>
                 <div className='live-projects'>
                   <div className='homepage-stats-title'>LIVE PROJECTS</div>
-                  <div className='homepage-stats-statistic'>Testing</div>
+                  <div className='homepage-stats-statistic'>{Object.values(this.props.projects).length}</div>
                 </div>
               </div>
             </div>
@@ -209,12 +211,12 @@ class Homepage extends React.Component {
                     <img />
                     <div className={`remind-me ${this.state.displayNone}`}>Remind Me</div>
                     <div className='category-contents-left-description'>
-                      <div className='category-contents-left-description-title'>
-                        <span className='category-contents-left-title'>Testing</span>
-                        <span className='category-contents-left-author'>TESTING</span>
-                      </div>
-                      <div className='category-contents-project-funded'>33% FUNDED</div>
-                  </div>
+                      <p>
+                        <span>Arita Ware: Original Japanese Dishware</span>
+                        <span className='category-contents-author'>BY HULS INC.</span>
+                      </p>
+                    </div>
+                    <div className='category-contents-funded-info'>55% FUNDED</div>
                   </div>
                 </div>
                 <div className='category-contents-right'>

@@ -4,6 +4,7 @@ import Following from './following';
 const mapStateToProps = state => {
   return {
     user: state.entities.users,
+    class: {displayProfileMenu: 'js-modal-close'}
   };
 };
 

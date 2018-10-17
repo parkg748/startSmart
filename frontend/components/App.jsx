@@ -25,6 +25,7 @@ import CreatedProjectsContainer from './created_project_container';
 import SavedProjectsContainer from './saved_project_container';
 import AccountContainer from './account_container';
 import EditProfileContainer from './edit_profile_container';
+import ExploreContainer from './explore_container';
 
 const App = () => (
   <div>

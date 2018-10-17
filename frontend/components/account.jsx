@@ -4,6 +4,15 @@ import {Link} from 'react-router-dom';
 class Account extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.class;
+  }
+
+  clickProfileIcon() {
+    if (this.state.displayProfileMenu === 'js-modal-close') {
+      this.setState({displayProfileMenu: ''});
+    } else {
+      this.setState({displayProfileMenu: 'js-modal-close'});
+    }
   }
 
   render() {
@@ -28,6 +37,69 @@ class Account extends React.Component {
             {profile}
           </section>
         </nav>
+        <div className={`profile-icon-menu ${this.state.displayProfileMenu}`}>
+          <div className='profile-menu-header'>Grace</div>
+          <div className='profile-menu-body'>
+            <div className='profile-menu-body-left'>
+              <div className='profile-menu-body-left-header'>MY STUFF</div>
+              <ul>
+                <li><Link to='/profile/following/find_creators'>Follow creators</Link></li>
+                <li><Link to='/profile/following/welcome'>Follow Facebook friends</Link></li>
+                <li><Link to='/recommendations'>Recommended for you</Link></li>
+                <li><Link to='/messages/inbox'>Messages</Link></li>
+                <li><Link to='/activity'>Activity</Link></li>
+                <li><Link to={`/profile/${Object.values(this.props.user)[0].id}`}>Profile</Link></li>
+                <li><Link to='/profile/backings'>Backed projects</Link></li>
+                <li><Link to='/profile/projects'>My projects</Link></li>
+                <li><Link to='/profile/starred'>Saved projects</Link></li>
+              </ul>
+            </div>
+            <div className='profile-menu-body-middle'>
+              <div className='profile-menu-body-left-header'>SETTINGS</div>
+              <ul>
+                <li><Link to='/settings/account'>Account</Link></li>
+                <li><Link to='/settings/profile'>Edit profile</Link></li>
+                <li>Notifications</li>
+              </ul>
+            </div>
+            <div className='profile-menu-body-right'>
+              <div className='profile-menu-body-left-header'>MY PROJECTS</div>
+              <ul>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+                <li>
+                  <div className='profile-menu-projects'>
+                    <div className='profile-menu-projects-image'></div>
+                    <span>Untitled</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className='profile-menu-footer'><button onClick={(e) => this.logoutUser(e)}>Log out</button></div>
+        </div>
         <div className='account-container'>
           <div className='account-container-header'>
             <div className='account-container-header-one'>

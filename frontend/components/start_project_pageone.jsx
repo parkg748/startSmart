@@ -83,7 +83,7 @@ class StartProjectPageOne extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      profile = <div className='start-project-profile-circle'><button><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -91,16 +91,11 @@ class StartProjectPageOne extends React.Component {
     if (this.state.pageNo === 1) {
       return (
         <div>
-          <nav>
-            <section className='explore-project'>
-              <Link to='/explore' className='explore'>Explore</Link>
-              <Link to='/learn' className='project'>Start a project</Link>
-            </section>
-            <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-            <section className={`search-signin ${navbarWidth}`}>
-              <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
+          <nav className='start-project-navbar-top'>
+            <div className='start-project-header-top'>
+              <Link to='/'><img className='start-project-logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
               {profile}
-            </section>
+            </div>
           </nav>
           <div className='step-one-main'>
             <div className='line'></div>
@@ -145,16 +140,11 @@ class StartProjectPageOne extends React.Component {
       let randPlaceholder = randomPlaceholders[Math.floor(Math.random() * randomPlaceholders.length)];
       return (
         <div>
-          <nav>
-            <section className='explore-project'>
-              <Link to='/explore' className='explore'>Explore</Link>
-              <Link to='/learn' className='project'>Start a project</Link>
-            </section>
-            <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-            <section className={`search-signin ${navbarWidth}`}>
-              <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
+          <nav className='start-project-navbar-top'>
+            <div className='start-project-header-top'>
+              <Link to='/'><img className='start-project-logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
               {profile}
-            </section>
+            </div>
           </nav>
           <div className='step-one-main'>
             <div className='line'></div>
@@ -193,17 +183,13 @@ class StartProjectPageOne extends React.Component {
       const countries = ['Australia', 'Austria', 'Belgium', 'Canada', 'Denmark', 'France', 'Germany', 'Hong Kong', 'Ireland', 'Italy', 'Japan', 'Luxembourg', 'Mexico', 'New Zealand', 'Norway', 'Singapore', 'Spain', 'Sweden', 'Switzerland', 'the Netherlands', 'the United Kingdom', 'the United States'];
       return (
         <div>
-          <nav>
-            <section className='explore-project'>
-              <Link to='/explore' className='explore'>Explore</Link>
-              <Link to='/learn' className='project'>Start a project</Link>
-            </section>
-            <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-            <section className={`search-signin ${navbarWidth}`}>
-              <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
+          <nav className='start-project-navbar-top'>
+            <div className='start-project-header-top'>
+              <Link to='/'><img className='start-project-logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
               {profile}
-            </section>
+            </div>
           </nav>
+          <div className='line'></div>
           <div className='step-three-top'>
             <div className='page-3'>3 of 3</div>
           </div>

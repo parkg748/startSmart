@@ -41,10 +41,12 @@ ul {
 
 .explore:hover {
   color: #037362;
+  cursor: pointer;
 }
 
 .project:hover {
   color: #037362;
+  cursor: pointer;
 }
 
 .explore {
@@ -66,6 +68,7 @@ ul {
 
 .search:hover {
   color: #037362;
+  cursor: pointer;
 }
 
 .search {
@@ -75,6 +78,7 @@ ul {
 
 .login:hover {
   color: #037362;
+  cursor: pointer;
 }
 
 .login {
@@ -190,6 +194,7 @@ form h2 {
 
 .policy-link:hover {
   color: black;
+  cursor: pointer;
 }
 
 .login-or {
@@ -597,13 +602,13 @@ nav {
 .step-one-header {
   width: 895px;
   height: 270px;
-  padding-top: 113px;
+  padding-top: 51px;
   margin: auto;
 }
 
 .step-one-title {
   display: block;
-  width: 498px;
+  width: 605px;
   height: 270px;
   padding-left: 12px;
   padding-right: 12px;
@@ -613,15 +618,16 @@ nav {
 
 .step-one-title-content {
   display: block;
-  width: 498px;
+  width: 605px;
   height: 186px;
   padding-bottom: 84px;
   border-bottom: 1px solid #f1eeea;
 }
 
 .step-one-title-content h2 {
-  display: block;
-  width: 498px;
+  display: flex;
+  justify-content: center;
+  width: 605px;
   height: 36px;
   margin-bottom: 12px;
   font-size: 28px;
@@ -631,7 +637,7 @@ nav {
 
 .step-one-title-content h3 {
   display: block;
-  width: 450px;
+  width: 605px;
   height: 48px;
   margin-bottom: 36px;
   font-size: 18px;
@@ -658,12 +664,16 @@ nav {
   font-weight: 100;
   box-shadow: #DCDEDD 0 2px 5px;
   color: rgb(155,158,158);
-  width: 498px;
+  width: 605px;
   height: 54px;
 }
 
+.select-your-category option {
+  background-color: white;
+}
+
 .page-info {
-  width: 790px;
+  width: 1295px;
   height: 29px;
   padding-left: 12px;
   padding-right: 12px;
@@ -679,6 +689,7 @@ nav {
 }
 
 .select-your-category:hover {
+  cursor: pointer;
   border: 1px solid black;
   transition: border 0.25s ease-in-out;
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
@@ -694,7 +705,7 @@ nav {
 
 .step-one-next-step-content {
   display: block;
-  width: 498px;
+  width: 605px;
   height: 79px;
   padding-left: 12px;
   padding-right: 12px;
@@ -704,7 +715,7 @@ nav {
 
 .step-one-next-step-inner {
   display: block;
-  width: 498px;
+  width: 605px;
   height: 42px;
   padding-top: 18px;
   padding-bottom: 18px;
@@ -718,8 +729,9 @@ nav {
 
 .select-your-category-arrow {
   position: absolute;
-  left: 470px;
+  right: 17px;
   top: 18px;
+  padding-top: 12px;
 }
 
 .profile-circle img {
@@ -758,11 +770,12 @@ nav {
   position: absolute;
   text-align: left;
   display: block;
-  top: 30px;
+  top: 15px;
   font-weight: 100;
   font-size: 14px;
   width: 98px;
   height: 24px;
+  left: 22px;
 }
 
 .step-one-disclaimer {
@@ -770,10 +783,11 @@ nav {
   height: 150px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 18px;
 }
 
 .step-one-disclaimer-content {
-  width: 432px;
+  width: 605px;
   height: 90px;
   padding-left: 12px;
   padding-right: 12px;
@@ -801,7 +815,7 @@ nav {
 
 .description-box {
   display: block;
-  width: 406px;
+  width: 579px;
   height: 54px;
   border: 1px solid #f1eeea;
   font-size: 13px;
@@ -819,7 +833,7 @@ nav {
 
 .description-num {
   display: block;
-  width: 432px;
+  width: 605px;
   height: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -852,6 +866,7 @@ nav {
 }
 
 .category-arrow {
+  margin-top: 12px;
   width: 82px;
   height: 42px;
   float: left;
@@ -883,7 +898,7 @@ nav {
 
 .step-two-title {
   display: block;
-  width: 432px;
+  width: 605px;
   height: 230px;
   padding-left: 12px;
   padding-right: 12px;
@@ -893,15 +908,15 @@ nav {
 
 .step-two-title-content {
   display: block;
-  width: 432px;
+  width: 605px;
   height: 166px;
-  padding-bottom: 64px;
+  padding-bottom: 69px;
   border-bottom: 1px solid #f1eeea;
 }
 
 .step-two-next-step-content {
   display: block;
-  width: 432px;
+  width: 605px;
   height: 79px;
   padding-left: 12px;
   padding-right: 12px;
@@ -911,9 +926,9 @@ nav {
 
 .step-two-next-step-inner {
   display: block;
-  width: 432px;
+  width: 605px;
   height: 42px;
-  padding-top: 18px;
+  padding-top: 3px;
   padding-bottom: 18px;
   position: relative;
   align-items: center;
@@ -921,7 +936,7 @@ nav {
 
 .step-two-title-content h2 {
   display: block;
-  width: 432px;
+  width: 605px;
   height: 36px;
   margin-bottom: 12px;
   font-size: 28px;
@@ -971,7 +986,7 @@ nav {
 
 .step-two-title-content h3 {
   display: block;
-  width: 432px;
+  width: 605px;
   height: 24px;
   margin-bottom: 42px;
   font-size: 18px;
@@ -985,12 +1000,13 @@ nav {
 .step-two-header {
   width: 895px;
   height: 250px;
-  padding-top: 113px;
+  padding-top: 50px;
   margin: auto;
 }
 
 .description-box:hover {
   border: 1px solid rgb(0, 158, 116);
+  cursor: pointer;
 }
 
 .description-box:focus {
@@ -999,7 +1015,7 @@ nav {
 
 .step-three-top {
   display: flex;
-  width: 758px;
+  width: 90%;
   height: 29px;
   padding-left: 12px;
   padding-right: 12px;
@@ -1023,7 +1039,7 @@ nav {
 }
 
 .step-three-box-inner {
-  width: 432px;
+  width: 605px;
   height: 505px;
   padding-left: 12px;
   padding-right: 12px;
@@ -1032,7 +1048,7 @@ nav {
 }
 
 .step-three-box-inner-inner {
-  width: 432px;
+  width: 605px;
   height: 457px;
   padding-bottom: 48px;
 }
@@ -1074,6 +1090,7 @@ nav {
 }
 
 .select-your-country:hover {
+  cursor: pointer;
   border: 1px solid black;
   transition: border 0.25s ease-in-out;
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
@@ -1120,6 +1137,7 @@ nav {
 
 .fa-question-circle:hover {
   color: #009E74;
+  cursor: pointer;
 }
 
 .verification {
@@ -1136,6 +1154,7 @@ nav {
 }
 
 .age-verification:hover {
+  cursor: pointer;
   border: 1px solid #DCDEDD;
 }
 
@@ -1159,6 +1178,7 @@ nav {
 }
 
 .bank-verification:hover {
+  cursor: pointer;
   border: 1px solid #DCDEDD;
 }
 
@@ -1171,6 +1191,7 @@ nav {
 }
 
 .credit-card-verification:hover {
+  cursor: pointer;
   border: 1px solid #DCDEDD;
 }
 
@@ -1374,6 +1395,7 @@ nav {
 
 .basics:hover {
   background-color: #FBFBFA;
+  cursor: pointer;
 }
 
 .basics i {
@@ -1424,6 +1446,7 @@ nav {
 
 .rewards:hover {
   background-color: #FBFBFA;
+  cursor: pointer;
 }
 
 .rewards i {
@@ -1444,6 +1467,7 @@ nav {
 
 .account:hover {
   background-color: #FBFBFA;
+  cursor: pointer;
 }
 
 .account i {
@@ -1733,29 +1757,36 @@ nav {
 
 .edit-option-basics:hover {
   color: #2752ff;
+  cursor: pointer;
 }
 
 .edit-option-rewards:hover {
+  cursor: pointer;
   color: #2752ff;
 }
 
 .edit-option-story:hover {
+  cursor: pointer;
   color: #2752ff;
 }
 
 .edit-option-about-you:hover {
+  cursor: pointer;
   color: #2752ff;
 }
 
 .funding-goal-disclaimer-three:hover {
+  cursor: pointer;
   color: black;
 }
 
 .edit-option-account:hover {
+  cursor: pointer;
   color: #2752ff;
 }
 
 .preview:hover {
+  cursor: pointer;
   color: #2752ff;
 }
 
@@ -1980,6 +2011,7 @@ nav {
 }
 
 .project-image-upload-inner:hover {
+  cursor: pointer;
   background-color: #F8F9FD;
 }
 
@@ -2016,6 +2048,7 @@ nav {
 }
 
 .some-tips:hover {
+  cursor: pointer;
   color: black;
 }
 
@@ -2587,6 +2620,7 @@ nav {
 }
 
 .how-to-make-project:hover {
+  cursor: pointer;
   color: black !important;
 }
 
@@ -2610,6 +2644,7 @@ nav {
 }
 
 .how-to-make-project-link:hover {
+  cursor: pointer;
   color: black;
 }
 
@@ -2634,6 +2669,7 @@ nav {
 }
 
 .preparing-for-project-link:hover {
+  cursor: pointer;
   color: black;
 }
 
@@ -3104,6 +3140,7 @@ nav {
 }
 
 .add-new-reward:hover {
+  cursor: pointer;
   background-color: #F8F9FD;
   color: #2752ff;
 }
@@ -3209,14 +3246,17 @@ nav {
 }
 
 .creator-faq:hover {
+  cursor: pointer;
   color: black;
 }
 
 .project-video-content-link:hover {
+  cursor: pointer;
   color: black;
 }
 
 .project-video-upload-inner:hover {
+  cursor: pointer;
   background-color: #F8F9FD;
 }
 
@@ -3476,6 +3516,7 @@ iframe {
 }
 
 .play-button:hover {
+  cursor: pointer;
   background-color: #009E74;
 }
 
@@ -3566,6 +3607,7 @@ strong {
 }
 
 .profile-photo-upload:hover {
+  cursor: pointer;
   background-color: #F8F9FD;
 }
 
@@ -4109,7 +4151,7 @@ strong {
 }
 
 .homepage-content {
-  height: 750px;
+  height: 845px;
 }
 
 .homepage-categories {
@@ -4146,6 +4188,7 @@ strong {
 }
 
 .homepage-categories-navbar button:hover {
+  cursor: pointer;
   color: black;
 }
 
@@ -4188,6 +4231,7 @@ strong {
 }
 
 .view-all:hover {
+  cursor: pointer;
   color: #037362;
 }
 
@@ -4225,21 +4269,21 @@ strong {
 }
 
 .category-contents-left-body {
-  width: 416px;
-  height: 528px;
+  width: 605px;
+  height: 640px;
   position: relative;
 }
 
 .category-contents-left-body img {
   width: 605px;
-  height: 416px;
+  height: 605px;
   margin-bottom: 6px;
   background-color: black;
 }
 
 .fa-heart {
   position: absolute;
-  left: 380px;
+  left: 566px;
   top: 22px;
   color: white;
   font-size: 13px;
@@ -4263,25 +4307,53 @@ strong {
 }
 
 .category-contents-left-description {
-  width: 416px;
-  height: 108px;
+  width: 504px;
+  height: 146px;
+  padding: 18px;
+  position: absolute;
+  bottom: 36px;
+}
+
+.category-contents-funded-info {
+  height: auto;
+  padding: 6px 13px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: 100;
+  display: inline-block;
+  position: absolute;
+  bottom: 57px;
+  left: 19px;
 }
 
 .category-contents-left-description:hover {
+  cursor: pointer;
   text-decoration: underline;
   color: #037362;
 }
 
-.category-contents-left-description-title {
-  width: 416px;
-  height: 55px;
+.category-contents-left-description span {
+  height: auto;
+  padding: 6px 13px;
+  background-color: white;
+  font-size: 28px;
+  float: left;
+  font-weight: 100;
+  display: inline;
+  margin-right: auto;
 }
 
-.category-contents-left-title {
+.category-contents-author {
+  height: auto;
+  padding: 6px 13px;
+  background-color: white;
+  font-size: 14px !important;
+  display: block;
   font-weight: 100;
-  font-size: 23px;
-  float: left;
-  margin-bottom: 17px;
+}
+
+.category-contents-left-description p {
+  height: 66px;
 }
 
 .category-contents-left-author {
@@ -4325,6 +4397,7 @@ strong {
 }
 
 .category-contents-right-title button:hover {
+  cursor: pointer;
   color: black;
 }
 
@@ -4615,6 +4688,7 @@ strong {
 }
 
 .homepage-ad-content-left:hover {
+  cursor: pointer;
   color: #037362;
 }
 
@@ -4666,6 +4740,7 @@ strong {
 }
 
 .what-were-reading-body:hover {
+  cursor: pointer;
   color: #037362;
   text-decoration: underline;
 }
@@ -4707,6 +4782,7 @@ strong {
 }
 
 .what-were-reading-arrow:hover {
+  cursor: pointer;
   color: #037362;
   font-size: 9px;
   text-decoration: none;
@@ -5452,6 +5528,7 @@ strong {
 }
 
 .what-to-offer-content:hover {
+  cursor: pointer;
   color: black;
 }
 
@@ -5460,6 +5537,7 @@ strong {
   height: 318px;
   margin-left: auto;
   margin-right: auto;
+  border-top: 1px solid black;
 }
 
 .recommendations-header-content {
@@ -5806,6 +5884,7 @@ strong {
 }
 
 .recommendations-body-header-one a:hover {
+  cursor: pointer;
   color: black;
 }
 
@@ -6341,6 +6420,7 @@ strong {
 }
 
 .profile-menu-body-left li:hover {
+  cursor: pointer;
   color: #037362;
   text-decoration: underline;
 }
@@ -6363,6 +6443,7 @@ strong {
 }
 
 .profile-menu-body-middle li:hover {
+  cursor: pointer;
   color: #037362;
   text-decoration: underline;
 }
@@ -6386,6 +6467,7 @@ strong {
 }
 
 .profile-menu-body-right li:hover {
+  cursor: pointer;
   color: #037362;
   text-decoration: underline;
 }
@@ -6414,6 +6496,7 @@ strong {
 }
 
 .profile-menu-footer button:hover {
+  cursor: pointer;
   color: #037362;
   text-decoration: underline;
 }
@@ -6939,6 +7022,7 @@ strong {
 }
 
 .activity-container-four li:hover {
+  cursor: pointer;
   color: #037362;
 }
 
@@ -7237,6 +7321,33 @@ strong {
   border-bottom: 1px solid #DCDEDD;
 }
 
+.edit-profile-divider {
+  border-top: 1px solid #DCDEDD;
+  height: 20px;
+}
+
+.edit-profile-footer {
+  height: 38px;
+  margin-bottom: 60px;
+}
+
+.save-settings-two input {
+  width: 87px;
+  height: 14px;
+  padding: 10px 20px;
+  border: 2px solid #2752ff;
+  color: white;
+  font-size: 14px;
+  background-color: #2752ff;
+  float: left;
+}
+
+.edit-profile-body-one {
+  height: 638px;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
 .account-container-body-two {
   width: 412px;
   height: 408px;
@@ -7352,6 +7463,48 @@ strong {
   height: 496px;
 }
 
+.edit-profile-add-websites {
+  width: 284px;
+  height: 43px;
+  margin-bottom: 5px;
+}
+
+.edit-profile-add-websites input {
+  width: 186px;
+  height: 17px;
+  padding: 12px;
+  border: 1px solid #DCDEDD;
+  float: left;
+  margin-right: 5px;
+}
+
+.edit-profile-add-websites button {
+  float: left;
+  width: 23px;
+  height: 14px;
+  padding: 10px 20px 13px 20px;
+  border: 2px solid #2752ff;
+  color: white;
+  background-color: #2752ff;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.vanity-url-input {
+  width: 476px;
+  height: 17px;
+  padding: 12px;
+  border: 1px solid #DCDEDD;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.edit-profile-right-one strong {
+  font-size: 14px;
+}
+
 .edit-profile-right-one span {
   font-size: 14px;
   margin-bottom: 6px;
@@ -7387,6 +7540,7 @@ strong {
 }
 
 .edit-profile-choose-image:hover {
+  cursor: pointer;
   background-color: #F8F9FD;
 }
 
@@ -7495,6 +7649,7 @@ strong {
 }
 
 .backed-project-navbar li:hover {
+  cursor: pointer;
   color: #037362;
 }
 
@@ -7557,6 +7712,7 @@ strong {
 }
 
 .created-project-navbar li:hover {
+  cursor: pointer;
   color: #037362;
 }
 
@@ -7726,7 +7882,31 @@ strong {
   width: 412px;
 }
 
-.save-settings input {
+.save-settings-two {
+  height: 38px;
+  width: 100%;
+  float: left;
+  display: flex;
+  align-items: center;
+}
+
+.save-settings-two span {
+  height: 38px;
+  width: 100%;
+  float: left;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 100;
+  padding-left: 25px;
+}
+
+.edit-profile-container {
+  height: 993px;
+  border-top: 1px solid black;
+}
+
+.save-settings-two input {
   width: 87px;
   height: 14px;
   padding: 10px 20px 13px 20px;
@@ -7735,8 +7915,7 @@ strong {
   background-color: #2752ff;
   text-align: center;
   font-size: 14px;
-  display: flex;
-  align-items: center;
+  float: left;
 }
 
 .account-container-body-three {
@@ -7939,4 +8118,46 @@ strong {
   background-color: #3D3D66;
   font-size: 14px;
   color: white;
+}
+
+.explore-background {
+  background-color: #F0F0F0;
+}
+
+.explore-container {
+  height: 474px;
+  padding: 48px 60px 0 60px;
+  margin-left: 37px;
+  margin-right: 37px;
+}
+
+.start-project-header-top {
+  width: 1246px;
+  height: 30px;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.start-project-logo {
+  height: 20px;
+}
+
+.start-project-profile-circle img {
+  display: inline;
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  right: -4px;
+  top: 17px;
+}
+
+.start-project-navbar-top {
+  display: flex;
+  justify-content: center;
 }

@@ -3,7 +3,8 @@ import Recommendations from './recommendations';
 
 const mapStateToProps = state => {
   return {
-    class: {display: 'location-none-display'}
+    user: state.entities.users,
+    class: {display: 'location-none-display', displayProfileMenu: 'js-modal-close'}
   };
 };
 

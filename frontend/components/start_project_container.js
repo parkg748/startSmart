@@ -4,7 +4,8 @@ import StartProject from './start_project';
 const mapStateToProps = state => {
   return {
     currentUser: state.entities.users,
-    user: state.entities.users[state.session.id],
+    user: state.entities.users,
+    class: {displayProfileMenu: 'js-modal-close'}
   };
 };
 

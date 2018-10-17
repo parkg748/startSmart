@@ -9,7 +9,7 @@ class LoginForm extends React.Component {
 
   clickHandler(e) {
     e.preventDefault();
-    this.props.login({email: 'divadkrap@gmail.com', password: 'starwars'}).then(() => this.props.history.push('/recommendations'));
+    this.props.login({email: 'demouser@gmail.com', password: 'starwars'}).then(() => this.props.history.push('/recommendations'));
   }
 
   handleSubmit(e) {
