@@ -64,7 +64,12 @@ class Account extends React.Component {
                       <span className='thin-font'>Enter your current password to save these changes.</span>
                     </li>
                   </ul>
+                  <div className='save-settings'>
+                    <input type='submit' value='Save settings '/>
+                  </div>
                 </form>
+              </div>
+              <div className='account-container-body-three'>
               </div>
             </div>
           </div>

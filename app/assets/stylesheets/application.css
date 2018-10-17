@@ -7483,3 +7483,96 @@ strong {
   display: flex;
   justify-content: flex-end;
 }
+
+.saved-project {
+  border-top: 1px solid black;
+  height: 670px;
+}
+
+.saved-project-one {
+  height: 530px;
+  padding: 70px 0 70px 0;
+  margin-left: 240px;
+  margin-right: 240px;
+}
+
+.saved-project-two {
+  height: 530px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.saved-project-two h1 {
+  height: 50px;
+  margin-bottom: 20px;
+  font-size: 52px;
+}
+
+.saved-project-three {
+  height: 160px;
+  padding: 100px 20px 100px 20px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  background-color: #F8F9FD;
+}
+
+.saved-project-three h3 {
+  height: 30px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 100;
+}
+
+.saved-project-three p {
+  height: 24px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.saved-project-three button {
+  width: 170px;
+  height: 16px;
+  margin-left: 327px;
+  padding: 18px 30px 18px 30px;
+  border: 2px solid #007460;
+  background-color: #007460;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+.save-settings {
+  height: 38px;
+  width: 412px;
+}
+
+.save-settings input {
+  width: 87px;
+  height: 14px;
+  padding: 10px 20px 13px 20px;
+  border: 2px solid #2752ff;
+  color: white;
+  background-color: #2752ff;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.account-container-body-three {
+  width: 322px;
+  height: 386px;
+  padding: 0 18px;
+  margin-left: 179px;
+  float: left;
+}
+
+.account-container-body-four {
+  height: 366px;
+  margin-bottom: 20px;
+}
+
+.account-container-body-four li
