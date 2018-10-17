@@ -52,9 +52,28 @@ class Profile extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-          <div className='profile-container-eight'>
-            <div className=''
+            <div className='profile-container-eight'>
+              <div className='profile-container-nine'>
+                <div className='profile-container-ten'>
+                  <div className='profile-container-eleven'>
+                    <div className='profile-container-green-bar'></div>
+                    <ul>
+                      <li>About</li>
+                      <li>Backed<span>0</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='profile-container-footer'>
+              <div className='profile-container-footer-one'>
+                <p>
+                  <strong>You haven't backed any projects. </strong>
+                  Let's change that!
+                  <span className='discover-projects'><Link className='policy-link' to='/'>Discover projects</Link></span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

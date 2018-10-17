@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
-import Profile from './profile';
+import CreatedProject from './created_project';
 
 const mapStateToProps = state => {
   return {
-    user: state.entities.users,
+
   };
 };
 
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatedProject);

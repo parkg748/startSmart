@@ -99,15 +99,15 @@ class Homepage extends React.Component {
                 <li><Link to='/messages/inbox'>Messages</Link></li>
                 <li><Link to='/activity'>Activity</Link></li>
                 <li><Link to={`/profile/${Object.values(this.props.user)[0].id}`}>Profile</Link></li>
-                <li>Backed projects</li>
-                <li>My projects</li>
-                <li>Saved projects</li>
+                <li><Link to='/profile/backings'>Backed projects</Link></li>
+                <li><Link to='/profile/projects'>My projects</Link></li>
+                <li><Link to='/profile/starred'>Saved projects</Link></li>
               </ul>
             </div>
             <div className='profile-menu-body-middle'>
               <div className='profile-menu-body-left-header'>SETTINGS</div>
               <ul>
-                <li>Account</li>
+                <li><Link to='/settings/account'>Account</Link></li>
                 <li>Edit profile</li>
                 <li>Notifications</li>
               </ul>

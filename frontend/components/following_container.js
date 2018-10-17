@@ -3,7 +3,7 @@ import Following from './following';
 
 const mapStateToProps = state => {
   return {
-
+    user: state.entities.users,
   };
 };
 

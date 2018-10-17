@@ -3,7 +3,7 @@ import Activity from './activity';
 
 const mapStateToProps = state => {
   return {
-
+    user: state.entities.users,
   };
 };
 

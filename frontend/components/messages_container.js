@@ -3,7 +3,7 @@ import Messages from './messages';
 
 const mapStateToProps = state => {
   return {
-
+    user: state.entities.users,
   };
 };
 
