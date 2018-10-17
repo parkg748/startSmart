@@ -3,6 +3,7 @@ import React from 'react';
 class RewardBox extends React.Component {
   constructor(props) {
     super(props);
+    this.state = reward: {optionsState: '', addBackground: '', addItem: 'js-modal-close', itemName: '', itemDigital: false, title: '', description: '', pledge_amt: 0, month: '', year: 0, shipping: '', limit: false}
   }
 
   update(field) {
@@ -113,6 +114,7 @@ class RewardBox extends React.Component {
               </div>
             </div>
           </div>
+          <RewardBox props={fheiowfhw}
     );
   }
 }
