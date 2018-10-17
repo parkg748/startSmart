@@ -7208,6 +7208,15 @@ strong {
   bottom: 0;
 }
 
+.edit-profile-blue-bar {
+  width: 74px;
+  height: 4px;
+  position: absolute;
+  background-color: #2752ff;
+  bottom: 0;
+  left: 97px;
+}
+
 .account-container-navbar li {
   margin-right: 40px;
   padding: 15px 0 15px 0;
@@ -7236,8 +7245,23 @@ strong {
   float: left;
 }
 
+.edit-profile-body-two {
+  width: 412px;
+  height: 647px;
+  padding: 0 18px 0 18px;
+  margin-right: 89px;
+  margin-bottom: 20px;
+  float: left;
+}
+
 .account-container-body-two form {
   height: 348px;
+  padding: 20px 20px 20px 0;
+}
+
+.edit-profile-body-two form {
+  height: 647px;
+  padding: 20px 20px 20px 0;
 }
 
 .account-container-body-two ul {
@@ -7254,7 +7278,141 @@ strong {
   display: block;
 }
 
+.edit-profile-body-two span {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 100;
+  line-height: 21px;
+}
+
+.edit-profile-body-two textarea {
+  width: 400px;
+  height: 68px;
+  padding: 5px;
+  border: 1px solid #DCDEDD;
+  font-size: 14px;
+  font-weight: 100;
+  resize: none;
+}
+
+.private-profile-checkbox span {
+  font-size: 14px;
+  font-weight: 100;
+  float: left;
+}
+
+.private-profile-checkbox input {
+  width: 12px !important;
+  margin: 5px;
+  float: left;
+}
+
+.edit-profile-choose-image {
+  width: 410px;
+  height: 78px;
+  border: 1px dashed #586BE9;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.edit-profile-choose-image strong {
+  position: absolute;
+  padding: 30px;
+  font-size: 14px;
+  color: #2752ff;
+}
+
+.privacy-description {
+  width: 412px;
+  height: 92px;
+  margin-top: 6px;
+  float: left;
+}
+
+.privacy-description p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 24px;
+}
+
+.edit-profile-right {
+  float: left;
+  width: 502px;
+  height: 496px;
+  padding: 11px 18px 0 18px;
+  margin-bottom: 20px;
+}
+
+.edit-profile-right-one {
+  width: 502px;
+  height: 496px;
+}
+
+.edit-profile-right-one span {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.edit-profile-right-one li {
+  padding: 12px 0 12px 0;
+}
+
+.edit-profile-location-input {
+  width: 502px;
+  height: 43px;
+  position: relative;
+}
+
+.edit-profile-location-input input {
+  width: 442px;
+  height: 17px;
+  padding: 12px 28px 12px 30px;
+  border: 1px solid #DCDEDD;
+  font-size: 14px;
+  font-weight: 100;
+  color: #282828;
+  position: relative;
+}
+
+.edit-profile-search-icon {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  font-size: 12px;
+}
+
+.edit-profile-choose-image:hover {
+  background-color: #F8F9FD;
+}
+
+.time-zone-select select {
+  border: 1px solid #dad7d4;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 6px;
+  width: 502px;
+  padding: 10px 40px 10px 10px;
+  float: left;
+  font-size: 14px;
+  font-weight: 100;
+  background-color: white;
+}
+
 .account-container-body-two input {
+  width: 386px;
+  height: 17px;
+  padding: 12px;
+  border: 1px solid #DCDEDD;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.edit-profile-body-two input {
   width: 386px;
   height: 17px;
   padding: 12px;

@@ -108,7 +108,7 @@ class Homepage extends React.Component {
               <div className='profile-menu-body-left-header'>SETTINGS</div>
               <ul>
                 <li><Link to='/settings/account'>Account</Link></li>
-                <li>Edit profile</li>
+                <li><Link to='/settings/profile'>Edit profile</Link></li>
                 <li>Notifications</li>
               </ul>
             </div>
