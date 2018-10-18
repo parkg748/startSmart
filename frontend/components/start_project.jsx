@@ -7,6 +7,10 @@ class StartProject extends React.Component {
     this.state = this.props.class;
   }
 
+  componentDidMount() {
+    this.props.fetchProjects();
+  }
+
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
@@ -25,7 +29,7 @@ class StartProject extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
         navbarWidth = 'navbar-width';
       } else {
         profile = <Link to='/login' className='login'>Sign in</Link>;

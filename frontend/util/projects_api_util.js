@@ -14,6 +14,13 @@ export const fetchProjectsByCategory = category => {
   });
 };
 
+export const fetchProjectsByCurrentUser = user => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${user}/projects`
+  });
+};
+
 export const fetchProject = (user, project) => {
   return $.ajax({
     method: 'GET',

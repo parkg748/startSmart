@@ -9,6 +9,10 @@ class Recommendations extends React.Component {
     // this.hideArrow = this.hideArrow.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchProjects();
+  }
+
   clickProfileIcon() {
     if (this.state.displayProfileMenu === 'js-modal-close') {
       this.setState({displayProfileMenu: ''});

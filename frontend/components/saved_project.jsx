@@ -7,6 +7,10 @@ class SavedProject extends React.Component {
     this.state = this.props.class;
   }
 
+  componentDidMount() {
+    this.props.fetchProjects();
+  }
+
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});

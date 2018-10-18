@@ -1,5 +1,7 @@
 import {connect} from 'react-redux';
 import BackedProject from './backed_project';
+import {logout} from '../actions/session_actions';
+import {fetchProjects} from '../actions/project_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    fetchProjects: () => dispatch(fetchProjects())
   };
 };
 

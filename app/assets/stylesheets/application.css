@@ -419,7 +419,7 @@ nav {
 .footer-index-section {
   display: block;
   float: left;
-  width: 175px;
+  width: 284px;
 }
 
 .footer-index-section h3 {
@@ -482,10 +482,12 @@ nav {
 
 .language-currency {
   display: block;
-  position: relative;
+  position: absolute;
   padding-left: 100px;
+  padding-right: 100px;
   height: 100px;
-  border-bottom: 2px solid #DCDEDD;
+  right: 0;
+  top: 4068px;
 }
 
 .lang-currency-form {
@@ -494,9 +496,10 @@ nav {
 
 .policies {
   display: block;
-  height: 70px;
+  height: 65px;
   padding-left: 100px;
   align-items: baseline;
+  border-top: 2px solid #DCDEDD;
 }
 
 .policy-links {
@@ -514,14 +517,14 @@ nav {
 
 .first-arrow {
   position: absolute;
-  left: 175px;
-  bottom: 69px;
+  right: 264px;
+  top: 16px;
 }
 
 .second-arrow {
   position: absolute;
-  left: 420px;
-  bottom: 69px;
+  right: 31px;
+  top: 16px;
 }
 
 .error-messages-red {
@@ -4132,7 +4135,7 @@ strong {
 
 .homepage-body {
   width: 100%;
-  height: 3640px;
+  height: 3745px;
   margin-left: auto;
   margin-right: auto;
 }

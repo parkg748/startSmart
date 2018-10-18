@@ -3,6 +3,7 @@ import * as ProjectApiUtil from '../util/projects_api_util';
 export const RECEIVE_ALL_PROJECTS = 'RECEIVE_ALL_PROJECTS';
 export const RECEIVE_PROJECT = 'RECEIVE_PROJECT';
 export const REMOVE_PROJECT = 'REMOVE_PROJECT';
+export const RECEIVE_ALL_CURRENT_USER_PROJECTS = 'RECEIVE_ALL_CURRENT_USER_PROJECTS';
 
 const receiveAllProjects = projects => ({
   type: RECEIVE_ALL_PROJECTS,

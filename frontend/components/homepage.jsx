@@ -75,6 +75,12 @@ class Homepage extends React.Component {
     let year = currentDate.getFullYear();
     let month = monthString[currentDate.getMonth()];
     let day = currentDate.getDate() + 1;
+    let currentUserProjects = [];
+    Object.values(getState().entities.project).forEach(project => {
+      if (project.userId === getState().session.id) {
+        currentUserProjects.push(project);
+      };
+    });
     return (
       <div>
         <nav>
@@ -89,7 +95,7 @@ class Homepage extends React.Component {
           </section>
         </nav>
         <div className={`profile-icon-menu ${this.state.displayProfileMenu}`}>
-          <div className='profile-menu-header'>Grace</div>
+          <div className='profile-menu-header'>{Object.values(this.props.user)[0].name}</div>
           <div className='profile-menu-body'>
             <div className='profile-menu-body-left'>
               <div className='profile-menu-body-left-header'>MY STUFF</div>
@@ -116,36 +122,23 @@ class Homepage extends React.Component {
             <div className='profile-menu-body-right'>
               <div className='profile-menu-body-left-header'>MY PROJECTS</div>
               <ul>
-                <li>
-                  <div className='profile-menu-projects'>
-                    <div className='profile-menu-projects-image'></div>
-                    <span>Untitled</span>
-                  </div>
-                </li>
-                <li>
-                  <div className='profile-menu-projects'>
-                    <div className='profile-menu-projects-image'></div>
-                    <span>Untitled</span>
-                  </div>
-                </li>
-                <li>
-                  <div className='profile-menu-projects'>
-                    <div className='profile-menu-projects-image'></div>
-                    <span>Untitled</span>
-                  </div>
-                </li>
-                <li>
-                  <div className='profile-menu-projects'>
-                    <div className='profile-menu-projects-image'></div>
-                    <span>Untitled</span>
-                  </div>
-                </li>
-                <li>
-                  <div className='profile-menu-projects'>
-                    <div className='profile-menu-projects-image'></div>
-                    <span>Untitled</span>
-                  </div>
-                </li>
+                {currentUserProjects.slice(0, 5).map(project => {
+                  if (project.title === '') {
+                    return <li>
+                      <div className='profile-menu-projects'>
+                        <div className='profile-menu-projects-image'></div>
+                        <span>Untitled</span>
+                      </div>
+                    </li>
+                  } else {
+                    return <li>
+                      <div className='profile-menu-projects'>
+                        <div className='profile-menu-projects-image'></div>
+                        <span>{project.title}</span>
+                      </div>
+                    </li>
+                  }
+                })}
               </ul>
             </div>
           </div>

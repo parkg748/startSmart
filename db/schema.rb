@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_16_162741) do
+ActiveRecord::Schema.define(version: 2018_10_18_180429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2018_10_16_162741) do
     t.string "state"
     t.integer "funding_goal"
     t.integer "category_id"
+    t.string "subcategory"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
