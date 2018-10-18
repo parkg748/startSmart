@@ -1,10 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 class StartProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.class;
+  }
+
+  logoutUser(e) {
+    e.preventDefault();
+    this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
   }
 
   clickProfileIcon() {
@@ -16,6 +21,7 @@ class StartProject extends React.Component {
   }
 
   render() {
+    if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {

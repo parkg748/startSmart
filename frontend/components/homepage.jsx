@@ -21,7 +21,7 @@ class Homepage extends React.Component {
 
   logoutUser(e) {
     e.preventDefault();
-    this.props.logout().then(() => {this.props.history.push(`/`), this.setState({displayProfileMenu: 'js-modal-close'})});
+    this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
   }
 
   clickProfileIcon() {
@@ -61,7 +61,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    if (this.props.user.user === null) return <Redirect to='/login' />;
+    if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null && Object.values(this.props.user)[0] != null) {

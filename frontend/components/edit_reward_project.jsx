@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 class EditRewardProject extends React.Component {
   constructor(props) {
@@ -11,6 +11,11 @@ class EditRewardProject extends React.Component {
 
   componentDidMount() {
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
+  }
+
+  logoutUser(e) {
+    e.preventDefault();
+    this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
   }
 
   handleSubmit(e) {
@@ -48,6 +53,7 @@ class EditRewardProject extends React.Component {
   }
 
   render() {
+    if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     if (Object.values(this.props.project).length === 0 || Object.values(this.props.user).length === 0) return null;
     let profile = undefined;
     let navbarWidth = '';
@@ -71,7 +77,7 @@ class EditRewardProject extends React.Component {
               <Link to='/help' className='help-navbar'>Help</Link>
               <Link to='/rules' className='rules-navbar'>Project Rules</Link>
             </section>
-            <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
+            <Link to='/'><img className='center-logo-position logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
             <section className={`search-signin ${navbarWidth}`}>
               {profile}
             </section>
@@ -86,7 +92,7 @@ class EditRewardProject extends React.Component {
               <div className='edit-page-navbar'>
                 <div className='edit-page-navbar-inner'>
                   <ul>
-                    <li className='exit-editor'><Link to='/'><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
+                    <li className='exit-editor'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`}><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
                     <li className='edit-options'>
                       <ul>
                         <li className='edit-option-basics'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/basics`}><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
@@ -94,7 +100,7 @@ class EditRewardProject extends React.Component {
                         <li className='edit-option-story'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/story`}><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
                         <li className='edit-option-about-you'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/about-you`}><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
                         <li className='edit-option-account'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/account`}><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
-                        <li className='preview'><Link to='/'>Preview</Link></li>
+                        <li className='preview'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/edit`}>Preview</Link></li>
                       </ul>
                     </li>
                   </ul>

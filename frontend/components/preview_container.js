@@ -1,10 +1,9 @@
 import {connect} from 'react-redux';
-import Activity from './activity';
+import Preview from './preview';
 
 const mapStateToProps = state => {
   return {
     user: state.entities.users,
-    class: {displayProfileMenu: 'js-modal-close'}
   };
 };
 
@@ -14,4 +13,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Activity);
+export default connect(mapStateToProps, mapDispatchToProps)(Preview);

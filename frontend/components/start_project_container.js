@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createProject: project => dispatch(createProject(project))
+    createProject: project => dispatch(createProject(project)),
+    logout: () => dispatch(logout())
   };
 };
 

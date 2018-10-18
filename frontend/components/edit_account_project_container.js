@@ -3,7 +3,7 @@ import EditAccountProject from './edit_account_project';
 
 const mapStateToProps = state => {
   return {
-    user: state.entities.users[state.session.id],
+    user: state.entities.users,
     users: state.entities.users,
     project: state.entities.project
   };
@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    logout: () => dispatch(logout())
   };
 };
 

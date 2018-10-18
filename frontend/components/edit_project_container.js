@@ -6,7 +6,7 @@ import {fetchCategories} from '../actions/category_actions';
 
 const mapStateToProps = state => {
   return {
-    user: state.entities.users[state.session.id],
+    user: state.entities.users,
     class: {
       titleWordCount: 60,
       shortBlurbWordCount: Object.values(state.entities.project).length > 0 ? (135 - Object.values(state.entities.project)[0].description.length) : 135,
@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => {
   return {
     updateProject: project => dispatch(updateProject(project)),
     fetchProject: (user, project) => dispatch(fetchProject(user, project)),
-    fetchCategories: () => dispatch(fetchCategories())
+    fetchCategories: () => dispatch(fetchCategories()),
+    logout: () => dispatch(logout())
   };
 };
 

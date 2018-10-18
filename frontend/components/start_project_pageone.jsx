@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 class StartProjectPageOne extends React.Component {
   constructor(props) {
@@ -11,6 +11,11 @@ class StartProjectPageOne extends React.Component {
 
   componentDidMount() {
     this.props.fetchCategories();
+  }
+
+  logoutUser(e) {
+    e.preventDefault();
+    this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
   }
 
   handleSubmit() {
@@ -80,6 +85,7 @@ class StartProjectPageOne extends React.Component {
   }
 
   render() {
+    if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -220,6 +226,13 @@ class StartProjectPageOne extends React.Component {
                 <button onClick={() => this.handleSubmit()} className={this.state.className}>Continue</button>
                 <span>A new project — welcome back!</span>
               </div>
+            </div>
+          </div>
+          <div className='start-project-page-three-disclaimer'>
+            <div className='start-project-page-three-disclaimer-one'>
+              <span>
+                To create a project, you're required to provide your location, age, national ID, banking and tax information, email, and mailing address. This information is necessary to prevent fraud, comply with the law, and — if your project is successful — to deliver funds. Please note: after launch, your ability to edit, hide, or delete a project is limited.
+              </span>
             </div>
           </div>
         </div>

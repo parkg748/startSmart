@@ -6,6 +6,11 @@ class RewardBox extends React.Component {
     this.state = reward: {optionsState: '', addBackground: '', addItem: 'js-modal-close', itemName: '', itemDigital: false, title: '', description: '', pledge_amt: 0, month: '', year: 0, shipping: '', limit: false}
   }
 
+  logoutUser(e) {
+    e.preventDefault();
+    this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
+  }
+
   update(field) {
     return (e) => {
       if (digitalChecked.checked && field === 'digital') {

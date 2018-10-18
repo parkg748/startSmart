@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 class Recommendations extends React.Component {
   constructor(props) {
@@ -17,6 +17,11 @@ class Recommendations extends React.Component {
     }
   }
 
+  logoutUser(e) {
+    e.preventDefault();
+    this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
+  }
+
   // showArrow() {
   //   this.setState({display: ''});
   // }
@@ -26,6 +31,7 @@ class Recommendations extends React.Component {
   // }
 
   render() {
+    if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null && Object.values(this.props.user)[0] != null) {

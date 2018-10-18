@@ -5,7 +5,7 @@ import {fetchCategories} from '../actions/category_actions';
 
 const mapStateToProps = state => {
   return {
-    user: state.entities.users[state.session.id],
+    user: state.entities.users,
     project: state.entities.project,
     category: state.entities.category
   };
@@ -14,7 +14,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchProject: (user, project) => dispatch(fetchProject(user, project)),
-    fetchCategories: () => dispatch(fetchCategories())
+    fetchCategories: () => dispatch(fetchCategories()),
+    logout: () => dispatch(logout())
   };
 };
 

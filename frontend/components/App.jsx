@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Redirect, Switch, Route} from 'react-router-dom';
 import LoginFormContainer from './login_form_container';
 import HomepageContainer from './homepage_container';
 import SignupFormContainer from './signup_form_container';
@@ -26,6 +26,7 @@ import SavedProjectsContainer from './saved_project_container';
 import AccountContainer from './account_container';
 import EditProfileContainer from './edit_profile_container';
 import ExploreContainer from './explore_container';
+import PreviewContainer from './preview_container';
 
 const App = () => (
   <div>
@@ -42,6 +43,7 @@ const App = () => (
         <Route exact path='/users/:userId/projects/:projectId/story' component={EditStoryProjectContainer} />
         <Route exact path='/users/:userId/projects/:projectId/about-you' component={EditAboutYouProjectContainer} />
         <Route exact path='/users/:userId/projects/:projectId/account' component={EditAccountProjectContainer} />
+        <Route exact path='/users/:userId/projects/:projectId/edit' component={PreviewContainer} />
         <Route exact path='/profile/following/find_creators' component={FollowingContainer} />
         <Route exact path='/profile/following/welcome' component={FollowingFacebookContainer} />
         <Route exact path='/messages/inbox' component={MessagesContainer} />
@@ -53,6 +55,7 @@ const App = () => (
         <Route exact path='/settings/profile' component={EditProfileContainer} />
         <Route exact path= '/profile/:userId' component={ProfileContainer} />
         <Route exact path='/' component={HomepageContainer} />
+        <Redirect to='/' />
       </Switch>
     </header>
     <footer>

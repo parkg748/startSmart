@@ -4,13 +4,14 @@ import BasicsForm from './basics_form_container';
 
 const mapStateToProps = state => {
   return {
-
+    user: state.entities.users,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    createBasics: project => dispatch(createBasics(project))
+    createBasics: project => dispatch(createBasics(project)),
+    logout: () => dispatch(logout())
   };
 };
 
