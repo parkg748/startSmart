@@ -31,10 +31,16 @@ class StartProject extends React.Component {
     let navbarWidth = '';
     if (this.props.user != null) {
       profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
-        navbarWidth = 'navbar-width';
-      } else {
-        profile = <Link to='/login' className='login'>Sign in</Link>;
-        }
+      navbarWidth = 'navbar-width';
+    } else {
+      profile = <Link to='/login' className='login'>Sign in</Link>;
+    }
+    let currentUserProjects = [];
+    Object.values(getState().entities.project).forEach(project => {
+      if (project.userId === getState().session.id) {
+        currentUserProjects.push(project);
+      };
+    });
     return (
       <div>
         <nav>

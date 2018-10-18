@@ -44,6 +44,12 @@ class Recommendations extends React.Component {
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
+    let currentUserProjects = [];
+    Object.values(getState().entities.project).forEach(project => {
+      if (project.userId === getState().session.id) {
+        currentUserProjects.push(project);
+      };
+    });
     return (
       <div>
         <nav>

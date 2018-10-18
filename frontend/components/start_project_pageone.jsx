@@ -103,6 +103,12 @@ class StartProjectPageOne extends React.Component {
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
+    let currentUserProjects = [];
+    Object.values(getState().entities.project).forEach(project => {
+      if (project.userId === getState().session.id) {
+        currentUserProjects.push(project);
+      };
+    });
     if (this.state.pageNo === 1) {
       return (
         <div>

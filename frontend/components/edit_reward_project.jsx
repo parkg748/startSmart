@@ -76,6 +76,12 @@ class EditRewardProject extends React.Component {
     let currentDate = new Date();
     let currentYear = currentDate.getFullYear();
     let currentMonth = monthString[currentDate.getMonth()];
+    let currentUserProjects = [];
+    Object.values(getState().entities.project).forEach(project => {
+      if (project.userId === getState().session.id) {
+        currentUserProjects.push(project);
+      };
+    });
     return (
       <div>
         <div className={this.state.addBackground}>
