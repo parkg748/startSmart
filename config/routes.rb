@@ -9,7 +9,7 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :projects, only: [:index, :edit]
+    resources :projects, only: [:index, :update]
     resource :session, only: [:create, :destroy]
     resources :categories, only: [:show, :index] do
       resources :projects, only: [:index]

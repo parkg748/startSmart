@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import UserProject from './user_project';
-import {fetchProject, fetchProjects} from '../actions/project_actions';
+import {fetchProject} from '../actions/project_actions';
 import {fetchCategories} from '../actions/category_actions';
 
 const mapStateToProps = state => {
@@ -16,8 +16,7 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchProject: (user, project) => dispatch(fetchProject(user, project)),
     fetchCategories: () => dispatch(fetchCategories()),
-    logout: () => dispatch(logout()),
-    fetchProjects: () => dispatch(fetchProjects())
+    logout: () => dispatch(logout())
   };
 };
 

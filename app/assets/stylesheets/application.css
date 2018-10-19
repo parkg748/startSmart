@@ -380,6 +380,20 @@ nav {
   background-color: white;
 }
 
+.error-email-msg-show-login {
+  display: block;
+  box-shadow: 3px 5px 5px rgb(155,158,158);
+  border: 1px solid rgb(155,158,158);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  width: auto;ß
+  top: 310px;
+  left: 35%;
+  position: absolute;
+  background-color: white;
+}
+
 .fa-exclamation-circle {
   float: left;
   color: orange;
@@ -6288,6 +6302,23 @@ strong {
   position: fixed;
   top: 0;
   left: 22.5%;
+}
+
+.js-modal-open-login {
+  width: 280px;
+  height: 48px;
+  padding: 25px 30px 30px 30px;
+  background-color: white;
+  z-index: 4;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1 !important;
+  border-top: 7px solid #fd003b;
+  position: fixed;
+  top: 54.5%;
+  left: 38%;
+  box-shadow: 0 2px 12px 2px rgba(0,0,0,0.15);
+  border-radius: 6px;
 }
 
 .fee-breakdown {

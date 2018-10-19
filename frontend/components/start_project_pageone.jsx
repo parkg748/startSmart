@@ -151,14 +151,14 @@ class StartProjectPageOne extends React.Component {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'></div>
-                          <span>Untitled</span>
+                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                         </div>
                       </li>
                     } else {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'></div>
-                          <span>{project.title}</span>
+                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                         </div>
                       </li>
                     }

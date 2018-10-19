@@ -12,7 +12,6 @@ class EditProject extends React.Component {
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
-    this.props.fetchProjects();
   }
 
   handleSubmit(e) {
@@ -138,14 +137,14 @@ class EditProject extends React.Component {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'></div>
-                          <span>Untitled</span>
+                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                         </div>
                       </li>
                     } else {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'></div>
-                          <span>{project.title}</span>
+                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                         </div>
                       </li>
                     }
@@ -244,16 +243,16 @@ class EditProject extends React.Component {
                               <div className='category-content-inner'>
                                 <div className='category-dropdown-container'>
                                   <i className="category-dropdown-container-arrow fas fa-angle-down"></i>
-                                  <select className='category-dropdown' onChange={this.update('category')} defaultValue={getState().entities.category[Object.values(getState().entities.project).slice(-1)[0].categoryId]}>
+                                  <select className='category-dropdown' onChange={this.update('category')} defaultValue={getState().entities.category[Object.values(getState().entities.project)[0].categoryId]}>
                                     {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
-                                      if (obj.id === Object.values(getState().entities.project).slice(-1)[0].categoryId) {
-                                        return <option key={obj.id} defaultValue={obj.name} selected>Film & Video</option>
+                                      if (obj.id === Object.values(getState().entities.project)[0].categoryId) {
+                                        return <option key={obj.id} defaultValue={obj.name}>Film & Video</option>
                                       } else {
                                         return <option key={obj.id} defaultValue={obj.name}>Film & Video</option>
                                       }
                                     } else {
-                                      if (obj.id === Object.values(getState().entities.project).slice(-1)[0].categoryId) {
-                                        return <option key={obj.id} defaultValue={obj.name} selected>{obj.name}</option>
+                                      if (obj.id === Object.values(getState().entities.project)[0].categoryId) {
+                                        return <option key={obj.id} defaultValue={obj.name}>{obj.name}</option>
                                       } else {
                                         return <option key={obj.id} defaultValue={obj.name}>{obj.name}</option>
                                       }

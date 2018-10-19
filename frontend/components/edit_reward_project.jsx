@@ -130,14 +130,14 @@ class EditRewardProject extends React.Component {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'></div>
-                          <span>Untitled</span>
+                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                         </div>
                       </li>
                     } else {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'></div>
-                          <span>{project.title}</span>
+                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                         </div>
                       </li>
                     }
@@ -320,7 +320,7 @@ class EditRewardProject extends React.Component {
               </div>
             </div>
             <div className={this.state.addItem}>
-              <button onClick={() => this.closeAddItemForm()}><i class="js-modal-close-button fas fa-times"></i></button>
+              <button onClick={() => this.closeAddItemForm()}><i className="js-modal-close-button fas fa-times"></i></button>
               <div className='js-modal-open-one'>
                 <div className='js-modal-open-top'>
                   <h1>Add a reward item</h1>
