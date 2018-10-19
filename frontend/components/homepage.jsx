@@ -81,6 +81,7 @@ class Homepage extends React.Component {
         currentUserProjects.push(project);
       };
     });
+    // <div className='profile-menu-header'>{(Object.values(this.props.user)[0] === null) ? '' : Object.values(this.props.user)[0]}</div>
     return (
       <div>
         <nav>
@@ -95,7 +96,6 @@ class Homepage extends React.Component {
           </section>
         </nav>
         <div className={`profile-icon-menu ${this.state.displayProfileMenu}`}>
-          <div className='profile-menu-header'>{(Object.values(this.props.user)[0].name === null) ? '' : Object.values(this.props.user)[0].name}</div>
           <div className='profile-menu-body'>
             <div className='profile-menu-body-left'>
               <div className='profile-menu-body-left-header'>MY STUFF</div>

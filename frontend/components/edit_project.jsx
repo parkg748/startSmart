@@ -12,6 +12,7 @@ class EditProject extends React.Component {
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
+    this.setState({title: Object.values(this.props.project)[0].title, description: Object.values(this.props.project)[0].description, subcategory: Object.values(this.props.project)[0].subcategory, city: Object.values(this.props.project)[0].city})
   }
 
   handleSubmit(e) {
