@@ -6,6 +6,7 @@ application up and running.
 Things you may want to cover:
 
 # StartSmart
+![alt text](https://i.imgur.com/YuU5VqC.jpg)
 [Live Demo](https://start-smart.herokuapp.com/#/)
 
 StartSmart is a clone of Kickstarter, a crowdfunding website where users can create projects, pledge funds to other projects, receive rewards, and utilize this platform to expose their creative ideas to the world.
