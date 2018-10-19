@@ -146,16 +146,16 @@ class StartProjectPageOne extends React.Component {
               <div className='profile-menu-body-right'>
                 <div className='profile-menu-body-left-header'>MY PROJECTS</div>
                 <ul>
-                  {currentUserProjects.slice(0, 5).map(project => {
+                  {currentUserProjects.slice(0, 5).map((project, id) => {
                     if (project.title === '') {
-                      return <li>
+                      return <li key={id}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'></div>
                           <span>Untitled</span>
                         </div>
                       </li>
                     } else {
-                      return <li>
+                      return <li key={id}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'></div>
                           <span>{project.title}</span>

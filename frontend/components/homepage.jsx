@@ -95,7 +95,7 @@ class Homepage extends React.Component {
           </section>
         </nav>
         <div className={`profile-icon-menu ${this.state.displayProfileMenu}`}>
-          <div className='profile-menu-header'>Grace</div>
+          <div className='profile-menu-header'>{(Object.values(this.props.user)[0].name === null) ? '' : Object.values(this.props.user)[0].name}</div>
           <div className='profile-menu-body'>
             <div className='profile-menu-body-left'>
               <div className='profile-menu-body-left-header'>MY STUFF</div>
@@ -122,16 +122,16 @@ class Homepage extends React.Component {
             <div className='profile-menu-body-right'>
               <div className='profile-menu-body-left-header'>MY PROJECTS</div>
               <ul>
-                {currentUserProjects.slice(0, 5).map(project => {
+                {currentUserProjects.slice(0, 5).map((project, id) => {
                   if (project.title === '') {
-                    return <li>
+                    return <li key={id}>
                       <div className='profile-menu-projects'>
                         <div className='profile-menu-projects-image'></div>
                         <span>Untitled</span>
                       </div>
                     </li>
                   } else {
-                    return <li>
+                    return <li key={id}>
                       <div className='profile-menu-projects'>
                         <div className='profile-menu-projects-image'></div>
                         <span>{project.title}</span>

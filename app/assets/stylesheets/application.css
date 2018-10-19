@@ -2550,6 +2550,10 @@ nav {
   display: block;
 }
 
+.funding-goal-content-input input {
+  width: 100%;
+}
+
 .funding-goal-disclaimer {
   width: 449px;
   height: 148px;
@@ -2861,6 +2865,10 @@ nav {
   font-weight: 100;
 }
 
+.edit-page-footer-changes a {
+  cursor: pointer;
+}
+
 .edit-page-footer-changes button {
   width: 75px;
   height: 38px;
@@ -2868,6 +2876,7 @@ nav {
   background-color: #007460;
   color: white;
   text-align: center;
+  cursor: pointer;
 }
 
 .story-edit-page-footer-changes button {
@@ -6265,6 +6274,108 @@ strong {
   position: absolute;
   top: 0;
   left: 12.5%;
+}
+
+.js-modal-open-basic {
+  width: 744px;
+  height: 346px;
+  background-color: white;
+  z-index: 4;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1 !important;
+  border: 1px solid #E8E8E8;
+  position: fixed;
+  top: 0;
+  left: 22.5%;
+}
+
+.fee-breakdown {
+  height: 65px;
+  background-color: #FBFBFA;
+}
+
+.fee-breakdown-one {
+  font-size: 14px;
+  border-bottom: 1px solid #E8E8E8;
+  padding: 24px;
+  padding-right: 50px;
+}
+
+.fee-breakdown-two {
+  height: 237px;
+  padding: 20px;
+}
+
+.fee-breakdown-three {
+  height: 217px;
+}
+
+.fee-breakdown-three p {
+  height: 63px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+}
+
+.fee-breakdown-four {
+  height: 21px;
+  margin: 0 -18px 20px -18px;
+}
+
+.fee-breakdown-five {
+  width: 334px;
+  height: 18px;
+  padding: 0 18px;
+  float: left;
+}
+
+.fee-breakdown-ten {
+  width: 334px;
+  height: 18px;
+  float: left;
+}
+
+.fee-breakdown-ten p {
+  font-size: 16px !important;
+}
+
+.fee-breakdown-five p {
+  margin-bottom: 0;
+  height: 18px;
+  margin-left: 0;
+  font-size: 16px;
+}
+
+.fee-breakdown-seven p {
+  margin-bottom: 0;
+  height: 18px;
+  margin-left: 0;
+  font-size: 14px;
+}
+
+.fee-breakdown-six {
+  width: 334px;
+  height: 21px;
+  padding: 0 18px;
+  float: left;
+}
+
+.fee-breakdown-seven {
+  height: 93px;
+  padding: 0 -18px 20px -18px;
+}
+
+.fee-breakdown-eight {
+  width: 334px;
+  height: 93px;
+  float: right;
+}
+
+.fee-breakdown-nine {
+  height: 40px;
+  margin: 12px 0 20px 0;
 }
 
 .js-modal-close-button {

@@ -17,6 +17,15 @@ class Api::ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
+      render 'api/projects/show'
+    else
+      render json: @project.errors.full_messages, status: 401
+    end
+  end
+
   private
   def project_params
     params.require(:project).permit(:title, :description, :duration, :pledge_amt, :eta, :shipping, :limit, :city, :state, :country, :category_id)

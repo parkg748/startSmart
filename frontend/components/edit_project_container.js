@@ -12,7 +12,7 @@ const mapStateToProps = state => {
       title: '',
       description: '',
       titleWordCount: 60,
-      shortBlurbWordCount: Object.values(state.entities.project).length > 0 ? (135 - Object.values(state.entities.project).slice(-1)[0].description.length) : 135,
+      shortBlurbWordCount: 135,
       radioChecked: 'checked',
       category: '',
       subcategory: '',
@@ -20,7 +20,9 @@ const mapStateToProps = state => {
       state: '',
       duration: 0,
       funding_goal: 0,
-      displayProfileMenu: 'js-modal-close'
+      displayProfileMenu: 'js-modal-close',
+      addItem: 'js-modal-close',
+      addBackground: ''
     },
     project: state.entities.project,
     category: state.entities.category

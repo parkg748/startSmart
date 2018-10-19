@@ -7,6 +7,14 @@ export const fetchUser = user => {
   });
 };
 
+export const updateUser = user => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/users/${user.id}/edit`,
+    data: { user }
+  });
+};
+
 export const signup = user => {
   return $.ajax({
     method: 'POST',

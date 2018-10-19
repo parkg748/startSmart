@@ -125,36 +125,23 @@ class EditRewardProject extends React.Component {
               <div className='profile-menu-body-right'>
                 <div className='profile-menu-body-left-header'>MY PROJECTS</div>
                 <ul>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
+                  {currentUserProjects.slice(0, 5).map((project, id) => {
+                    if (project.title === '') {
+                      return <li key={id}>
+                        <div className='profile-menu-projects'>
+                          <div className='profile-menu-projects-image'></div>
+                          <span>Untitled</span>
+                        </div>
+                      </li>
+                    } else {
+                      return <li key={id}>
+                        <div className='profile-menu-projects'>
+                          <div className='profile-menu-projects-image'></div>
+                          <span>{project.title}</span>
+                        </div>
+                      </li>
+                    }
+                  })}
                 </ul>
               </div>
             </div>
@@ -327,7 +314,7 @@ class EditRewardProject extends React.Component {
               </div>
               <div className='edit-page-footer'>
                 <div className='edit-page-footer-changes'>
-                  <span>Discard changes</span>
+                  <a onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`)}>Discard changes</a>
                   <button>Save</button>
                 </div>
               </div>

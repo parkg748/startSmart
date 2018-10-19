@@ -11,6 +11,11 @@ class EditAboutYouProject extends React.Component {
     this.props.fetchProjects();
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.updateUser({id: this.props.match.params.userId, name: this.state.name, biography: this.state.biography, websites: this.state.websites, google_analytics: this.state.google_analytics}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+  }
+
   clickProfileIcon() {
     if (this.state.displayProfileMenu === 'js-modal-close') {
       this.setState({displayProfileMenu: ''});
@@ -87,36 +92,23 @@ class EditAboutYouProject extends React.Component {
               <div className='profile-menu-body-right'>
                 <div className='profile-menu-body-left-header'>MY PROJECTS</div>
                 <ul>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className='profile-menu-projects'>
-                      <div className='profile-menu-projects-image'></div>
-                      <span>Untitled</span>
-                    </div>
-                  </li>
+                  {currentUserProjects.slice(0, 5).map((project, id) => {
+                    if (project.title === '') {
+                      return <li key={id}>
+                        <div className='profile-menu-projects'>
+                          <div className='profile-menu-projects-image'></div>
+                          <span>Untitled</span>
+                        </div>
+                      </li>
+                    } else {
+                      return <li key={id}>
+                        <div className='profile-menu-projects'>
+                          <div className='profile-menu-projects-image'></div>
+                          <span>{project.title}</span>
+                        </div>
+                      </li>
+                    }
+                  })}
                 </ul>
               </div>
             </div>
@@ -266,8 +258,8 @@ class EditAboutYouProject extends React.Component {
           </div>
           <div className='edit-page-footer'>
             <div className='edit-page-footer-changes'>
-              <span>Discard changes</span>
-              <button>Save</button>
+              <a onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`)}>Discard changes</a>
+              <button onClick={(e) => this.handleSubmit(e)}>Save</button>
             </div>
           </div>
       </div>

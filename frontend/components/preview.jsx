@@ -85,16 +85,16 @@ class Preview extends React.Component {
             <div className='profile-menu-body-right'>
               <div className='profile-menu-body-left-header'>MY PROJECTS</div>
               <ul>
-                {currentUserProjects.slice(0, 5).map(project => {
+                {currentUserProjects.slice(0, 5).map((project, id) => {
                   if (project.title === '') {
-                    return <li>
+                    return <li key={id}>
                       <div className='profile-menu-projects'>
                         <div className='profile-menu-projects-image'></div>
                         <span>Untitled</span>
                       </div>
                     </li>
                   } else {
-                    return <li>
+                    return <li key={id}>
                       <div className='profile-menu-projects'>
                         <div className='profile-menu-projects-image'></div>
                         <span>{project.title}</span>
@@ -144,7 +144,7 @@ class Preview extends React.Component {
                         <div className='preview-form-profile-icon'>
                           <img />
                         </div>
-                        <span>By Grace</span>
+                        <span>By {Object.values(this.props.user)[0].name}</span>
                         <div className='preview-created'>7 created</div>
                         <button>Follow Creator</button>
                       </div>
