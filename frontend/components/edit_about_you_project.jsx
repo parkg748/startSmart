@@ -19,7 +19,6 @@ class EditAboutYouProject extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const params = {id: this.props.match.params.userId, name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name, biography: this.props.user ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user ? Object.values(this.props.user)[0].websites : this.state.websites, google_analytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics};
-    debugger;
     this.props.updateUser(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 

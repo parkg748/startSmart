@@ -61,8 +61,8 @@ class Homepage extends React.Component {
   }
 
   render() {
-    if (this.props.user === null || this.props.user === undefined) return null;
-    if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    // if (this.props.user.user === null || this.props.user.user === undefined) return null;
+    // if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null && Object.values(this.props.user)[0] != null) {
@@ -96,7 +96,7 @@ class Homepage extends React.Component {
           </section>
         </nav>
         <div className={`profile-icon-menu ${this.state.displayProfileMenu}`}>
-          <div className='profile-menu-header'>{this.props.user === null || this.props.user === undefined ? '' : Object.values(this.props.user)[0].name}</div>
+          <div className='profile-menu-header'>{this.props.user.user ? Object.values(this.props.user.user)[0].name : '' }</div>
           <div className='profile-menu-body'>
             <div className='profile-menu-body-left'>
               <div className='profile-menu-body-left-header'>MY STUFF</div>
