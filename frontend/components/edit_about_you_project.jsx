@@ -18,19 +18,9 @@ class EditAboutYouProject extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-
-    if(this.state.imageFile){
-        formData.append('users[profile_url]', this.state.profileFile);
-    }
-    $.ajax({
-      url: `/api/users/${this.props.match.params.userId}`,
-      method: 'PATCH',
-      data: formData,
-      contentType: false,
-      processData: false
-    });
-    this.props.updateUser({id: this.props.match.params.userId, name: this.props.user.name === '' ? Object.values(this.props.user)[0].name : this.state.name, biography: this.props.user.biography === '' ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user.websites === '' ? Object.values(this.props.user)[0].websites : this.state.websites, google_analytics: this.props.user.google_analytics === '' ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics, profileUrl: this.state.profileUrl}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+    const params = {id: this.props.match.params.userId, name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name, biography: this.props.user ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user ? Object.values(this.props.user)[0].websites : this.state.websites, google_analytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics};
+    debugger;
+    this.props.updateUser(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
   handleFile(e) {

@@ -32,6 +32,6 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id,
     class_name: 'Project'
-    
-  has_one_attached :profile_url
+
+  # has_one_attached :profile_url
 end
