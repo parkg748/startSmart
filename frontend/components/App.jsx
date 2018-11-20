@@ -27,41 +27,49 @@ import AccountContainer from './account_container';
 import EditProfileContainer from './edit_profile_container';
 import ExploreContainer from './explore_container';
 import PreviewContainer from './preview_container';
+import {ProtectedRoute} from '../util/route_util';
+import ProjectViewContainer from './project_view_container';
 
-const App = () => (
-  <div>
-    <header>
-      <Switch>
-        <Route path='/learn' component={StartProjectContainer} />
-        <Route path='/login' component={LoginFormContainer} />
-        <Route path='/signup' component={SignupFormContainer} />
-        <Route path='/start' component={StartProjectPageOneContainer} />
-        <Route path='/recommendations' component={RecommendationsContainer} />
-        <Route exact path='/users/:userId/projects/:projectId' component={UserProjectContainer} />
-        <Route exact path='/users/:userId/projects/:projectId/basics' component={EditProjectContainer} />
-        <Route exact path='/users/:userId/projects/:projectId/rewards' component={EditRewardProjectContainer} />
-        <Route exact path='/users/:userId/projects/:projectId/story' component={EditStoryProjectContainer} />
-        <Route exact path='/users/:userId/projects/:projectId/about-you' component={EditAboutYouProjectContainer} />
-        <Route exact path='/users/:userId/projects/:projectId/account' component={EditAccountProjectContainer} />
-        <Route exact path='/users/:userId/projects/:projectId/edit' component={PreviewContainer} />
-        <Route exact path='/profile/following/find_creators' component={FollowingContainer} />
-        <Route exact path='/profile/following/welcome' component={FollowingFacebookContainer} />
-        <Route exact path='/messages/inbox' component={MessagesContainer} />
-        <Route exact path='/activity' component={ActivityContainer} />
-        <Route exact path='/profile/backings' component={BackedProjectsContainer} />
-        <Route exact path='/profile/projects' component={CreatedProjectsContainer} />
-        <Route exact path='/profile/starred' component={SavedProjectsContainer} />
-        <Route exact path='/settings/account' component={AccountContainer} />
-        <Route exact path='/settings/profile' component={EditProfileContainer} />
-        <Route exact path= '/profile/:userId' component={ProfileContainer} />
-        <Route exact path='/' component={HomepageContainer} />
-        <Redirect to='/' />
-      </Switch>
-    </header>
-    <footer>
-      <Route path='/' component={FooterContainer} />
-    </footer>
-  </div>
-);
+class App extends React.Component {
+
+  render() {
+    return (
+      <div>
+        <header>
+          <Switch>
+            <Route path='/learn' component={StartProjectContainer} />
+            <Route path='/login' component={LoginFormContainer} />
+            <Route path='/signup' component={SignupFormContainer} />
+            <Route path='/start' component={StartProjectPageOneContainer} />
+            <Route path='/recommendations' component={RecommendationsContainer} />
+            <Route exact path='/users/:userId/projects/:projectId/front' component={ProjectViewContainer} />
+            <Route exact path='/users/:userId/projects/:projectId' component={UserProjectContainer} />
+            <Route exact path='/users/:userId/projects/:projectId/basics' component={EditProjectContainer} />
+            <Route exact path='/users/:userId/projects/:projectId/rewards' component={EditRewardProjectContainer} />
+            <Route exact path='/users/:userId/projects/:projectId/story' component={EditStoryProjectContainer} />
+            <Route exact path='/users/:userId/projects/:projectId/about-you' component={EditAboutYouProjectContainer} />
+            <Route exact path='/users/:userId/projects/:projectId/account' component={EditAccountProjectContainer} />
+            <Route exact path='/users/:userId/projects/:projectId/edit' component={PreviewContainer} />
+            <Route exact path='/profile/following/find_creators' component={FollowingContainer} />
+            <Route exact path='/profile/following/welcome' component={FollowingFacebookContainer} />
+            <Route exact path='/messages/inbox' component={MessagesContainer} />
+            <Route exact path='/activity' component={ActivityContainer} />
+            <Route exact path='/profile/backings' component={BackedProjectsContainer} />
+            <Route exact path='/profile/projects' component={CreatedProjectsContainer} />
+            <Route exact path='/profile/starred' component={SavedProjectsContainer} />
+            <Route exact path='/settings/account' component={AccountContainer} />
+            <Route exact path='/settings/profile' component={EditProfileContainer} />
+            <Route exact path='/profile/:userId' component={ProfileContainer} />
+            <Route exact path='/' component={HomepageContainer} />
+            <Redirect to='/' />
+          </Switch>
+        </header>
+        <footer>
+          <Route path='/' component={FooterContainer} />
+        </footer>
+      </div>
+    );
+  }
+}
 
 export default App;

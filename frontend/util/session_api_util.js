@@ -1,5 +1,12 @@
 import React from 'react';
 
+export const fetchAllUsers = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/users'
+  });
+};
+
 export const fetchUser = user => {
   return $.ajax({
     method: 'GET',
@@ -10,7 +17,7 @@ export const fetchUser = user => {
 export const updateUser = user => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/users/${user.id}/edit`,
+    url: `/api/users/${user.id}`,
     data: { user }
   });
 };

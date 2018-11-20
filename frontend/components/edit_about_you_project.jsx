@@ -5,15 +5,43 @@ class EditAboutYouProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.aboutYou;
+    this.handleFile = this.handleFile.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
   }
 
+  deleteCurrentProject() {
+    this.props.deleteProject(this.props.match.params.projectId).then(() => this.props.history.push('/'));
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateUser({id: this.props.match.params.userId, name: this.state.name, biography: this.state.biography, websites: this.state.websites, google_analytics: this.state.google_analytics}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+    const formData = new FormData();
+
+    if(this.state.imageFile){
+        formData.append('users[profile_url]', this.state.profileFile);
+    }
+    $.ajax({
+      url: `/api/users/${this.props.match.params.userId}`,
+      method: 'PATCH',
+      data: formData,
+      contentType: false,
+      processData: false
+    });
+    this.props.updateUser({id: this.props.match.params.userId, name: this.props.user.name === '' ? Object.values(this.props.user)[0].name : this.state.name, biography: this.props.user.biography === '' ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user.websites === '' ? Object.values(this.props.user)[0].websites : this.state.websites, google_analytics: this.props.user.google_analytics === '' ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics, profileUrl: this.state.profileUrl}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+  }
+
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({profileFile: file, profileUrl: fileReader.result, profileUpload: 'open'});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   clickProfileIcon() {
@@ -34,11 +62,14 @@ class EditAboutYouProject extends React.Component {
   }
 
   render() {
+    if (this.props.user === null || this.props.user === undefined) return null;
+    if (this.props.project === null || this.props.project === undefined) return null;
     if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    const imagePreview = this.state.profileUrl ? <img src={this.state.profileUrl}/> : null;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg" /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -49,6 +80,33 @@ class EditAboutYouProject extends React.Component {
         currentUserProjects.push(project);
       };
     });
+    let currentProjectImage = '';
+    if (this.state.profileUpload === 'close') {
+      currentProjectImage = (<div className='profile-photo-upload'>
+        <label htmlFor='profile-upload'>
+          <input id='profile-upload' onChange={(e) => this.handleFile(e)} type='file' />
+          <div className='profile-photo-upload-inner'>
+            <span className='choose-an-image'>Choose an image from your computer</span>
+          </div>
+          <div className='profile-photo-description'>
+            <p>JPEG, PNG, GIF, or BMP • 200MB file limit</p>
+          </div>
+        </label>
+      </div>);
+    } else {
+      currentProjectImage = (<div className='profile-photo-upload'>
+        <label htmlFor='profile-upload'>
+          <input id='profile-upload' onChange={(e) => this.handleFile(e)} type='file' />
+          {imagePreview}
+          <div className='profile-photo-upload-inner-upload'>
+            <span className='choose-an-image'>Choose an image from your computer</span>
+          </div>
+          <div className='profile-photo-description'>
+            <p>JPEG, PNG, GIF, or BMP • 200MB file limit</p>
+          </div>
+        </label>
+      </div>);
+    }
     return (
       <div>
         <div className='edit-about-you-background'>
@@ -96,14 +154,18 @@ class EditAboutYouProject extends React.Component {
                     if (project.title === '') {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
-                          <div className='profile-menu-projects-image'></div>
+                          <div className='profile-menu-projects-image'>
+                            <img src='https://i.imgur.com/s5GppRq.png'/>
+                          </div>
                           <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                         </div>
                       </li>
                     } else {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
-                          <div className='profile-menu-projects-image'></div>
+                          <div className='profile-menu-projects-image'>
+                            <img src='' />
+                          </div>
                           <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                         </div>
                       </li>
@@ -153,14 +215,7 @@ class EditAboutYouProject extends React.Component {
                           <div className='profile-photo-inner'>
                             <div className='profile-photo-title'>Profile photo</div>
                             <div className='profile-photo-inner-content'>
-                              <div className='profile-photo-upload'>
-                                <div className='profile-photo-upload-inner'>
-                                  <span className='choose-an-image'>Choose an image from your computer</span>
-                                </div>
-                                <div className='profile-photo-description'>
-                                  <p>JPEG, PNG, GIF, or BMP • 200MB file limit</p>
-                                </div>
-                              </div>
+                              {currentProjectImage}
                             </div>
                           </div>
                         </div>
@@ -195,7 +250,7 @@ class EditAboutYouProject extends React.Component {
                               <div className='profile-photo-title'>Biography</div>
                               <div className='biography-content-inner'>
                                 <div className='biography-input'>
-                                  <textarea onChange={this.update('biography')}></textarea>
+                                  <textarea onChange={this.update('biography')}>{Object.values(this.props.user)[0].biography}</textarea>
                                 </div>
                               </div>
                             </div>
@@ -250,7 +305,7 @@ class EditAboutYouProject extends React.Component {
                   </div>
                   <div className='delete-project'>
                     <i className="fas fa-times"></i>
-                    <span>Delete project</span>
+                    <span onClick={() => this.deleteCurrentProject()}>Delete project</span>
                   </div>
                 </div>
               </div>

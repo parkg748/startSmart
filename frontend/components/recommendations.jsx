@@ -11,6 +11,8 @@ class Recommendations extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
+    this.props.fetchCategories();
+    this.props.fetchAllUsers();
   }
 
   clickProfileIcon() {
@@ -35,11 +37,14 @@ class Recommendations extends React.Component {
   // }
 
   render() {
-    if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    if (this.props.projects === undefined || this.props.projects === null) return null;
+    if (this.props.categories === undefined || this.props.categories === null) return null;
+    if (this.props.users === undefined || this.props.users === null) return null;
+    if (this.props.user === null || this.props.user === undefined) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null && Object.values(this.props.user)[0] != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -50,6 +55,15 @@ class Recommendations extends React.Component {
         currentUserProjects.push(project);
       };
     });
+    let projects = Object.values(this.props.projects);
+    let firstProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
+    let secondProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
+    let thirdProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
+    let fourthProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
+    let fifthProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
+    let sixthProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
+    let seventhProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
+    debugger;
     return (
       <div>
         <nav>
@@ -95,14 +109,18 @@ class Recommendations extends React.Component {
                   if (project.title === '') {
                     return <li key={id}>
                       <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'></div>
+                        <div className='profile-menu-projects-image'>
+                          <img src='https://i.imgur.com/s5GppRq.png'/>
+                        </div>
                         <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                       </div>
                     </li>
                   } else {
                     return <li key={id}>
                       <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'></div>
+                        <div className='profile-menu-projects-image'>
+                          <img src='' />
+                        </div>
                         <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                       </div>
                     </li>
@@ -128,7 +146,7 @@ class Recommendations extends React.Component {
                     <div className='recommendations-second-box'>
                       <select className='select-your-second-category' defaultValue='all-categories'>
                         <option value='all-categories' disabled>All Categories</option>
-                        {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
+                        {Object.values(this.props.categories).map(obj => {if (obj.name === 'Film') {
                           return <option key={obj.id} value={obj.name}>Film & Video</option>
                         } else {
                           return <option key={obj.id} value={obj.name}>{obj.name}</option>
@@ -204,16 +222,16 @@ class Recommendations extends React.Component {
                           <div className='recommendations-body-six'>
                             <div className='recommendations-body-seven'>
                               <div className='recommendations-body-seven-header'>
-                                <Link to='/'>Testing</Link>
+                                <Link to='/'>{firstProject === undefined ? null : firstProject.title}</Link>
                               </div>
                               <div className='recommendations-body-seven-author'>
                                 <img src='https://ksr-ugc.imgix.net/assets/006/347/287/83a01d5959e63f24f2ad447b4a0797f9_original.png?ixlib=rb-1.1.0&w=20&h=20&fit=crop&v=1503090035&auto=format&frame=1&q=92&s=d66f0ce35895ac6e08f4f2592cdbc9b8'/>
                                 by anonymous
                               </div>
-                              <div className='recommendations-body-seven-description'>The essential nonstick pan, redefined. No gimmicks. No BS marketing claims. Just premium, long-lasting performance at an honest price.</div>
+                              <div className='recommendations-body-seven-description'>{firstProject === undefined ? null : firstProject.description}</div>
                               <div className='recommendations-body-seven-category'>
                                 <a><i className="fab fa-stripe-s"></i>Project We Love</a>
-                                <a><i className="far fa-square"></i>Brooklyn, NY</a>
+                                <a><i className="far fa-square"></i>{firstProject === undefined ? null : firstProject.city}, {firstProject === undefined ? null : firstProject.state}</a>
                                 <a className='product-design-category'><i className="far fa-square"></i>Product Design</a>
                               </div>
                             </div>
@@ -226,170 +244,174 @@ class Recommendations extends React.Component {
                             <li><strong>2512%</strong><span>funded</span></li>
                             <li><strong>$628,149</strong><span>pledged</span></li>
                             <li><strong>8,016</strong><span>backers</span></li>
-                            <li><strong>20</strong><span>days to go</span></li>
+                            <li><strong>{firstProject === undefined ? null : firstProject.duration}</strong><span>days to go</span></li>
                           </ul>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className='recommendations-body-nine'>
-                    <div className='recommendations-category-one-left'>
-                      <div className='recommendations-category-one-inner'>
-                        <div className='recommendations-category-one-image'>
-                          <a>Project We Love</a>
-                        </div>
-                        <div className='recommendations-category-one-content'>
-                          <div className='recommendations-category-one-content-inner'>
-                            <div className='recommendations-category-one-content-inner-inner'>
-                              <h3>Lumapod - The World's Fastest Tripod</h3>
-                              <p>An ultra-compact and lightning fast tripod solution for those who enjoy exploring freely.</p>
-                            </div>
-                            <div className='recommendations-category-one-content-author'>by Lumapod</div>
+                    <div className='first-three-row'>
+                      <div className='recommendations-category-one-left'>
+                        <div className='recommendations-category-one-inner'>
+                          <div className='recommendations-category-one-image'>
+                            <a>Project We Love</a>
                           </div>
-                          <div className='recommendations-category-one-content-bottom'>
-                            <div className='recommendations-category-one-content-bar'>
+                          <div className='recommendations-category-one-content'>
+                            <div className='recommendations-category-one-content-inner'>
+                              <div className='recommendations-category-one-content-inner-inner'>
+                                <h3>{secondProject === undefined ? null : secondProject.title}</h3>
+                                <p>{secondProject === undefined ? null : secondProject.description}</p>
+                              </div>
+                              <div className='recommendations-category-one-content-author'>by {secondProject === undefined ? null : this.props.users[secondProject.userId].name}</div>
                             </div>
-                            <div className='recommendations-category-funding-info'>
-                              <span>$395,347 pledged</span>
-                              <p>1,129% funded</p>
-                              <p>10 days to go</p>
-                              <div className='recommendations-category-bottom-link'>Product Design</div>
-                              <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> Grieskirchen, Austria</div>
+                            <div className='recommendations-category-one-content-bottom'>
+                              <div className='recommendations-category-one-content-bar'>
+                              </div>
+                              <div className='recommendations-category-funding-info'>
+                                <span>$395,347 pledged</span>
+                                <p>1,129% funded</p>
+                                <p>{secondProject === undefined ? null : secondProject.duration} days to go</p>
+                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {secondProject === undefined ? null : secondProject.city}, {secondProject === undefined ? null : secondProject.state}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='recommendations-category-one'>
+                        <div className='recommendations-category-one-inner'>
+                          <div className='recommendations-category-one-image'>
+                            <a>Project We Love</a>
+                          </div>
+                          <div className='recommendations-category-one-content'>
+                            <div className='recommendations-category-one-content-inner'>
+                              <div className='recommendations-category-one-content-inner-inner'>
+                                <h3>{thirdProject === undefined ? null : thirdProject.title}</h3>
+                                <p>{thirdProject === undefined ? null : thirdProject.description}</p>
+                              </div>
+                              <div className='recommendations-category-one-content-author'>by {thirdProject === undefined ? null : this.props.users[thirdProject.userId].name}</div>
+                            </div>
+                            <div className='recommendations-category-one-content-bottom'>
+                              <div className='recommendations-category-one-content-bar'>
+                              </div>
+                              <div className='recommendations-category-funding-info'>
+                                <span>$395,347 pledged</span>
+                                <p>1,129% funded</p>
+                                <p>{thirdProject === undefined ? null : thirdProject.duration} days to go</p>
+                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {thirdProject === undefined ? null : thirdProject.city}, {thirdProject === undefined ? null : thirdProject.state}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='recommendations-category-one-right'>
+                        <div className='recommendations-category-one-inner'>
+                          <div className='recommendations-category-one-image'>
+                            <a>Project We Love</a>
+                          </div>
+                          <div className='recommendations-category-one-content'>
+                            <div className='recommendations-category-one-content-inner'>
+                              <div className='recommendations-category-one-content-inner-inner'>
+                                <h3>{fourthProject === undefined ? null : fourthProject.title}</h3>
+                                <p>{fourthProject === undefined ? null : fourthProject.description}</p>
+                              </div>
+                              <div className='recommendations-category-one-content-author'>by {fourthProject === undefined ? null : this.props.users[fourthProject.userId].name}</div>
+                            </div>
+                            <div className='recommendations-category-one-content-bottom'>
+                              <div className='recommendations-category-one-content-bar'>
+                              </div>
+                              <div className='recommendations-category-funding-info'>
+                                <span>$395,347 pledged</span>
+                                <p>1,129% funded</p>
+                                <p>{fourthProject === undefined ? null : fourthProject.duration} days to go</p>
+                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {fourthProject === undefined ? null : fourthProject.city}, {fourthProject === undefined ? null : fourthProject.state}</div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div className='recommendations-category-one'>
-                      <div className='recommendations-category-one-inner'>
-                        <div className='recommendations-category-one-image'>
-                          <a>Project We Love</a>
-                        </div>
-                        <div className='recommendations-category-one-content'>
-                          <div className='recommendations-category-one-content-inner'>
-                            <div className='recommendations-category-one-content-inner-inner'>
-                              <h3>Lumapod - The World's Fastest Tripod</h3>
-                              <p>An ultra-compact and lightning fast tripod solution for those who enjoy exploring freely.</p>
-                            </div>
-                            <div className='recommendations-category-one-content-author'>by Lumapod</div>
+                    <div className='first-three-row'>
+                      <div className='recommendations-category-one-left'>
+                        <div className='recommendations-category-one-inner'>
+                          <div className='recommendations-category-one-image'>
+                            <a>Project We Love</a>
                           </div>
-                          <div className='recommendations-category-one-content-bottom'>
-                            <div className='recommendations-category-one-content-bar'>
+                          <div className='recommendations-category-one-content'>
+                            <div className='recommendations-category-one-content-inner'>
+                              <div className='recommendations-category-one-content-inner-inner'>
+                                <h3>{fifthProject === undefined ? null : fifthProject.title}</h3>
+                                <p>{fifthProject === undefined ? null : fifthProject.description}</p>
+                              </div>
+                              <div className='recommendations-category-one-content-author'>by {fifthProject === undefined ? null : this.props.users[fifthProject.userId].name}</div>
                             </div>
-                            <div className='recommendations-category-funding-info'>
-                              <span>$395,347 pledged</span>
-                              <p>1,129% funded</p>
-                              <p>10 days to go</p>
-                              <div className='recommendations-category-bottom-link'>Product Design</div>
-                              <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> Grieskirchen, Austria</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className='recommendations-category-one-right'>
-                      <div className='recommendations-category-one-inner'>
-                        <div className='recommendations-category-one-image'>
-                          <a>Project We Love</a>
-                        </div>
-                        <div className='recommendations-category-one-content'>
-                          <div className='recommendations-category-one-content-inner'>
-                            <div className='recommendations-category-one-content-inner-inner'>
-                              <h3>Lumapod - The World's Fastest Tripod</h3>
-                              <p>An ultra-compact and lightning fast tripod solution for those who enjoy exploring freely.</p>
-                            </div>
-                            <div className='recommendations-category-one-content-author'>by Lumapod</div>
-                          </div>
-                          <div className='recommendations-category-one-content-bottom'>
-                            <div className='recommendations-category-one-content-bar'>
-                            </div>
-                            <div className='recommendations-category-funding-info'>
-                              <span>$395,347 pledged</span>
-                              <p>1,129% funded</p>
-                              <p>10 days to go</p>
-                              <div className='recommendations-category-bottom-link'>Product Design</div>
-                              <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> Grieskirchen, Austria</div>
+                            <div className='recommendations-category-one-content-bottom'>
+                              <div className='recommendations-category-one-content-bar'>
+                              </div>
+                              <div className='recommendations-category-funding-info'>
+                                <span>$395,347 pledged</span>
+                                <p>1,129% funded</p>
+                                <p>{fifthProject === undefined ? null : fifthProject.duration} days to go</p>
+                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {fifthProject === undefined ? null : fifthProject.city}, {fifthProject === undefined ? null : fifthProject.state}</div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className='recommendations-category-one-left'>
-                      <div className='recommendations-category-one-inner'>
-                        <div className='recommendations-category-one-image'>
-                          <a>Project We Love</a>
-                        </div>
-                        <div className='recommendations-category-one-content'>
-                          <div className='recommendations-category-one-content-inner'>
-                            <div className='recommendations-category-one-content-inner-inner'>
-                              <h3>Lumapod - The World's Fastest Tripod</h3>
-                              <p>An ultra-compact and lightning fast tripod solution for those who enjoy exploring freely.</p>
-                            </div>
-                            <div className='recommendations-category-one-content-author'>by Lumapod</div>
+                      <div className='recommendations-category-one'>
+                        <div className='recommendations-category-one-inner'>
+                          <div className='recommendations-category-one-image'>
+                            <a>Project We Love</a>
                           </div>
-                          <div className='recommendations-category-one-content-bottom'>
-                            <div className='recommendations-category-one-content-bar'>
+                          <div className='recommendations-category-one-content'>
+                            <div className='recommendations-category-one-content-inner'>
+                              <div className='recommendations-category-one-content-inner-inner'>
+                                <h3>{sixthProject === undefined ? null : sixthProject.title}</h3>
+                                <p>{sixthProject === undefined ? null : sixthProject.description}</p>
+                              </div>
+                              <div className='recommendations-category-one-content-author'>by {sixthProject === undefined ? null : this.props.users[sixthProject.userId].name}</div>
                             </div>
-                            <div className='recommendations-category-funding-info'>
-                              <span>$395,347 pledged</span>
-                              <p>1,129% funded</p>
-                              <p>10 days to go</p>
-                              <div className='recommendations-category-bottom-link'>Product Design</div>
-                              <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> Grieskirchen, Austria</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className='recommendations-category-one'>
-                      <div className='recommendations-category-one-inner'>
-                        <div className='recommendations-category-one-image'>
-                          <a>Project We Love</a>
-                        </div>
-                        <div className='recommendations-category-one-content'>
-                          <div className='recommendations-category-one-content-inner'>
-                            <div className='recommendations-category-one-content-inner-inner'>
-                              <h3>Lumapod - The World's Fastest Tripod</h3>
-                              <p>An ultra-compact and lightning fast tripod solution for those who enjoy exploring freely.</p>
-                            </div>
-                            <div className='recommendations-category-one-content-author'>by Lumapod</div>
-                          </div>
-                          <div className='recommendations-category-one-content-bottom'>
-                            <div className='recommendations-category-one-content-bar'>
-                            </div>
-                            <div className='recommendations-category-funding-info'>
-                              <span>$395,347 pledged</span>
-                              <p>1,129% funded</p>
-                              <p>10 days to go</p>
-                              <div className='recommendations-category-bottom-link'>Product Design</div>
-                              <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> Grieskirchen, Austria</div>
+                            <div className='recommendations-category-one-content-bottom'>
+                              <div className='recommendations-category-one-content-bar'>
+                              </div>
+                              <div className='recommendations-category-funding-info'>
+                                <span>$395,347 pledged</span>
+                                <p>1,129% funded</p>
+                                <p>{sixthProject === undefined ? null : sixthProject.duration} days to go</p>
+                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {sixthProject === undefined ? null : sixthProject.city}, {sixthProject === undefined ? null : sixthProject.state}</div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className='recommendations-category-one-right'>
-                      <div className='recommendations-category-one-inner'>
-                        <div className='recommendations-category-one-image'>
-                          <a>Project We Love</a>
-                        </div>
-                        <div className='recommendations-category-one-content'>
-                          <div className='recommendations-category-one-content-inner'>
-                            <div className='recommendations-category-one-content-inner-inner'>
-                              <h3>Lumapod - The World's Fastest Tripod</h3>
-                              <p>An ultra-compact and lightning fast tripod solution for those who enjoy exploring freely.</p>
-                            </div>
-                            <div className='recommendations-category-one-content-author'>by Lumapod</div>
+                      <div className='recommendations-category-one-right'>
+                        <div className='recommendations-category-one-inner'>
+                          <div className='recommendations-category-one-image'>
+                            <a>Project We Love</a>
                           </div>
-                          <div className='recommendations-category-one-content-bottom'>
-                            <div className='recommendations-category-one-content-bar'>
+                          <div className='recommendations-category-one-content'>
+                            <div className='recommendations-category-one-content-inner'>
+                              <div className='recommendations-category-one-content-inner-inner'>
+                                <h3>{seventhProject === undefined ? null : seventhProject.title}</h3>
+                                <p>{seventhProject === undefined ? null : seventhProject.description}</p>
+                              </div>
+                              <div className='recommendations-category-one-content-author'>by {seventhProject === undefined ? null : this.props.users[seventhProject.userId].name}</div>
                             </div>
-                            <div className='recommendations-category-funding-info'>
-                              <span>$395,347 pledged</span>
-                              <p>1,129% funded</p>
-                              <p>10 days to go</p>
-                              <div className='recommendations-category-bottom-link'>Product Design</div>
-                              <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> Grieskirchen, Austria</div>
+                            <div className='recommendations-category-one-content-bottom'>
+                              <div className='recommendations-category-one-content-bar'>
+                              </div>
+                              <div className='recommendations-category-funding-info'>
+                                <span>$395,347 pledged</span>
+                                <p>1,129% funded</p>
+                                <p>{seventhProject === undefined ? null : seventhProject.duration} days to go</p>
+                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {seventhProject === undefined ? null : seventhProject.city}, {seventhProject === undefined ? null : seventhProject.state}</div>
+                              </div>
                             </div>
                           </div>
                         </div>

@@ -1,19 +1,23 @@
 import {connect} from 'react-redux';
 import Preview from './preview';
 import {logout} from '../actions/session_actions';
-import {fetchProjects} from '../actions/project_actions';
+import {fetchProject, fetchProjects} from '../actions/project_actions';
+import {fetchCategories} from '../actions/category_actions';
 
 const mapStateToProps = state => {
   return {
     user: state.entities.users,
-    class: {displayProfileMenu: 'js-modal-close'}
+    project: state.entities.project,
+    category: state.entities.category,
+    class: {displayProfileMenu: 'js-modal-close', addBackground: '', userInfoModal: 'js-modal-close'}
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
-    fetchProjects: () => dispatch(fetchProjects())
+    fetchProject: (user, project) => dispatch(fetchProject(user, project)),
+    fetchCategories: () => dispatch(fetchCategories())
   };
 };
 

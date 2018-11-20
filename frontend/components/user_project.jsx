@@ -20,18 +20,23 @@ class UserProject extends React.Component {
     }
   }
 
+  deleteCurrentProject() {
+    this.props.deleteProject(this.props.match.params.projectId).then(() => this.props.history.push('/'));
+  }
+
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
   }
 
   render() {
+    if (this.props.user === null || this.props.user === undefined) return null;
     if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     if (Object.values(this.props.category).length === 0 || Object.values(this.props.project).length === 0) return null;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg" /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -88,14 +93,18 @@ class UserProject extends React.Component {
                   if (project.title === '') {
                     return <li key={id}>
                       <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'></div>
+                        <div className='profile-menu-projects-image'>
+                          <img src='https://i.imgur.com/s5GppRq.png'/>
+                        </div>
                         <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                       </div>
                     </li>
                   } else {
                     return <li key={id}>
                       <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'></div>
+                        <div className='profile-menu-projects-image'>
+                          <img src='' />
+                        </div>
                         <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                       </div>
                     </li>
@@ -110,11 +119,11 @@ class UserProject extends React.Component {
           <div className='project-front-header-inner'>
             <div className='project-front-header-title'>
               <h2>{this.props.category[Object.values(this.props.project).slice(-1)[0].categoryId].name} Project</h2>
-              <h3>by {this.props.user.name}</h3>
+              <h3>by {Object.values(this.props.user)[0].name}</h3>
             </div>
             <div className='project-preview'>
               <div className='project-preview-inner'>
-                <Link className='project-preview-link' to='/'><i className="fas fa-eye"></i>Preview</Link>
+                <Link className='project-preview-link' to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/edit`}><i className="fas fa-eye"></i>Preview</Link>
               </div>
             </div>
           </div>
@@ -224,7 +233,7 @@ class UserProject extends React.Component {
               <div className='support-section-delete-section-two'>
                 <div className='support-section-delete-section-three'>
                   <div className='support-section-delete-section-four'>
-                    <button><i className="fas fa-trash"></i> Delete project</button>
+                    <button onClick={() => this.deleteCurrentProject()}><i className="fas fa-trash"></i> Delete project</button>
                   </div>
                 </div>
               </div>

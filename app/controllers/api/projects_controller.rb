@@ -2,6 +2,7 @@ class Api::ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
+
     if @project.save
       render 'api/projects/show'
     else
@@ -11,10 +12,12 @@ class Api::ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    # render :show
   end
 
   def index
     @projects = Project.all
+    # render :index
   end
 
   def update
@@ -26,8 +29,13 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+  end
+
   private
   def project_params
-    params.require(:project).permit(:title, :description, :duration, :pledge_amt, :eta, :shipping, :limit, :city, :state, :country, :category_id)
+    params.require(:project).permit(:title, :description, :duration, :pledge_amt, :eta, :shipping, :limit, :city, :state, :country, :category_id, :image_url)
   end
 end

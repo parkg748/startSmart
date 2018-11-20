@@ -1,14 +1,29 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import Editor from './text_editor';
 
 class EditStoryProject extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {
+      displayProfileMenu: 'js-modal-close',
+      challenges: ''
+    };
+    this.onChange = (editorState) => this.setState({editorState});
   }
 
   componentDidMount() {
     this.props.fetchProjects();
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.updateProject({challenges: this.state.challenges}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+  }
+
+  deleteCurrentProject() {
+    this.props.deleteProject(this.props.match.params.projectId).then(() => this.props.history.push('/'));
   }
 
   clickProfileIcon() {
@@ -32,7 +47,7 @@ class EditStoryProject extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg" /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -89,14 +104,18 @@ class EditStoryProject extends React.Component {
                   if (project.title === '') {
                     return <li key={id}>
                       <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'></div>
+                        <div className='profile-menu-projects-image'>
+                          <img src='https://i.imgur.com/s5GppRq.png'/>
+                        </div>
                         <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                       </div>
                     </li>
                   } else {
                     return <li key={id}>
                       <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'></div>
+                        <div className='profile-menu-projects-image'>
+                          <img src='' />
+                        </div>
                         <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                       </div>
                     </li>
@@ -165,22 +184,7 @@ class EditStoryProject extends React.Component {
                             <div className='project-description-description'>
                               <span>Use your project description to share more about what you’re raising funds to do and how you plan to pull it off. It’s up to you to make the case for your project.</span>
                             </div>
-                            <div className='project-description-textarea'>
-                              <div className='textarea-edit'>
-                                <ul>
-                                  <li className='bold-edit'>B</li>
-                                  <li><i className="fas fa-italic"></i></li>
-                                  <li>Header</li>
-                                  <li><i className="fas fa-list-ul"></i></li>
-                                  <li><i className="fas fa-link"></i></li>
-                                  <li><i className="fas fa-unlink"></i></li>
-                                  <li><i className="fas fa-video"></i></li>
-                                  <li><i className="fas fa-image"></i></li>
-                                  <li><i className="fas fa-music"></i></li>
-                                </ul>
-                              </div>
-                              <iframe></iframe>
-                            </div>
+                            <Editor/>
                           </div>
                         </div>
                       </div>
@@ -194,7 +198,7 @@ class EditStoryProject extends React.Component {
                               <p>Please mention if you’re still in the process of completing any past projects or if your project requires approval or premarket review from an outside company or agency before you can distribute rewards.</p>
                               <p>Being fully transparent and addressing these potential challenges from the start will help backers understand that your project is a work in progress, and that you’ve thought through all of the possible outcomes.</p>
                               <div className='risks-challenges-input'>
-                                <textarea></textarea>
+                                <textarea onChange={this.update('challenges')}></textarea>
                               </div>
                             </div>
                           </div>
@@ -236,7 +240,7 @@ class EditStoryProject extends React.Component {
               </div>
               <div className='delete-project'>
                 <i className="fas fa-times"></i>
-                <span>Delete project</span>
+                <span onClick={() => this.deleteCurrentProject()}>Delete project</span>
               </div>
             </div>
           </div>
@@ -244,7 +248,7 @@ class EditStoryProject extends React.Component {
         <div className='story-edit-page-footer'>
           <div className='story-edit-page-footer-changes'>
             <a onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`)}>Discard changes</a>
-            <button>Save</button>
+            <button onClick={(e) => this.handleSubmit(e)}>Save</button>
           </div>
         </div>
       </div>

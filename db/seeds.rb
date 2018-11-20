@@ -24,4 +24,5 @@ ActiveRecord::Base.transaction do
     {name: 'Theater', subcategories: ['Comedy', 'Experimental', 'Festivals', 'Immersive', 'Musical', 'Plays', 'Spaces']}])
   User.destroy_all
   User.create({name: 'Guest', email: 'demouser@gmail.com', password: 'starwars'})
+  Project.destroy_all
 end

@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+
   belongs_to :category,
     primary_key: :id,
     foreign_key: :category_id,
@@ -14,5 +15,5 @@ class Project < ApplicationRecord
     foreign_key: :project_id,
     class_name: 'Reward'
 
-  has_one_attached :photo
+  has_one_attached :image_url
 end

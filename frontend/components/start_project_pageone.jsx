@@ -45,7 +45,8 @@ class StartProjectPageOne extends React.Component {
           state: this.state.state,
           country: this.state.country,
           user_id: this.state.user_id,
-          category_id: this.state.category_id}).then(action => {
+          category_id: this.state.category_id})
+          .then(action => {
             let project = Object.values(action.project)[0];
             this.props.history.push(`/users/${project.userId}/projects/${project.id}`);
           });
@@ -98,7 +99,7 @@ class StartProjectPageOne extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='start-project-profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      profile = <div className='start-project-profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -150,14 +151,18 @@ class StartProjectPageOne extends React.Component {
                     if (project.title === '') {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
-                          <div className='profile-menu-projects-image'></div>
+                          <div className='profile-menu-projects-image'>
+                            <img src='https://i.imgur.com/s5GppRq.png'/>
+                          </div>
                           <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                         </div>
                       </li>
                     } else {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
-                          <div className='profile-menu-projects-image'></div>
+                          <div className='profile-menu-projects-image'>
+                            <img src='' />
+                          </div>
                           <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                         </div>
                       </li>
@@ -226,7 +231,7 @@ class StartProjectPageOne extends React.Component {
                   <h2>Describe what you'll be creating.</h2>
                   <h3>And don't worry, you can edit this later, too.</h3>
                   <div className='description-box'>
-                    <input onChange={this.update('description')} type='text' placeholder={randPlaceholder} value={this.state.description} />
+                    <textarea onChange={this.update('description')} placeholder={randPlaceholder}></textarea>
                   </div>
                   <div className='description-num'>
                     <div className='description-num-inner'>{this.state.wordCount}/135</div>

@@ -30,7 +30,7 @@ class StartProject extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -86,14 +86,18 @@ class StartProject extends React.Component {
                   if (project.title === '') {
                     return <li key={id}>
                       <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'></div>
+                        <div className='profile-menu-projects-image'>
+                          <img src='https://i.imgur.com/s5GppRq.png'/>
+                        </div>
                         <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                       </div>
                     </li>
                   } else {
                     return <li key={id}>
                       <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'></div>
+                        <div className='profile-menu-projects-image'>
+                          <img src='' />
+                        </div>
                         <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                       </div>
                     </li>

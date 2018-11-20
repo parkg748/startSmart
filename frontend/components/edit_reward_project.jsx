@@ -7,11 +7,20 @@ class EditRewardProject extends React.Component {
     this.state = this.props.reward;
     this.closeAddItemForm = this.closeAddItemForm.bind(this);
     this.addItem = this.addItem.bind(this);
+    this.increaseRewardBox = this.increaseRewardBox.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
     this.props.fetchProjects();
+  }
+
+  deleteCurrentProject() {
+    this.props.deleteProject(this.props.match.params.projectId).then(() => this.props.history.push('/'));
+  }
+
+  increaseRewardBox() {
+    this.setState({numOfRewardBox: this.state.numOfRewardBox + 1});
   }
 
   clickProfileIcon() {
@@ -67,7 +76,7 @@ class EditRewardProject extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -82,6 +91,87 @@ class EditRewardProject extends React.Component {
         currentUserProjects.push(project);
       };
     });
+    let rewardBox = [];
+    for (let i = 0; i < this.state.numOfRewardBox; i++) {
+      rewardBox.push(<div className='reward-box-inner-inner'>
+          <div className='reward-title'>
+            <span className='reward-title-number'>Reward #1 <i className="fas fa-question-circle"></i></span>
+            <div className='num-of-backers'>0 backers</div>
+          </div>
+          <div className='reward-form-field'>
+            <div className='reward-form-field-title'>
+              <div className='reward-form-field-title-desc'>Title</div>
+              <div className='reward-form-field-title-input'><input onChange={this.update('title')} type='text' /></div>
+            </div>
+            <div className='reward-form-field-title'>
+              <div className='reward-form-field-title-desc'>Pledge amount</div>
+              <div className='reward-form-field-title-input'><input onChange={this.update('pledge_amt')} type='text' defaultValue='€0' /></div>
+            </div>
+            <div className='reward-form-field-description'>
+              <div className='reward-form-field-description-desc'>Description</div>
+              <div className='reward-form-field-description-inner'>
+                <div className='reward-form-field-description-textarea'>
+                  <textarea onChange={this.update('description')}></textarea>
+                </div>
+                <button onClick={() => this.addItem()} className='add-an-item'>
+                  <div className='add-an-item-inner'>
+                    <div className='add-an-item-inner-inner'>
+                      <i className="fas fa-plus"></i>Add an item
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div className='estimated-delivery'>
+              <div className='estimated-delivery-title'>Estimated delivery</div>
+              <div className='estimated-delivery-date'>
+                  <div className='estimated-delivery-date-month'>
+                    <i className="estimated-delivery-date-month-caret fas fa-angle-down"></i>
+                    <select onChange={this.update('month')} value={currentMonth}>
+                      {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map(month => <option value={month}>{month}</option>)}
+                    </select>
+                  </div>
+                  <div className='estimated-delivery-date-year'>
+                    <i className="estimated-delivery-date-year-caret fas fa-angle-down"></i>
+                    <select onChange={this.update('year')} defaultValue='2018'>
+                      {[2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023].map(year => {
+                        if (year === currentYear) {
+                          return <option value={year} selected>{year}</option>
+                        } else {
+                          return <option value={year}>{year}</option>
+                        }
+                      })}
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div className='reward-form-field-title'>
+              <div className='reward-form-field-title-desc'>Shipping details</div>
+                <div className='shipping-options'>
+                  <i className="shipping-options-caret fas fa-angle-down"></i>
+                  <select onChange={this.update('shipping')} defaultValue='select-an-option'>
+                    <option value='select-an-option' disabled>Select an option</option>
+                    <option value='no-shipping-involved'>No shipping involved</option>
+                    <option value='only-ships-certain-countries'>Only ships to certain countries</option>
+                    <option value='anywhere-in-world'>Ships anywhere in the world</option>
+                  </select>
+                </div>
+              </div>
+              <div className='reward-form-field-title'>
+                <div className='reward-form-field-title-desc'>Limit availability</div>
+                <div className='limit-container'>
+                  <div className='limit-container-inner'>
+                    <input onChange={this.update('limit')} id='limitChecked' type='checkbox'/>
+                    <span>Enable reward limit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button className='reward-form-delete'>
+              <i className="delete-rewards fas fa-times"></i> Delete
+            </button>
+          </div>)
+    }
     return (
       <div>
         <div className={this.state.addBackground}>
@@ -129,14 +219,18 @@ class EditRewardProject extends React.Component {
                     if (project.title === '') {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
-                          <div className='profile-menu-projects-image'></div>
+                          <div className='profile-menu-projects-image'>
+                            <img src='https://i.imgur.com/s5GppRq.png'/>
+                          </div>
                           <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                         </div>
                       </li>
                     } else {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
-                          <div className='profile-menu-projects-image'></div>
+                          <div className='profile-menu-projects-image'>
+                            <img src='' />
+                          </div>
                           <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                         </div>
                       </li>
@@ -185,92 +279,15 @@ class EditRewardProject extends React.Component {
                         <form>
                           <div className='reward-box'>
                             <div className='reward-box-inner'>
-                              <div className='reward-box-inner-inner'>
-                                <div className='reward-title'>
-                                  <span className='reward-title-number'>Reward #1 <i className="fas fa-question-circle"></i></span>
-                                  <div className='num-of-backers'>0 backers</div>
-                                </div>
-                                <div className='reward-form-field'>
-                                  <div className='reward-form-field-title'>
-                                    <div className='reward-form-field-title-desc'>Title</div>
-                                    <div className='reward-form-field-title-input'><input onChange={this.update('title')} type='text' /></div>
-                                  </div>
-                                  <div className='reward-form-field-title'>
-                                    <div className='reward-form-field-title-desc'>Pledge amount</div>
-                                    <div className='reward-form-field-title-input'><input onChange={this.update('pledge_amt')} type='text' defaultValue='€0' /></div>
-                                  </div>
-                                  <div className='reward-form-field-description'>
-                                    <div className='reward-form-field-description-desc'>Description</div>
-                                    <div className='reward-form-field-description-inner'>
-                                      <div className='reward-form-field-description-textarea'>
-                                        <textarea onChange={this.update('description')}></textarea>
-                                      </div>
-                                      <button onClick={() => this.addItem()} className='add-an-item'>
-                                        <div className='add-an-item-inner'>
-                                          <div className='add-an-item-inner-inner'>
-                                            <i className="fas fa-plus"></i>Add an item
-                                          </div>
-                                        </div>
-                                      </button>
-                                    </div>
-                                  </div>
-                                  <div className='estimated-delivery'>
-                                    <div className='estimated-delivery-title'>Estimated delivery</div>
-                                    <div className='estimated-delivery-date'>
-                                        <div className='estimated-delivery-date-month'>
-                                          <i className="estimated-delivery-date-month-caret fas fa-angle-down"></i>
-                                          <select onChange={this.update('month')} value={currentMonth}>
-                                            {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map(month => <option value={month}>{month}</option>)}
-                                          </select>
-                                        </div>
-                                        <div className='estimated-delivery-date-year'>
-                                          <i className="estimated-delivery-date-year-caret fas fa-angle-down"></i>
-                                          <select onChange={this.update('year')} defaultValue='2018'>
-                                            {[2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023].map(year => {
-                                              if (year === currentYear) {
-                                                return <option value={year} selected>{year}</option>
-                                              } else {
-                                                return <option value={year}>{year}</option>
-                                              }
-                                            })}
-                                          </select>
-                                        </div>
-                                      </div>
-                                  </div>
-                                  <div className='reward-form-field-title'>
-                                    <div className='reward-form-field-title-desc'>Shipping details</div>
-                                      <div className='shipping-options'>
-                                        <i className="shipping-options-caret fas fa-angle-down"></i>
-                                        <select onChange={this.update('shipping')} defaultValue='select-an-option'>
-                                          <option value='select-an-option' disabled>Select an option</option>
-                                          <option value='no-shipping-involved'>No shipping involved</option>
-                                          <option value='only-ships-certain-countries'>Only ships to certain countries</option>
-                                          <option value='anywhere-in-world'>Ships anywhere in the world</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                    <div className='reward-form-field-title'>
-                                      <div className='reward-form-field-title-desc'>Limit availability</div>
-                                      <div className='limit-container'>
-                                        <div className='limit-container-inner'>
-                                          <input onChange={this.update('limit')} id='limitChecked' type='checkbox'/>
-                                          <span>Enable reward limit</span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <button className='reward-form-delete'>
-                                    <i className="delete-rewards fas fa-times"></i> Delete
-                                  </button>
-                                  </div>
-                                  <div className='add-new-reward'>
-                                    <div className='add-new-reward-text'>
-                                      <i className="add-new-reward-plus fas fa-plus"></i>
-                                      <span>Add a new reward</span>
-                                    </div>
+                                // {rewardBox.map(el => el)}
+                                <div onClick={() => this.increaseRewardBox()} className='add-new-reward'>
+                                  <div className='add-new-reward-text'>
+                                    <i className="add-new-reward-plus fas fa-plus"></i>
+                                    <span>Add a new reward</span>
                                   </div>
                                 </div>
                               </div>
+                            </div>
                             </form>
                           </div>
                         </div>
@@ -306,7 +323,7 @@ class EditRewardProject extends React.Component {
                       </div>
                       <div className='delete-project'>
                         <i className="fas fa-times"></i>
-                        <span>Delete project</span>
+                        <span onClick={() => this.deleteCurrentProject()}>Delete project</span>
                       </div>
                     </div>
                   </div>

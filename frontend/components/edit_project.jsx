@@ -1,23 +1,76 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import merge from 'lodash/merge';
+import PlacesAutocomplete from 'react-places-autocomplete';
+import {geocodeByAddress, geocodeByPlaceId, getLatLng} from 'react-places-autocomplete';
 
 class EditProject extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {
+      title: '',
+      description: '',
+      titleWordCount: 60,
+      shortBlurbWordCount: 135,
+      radioChecked: 'checked',
+      category: '',
+      subcategory: '',
+      city: '',
+      state: '',
+      duration: 0,
+      fundingGoal: '€0',
+      displayProfileMenu: 'js-modal-close',
+      addItem: 'js-modal-close',
+      addBackground: '',
+      location: 'e',
+      imageUrl: "",
+      imageFile: "",
+      imageUpload: 'close',
+      categoryId: ''
+    };
     this.addCollaborators = this.addCollaborators.bind(this);
+    this.addItem = this.addItem.bind(this);
+    this.closeAddItemForm = this.closeAddItemForm.bind(this);
+    this.clickProfileIcon = this.clickProfileIcon.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
-    this.setState({title: Object.values(this.props.project)[0].title, description: Object.values(this.props.project)[0].description, subcategory: Object.values(this.props.project)[0].subcategory, city: Object.values(this.props.project)[0].city})
+  }
+
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({imageFile: file, imageUrl: fileReader.result, imageUpload: "open"});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
+
+  deleteCurrentProject() {
+    this.props.deleteProject(this.props.match.params.projectId).then(() => this.props.history.push('/'));
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateProject({id: this.props.match.params.projectId, title: this.state.title, description: this.state.description, category: this.state.category, subcategory: this.state.subcategory, city: this.state.city, state: this.state.state, duration: this.state.duration, funding_goal: this.state.funding_goal}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+    const formData = new FormData();
+
+    if(this.state.imageFile){
+        formData.append('project[image_url]', this.state.imageFile);
+    }
+    $.ajax({
+      url: `/api/projects/${this.props.match.params.projectId}`,
+      method: 'PATCH',
+      data: formData,
+      contentType: false,
+      processData: false
+    });
+    this.props.updateProject({id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(this.props.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(this.props.project)[0].description : this.state.description, categoryId: this.state.categoryId === '' ? Object.values(this.props.project)[0].categoryId : this.state.categoryId, category: this.state.category, subcategory: this.state.subcategory === '' ? Object.values(this.props.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(this.props.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(this.props.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(this.props.project)[0].duration : this.state.duration, fundingGoal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal, imageUrl: this.state.imageUrl}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
   clickProfileIcon() {
@@ -59,10 +112,10 @@ class EditProject extends React.Component {
       this.setState({[field]: e.target.value});
     } else if (field === 'end-of-date') {
       this.setState({radioChecked: ''});
-    } else if (field === 'funding_goal') {
+    } else if (field === 'fundingGoal') {
       this.setState({[field]: e.target.value, radioChecked: 'checked'});
     } else if (field === 'category') {
-      this.setState({[field]: e.target.value});
+      this.setState({[field]: e.target.value, categoryId: Object.values(getState().entities.category).filter(el => el.name === e.target.value)[0].id});
     } else if (field === 'subcategory') {
       this.setState({[field]: e.target.value});
     } else if (field === 'city') {
@@ -73,12 +126,22 @@ class EditProject extends React.Component {
   }
 
   render() {
+    if(!this.props.project){
+      return null
+    }
+    console.log("project", this.props.project)
+
+    const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl}/> : null;
+    console.log(imagePreview)
+    if (this.props.category === null || this.props.category === undefined) return null;
+    if (this.props.project === null || this.props.project === undefined) return null;
+    if (this.props.user === null || this.props.user === undefined) return null;
     if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     if (Object.values(this.props.project).length === 0 || Object.values(this.props.category).length === 0) return null;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://img.wonderhowto.com/img/56/01/63456484792752/0/make-pixel-art-minecraft.w1456.jpg"></img></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -90,6 +153,56 @@ class EditProject extends React.Component {
         currentUserProjects.push(project);
       };
     });
+    let currentProjectImage = '';
+    if (this.state.imageUpload === 'close') {
+      currentProjectImage = (<div className='project-image'>
+        <div className='project-image-inner'>
+          <div className='project-image-inner-title'>Project image</div>
+          <div className='project-image-inner-content'>
+            <div className='project-image-upload'>
+              <div className='project-image-upload-inner'>
+                <label htmlFor='image-upload'>
+                  <input id='image-upload' onChange={(e) => this.handleFile(e)} type='file' />
+                  <span className='choose-an-image'>Choose an image from your computer</span>
+                  <span className='choose-an-image-description'>This is the main image associated with your project. Make it count!</span>
+                  <span className='choose-an-image-description'>JPEG, PNG, GIF, or BMP • 200MB file limit</span>
+                  <span className='choose-an-image-description'>At least 1024x576 pixels • 16:9 aspect ratio</span>
+                </label>
+              </div>
+            </div>
+            <div className='project-image-content'>
+              <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. <Link className='some-tips' to='/help/images'>Here are some tips.</Link></p>
+            </div>
+          </div>
+        </div>
+      </div>);
+    } else {
+      currentProjectImage = (<div className='project-image-open'>
+        <div className='project-image-inner-open'>
+          <div className='project-image-inner-title'>Project image</div>
+          <div className='project-image-inner-content'>
+            <div className='project-image-upload-open'>
+              <div className='project-image-upload-inner-inner'>
+                {imagePreview}
+              </div>
+              <div className='project-image-upload-inner-open'>
+                <label htmlFor='image-upload'>
+                  <input id='image-upload' onChange={this.handleFile} type='file' />
+                  <span className='choose-an-image'>Choose an image from your computer</span>
+                  <span className='choose-an-image-description'>This is the main image associated with your project. Make it count!</span>
+                  <span className='choose-an-image-description'>JPEG, PNG, GIF, or BMP • 200MB file limit</span>
+                  <span className='choose-an-image-description'>At least 1024x576 pixels • 16:9 aspect ratio</span>
+                </label>
+              </div>
+            </div>
+            <div className='project-image-content-open'>
+              <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. <Link className='some-tips' to='/help/images'>Here are some tips.</Link></p>
+            </div>
+          </div>
+        </div>
+      </div>);
+    }
+    // let currentSubcategories = (this.state.category === '') ? (getState().entities.category[Object.values(getState().entities.project).slice(-1)[0].categoryId].subcategories) : (Object.values(this.props.category).filter(el => el.name === {this.state.category})[0].subcategories);
     return (
       <div>
         <div className={this.state.addBackground}>
@@ -137,14 +250,18 @@ class EditProject extends React.Component {
                     if (project.title === '') {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
-                          <div className='profile-menu-projects-image'></div>
+                          <div className='profile-menu-projects-image'>
+                            <img src='https://i.imgur.com/s5GppRq.png'/>
+                          </div>
                           <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
                         </div>
                       </li>
                     } else {
                       return <li key={id}>
                         <div className='profile-menu-projects'>
-                          <div className='profile-menu-projects-image'></div>
+                          <div className='profile-menu-projects-image'>
+                            <img src='' />
+                          </div>
                           <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                         </div>
                       </li>
@@ -187,35 +304,18 @@ class EditProject extends React.Component {
                   </div>
                 </div>
                 <div className='edit-form-box'>
-                  <div className='edit-form-box-inner'>
+                  <div className={this.state.imageUpload === 'close' ? 'edit-form-box-inner' : 'edit-form-box-inner-open'}>
                     <div className='edit-form-input'>
                       <div className='edit-form-input-inner'>
                         <form onSubmit={(e) => this.handleSubmit(e)}>
-                          <div className='project-image'>
-                            <div className='project-image-inner'>
-                              <div className='project-image-inner-title'>Project image</div>
-                              <div className='project-image-inner-content'>
-                                <div className='project-image-upload'>
-                                  <div className='project-image-upload-inner'>
-                                    <span className='choose-an-image'>Choose an image from your computer</span>
-                                    <span className='choose-an-image-description'>This is the main image associated with your project. Make it count!</span>
-                                    <span className='choose-an-image-description'>JPEG, PNG, GIF, or BMP • 200MB file limit</span>
-                                    <span className='choose-an-image-description'>At least 1024x576 pixels • 16:9 aspect ratio</span>
-                                  </div>
-                                  <div className='project-image-content'>
-                                    <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. <Link className='some-tips' to='/help/images'>Here are some tips.</Link></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          {currentProjectImage}
                           <div className='project-title-box'>
                             <div className='project-title-content'>
                               <div className='project-image-inner-title'>Project title</div>
                               <div className='project-title-content-inner'>
                                 <div className='title-input'>
-                                  <input onChange={this.update('title')} type='text' defaultValue={this.state.title} />
-                                  <span>{this.state.titleWordCount}/60</span>
+                                  <input onChange={this.update('title')} type='text' defaultValue={Object.values(this.props.project)[0].title} />
+                                  <span>{this.state.title === '' ? (60 - Object.values(this.props.project)[0].title.length) : this.state.titleWordCount}/60</span>
                                 </div>
                                 <div className='project-title-description'>
                                   <p className='project-title-description-one'>Our search looks through words from your project title and blurb, so make them clear and descriptive of what you’re making. Your profile name will be searchable, too.</p>
@@ -229,8 +329,8 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Short blurb</div>
                               <div className='short-blurb-content-inner'>
                                 <div className='short-blurb-input'>
-                                  <textarea onChange={this.update('description')} defaultValue={Object.values(getState().entities.project).slice(-1)[0].description}></textarea>
-                                  <span>{135 - Object.values(getState().entities.project).slice(-1)[0].description.length}/135</span>
+                                  <textarea onChange={this.update('description')} defaultValue={Object.values(this.props.project)[0].description}></textarea>
+                                  <span>{this.state.description === '' ? (135 - Object.values(this.props.project)[0].description.length) : this.state.shortBlurbWordCount}/135</span>
                                 </div>
                                 <div className='short-blurb-description'>
                                   <p>Give people a sense of what you’re doing. Skip “Help me” and focus on what you’re making.</p>
@@ -244,15 +344,15 @@ class EditProject extends React.Component {
                               <div className='category-content-inner'>
                                 <div className='category-dropdown-container'>
                                   <i className="category-dropdown-container-arrow fas fa-angle-down"></i>
-                                  <select className='category-dropdown' onChange={this.update('category')} defaultValue={getState().entities.category[Object.values(getState().entities.project)[0].categoryId]}>
+                                  <select className='category-dropdown' onChange={this.update('category')} defaultValue={this.state.category === '' ? this.props.category[Object.values(this.props.project)[0].categoryId].name : this.state.category}>
                                     {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
-                                      if (obj.id === Object.values(getState().entities.project)[0].categoryId) {
+                                      if (obj.id === this.props.category[Object.values(this.props.project)[0].categoryId].name) {
                                         return <option key={obj.id} defaultValue={obj.name}>Film & Video</option>
                                       } else {
                                         return <option key={obj.id} defaultValue={obj.name}>Film & Video</option>
                                       }
                                     } else {
-                                      if (obj.id === Object.values(getState().entities.project)[0].categoryId) {
+                                      if (obj.id === this.props.category[Object.values(this.props.project)[0].categoryId].name) {
                                         return <option key={obj.id} defaultValue={obj.name}>{obj.name}</option>
                                       } else {
                                         return <option key={obj.id} defaultValue={obj.name}>{obj.name}</option>
@@ -260,9 +360,10 @@ class EditProject extends React.Component {
                                     }})}
                                   </select>
                                   <i className="category-dropdown-two-container-arrow fas fa-angle-down"></i>
-                                  <select onChange={this.update('subcategory')} className='category-dropdown-two' defaultValue='your-category'>
+                                  <select onChange={this.update('subcategory')} className='category-dropdown-two' defaultValue={Object.values(this.props.project)[0].subcategory === null ? 'your-category' : Object.values(this.props.project)[0].subcategory}>
                                     <option defaultValue='your-category'>Subcategory (optional)</option>
-                                    {getState().entities.category[Object.values(getState().entities.project).slice(-1)[0].categoryId].subcategories.map((subcategory, id) => <option key={id} defaultValue={subcategory}>{subcategory}</option>)}
+                                    {//currentSubcategory.map((subcategory, id) => <option key={id} defaultValue={subcategory}>{subcategory}</option>)
+                                  }
                                   </select>
                                 </div>
                               </div>
@@ -273,14 +374,8 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Location</div>
                               <div className='location-input'>
                                 <i className="location-search fas fa-search"></i>
-                                <input onChange={this.update('city')} type='text' defaultValue='' />
-                                <div className='location-options location-none-display'>
-                                  <i className="fas fa-caret-up"></i>
-                                  <ul>
-                                  </ul>
                                 </div>
                               </div>
-                            </div>
                           </div>
                           <fieldset id='eta-group'>
                             <div className='funding-duration'>
@@ -397,10 +492,10 @@ class EditProject extends React.Component {
                             <div className='funding-goal-content'>
                               <div className='project-image-inner-title'>Funding goal</div>
                               <div className='funding-goal-content-inner'>
-                                <div className='funding-goal-content-input'><input onChange={this.update('funding_goal')} type='text' defaultValue='€0' /></div>
+                                <div className='funding-goal-content-input'><input onChange={this.update('fundingGoal')} type='text' defaultValue={Object.values(this.props.project)[0].fundingGoal === null ? this.state.fundingGoal : Object.values(this.props.project)[0].fundingGoal} /></div>
                                 <div className='funding-goal-disclaimer'>
-                                  <p className='funding-goal-disclaimer-one'>Funding on Kickstarter is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
-                                  <p className='funding-goal-disclaimer-two'>If your project is successfully funded, the following fees will be collected from your funding total: Kickstarter’s 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.</p>
+                                  <p className='funding-goal-disclaimer-one'>Funding on StartSmart is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
+                                  <p className='funding-goal-disclaimer-two'>If your project is successfully funded, the following fees will be collected from your funding total: StartSmart's 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.</p>
                                   <p className='funding-goal-disclaimer-three'><button onClick={() => this.addItem()}>View fees breakdown</button></p>
                                 </div>
                               </div>
@@ -429,10 +524,11 @@ class EditProject extends React.Component {
                         <p>Visit Campus to read discussions about <Link className='preparing-for-project-link' to='/campus/questions/what-three-things-do-you-know-now-that-you-wish-you-knew-before-you-launched-your-project'>preparing for a project</Link> and more.</p>
                         <div className='score-tracker'>
                           <div className='project-thumbnail'>
+                            <img src={Object.values(this.props.project)[0].imageUrl} />
                           </div>
                           <div className='project-card-content'>
-                            <span>{this.state.title}</span>
-                            <p>{this.props.user.name}</p>
+                            <span>{Object.values(this.props.project)[0].title}</span>
+                            <p>{Object.values(this.props.user)[0].name}</p>
                             <p>{Object.values(this.props.project)[0].description}</p>
                           </div>
                           <div className='project-card-footer'>
@@ -459,7 +555,7 @@ class EditProject extends React.Component {
                   </div>
                   <div className='delete-project'>
                     <i className="fas fa-times"></i>
-                    <span>Delete project</span>
+                    <span onClick={() => this.deleteCurrentProject()}>Delete project</span>
                   </div>
                 </div>
               </div>
