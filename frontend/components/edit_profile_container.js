@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import EditProfile from './edit_profile';
 import {logout} from '../actions/session_actions';
-import {fetchProjects} from '../actions/project_actions';
+import {fetchProjects, fetchProjectsByCurrentUser} from '../actions/project_actions';
 
 const mapStateToProps = state => {
   return {
@@ -13,7 +13,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
-    fetchProjects: () => dispatch(fetchProjects())
+    fetchProjects: () => dispatch(fetchProjects()),
+    fetchProjectsByCurrentUser: userId => dispatch(fetchProjectsByCurrentUser(userId))
   };
 };
 

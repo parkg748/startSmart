@@ -10,6 +10,7 @@ class EditAboutYouProject extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
+    this.props.fetchProjectsByCurrentUser(this.props.match.params.userId);
   }
 
   deleteCurrentProject() {
@@ -20,6 +21,11 @@ class EditAboutYouProject extends React.Component {
     e.preventDefault();
     const params = {id: this.props.match.params.userId, name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name, biography: this.props.user ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user ? Object.values(this.props.user)[0].websites : this.state.websites, google_analytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics};
     this.props.updateUser(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+  }
+
+  changeProjectPage(idx) {
+    this.props.history.push(`/users/${getState().session.id}/projects/${idx}`);
+    window.location.reload();
   }
 
   handleFile(e) {
@@ -139,23 +145,23 @@ class EditAboutYouProject extends React.Component {
               <div className='profile-menu-body-right'>
                 <div className='profile-menu-body-left-header'>MY PROJECTS</div>
                 <ul>
-                  {currentUserProjects.slice(0, 5).map((project, id) => {
+                  {currentUserProjects.slice(0, 5).map((project, idx) => {
                     if (project.title === '') {
-                      return <li key={id}>
+                      return <li key={idx}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'>
                             <img src='https://i.imgur.com/s5GppRq.png'/>
                           </div>
-                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
+                          <span><a onClick={() => this.changeProjectPage(project.id)}>Untitled</a></span>
                         </div>
                       </li>
                     } else {
-                      return <li key={id}>
+                      return <li key={idx}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'>
-                            <img src='' />
+                            <img src={project.imageUrl} />
                           </div>
-                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
+                          <span><a onClick={() => this.changeProjectPage(project.id)}>{project.title}</a></span>
                         </div>
                       </li>
                     }
@@ -239,7 +245,7 @@ class EditAboutYouProject extends React.Component {
                               <div className='profile-photo-title'>Biography</div>
                               <div className='biography-content-inner'>
                                 <div className='biography-input'>
-                                  <textarea onChange={this.update('biography')}>{Object.values(this.props.user)[0].biography}</textarea>
+                                  <textarea onChange={this.update('biography')} value={Object.values(this.props.user)[0].biography}></textarea>
                                 </div>
                               </div>
                             </div>

@@ -1,5 +1,5 @@
 import {RECEIVE_ALL_CURRENT_USER_PROJECTS, RECEIVE_PROJECT, RECEIVE_ALL_PROJECTS, REMOVE_PROJECT} from '../actions/project_actions';
-import merge from 'lodash/merge';
+import {merge} from 'lodash/merge';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -7,6 +7,7 @@ export default (state = {}, action) => {
     case RECEIVE_ALL_PROJECTS:
       return Object.assign(action.projects);
     case RECEIVE_PROJECT:
+      debugger;
       return merge({}, state, action.project);
     case REMOVE_PROJECT:
       return {};

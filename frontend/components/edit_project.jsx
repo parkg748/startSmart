@@ -38,6 +38,7 @@ class EditProject extends React.Component {
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
+    this.props.fetchProjectsByCurrentUser(this.props.match.params.userId);
   }
 
   handleFile(e) {
@@ -70,7 +71,14 @@ class EditProject extends React.Component {
       contentType: false,
       processData: false
     });
-    this.props.updateProject({id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(this.props.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(this.props.project)[0].description : this.state.description, categoryId: this.state.categoryId === '' ? Object.values(this.props.project)[0].categoryId : this.state.categoryId, category: this.state.category, subcategory: this.state.subcategory === '' ? Object.values(this.props.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(this.props.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(this.props.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(this.props.project)[0].duration : this.state.duration, fundingGoal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal, imageUrl: this.state.imageUrl}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(this.props.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(this.props.project)[0].description : this.state.description, categoryId: this.state.categoryId === '' ? Object.values(this.props.project)[0].categoryId : this.state.categoryId, subcategory: this.state.subcategory === '' ? Object.values(this.props.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(this.props.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(this.props.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(this.props.project)[0].duration : this.state.duration, fundingGoal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal, imageUrl: this.state.imageUrl};
+    debugger;
+    this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+  }
+
+  changeProjectPage(idx) {
+    this.props.history.push(`/users/${this.props.session.id}/projects/${idx}`);
+    window.location.reload();
   }
 
   clickProfileIcon() {
@@ -115,7 +123,7 @@ class EditProject extends React.Component {
     } else if (field === 'fundingGoal') {
       this.setState({[field]: e.target.value, radioChecked: 'checked'});
     } else if (field === 'category') {
-      this.setState({[field]: e.target.value, categoryId: Object.values(getState().entities.category).filter(el => el.name === e.target.value)[0].id});
+      this.setState({[field]: e.target.value, categoryId: Object.values(this.props.category).filter(el => el.name === e.target.value)[0].id});
     } else if (field === 'subcategory') {
       this.setState({[field]: e.target.value});
     } else if (field === 'city') {
@@ -148,8 +156,8 @@ class EditProject extends React.Component {
     }
     let currentDate = new Date();
     let currentUserProjects = [];
-    Object.values(getState().entities.project).forEach(project => {
-      if (project.userId === getState().session.id) {
+    Object.values(this.props.project).forEach(project => {
+      if (project.userId === this.props.session.id) {
         currentUserProjects.push(project);
       };
     });
@@ -246,23 +254,23 @@ class EditProject extends React.Component {
               <div className='profile-menu-body-right'>
                 <div className='profile-menu-body-left-header'>MY PROJECTS</div>
                 <ul>
-                  {currentUserProjects.slice(0, 5).map((project, id) => {
+                  {currentUserProjects.slice(0, 5).map((project, idx) => {
                     if (project.title === '') {
-                      return <li key={id}>
+                      return <li key={idx}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'>
                             <img src='https://i.imgur.com/s5GppRq.png'/>
                           </div>
-                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
+                          <span><a onClick={() => this.changeProjectPage(project.id)}>Untitled</a></span>
                         </div>
                       </li>
                     } else {
-                      return <li key={id}>
+                      return <li key={idx}>
                         <div className='profile-menu-projects'>
                           <div className='profile-menu-projects-image'>
-                            <img src='' />
+                            <img src={project.imageUrl} />
                           </div>
-                          <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
+                          <span><a onClick={() => this.changeProjectPage(project.id)}>{project.title}</a></span>
                         </div>
                       </li>
                     }
@@ -345,7 +353,7 @@ class EditProject extends React.Component {
                                 <div className='category-dropdown-container'>
                                   <i className="category-dropdown-container-arrow fas fa-angle-down"></i>
                                   <select className='category-dropdown' onChange={this.update('category')} defaultValue={this.state.category === '' ? this.props.category[Object.values(this.props.project)[0].categoryId].name : this.state.category}>
-                                    {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
+                                    {Object.values(this.props.category).map(obj => {if (obj.name === 'Film') {
                                       if (obj.id === this.props.category[Object.values(this.props.project)[0].categoryId].name) {
                                         return <option key={obj.id} defaultValue={obj.name}>Film & Video</option>
                                       } else {

@@ -13,6 +13,7 @@ class Homepage extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
+    this.props.fetchCategories();
   }
 
   // changeDisplay() {
@@ -63,6 +64,7 @@ class Homepage extends React.Component {
   render() {
     // if (this.props.user.user === null || this.props.user.user === undefined) return null;
     // if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    if (this.props.category === null || this.props.category === undefined) return null;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null && Object.values(this.props.user)[0] != null) {
@@ -82,6 +84,88 @@ class Homepage extends React.Component {
         currentUserProjects.push(project);
       };
     });
+    let currentCategoryId = 0;
+    Object.values(this.props.category).forEach(category => {
+      this.state.currentCategory.split(' & ').forEach(categ => {
+        if ((category.name === 'Art' && categ === 'Arts') ||
+        (category.name === 'Technology' && categ === 'Tech') ||
+        (category.name === 'Comics' && categ === 'Illustration') ||
+        (category.name === 'Crafts' && categ === 'Craft') ||
+        (category.name === categ)) {
+          currentCategoryId = category.id;
+        }
+      });
+    });
+    let currentPictureCategory = [];
+    Object.values(getState().entities.project).forEach(project => {
+      if (project.categoryId === currentCategoryId) {
+        currentPictureCategory.push(project);
+      }
+    });
+    let currentCategory = (<div className='category-contents-inner'>
+      <div className='category-contents-left'>
+        <div className='category-contents-left-title'>
+          FEATURED PROJECT
+        </div>
+        <div className='category-contents-left-body'>
+          <i className="far fa-heart"></i>
+          <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[0].imageUrl}/>
+          <div className={`remind-me ${this.state.displayNone}`}>Remind Me</div>
+          <div className='category-contents-left-description'>
+            <p>
+              <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[0].title}</span>
+              <span className='category-contents-author'>BY HULS INC.</span>
+            </p>
+          </div>
+          <div className='category-contents-funded-info'>55% FUNDED</div>
+        </div>
+      </div>
+      <div className='category-contents-right'>
+        <div className='category-contents-right-title'>
+          <ul>
+            <li><button className={`${this.state.newNoteworthySection}`} onClick={() => this.clickHandlerSection('new-noteworthy')}>NEW & NOTEWORTHY</button></li>
+            <li><button className={`${this.state.popularSection}`} onClick={() => this.clickHandlerSection('popular')}>POPULAR</button></li>
+          </ul>
+        </div>
+        <div className='category-contents-right-body'>
+          <ul>
+            <li>
+              <i className="category-contents-right-heart far fa-heart"></i>
+              <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[1].imageUrl}/>
+              <div className='category-contents-right-body-content'>
+                <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[1].title}</span>
+                <p>16% funded</p>
+              </div>
+            </li>
+            <li>
+              <i className="category-contents-right-heart far fa-heart"></i>
+              <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[2].imageUrl}/>
+              <div className='category-contents-right-body-content'>
+                <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[2].title}</span>
+                <p>16% funded</p>
+              </div>
+            </li>
+            <li>
+              <i className="category-contents-right-heart far fa-heart"></i>
+              <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[3].imageUrl}/>
+              <div className='category-contents-right-body-content'>
+                <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[3].title}</span>
+                <p>16% funded</p>
+              </div>
+            </li>
+            <li>
+              <i className="category-contents-right-heart far fa-heart"></i>
+              <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[3].imageUrl}/>
+              <div className='category-contents-right-body-content'>
+                <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[4].title}</span>
+                <p>16% funded</p>
+              </div>
+            </li>
+          </ul>
+          <button className='category-contents-right-view-all'>VIEW ALL</button>
+        </div>
+      </div>
+    </div>);
     return (
       <div>
         <nav>
@@ -198,70 +282,7 @@ class Homepage extends React.Component {
               </div>
             </div>
             <div className='category-contents'>
-              <div className='category-contents-inner'>
-                <div className='category-contents-left'>
-                  <div className='category-contents-left-title'>
-                    FEATURED PROJECT
-                  </div>
-                  <div className='category-contents-left-body'>
-                    <i className="far fa-heart"></i>
-                    <img />
-                    <div className={`remind-me ${this.state.displayNone}`}>Remind Me</div>
-                    <div className='category-contents-left-description'>
-                      <p>
-                        <span>Arita Ware: Original Japanese Dishware</span>
-                        <span className='category-contents-author'>BY HULS INC.</span>
-                      </p>
-                    </div>
-                    <div className='category-contents-funded-info'>55% FUNDED</div>
-                  </div>
-                </div>
-                <div className='category-contents-right'>
-                  <div className='category-contents-right-title'>
-                    <ul>
-                      <li><button className={`${this.state.newNoteworthySection}`} onClick={() => this.clickHandlerSection('new-noteworthy')}>NEW & NOTEWORTHY</button></li>
-                      <li><button className={`${this.state.popularSection}`} onClick={() => this.clickHandlerSection('popular')}>POPULAR</button></li>
-                    </ul>
-                  </div>
-                  <div className='category-contents-right-body'>
-                    <ul>
-                      <li>
-                        <i className="category-contents-right-heart far fa-heart"></i>
-                        <img />
-                        <div className='category-contents-right-body-content'>
-                          <span>Testing</span>
-                          <p>16% funded</p>
-                        </div>
-                      </li>
-                      <li>
-                        <i className="category-contents-right-heart far fa-heart"></i>
-                        <img />
-                        <div className='category-contents-right-body-content'>
-                          <span>Testing</span>
-                          <p>16% funded</p>
-                        </div>
-                      </li>
-                      <li>
-                        <i className="category-contents-right-heart far fa-heart"></i>
-                        <img />
-                        <div className='category-contents-right-body-content'>
-                          <span>Testing</span>
-                          <p>16% funded</p>
-                        </div>
-                      </li>
-                      <li>
-                        <i className="category-contents-right-heart far fa-heart"></i>
-                        <img />
-                        <div className='category-contents-right-body-content'>
-                          <span>Testing</span>
-                          <p>16% funded</p>
-                        </div>
-                      </li>
-                    </ul>
-                    <button className='category-contents-right-view-all'>VIEW ALL</button>
-                  </div>
-                </div>
-              </div>
+              {currentCategory}
             </div>
           </div>
           <div className='projects-we-love'>

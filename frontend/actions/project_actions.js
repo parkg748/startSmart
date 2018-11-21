@@ -32,6 +32,10 @@ export const fetchProjectsByCategory = category => dispatch => (
   ProjectApiUtil.fetchProjectsByCategory(category).then(projects => dispatch(receiveAllProjects(projects)))
 );
 
+export const fetchProjectsByCurrentUser = userId => dispatch => (
+  ProjectApiUtil.fetchProjectsByCurrentUser(userId).then(projects => dispatch(receiveAllProjects(projects)))
+);
+
 export const createProject = (user, data) => dispatch => (
   ProjectApiUtil.createProject(user, data).then(project => dispatch(receiveProject(project)))
 );

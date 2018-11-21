@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Recommendations from './recommendations';
 import {logout} from '../actions/session_actions';
-import {fetchProjects} from '../actions/project_actions';
+import {fetchProjects, fetchProjectsByCurrentUser} from '../actions/project_actions';
 import {fetchCategories} from '../actions/category_actions';
 import {fetchAllUsers} from '../actions/session_actions';
 
@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => {
     logout: () => dispatch(logout()),
     fetchProjects: () => dispatch(fetchProjects()),
     fetchCategories: () => dispatch(fetchCategories()),
-    fetchAllUsers: () => dispatch(fetchAllUsers())
+    fetchAllUsers: () => dispatch(fetchAllUsers()),
+    fetchProjectsByCurrentUser: userId => dispatch(fetchProjectsByCurrentUser(userId))
   };
 };
 

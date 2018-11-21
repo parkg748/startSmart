@@ -9,11 +9,17 @@ class Messages extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
+    this.props.fetchProjectsByCurrentUser(this.props.match.params.userId);
   }
 
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
+  }
+
+  changeProjectPage(idx) {
+    this.props.history.push(`/users/${getState().session.id}/projects/${idx}`);
+    window.location.reload();
   }
 
   clickProfileIcon() {
@@ -81,23 +87,23 @@ class Messages extends React.Component {
             <div className='profile-menu-body-right'>
               <div className='profile-menu-body-left-header'>MY PROJECTS</div>
               <ul>
-                {currentUserProjects.slice(0, 5).map((project, id) => {
+                {currentUserProjects.slice(0, 5).map((project, idx) => {
                   if (project.title === '') {
-                    return <li key={id}>
+                    return <li key={idx}>
                       <div className='profile-menu-projects'>
                         <div className='profile-menu-projects-image'>
                           <img src='https://i.imgur.com/s5GppRq.png'/>
                         </div>
-                        <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
+                        <span><a onClick={() => this.changeProjectPage(project.id)}>Untitled</a></span>
                       </div>
                     </li>
                   } else {
-                    return <li key={id}>
+                    return <li key={idx}>
                       <div className='profile-menu-projects'>
                         <div className='profile-menu-projects-image'>
-                          <img src='' />
+                          <img src={project.imageUrl} />
                         </div>
-                        <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
+                        <span><a onClick={() => this.changeProjectPage(project.id)}>{project.title}</a></span>
                       </div>
                     </li>
                   }

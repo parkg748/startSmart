@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import EditProject from './edit_project';
-import {updateProject, fetchProject, deleteProject} from '../actions/project_actions';
+import {updateProject, fetchProject, deleteProject, fetchProjectsByCurrentUser} from '../actions/project_actions';
 import {logout} from '../actions/session_actions';
 import {fetchCategories} from '../actions/category_actions';
 
@@ -9,6 +9,7 @@ const mapStateToProps = state => {
     category: state.entities.category,
     project: state.entities.project,
     user: state.entities.users,
+    session: state.session
   };
 };
 
@@ -18,7 +19,8 @@ const mapDispatchToProps = dispatch => {
     logout: () => dispatch(logout()),
     fetchCategories: () => dispatch(fetchCategories()),
     fetchProject: (project, id) => dispatch(fetchProject(project, id)),
-    deleteProject: project => dispatch(deleteProject(project))
+    deleteProject: project => dispatch(deleteProject(project)),
+    fetchProjectsByCurrentUser: userId => dispatch(fetchProjectsByCurrentUser(userId))
   };
 };
 
