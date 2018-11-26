@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import EditProject from './edit_project';
-import {updateProject, fetchProject, deleteProject, fetchProjectsByCurrentUser} from '../actions/project_actions';
-import {logout} from '../actions/session_actions';
+import {updateProject, fetchProject, deleteProject} from '../actions/project_actions';
+import {logout, fetchUser} from '../actions/session_actions';
 import {fetchCategories} from '../actions/category_actions';
 
 const mapStateToProps = state => {
@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
     fetchCategories: () => dispatch(fetchCategories()),
     fetchProject: (project, id) => dispatch(fetchProject(project, id)),
     deleteProject: project => dispatch(deleteProject(project)),
-    fetchProjectsByCurrentUser: userId => dispatch(fetchProjectsByCurrentUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId))
   };
 };
 

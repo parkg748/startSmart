@@ -13,7 +13,7 @@ class Recommendations extends React.Component {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchAllUsers();
-    this.props.fetchProjectsByCurrentUser(this.props.match.params.userId);
+    this.props.fetchUser(this.props.match.params.userId);
   }
 
   clickProfileIcon() {
@@ -56,11 +56,13 @@ class Recommendations extends React.Component {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
     let currentUserProjects = [];
-    Object.values(getState().entities.project).forEach(project => {
-      if (project.userId === getState().session.id) {
-        currentUserProjects.push(project);
-      };
-    });
+    if (Object.values(getState().entities.users)[0].projects != null) {
+      Object.values(getState().entities.users)[0].projects.forEach(project => {
+        if (project.user_id === getState().session.id.id) {
+          currentUserProjects.push(project);
+        };
+      });
+    }
     let projects = Object.values(this.props.projects);
     let firstProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
     let secondProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];

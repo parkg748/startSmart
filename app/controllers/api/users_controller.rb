@@ -11,17 +11,17 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # debugger
     if @user.update_attributes(user_params)
       render 'api/users/show'
     else
-      debugger
       render json: @user.errors.full_messages, status: 401
     end
   end
 
   def show
     @user = User.find(params[:id])
+    @projects = @user.projects
+    render 'api/users/show'
   end
 
   def index
@@ -30,6 +30,6 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:id, :name, :email, :password, :biography, :websites, :google_analytics)
+    params.require(:user).permit(:id, :name, :email, :password, :biography, :websites, :google_analytics, :projects)
   end
 end

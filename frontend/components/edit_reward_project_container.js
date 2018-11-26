@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import EditRewardProject from './edit_reward_project';
 import {deleteReward} from '../actions/reward_actions';
-import {fetchProject, fetchProjects, deleteProject, fetchProjectsByCurrentUser} from '../actions/project_actions';
+import {fetchProject, fetchProjects, deleteProject} from '../actions/project_actions';
 import {createItem} from '../actions/item_actions';
-import {logout} from '../actions/session_actions';
+import {logout, fetchUser} from '../actions/session_actions';
 
 const mapStateToProps = state => {
   return {
@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => {
     logout: () => dispatch(logout()),
     fetchProjects: () => dispatch(fetchProjects()),
     deleteProject: project => dispatch(deleteProject(project)),
-    fetchProjectsByCurrentUser: userId => dispatch(fetchProjectsByCurrentUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId))
   };
 };
 

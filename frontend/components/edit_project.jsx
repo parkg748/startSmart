@@ -38,7 +38,7 @@ class EditProject extends React.Component {
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
-    this.props.fetchProjectsByCurrentUser(this.props.match.params.userId);
+    this.props.fetchUser(this.props.match.params.userId);
   }
 
   handleFile(e) {
@@ -71,8 +71,7 @@ class EditProject extends React.Component {
       contentType: false,
       processData: false
     });
-    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(this.props.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(this.props.project)[0].description : this.state.description, categoryId: this.state.categoryId === '' ? Object.values(this.props.project)[0].categoryId : this.state.categoryId, subcategory: this.state.subcategory === '' ? Object.values(this.props.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(this.props.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(this.props.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(this.props.project)[0].duration : this.state.duration, fundingGoal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal, imageUrl: this.state.imageUrl};
-    debugger;
+    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(this.props.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(this.props.project)[0].description : this.state.description, category_id: this.state.categoryId === '' ? Object.values(this.props.project)[0].categoryId : this.state.categoryId, subcategory: this.state.subcategory === '' ? Object.values(this.props.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(this.props.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(this.props.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(this.props.project)[0].duration : this.state.duration, funding_goal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal, image_url: this.state.imageUrl};
     this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
@@ -156,11 +155,13 @@ class EditProject extends React.Component {
     }
     let currentDate = new Date();
     let currentUserProjects = [];
-    Object.values(this.props.project).forEach(project => {
-      if (project.userId === this.props.session.id) {
-        currentUserProjects.push(project);
-      };
-    });
+    if (Object.values(getState().entities.users)[0].projects != null) {
+      Object.values(getState().entities.users)[0].projects.forEach(project => {
+        if (project.user_id === getState().session.id.id) {
+          currentUserProjects.push(project);
+        };
+      });
+    }
     let currentProjectImage = '';
     if (this.state.imageUpload === 'close') {
       currentProjectImage = (<div className='project-image'>
@@ -500,7 +501,7 @@ class EditProject extends React.Component {
                             <div className='funding-goal-content'>
                               <div className='project-image-inner-title'>Funding goal</div>
                               <div className='funding-goal-content-inner'>
-                                <div className='funding-goal-content-input'><input onChange={this.update('fundingGoal')} type='text' defaultValue={Object.values(this.props.project)[0].fundingGoal === null ? this.state.fundingGoal : Object.values(this.props.project)[0].fundingGoal} /></div>
+                                <div className='funding-goal-content-input'><input onChange={this.update('funding_goal')} type='text' defaultValue={Object.values(this.props.project)[0].fundingGoal === null ? this.state.fundingGoal : Object.values(this.props.project)[0].fundingGoal} /></div>
                                 <div className='funding-goal-disclaimer'>
                                   <p className='funding-goal-disclaimer-one'>Funding on StartSmart is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
                                   <p className='funding-goal-disclaimer-two'>If your project is successfully funded, the following fees will be collected from your funding total: StartSmart's 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.</p>

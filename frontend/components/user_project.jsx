@@ -10,7 +10,7 @@ class UserProject extends React.Component {
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
-    this.props.fetchProjectsByCurrentUser(this.props.match.params.userId);
+    this.props.fetchUser(this.props.match.params.userId);
   }
 
   clickProfileIcon() {
@@ -48,11 +48,13 @@ class UserProject extends React.Component {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
     let currentUserProjects = [];
-    Object.values(getState().entities.project).forEach(project => {
-      if (project.userId === getState().session.id) {
-        currentUserProjects.push(project);
-      };
-    });
+    if (Object.values(getState().entities.users)[0].projects != null) {
+      Object.values(getState().entities.users)[0].projects.forEach(project => {
+        if (project.user_id === getState().session.id.id) {
+          currentUserProjects.push(project);
+        };
+      });
+    }
     return (
       <div>
         <nav>

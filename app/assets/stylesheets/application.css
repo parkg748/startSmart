@@ -4495,6 +4495,7 @@ strong {
   width: 605px;
   height: 605px;
   margin-bottom: 6px;
+  object-fit: cover;
 }
 
 .fa-heart {
@@ -4566,6 +4567,7 @@ strong {
   font-size: 14px !important;
   display: block;
   font-weight: 100;
+  text-transform: uppercase;
 }
 
 .category-contents-left-description p {

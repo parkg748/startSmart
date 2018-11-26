@@ -2,7 +2,6 @@ class Api::ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-
     if @project.save
       render 'api/projects/show'
     else
@@ -12,19 +11,22 @@ class Api::ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    # render :show
+    render 'api/projects/show'
   end
 
   def index
     @projects = Project.all
-    # render :index
+    render 'api/projects/index'
   end
 
   def update
     @project = Project.find(params[:id])
+    debugger
     if @project.update_attributes(project_params)
+      debugger
       render 'api/projects/show'
     else
+      debugger
       render json: @project.errors.full_messages, status: 401
     end
   end
@@ -36,6 +38,6 @@ class Api::ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:title, :description, :duration, :pledge_amt, :eta, :shipping, :limit, :city, :state, :country, :category_id, :image_url, :challenges)
+    params.require(:project).permit(:id, :title, :description, :duration, :pledge_amt, :eta, :shipping, :limit, :city, :state, :country, :category_id, :image_url, :challenges, :subcategory, :funding_goal, :image_url)
   end
 end

@@ -14,6 +14,7 @@ class Homepage extends React.Component {
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchCategories();
+    this.props.fetchAllUsers();
   }
 
   // changeDisplay() {
@@ -62,7 +63,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    // if (this.props.user.user === null || this.props.user.user === undefined) return null;
+    // if (this.props.user === null || this.props.user === undefined) return null;
     // if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     if (this.props.category === null || this.props.category === undefined) return null;
     let profile = undefined;
@@ -79,11 +80,13 @@ class Homepage extends React.Component {
     let month = monthString[currentDate.getMonth()];
     let day = currentDate.getDate() + 1;
     let currentUserProjects = [];
-    Object.values(getState().entities.project).forEach(project => {
-      if (project.userId === getState().session.id) {
-        currentUserProjects.push(project);
-      };
-    });
+    if (Object.values(getState().entities.users)[0].projects != null) {
+      Object.values(getState().entities.users)[0].projects.forEach(project => {
+        if (project.user_id === getState().session.id.id) {
+          currentUserProjects.push(project);
+        };
+      });
+    }
     let currentCategoryId = 0;
     Object.values(this.props.category).forEach(category => {
       this.state.currentCategory.split(' & ').forEach(categ => {
@@ -102,6 +105,10 @@ class Homepage extends React.Component {
         currentPictureCategory.push(project);
       }
     });
+    // debugger;
+    // if (Object.values(this.props.user).length > 1) {
+    //   let firstProjectUser = this.props.user.filter(user => user.id === currentPictureCategory[0].userId)[0].name;
+    // }
     let currentCategory = (<div className='category-contents-inner'>
       <div className='category-contents-left'>
         <div className='category-contents-left-title'>
@@ -114,7 +121,7 @@ class Homepage extends React.Component {
           <div className='category-contents-left-description'>
             <p>
               <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[0].title}</span>
-              <span className='category-contents-author'>BY HULS INC.</span>
+              <span className='category-contents-author'>by </span>
             </p>
           </div>
           <div className='category-contents-funded-info'>55% FUNDED</div>
@@ -131,33 +138,33 @@ class Homepage extends React.Component {
           <ul>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[1].imageUrl}/>
+              <img src={currentPictureCategory.length === 0 ? '' : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[1].title}</span>
+                <span>{currentPictureCategory.length === 0 ? '' : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[2].imageUrl}/>
+              <img src={currentPictureCategory.length === 0 ? '' : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[2].title}</span>
+                <span>{currentPictureCategory.length === 0 ? '' : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[3].imageUrl}/>
+              <img src={currentPictureCategory.length === 0 ? '' : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[3].title}</span>
+                <span>{currentPictureCategory.length === 0 ? '' : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[3].imageUrl}/>
+              <img src={currentPictureCategory.length === 0 ? '' : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[4].title}</span>
+                <span>{currentPictureCategory.length === 0 ? '' : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
@@ -221,7 +228,7 @@ class Homepage extends React.Component {
                     return <li key={id}>
                       <div className='profile-menu-projects'>
                         <div className='profile-menu-projects-image'>
-                          <img src=''/>
+                          <img src={project.imageUrl}/>
                         </div>
                         <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
                       </div>

@@ -83,35 +83,6 @@ class Footer extends React.Component {
             </ul>
           </section>
         </div>
-        <div className='language-currency'>
-          <form className='lang-currency-form'>
-            <select className='language'>
-              <option value='english'>English</option>
-              <option value='deutsch'>Deutsch</option>
-              <option value='espanol'>Español</option>
-              <option value='francais'>Français</option>
-              <option value='japanese'>日本語</option>
-            </select>
-            <i className="first-arrow fas fa-caret-down"></i>
-            <select className='currency' defaultValue='usd'>
-              <option value='euro'>€ Euro (EUR)</option>
-              <option value='australian'>$ Australian Dollar (AUD)</option>
-              <option value='canadian'>$ Canadian (CAD)</option>
-              <option value='swiss'>Fr Swiss Franc (CHF)</option>
-              <option value='danish'>kr Danish Krone (DKK)</option>
-              <option value='pound'>£ Pound Sterling (GBP)</option>
-              <option value='hongkong'>$ Hong Kong Dollar (HKD)</option>
-              <option value='yen'>¥ Yen (JPY)</option>
-              <option value='mexican'>$ Mexican Peso (MXN)</option>
-              <option value='norwegian'>kr Norwegian Krone (NOK)</option>
-              <option value='newzealand'>$ New Zealand Dollar (NZD)</option>
-              <option value='swedish'>kr Swedish Krona (SEK)</option>
-              <option value='singapore'>$ Singapore Dollar (SGD)</option>
-              <option value='usd'>$ US Dollar (USD)</option>
-            </select>
-            <i className="second-arrow fas fa-caret-down"></i>
-          </form>
-        </div>
         <div className='policies'>
           <ul>
             <li className='policy-links'>Trust and Safety</li>

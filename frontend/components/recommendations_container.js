@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import Recommendations from './recommendations';
 import {logout} from '../actions/session_actions';
-import {fetchProjects, fetchProjectsByCurrentUser} from '../actions/project_actions';
+import {fetchProjects} from '../actions/project_actions';
 import {fetchCategories} from '../actions/category_actions';
-import {fetchAllUsers} from '../actions/session_actions';
+import {fetchAllUsers, fetchUser} from '../actions/session_actions';
 
 const mapStateToProps = state => {
   let projects = Object.values(state.entities.project).length === 0 ? null : state.entities.project;
@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
     fetchProjects: () => dispatch(fetchProjects()),
     fetchCategories: () => dispatch(fetchCategories()),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
-    fetchProjectsByCurrentUser: userId => dispatch(fetchProjectsByCurrentUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId))
   };
 };
 
