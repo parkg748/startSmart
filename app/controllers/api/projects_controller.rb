@@ -21,12 +21,9 @@ class Api::ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    debugger
     if @project.update_attributes(project_params)
-      debugger
       render 'api/projects/show'
     else
-      debugger
       render json: @project.errors.full_messages, status: 401
     end
   end

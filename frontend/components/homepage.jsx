@@ -138,17 +138,17 @@ class Homepage extends React.Component {
           <ul>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length === 0 ? '' : ''}/>
+              <img src={currentPictureCategory.length > 1 ? currentPictureCategory[1].imageUrl : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length === 0 ? '' : ''}</span>
+                <span>{currentPictureCategory.length > 1 ? currentPictureCategory[1].title : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length === 0 ? '' : ''}/>
+              <img src={currentPictureCategory.length > 2 ? currentPictureCategory[2].imageUrl : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length === 0 ? '' : ''}</span>
+                <span>{currentPictureCategory.length > 2 ? currentPictureCategory[2].title : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
