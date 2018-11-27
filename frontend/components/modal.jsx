@@ -2,21 +2,18 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 function Modal({ displayProfileMenu, user, userId, sessionId, projectId, logoutUser }) {
-  if (getState().entities.users.user === null) return null;
-  let currentUserProjects = [];
-  if (getState().entities.users.currentUser != null) {
-    Object.values(getState().entities.users)[0].projects.forEach(project => {
-      if (project.user_id === getState().session.id) {
-        currentUserProjects.push(project);
-      };
-    });
-  }
+  if (getState().entities.users.user === null || getState().entities.users.currentUser) return null;
+  let currentUserProjects = Object.values(getState().entities.project).filter(project => project.userId === getState().session.id);
   let currentUserName = '';
-  Object.values(getState().entities.users).forEach(user => {
-    if (user.id === sessionId) {
-      currentUserName = user.name;
-    }
-  });
+  if (Object.values(getState().entities.users).length > 2) {
+    Object.values(getState().entities.users).forEach(user => {
+      if (user.id === sessionId) {
+        currentUserName = user.name;
+      }
+    });
+  } else {
+    currentUserName = Object.values(getState().entities.users)[0].name;
+  }
   return (
     <div className={`profile-icon-menu ${displayProfileMenu}`}>
       <div className='profile-menu-header'>{currentUserName}</div>
@@ -46,9 +43,9 @@ function Modal({ displayProfileMenu, user, userId, sessionId, projectId, logoutU
         <div className='profile-menu-body-right'>
           <div className='profile-menu-body-left-header'>MY PROJECTS</div>
           <ul>
-            {currentUserProjects.slice(0, 5).map((project, id) => {
-              if (project.title === '') {
-                return <li key={id}>
+            {currentUserProjects.slice(0, 5).map((project, idx) => {
+              if (project.description === '') {
+                return <li key={idx}>
                   <div className='profile-menu-projects'>
                     <div className='profile-menu-projects-image'>
                       <img src='https://i.imgur.com/s5GppRq.png'/>
@@ -57,10 +54,10 @@ function Modal({ displayProfileMenu, user, userId, sessionId, projectId, logoutU
                   </div>
                 </li>
               } else {
-                return <li key={id}>
+                return <li key={idx}>
                   <div className='profile-menu-projects'>
                     <div className='profile-menu-projects-image'>
-                      <img src={project.imageUrl}/>
+                      <Link to={`/users/${sessionId}/projects/${project.id}`}><img src={project.imageUrl}/></Link>
                     </div>
                     <span><Link to={`/users/${sessionId}/projects/${project.id}`}>{project.title}</Link></span>
                   </div>

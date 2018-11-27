@@ -25,7 +25,7 @@ class Recommendations extends React.Component {
   }
 
   changeProjectPage(idx) {
-    this.props.history.push(`/users/${getState().session.id}/projects/${idx}`);
+    this.props.history.push(`/users/${getState().session.id.id}/projects/${idx}`);
     window.location.reload();
   }
 
@@ -49,8 +49,9 @@ class Recommendations extends React.Component {
     if (this.props.user === null || this.props.user === undefined) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
+    let currentProfileIcon = Object.values(getState().entities.users).filter(el => el.id === getState().session.id)[0].profileUrl;
     if (this.props.user != null && Object.values(this.props.user)[0] != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={currentProfileIcon === '' ? 'https://i.imgur.com/jyZdRza.png' : currentProfileIcon} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -84,7 +85,7 @@ class Recommendations extends React.Component {
             {profile}
           </section>
         </nav>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='recommendations-header'>
           <div className='recommendations-header-content'>
             <div className='recommendations-header-content-inner'>
@@ -177,7 +178,7 @@ class Recommendations extends React.Component {
                             </div>
                             <div className='recommendations-body-seven-author'>
                               <img src='https://ksr-ugc.imgix.net/assets/006/347/287/83a01d5959e63f24f2ad447b4a0797f9_original.png?ixlib=rb-1.1.0&w=20&h=20&fit=crop&v=1503090035&auto=format&frame=1&q=92&s=d66f0ce35895ac6e08f4f2592cdbc9b8'/>
-                              by {firstProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === firstProject.userId)[0].name}
+                              by {firstProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === firstProject.userId)[0].name}
                             </div>
                             <div className='recommendations-body-seven-description'>{firstProject === undefined ? null : firstProject.description}</div>
                             <div className='recommendations-body-seven-category'>
@@ -212,7 +213,7 @@ class Recommendations extends React.Component {
                                 <h3>{secondProject === undefined ? null : secondProject.title}</h3>
                                 <p>{secondProject === undefined ? null : secondProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {secondProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === secondProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {secondProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === secondProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -238,7 +239,7 @@ class Recommendations extends React.Component {
                                 <h3>{thirdProject === undefined ? null : thirdProject.title}</h3>
                                 <p>{thirdProject === undefined ? null : thirdProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {thirdProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === thirdProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {thirdProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === thirdProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -264,7 +265,7 @@ class Recommendations extends React.Component {
                                 <h3>{fourthProject === undefined ? null : fourthProject.title}</h3>
                                 <p>{fourthProject === undefined ? null : fourthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fourthProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === fourthProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {fourthProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === fourthProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -292,7 +293,7 @@ class Recommendations extends React.Component {
                                 <h3>{fifthProject === undefined ? null : fifthProject.title}</h3>
                                 <p>{fifthProject === undefined ? null : fifthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fifthProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === fifthProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {fifthProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === fifthProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -318,7 +319,7 @@ class Recommendations extends React.Component {
                                 <h3>{sixthProject === undefined ? null : sixthProject.title}</h3>
                                 <p>{sixthProject === undefined ? null : sixthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {sixthProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === sixthProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {sixthProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === sixthProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -344,7 +345,7 @@ class Recommendations extends React.Component {
                                 <h3>{seventhProject === undefined ? null : seventhProject.title}</h3>
                                 <p>{seventhProject === undefined ? null : seventhProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {seventhProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === seventhProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {seventhProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === seventhProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>

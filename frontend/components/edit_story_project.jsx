@@ -20,7 +20,7 @@ class EditStoryProject extends React.Component {
   }
 
   changeProjectPage(idx) {
-    this.props.history.push(`/users/${getState().session.id}/projects/${idx}`);
+    this.props.history.push(`/users/${getState().session.id.id}/projects/${idx}`);
     window.location.reload();
   }
 
@@ -54,7 +54,7 @@ class EditStoryProject extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -81,7 +81,7 @@ class EditStoryProject extends React.Component {
             {profile}
           </section>
         </nav>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
         <ul>
           <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
           <li><Link className='edit-button' to='/hc/en-us'>Help</Link></li>

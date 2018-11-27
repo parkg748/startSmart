@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Route, Redirect, withRouter} from 'react-router-dom';
 
 const Protected = ({component: Component, path, loggedIn}) => {
-  debugger;
   return (
     <Route path={path} render={props => (
       !loggedIn ? <Component {...props} /> : <Redirect to='/login' />

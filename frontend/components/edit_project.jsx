@@ -123,7 +123,7 @@ class EditProject extends React.Component {
     } else if (field === 'fundingGoal') {
       this.setState({[field]: e.target.value, radioChecked: 'checked'});
     } else if (field === 'category') {
-      this.setState({[field]: e.target.value, categoryId: Object.values(this.props.category).filter(el => el.name === e.target.value)[0].id});
+      this.setState({[field]: e.target.value, categoryId: Object.values(getState().entities.category).filter(el => el.name === e.target.value || (el.name === 'Film' && e.target.value === 'Film & Video'))[0].id});
     } else if (field === 'subcategory') {
       this.setState({[field]: e.target.value});
     } else if (field === 'city') {
@@ -137,8 +137,6 @@ class EditProject extends React.Component {
     if(!this.props.project){
       return null
     }
-    console.log("project", this.props.project)
-
     const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl}/> : null;
     console.log(imagePreview)
     if (this.props.category === null || this.props.category === undefined) return null;
@@ -149,7 +147,7 @@ class EditProject extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -212,6 +210,16 @@ class EditProject extends React.Component {
         </div>
       </div>);
     }
+    let subCategories = [];
+    if (this.state.category === '') {
+      subCategories = Object.values(getState().entities.category).forEach(obj => {if (obj.name === getState().entities.category[Object.values(getState().entities.project)[0].categoryId].name) {
+        obj.subcategories.forEach(subcat => subCategories.push([obj.id, subcat]));
+      }});
+    } else {
+      subCategories = Object.values(getState().entities.category).forEach(obj => {if (obj.name === this.state.category) {
+        obj.subcategories.forEach(subcat => subCategories.push([obj.id, subcat]));
+      }});
+    }
     // let currentSubcategories = (this.state.category === '') ? (getState().entities.category[Object.values(getState().entities.project).slice(-1)[0].categoryId].subcategories) : (Object.values(this.props.category).filter(el => el.name === {this.state.category})[0].subcategories);
     return (
       <div>
@@ -228,7 +236,7 @@ class EditProject extends React.Component {
               {profile}
             </section>
           </nav>
-          <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
+          <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
           <div className='edit-background'>
             <ul>
               <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
@@ -301,26 +309,25 @@ class EditProject extends React.Component {
                               <div className='category-content-inner'>
                                 <div className='category-dropdown-container'>
                                   <i className="category-dropdown-container-arrow fas fa-angle-down"></i>
-                                  <select className='category-dropdown' onChange={this.update('category')} defaultValue={this.state.category === '' ? this.props.category[Object.values(this.props.project)[0].categoryId].name : this.state.category}>
-                                    {Object.values(this.props.category).map(obj => {if (obj.name === 'Film') {
-                                      if (obj.id === this.props.category[Object.values(this.props.project)[0].categoryId].name) {
-                                        return <option key={obj.id} defaultValue={obj.name}>Film & Video</option>
+                                  <select className='category-dropdown' onChange={this.update('category')} value={this.state.category === '' ? getState().entities.category[Object.values(getState().entities.project)[0].categoryId].name : this.state.category}>
+                                    {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
+                                      if (obj.id === Object.values(getState().entities.project)[0].categoryId) {
+                                        return <option key={obj.id} value={obj.name}>Film & Video</option>
                                       } else {
-                                        return <option key={obj.id} defaultValue={obj.name}>Film & Video</option>
+                                        return <option key={obj.id}>Film & Video</option>
                                       }
                                     } else {
-                                      if (obj.id === this.props.category[Object.values(this.props.project)[0].categoryId].name) {
-                                        return <option key={obj.id} defaultValue={obj.name}>{obj.name}</option>
+                                      if (obj.id === Object.values(getState().entities.project)[0].categoryId) {
+                                        return <option key={obj.id} value={obj.name}>{obj.name}</option>
                                       } else {
-                                        return <option key={obj.id} defaultValue={obj.name}>{obj.name}</option>
+                                        return <option key={obj.id}>{obj.name}</option>
                                       }
                                     }})}
                                   </select>
                                   <i className="category-dropdown-two-container-arrow fas fa-angle-down"></i>
-                                  <select onChange={this.update('subcategory')} className='category-dropdown-two' defaultValue={Object.values(this.props.project)[0].subcategory === null ? 'your-category' : Object.values(this.props.project)[0].subcategory}>
-                                    <option defaultValue='your-category'>Subcategory (optional)</option>
-                                    {//currentSubcategory.map((subcategory, id) => <option key={id} defaultValue={subcategory}>{subcategory}</option>)
-                                  }
+                                  <select onChange={this.update('subcategory')} className='category-dropdown-two' value={this.state.subcategory === '' ? getState().entities.category[Object.values(getState().entities.project)[0].categoryId].subcategory : this.state.subcategory}>
+                                    <option value='your-category'>Subcategory (optional)</option>
+                                    {}
                                   </select>
                                 </div>
                               </div>

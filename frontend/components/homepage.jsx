@@ -66,11 +66,13 @@ class Homepage extends React.Component {
   render() {
     // if (this.props.user === null || this.props.user === undefined) return null;
     // if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    if (Object.values(getState().entities.users)[0] == null) return null;
     if (this.props.category === null || this.props.category === undefined) return null;
     let profile = undefined;
     let navbarWidth = '';
-    if (getState().session.id != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
+    let currentProfileIcon = Object.values(getState().entities.users)[0] == null || getState().session.session === null ? '' : Object.values(getState().entities.users).filter(el => el.id === getState().session.id)[0].profileUrl;
+    if (getState().session.id) {
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={currentProfileIcon === '' ? 'https://i.imgur.com/jyZdRza.png' : currentProfileIcon} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -112,6 +114,12 @@ class Homepage extends React.Component {
     while (whatWereReading.length != 6) {
       whatWereReading.push(Object.values(getState().entities.project)[Math.floor(Math.random() * Math.floor(Object.values(getState().entities.project).length))]);
     }
+    let firstProjectPicture = '';
+    if (Object.values(getState().entities.users).length > 2 && currentPictureCategory.length != 0) {
+      firstProjectPicture = Object.values(getState().entities.users).filter(el => el.id === currentPictureCategory.slice(-1)[0].userId)[0].name;
+    } else {
+      firstProjectPicture = Object.values(getState().entities.users)[0].name;
+    }
     // if (Object.values(this.props.user).length > 1) {
     //   let firstProjectUser = this.props.user.filter(user => user.id === currentPictureCategory[0].userId)[0].name;
     // }
@@ -127,7 +135,7 @@ class Homepage extends React.Component {
           <div className='category-contents-left-description'>
             <p>
               <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory.slice(-1)[0].title}</span>
-              <span className='category-contents-author'>by {currentPictureCategory.length === 0 ? '' : Object.values(getState().entities.users).filter(el => el.id === currentPictureCategory.slice(-1)[0].userId)[0].name}</span>
+              <span className='category-contents-author'>by {currentPictureCategory.length === 0 ? '' : firstProjectPicture}</span>
             </p>
           </div>
           <div className='category-contents-funded-info'>55% FUNDED</div>

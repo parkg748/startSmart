@@ -5,7 +5,14 @@ import Modal from './modal';
 class EditAboutYouProject extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.aboutYou;
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  name: '',
+                  biography: '',
+                  websites: '',
+                  google_analytics: '',
+                  profileUrl: "",
+                  profileFile: "",
+                  profileUpload: 'close'};
     this.handleFile = this.handleFile.bind(this);
   }
 
@@ -14,30 +21,42 @@ class EditAboutYouProject extends React.Component {
     this.props.fetchUser(this.props.match.params.userId);
   }
 
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({profileFile: file, profileUrl: fileReader.result, profileUpload: "open"});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   deleteCurrentProject() {
     this.props.deleteProject(this.props.match.params.projectId).then(() => this.props.history.push('/'));
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const params = {id: this.props.match.params.userId, name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name, biography: this.props.user ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user ? Object.values(this.props.user)[0].websites : this.state.websites, google_analytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics};
+    const formData = new FormData();
+
+    if(this.state.profileFile){
+        formData.append('user[profile_url]', this.state.profileFile);
+    }
+    $.ajax({
+      url: `/api/users/${this.props.match.params.userId}`,
+      method: 'PATCH',
+      data: formData,
+      contentType: false,
+      processData: false
+    });
+    const params = {id: this.props.match.params.userId, name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name, biography: this.props.user ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user ? Object.values(this.props.user)[0].websites : this.state.websites, google_analytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics, profile_url: this.state.profileUrl};
     this.props.updateUser(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
   changeProjectPage(idx) {
-    this.props.history.push(`/users/${getState().session.id}/projects/${idx}`);
+    this.props.history.push(`/users/${getState().session.id.id}/projects/${idx}`);
     window.location.reload();
-  }
-
-  handleFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({profileFile: file, profileUrl: fileReader.result, profileUpload: 'open'});
-    };
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
   }
 
   clickProfileIcon() {
@@ -65,7 +84,7 @@ class EditAboutYouProject extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -120,7 +139,7 @@ class EditAboutYouProject extends React.Component {
               {profile}
             </section>
           </nav>
-          <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
+          <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
           <ul>
             <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
             <li><Link className='edit-button' to='/hc/en-us'>Help</Link></li>
@@ -195,7 +214,7 @@ class EditAboutYouProject extends React.Component {
                               <div className='profile-photo-title'>Biography</div>
                               <div className='biography-content-inner'>
                                 <div className='biography-input'>
-                                  <textarea onChange={this.update('biography')} value={Object.values(this.props.user)[0].biography}></textarea>
+                                  <textarea onChange={this.update('biography')}>{Object.values(this.props.user)[0].biography}</textarea>
                                 </div>
                               </div>
                             </div>

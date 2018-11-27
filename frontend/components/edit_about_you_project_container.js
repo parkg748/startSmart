@@ -5,7 +5,6 @@ import {fetchProjects, updateProject, deleteProject} from '../actions/project_ac
 
 const mapStateToProps = state => {
   return {
-    aboutYou: {displayProfileMenu: 'js-modal-close', name: '', biography: '', websites: '', google_analytics: '', profileUrl: "", profileFile: "", profileUpload: 'close'},
     user: state.entities.users,
     project: state.entities.project,
   };
