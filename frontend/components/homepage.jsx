@@ -87,25 +87,30 @@ class Homepage extends React.Component {
         };
       });
     }
-    let currentCategoryId = 0;
+    let currentCategoryId = [];
     Object.values(this.props.category).forEach(category => {
       this.state.currentCategory.split(' & ').forEach(categ => {
-        if ((category.name === 'Art' && categ === 'Arts') ||
+        if ((category.name === categ) ||
+        (category.name === 'Art' && categ === 'Arts') ||
         (category.name === 'Technology' && categ === 'Tech') ||
         (category.name === 'Comics' && categ === 'Illustration') ||
-        (category.name === 'Crafts' && categ === 'Craft') ||
-        (category.name === categ)) {
-          currentCategoryId = category.id;
+        (category.name === 'Crafts' && categ === 'Craft')) {
+          currentCategoryId.push(category.id);
         }
       });
     });
     let currentPictureCategory = [];
     Object.values(getState().entities.project).forEach(project => {
-      if (project.categoryId === currentCategoryId) {
-        currentPictureCategory.push(project);
+      if (currentCategoryId.length > 1) {
+        if (project.categoryId === currentCategoryId[0] || project.categoryId === currentCategoryId[1]) {
+          currentPictureCategory.push(project);
+        }
+      } else {
+        if (project.categoryId === currentCategoryId[0]) {
+          currentPictureCategory.push(project);
+        }
       }
     });
-    // debugger;
     // if (Object.values(this.props.user).length > 1) {
     //   let firstProjectUser = this.props.user.filter(user => user.id === currentPictureCategory[0].userId)[0].name;
     // }
@@ -116,11 +121,11 @@ class Homepage extends React.Component {
         </div>
         <div className='category-contents-left-body'>
           <i className="far fa-heart"></i>
-          <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory[0].imageUrl}/>
+          <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory.slice(-1)[0].imageUrl}/>
           <div className={`remind-me ${this.state.displayNone}`}>Remind Me</div>
           <div className='category-contents-left-description'>
             <p>
-              <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory[0].title}</span>
+              <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory.slice(-1)[0].title}</span>
               <span className='category-contents-author'>by </span>
             </p>
           </div>
@@ -138,33 +143,33 @@ class Homepage extends React.Component {
           <ul>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length > 1 ? currentPictureCategory[1].imageUrl : ''}/>
+              <img src={currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].imageUrl : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length > 1 ? currentPictureCategory[1].title : ''}</span>
+                <span>{currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].title : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length > 2 ? currentPictureCategory[2].imageUrl : ''}/>
+              <img src={currentPictureCategory.length > 2 ? currentPictureCategory.slice(-3)[0].imageUrl : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length > 2 ? currentPictureCategory[2].title : ''}</span>
+                <span>{currentPictureCategory.length > 2 ? currentPictureCategory.slice(-3)[0].title : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length === 0 ? '' : ''}/>
+              <img src={currentPictureCategory.length > 3 ? currentPictureCategory.slice(-4)[0].imageUrl : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length === 0 ? '' : ''}</span>
+                <span>{currentPictureCategory.length > 3 ? currentPictureCategory.slice(-4)[0].title : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length === 0 ? '' : ''}/>
+              <img src={currentPictureCategory.length > 4 ? currentPictureCategory.slice(-5)[0].imageUrl : ''}/>
               <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length === 0 ? '' : ''}</span>
+                <span>{currentPictureCategory.length > 4 ? currentPictureCategory.slice(-5)[0].title : ''}</span>
                 <p>16% funded</p>
               </div>
             </li>
