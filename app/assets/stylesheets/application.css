@@ -9534,7 +9534,7 @@ strong {
 
 .app .ql-container {
   border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em
 }
 
 /* Snow Theme */
@@ -10372,6 +10372,7 @@ strong {
   border-top: 0px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+  height: 472px;
 }
 .ql-snow .ql-tooltip {
   background-color: #fff;

@@ -72,6 +72,29 @@ class Recommendations extends React.Component {
     let fifthProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
     let sixthProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
     let seventhProject = projects[Math.floor(Math.random() * Math.floor(projects.length - 1))];
+    let nullProject = '';
+    if (Object.values(getState().entities.users).length === 2) {
+      if (firstProject != undefined && secondProject != undefined && thirdProject != undefined && fourthProject != undefined && fifthProject != undefined && sixthProject != undefined && seventhProject != undefined) {
+        firstProject = Object.values(getState().entities.users)[0];
+        secondProject = Object.values(getState().entities.users)[0];
+        thirdProject = Object.values(getState().entities.users)[0];
+        fourthProject = Object.values(getState().entities.users)[0];
+        fifthProject = Object.values(getState().entities.users)[0];
+        sixthProject = Object.values(getState().entities.users)[0];
+        seventhProject = Object.values(getState().entities.users)[0];
+      }
+    } else {
+      if (firstProject != undefined && secondProject != undefined && thirdProject != undefined && fourthProject != undefined && fifthProject != undefined && sixthProject != undefined && seventhProject != undefined) {
+        firstProject = Object.values(getState().entities.users).filter(el => el.id === firstProject.userId)[0];
+        secondProject = Object.values(getState().entities.users).filter(el => el.id === secondProject.userId)[0];
+        thirdProject = Object.values(getState().entities.users).filter(el => el.id === thirdProject.userId)[0];
+        fourthProject = Object.values(getState().entities.users).filter(el => el.id === fourthProject.userId)[0];
+        fifthProject = Object.values(getState().entities.users).filter(el => el.id === fifthProject.userId)[0];
+        sixthProject = Object.values(getState().entities.users).filter(el => el.id === sixthProject.userId)[0];
+        seventhProject = Object.values(getState().entities.users).filter(el => el.id === seventhProject.userId)[0];
+      }
+    }
+    debugger;
     return (
       <div>
         <nav>
@@ -178,12 +201,12 @@ class Recommendations extends React.Component {
                             </div>
                             <div className='recommendations-body-seven-author'>
                               <img src='https://ksr-ugc.imgix.net/assets/006/347/287/83a01d5959e63f24f2ad447b4a0797f9_original.png?ixlib=rb-1.1.0&w=20&h=20&fit=crop&v=1503090035&auto=format&frame=1&q=92&s=d66f0ce35895ac6e08f4f2592cdbc9b8'/>
-                              by {firstProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === firstProject.userId)[0].name}
+                              by {firstProject === undefined ? '' : firstProject.name}
                             </div>
-                            <div className='recommendations-body-seven-description'>{firstProject === undefined ? null : firstProject.description}</div>
+                            <div className='recommendations-body-seven-description'>{firstProject === undefined ? '' : firstProject.description}</div>
                             <div className='recommendations-body-seven-category'>
                               <a><i className="fab fa-stripe-s"></i>Project We Love</a>
-                              <a><i className="far fa-square"></i>{firstProject === undefined ? null : firstProject.city}, {firstProject === undefined ? null : firstProject.state}</a>
+                              <a><i className="far fa-square"></i>{firstProject === undefined ? '' : firstProject.city}, {firstProject === undefined ? '' : firstProject.state}</a>
                               <a className='product-design-category'><i className="far fa-square"></i>Product Design</a>
                             </div>
                           </div>
@@ -195,7 +218,7 @@ class Recommendations extends React.Component {
                             <li><strong>2512%</strong><span>funded</span></li>
                             <li><strong>$628,149</strong><span>pledged</span></li>
                             <li><strong>8,016</strong><span>backers</span></li>
-                            <li><strong>{firstProject === undefined ? null : firstProject.duration}</strong><span>days to go</span></li>
+                            <li><strong>{firstProject === undefined ? '' : firstProject.duration}</strong><span>days to go</span></li>
                           </ul>
                         </div>
                       </div>
@@ -213,7 +236,7 @@ class Recommendations extends React.Component {
                                 <h3>{secondProject === undefined ? null : secondProject.title}</h3>
                                 <p>{secondProject === undefined ? null : secondProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {secondProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === secondProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {secondProject === undefined ? '' : secondProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -221,9 +244,9 @@ class Recommendations extends React.Component {
                               <div className='recommendations-category-funding-info'>
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
-                                <p>{secondProject === undefined ? null : secondProject.duration} days to go</p>
+                                <p>{secondProject === undefined ? '' : secondProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>Product Design</div>
-                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {secondProject === undefined ? null : secondProject.city}, {secondProject === undefined ? null : secondProject.state}</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {secondProject === undefined ? '' : secondProject.city}, {secondProject === undefined ? '' : secondProject.state}</div>
                               </div>
                             </div>
                           </div>
@@ -236,10 +259,10 @@ class Recommendations extends React.Component {
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{thirdProject === undefined ? null : thirdProject.title}</h3>
-                                <p>{thirdProject === undefined ? null : thirdProject.description}</p>
+                                <h3>{thirdProject === undefined ? '' : thirdProject.title}</h3>
+                                <p>{thirdProject === undefined ? '' : thirdProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {thirdProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === thirdProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {thirdProject === undefined ? '' : thirdProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -247,9 +270,9 @@ class Recommendations extends React.Component {
                               <div className='recommendations-category-funding-info'>
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
-                                <p>{thirdProject === undefined ? null : thirdProject.duration} days to go</p>
+                                <p>{thirdProject === undefined ? '' : thirdProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>Product Design</div>
-                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {thirdProject === undefined ? null : thirdProject.city}, {thirdProject === undefined ? null : thirdProject.state}</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {thirdProject === undefined ? '' : thirdProject.city}, {thirdProject === undefined ? '' : thirdProject.state}</div>
                               </div>
                             </div>
                           </div>
@@ -262,10 +285,10 @@ class Recommendations extends React.Component {
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{fourthProject === undefined ? null : fourthProject.title}</h3>
-                                <p>{fourthProject === undefined ? null : fourthProject.description}</p>
+                                <h3>{fourthProject === undefined ? '' : fourthProject.title}</h3>
+                                <p>{fourthProject === undefined ? '' : fourthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fourthProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === fourthProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {fourthProject === undefined ? '' : fourthProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -273,9 +296,9 @@ class Recommendations extends React.Component {
                               <div className='recommendations-category-funding-info'>
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
-                                <p>{fourthProject === undefined ? null : fourthProject.duration} days to go</p>
+                                <p>{fourthProject === undefined ? '' : fourthProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>Product Design</div>
-                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {fourthProject === undefined ? null : fourthProject.city}, {fourthProject === undefined ? null : fourthProject.state}</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {fourthProject === undefined ? '' : fourthProject.city}, {fourthProject === undefined ? '' : fourthProject.state}</div>
                               </div>
                             </div>
                           </div>
@@ -290,10 +313,10 @@ class Recommendations extends React.Component {
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{fifthProject === undefined ? null : fifthProject.title}</h3>
-                                <p>{fifthProject === undefined ? null : fifthProject.description}</p>
+                                <h3>{fifthProject === undefined ? '' : fifthProject.title}</h3>
+                                <p>{fifthProject === undefined ? '' : fifthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fifthProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === fifthProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {fifthProject === undefined ? '' : fifthProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -301,9 +324,9 @@ class Recommendations extends React.Component {
                               <div className='recommendations-category-funding-info'>
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
-                                <p>{fifthProject === undefined ? null : fifthProject.duration} days to go</p>
+                                <p>{fifthProject === undefined ? '' : fifthProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>Product Design</div>
-                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {fifthProject === undefined ? null : fifthProject.city}, {fifthProject === undefined ? null : fifthProject.state}</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {fifthProject === undefined ? '' : fifthProject.city}, {fifthProject === undefined ? '' : fifthProject.state}</div>
                               </div>
                             </div>
                           </div>
@@ -316,10 +339,10 @@ class Recommendations extends React.Component {
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{sixthProject === undefined ? null : sixthProject.title}</h3>
-                                <p>{sixthProject === undefined ? null : sixthProject.description}</p>
+                                <h3>{sixthProject === undefined ? '' : sixthProject.title}</h3>
+                                <p>{sixthProject === undefined ? '' : sixthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {sixthProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === sixthProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {sixthProject === undefined ? '' : sixthProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -327,9 +350,9 @@ class Recommendations extends React.Component {
                               <div className='recommendations-category-funding-info'>
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
-                                <p>{sixthProject === undefined ? null : sixthProject.duration} days to go</p>
+                                <p>{sixthProject === undefined ? '' : sixthProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>Product Design</div>
-                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {sixthProject === undefined ? null : sixthProject.city}, {sixthProject === undefined ? null : sixthProject.state}</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {sixthProject === undefined ? '' : sixthProject.city}, {sixthProject === undefined ? '' : sixthProject.state}</div>
                               </div>
                             </div>
                           </div>
@@ -342,10 +365,10 @@ class Recommendations extends React.Component {
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{seventhProject === undefined ? null : seventhProject.title}</h3>
-                                <p>{seventhProject === undefined ? null : seventhProject.description}</p>
+                                <h3>{seventhProject === undefined ? '' : seventhProject.title}</h3>
+                                <p>{seventhProject === undefined ? '' : seventhProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {seventhProject === undefined && Object.values(getState().entities.users).length != 2 ? null : Object.values(getState().entities.users).filter(el => el.id === seventhProject.userId)[0].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {seventhProject === undefined ? '' : seventhProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -353,9 +376,9 @@ class Recommendations extends React.Component {
                               <div className='recommendations-category-funding-info'>
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
-                                <p>{seventhProject === undefined ? null : seventhProject.duration} days to go</p>
+                                <p>{seventhProject === undefined ? '' : seventhProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>Product Design</div>
-                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {seventhProject === undefined ? null : seventhProject.city}, {seventhProject === undefined ? null : seventhProject.state}</div>
+                                <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {seventhProject === undefined ? '' : seventhProject.city}, {seventhProject === undefined ? '' : seventhProject.state}</div>
                               </div>
                             </div>
                           </div>

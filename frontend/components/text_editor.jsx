@@ -10,11 +10,12 @@ class Editor extends React.Component {
 
   handleChange (html) {
   	this.setState({ editorHtml: html });
+    console.log(html)
   }
 
   handleThemeChange (newTheme) {
     if (newTheme === "core") newTheme = null;
-    this.setState({ theme: newTheme })
+    this.setState({ theme: newTheme });
   }
 
   render () {

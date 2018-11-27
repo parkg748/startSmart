@@ -64,15 +64,15 @@ class EditProject extends React.Component {
 
     if(this.state.imageFile){
         formData.append('project[image_url]', this.state.imageFile);
+        $.ajax({
+          url: `/api/projects/${this.props.match.params.projectId}`,
+          method: 'PATCH',
+          data: formData,
+          contentType: false,
+          processData: false
+        });
     }
-    $.ajax({
-      url: `/api/projects/${this.props.match.params.projectId}`,
-      method: 'PATCH',
-      data: formData,
-      contentType: false,
-      processData: false
-    });
-    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(this.props.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(this.props.project)[0].description : this.state.description, category_id: this.state.categoryId === '' ? Object.values(this.props.project)[0].categoryId : this.state.categoryId, subcategory: this.state.subcategory === '' ? Object.values(this.props.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(this.props.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(this.props.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(this.props.project)[0].duration : this.state.duration, funding_goal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal, image_url: this.state.imageUrl};
+    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(this.props.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(this.props.project)[0].description : this.state.description, categoryId: this.state.categoryId === '' ? Object.values(this.props.project)[0].categoryId : this.state.categoryId, subcategory: this.state.subcategory === '' ? Object.values(this.props.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(this.props.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(this.props.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(this.props.project)[0].duration : this.state.duration, fundingGoal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal};
     this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
@@ -212,11 +212,11 @@ class EditProject extends React.Component {
     }
     let subCategories = [];
     if (this.state.category === '') {
-      subCategories = Object.values(getState().entities.category).forEach(obj => {if (obj.name === getState().entities.category[Object.values(getState().entities.project)[0].categoryId].name) {
+      Object.values(getState().entities.category).forEach(obj => {if (obj.name === getState().entities.category[Object.values(getState().entities.project)[0].categoryId].name) {
         obj.subcategories.forEach(subcat => subCategories.push([obj.id, subcat]));
       }});
     } else {
-      subCategories = Object.values(getState().entities.category).forEach(obj => {if (obj.name === this.state.category) {
+      Object.values(getState().entities.category).forEach(obj => {if (obj.name === this.state.category) {
         obj.subcategories.forEach(subcat => subCategories.push([obj.id, subcat]));
       }});
     }
@@ -327,7 +327,7 @@ class EditProject extends React.Component {
                                   <i className="category-dropdown-two-container-arrow fas fa-angle-down"></i>
                                   <select onChange={this.update('subcategory')} className='category-dropdown-two' value={this.state.subcategory === '' ? getState().entities.category[Object.values(getState().entities.project)[0].categoryId].subcategory : this.state.subcategory}>
                                     <option value='your-category'>Subcategory (optional)</option>
-                                    {}
+                                    {subCategories.map(el => <option key={el[1]} value={el[1]}>{el[1]}</option>)}
                                   </select>
                                 </div>
                               </div>

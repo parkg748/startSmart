@@ -42,15 +42,15 @@ class EditAboutYouProject extends React.Component {
 
     if(this.state.profileFile){
         formData.append('user[profile_url]', this.state.profileFile);
+        $.ajax({
+          url: `/api/users/${this.props.match.params.userId}`,
+          method: 'PATCH',
+          data: formData,
+          contentType: false,
+          processData: false
+        });
     }
-    $.ajax({
-      url: `/api/users/${this.props.match.params.userId}`,
-      method: 'PATCH',
-      data: formData,
-      contentType: false,
-      processData: false
-    });
-    const params = {id: this.props.match.params.userId, name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name, biography: this.props.user ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user ? Object.values(this.props.user)[0].websites : this.state.websites, google_analytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics, profile_url: this.state.profileUrl};
+    const params = {id: this.props.match.params.userId, name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name, biography: this.props.user ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user ? Object.values(this.props.user)[0].websites : this.state.websites, googleAnalytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics};
     this.props.updateUser(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
