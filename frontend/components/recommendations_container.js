@@ -6,15 +6,12 @@ import {fetchCategories} from '../actions/category_actions';
 import {fetchAllUsers, fetchUser} from '../actions/session_actions';
 
 const mapStateToProps = state => {
-  let projects = Object.values(state.entities.project).length === 0 ? null : state.entities.project;
-  let categories = Object.values(state.entities.category).length === 0 ? null : state.entities.category;
-  let users = Object.values(state.entities.users).length === 0 ? null : state.entities.users;
   return {
     user: state.entities.users[state.session.id],
     class: {display: 'location-none-display', displayProfileMenu: 'js-modal-close'},
-    projects: projects,
-    categories: categories,
-    users: users
+    projects: state.entities.project,
+    categories: state.entities.category,
+    users: state.entities.users
   };
 };
 

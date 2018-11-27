@@ -780,8 +780,7 @@ nav {
 }
 
 .first-three-row {
-  padding: 0 12px;
-  width: 1479px;
+  width: 100%;
   height: 556px;
   display: flex;
   justify-content: space-between;
@@ -5056,11 +5055,13 @@ strong {
   height: 192px;
   padding: 18px;
   border: 1px solid #DCDEDD;
+  display: flex;
+  flex-flow: wrap;
 }
 
 .what-were-reading-content-bottom-inner p {
   width: 231px;
-  height: 42px;
+  height: auto;
   margin-bottom: 12px;
   font-size: 14px;
   font-weight: 100;
@@ -5069,13 +5070,14 @@ strong {
 
 .read-on-start-smart {
   font-size: 12px;
+  height: auto;
+  width: 100%;
 }
 
 .what-were-reading-content-bottom-inner img {
   width: 72px;
   height: 72px;
-  float: left;
-  margin-top: 54px;
+  margin-top: auto;
   object-fit: cover;
 }
 
@@ -5857,7 +5859,7 @@ strong {
 
 .recommendations-second-box {
   position: relative;
-  width: 143px;
+  width: auto;
   height: 26px;
   float: left;
 }
@@ -5878,7 +5880,6 @@ strong {
 }
 
 .on-recommendations {
-  margin-left: 40px;
   width: 20px !important;
 }
 
@@ -6037,7 +6038,7 @@ strong {
 
 .recommendations-eighth-box {
   position: relative;
-  width: 60px;
+  width: auto;
   height: 26px;
   float: left;
 }
@@ -6055,13 +6056,13 @@ strong {
   font-weight: 100;
   box-shadow: #DCDEDD 0 2px 5px;
   color: rgb(155,158,158);
-  width: 107px !important;
+  width: auto !important;
 }
 
 .magic-caret {
   position: absolute;
   top: 17px;
-  left: 85px;
+  right: 22px;
   font-size: 12px;
 }
 
@@ -6074,6 +6075,7 @@ strong {
   text-decoration: underline;
   font-weight: 100;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .recommendations-body {
@@ -6085,22 +6087,24 @@ strong {
 }
 
 .recommendations-body-inner {
-  height: 6136px;
+  height: 100%;
 }
 
 .recommendations-body-inner-inner {
-  height: 6076px;
+  height: 96.7%;
   padding-top: 60px;
 }
 
 .recommendations-body-inner-inner-inner-inner {
-  height: 6076px;
+  height: 100%;
   padding: 0 60px 0 60px;
 }
 
 .recommendations-body-one {
-  height: 2233px;
+  height: 10%;
   margin-bottom: 60px;
+  display: flex;
+  flex-flow: wrap;
 }
 
 .recommendations-body-header {
@@ -6131,12 +6135,14 @@ strong {
   color: #009E74;
   font-size: 14px;
   font-weight: 100;
-  float: left;
+  display: flex;
+  flex-flow: wrap;
+  width: auto;
 }
 
 .recommendations-body-header-one a:hover {
   cursor: pointer;
-  color: black;
+  color: black !important;
 }
 
 .recommendations-body-arrow {
@@ -6148,29 +6154,26 @@ strong {
   height: 318px;
   border: 1px solid #DCDEDD;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .recommendations-body-three {
-  height: 294px;
+  height: 318px;
   margin-bottom: 24px;
   margin-left: -12px;
   margin-right: -12px;
 }
 
 .recommendations-body-four {
-  height: 294px;
+  height: 100%;
   padding: 0 12px 0 12px;
 }
 
-.recommendations-body-five {
-  height: 222px;
-}
-
-.recommendations-body-image {
+.recommendations-body-four img {
   width: 560px;
-  height: 315px;
+  height: 100%;
   float: left;
-  background-color: black;
+  object-fit: cover;
 }
 
 .recommendations-body-six {
@@ -6289,44 +6292,44 @@ strong {
 }
 
 .recommendations-body-nine {
-  height: 1751px;
-  margin-left: -12px;
-  margin-right: -12px;
+  height: 57%;
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
 }
 
 .recommendations-category-one-left {
-  width: 454px;
+  width: 33%;
   height: 583px;
   padding: 0 41px 0 0;
-  float: left;
 }
 
 .recommendations-category-one-right {
-  width: 454px;
+  width: 33%;
   height: 583px;
   padding: 0 0 0 41px;
-  float: left;
 }
 
 .recommendations-category-one {
-  width: 454px;
+  width: 33%;
   height: 583px;
-  float: left;
 }
 
 .recommendations-category-one-inner {
-  width: 454px;
+  width: 100%;
   height: 553px;
   border: 1px solid #DCDEDD;
-}
-
-.recommendations-category-one-image {
-  height: 214px;
-  background-color: black;
   position: relative;
 }
 
-.recommendations-category-one-image a {
+.recommendations-category-one-inner img {
+  height: 214px;
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+}
+
+.recommendations-category-one-inner a {
   width: 88px;
   height: 18px;
   padding: 4px 12px 4px 12px;
@@ -6339,6 +6342,15 @@ strong {
   top: 200px;
   display: flex;
   align-items: center;
+}
+
+.recommendations-category-one-inner a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  border-color: #282828;
+  cursor: pointer;
+  transition: all 600ms cubic-bezier(0.175, 0.885, 0.335, 1);
+  box-shadow: 0 3px 6px 1px rgba(0,0,0,0.17);
 }
 
 .recommendations-category-one-content {
@@ -6431,6 +6443,7 @@ strong {
   justify-content: center;
   height: 60px;
   padding: 0 12px 0 12px;
+  cursor: pointer;
 }
 
 .more-recommendations-inner a {

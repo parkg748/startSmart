@@ -351,21 +351,21 @@ class Homepage extends React.Component {
               <div className='what-were-reading-content-bottom'>
                 <div className='what-were-reading-content-bottom-section'>
                   <div className='what-were-reading-content-bottom-inner'>
-                    <p>New life for a 1902 manual about color</p>
+                    <p>{whatWereReading[3] != undefined ? whatWereReading[3].description : ''}</p>
                     <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
                     <img src={whatWereReading[3] != undefined ? whatWereReading[3].imageUrl : ''}/>
                   </div>
                 </div>
                 <div className='what-were-reading-content-bottom-section'>
                   <div className='what-were-reading-content-bottom-inner'>
-                    <p>New life for a 1902 manual about color</p>
+                    <p>{whatWereReading[4] != undefined ? whatWereReading[4].description : ''}</p>
                     <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
                     <img src={whatWereReading[4] != undefined ? whatWereReading[4].imageUrl : ''}/>
                   </div>
                 </div>
                 <div className='what-were-reading-content-bottom-section'>
                   <div className='what-were-reading-content-bottom-inner'>
-                    <p>New life for a 1902 manual about color</p>
+                    <p>{whatWereReading[5] != undefined ? whatWereReading[5].description : ''}</p>
                     <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
                     <img src={whatWereReading[5] != undefined ? whatWereReading[5].imageUrl : ''}/>
                   </div>

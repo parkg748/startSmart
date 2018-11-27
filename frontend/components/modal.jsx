@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 function Modal({ displayProfileMenu, user, userId, sessionId, projectId, logoutUser }) {
+  if (getState().entities.users.user === null) return null;
   let currentUserProjects = [];
   if (getState().entities.users.currentUser != null) {
     Object.values(getState().entities.users)[0].projects.forEach(project => {

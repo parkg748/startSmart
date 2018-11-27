@@ -14,7 +14,6 @@ class Recommendations extends React.Component {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchAllUsers();
-    this.props.fetchUser(this.props.match.params.userId);
   }
 
   clickProfileIcon() {
@@ -163,32 +162,28 @@ class Recommendations extends React.Component {
                     <div className='recommendations-body-header-one'>
                       <h3>Projects for you</h3>
                       <h5>
-                        <a>See all 282 live projects</a>
-                        <i className={`${this.props.class.display} recommendations-body-arrow fas fa-long-arrow-alt-right`}></i>
+                        <a><div>See all 282 live projects</div><i className={`${this.props.class.display} recommendations-body-arrow fas fa-long-arrow-alt-right`}></i></a>
                       </h5>
                     </div>
                   </div>
                   <div className='recommendations-body-two'>
                     <div className='recommendations-body-three'>
                       <div className='recommendations-body-four'>
-                        <div className='recommendations-body-five'>
-                          <div className='recommendations-body-image'>
-                          </div>
-                          <div className='recommendations-body-six'>
-                            <div className='recommendations-body-seven'>
-                              <div className='recommendations-body-seven-header'>
-                                <Link to='/'>{firstProject === undefined ? null : firstProject.title}</Link>
-                              </div>
-                              <div className='recommendations-body-seven-author'>
-                                <img src='https://ksr-ugc.imgix.net/assets/006/347/287/83a01d5959e63f24f2ad447b4a0797f9_original.png?ixlib=rb-1.1.0&w=20&h=20&fit=crop&v=1503090035&auto=format&frame=1&q=92&s=d66f0ce35895ac6e08f4f2592cdbc9b8'/>
-                                by anonymous
-                              </div>
-                              <div className='recommendations-body-seven-description'>{firstProject === undefined ? null : firstProject.description}</div>
-                              <div className='recommendations-body-seven-category'>
-                                <a><i className="fab fa-stripe-s"></i>Project We Love</a>
-                                <a><i className="far fa-square"></i>{firstProject === undefined ? null : firstProject.city}, {firstProject === undefined ? null : firstProject.state}</a>
-                                <a className='product-design-category'><i className="far fa-square"></i>Product Design</a>
-                              </div>
+                        <img src={firstProject === undefined ? '' : firstProject.imageUrl} />
+                        <div className='recommendations-body-six'>
+                          <div className='recommendations-body-seven'>
+                            <div className='recommendations-body-seven-header'>
+                              <Link to='/'>{firstProject === undefined ? null : firstProject.title}</Link>
+                            </div>
+                            <div className='recommendations-body-seven-author'>
+                              <img src='https://ksr-ugc.imgix.net/assets/006/347/287/83a01d5959e63f24f2ad447b4a0797f9_original.png?ixlib=rb-1.1.0&w=20&h=20&fit=crop&v=1503090035&auto=format&frame=1&q=92&s=d66f0ce35895ac6e08f4f2592cdbc9b8'/>
+                              by {firstProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === firstProject.userId)[0].name}
+                            </div>
+                            <div className='recommendations-body-seven-description'>{firstProject === undefined ? null : firstProject.description}</div>
+                            <div className='recommendations-body-seven-category'>
+                              <a><i className="fab fa-stripe-s"></i>Project We Love</a>
+                              <a><i className="far fa-square"></i>{firstProject === undefined ? null : firstProject.city}, {firstProject === undefined ? null : firstProject.state}</a>
+                              <a className='product-design-category'><i className="far fa-square"></i>Product Design</a>
                             </div>
                           </div>
                         </div>
@@ -209,16 +204,15 @@ class Recommendations extends React.Component {
                     <div className='first-three-row'>
                       <div className='recommendations-category-one-left'>
                         <div className='recommendations-category-one-inner'>
-                          <div className='recommendations-category-one-image'>
-                            <a>Project We Love</a>
-                          </div>
+                          <img src={secondProject === undefined ? '' : secondProject.imageUrl} />
+                          <a>Project We Love</a>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
                                 <h3>{secondProject === undefined ? null : secondProject.title}</h3>
                                 <p>{secondProject === undefined ? null : secondProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {secondProject === undefined ? null : this.props.users[secondProject.userId].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {secondProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === secondProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -236,16 +230,15 @@ class Recommendations extends React.Component {
                       </div>
                       <div className='recommendations-category-one'>
                         <div className='recommendations-category-one-inner'>
-                          <div className='recommendations-category-one-image'>
-                            <a>Project We Love</a>
-                          </div>
+                          <img src={thirdProject === undefined ? '' : thirdProject.imageUrl} />
+                          <a>Project We Love</a>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
                                 <h3>{thirdProject === undefined ? null : thirdProject.title}</h3>
                                 <p>{thirdProject === undefined ? null : thirdProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {thirdProject === undefined ? null : this.props.users[thirdProject.userId].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {thirdProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === thirdProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -263,16 +256,15 @@ class Recommendations extends React.Component {
                       </div>
                       <div className='recommendations-category-one-right'>
                         <div className='recommendations-category-one-inner'>
-                          <div className='recommendations-category-one-image'>
-                            <a>Project We Love</a>
-                          </div>
+                          <img src={fourthProject === undefined ? '' : fourthProject.imageUrl} />
+                          <a>Project We Love</a>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
                                 <h3>{fourthProject === undefined ? null : fourthProject.title}</h3>
                                 <p>{fourthProject === undefined ? null : fourthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fourthProject === undefined ? null : this.props.users[fourthProject.userId].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {fourthProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === fourthProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -292,16 +284,15 @@ class Recommendations extends React.Component {
                     <div className='first-three-row'>
                       <div className='recommendations-category-one-left'>
                         <div className='recommendations-category-one-inner'>
-                          <div className='recommendations-category-one-image'>
-                            <a>Project We Love</a>
-                          </div>
+                          <img src={fifthProject === undefined ? '' : fifthProject.imageUrl} />
+                          <a>Project We Love</a>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
                                 <h3>{fifthProject === undefined ? null : fifthProject.title}</h3>
                                 <p>{fifthProject === undefined ? null : fifthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fifthProject === undefined ? null : this.props.users[fifthProject.userId].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {fifthProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === fifthProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -319,16 +310,15 @@ class Recommendations extends React.Component {
                       </div>
                       <div className='recommendations-category-one'>
                         <div className='recommendations-category-one-inner'>
-                          <div className='recommendations-category-one-image'>
-                            <a>Project We Love</a>
-                          </div>
+                          <img src={sixthProject === undefined ? '' : sixthProject.imageUrl} />
+                          <a>Project We Love</a>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
                                 <h3>{sixthProject === undefined ? null : sixthProject.title}</h3>
                                 <p>{sixthProject === undefined ? null : sixthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {sixthProject === undefined ? null : this.props.users[sixthProject.userId].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {sixthProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === sixthProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -346,16 +336,15 @@ class Recommendations extends React.Component {
                       </div>
                       <div className='recommendations-category-one-right'>
                         <div className='recommendations-category-one-inner'>
-                          <div className='recommendations-category-one-image'>
-                            <a>Project We Love</a>
-                          </div>
+                          <img src={seventhProject === undefined ? '' : seventhProject.imageUrl} />
+                          <a>Project We Love</a>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
                                 <h3>{seventhProject === undefined ? null : seventhProject.title}</h3>
                                 <p>{seventhProject === undefined ? null : seventhProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {seventhProject === undefined ? null : this.props.users[seventhProject.userId].name}</div>
+                              <div className='recommendations-category-one-content-author'>by {seventhProject === undefined ? null : Object.values(this.props.users).filter(el => el.id === seventhProject.userId)[0].name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
