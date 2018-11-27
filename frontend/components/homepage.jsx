@@ -111,6 +111,10 @@ class Homepage extends React.Component {
         }
       }
     });
+    let projectsWeLove = [];
+    while (projectsWeLove.length != 4) {
+      projectsWeLove.push(Object.values(getState().entities.project)[Math.floor(Math.random() * Math.floor(Object.values(getState().entities.project).length))]);
+    }
     // if (Object.values(this.props.user).length > 1) {
     //   let firstProjectUser = this.props.user.filter(user => user.id === currentPictureCategory[0].userId)[0].name;
     // }
@@ -309,29 +313,29 @@ class Homepage extends React.Component {
               </div>
               <div className='projects-we-love-body-left'>
                 <div className='projects-we-love-body-inner'>
-                  <img/>
-                  <p>The last unpublished manuscript of the late poet and provocateur Jonathan Williams with photographs by Roger Manley and Guy Mendes</p>
+                  <img src={projectsWeLove[0] != undefined ? projectsWeLove[0].imageUrl : ''}/>
+                  <p>{projectsWeLove[0] != undefined ? projectsWeLove[0].description : ''}</p>
                   <span>92% funded</span>
                 </div>
               </div>
               <div className='projects-we-love-body-right'>
                 <div className='projects-we-love-body-inner'>
-                  <img/>
-                  <p>The last unpublished manuscript of the late poet and provocateur Jonathan Williams with photographs by Roger Manley and Guy Mendes</p>
+                  <img src={projectsWeLove[1] != undefined ? projectsWeLove[1].imageUrl : ''}/>
+                  <p>{projectsWeLove[1] != undefined ? projectsWeLove[1].description : ''}</p>
                   <span>92% funded</span>
                 </div>
               </div>
               <div className='projects-we-love-body-left'>
                 <div className='projects-we-love-body-inner'>
-                  <img/>
-                  <p>The last unpublished manuscript of the late poet and provocateur Jonathan Williams with photographs by Roger Manley and Guy Mendes</p>
+                  <img src={projectsWeLove[2] != undefined ? projectsWeLove[2].imageUrl : ''}/>
+                  <p>{projectsWeLove[2] != undefined ? projectsWeLove[2].description : ''}</p>
                   <span>92% funded</span>
                 </div>
               </div>
               <div className='projects-we-love-body-right'>
                 <div className='projects-we-love-body-inner'>
-                  <img/>
-                  <p>The last unpublished manuscript of the late poet and provocateur Jonathan Williams with photographs by Roger Manley and Guy Mendes</p>
+                  <img src={projectsWeLove[3] != undefined ? projectsWeLove[3].imageUrl : ''}/>
+                  <p>{projectsWeLove[3] != undefined ? projectsWeLove[3].description : ''}</p>
                   <span>92% funded</span>
                 </div>
               </div>
