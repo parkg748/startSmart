@@ -435,6 +435,35 @@ nav {
   width: 25%;
 }
 
+.footer-index-section li:hover {
+  color: #037362;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.black:hover {
+  color: #037362 !important;
+  cursor: pointer;
+}
+
+.footer-links a:hover {
+  color: #037362;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.what-were-reading-content-bottom-inner:hover {
+  color: #037362;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.policy-links:hover {
+  color: #037362;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .footer-index-section h3 {
   font-size: 13px;
   font-weight: normal;

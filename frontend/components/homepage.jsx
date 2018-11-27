@@ -207,7 +207,7 @@ class Homepage extends React.Component {
                 </div>
                 <div className='funded-projects'>
                   <div className='homepage-stats-title'>FUNDED PROJECTS</div>
-                  <div className='homepage-stats-statistic'>Testing</div>
+                  <div className='homepage-stats-statistic'>{Object.values(this.props.projects).filter(el => el.fundingGoal != null).length}</div>
                 </div>
                 <div className='live-projects'>
                   <div className='homepage-stats-title'>LIVE PROJECTS</div>
