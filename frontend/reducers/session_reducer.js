@@ -10,7 +10,7 @@ export default (state = _nullSession, action) => {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, action.user.session);
     case LOGOUT_CURRENT_USER:
-      return Object.assign({}, {session: null});
+      return Object.assign({}, {id: null});
     default:
       return state;
   }

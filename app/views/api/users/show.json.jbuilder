@@ -11,7 +11,5 @@ json.set! @user.id do
 end
 
 json.session do
-  json.id do
-    json.extract! @user, :id
-  end
+  json.extract! @user, :id
 end

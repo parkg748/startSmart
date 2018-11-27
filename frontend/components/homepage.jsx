@@ -1,5 +1,6 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
+import Modal from './modal';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -68,7 +69,7 @@ class Homepage extends React.Component {
     if (this.props.category === null || this.props.category === undefined) return null;
     let profile = undefined;
     let navbarWidth = '';
-    if (this.props.user != null && Object.values(this.props.user)[0] != null) {
+    if (getState().session.id != null) {
       profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src="https://i.imgur.com/jyZdRza.png" /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
@@ -79,14 +80,6 @@ class Homepage extends React.Component {
     let year = currentDate.getFullYear();
     let month = monthString[currentDate.getMonth()];
     let day = currentDate.getDate() + 1;
-    let currentUserProjects = [];
-    if (Object.values(getState().entities.users)[0].projects != null) {
-      Object.values(getState().entities.users)[0].projects.forEach(project => {
-        if (project.user_id === getState().session.id.id) {
-          currentUserProjects.push(project);
-        };
-      });
-    }
     let currentCategoryId = [];
     Object.values(this.props.category).forEach(category => {
       this.state.currentCategory.split(' & ').forEach(categ => {
@@ -112,8 +105,12 @@ class Homepage extends React.Component {
       }
     });
     let projectsWeLove = [];
+    let whatWereReading = [];
     while (projectsWeLove.length != 4) {
       projectsWeLove.push(Object.values(getState().entities.project)[Math.floor(Math.random() * Math.floor(Object.values(getState().entities.project).length))]);
+    }
+    while (whatWereReading.length != 6) {
+      whatWereReading.push(Object.values(getState().entities.project)[Math.floor(Math.random() * Math.floor(Object.values(getState().entities.project).length))]);
     }
     // if (Object.values(this.props.user).length > 1) {
     //   let firstProjectUser = this.props.user.filter(user => user.id === currentPictureCategory[0].userId)[0].name;
@@ -130,7 +127,7 @@ class Homepage extends React.Component {
           <div className='category-contents-left-description'>
             <p>
               <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory.slice(-1)[0].title}</span>
-              <span className='category-contents-author'>by </span>
+              <span className='category-contents-author'>by {currentPictureCategory.length === 0 ? '' : Object.values(getState().entities.users).filter(el => el.id === currentPictureCategory.slice(-1)[0].userId)[0].name}</span>
             </p>
           </div>
           <div className='category-contents-funded-info'>55% FUNDED</div>
@@ -195,60 +192,7 @@ class Homepage extends React.Component {
             {profile}
           </section>
         </nav>
-        <div className={`profile-icon-menu ${this.state.displayProfileMenu}`}>
-          <div className='profile-menu-header'>{this.props.user.user ? Object.values(this.props.user.user)[0].name : '' }</div>
-          <div className='profile-menu-body'>
-            <div className='profile-menu-body-left'>
-              <div className='profile-menu-body-left-header'>MY STUFF</div>
-              <ul>
-                <li><Link to='/profile/following/find_creators'>Follow creators</Link></li>
-                <li><Link to='/profile/following/welcome'>Follow Facebook friends</Link></li>
-                <li><Link to='/recommendations'>Recommended for you</Link></li>
-                <li><Link to='/messages/inbox'>Messages</Link></li>
-                <li><Link to='/activity'>Activity</Link></li>
-                <li><Link to={`/profile/${this.props.user.id}`}>Profile</Link></li>
-                <li><Link to='/profile/backings'>Backed projects</Link></li>
-                <li><Link to='/profile/projects'>My projects</Link></li>
-                <li><Link to='/profile/starred'>Saved projects</Link></li>
-              </ul>
-            </div>
-            <div className='profile-menu-body-middle'>
-              <div className='profile-menu-body-left-header'>SETTINGS</div>
-              <ul>
-                <li><Link to='/settings/account'>Account</Link></li>
-                <li><Link to='/settings/profile'>Edit profile</Link></li>
-                <li>Notifications</li>
-              </ul>
-            </div>
-            <div className='profile-menu-body-right'>
-              <div className='profile-menu-body-left-header'>MY PROJECTS</div>
-              <ul>
-                {currentUserProjects.slice(0, 5).map((project, id) => {
-                  if (project.title === '') {
-                    return <li key={id}>
-                      <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'>
-                          <img src='https://i.imgur.com/s5GppRq.png'/>
-                        </div>
-                        <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>Untitled</Link></span>
-                      </div>
-                    </li>
-                  } else {
-                    return <li key={id}>
-                      <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'>
-                          <img src={project.imageUrl}/>
-                        </div>
-                        <span><Link to={`/users/${getState().session.id}/projects/${project.id}`}>{project.title}</Link></span>
-                      </div>
-                    </li>
-                  }
-                })}
-              </ul>
-            </div>
-          </div>
-          <div className='profile-menu-footer'><button onClick={(e) => this.logoutUser(e)}>Log out</button></div>
-        </div>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='homepage-body'>
           <div className='homepage-stats'>
             <div className='homepage-stats-content'>
@@ -374,30 +318,30 @@ class Homepage extends React.Component {
           </div>
           <div className='what-were-reading'>
             <div className='what-were-reading-content'>
+              <div className='what-were-reading-title'>What we're reading</div>
               <div className='what-were-reading-content-inner'>
-                <div className='what-were-reading-title'>What we're reading</div>
                 <div className='what-were-reading-body'>
-                  <img />
+                  <img src={whatWereReading[0] != undefined ? whatWereReading[0].imageUrl : ''}/>
                   <div className='what-were-reading-body-content'>
-                    <p>The rebel girls who wrote a real-life role models into fairy tales, a podcast, and an interactive journal</p>
+                    <p>{whatWereReading[0] != undefined ? whatWereReading[0].description : ''}</p>
                     <div className='read-on-startsmart'>
                       READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
                     </div>
                   </div>
                 </div>
                 <div className='what-were-reading-body'>
-                  <img />
+                  <img src={whatWereReading[1] != undefined ? whatWereReading[1].imageUrl : ''}/>
                   <div className='what-were-reading-body-content'>
-                    <p>The rebel girls who wrote a real-life role models into fairy tales, a podcast, and an interactive journal</p>
+                    <p>{whatWereReading[1] != undefined ? whatWereReading[1].description : ''}</p>
                     <div className='read-on-startsmart'>
                       READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
                     </div>
                   </div>
                 </div>
                 <div className='what-were-reading-body'>
-                  <img />
+                  <img src={whatWereReading[2] != undefined ? whatWereReading[2].imageUrl : ''}/>
                   <div className='what-were-reading-body-content'>
-                    <p>The rebel girls who wrote a real-life role models into fairy tales, a podcast, and an interactive journal</p>
+                    <p>{whatWereReading[2] != undefined ? whatWereReading[2].description : ''}</p>
                     <div className='read-on-startsmart'>
                       READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
                     </div>
@@ -409,7 +353,21 @@ class Homepage extends React.Component {
                   <div className='what-were-reading-content-bottom-inner'>
                     <p>New life for a 1902 manual about color</p>
                     <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
-                    <img />
+                    <img src={whatWereReading[3] != undefined ? whatWereReading[3].imageUrl : ''}/>
+                  </div>
+                </div>
+                <div className='what-were-reading-content-bottom-section'>
+                  <div className='what-were-reading-content-bottom-inner'>
+                    <p>New life for a 1902 manual about color</p>
+                    <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
+                    <img src={whatWereReading[4] != undefined ? whatWereReading[4].imageUrl : ''}/>
+                  </div>
+                </div>
+                <div className='what-were-reading-content-bottom-section'>
+                  <div className='what-were-reading-content-bottom-inner'>
+                    <p>New life for a 1902 manual about color</p>
+                    <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
+                    <img src={whatWereReading[5] != undefined ? whatWereReading[5].imageUrl : ''}/>
                   </div>
                 </div>
               </div>

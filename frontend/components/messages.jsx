@@ -1,5 +1,6 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
+import Modal from './modal';
 
 class Messages extends React.Component {
   constructor(props) {
@@ -61,60 +62,7 @@ class Messages extends React.Component {
             {profile}
           </section>
         </nav>
-        <div className={`profile-icon-menu ${this.state.displayProfileMenu}`}>
-          <div className='profile-menu-header'>Grace</div>
-          <div className='profile-menu-body'>
-            <div className='profile-menu-body-left'>
-              <div className='profile-menu-body-left-header'>MY STUFF</div>
-              <ul>
-                <li><Link to='/profile/following/find_creators'>Follow creators</Link></li>
-                <li><Link to='/profile/following/welcome'>Follow Facebook friends</Link></li>
-                <li><Link to='/recommendations'>Recommended for you</Link></li>
-                <li><Link to='/messages/inbox'>Messages</Link></li>
-                <li><Link to='/activity'>Activity</Link></li>
-                <li><Link to={`/profile/${Object.values(this.props.user)[0].id}`}>Profile</Link></li>
-                <li><Link to='/profile/backings'>Backed projects</Link></li>
-                <li><Link to='/profile/projects'>My projects</Link></li>
-                <li><Link to='/profile/starred'>Saved projects</Link></li>
-              </ul>
-            </div>
-            <div className='profile-menu-body-middle'>
-              <div className='profile-menu-body-left-header'>SETTINGS</div>
-              <ul>
-                <li><Link to='/settings/account'>Account</Link></li>
-                <li><Link to='/settings/profile'>Edit profile</Link></li>
-                <li>Notifications</li>
-              </ul>
-            </div>
-            <div className='profile-menu-body-right'>
-              <div className='profile-menu-body-left-header'>MY PROJECTS</div>
-              <ul>
-                {currentUserProjects.slice(0, 5).map((project, idx) => {
-                  if (project.title === '') {
-                    return <li key={idx}>
-                      <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'>
-                          <img src='https://i.imgur.com/s5GppRq.png'/>
-                        </div>
-                        <span><a onClick={() => this.changeProjectPage(project.id)}>Untitled</a></span>
-                      </div>
-                    </li>
-                  } else {
-                    return <li key={idx}>
-                      <div className='profile-menu-projects'>
-                        <div className='profile-menu-projects-image'>
-                          <img src={project.imageUrl} />
-                        </div>
-                        <span><a onClick={() => this.changeProjectPage(project.id)}>{project.title}</a></span>
-                      </div>
-                    </li>
-                  }
-                })}
-              </ul>
-            </div>
-          </div>
-          <div className='profile-menu-footer'><button onClick={(e) => this.logoutUser(e)}>Log out</button></div>
-        </div>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='messages-inbox'>
           <div className='messages-inbox-one'>
             <div className='messages-inbox-two'>
