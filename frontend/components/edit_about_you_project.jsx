@@ -214,7 +214,7 @@ class EditAboutYouProject extends React.Component {
                               <div className='profile-photo-title'>Biography</div>
                               <div className='biography-content-inner'>
                                 <div className='biography-input'>
-                                  <textarea onChange={this.update('biography')}>{Object.values(this.props.user)[0].biography}</textarea>
+                                  <textarea onChange={this.update('biography')} value={this.state.biography === '' ? Object.values(getState().entities.users)[0].biography : this.state.biography}></textarea>
                                 </div>
                               </div>
                             </div>

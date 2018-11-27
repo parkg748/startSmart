@@ -37,8 +37,6 @@ export const createProject = (user, data) => {
 };
 
 export const updateProject = project => {
-  debugger;
-  const newProject = { ...project };
   return $.ajax({
     method: 'PATCH',
     url: `/api/projects/${project.id}`,

@@ -11,7 +11,6 @@ class StartProject extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
-    this.props.fetchUser(this.props.match.params.userId);
   }
 
   logoutUser(e) {
@@ -33,11 +32,11 @@ class StartProject extends React.Component {
   }
 
   render() {
-    if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    if (Object.values(getState().entities.users) === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
-    if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
+    if (Object.values(getState().entities.users) != null) {
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' || !Object.values(getState().entities.users)[0].profileUrl ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -63,7 +62,7 @@ class StartProject extends React.Component {
             {profile}
           </section>
         </nav>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(getState().entities.users)[0]} userId={Object.values(getState().entities.users)[0].id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='start-project-content'>
           <div className='start-project-middle'>
             <div className='start-project-top'>

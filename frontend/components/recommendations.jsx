@@ -94,7 +94,6 @@ class Recommendations extends React.Component {
         seventhProject = Object.values(getState().entities.users).filter(el => el.id === seventhProject.userId)[0];
       }
     }
-    debugger;
     return (
       <div>
         <nav>

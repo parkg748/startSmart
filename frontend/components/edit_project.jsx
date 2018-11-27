@@ -72,7 +72,7 @@ class EditProject extends React.Component {
           processData: false
         });
     }
-    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(this.props.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(this.props.project)[0].description : this.state.description, categoryId: this.state.categoryId === '' ? Object.values(this.props.project)[0].categoryId : this.state.categoryId, subcategory: this.state.subcategory === '' ? Object.values(this.props.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(this.props.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(this.props.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(this.props.project)[0].duration : this.state.duration, fundingGoal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal};
+    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(getState().entities.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(getState().entities.project)[0].description : this.state.description, categoryId: this.state.categoryId === '' ? Object.values(getState().entities.project)[0].categoryId : this.state.categoryId, subcategory: this.state.subcategory === '' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(getState().entities.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(getState().entities.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(getState().entities.project)[0].duration : this.state.duration, fundingGoal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal};
     this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
@@ -279,8 +279,8 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Project title</div>
                               <div className='project-title-content-inner'>
                                 <div className='title-input'>
-                                  <input onChange={this.update('title')} type='text' defaultValue={Object.values(this.props.project)[0].title} />
-                                  <span>{this.state.title === '' ? (60 - Object.values(this.props.project)[0].title.length) : this.state.titleWordCount}/60</span>
+                                  <input onChange={this.update('title')} type='text' defaultValue={Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].title} />
+                                  <span>{this.state.title === '' ? (60 - Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].title.length) : this.state.titleWordCount}/60</span>
                                 </div>
                                 <div className='project-title-description'>
                                   <p className='project-title-description-one'>Our search looks through words from your project title and blurb, so make them clear and descriptive of what you’re making. Your profile name will be searchable, too.</p>
@@ -294,8 +294,8 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Short blurb</div>
                               <div className='short-blurb-content-inner'>
                                 <div className='short-blurb-input'>
-                                  <textarea onChange={this.update('description')} defaultValue={Object.values(this.props.project)[0].description}></textarea>
-                                  <span>{this.state.description === '' ? (135 - Object.values(this.props.project)[0].description.length) : this.state.shortBlurbWordCount}/135</span>
+                                  <textarea onChange={this.update('description')} defaultValue={Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].description}></textarea>
+                                  <span>{this.state.description === '' ? (135 - Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].description.length) : this.state.shortBlurbWordCount}/135</span>
                                 </div>
                                 <div className='short-blurb-description'>
                                   <p>Give people a sense of what you’re doing. Skip “Help me” and focus on what you’re making.</p>
@@ -456,7 +456,7 @@ class EditProject extends React.Component {
                             <div className='funding-goal-content'>
                               <div className='project-image-inner-title'>Funding goal</div>
                               <div className='funding-goal-content-inner'>
-                                <div className='funding-goal-content-input'><input onChange={this.update('funding_goal')} type='text' defaultValue={Object.values(this.props.project)[0].fundingGoal === null ? this.state.fundingGoal : Object.values(this.props.project)[0].fundingGoal} /></div>
+                                <div className='funding-goal-content-input'><input onChange={this.update('funding_goal')} type='text' defaultValue={this.state.fundingGoal === '€0' && Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].fundingGoal != '' ? Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].fundingGoal : this.state.fundingGoal} /></div>
                                 <div className='funding-goal-disclaimer'>
                                   <p className='funding-goal-disclaimer-one'>Funding on StartSmart is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
                                   <p className='funding-goal-disclaimer-two'>If your project is successfully funded, the following fees will be collected from your funding total: StartSmart's 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.</p>

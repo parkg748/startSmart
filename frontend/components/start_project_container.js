@@ -6,7 +6,6 @@ import {logout, fetchUser} from '../actions/session_actions';
 const mapStateToProps = state => {
   return {
     currentUser: state.entities.users,
-    user: state.entities.users,
     class: {displayProfileMenu: 'js-modal-close'}
   };
 };
