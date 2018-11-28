@@ -5,7 +5,6 @@ import Modal from './modal';
 class StartProject extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = this.props.class;
   }
 
