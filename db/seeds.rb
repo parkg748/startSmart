@@ -27,7 +27,7 @@ ActiveRecord::Base.transaction do
   user1 = User.create({name: 'Guest', email: 'demouser@gmail.com', password: 'starwars'})
   user2 = User.new(name: "Wynd Technologies, Inc.", email: "wyndtechnologiesinc@gmail.com", password: "starwars", biography: nil, websites: nil, google_analytics: nil)
   path2 = File.join(Rails.root, 'app', "assets", "images", "26441e13bbd6229c41392b247987ed53_original.png")
-  user2.profile_url.attach(io: File.open(path), filename: "26441e13bbd6229c41392b247987ed53_original.png")
+  user2.profile_url.attach(io: File.open(path2), filename: "26441e13bbd6229c41392b247987ed53_original.png")
   user2.save
   project2 = Project.new(duration: 0, limit: false, user_id: user2.id, country: "the United States", title: "Wynd Halo + Home Purifier: Keep your home’s air healthy", description: "The world's smartest air monitor meets the most powerful purifier in its class.", pledge_amt: 0, eta: nil, shipping: "", city: "Redwood City", state: "CA", funding_goal: nil, category_id: categories[13].id, subcategory: nil, challenges: nil)
   # project2.image_url.attach(io: File.open("/Users/gracepark/Downloads/stART/stART/app/assets/images/d60844185a965dbb862faef51950e637_original.png"), filename: "d60844185a965dbb862faef51950e637_original.png")
