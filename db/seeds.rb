@@ -25,10 +25,10 @@ ActiveRecord::Base.transaction do
   User.destroy_all
   Project.destroy_all
   user1 = User.create({name: 'Guest', email: 'demouser@gmail.com', password: 'starwars'})
-  user2 = User.create({name: "Wynd Technologies, Inc.", email: "wyndtechnologiesinc@gmail.com", password: "starwars", biography: nil, websites: nil, google_analytics: nil})
-  user2.profile_url.attach(io: File.open("/Users/gracepark/Downloads/stART/stART/app/assets/images/26441e13bbd6229c41392b247987ed53_original.png"), filename: "26441e13bbd6229c41392b247987ed53_original.png")
-  project2 = Project.create({duration: 0, limit: false, user_id: users[2].id, country: "the United States", title: "", description: "The world's smartest air monitor meets the most powerful purifier in its class.", pledge_amt: 0, eta: nil, shipping: "", city: "", state: "", funding_goal: nil, category_id: categories[13].id, subcategory: nil, challenges: nil})
-  project2.image_url.attach(io: File.open("/Users/gracepark/Downloads/stART/stART/app/assets/images/d60844185a965dbb862faef51950e637_original.png"), filename: "d60844185a965dbb862faef51950e637_original.png")
+  # user2 = User.create({name: "Wynd Technologies, Inc.", email: "wyndtechnologiesinc@gmail.com", password: "starwars", biography: nil, websites: nil, google_analytics: nil})
+  # user2.profile_url.attach(io: File.open("/Users/gracepark/Downloads/stART/stART/app/assets/images/26441e13bbd6229c41392b247987ed53_original.png"), filename: "26441e13bbd6229c41392b247987ed53_original.png")
+  # project2 = Project.create({duration: 0, limit: false, user_id: users[2].id, country: "the United States", title: "", description: "The world's smartest air monitor meets the most powerful purifier in its class.", pledge_amt: 0, eta: nil, shipping: "", city: "", state: "", funding_goal: nil, category_id: categories[13].id, subcategory: nil, challenges: nil})
+  # project2.image_url.attach(io: File.open("/Users/gracepark/Downloads/stART/stART/app/assets/images/d60844185a965dbb862faef51950e637_original.png"), filename: "d60844185a965dbb862faef51950e637_original.png")
   user3 = User.create({name: "Maurice Ribble", email: "mauriceribble@gmail.com", password: "starwars", biography: nil, websites: nil, google_analytics: nil})
   user3.profile_url.attach(io: File.open("/Users/gracepark/Downloads/stART/stART/app/assets/images/ed91c4b4f5971395e1d338eb5c4e61dd_original.jpg"), filename: "ed91c4b4f5971395e1d338eb5c4e61dd_original.jpg")
   project3 = Project.create({duration: 0, limit: false, user_id: users[2].id, country: "the United States", title: "", description: "The hand-sized fully functioning electric spinning wheel that spins wool and other fibers into yarn.", pledge_amt: 0, eta: nil, shipping: "", city: "", state: "", funding_goal: nil, category_id: categories[13].id, subcategory: nil, challenges: nil})
