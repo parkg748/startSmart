@@ -46,8 +46,8 @@ ActiveRecord::Base.transaction do
   user4.profile_url.attach(io: File.open(userpath4), filename: "f969b4f6b2151164ea07b9dd655a554d_original.png")
   user4.save
   project4 = Project.new(duration: 0, limit: false, user_id: user4.id, country: "the United States", title: "ROADQUEEN: ETERNAL ROADTRIP TO LOVE", description: "Help us print the first book of Cut Time, a fantasy comic inspired by astrology for teen readers and up!", pledge_amt: 0, eta: nil, shipping: "", city: "Los Angeles", state: "CA", funding_goal: nil, category_id: categories[1].id, subcategory: nil, challenges: nil)
-  projectpath4 = File.join(Rails.root, 'app', "assets", "images", "d60844185a965dbb862faef51950e637_original.png")
-  project4.image_url.attach(io: File.open(projectpath4), filename: "d60844185a965dbb862faef51950e637_original.png")
+  projectpath4 = File.join(Rails.root, 'app', "assets", "images", "e7e9eceb13789f84a65dee211a99c645_original.jpg")
+  project4.image_url.attach(io: File.open(projectpath4), filename: "e7e9eceb13789f84a65dee211a99c645_original.jpg")
   project4.save
   user5 = User.new(name: "Hiveworks Comics", email: "hiveworkscomics@gmail.com", password: "starwars", biography: nil, websites: nil, google_analytics: nil)
   userpath5 = File.join(Rails.root, 'app', "assets", "images", "379a5196027eb91b651314d19c66f005_original.png")
@@ -281,6 +281,14 @@ ActiveRecord::Base.transaction do
   projectpath35 = File.join(Rails.root, 'app', "assets", "images", "ce1368517f3801c614dad6ab235fd976_original.jpg")
   project35.image_url.attach(io: File.open(projectpath35), filename: "ce1368517f3801c614dad6ab235fd976_original.jpg")
   project35.save
+  user36 = User.new(name: "Shannon Shird", email: "shannonshird@gmail.com", password: "starwars", biography: nil, websites: nil, google_analytics: nil)
+  userpath36 = File.join(Rails.root, 'app', "assets", "images", "320f89c54ef2add6e6852918e4846bc8_original.jpeg")
+  user36.profile_url.attach(io: File.open(userpath36), filename: "320f89c54ef2add6e6852918e4846bc8_original.jpeg")
+  user36.save
+  project36 = Project.new(duration: 0, limit: false, user_id: user36.id, country: "the United States", title: "BodyMore at the Intersection of #BlackLivesMatter & #MeToo", description: "Carrie returns to Baltimore to protest police violence but a reunion at a party ignites a series of betrayals that complicate her fight", pledge_amt: 0, eta: nil, shipping: "", city: "Brooklyn", state: "NY", funding_goal: nil, category_id: categories[6].id, subcategory: nil, challenges: nil)
+  projectpath36 = File.join(Rails.root, 'app', "assets", "images", "b8a3e4255f4624d96c0dd34b8f9b9219_original.jpeg")
+  project36.image_url.attach(io: File.open(projectpath36), filename: "b8a3e4255f4624d96c0dd34b8f9b9219_original.jpeg")
+  project36.save
   user37 = User.new(name: "Jack Harries & Geordie Cargill", email: "jackharriesgeordiecargill@gmail.com", password: "starwars", biography: nil, websites: nil, google_analytics: nil)
   userpath37 = File.join(Rails.root, 'app', "assets", "images", "1cf804fd3c2258150597e1c05fcaf532_original.jpg")
   user37.profile_url.attach(io: File.open(userpath37), filename: "1cf804fd3c2258150597e1c05fcaf532_original.jpg")
