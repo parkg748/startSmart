@@ -4529,6 +4529,7 @@ strong {
   height: 605px;
   margin-bottom: 6px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .fa-heart {
@@ -4673,6 +4674,7 @@ strong {
   height: 72px;
   margin-right: 24px;
   float: left;
+  cursor: pointer;
 }
 
 .category-contents-right-body-content {
@@ -4684,6 +4686,12 @@ strong {
 .category-contents-right-body-content span {
   font-size: 14px;
   font-weight: 100;
+}
+
+.category-contents-right-body-content span:hover {
+  cursor: pointer;
+  color: #037362;
+  text-decoration: underline;
 }
 
 .category-contents-right-body-content p {
@@ -4710,6 +4718,11 @@ strong {
   font-weight: 100;
   display: flex;
   justify-content: center;
+  cursor: pointer;
+}
+
+.projects-we-love-view-all span {
+  cursor: pointer;
 }
 
 .projects-we-love {
@@ -4769,6 +4782,7 @@ strong {
   width: 403px;
   height: 234px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
 .projects-we-love-body-inner p {
@@ -4859,6 +4873,7 @@ strong {
   margin-top: 6px;
   font-weight: bold;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .homepage-ad {
@@ -4895,6 +4910,7 @@ strong {
   float: left;
   background-color: #4848f0;
   position: relative;
+  cursor: pointer;
 }
 
 .homepage-ad-content-left-content {
@@ -6357,16 +6373,19 @@ strong {
 }
 
 .recommendations-category-one-content {
-  height: 337px;
+  height: 61%;
+  display: flex;
+  flex-flow: wrap;
+  align-items: flex-end;
 }
 
 .recommendations-category-one-content-inner {
-  height: 156px;
-  padding: 24px 18px 0 18px;
+  height: fit-content;
+  padding: 0 18px;
 }
 
 .recommendations-category-one-content-inner-inner {
-  height: 78px;
+  height: auto;
   margin-bottom: 18px;
 }
 
@@ -6389,8 +6408,9 @@ strong {
 }
 
 .recommendations-category-one-content-bottom {
-  height: 120px;
+  height: fit-content;
   padding: 18px;
+  width: 100%;
 }
 
 .recommendations-category-one-content-bar {
