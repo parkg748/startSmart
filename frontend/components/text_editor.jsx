@@ -24,7 +24,7 @@ class Editor extends React.Component {
         <ReactQuill
           theme={this.state.theme}
           onChange={this.handleChange}
-          value={this.state.editor_html}
+          value={this.props.editorHtml}
           modules={Editor.modules}
           formats={Editor.formats}
           bounds={'.app'}

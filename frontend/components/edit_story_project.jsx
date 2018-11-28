@@ -61,6 +61,8 @@ class EditStoryProject extends React.Component {
   }
 
   render() {
+    if (this.props.project === undefined || this.props.project === null) return null;
+    if (this.props.user === undefined || this.props.user === null) return null;
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -150,7 +152,7 @@ class EditStoryProject extends React.Component {
                             <div className='project-description-description'>
                               <span>Use your project description to share more about what you’re raising funds to do and how you plan to pull it off. It’s up to you to make the case for your project.</span>
                             </div>
-                            <Editor updateEditorHtml={this.updateEditorHtml}/>
+                            <Editor updateEditorHtml={this.updateEditorHtml} editorHtml={Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0] != undefined ? Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0].editorHtml : this.state.editor_html} />
                           </div>
                         </div>
                       </div>
@@ -164,7 +166,7 @@ class EditStoryProject extends React.Component {
                               <p>Please mention if you’re still in the process of completing any past projects or if your project requires approval or premarket review from an outside company or agency before you can distribute rewards.</p>
                               <p>Being fully transparent and addressing these potential challenges from the start will help backers understand that your project is a work in progress, and that you’ve thought through all of the possible outcomes.</p>
                               <div className='risks-challenges-input'>
-                                <textarea onChange={this.update('challenges')}></textarea>
+                                <textarea onChange={this.update('challenges')} value={Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0] != undefined ? Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0].challenges : this.state.challenges}></textarea>
                               </div>
                             </div>
                           </div>
@@ -198,7 +200,7 @@ class EditStoryProject extends React.Component {
                     <h5>Looking for advice?</h5>
                     <p>Visit Campus to read about <Link className='preparing-for-project-link' to='/campus/questions/what-tips-do-you-have-for-making-a-great-project-video-on-a-limited-budget'>making great videos</Link> and more.</p>
                     <h5>Important reminder</h5>
-                    <p>Kickstarter is a global community, and including translations of your description and rewards, or using our <Link className='creator-faq policy-link' to='/blog/introducing-subtitles-and-captions'>Captions & Subtitles</Link> to make your videos more accessible, will help your project have a wider appeal. If you're including text or audio in a language outside of those that we currently support (English, French, German, and Spanish), we also ask that you include English translations or subtitles.</p>
+                    <p>StartSmart is a global community, and including translations of your description and rewards, or using our <Link className='creator-faq policy-link' to='/blog/introducing-subtitles-and-captions'>Captions & Subtitles</Link> to make your videos more accessible, will help your project have a wider appeal. If you're including text or audio in a language outside of those that we currently support (English, French, German, and Spanish), we also ask that you include English translations or subtitles.</p>
                     <p>Don't use music, images, video, or other content that you don't have the rights to. Reusing copyrighted material is almost always against the law and can lead to <strong>expensive lawsuits</strong> down the road. The easiest way to avoid copyright troubles is to create all the content yourself or use content that is free for public use.</p>
                     <p>For legal, mostly free alternatives, check out some of these great resources: <a className='creator-faq policy-link' href='https://soundcloud.com/'>SoundCloud</a>, <a className='creator-faq policy-link' href='https://help.vimeo.com/hc/en-us/articles/236022047-Music-Store'>Vimeo Music Store</a>, <a className='creator-faq policy-link' href='http://freemusicarchive.org/'>Free Music Archive</a>, and <a className='creator-faq policy-link' href='http://ccmixter.org/'>ccMixter</a>.</p>
                   </div>
