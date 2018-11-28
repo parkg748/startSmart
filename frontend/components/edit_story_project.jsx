@@ -9,9 +9,11 @@ class EditStoryProject extends React.Component {
     super(props);
     this.state = {
       displayProfileMenu: 'js-modal-close',
-      challenges: ''
+      challenges: '',
+      editor_html: ''
     };
     this.onChange = (editorState) => this.setState({editorState});
+    this.updateEditorHtml = this.updateEditorHtml.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +28,11 @@ class EditStoryProject extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateProject({challenges: this.state.challenges}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+    const params = {id: this.props.match.params.projectId,
+                              challenges: this.state.challenges === '' ? Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0].challenges : this.state.challenges,
+                              editor_html: this.state.editor_html === '' ? Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0].editorHtml : this.state.editor_html};
+    debugger;
+    this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
   deleteCurrentProject() {
@@ -44,6 +50,10 @@ class EditStoryProject extends React.Component {
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
+  }
+
+  updateEditorHtml(html) {
+    this.setState({editor_html: html});
   }
 
   update(field) {
@@ -140,7 +150,7 @@ class EditStoryProject extends React.Component {
                             <div className='project-description-description'>
                               <span>Use your project description to share more about what you’re raising funds to do and how you plan to pull it off. It’s up to you to make the case for your project.</span>
                             </div>
-                            <Editor/>
+                            <Editor updateEditorHtml={this.updateEditorHtml}/>
                           </div>
                         </div>
                       </div>

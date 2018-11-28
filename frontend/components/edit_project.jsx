@@ -15,11 +15,11 @@ class EditProject extends React.Component {
       shortBlurbWordCount: 135,
       radioChecked: 'checked',
       category: '',
-      subcategory: '',
+      subcategory: 'your-category',
       city: '',
       state: '',
       duration: 0,
-      fundingGoal: '€0',
+      funding_goal: '€0',
       displayProfileMenu: 'js-modal-close',
       addItem: 'js-modal-close',
       addBackground: '',
@@ -27,7 +27,7 @@ class EditProject extends React.Component {
       imageUrl: "",
       imageFile: "",
       imageUpload: 'close',
-      categoryId: ''
+      category_id: ''
     };
     this.addCollaborators = this.addCollaborators.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -72,7 +72,7 @@ class EditProject extends React.Component {
           processData: false
         });
     }
-    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(getState().entities.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(getState().entities.project)[0].description : this.state.description, categoryId: this.state.categoryId === '' ? Object.values(getState().entities.project)[0].categoryId : this.state.categoryId, subcategory: this.state.subcategory === '' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(getState().entities.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(getState().entities.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(getState().entities.project)[0].duration : this.state.duration, fundingGoal: this.state.fundingGoal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.fundingGoal};
+    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(getState().entities.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(getState().entities.project)[0].description : this.state.description, category_id: this.state.category_id === '' ? Object.values(getState().entities.project)[0].categoryId : this.state.category_id, subcategory: this.state.subcategory === 'your-category' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(getState().entities.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(getState().entities.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(getState().entities.project)[0].duration : this.state.duration, funding_goal: this.state.funding_goal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.funding_goal};
     this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
@@ -120,10 +120,15 @@ class EditProject extends React.Component {
       this.setState({[field]: e.target.value});
     } else if (field === 'end-of-date') {
       this.setState({radioChecked: ''});
-    } else if (field === 'fundingGoal') {
+    } else if (field === 'funding_goal') {
       this.setState({[field]: e.target.value, radioChecked: 'checked'});
     } else if (field === 'category') {
-      this.setState({[field]: e.target.value, categoryId: Object.values(getState().entities.category).filter(el => el.name === e.target.value || (el.name === 'Film' && e.target.value === 'Film & Video'))[0].id});
+      if (e.target.value === 'Film & Video') {
+
+        this.setState({[field]: 'Film', category_id: Object.values(getState().entities.category).filter(el => el.name === 'Film')[0].id});
+      } else {
+        this.setState({[field]: e.target.value, category_id: Object.values(getState().entities.category).filter(el => el.name === e.target.value)[0].id});
+      }
     } else if (field === 'subcategory') {
       this.setState({[field]: e.target.value});
     } else if (field === 'city') {
@@ -311,7 +316,7 @@ class EditProject extends React.Component {
                                   <i className="category-dropdown-container-arrow fas fa-angle-down"></i>
                                   <select className='category-dropdown' onChange={this.update('category')} value={this.state.category === '' ? getState().entities.category[Object.values(getState().entities.project)[0].categoryId].name : this.state.category}>
                                     {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
-                                      if (obj.id === Object.values(getState().entities.project)[0].categoryId) {
+                                      if (obj.id === Object.values(getState().entities.project)[0].categoryId || obj.id === this.state.category_id) {
                                         return <option key={obj.id} value={obj.name}>Film & Video</option>
                                       } else {
                                         return <option key={obj.id}>Film & Video</option>
@@ -325,7 +330,7 @@ class EditProject extends React.Component {
                                     }})}
                                   </select>
                                   <i className="category-dropdown-two-container-arrow fas fa-angle-down"></i>
-                                  <select onChange={this.update('subcategory')} className='category-dropdown-two' value={this.state.subcategory === '' ? getState().entities.category[Object.values(getState().entities.project)[0].categoryId].subcategory : this.state.subcategory}>
+                                  <select onChange={this.update('subcategory')} className='category-dropdown-two' value={this.state.subcategory === 'your-category' && Object.values(getState().entities.project)[0].subcategory != '' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory}>
                                     <option value='your-category'>Subcategory (optional)</option>
                                     {subCategories.map(el => <option key={el[1]} value={el[1]}>{el[1]}</option>)}
                                   </select>
@@ -456,7 +461,7 @@ class EditProject extends React.Component {
                             <div className='funding-goal-content'>
                               <div className='project-image-inner-title'>Funding goal</div>
                               <div className='funding-goal-content-inner'>
-                                <div className='funding-goal-content-input'><input onChange={this.update('funding_goal')} type='text' defaultValue={this.state.fundingGoal === '€0' && Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].fundingGoal != '' ? Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].fundingGoal : this.state.fundingGoal} /></div>
+                                <div className='funding-goal-content-input'><input onChange={this.update('funding_goal')} type='text' defaultValue={this.state.funding_goal === '€0' && Object.values(getState().entities.project)[0].fundingGoal != null ? Object.values(getState().entities.project)[0].fundingGoal : this.state.funding_goal} /></div>
                                 <div className='funding-goal-disclaimer'>
                                   <p className='funding-goal-disclaimer-one'>Funding on StartSmart is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
                                   <p className='funding-goal-disclaimer-two'>If your project is successfully funded, the following fees will be collected from your funding total: StartSmart's 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.</p>

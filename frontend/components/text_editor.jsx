@@ -4,13 +4,13 @@ import ReactQuill from 'react-quill';
 class Editor extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { editorHtml: '', theme: 'snow' }
+    this.state = { editor_html: '', theme: 'snow' }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange (html) {
-  	this.setState({ editorHtml: html });
-    console.log(html)
+  	this.setState({ editor_html: html });
+    this.props.updateEditorHtml(html);
   }
 
   handleThemeChange (newTheme) {
@@ -24,7 +24,7 @@ class Editor extends React.Component {
         <ReactQuill
           theme={this.state.theme}
           onChange={this.handleChange}
-          value={this.state.editorHtml}
+          value={this.state.editor_html}
           modules={Editor.modules}
           formats={Editor.formats}
           bounds={'.app'}
