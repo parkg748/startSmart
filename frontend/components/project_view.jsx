@@ -71,6 +71,12 @@ class ProjectView extends React.Component {
         };
       });
     }
+    let mainImage = '';
+    if (Object.values(this.props.project)[0].imageUrl === null || Object.values(this.props.project)[0].imageUrl === undefined) {
+      mainImage = (<img src='https://i.imgur.com/s5GppRq.png' />);
+    } else {
+      mainImage = (<img src={Object.values(this.props.project)[0].imageUrl} />);
+    }
     const content = Object.values(getState().entities.project)[0].editorHtml;
     return (
       <div>
@@ -113,7 +119,7 @@ class ProjectView extends React.Component {
                     <div className='preview-body-content'>
                       <div className='preview-body-content-one'>
                         <div className='preview-body-content-picture'>
-                          <img src='https://i.imgur.com/s5GppRq.png' />
+                          {mainImage}
                         </div>
                         <div className='preview-body-content-two'>
                           <div className='preview-body-content-two-inner'>

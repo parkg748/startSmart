@@ -72,7 +72,7 @@ class Preview extends React.Component {
       mainImage = (<img src={Object.values(this.props.project)[0].imageUrl} />);
     }
     return (
-      <div>
+      <div className='preview-project-body'>
         <div className='edit-story-background'>
           <nav>
             <section className='explore-project'>
@@ -182,16 +182,32 @@ class Preview extends React.Component {
                 </div>
               </div>
               <div className='preview-bottom'>
-                <div className='preview-bottom-one'>
-                  <div className='preview-bottom-two'>
-                    <div className='preview-bottom-three'>
-                      <div className='preview-bottom-four'>
-                        <div className='preview-bottom-left'>
-                          <span>About</span>
-                          <p>Questions about this project? <strong>Check out the FAQ</strong></p>
-                        </div>
-                        <div className='preview-bottom-right'>
-                          <span>Support</span>
+                <div className='project-front-navbar'>
+                  <div className='project-front-navbar-inner'>
+                    <div className='project-front-navbar-inner-inner'>
+                      <div className='project-front-navbar-left'>
+                        <a>Campaign</a>
+                        <a>FAQ</a>
+                        <a>Updates<p>2</p></a>
+                        <a>Comments<p>15</p></a>
+                        <a>Community</a>
+                      </div>
+                      <div className='project-front-navbar-right'>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='preview-bottom-one'>
+                    <div className='preview-bottom-two'>
+                      <div className='preview-bottom-three'>
+                        <div className='preview-bottom-four'>
+                          <div className='preview-bottom-left'>
+                            <span>About</span>
+                            <p>Questions about this project? <strong>Check out the FAQ</strong></p>
+                          </div>
+                          <div className='preview-bottom-right'>
+                            <span>Support</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -199,7 +215,6 @@ class Preview extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
         <div className={this.state.userInfoModal}>
