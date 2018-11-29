@@ -57,9 +57,7 @@ ActiveRecord::Base.transaction do
   projectpath5 = File.join(Rails.root, 'app', "assets", "images", "97ca269b2421afae3577441e10e51a66_original.png")
   project5.image_url.attach(io: File.open(projectpath5), filename: "97ca269b2421afae3577441e10e51a66_original.png")
   project5.save
-  user6 = User.new(name: "TO Comix Press", email: "tocomixpress@gmail.com", password: "starwars", biography: "The TO Comix Press publishes comic work celebrating upcoming creators and diverse voices.
-
- Founded in 2014, we've sold over 5,000 books and raised over $75,000 on Kickstarter. We've been nominated for the Gene Day Award for excellence in self-publishing in 2015, 2016, and 2017.", websites: nil, google_analytics: nil)
+  user6 = User.new(name: "TO Comix Press", email: "tocomixpress@gmail.com", password: "starwars", biography: "The TO Comix Press publishes comic work celebrating upcoming creators and diverse voices. Founded in 2014, we've sold over 5,000 books and raised over $75,000 on Kickstarter. We've been nominated for the Gene Day Award for excellence in self-publishing in 2015, 2016, and 2017.", websites: nil, google_analytics: nil)
   userpath6 = File.join(Rails.root, 'app', "assets", "images", "a66fc34972e18b43886b9bf6807030d1_original.jpg")
   user6.profile_url.attach(io: File.open(userpath6), filename: "a66fc34972e18b43886b9bf6807030d1_original.jpg")
   user6.save
@@ -67,10 +65,7 @@ ActiveRecord::Base.transaction do
   projectpath6 = File.join(Rails.root, 'app', "assets", "images", "d31b76e30dd1707f27dbca6bb0e3856f_original.jpg")
   project6.image_url.attach(io: File.open(projectpath6), filename: "d31b76e30dd1707f27dbca6bb0e3856f_original.jpg")
   project6.save
-  user7 = User.new(name: "Lyfe Illustration", email: "lyfeillustration@gmail.com", password: "starwars", biography: "Hello there!
- My name is Lydia Fenwick, but the internet knows me as Lyfe Illustration. I am a California native professional illustrator focussing on portraying the harmony between femininity and nature.
-
- I graduated summa cum laude from Laguna College of Art and Design in 2016 and am now back teaching my own class: Artist as Entrepreneur. In addition to being an illustrator, I am a \"Mother of Tree Dragons,\" aka: panther chameleons.", websites: nil, google_analytics: nil)
+  user7 = User.new(name: "Lyfe Illustration", email: "lyfeillustration@gmail.com", password: "starwars", biography: "Hello there! My name is Lydia Fenwick, but the internet knows me as Lyfe Illustration. I am a California native professional illustrator focussing on portraying the harmony between femininity and nature. I graduated summa cum laude from Laguna College of Art and Design in 2016 and am now back teaching my own class: Artist as Entrepreneur. In addition to being an illustrator, I am a \"Mother of Tree Dragons,\" aka: panther chameleons.", websites: nil, google_analytics: nil)
   userpath7 = File.join(Rails.root, 'app', "assets", "images", "eda10c4a6d87deac69415dbe0f447363_original.jpg")
   user7.profile_url.attach(io: File.open(userpath7), filename: "eda10c4a6d87deac69415dbe0f447363_original.jpg")
   user7.save
@@ -86,12 +81,7 @@ ActiveRecord::Base.transaction do
   projectpath8 = File.join(Rails.root, 'app', "assets", "images", "e4e7bbd041416787ffc9dc010460b2ec_original.jpg")
   project8.image_url.attach(io: File.open(projectpath8), filename: "e4e7bbd041416787ffc9dc010460b2ec_original.jpg")
   project8.save
-  user9 = User.new(name: "Mythic Games, Inc.", email: "mythicgamesinc@gmail.com", password: "starwars", biography: "We are a relatively new company, though one with almost a century of games industry experience among our staff. This is the first Kickstarter campaign we have done on our own - the previous one was one of our designs: Mythic Battles: Pantheon, Kickstarted in collaboration with Monolith. This proved very popular, with 13,635 happy backers.
-
-
- At Mythic Games, we aim to make games that are so attractive that you don’t want to leave them on the shelf, and so much fun to play that you don’t want to put them back.
-
- This process starts with brilliant designers, artists, and sculptors, goes through intense public testing, and arrives here, on Kickstarter. And even this is not the end of the development process. We see a Kickstarter campaign as a collaborative event, not just a shop window. We want you to give your feedback, and we are happy to listen. That is the route to the best games in the world!", websites: nil, google_analytics: nil)
+  user9 = User.new(name: "Mythic Games, Inc.", email: "mythicgamesinc@gmail.com", password: "starwars", biography: "We are a relatively new company, though one with almost a century of games industry experience among our staff. This is the first Kickstarter campaign we have done on our own - the previous one was one of our designs: Mythic Battles: Pantheon, Kickstarted in collaboration with Monolith. This proved very popular, with 13,635 happy backers. At Mythic Games, we aim to make games that are so attractive that you don’t want to leave them on the shelf, and so much fun to play that you don’t want to put them back. This process starts with brilliant designers, artists, and sculptors, goes through intense public testing, and arrives here, on Kickstarter. And even this is not the end of the development process. We see a Kickstarter campaign as a collaborative event, not just a shop window. We want you to give your feedback, and we are happy to listen. That is the route to the best games in the world!", websites: nil, google_analytics: nil)
   userpath9 = File.join(Rails.root, 'app', "assets", "images", "659d6858b1f5fb59d53c05aa3cf42769_original.png")
   user9.profile_url.attach(io: File.open(userpath9), filename: "659d6858b1f5fb59d53c05aa3cf42769_original.png")
   user9.save
@@ -139,10 +129,7 @@ ActiveRecord::Base.transaction do
   projectpath14 = File.join(Rails.root, 'app', "assets", "images", "00d2bf95a707475dc3df944f8612cb4d_original.jpg")
   project14.image_url.attach(io: File.open(projectpath14), filename: "00d2bf95a707475dc3df944f8612cb4d_original.jpg")
   project14.save
-  user15 = User.new(name: "Kosan Travel Co.", email: "kosantravelco@gmail.com", password: "starwars", biography: "
-We are Kosan Travel Co., we design and produce the best clothing, gear and accessories for world travel.
-
- We believe that travel can effect positive change by inspiring new perspectives about the world you live in, and that the more you travel, the better off the world will be. We also know that the better prepared you are, the more you will be able to enjoy the experience. So, we’ve set out to build the best products for those who travel the world, and our mission is to help our travellers prepare for their journey.", websites: nil, google_analytics: nil)
+  user15 = User.new(name: "Kosan Travel Co.", email: "kosantravelco@gmail.com", password: "starwars", biography: "We are Kosan Travel Co., we design and produce the best clothing, gear and accessories for world travel. We believe that travel can effect positive change by inspiring new perspectives about the world you live in, and that the more you travel, the better off the world will be. We also know that the better prepared you are, the more you will be able to enjoy the experience. So, we’ve set out to build the best products for those who travel the world, and our mission is to help our travellers prepare for their journey.", websites: nil, google_analytics: nil)
   userpath15 = File.join(Rails.root, 'app', "assets", "images", "8a0bc6d2f0152f9656ed340b42e03588_original.png")
   user15.profile_url.attach(io: File.open(userpath15), filename: "8a0bc6d2f0152f9656ed340b42e03588_original.png")
   user15.save
@@ -222,12 +209,7 @@ We are Kosan Travel Co., we design and produce the best clothing, gear and acces
   projectpath24 = File.join(Rails.root, 'app', "assets", "images", "b7f7d1e91229f804bf3300200f312d7b_original.png")
   project24.image_url.attach(io: File.open(projectpath24), filename: "b7f7d1e91229f804bf3300200f312d7b_original.png")
   project24.save
-  user25 = User.new(name: "Sven Sauer", email: "svensauer@gmail.com", password: "starwars", biography: "SVEN SAUER
- (Initiator Unseen Westeros)
-
- Sven Sauer lives in Berlin and has been working as a digital artist for international film productions for 15 years.
-
- Among others, he was involved in productions like Hugo Cabret, Atomic Blonde, Oblivion, and Lars von Triers’ Melancholia. His works were awarded several times, including an Emmy. Since the 2nd season he has been working for Game of Thrones. He is responsible for the development of Dragonstone, Harrenhal, and others.", websites: nil, google_analytics: nil)
+  user25 = User.new(name: "Sven Sauer", email: "svensauer@gmail.com", password: "starwars", biography: "SVEN SAUER (Initiator Unseen Westeros) Sven Sauer lives in Berlin and has been working as a digital artist for international film productions for 15 years. Among others, he was involved in productions like Hugo Cabret, Atomic Blonde, Oblivion, and Lars von Triers’ Melancholia. His works were awarded several times, including an Emmy. Since the 2nd season he has been working for Game of Thrones. He is responsible for the development of Dragonstone, Harrenhal, and others.", websites: nil, google_analytics: nil)
   userpath25 = File.join(Rails.root, 'app', "assets", "images", "dd8e3cc2a2276e9b923fb7029ce4bfe5_original.jpg")
   user25.profile_url.attach(io: File.open(userpath25), filename: "dd8e3cc2a2276e9b923fb7029ce4bfe5_original.jpg")
   user25.save
@@ -339,11 +321,7 @@ We are Kosan Travel Co., we design and produce the best clothing, gear and acces
   projectpath40 = File.join(Rails.root, 'app', "assets", "images", "eb78346a66642eff0ce1ea9b8ef7c60d_original.jpg")
   project40.image_url.attach(io: File.open(projectpath40), filename: "eb78346a66642eff0ce1ea9b8ef7c60d_original.jpg")
   project40.save
-  user41 = User.new(name: "Andrew Sanderson", email: "andrewsanderson@gmail.com", password: "starwars", biography: "After 6 years working as an aircraft propulsion technician and 10 years running my own business as a gas turbine engineer, I have made the switch to product development after successfully taking my first product from idea to being stocked in shops world-wide.
-
- With my experience navigating everything from product design to prototyping, 3-D modeling, sourcing oversees manufacturing and overseeing quality control, my strong engineering background and technical eye bring valuable experience and entrepreneurial skills to product creation and production.
-
- When I'm not on Kickstarter, I continue to develop products for my brand Modern Fuel and collaborate with others to create new and inventive products and services.", websites: nil, google_analytics: nil)
+  user41 = User.new(name: "Andrew Sanderson", email: "andrewsanderson@gmail.com", password: "starwars", biography: "After 6 years working as an aircraft propulsion technician and 10 years running my own business as a gas turbine engineer, I have made the switch to product development after successfully taking my first product from idea to being stocked in shops world-wide. With my experience navigating everything from product design to prototyping, 3-D modeling, sourcing oversees manufacturing and overseeing quality control, my strong engineering background and technical eye bring valuable experience and entrepreneurial skills to product creation and production. When I'm not on Kickstarter, I continue to develop products for my brand Modern Fuel and collaborate with others to create new and inventive products and services.", websites: nil, google_analytics: nil)
   userpath41 = File.join(Rails.root, 'app', "assets", "images", "9ce3607e194a0f4d6eaaae0cc2859208_original.jpg")
   user41.profile_url.attach(io: File.open(userpath41), filename: "9ce3607e194a0f4d6eaaae0cc2859208_original.jpg")
   user41.save

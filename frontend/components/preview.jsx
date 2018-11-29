@@ -125,7 +125,7 @@ class Preview extends React.Component {
                           <div className='preview-form-profile-icon'>
                             <img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} onClick={() => this.showUserBio('on')} />
                           </div>
-                          <span>By {Object.values(this.props.user)[0].name}</span>
+                          <span>By <p>{Object.values(this.props.user)[0].name}</p></span>
                           <div className='preview-created'>7 created</div>
                           <button>Follow Creator</button>
                         </div>
@@ -224,8 +224,11 @@ class Preview extends React.Component {
               <h1>About the creator</h1>
               <div className='preview-user-info-three'>
                 <div className='preview-user-info-four'>
-                  <h3>Grace</h3>
-                  <span>San Francisco, CA</span>
+                  <h3>{Object.values(this.props.user)[0].name}</h3>
+                  <span>{Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].city}, {Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].state}</span>
+                </div>
+                <div className='preview-user-info-biography'>
+                  <span>{Object.values(this.props.user)[0].biography}</span>
                 </div>
                 <div className='preview-user-info-five'>
                   <div className='preview-user-info-list'>
