@@ -162,7 +162,7 @@ class Preview extends React.Component {
                         </div>
                       </div>
                       <div className='back-this-project'>
-                        <button>Back this project</button>
+                        <button className='back-this-project-button'>Back this project</button>
                         <div className='back-this-project-one'>
                           <button className='remind-me-button'><i className="remind-me-heart fas fa-heart"></i>Remind me</button>
                           <div className='back-this-project-social-media'>

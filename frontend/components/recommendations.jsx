@@ -104,6 +104,54 @@ class Recommendations extends React.Component {
         seventhUserProject = Object.values(getState().entities.users).filter(el => el.id === seventhProject.userId)[0];
       }
     }
+    // var firstCurrentPictureCategory = '';
+    // var secondCurrentPictureCategory = '';
+    // var thirdCurrentPictureCategory = '';
+    // var fourthCurrentPictureCategory = '';
+    // var fifthCurrentPictureCategory = '';
+    // currentPictureCategory.forEach((el, idx) => {
+    //   if (currentPictureCategory.length != 0) {
+    //     if (Object.values(getState().entities.users).length === 2) {
+    //       if (idx === 0) {
+    //         fifthCurrentPictureCategory = Object.values(getState().entities.users).id;
+    //       } else if (idx === 1) {
+    //         fourthCurrentPictureCategory = Object.values(getState().entities.users).id;
+    //       } else if (idx === 2) {
+    //         thirdCurrentPictureCategory = Object.values(getState().entities.users).id;
+    //       } else if (idx === 3) {
+    //         secondCurrentPictureCategory = Object.values(getState().entities.users).id;
+    //       } else if (idx === 4) {
+    //         firstCurrentPictureCategory = Object.values(getState().entities.users).id;
+    //       }
+    //     } else {
+    //       if (Object.values(getState().entities.users).length === 1) {
+    //         firstCurrentPictureCategory = '';
+    //         secondCurrentPictureCategory = '';
+    //         thirdCurrentPictureCategory = '';
+    //         fourthCurrentPictureCategory = '';
+    //         fifthCurrentPictureCategory = '';
+    //       } else {
+    //         if (idx === 0) {
+    //           fifthCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-5)[0].userId)[0].id;
+    //         } else if (idx === 1) {
+    //           fourthCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-4)[0].userId)[0].id;
+    //         } else if (idx === 2) {
+    //           thirdCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-3)[0].userId)[0].id;
+    //         } else if (idx === 3) {
+    //           secondCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-2)[0].userId)[0].id;
+    //         } else if (idx === 4) {
+    //           firstCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-1)[0].userId)[0].id;
+    //         }
+    //       }
+    //     }
+    //   } else {
+    //     firstCurrentPictureCategory = '';
+    //     secondCurrentPictureCategory = '';
+    //     thirdCurrentPictureCategory = '';
+    //     fourthCurrentPictureCategory = '';
+    //     fifthCurrentPictureCategory = '';
+    //   }
+    // });
     return (
       <div>
         <nav>
@@ -202,15 +250,17 @@ class Recommendations extends React.Component {
                   <div className='recommendations-body-two'>
                     <div className='recommendations-body-three'>
                       <div className='recommendations-body-four'>
-                        <img src={firstProject === undefined ? '' : firstProject.imageUrl} />
+                        <Link to={`/users/${projects.length != 0 ? firstUserProject.id : ''}/projects/${projects.length != 0 ? firstProject.id : ''}/front`}>
+                          <img src={firstProject === undefined ? '' : firstProject.imageUrl} />
+                        </Link>
                         <div className='recommendations-body-six'>
                           <div className='recommendations-body-seven'>
                             <div className='recommendations-body-seven-header'>
-                              <Link to='/'>{firstProject === undefined ? null : firstProject.title}</Link>
+                              <Link className='recommendations-body-seven-header-inner' to={`/users/${projects.length != 0 ? firstUserProject.id : ''}/projects/${projects.length != 0 ? firstProject.id : ''}/front`}>{firstProject === undefined ? null : firstProject.title}</Link>
                             </div>
                             <div className='recommendations-body-seven-author'>
                               <img src='https://ksr-ugc.imgix.net/assets/006/347/287/83a01d5959e63f24f2ad447b4a0797f9_original.png?ixlib=rb-1.1.0&w=20&h=20&fit=crop&v=1503090035&auto=format&frame=1&q=92&s=d66f0ce35895ac6e08f4f2592cdbc9b8'/>
-                              by {firstUserProject === undefined ? '' : firstUserProject.name}
+                              by <span>{firstUserProject === undefined ? '' : firstUserProject.name}</span>
                             </div>
                             <div className='recommendations-body-seven-description'>{firstProject === undefined ? '' : firstProject.description}</div>
                             <div className='recommendations-body-seven-category'>
@@ -237,21 +287,25 @@ class Recommendations extends React.Component {
                     <div className='first-three-row'>
                       <div className='recommendations-category-one-left'>
                         <div className='recommendations-category-one-inner'>
-                          <img src={secondProject === undefined ? '' : secondProject.imageUrl} />
-                          <a>Project We Love</a>
+                          <Link to={`/users/${projects.length != 0 ? secondUserProject.id : ''}/projects/${projects.length != 0 ? secondProject.id : ''}/front`}>
+                            <img src={secondProject === undefined ? '' : secondProject.imageUrl} />
+                          </Link>
+                          <span>Project We Love</span>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{secondProject === undefined ? null : secondProject.title}</h3>
+                                <Link to={`/users/${projects.length != 0 ? secondUserProject.id : ''}/projects/${projects.length != 0 ? secondProject.id : ''}/front`}>
+                                  <h3>{secondProject === undefined ? null : secondProject.title}</h3>
+                                </Link>
                                 <p>{secondProject === undefined ? null : secondProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {secondUserProject === undefined ? '' : secondUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by <h2>{secondUserProject === undefined ? '' : secondUserProject.name}</h2></div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
                               </div>
                               <div className='recommendations-category-funding-info'>
-                                <span>$395,347 pledged</span>
+                                <h1>$395,347 pledged</h1>
                                 <p>1,129% funded</p>
                                 <p>{secondProject === undefined ? '' : secondProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>{secondProject === undefined ? '' : secondProject.subcategory}</div>
@@ -263,21 +317,25 @@ class Recommendations extends React.Component {
                       </div>
                       <div className='recommendations-category-one'>
                         <div className='recommendations-category-one-inner'>
-                          <img src={thirdProject === undefined ? '' : thirdProject.imageUrl} />
-                          <a>Project We Love</a>
+                          <Link to={`/users/${projects.length != 0 ? thirdUserProject.id : ''}/projects/${projects.length != 0 ? thirdProject.id : ''}/front`}>
+                            <img src={thirdProject === undefined ? '' : thirdProject.imageUrl} />
+                          </Link>
+                          <span>Project We Love</span>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{thirdProject === undefined ? '' : thirdProject.title}</h3>
+                                <Link to={`/users/${projects.length != 0 ? thirdUserProject.id : ''}/projects/${projects.length != 0 ? thirdProject.id : ''}/front`}>
+                                  <h3>{thirdProject === undefined ? '' : thirdProject.title}</h3>
+                                </Link>
                                 <p>{thirdProject === undefined ? '' : thirdProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {thirdUserProject === undefined ? '' : thirdUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by <h2>{thirdUserProject === undefined ? '' : thirdUserProject.name}</h2></div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
                               </div>
                               <div className='recommendations-category-funding-info'>
-                                <span>$395,347 pledged</span>
+                                <h1>$395,347 pledged</h1>
                                 <p>1,129% funded</p>
                                 <p>{thirdProject === undefined ? '' : thirdProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>{thirdProject === undefined ? '' : thirdProject.subcategory}</div>
@@ -289,21 +347,25 @@ class Recommendations extends React.Component {
                       </div>
                       <div className='recommendations-category-one-right'>
                         <div className='recommendations-category-one-inner'>
-                          <img src={fourthProject === undefined ? '' : fourthProject.imageUrl} />
-                          <a>Project We Love</a>
+                          <Link to={`/users/${projects.length != 0 ? fourthUserProject.id : ''}/projects/${projects.length != 0 ? fourthProject.id : ''}/front`}>
+                            <img src={fourthProject === undefined ? '' : fourthProject.imageUrl} />
+                          </Link>
+                          <span>Project We Love</span>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{fourthProject === undefined ? '' : fourthProject.title}</h3>
+                                <Link to={`/users/${projects.length != 0 ? fourthUserProject.id : ''}/projects/${projects.length != 0 ? fourthProject.id : ''}/front`}>
+                                  <h3>{fourthProject === undefined ? '' : fourthProject.title}</h3>
+                                </Link>
                                 <p>{fourthProject === undefined ? '' : fourthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fourthUserProject === undefined ? '' : fourthUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by <h2>{fourthUserProject === undefined ? '' : fourthUserProject.name}</h2></div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
                               </div>
                               <div className='recommendations-category-funding-info'>
-                                <span>$395,347 pledged</span>
+                                <h1>$395,347 pledged</h1>
                                 <p>1,129% funded</p>
                                 <p>{fourthProject === undefined ? '' : fourthProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>{fourthProject === undefined ? '' : fourthProject.subcategory}</div>
@@ -317,21 +379,25 @@ class Recommendations extends React.Component {
                     <div className='first-three-row'>
                       <div className='recommendations-category-one-left'>
                         <div className='recommendations-category-one-inner'>
-                          <img src={fifthProject === undefined ? '' : fifthProject.imageUrl} />
-                          <a>Project We Love</a>
+                          <Link to={`/users/${projects.length != 0 ? fifthUserProject.id : ''}/projects/${projects.length != 0 ? fifthProject.id : ''}/front`}>
+                            <img src={fifthProject === undefined ? '' : fifthProject.imageUrl} />
+                          </Link>
+                          <span>Project We Love</span>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{fifthProject === undefined ? '' : fifthProject.title}</h3>
+                                <Link to={`/users/${projects.length != 0 ? fifthUserProject.id : ''}/projects/${projects.length != 0 ? fifthProject.id : ''}/front`}>
+                                  <h3>{fifthProject === undefined ? '' : fifthProject.title}</h3>
+                                </Link>
                                 <p>{fifthProject === undefined ? '' : fifthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fifthUserProject === undefined ? '' : fifthUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by <h2>{fifthUserProject === undefined ? '' : fifthUserProject.name}</h2></div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
                               </div>
                               <div className='recommendations-category-funding-info'>
-                                <span>$395,347 pledged</span>
+                                <h1>$395,347 pledged</h1>
                                 <p>1,129% funded</p>
                                 <p>{fifthProject === undefined ? '' : fifthProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>{fifthProject === undefined ? '' : fifthProject.subcategory}</div>
@@ -343,21 +409,25 @@ class Recommendations extends React.Component {
                       </div>
                       <div className='recommendations-category-one'>
                         <div className='recommendations-category-one-inner'>
-                          <img src={sixthProject === undefined ? '' : sixthProject.imageUrl} />
-                          <a>Project We Love</a>
+                          <Link to={`/users/${projects.length != 0 ? sixthUserProject.id : ''}/projects/${projects.length != 0 ? sixthProject.id : ''}/front`}>
+                            <img src={sixthProject === undefined ? '' : sixthProject.imageUrl} />
+                          </Link>
+                          <span>Project We Love</span>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{sixthProject === undefined ? '' : sixthProject.title}</h3>
+                                <Link to={`/users/${projects.length != 0 ? sixthUserProject.id : ''}/projects/${projects.length != 0 ? sixthProject.id : ''}/front`}>
+                                  <h3>{sixthProject === undefined ? '' : sixthProject.title}</h3>
+                                </Link>
                                 <p>{sixthProject === undefined ? '' : sixthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {sixthUserProject === undefined ? '' : sixthUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by <h2>{sixthUserProject === undefined ? '' : sixthUserProject.name}</h2></div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
                               </div>
                               <div className='recommendations-category-funding-info'>
-                                <span>$395,347 pledged</span>
+                                <h1>$395,347 pledged</h1>
                                 <p>1,129% funded</p>
                                 <p>{sixthProject === undefined ? '' : sixthProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>{sixthProject === undefined ? '' : sixthProject.subcategory}</div>
@@ -369,21 +439,25 @@ class Recommendations extends React.Component {
                       </div>
                       <div className='recommendations-category-one-right'>
                         <div className='recommendations-category-one-inner'>
-                          <img src={seventhProject === undefined ? '' : seventhProject.imageUrl} />
-                          <a>Project We Love</a>
+                          <Link to={`/users/${projects.length != 0 ? seventhUserProject.id : ''}/projects/${projects.length != 0 ? seventhProject.id : ''}/front`}>
+                            <img src={seventhProject === undefined ? '' : seventhProject.imageUrl} />
+                          </Link>
+                          <span>Project We Love</span>
                           <div className='recommendations-category-one-content'>
                             <div className='recommendations-category-one-content-inner'>
                               <div className='recommendations-category-one-content-inner-inner'>
-                                <h3>{seventhProject === undefined ? '' : seventhProject.title}</h3>
+                                <Link to={`/users/${projects.length != 0 ? seventhUserProject.id : ''}/projects/${projects.length != 0 ? seventhProject.id : ''}/front`}>
+                                  <h3>{seventhProject === undefined ? '' : seventhProject.title}</h3>
+                                </Link>
                                 <p>{seventhProject === undefined ? '' : seventhProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {seventhUserProject === undefined ? '' : seventhUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by <h2>{seventhUserProject === undefined ? '' : seventhUserProject.name}</h2></div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
                               </div>
                               <div className='recommendations-category-funding-info'>
-                                <span>$395,347 pledged</span>
+                                <h1>$395,347 pledged</h1>
                                 <p>1,129% funded</p>
                                 <p>{seventhProject === undefined ? '' : seventhProject.duration} days to go</p>
                                 <div className='recommendations-category-bottom-link'>{seventhProject === undefined ? '' : seventhProject.subcategory}</div>

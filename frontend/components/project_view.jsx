@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import Modal from './modal';
+import IFrame from './iframe';
 
 class ProjectView extends React.Component {
   constructor(props) {
@@ -70,6 +71,7 @@ class ProjectView extends React.Component {
         };
       });
     }
+    const content = Object.values(getState().entities.project)[0].editorHtml;
     return (
       <div>
         <div className='edit-story-background-front'>
@@ -95,7 +97,7 @@ class ProjectView extends React.Component {
                         <div className='preview-form-body-header-two'>
                           <div className='preview-form-body-header-three'>
                             <div className='preview-form-profile-icon'>
-                              <img src='https://i.imgur.com/jyZdRza.png' onClick={() => this.showUserBio('on')} />
+                              <img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} onClick={() => this.showUserBio('on')} />
                             </div>
                             <span>By {Object.values(this.props.user)[0].name}</span>
                             <div className='preview-created'>7 created</div>
@@ -142,9 +144,9 @@ class ProjectView extends React.Component {
                           </div>
                         </div>
                         <div className='back-this-project'>
-                          <button>Back this project</button>
+                          <button className='back-this-project-button'>Back this project</button>
                           <div className='back-this-project-one'>
-                            <i className="remind-me-heart fas fa-heart"></i><button className='remind-me-button'>Remind me</button>
+                            <i className="remind-me-heart-front fas fa-heart"></i><button className='remind-me-button'>Remind me</button>
                             <div className='back-this-project-social-media'>
                               <i className="preview-facebook fab fa-facebook"></i>
                               <i className="preview-twitter fab fa-twitter"></i>
@@ -186,6 +188,7 @@ class ProjectView extends React.Component {
                       <div className='project-front-body-inner-inner'>
                         <div className='project-front-body-left'>
                           <h3>About</h3>
+                          <h1><IFrame content={content}/></h1>
                           <h3>Risks and challenges</h3>
                           <a>Learn about accountability on StartSmart</a>
                           <div className='question-about-project'>

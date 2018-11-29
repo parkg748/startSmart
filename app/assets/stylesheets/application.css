@@ -1761,7 +1761,7 @@ nav {
 
 .edit-story-background-front {
   width: 100%;
-  height: 1885px;
+  height: max-content;
 }
 
 .edit-about-you-background {
@@ -1799,7 +1799,7 @@ nav {
 }
 
 .preview-page-content-front {
-  height: 1657px;
+  height: max-content;
   padding-bottom: 42px;
   margin-left: auto;
   margin-right: auto;
@@ -3499,6 +3499,10 @@ nav {
   text-align: center;
 }
 
+.project-video-upload-inner input {
+  display: none;
+}
+
 .creator-handbook-navbar {
   margin-right: 1.2rem;
 }
@@ -3600,11 +3604,6 @@ nav {
   display: inline;
   margin-left: 10px;
   margin-right: 10px;
-}
-
-iframe {
-  width: 494px;
-  height: 197px;
 }
 
 .risks-challenges {
@@ -6201,10 +6200,11 @@ strong {
   height: 100%;
   float: left;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .recommendations-body-six {
-  width: 600px;
+  width: 51%;
   height: 222px;
   padding: 0 40px 0 40px;
   float: left;
@@ -6213,7 +6213,7 @@ strong {
 }
 
 .recommendations-body-seven {
-  width: 600px;
+  width: 100%;
   height: 168px;
 }
 
@@ -6224,6 +6224,10 @@ strong {
   font-weight: 100;
 }
 
+.recommendations-body-seven-header-inner:hover {
+  text-decoration: underline;
+}
+
 .recommendations-body-seven-author {
   height: 30px;
   margin-bottom: 15px;
@@ -6231,6 +6235,15 @@ strong {
   font-weight: 100;
   display: flex;
   align-items: center;
+}
+
+.recommendations-body-seven-author span {
+  margin-left: 4px;
+}
+
+.recommendations-body-seven-author span:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .recommendations-body-seven-author img {
@@ -6354,9 +6367,10 @@ strong {
   position: relative;
   object-fit: cover;
   width: 100%;
+  cursor: pointer;
 }
 
-.recommendations-category-one-inner a {
+.recommendations-category-one-inner span {
   width: 88px;
   height: 18px;
   padding: 4px 12px 4px 12px;
@@ -6371,7 +6385,7 @@ strong {
   align-items: center;
 }
 
-.recommendations-category-one-inner a:hover {
+.recommendations-category-one-inner span:hover {
   opacity: 1;
   transform: translateY(-1px);
   border-color: #282828;
@@ -6402,6 +6416,11 @@ strong {
   font-weight: 100;
 }
 
+.recommendations-category-one-content-inner-inner h3:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .recommendations-category-one-content-inner-inner p {
   font-size: 14px;
   font-weight: 100;
@@ -6413,6 +6432,15 @@ strong {
   height: 18px;
   font-size: 13px;
   font-weight: 100px;
+}
+
+.recommendations-category-one-content-author h2 {
+  display: inline-block;
+}
+
+.recommendations-category-one-content-author h2:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .recommendations-category-one-content-bottom {
@@ -6431,7 +6459,7 @@ strong {
   height: 102px;
 }
 
-.recommendations-category-funding-info span {
+.recommendations-category-funding-info h1 {
   color: #037362;
   font-size: 13px;
   font-weight: 100;
@@ -8807,7 +8835,7 @@ strong {
 
 .preview-form-front {
   width: 100%;
-  height: 1624px;
+  height: max-content;
   padding-bottom: 42px;
 }
 
@@ -8835,7 +8863,7 @@ strong {
 }
 
 .preview-form-body {
-  height: 50%;
+  height: 48%;
   background-color: #FBFBFA;
   border-top: 1px solid #DCDEDD;
 }
@@ -8884,6 +8912,28 @@ strong {
   font-size: 14px;
 }
 
+iframe {
+  height: 100%;
+  width: 100% !important;
+  border-width: 0;
+  border-style: unset;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+iframe > body {
+  margin: 0 !important;
+}
+
+.project-front-body-left h1 {
+  height: 15.5%;
+}
+
+.project-front-navbar-right button:hover {
+  background-color: #037362 !important;
+  transition: all 0.25s ease-in-out !important;
+}
+
 .project-front-navbar-left a {
   padding: 20px 5px;
   margin-left: 18px;
@@ -8895,6 +8945,7 @@ strong {
   font-size: 14px;
   font-weight: 100;
   position: relative;
+  cursor: pointer;
 }
 
 .project-front-navbar-left p {
@@ -8923,6 +8974,12 @@ strong {
 .remind-me-project-front span {
   font-size: 14px;
   font-weight: 100;
+  cursor: pointer;
+  color: #80809E;
+}
+
+.remind-me-project-front span:hover {
+  color: black;
 }
 
 .remind-me-heart-project-front {
@@ -8963,6 +9020,8 @@ strong {
 .preview-form-body-header-two {
   height: 165px;
   padding-top: 0 -18px;
+  display: flex;
+  align-items: center;
 }
 
 .preview-form-body-header-three {
@@ -9060,7 +9119,7 @@ strong {
 
 .preview-body-content-one {
   height: 516px;
-  width: 100%;
+  width: 60%;
   padding: 0 18px;
   float: left;
 }
@@ -9150,7 +9209,7 @@ strong {
   margin-bottom: 18px;
   background-color: #037362;
   float: left;
-  width: 391px;
+  width: 100%;
 }
 
 .fa-compass {
@@ -9166,6 +9225,11 @@ strong {
   height: 100%;
 }
 
+.preview-body-content-picture img {
+  height: 439px;
+  object-fit: cover;
+}
+
 .preview-body-content-picture-inner {
   height: 460px;
   width: 817px;
@@ -9173,26 +9237,36 @@ strong {
 
 .back-this-project {
   height: 108px;
+  display: flex;
+  flex-flow: wrap;
 }
 
-.back-this-project button {
-  height: 48px;
-  margin-bottom: 18px;
-  width: 343px;
-  padding: 0 24px;
-  background-color: #009E74;
-  color: white;
-  font-weight: 100;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
+.back-this-project-button {
+  height: 48px !important;
+  margin-bottom: 18px !important;
+  width: 100% !important;
+  padding: 0 24px !important;
+  background-color: #009E74 !important;
+  color: white !important;
+  font-weight: 100 !important;
+  font-size: 16px !important;
+  display: flex !important;
+  justify-content: center !important;
   float: left;
+}
+
+.back-this-project-button:hover {
+  background-color: #037362 !important;
+  transition: all 0.25s ease-in-out !important;
 }
 
 .back-this-project-one {
   height: 42px;
   margin-bottom: 18px;
   position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .preview-facebook {
@@ -9221,11 +9295,18 @@ strong {
   display: flex;
   align-items: center;
   font-size: 14px;
-  float: right;
 }
 
 .back-this-project-social-media span {
   float: right;
+}
+
+.remind-me-heart-front {
+  top: 15px;
+  left: 42px;
+  color: black;
+  font-size: 15px;
+  z-index: 2;
 }
 
 .remind-me-heart {
@@ -9236,6 +9317,7 @@ strong {
 }
 
 .remind-me-button {
+  float: left;
   font-size: 14px !important;
   font-weight: 100;
   height: 42px !important;
@@ -9245,6 +9327,8 @@ strong {
   background-color: white !important;
   color: black !important;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .remind-me-button:hover {
@@ -9253,7 +9337,7 @@ strong {
   transform: translateY(-1px);
   border-color: #282828;
   cursor: pointer;
-  transition: all 600ms cubic-bezier(0.175, 0.885, 0.335, 1);
+  transition: all 600ms cubic-bezier(0.175, 0.885, 0.335, 1) !important;
   box-shadow: 0 3px 6px 1px rgba(0,0,0,0.17);
 }
 
@@ -9317,7 +9401,7 @@ strong {
 }
 
 .preview-bottom-front {
-  height: 662px;
+  height: max-content;
   background-color: white;
 }
 

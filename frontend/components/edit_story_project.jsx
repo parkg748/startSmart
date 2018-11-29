@@ -140,8 +140,11 @@ class EditStoryProject extends React.Component {
                           <div className='project-video-inner-content'>
                             <div className='project-video-upload'>
                               <div className='project-video-upload-inner'>
-                                <span className='choose-an-image'>Choose a video from your computer</span>
-                                <span className='choose-an-image-description'>MOV, MPEG, AVI, MP4, 3GP, WMV, or FLV • 5GB file limit</span>
+                                <label htmlFor='video-upload'>
+                                  <input id='video-upload' onChange={(e) => this.handleFile(e)} type='file' accept="video/*" capture />
+                                  <span className='choose-an-image'>Choose a video from your computer</span>
+                                  <span className='choose-an-image-description'>MOV, MPEG, AVI, MP4, 3GP, WMV, or FLV • 5GB file limit</span>
+                                </label>
                               </div>
                               <div className='project-video-content'>
                                 <p>Have fun – add a video! Projects with a video have a much higher chance of success. For a dose of inspiration, check out the <Link className='project-video-content-link policy-link' to='/help/handbook/your_story'>Creator Handbook</Link>. Need some help? Visit our <Link className='creator-faq policy-link' to='/hc/en-us/articles/115005128494'>Creator FAQ</Link>.</p>
