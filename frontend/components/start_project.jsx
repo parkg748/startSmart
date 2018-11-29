@@ -10,7 +10,7 @@ class StartProject extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
-    if (this.props.currentUser) this.props.fetchUser(Object.values(this.props.currentUser)[0].id);
+    if (this.props.currentUser) this.props.fetchUser(this.props.currentUser.filter(el => el.id === getState().session.id)[0].id);
   }
 
   logoutUser(e) {
@@ -36,7 +36,7 @@ class StartProject extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (Object.values(getState().entities.users) != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' || !Object.values(getState().entities.users)[0].profileUrl ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users).length === 2 && Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;

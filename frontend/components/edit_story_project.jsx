@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import Editor from './text_editor';
+import ReactQuill from 'react-quill';
 import Modal from './modal';
 
 class EditStoryProject extends React.Component {
@@ -10,10 +10,11 @@ class EditStoryProject extends React.Component {
     this.state = {
       displayProfileMenu: 'js-modal-close',
       challenges: '',
-      editor_html: ''
+      editor_html: '',
+      theme: 'snow'
     };
     this.onChange = (editorState) => this.setState({editorState});
-    this.updateEditorHtml = this.updateEditorHtml.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
@@ -31,7 +32,6 @@ class EditStoryProject extends React.Component {
     const params = {id: this.props.match.params.projectId,
                               challenges: this.state.challenges === '' ? Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0].challenges : this.state.challenges,
                               editor_html: this.state.editor_html === '' ? Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0].editorHtml : this.state.editor_html};
-    debugger;
     this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
@@ -52,8 +52,13 @@ class EditStoryProject extends React.Component {
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
   }
 
-  updateEditorHtml(html) {
-    this.setState({editor_html: html});
+  handleChange (html) {
+  	this.setState({ editor_html: html });
+  }
+
+  handleThemeChange (newTheme) {
+    if (newTheme === "core") newTheme = null;
+    this.setState({ theme: newTheme });
   }
 
   update(field) {
@@ -152,7 +157,15 @@ class EditStoryProject extends React.Component {
                             <div className='project-description-description'>
                               <span>Use your project description to share more about what you’re raising funds to do and how you plan to pull it off. It’s up to you to make the case for your project.</span>
                             </div>
-                            <Editor updateEditorHtml={this.updateEditorHtml} editorHtml={Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0] != undefined ? Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0].editorHtml : this.state.editor_html} />
+                            <ReactQuill
+                              theme={this.state.theme}
+                              onChange={this.handleChange}
+                              value={this.state.editor_html === '' && Object.values(getState().entities.project).length > 0 ? getState().entities.project[this.props.match.params.projectId].editorHtml : this.state.editor_html}
+                              modules={EditStoryProject.modules}
+                              formats={EditStoryProject.formats}
+                              bounds={'.app'}
+                              placeholder={this.props.placeholder}
+                             />
                           </div>
                         </div>
                       </div>
@@ -223,5 +236,28 @@ class EditStoryProject extends React.Component {
     );
   }
 }
+
+EditStoryProject.modules = {
+  toolbar: [
+    ['bold', 'italic'],
+    [{'header': '2'}],
+    [{'list': 'bullet'}],
+    ['link', 'video', 'image']
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  }
+}
+/*
+ * Quill editor formats
+ * See https://quilljs.com/docs/formats/
+ */
+EditStoryProject.formats = [
+  'header', 'font', 'size',
+  'bold', 'italic', 'underline', 'strike', 'blockquote',
+  'list', 'bullet', 'indent',
+  'link', 'image', 'video'
+]
 
 export default EditStoryProject;

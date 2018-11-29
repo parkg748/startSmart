@@ -13,7 +13,7 @@ class StartProjectPageOne extends React.Component {
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchProjects();
-    this.props.fetchUser(this.props.match.params.userId);
+    if (this.props.currentUser) this.props.fetchUser(Object.values(this.props.currentUser)[0].id);
   }
 
   clickProfileIcon() {
