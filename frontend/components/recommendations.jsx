@@ -216,7 +216,7 @@ class Recommendations extends React.Component {
                             <div className='recommendations-body-seven-category'>
                               <a><i className="fab fa-stripe-s"></i>Project We Love</a>
                               <a><i className="far fa-square"></i>{firstProject === undefined ? '' : firstProject.city}, {firstProject === undefined ? '' : firstProject.state}</a>
-                              <a className='product-design-category'><i className="far fa-square"></i>Product Design</a>
+                              <a className='product-design-category'><i className="far fa-square"></i>{firstProject === undefined ? '' : firstProject.subcategory}</a>
                             </div>
                           </div>
                         </div>
@@ -254,7 +254,7 @@ class Recommendations extends React.Component {
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
                                 <p>{secondProject === undefined ? '' : secondProject.duration} days to go</p>
-                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'>{secondProject === undefined ? '' : secondProject.subcategory}</div>
                                 <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {secondProject === undefined ? '' : secondProject.city}, {secondProject === undefined ? '' : secondProject.state}</div>
                               </div>
                             </div>
@@ -280,7 +280,7 @@ class Recommendations extends React.Component {
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
                                 <p>{thirdProject === undefined ? '' : thirdProject.duration} days to go</p>
-                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'>{thirdProject === undefined ? '' : thirdProject.subcategory}</div>
                                 <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {thirdProject === undefined ? '' : thirdProject.city}, {thirdProject === undefined ? '' : thirdProject.state}</div>
                               </div>
                             </div>
@@ -306,7 +306,7 @@ class Recommendations extends React.Component {
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
                                 <p>{fourthProject === undefined ? '' : fourthProject.duration} days to go</p>
-                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'>{fourthProject === undefined ? '' : fourthProject.subcategory}</div>
                                 <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {fourthProject === undefined ? '' : fourthProject.city}, {fourthProject === undefined ? '' : fourthProject.state}</div>
                               </div>
                             </div>
@@ -334,7 +334,7 @@ class Recommendations extends React.Component {
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
                                 <p>{fifthProject === undefined ? '' : fifthProject.duration} days to go</p>
-                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'>{fifthProject === undefined ? '' : fifthProject.subcategory}</div>
                                 <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {fifthProject === undefined ? '' : fifthProject.city}, {fifthProject === undefined ? '' : fifthProject.state}</div>
                               </div>
                             </div>
@@ -360,7 +360,7 @@ class Recommendations extends React.Component {
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
                                 <p>{sixthProject === undefined ? '' : sixthProject.duration} days to go</p>
-                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'>{sixthProject === undefined ? '' : sixthProject.subcategory}</div>
                                 <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {sixthProject === undefined ? '' : sixthProject.city}, {sixthProject === undefined ? '' : sixthProject.state}</div>
                               </div>
                             </div>
@@ -386,7 +386,7 @@ class Recommendations extends React.Component {
                                 <span>$395,347 pledged</span>
                                 <p>1,129% funded</p>
                                 <p>{seventhProject === undefined ? '' : seventhProject.duration} days to go</p>
-                                <div className='recommendations-category-bottom-link'>Product Design</div>
+                                <div className='recommendations-category-bottom-link'>{seventhProject === undefined ? '' : seventhProject.subcategory}</div>
                                 <div className='recommendations-category-bottom-link'><i className="location-category-recommendations fas fa-map-marker-alt"></i> {seventhProject === undefined ? '' : seventhProject.city}, {seventhProject === undefined ? '' : seventhProject.state}</div>
                               </div>
                             </div>

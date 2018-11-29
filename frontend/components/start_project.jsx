@@ -10,7 +10,7 @@ class StartProject extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
-    this.props.fetchUser(Object.values(this.props.currentUser)[0].id)
+    if (this.props.currentUser) this.props.fetchUser(Object.values(this.props.currentUser)[0].id);
   }
 
   logoutUser(e) {
@@ -32,7 +32,7 @@ class StartProject extends React.Component {
   }
 
   render() {
-    if (Object.values(getState().entities.users) === null || getState().session.session === null) return <Redirect to='/login' />;
+    if (Object.values(getState().entities.users)[0] === null || getState().session.id === null || getState().session.id === undefined) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     if (Object.values(getState().entities.users) != null) {

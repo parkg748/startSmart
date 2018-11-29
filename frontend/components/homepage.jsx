@@ -192,14 +192,16 @@ class Homepage extends React.Component {
             thirdProjectsWeLove = '';
             fourthProjectsWeLove = '';
           } else {
-            if (idx === 0) {
-              fourthProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[3].userId)[0].id;
-            } else if (idx === 1) {
-              thirdProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[2].userId)[0].id;
-            } else if (idx === 2) {
-              secondProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[1].userId)[0].id;
-            } else if (idx === 3) {
-              firstProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[0].userId)[0].id
+            if (projectsWeLove[0] != undefined) {
+              if (idx === 0) {
+                fourthProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[3].userId)[0].id;
+              } else if (idx === 1) {
+                thirdProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[2].userId)[0].id;
+              } else if (idx === 2) {
+                secondProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[1].userId)[0].id;
+              } else if (idx === 3) {
+                firstProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[0].userId)[0].id
+              }
             }
           }
         }
@@ -241,18 +243,20 @@ class Homepage extends React.Component {
             fifthWhatWereReading = '';
             sixthWhatWereReading = '';
           } else {
-            if (idx === 0) {
-              sixthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[5].userId)[0].id
-            } else if (idx === 1) {
-              fifthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[4].userId)[0].id;
-            } else if (idx === 2) {
-              fourthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[3].userId)[0].id;
-            } else if (idx === 3) {
-              thirdWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[2].userId)[0].id;
-            } else if (idx === 4) {
-              secondWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[1].userId)[0].id;
-            } else if (idx === 5) {
-              firstWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[0].userId)[0].id
+            if (whatWereReading[0] != undefined) {
+              if (idx === 0) {
+                sixthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[5].userId)[0].id
+              } else if (idx === 1) {
+                fifthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[4].userId)[0].id;
+              } else if (idx === 2) {
+                fourthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[3].userId)[0].id;
+              } else if (idx === 3) {
+                thirdWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[2].userId)[0].id;
+              } else if (idx === 4) {
+                secondWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[1].userId)[0].id;
+              } else if (idx === 5) {
+                firstWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[0].userId)[0].id
+              }
             }
           }
         }
