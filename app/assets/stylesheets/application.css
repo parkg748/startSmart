@@ -8937,6 +8937,7 @@ iframe > body {
 .project-front-navbar-right button:hover {
   background-color: #037362 !important;
   transition: all 0.25s ease-in-out !important;
+  cursor: pointer;
 }
 
 .project-front-navbar-left a {
@@ -9269,6 +9270,7 @@ iframe > body {
 .back-this-project-button:hover {
   background-color: #037362 !important;
   transition: all 0.25s ease-in-out !important;
+  cursor: pointer;
 }
 
 .back-this-project-one {
@@ -9406,7 +9408,7 @@ iframe > body {
 }
 
 .preview-bottom {
-  height: 662px;
+  height: 100%;
   background-color: white;
 }
 
@@ -9547,6 +9549,12 @@ iframe > body {
   margin-bottom: 18px;
 }
 
+.make-a-pledge-input button:hover {
+  background-color: #037362 !important;
+  transition: all 0.25s ease-in-out !important;
+  cursor: pointer;
+}
+
 .question-about-project {
   width: 100%;
   height: 60px;
@@ -9645,6 +9653,7 @@ iframe > body {
 }
 
 .preview-bottom-left strong {
+  cursor: pointer;
   font-weight: 500 !important;
 }
 

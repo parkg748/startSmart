@@ -77,6 +77,12 @@ class ProjectView extends React.Component {
     } else {
       mainImage = (<img src={Object.values(this.props.project)[0].imageUrl} />);
     }
+    const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    let lastLoggedIn = Object.values(getState().entities.users)[0].updatedAt.split('-');
+    let lastLoggedInYear = lastLoggedIn[0];
+    let lastLoggedInMonth = month[lastLoggedIn[1] - 1];
+    let day = lastLoggedIn[2].indexOf('T');
+    let lastLoggedInDay = lastLoggedIn[2].slice(0, day);
     const content = Object.values(getState().entities.project)[0].editorHtml;
     return (
       <div>
@@ -252,7 +258,7 @@ class ProjectView extends React.Component {
                   </div>
                   <div className='preview-user-info-list'>
                     <i className="fas fa-lock"></i>
-                    <span>Last login Oct 28 2018</span>
+                    <span>Last login {lastLoggedInMonth} {lastLoggedInDay} {lastLoggedInYear}</span>
                   </div>
                   <div className='preview-user-info-list'>
                     <i className="preview-facebook-user-info fab fa-facebook"></i>
