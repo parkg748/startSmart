@@ -123,7 +123,7 @@ class Preview extends React.Component {
                       <div className='preview-form-body-header-two'>
                         <div className='preview-form-body-header-three'>
                           <div className='preview-form-profile-icon'>
-                            <img src='https://i.imgur.com/jyZdRza.png' onClick={() => this.showUserBio('on')} />
+                            <img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} onClick={() => this.showUserBio('on')} />
                           </div>
                           <span>By {Object.values(this.props.user)[0].name}</span>
                           <div className='preview-created'>7 created</div>
@@ -150,7 +150,7 @@ class Preview extends React.Component {
                       <div className='preview-body-content-four'>
                         <div className='preview-body-content-five'>
                           <span>$0 <i className="fas fa-hand-holding-usd"></i></span>
-                          <span className='pledge-goal-of'>pledged of $0 goal</span>
+                          <span className='pledge-goal-of'>pledged of {Object.values(getState().entities.project)[0].fundingGoal === null ? '$0' : Object.values(getState().entities.project)[0].fundingGoal} goal</span>
                         </div>
                         <div className='preview-body-content-six'>
                           <span>0</span>
@@ -164,7 +164,7 @@ class Preview extends React.Component {
                       <div className='back-this-project'>
                         <button>Back this project</button>
                         <div className='back-this-project-one'>
-                          <i className="remind-me-heart fas fa-heart"></i><button className='remind-me-button'>Remind me</button>
+                          <button className='remind-me-button'><i className="remind-me-heart fas fa-heart"></i>Remind me</button>
                           <div className='back-this-project-social-media'>
                             <i className="preview-facebook fab fa-facebook"></i>
                             <i className="preview-twitter fab fa-twitter"></i>

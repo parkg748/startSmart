@@ -4679,13 +4679,21 @@ strong {
 
 .category-contents-right-body-content {
   width: 192px;
-  height: 42px;
-  float: left;
+  height: auto;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+}
+
+.category-contents-right-body-inner {
+  display: flex;
+  align-items: center;
 }
 
 .category-contents-right-body-content span {
   font-size: 14px;
   font-weight: 100;
+  width: 100%;
 }
 
 .category-contents-right-body-content span:hover {
@@ -6597,6 +6605,7 @@ strong {
   font-size: 19px;
   margin: 0 12px 0 0;
   color: #39579A;
+  cursor: pointer;
 }
 
 .preview-user-info-list a {
@@ -8937,7 +8946,7 @@ strong {
 .preview-form-body-header {
   height: 165px;
   padding-top: 54px;
-  margin: 0 -18px 36px -18px;
+  margin: 0 0 36px 0;
 }
 
 .preview-form-body-header-front {
@@ -8982,6 +8991,7 @@ strong {
   font-weight: 100;
   line-height: 26px;
   font-size: 17px;
+  color: #656969;
 }
 
 .preview-form-body-header-four h4 {
@@ -8994,8 +9004,8 @@ strong {
 
 .preview-form-body-header-four p {
   margin-bottom: 20px;
-  font-size: 19px;
-  font-weight: 100;
+  font-size: 35px;
+  font-weight: 300;
 }
 
 .preview-form-body-header-four-front p {
@@ -9195,11 +9205,13 @@ strong {
 .preview-twitter {
   margin-right: 24px;
   float: right;
+  cursor: pointer;
 }
 
 .preview-mail {
   margin-right: 24px;
   float: right;
+  cursor: pointer;
 }
 
 .back-this-project-social-media {
@@ -9217,8 +9229,7 @@ strong {
 }
 
 .remind-me-heart {
-  position: absolute;
-  top: 81px;
+  top: 13px;
   left: 42px;
   color: black;
   font-size: 15px;
@@ -9233,6 +9244,17 @@ strong {
   border: 1px solid #DCDEDD !important;
   background-color: white !important;
   color: black !important;
+  position: relative;
+}
+
+.remind-me-button:hover {
+  opacity: 1;
+  border: 1px solid black !important;
+  transform: translateY(-1px);
+  border-color: #282828;
+  cursor: pointer;
+  transition: all 600ms cubic-bezier(0.175, 0.885, 0.335, 1);
+  box-shadow: 0 3px 6px 1px rgba(0,0,0,0.17);
 }
 
 .project-not-live {

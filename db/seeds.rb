@@ -353,4 +353,20 @@ ActiveRecord::Base.transaction do
   projectpath44 = File.join(Rails.root, 'app', "assets", "images", "4a1bec07816f66c5338274bc09e6a1df_original.jpg")
   project44.image_url.attach(io: File.open(projectpath44), filename: "4a1bec07816f66c5338274bc09e6a1df_original.jpg")
   project44.save
+  user45 = User.new(name: "Paper Hat, Inc.", email: "paperhatinc@gmail.com", password: "starwars", biography: nil, websites: nil, google_analytics: nil)
+  userpath45 = File.join(Rails.root, 'app', "assets", "images", "33718439736dd20af4142d532902915d_original.jpg")
+  user45.profile_url.attach(io: File.open(userpath45), filename: "33718439736dd20af4142d532902915d_original.jpg")
+  user45.save
+  project45 = Project.new(duration: 0, limit: false, user_id: user45.id, country: "the United States", title: "Paper Hat", description: "Opening a print studio and art gallery in Chicago's Logan Square neighborhood.", pledge_amt: 0, eta: nil, shipping: "", city: "Chicago", state: "IL", funding_goal: "$10,000", category_id: categories[0].id, subcategory: nil, challenges: nil)
+  projectpath45 = File.join(Rails.root, 'app', "assets", "images", "861ce10f634eac181e4a45f0e91c0665_original.jpg")
+  project45.image_url.attach(io: File.open(projectpath45), filename: "861ce10f634eac181e4a45f0e91c0665_original.jpg")
+  project45.save
+  user46 = User.new(name: "Cowboy Cricket Farms", email: "cowboycricketfarms@gmail.com", password: "starwars", biography: nil, websites: nil, google_analytics: nil)
+  userpath46 = File.join(Rails.root, 'app', "assets", "images", "1b92d9803ed55fb605c3cbab5ef74e16_original.jpg")
+  user46.profile_url.attach(io: File.open(userpath46), filename: "1b92d9803ed55fb605c3cbab5ef74e16_original.jpg")
+  user46.save
+  project46 = Project.new(duration: 0, limit: false, user_id: user46.id, country: "the United States", title: "Cowboy Cricket Jumpers made with SuperCrickets", description: "SuperSustainable SuperCrickets for SuperHumans! Three brand new flavors of Jumpers - and we want you to get them first!", pledge_amt: 0, eta: nil, shipping: "", city: "Bozeman", state: "MT", funding_goal: "$5,000", category_id: categories[7].id, subcategory: nil, challenges: nil)
+  projectpath46 = File.join(Rails.root, 'app', "assets", "images", "982b484895c2608a08a9998d737acbcb_original.png")
+  project46.image_url.attach(io: File.open(projectpath46), filename: "982b484895c2608a08a9998d737acbcb_original.png")
+  project46.save
 end

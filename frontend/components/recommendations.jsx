@@ -210,7 +210,7 @@ class Recommendations extends React.Component {
                             </div>
                             <div className='recommendations-body-seven-author'>
                               <img src='https://ksr-ugc.imgix.net/assets/006/347/287/83a01d5959e63f24f2ad447b4a0797f9_original.png?ixlib=rb-1.1.0&w=20&h=20&fit=crop&v=1503090035&auto=format&frame=1&q=92&s=d66f0ce35895ac6e08f4f2592cdbc9b8'/>
-                              by {firstProject === undefined ? '' : firstUserProject.name}
+                              by {firstUserProject === undefined ? '' : firstUserProject.name}
                             </div>
                             <div className='recommendations-body-seven-description'>{firstProject === undefined ? '' : firstProject.description}</div>
                             <div className='recommendations-body-seven-category'>
@@ -245,7 +245,7 @@ class Recommendations extends React.Component {
                                 <h3>{secondProject === undefined ? null : secondProject.title}</h3>
                                 <p>{secondProject === undefined ? null : secondProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {secondProject === undefined ? '' : secondUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by {secondUserProject === undefined ? '' : secondUserProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -271,7 +271,7 @@ class Recommendations extends React.Component {
                                 <h3>{thirdProject === undefined ? '' : thirdProject.title}</h3>
                                 <p>{thirdProject === undefined ? '' : thirdProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {thirdProject === undefined ? '' : thirdUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by {thirdUserProject === undefined ? '' : thirdUserProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -297,7 +297,7 @@ class Recommendations extends React.Component {
                                 <h3>{fourthProject === undefined ? '' : fourthProject.title}</h3>
                                 <p>{fourthProject === undefined ? '' : fourthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fourthProject === undefined ? '' : fourthUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by {fourthUserProject === undefined ? '' : fourthUserProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -325,7 +325,7 @@ class Recommendations extends React.Component {
                                 <h3>{fifthProject === undefined ? '' : fifthProject.title}</h3>
                                 <p>{fifthProject === undefined ? '' : fifthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {fifthProject === undefined ? '' : fifthUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by {fifthUserProject === undefined ? '' : fifthUserProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -351,7 +351,7 @@ class Recommendations extends React.Component {
                                 <h3>{sixthProject === undefined ? '' : sixthProject.title}</h3>
                                 <p>{sixthProject === undefined ? '' : sixthProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {sixthProject === undefined ? '' : sixthUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by {sixthUserProject === undefined ? '' : sixthUserProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>
@@ -377,7 +377,7 @@ class Recommendations extends React.Component {
                                 <h3>{seventhProject === undefined ? '' : seventhProject.title}</h3>
                                 <p>{seventhProject === undefined ? '' : seventhProject.description}</p>
                               </div>
-                              <div className='recommendations-category-one-content-author'>by {seventhProject === undefined ? '' : seventhUserProject.name}</div>
+                              <div className='recommendations-category-one-content-author'>by {seventhUserProject === undefined ? '' : seventhUserProject.name}</div>
                             </div>
                             <div className='recommendations-category-one-content-bottom'>
                               <div className='recommendations-category-one-content-bar'>

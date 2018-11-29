@@ -64,8 +64,6 @@ class Homepage extends React.Component {
   }
 
   render() {
-    // if (this.props.user === null || this.props.user === undefined) return null;
-    // if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     if (Object.values(getState().entities.users)[0] == null) return null;
     if (this.props.category === null || this.props.category === undefined) return null;
     let profile = undefined;
@@ -123,23 +121,169 @@ class Homepage extends React.Component {
     // if (Object.values(this.props.user).length > 1) {
     //   let firstProjectUser = this.props.user.filter(user => user.id === currentPictureCategory[0].userId)[0].name;
     // }
+    var firstCurrentPictureCategory = '';
+    var secondCurrentPictureCategory = '';
+    var thirdCurrentPictureCategory = '';
+    var fourthCurrentPictureCategory = '';
+    var fifthCurrentPictureCategory = '';
+    currentPictureCategory.forEach((el, idx) => {
+      if (currentPictureCategory.length != 0) {
+        if (Object.values(getState().entities.users).length === 2) {
+          if (idx === 0) {
+            fifthCurrentPictureCategory = Object.values(getState().entities.users).id;
+          } else if (idx === 1) {
+            fourthCurrentPictureCategory = Object.values(getState().entities.users).id;
+          } else if (idx === 2) {
+            thirdCurrentPictureCategory = Object.values(getState().entities.users).id;
+          } else if (idx === 3) {
+            secondCurrentPictureCategory = Object.values(getState().entities.users).id;
+          } else if (idx === 4) {
+            firstCurrentPictureCategory = Object.values(getState().entities.users).id;
+          }
+        } else {
+          if (Object.values(getState().entities.users).length === 1) {
+            firstCurrentPictureCategory = '';
+            secondCurrentPictureCategory = '';
+            thirdCurrentPictureCategory = '';
+            fourthCurrentPictureCategory = '';
+            fifthCurrentPictureCategory = '';
+          } else {
+            if (idx === 0) {
+              fifthCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-5)[0].userId)[0].id;
+            } else if (idx === 1) {
+              fourthCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-4)[0].userId)[0].id;
+            } else if (idx === 2) {
+              thirdCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-3)[0].userId)[0].id;
+            } else if (idx === 3) {
+              secondCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-2)[0].userId)[0].id;
+            } else if (idx === 4) {
+              firstCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-1)[0].userId)[0].id;
+            }
+          }
+        }
+      } else {
+        firstCurrentPictureCategory = '';
+        secondCurrentPictureCategory = '';
+        thirdCurrentPictureCategory = '';
+        fourthCurrentPictureCategory = '';
+        fifthCurrentPictureCategory = '';
+      }
+    });
+    var firstProjectsWeLove = '';
+    var secondProjectsWeLove = '';
+    var thirdProjectsWeLove = '';
+    var fourthProjectsWeLove = '';
+    projectsWeLove.forEach((el, idx) => {
+      if (projectsWeLove.length != 0) {
+        if (Object.values(getState().entities.users).length === 2) {
+          if (idx === 0) {
+            fourthProjectsWeLove = Object.values(getState().entities.users).id;
+          } else if (idx === 1) {
+            thirdProjectsWeLove = Object.values(getState().entities.users).id;
+          } else if (idx === 2) {
+            secondProjectsWeLove = Object.values(getState().entities.users).id;
+          } else if (idx === 3) {
+            firstProjectsWeLove = Object.values(getState().entities.users).id;
+          }
+        } else {
+          if (Object.values(getState().entities.users).length === 1) {
+            firstProjectsWeLove = '';
+            secondProjectsWeLove = '';
+            thirdProjectsWeLove = '';
+            fourthProjectsWeLove = '';
+          } else {
+            if (idx === 0) {
+              fourthProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[3].userId)[0].id;
+            } else if (idx === 1) {
+              thirdProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[2].userId)[0].id;
+            } else if (idx === 2) {
+              secondProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[1].userId)[0].id;
+            } else if (idx === 3) {
+              firstProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[0].userId)[0].id
+            }
+          }
+        }
+      } else {
+        firstProjectsWeLove = '';
+        secondProjectsWeLove = '';
+        thirdProjectsWeLove = '';
+        fourthProjectsWeLove = '';
+      }
+    });
+    var firstWhatWereReading = '';
+    var secondWhatWereReading = '';
+    var thirdWhatWereReading = '';
+    var fourthWhatWereReading = '';
+    var fifthWhatWereReading = '';
+    var sixthWhatWereReading = '';
+    whatWereReading.forEach((el, idx) => {
+      if (whatWereReading.length != 0) {
+        if (Object.values(getState().entities.users).length === 2) {
+          if (idx === 0) {
+            sixthWhatWereReading = Object.values(getState().entities.users).id;
+          } else if (idx === 1) {
+            fifthWhatWereReading = Object.values(getState().entities.users).id;
+          } else if (idx === 2) {
+            fourthWhatWereReading = Object.values(getState().entities.users).id;
+          } else if (idx === 3) {
+            thirdWhatWereReading = Object.values(getState().entities.users).id;
+          } else if (idx === 4) {
+            secondWhatWereReading = Object.values(getState().entities.users).id;
+          } else if (idx === 5) {
+            firstWhatWereReading = Object.values(getState().entities.users).id;
+          }
+        } else {
+          if (Object.values(getState().entities.users).length === 1) {
+            firstWhatWereReading = '';
+            secondWhatWereReading = '';
+            thirdWhatWereReading = '';
+            fourthWhatWereReading = '';
+            fifthWhatWereReading = '';
+            sixthWhatWereReading = '';
+          } else {
+            if (idx === 0) {
+              sixthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[5].userId)[0].id
+            } else if (idx === 1) {
+              fifthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[4].userId)[0].id;
+            } else if (idx === 2) {
+              fourthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[3].userId)[0].id;
+            } else if (idx === 3) {
+              thirdWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[2].userId)[0].id;
+            } else if (idx === 4) {
+              secondWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[1].userId)[0].id;
+            } else if (idx === 5) {
+              firstWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[0].userId)[0].id
+            }
+          }
+        }
+      } else {
+        firstWhatWereReading = '';
+        secondWhatWereReading = '';
+        thirdWhatWereReading = '';
+        fourthWhatWereReading = '';
+        fifthWhatWereReading = '';
+        sixthWhatWereReading = '';
+      }
+    });
     let currentCategory = (<div className='category-contents-inner'>
       <div className='category-contents-left'>
         <div className='category-contents-left-title'>
           FEATURED PROJECT
         </div>
-        <div className='category-contents-left-body'>
-          <i className="far fa-heart"></i>
-          <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory.slice(-1)[0].imageUrl}/>
-          <div className={`remind-me ${this.state.displayNone}`}>Remind Me</div>
-          <div className='category-contents-left-description'>
-            <p>
-              <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory.slice(-1)[0].title}</span>
-              <span className='category-contents-author'>by {currentPictureCategory.length === 0 ? '' : firstProjectPicture}</span>
-            </p>
+        <Link to={`/users/${firstCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-1)[0].id : ''}/front`}>
+          <div className='category-contents-left-body'>
+            <i className="far fa-heart"></i>
+            <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory.slice(-1)[0].imageUrl}/>
+            <div className={`remind-me ${this.state.displayNone}`}>Remind Me</div>
+            <div className='category-contents-left-description'>
+              <p>
+                <span>{currentPictureCategory.length === 0 ? '' : currentPictureCategory.slice(-1)[0].title}</span>
+                <span className='category-contents-author'>by {currentPictureCategory.length === 0 ? '' : firstProjectPicture}</span>
+              </p>
+            </div>
+            <div className='category-contents-funded-info'>55% FUNDED</div>
           </div>
-          <div className='category-contents-funded-info'>55% FUNDED</div>
-        </div>
+        </Link>
       </div>
       <div className='category-contents-right'>
         <div className='category-contents-right-title'>
@@ -152,35 +296,43 @@ class Homepage extends React.Component {
           <ul>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].imageUrl : ''}/>
-              <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].title : ''}</span>
-                <p>16% funded</p>
-              </div>
+              <Link className='category-contents-right-body-inner' to={`/users/${secondCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-2)[0].id : ''}/front`}>
+                <img src={currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].imageUrl : ''}/>
+                <div className='category-contents-right-body-content'>
+                  <span>{currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].title : ''}</span>
+                  <p>16% funded</p>
+                </div>
+              </Link>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length > 2 ? currentPictureCategory.slice(-3)[0].imageUrl : ''}/>
-              <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length > 2 ? currentPictureCategory.slice(-3)[0].title : ''}</span>
-                <p>16% funded</p>
-              </div>
+              <Link className='category-contents-right-body-inner' to={`/users/${thirdCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-3)[0].id : ''}/front`}>
+                <img src={currentPictureCategory.length > 2 ? currentPictureCategory.slice(-3)[0].imageUrl : ''}/>
+                <div className='category-contents-right-body-content'>
+                  <span>{currentPictureCategory.length > 2 ? currentPictureCategory.slice(-3)[0].title : ''}</span>
+                  <p>16% funded</p>
+                </div>
+              </Link>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length > 3 ? currentPictureCategory.slice(-4)[0].imageUrl : ''}/>
-              <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length > 3 ? currentPictureCategory.slice(-4)[0].title : ''}</span>
-                <p>16% funded</p>
-              </div>
+              <Link className='category-contents-right-body-inner' to={`/users/${fourthCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-4)[0].id : ''}/front`}>
+                <img src={currentPictureCategory.length > 3 ? currentPictureCategory.slice(-4)[0].imageUrl : ''}/>
+                <div className='category-contents-right-body-content'>
+                  <span>{currentPictureCategory.length > 3 ? currentPictureCategory.slice(-4)[0].title : ''}</span>
+                  <p>16% funded</p>
+                </div>
+              </Link>
             </li>
             <li>
               <i className="category-contents-right-heart far fa-heart"></i>
-              <img src={currentPictureCategory.length > 4 ? currentPictureCategory.slice(-5)[0].imageUrl : ''}/>
-              <div className='category-contents-right-body-content'>
-                <span>{currentPictureCategory.length > 4 ? currentPictureCategory.slice(-5)[0].title : ''}</span>
-                <p>16% funded</p>
-              </div>
+              <Link className='category-contents-right-body-inner' to={`/users/${fifthCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-5)[0].id : ''}/front`}>
+                <img src={currentPictureCategory.length > 4 ? currentPictureCategory.slice(-5)[0].imageUrl : ''}/>
+                <div className='category-contents-right-body-content'>
+                  <span>{currentPictureCategory.length > 4 ? currentPictureCategory.slice(-5)[0].title : ''}</span>
+                  <p>16% funded</p>
+                </div>
+              </Link>
             </li>
           </ul>
           <button className='category-contents-right-view-all'>VIEW ALL</button>
@@ -215,7 +367,7 @@ class Homepage extends React.Component {
                 </div>
                 <div className='funded-projects'>
                   <div className='homepage-stats-title'>FUNDED PROJECTS</div>
-                  <div className='homepage-stats-statistic'>{Object.values(this.props.projects).filter(el => el.fundingGoal != null).length}</div>
+                  <div className='homepage-stats-statistic'>{Object.values(this.props.projects).filter(el => el.pledgeAmt > 0).length}</div>
                 </div>
                 <div className='live-projects'>
                   <div className='homepage-stats-title'>LIVE PROJECTS</div>
@@ -265,28 +417,36 @@ class Homepage extends React.Component {
               </div>
               <div className='projects-we-love-body-left'>
                 <div className='projects-we-love-body-inner'>
-                  <img src={projectsWeLove[0] != undefined ? projectsWeLove[0].imageUrl : ''}/>
+                  <Link to={`/users/${firstProjectsWeLove}/projects/${projectsWeLove[0] != undefined ? projectsWeLove[0].id : ''}/front`}>
+                    <img src={projectsWeLove[0] != undefined ? projectsWeLove[0].imageUrl : ''}/>
+                  </Link>
                   <p>{projectsWeLove[0] != undefined ? projectsWeLove[0].description : ''}</p>
                   <span>92% funded</span>
                 </div>
               </div>
               <div className='projects-we-love-body-right'>
                 <div className='projects-we-love-body-inner'>
-                  <img src={projectsWeLove[1] != undefined ? projectsWeLove[1].imageUrl : ''}/>
+                  <Link to={`/users/${secondProjectsWeLove}/projects/${projectsWeLove[0] != undefined ? projectsWeLove[1].id : ''}/front`}>
+                    <img src={projectsWeLove[1] != undefined ? projectsWeLove[1].imageUrl : ''}/>
+                  </Link>
                   <p>{projectsWeLove[1] != undefined ? projectsWeLove[1].description : ''}</p>
                   <span>92% funded</span>
                 </div>
               </div>
               <div className='projects-we-love-body-left'>
                 <div className='projects-we-love-body-inner'>
-                  <img src={projectsWeLove[2] != undefined ? projectsWeLove[2].imageUrl : ''}/>
+                  <Link to={`/users/${thirdProjectsWeLove}/projects/${projectsWeLove[0] != undefined ? projectsWeLove[2].id : ''}/front`}>
+                    <img src={projectsWeLove[2] != undefined ? projectsWeLove[2].imageUrl : ''}/>
+                  </Link>
                   <p>{projectsWeLove[2] != undefined ? projectsWeLove[2].description : ''}</p>
                   <span>92% funded</span>
                 </div>
               </div>
               <div className='projects-we-love-body-right'>
                 <div className='projects-we-love-body-inner'>
-                  <img src={projectsWeLove[3] != undefined ? projectsWeLove[3].imageUrl : ''}/>
+                  <Link to={`/users/${fourthProjectsWeLove}/projects/${projectsWeLove[0] != undefined ? projectsWeLove[3].id : ''}/front`}>
+                    <img src={projectsWeLove[3] != undefined ? projectsWeLove[3].imageUrl : ''}/>
+                  </Link>
                   <p>{projectsWeLove[3] != undefined ? projectsWeLove[3].description : ''}</p>
                   <span>92% funded</span>
                 </div>
@@ -328,55 +488,67 @@ class Homepage extends React.Component {
             <div className='what-were-reading-content'>
               <div className='what-were-reading-title'>What we're reading</div>
               <div className='what-were-reading-content-inner'>
-                <div className='what-were-reading-body'>
-                  <img src={whatWereReading[0] != undefined ? whatWereReading[0].imageUrl : ''}/>
-                  <div className='what-were-reading-body-content'>
-                    <p>{whatWereReading[0] != undefined ? whatWereReading[0].description : ''}</p>
-                    <div className='read-on-startsmart'>
-                      READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
+                <Link to={`/users/${firstWhatWereReading}/projects/${whatWereReading[0] != undefined ? whatWereReading[0].id : ''}/front`}>
+                  <div className='what-were-reading-body'>
+                    <img src={whatWereReading[0] != undefined ? whatWereReading[0].imageUrl : ''}/>
+                    <div className='what-were-reading-body-content'>
+                      <p>{whatWereReading[0] != undefined ? whatWereReading[0].description : ''}</p>
+                      <div className='read-on-startsmart'>
+                        READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className='what-were-reading-body'>
-                  <img src={whatWereReading[1] != undefined ? whatWereReading[1].imageUrl : ''}/>
-                  <div className='what-were-reading-body-content'>
-                    <p>{whatWereReading[1] != undefined ? whatWereReading[1].description : ''}</p>
-                    <div className='read-on-startsmart'>
-                      READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
+                </Link>
+                <Link to={`/users/${secondWhatWereReading}/projects/${whatWereReading[0] != undefined ? whatWereReading[1].id : ''}/front`}>
+                  <div className='what-were-reading-body'>
+                    <img src={whatWereReading[1] != undefined ? whatWereReading[1].imageUrl : ''}/>
+                    <div className='what-were-reading-body-content'>
+                      <p>{whatWereReading[1] != undefined ? whatWereReading[1].description : ''}</p>
+                      <div className='read-on-startsmart'>
+                        READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className='what-were-reading-body'>
-                  <img src={whatWereReading[2] != undefined ? whatWereReading[2].imageUrl : ''}/>
-                  <div className='what-were-reading-body-content'>
-                    <p>{whatWereReading[2] != undefined ? whatWereReading[2].description : ''}</p>
-                    <div className='read-on-startsmart'>
-                      READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
+                </Link>
+                <Link to={`/users/${thirdWhatWereReading}/projects/${whatWereReading[0] != undefined ? whatWereReading[2].id : ''}/front`}>
+                  <div className='what-were-reading-body'>
+                    <img src={whatWereReading[2] != undefined ? whatWereReading[2].imageUrl : ''}/>
+                    <div className='what-were-reading-body-content'>
+                      <p>{whatWereReading[2] != undefined ? whatWereReading[2].description : ''}</p>
+                      <div className='read-on-startsmart'>
+                        READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
               <div className='what-were-reading-content-bottom'>
                 <div className='what-were-reading-content-bottom-section'>
-                  <div className='what-were-reading-content-bottom-inner'>
-                    <p>{whatWereReading[3] != undefined ? whatWereReading[3].description : ''}</p>
-                    <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
-                    <img src={whatWereReading[3] != undefined ? whatWereReading[3].imageUrl : ''}/>
-                  </div>
+                  <Link to={`/users/${fourthWhatWereReading}/projects/${whatWereReading[0] != undefined ? whatWereReading[3].id : ''}/front`}>
+                    <div className='what-were-reading-content-bottom-inner'>
+                      <p>{whatWereReading[3] != undefined ? whatWereReading[3].description : ''}</p>
+                      <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
+                      <img src={whatWereReading[3] != undefined ? whatWereReading[3].imageUrl : ''}/>
+                    </div>
+                  </Link>
                 </div>
                 <div className='what-were-reading-content-bottom-section'>
-                  <div className='what-were-reading-content-bottom-inner'>
-                    <p>{whatWereReading[4] != undefined ? whatWereReading[4].description : ''}</p>
-                    <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
-                    <img src={whatWereReading[4] != undefined ? whatWereReading[4].imageUrl : ''}/>
-                  </div>
+                  <Link to={`/users/${fifthWhatWereReading}/projects/${whatWereReading[0] != undefined ? whatWereReading[4].id : ''}/front`}>
+                    <div className='what-were-reading-content-bottom-inner'>
+                      <p>{whatWereReading[4] != undefined ? whatWereReading[4].description : ''}</p>
+                      <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
+                      <img src={whatWereReading[4] != undefined ? whatWereReading[4].imageUrl : ''}/>
+                    </div>
+                  </Link>
                 </div>
                 <div className='what-were-reading-content-bottom-section'>
-                  <div className='what-were-reading-content-bottom-inner'>
-                    <p>{whatWereReading[5] != undefined ? whatWereReading[5].description : ''}</p>
-                    <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
-                    <img src={whatWereReading[5] != undefined ? whatWereReading[5].imageUrl : ''}/>
-                  </div>
+                  <Link to={`/users/${sixthWhatWereReading}/projects/${whatWereReading[0] != undefined ? whatWereReading[5].id : ''}/front`}>
+                    <div className='what-were-reading-content-bottom-inner'>
+                      <p>{whatWereReading[5] != undefined ? whatWereReading[5].description : ''}</p>
+                      <div className='read-on-start-smart'>READ ON STARTSMART <i className="what-were-reading-arrow fas fa-long-arrow-alt-right"></i></div>
+                      <img src={whatWereReading[5] != undefined ? whatWereReading[5].imageUrl : ''}/>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
