@@ -53,6 +53,7 @@ class ProjectView extends React.Component {
   }
 
   render() {
+    if (Object.values(getState().entities.users)[0] === null || getState().session.id === null || getState().session.id === undefined) return <Redirect to='/login' />;
     if (Object.values(this.props.project).length === 0) return null;
     if (Object.values(this.props.category).length === 0) return null;
     let profile = undefined;
@@ -84,6 +85,7 @@ class ProjectView extends React.Component {
     let day = lastLoggedIn[2].indexOf('T');
     let lastLoggedInDay = lastLoggedIn[2].slice(0, day);
     const content = Object.values(getState().entities.project)[0].editorHtml;
+    const styles = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'];
     return (
       <div>
         <div className='edit-story-background-front'>
@@ -200,7 +202,7 @@ class ProjectView extends React.Component {
                       <div className='project-front-body-inner-inner'>
                         <div className='project-front-body-left'>
                           <h3>About</h3>
-                          <h1><IFrame content={content}/></h1>
+                          <h1><IFrame content={content} stylesheets={styles}/></h1>
                           <h3>Risks and challenges</h3>
                           <a>Learn about accountability on StartSmart</a>
                           <div className='question-about-project'>
