@@ -29,6 +29,7 @@ import ExploreContainer from './explore_container';
 import PreviewContainer from './preview_container';
 import {ProtectedRoute} from '../util/route_util';
 import ProjectViewContainer from './project_view_container';
+import BasicsFormContainer from './basics_form_container';
 
 class App extends React.Component {
 
@@ -37,6 +38,7 @@ class App extends React.Component {
       <div>
         <header>
           <Switch>
+            <Route path='/basics' component={BasicsFormContainer} />
             <Route path='/learn' component={StartProjectContainer} />
             <Route path='/login' component={LoginFormContainer} />
             <Route path='/signup' component={SignupFormContainer} />

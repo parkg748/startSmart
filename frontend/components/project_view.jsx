@@ -13,9 +13,9 @@ class ProjectView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
+    this.props.fetchProjects();
     this.props.fetchCategories();
-    this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchAllUsers();
   }
 
   clickProfileIcon() {
@@ -59,7 +59,7 @@ class ProjectView extends React.Component {
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(this.props.user).filter(el => el.id == getState().session.id).length === 0 || Object.values(this.props.user).filter(el => el.id == getState().session.id)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(this.props.user).filter(el => el.id == getState().session.id)[0].profileUrl} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -72,11 +72,15 @@ class ProjectView extends React.Component {
         };
       });
     }
+    let currentProject = '';
+    if (Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId).length != 0) {
+      currentProject = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
+    }
     let mainImage = '';
     if (Object.values(this.props.project)[0].imageUrl === null || Object.values(this.props.project)[0].imageUrl === undefined) {
       mainImage = (<img src='https://i.imgur.com/s5GppRq.png' />);
     } else {
-      mainImage = (<img src={Object.values(this.props.project)[0].imageUrl} />);
+      mainImage = (<img src={currentProject === '' || currentProject.imageUrl === '' ? '' : currentProject.imageUrl} />);
     }
     const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let lastLoggedIn = Object.values(getState().entities.users)[0].updatedAt.split('-');
@@ -84,7 +88,7 @@ class ProjectView extends React.Component {
     let lastLoggedInMonth = month[lastLoggedIn[1] - 1];
     let day = lastLoggedIn[2].indexOf('T');
     let lastLoggedInDay = lastLoggedIn[2].slice(0, day);
-    const content = Object.values(getState().entities.project)[0].editorHtml;
+    const content = currentProject === '' ? '' : currentProject.editorHtml;
     const styles = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'];
     return (
       <div>
@@ -101,7 +105,7 @@ class ProjectView extends React.Component {
             </section>
           </nav>
           <div className={this.state.addBackground}>
-            <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
+            <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id == getState().session.id)[0]} userId={getState().session.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
             <div className='preview-page-content-front'>
               <div className='preview-form-front'>
                 <div className='preview-form-body'>
@@ -111,15 +115,15 @@ class ProjectView extends React.Component {
                         <div className='preview-form-body-header-two'>
                           <div className='preview-form-body-header-three'>
                             <div className='preview-form-profile-icon'>
-                              <img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} onClick={() => this.showUserBio('on')} />
+                              <img src={Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId).length === 0 || Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].profileUrl} onClick={() => this.showUserBio('on')} />
                             </div>
-                            <span>By <p>{Object.values(this.props.user)[0].name}</p></span>
+                            <span>By <p>{Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId).length === 0 ? '' : Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].name}</p></span>
                             <div className='preview-created'>7 created</div>
                             <button>Follow Creator</button>
                           </div>
                           <div className='preview-form-body-header-four-front'>
-                            <p>{this.props.project === null || this.props.project === undefined ? '' : Object.values(this.props.project)[0].title}</p>
-                            <h2>{Object.values(this.props.project)[0].description}</h2>
+                            <p>{currentProject === '' || currentProject.title === '' ? '' : currentProject.title}</p>
+                            <h2>{currentProject === '' || currentProject.description === '' ? '' : currentProject.description}</h2>
                           </div>
                         </div>
                       </div>
@@ -134,10 +138,10 @@ class ProjectView extends React.Component {
                             <i className="fab fa-stripe-s"></i> <span>Project we love</span>
                           </div>
                           <div className='preview-body-content-two-inner'>
-                            <i className="far fa-compass"></i> <span>{Object.values(this.props.category).length === 0 ? '' : this.props.category[Object.values(this.props.project)[0].categoryId].name}</span>
+                            <i className="far fa-compass"></i> <span>{Object.values(this.props.category).length === 0 || currentProject === '' ? '' : this.props.category[currentProject.categoryId].name}</span>
                           </div>
                           <div className='preview-body-content-two-inner'>
-                            <i className="map-front fas fa-map-marker-alt"></i> <span>{Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].city}, {Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].state}</span>
+                            <i className="map-front fas fa-map-marker-alt"></i> <span>{currentProject === '' ? '' : currentProject.city}, {currentProject === '' ? '' : currentProject.state}</span>
                           </div>
                         </div>
                       </div>
@@ -146,7 +150,7 @@ class ProjectView extends React.Component {
                         <div className='preview-body-content-four'>
                           <div className='preview-body-content-five-front'>
                             <span>$0 <i className="black fas fa-hand-holding-usd"></i></span>
-                            <span className='pledge-goal-of'>pledged of {Object.values(this.props.project)[0].fundingGoal === null ? '$0' : Object.values(this.props.project)[0].fundingGoal} goal</span>
+                            <span className='pledge-goal-of'>pledged of {currentProject === '' || currentProject.fundingGoal === null ? '$0' : currentProject.fundingGoal} goal</span>
                           </div>
                           <div className='preview-body-content-six'>
                             <span>0</span>
@@ -247,11 +251,11 @@ class ProjectView extends React.Component {
               <h1>About the creator</h1>
               <div className='preview-user-info-three'>
                 <div className='preview-user-info-four'>
-                  <h3>{Object.values(this.props.user)[0].name}</h3>
-                  <span>{Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].city}, {Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].state}</span>
+                  <h3>{Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId).length === 0 ? '' : Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].name}</h3>
+                  <span>{currentProject === '' ? '' : currentProject.city}, {currentProject === '' ? '' : currentProject.state}</span>
                 </div>
                 <div className='preview-user-info-biography'>
-                  <span>{Object.values(this.props.user)[0].biography}</span>
+                  <span>{Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId).length === 0 ? '' : Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].biography}</span>
                 </div>
                 <div className='preview-user-info-five'>
                   <div className='preview-user-info-list'>

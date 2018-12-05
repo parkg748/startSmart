@@ -33,9 +33,6 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    if (this.props.errors.length > 0) {
-
-    }
     return (
       <div>
         <div className={this.state.addBackground}>

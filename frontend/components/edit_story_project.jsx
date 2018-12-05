@@ -66,6 +66,7 @@ class EditStoryProject extends React.Component {
   }
 
   render() {
+    if (getState().session.session === null || getState().session.id === null) return <Redirect to='/login' />;
     if (this.props.project === undefined || this.props.project === null) return null;
     if (this.props.user === undefined || this.props.user === null) return null;
     let profile = undefined;

@@ -225,6 +225,7 @@ class EditProject extends React.Component {
         obj.subcategories.forEach(subcat => subCategories.push([obj.id, subcat]));
       }});
     }
+    debugger;
     // let currentSubcategories = (this.state.category === '') ? (getState().entities.category[Object.values(getState().entities.project).slice(-1)[0].categoryId].subcategories) : (Object.values(this.props.category).filter(el => el.name === {this.state.category})[0].subcategories);
     return (
       <div>
