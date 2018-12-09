@@ -9441,7 +9441,7 @@ iframe > body {
 .project-front-body {
   padding: 60px 0;
   width: 100%;
-  height: 10448px;
+  height: fit-content;
 }
 
 .project-front-body-inner {
@@ -9629,7 +9629,7 @@ iframe > body {
 .project-front-body-left {
   width: 681px;
   height: 100%;
-  padding: 0 18px;
+  padding: 0 18px 55px;
   float: left;
 }
 
