@@ -10,6 +10,7 @@ class ProjectView extends React.Component {
     this.showUserBio = this.showUserBio.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.changeBorder = this.changeBorder.bind(this);
+    
   }
 
   componentDidMount() {
