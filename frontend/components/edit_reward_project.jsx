@@ -10,6 +10,7 @@ class EditRewardProject extends React.Component {
     this.addItem = this.addItem.bind(this);
     this.increaseRewardBox = this.increaseRewardBox.bind(this);
     this.decreaseRewardBox = this.decreaseRewardBox.bind(this);
+    this.addItemToAddedItems = this.addItemToAddedItems.bind(this);
   }
 
   componentDidMount() {
@@ -50,7 +51,7 @@ class EditRewardProject extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createItem(this.props.match.params.userId, this.props.match.params.projectId, 1, {name: this.props.itemName, digital: this.props.itemDigital}).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/rewards`));
+    this.props.createItem(this.props.match.params.userId, this.props.match.params.projectId, 1, {name: this.props.itemName, digital: this.props.itemDigital});
   }
 
   closeAddItemForm() {
@@ -75,6 +76,11 @@ class EditRewardProject extends React.Component {
         this.setState({[field]: e.target.value});
       }
     }
+  }
+
+  addItemToAddedItems(item) {
+    this.setState({addedItems: this.state.addedItems.push(item)});
+    console.log(this.state.addedItems);
   }
 
   moveToTrash(e) {
@@ -304,13 +310,13 @@ class EditRewardProject extends React.Component {
                   <h1>Add a reward item</h1>
                   <p>Backers will see the items listed when pledging. Questions about how this works? <Link className='policy-link' to='/'>Visit our FAQ.</Link></p>
                 </div>
-                <form onSubmit={(e) => this.handleSubmit(e)}>
+                <form onSubmit={() => this.addItemToAddedItems(this.state.item_name).then((e) => this.handleSubmit(e))}>
                   <div className='js-modal-open-middle'>
                     <div className='js-modal-open-middle-one'>
                       <div className='js-modal-open-middle-two'>
                         <div className='js-modal-open-middle-three'>
                           <span><strong>Name</strong> (required)</span>
-                          <input onChange={this.update('itemName')} type='text' placeholder='Examples: Album download, Screenplay, etc.'/>
+                          <input onChange={this.update('item_name')} type='text' placeholder='Examples: Album download, Screenplay, etc.'/>
                         </div>
                       </div>
                       <div className='js-modal-open-middle-four'>

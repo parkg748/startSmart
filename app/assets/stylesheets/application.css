@@ -6953,6 +6953,7 @@ strong {
   justify-content: center;
   float: left;
   color: white;
+  cursor: pointer;
 }
 
 .js-modal-open-bottom button {
@@ -6965,6 +6966,7 @@ strong {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .profile-icon-menu {

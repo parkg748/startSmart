@@ -9,7 +9,12 @@ const mapStateToProps = state => {
   return {
     project: state.entities.project,
     user: state.entities.users,
-    reward: {displayProfileMenu: 'js-modal-close', addItem: 'js-modal-close', addBackground: '', numOfRewardBox: 1}
+    reward: {displayProfileMenu: 'js-modal-close',
+             addItem: 'js-modal-close',
+             addBackground: '',
+             numOfRewardBox: 1,
+             addedItems: [],
+             item_name: ''}
     // user_id: Object.values(state.entities.users)[0].id,
     // project_id: Object.values(state.entities.project)[0].id
   };
