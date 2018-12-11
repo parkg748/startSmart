@@ -103,6 +103,7 @@ class EditRewardProject extends React.Component {
     let rewardBox = [];
     for (let i = 0; i < this.state.numOfRewardBox; i++) {
       rewardBox.push(<div className='reward-box-inner-inner'>
+        <div className='reward-box-inner'>
           <div className='reward-title'>
             <span className='reward-title-number'>Reward #{i + 1} <i className="fas fa-question-circle"></i></span>
             <div className='num-of-backers'>0 backers</div>
@@ -179,7 +180,8 @@ class EditRewardProject extends React.Component {
             <button className='reward-form-delete'>
               <i className="delete-rewards fas fa-times"></i> Delete
             </button>
-          </div>);
+          </div>
+        </div>);
     }
     return (
       <div>
@@ -234,18 +236,16 @@ class EditRewardProject extends React.Component {
                       <div className='edit-form-input-inner'>
                         <form>
                           <div className='reward-box'>
-                            <div className='reward-box-inner'>
-                              {rewardBox}
-                                <div onClick={() => this.increaseRewardBox()} className='add-new-reward'>
-                                  <div className='add-new-reward-text'>
-                                    <i className="add-new-reward-plus fas fa-plus"></i>
-                                    <span>Add a new reward</span>
-                                  </div>
-                                </div>
+                            {rewardBox}
+                            <div onClick={() => this.increaseRewardBox()} className='add-new-reward'>
+                              <div className='add-new-reward-text'>
+                                <i className="add-new-reward-plus fas fa-plus"></i>
+                                <span>Add a new reward</span>
                               </div>
                             </div>
-                            </form>
                           </div>
+                          </form>
+                        </div>
                         </div>
                         <div className='edit-side-bar'>
                           <div className='edit-side-bar-content'>

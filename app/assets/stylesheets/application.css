@@ -3095,6 +3095,7 @@ nav {
 
 .reward-form-field {
   float: left;
+  margin-top: 5px;
   width: 453px;
   height: 320px;
   border-top: 1px solid #dad7d4;
