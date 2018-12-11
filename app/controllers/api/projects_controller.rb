@@ -11,6 +11,7 @@ class Api::ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @rewards = @project.rewards
     render 'api/projects/show'
   end
 
@@ -35,6 +36,6 @@ class Api::ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:id, :title, :description, :duration, :pledge_amt, :eta, :shipping, :limit, :city, :state, :country, :category_id, :image_url, :challenges, :subcategory, :funding_goal, :editor_html)
+    params.require(:project).permit(:id, :title, :description, :duration, :pledge_amt, :eta, :shipping, :limit, :city, :state, :country, :category_id, :image_url, :challenges, :subcategory, :funding_goal, :editor_html, :rewards)
   end
 end

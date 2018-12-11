@@ -8,8 +8,14 @@ class RewardsController < ApplicationController
     end
   end
 
+  def show
+    @reward = Reward.find(params[:id])
+    @items = @reward.items
+    render 'api/rewards/show'
+  end
+
   private
   def reward_params
-    params.require(:reward).permit(:title, :description, :pledge_amt, :eta, :shipping, :project_id, :limit)
+    params.require(:reward).permit(:title, :description, :pledge_amt, :eta, :shipping, :project_id, :limit, :items)
   end
 end

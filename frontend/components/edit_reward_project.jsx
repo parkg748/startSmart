@@ -134,8 +134,9 @@ class EditRewardProject extends React.Component {
                 <div className='reward-form-field-description-textarea'>
                   <textarea onChange={this.update('description')}></textarea>
                 </div>
-                <button onClick={() => this.addItem()} className='add-an-item'>
-                  <div className='add-an-item-inner'>
+                <button className='add-an-item'>
+                  {}
+                  <div onClick={() => this.addItem()} className='add-an-item-inner'>
                     <div className='add-an-item-inner-inner'>
                       <i className="fas fa-plus"></i>Add an item
                     </div>
