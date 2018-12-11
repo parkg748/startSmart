@@ -9,6 +9,7 @@ class EditRewardProject extends React.Component {
     this.closeAddItemForm = this.closeAddItemForm.bind(this);
     this.addItem = this.addItem.bind(this);
     this.increaseRewardBox = this.increaseRewardBox.bind(this);
+    this.decreaseRewardBox = this.decreaseRewardBox.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,10 @@ class EditRewardProject extends React.Component {
 
   increaseRewardBox() {
     this.setState({numOfRewardBox: this.state.numOfRewardBox + 1});
+  }
+
+  decreaseRewardBox() {
+    this.setState({numOfRewardBox: this.state.numOfRewardBox - 1});
   }
 
   clickProfileIcon() {
@@ -177,7 +182,7 @@ class EditRewardProject extends React.Component {
                 </div>
               </div>
             </div>
-            <button className='reward-form-delete'>
+            <button onClick={() => this.decreaseRewardBox()} className='reward-form-delete'>
               <i className="delete-rewards fas fa-times"></i> Delete
             </button>
           </div>
@@ -285,11 +290,11 @@ class EditRewardProject extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className='edit-page-footer'>
-                <div className='edit-page-footer-changes'>
-                  <a onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`)}>Discard changes</a>
-                  <button>Save</button>
-                </div>
+            </div>
+            <div className='edit-page-footer'>
+              <div className='edit-page-footer-changes'>
+                <a onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`)}>Discard changes</a>
+                <button>Save</button>
               </div>
             </div>
             <div className={this.state.addItem}>

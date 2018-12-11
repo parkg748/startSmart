@@ -2057,7 +2057,7 @@ nav {
 
 .edit-form-input {
   width: 640px;
-  height: 1232px;
+  height: fit-content;
   margin-left: 10px;
   margin-right: 10px;
   float: left;
@@ -2065,7 +2065,7 @@ nav {
 
 .edit-form-input-inner {
   width: 640px;
-  height: 1232px;
+  height: fit-content;
   margin-right: 20px;
   float: left;
 }
@@ -3055,7 +3055,7 @@ nav {
 
 .reward-box {
   width: 640px;
-  height: 473px;
+  height: fit-content;
 }
 
 .reward-box-inner {
@@ -3363,6 +3363,7 @@ nav {
 }
 
 .add-new-reward {
+  margin-left: 4px;
   width: 638px;
   height: 80px;
   border: 1px dashed #E6E4E2;
