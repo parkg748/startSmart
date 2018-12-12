@@ -9,7 +9,7 @@ class Explore extends React.Component {
     return (
       <div className='explore-background'>
         <div className='explore-collections'>
-          <h1>Collections</h1>
+          <h1>Collections <i className="fas fa-times"></i></h1>
         </div>
         <div className='explore-collections-tab-down'>
           <div className='explore-collections-tab-down-inner'>
@@ -25,7 +25,7 @@ class Explore extends React.Component {
             </ul>
           </div>
         </div>
-        <div className='explore-collections'>
+        <div className='explore-sections'>
           <h1>Sections</h1>
         </div>
         <div className='explore-collections-tab-down'>
@@ -42,7 +42,7 @@ class Explore extends React.Component {
             </ul>
           </div>
         </div>
-        <div className='explore-collections'>
+        <div className='explore-categories'>
           <h1>Categories</h1>
         </div>
         <div className='explore-collections-tab-down'>
@@ -63,6 +63,27 @@ class Explore extends React.Component {
               <li>Publishing</li>
               <li>Technology</li>
               <li>Theater</li>
+            </ul>
+          </div>
+        </div>
+        <div className='explore-onradar'>
+          <h1>On Our Radar</h1>
+        </div>
+        <div className='explore-collections-tab-down'>
+          <div className='explore-collections-tab-down-inner'>
+            <ul>
+              <li>Accessible Art</li>
+              <li>Bikes</li>
+              <li>DIY</li>
+              <li>Go Green</li>
+              <li>Just for Kids</li>
+              <li>LGBTQIA+</li>
+              <li>Public Benefit</li>
+              <li>Quickstarter</li>
+              <li>Robots</li>
+              <li>RPGs</li>
+              <li>Sci-Fi and Fantasy</li>
+              <li>STEM</li>
             </ul>
           </div>
         </div>

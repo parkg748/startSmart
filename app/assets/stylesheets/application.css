@@ -10649,17 +10649,88 @@ iframe > body {
 
 .explore-background {
   background-color: #FBFBFA;
-  padding: 24px 0 120px 0;
+  padding: 24px 90px 120px 90px;
   height: fit-content;
   overflow: scroll;
 }
 
 .explore-collections {
-  padding: 0 60px;
+  position: fixed;
+  background-color: #FBFBFA;
   margin-left: auto;
   margin-right: auto;
   height: 49px;
-  width: 86%;
+  width: 87.6%;
+  top: 26px;
+}
+
+.explore-sections {
+  position: fixed;
+  background-color: #FBFBFA;
+  margin-left: auto;
+  margin-right: auto;
+  height: 49px;
+  width: 87.6%;
+  top: 75px;
+}
+
+.explore-sections h1 {
+  width: 100%;
+  height: 48%;
+  padding: 12px 0;
+  color: #037362;
+  border-bottom: 1px solid #DCDEDD;
+  display: flex;
+  align-items: center;
+  font-weight: 100;
+  font-size: 15px;
+  justify-content: space-between;
+}
+
+.explore-onradar {
+  position: fixed;
+  background-color: #FBFBFA;
+  margin-left: auto;
+  margin-right: auto;
+  height: 49px;
+  width: 87.6%;
+  top: 173px;
+}
+
+.explore-onradar h1 {
+  width: 100%;
+  height: 48%;
+  padding: 12px 0;
+  color: #037362;
+  border-bottom: 1px solid #DCDEDD;
+  display: flex;
+  align-items: center;
+  font-weight: 100;
+  font-size: 15px;
+  justify-content: space-between;
+}
+
+.explore-categories {
+  position: fixed;
+  background-color: #FBFBFA;
+  margin-left: auto;
+  margin-right: auto;
+  height: 49px;
+  width: 87.6%;
+  top: 124px;
+}
+
+.explore-categories h1 {
+  width: 100%;
+  height: 48%;
+  padding: 12px 0;
+  color: #037362;
+  border-bottom: 1px solid #DCDEDD;
+  display: flex;
+  align-items: center;
+  font-weight: 100;
+  font-size: 15px;
+  justify-content: space-between;
 }
 
 .explore-collections h1 {
@@ -10672,12 +10743,12 @@ iframe > body {
   align-items: center;
   font-weight: 100;
   font-size: 15px;
+  justify-content: space-between;
 }
 
 .explore-collections-tab-down {
-  margin-left: auto;
-  margin-right: auto;
-  width: 85.9%;
+  width: 100%;
+  padding-top: 49px;
 }
 
 .explore-collections-tab-down-inner {
