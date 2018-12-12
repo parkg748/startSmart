@@ -30,6 +30,7 @@ import PreviewContainer from './preview_container';
 import {ProtectedRoute} from '../util/route_util';
 import ProjectViewContainer from './project_view_container';
 import BasicsFormContainer from './basics_form_container';
+import PledgeContainer from './pledge_container';
 
 class App extends React.Component {
 
@@ -53,6 +54,7 @@ class App extends React.Component {
             <Route exact path='/users/:userId/projects/:projectId/about-you' component={EditAboutYouProjectContainer} />
             <Route exact path='/users/:userId/projects/:projectId/account' component={EditAccountProjectContainer} />
             <Route exact path='/users/:userId/projects/:projectId/edit' component={PreviewContainer} />
+            <Route exact path='/users/:userId/projects/:projectId/pledge' component={PledgeContainer} />
             <Route exact path='/profile/following/find_creators' component={FollowingContainer} />
             <Route exact path='/profile/following/welcome' component={FollowingFacebookContainer} />
             <Route exact path='/messages/inbox' component={MessagesContainer} />

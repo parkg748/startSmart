@@ -261,12 +261,26 @@ form h2 {
 
 nav {
   display: flex;
+  height: 70px;
   width: 100%;
   font-size: 13.5px;
   justify-content: space-between;
   vertical-align: baseline;
   background-color: white;
   font-weight: 100;
+}
+
+.pledge-header {
+  align-items: center;
+  display: flex;
+  height: 70px;
+  width: 100%;
+  font-size: 13.5px;
+  justify-content: center;
+  vertical-align: baseline;
+  background-color: white;
+  font-weight: 100;
+  border-bottom: 1px solid #E8E8E8;
 }
 
 .footer-category {
@@ -409,6 +423,75 @@ nav {
   position: relative;
   justify-content: center;
   height: 20px;
+}
+
+.logo-pledge {
+  height: 20px;
+}
+
+.pledge-title {
+  height: 69px;
+  padding: 40px 0;
+  background-color: #FBFBFA;
+  display: flex;
+  flex-flow: wrap;
+  border-bottom: 1px solid #F1EEEA;
+}
+
+.support-this-project {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  height: fit-content;
+  padding: 0 18px 42px 18px;
+  width: 73%;
+}
+
+.support-this-project-inner {
+  padding: 30px 0;
+  height: 100%;
+  display: flex;
+}
+
+.support-this-project-left h2 {
+  margin-bottom: 20px;
+  font-weight: 100;
+  font-size: 22px;
+  height: 40px;
+}
+
+.support-this-project-left {
+  padding-right: 18px;
+  height: 100%;
+  width: 65%;
+}
+
+.support-this-project-right {
+  padding-left: 18px;
+  height: fit-content;
+  width: 35%;
+}
+
+.pledge-title a {
+  height: 40px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 31px;
+  width: 72%;
+  display: flex;
+  justify-content: center;
+  font-weight: 100;
+}
+
+.pledge-title span {
+  width: 72%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
 }
 
 .footer-index-content {
