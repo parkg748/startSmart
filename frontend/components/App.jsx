@@ -44,6 +44,7 @@ class App extends React.Component {
             <Route path='/signup' component={SignupFormContainer} />
             <Route path='/start' component={StartProjectPageOneContainer} />
             <Route path='/recommendations' component={RecommendationsContainer} />
+            <Route path='/explore' component={ExploreContainer} />
             <Route exact path='/users/:userId/projects/:projectId/front' component={ProjectViewContainer} />
             <Route exact path='/users/:userId/projects/:projectId' component={UserProjectContainer} />
             <Route exact path='/users/:userId/projects/:projectId/basics' component={EditProjectContainer} />
