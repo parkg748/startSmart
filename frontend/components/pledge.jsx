@@ -32,7 +32,26 @@ class Pledge extends React.Component {
                 </div>
               </div>
               <ul>
-                <li></li>
+                <li>
+                  <input type='radio' />
+                  <div className='make-pledge-with-reward-content'>
+                    <div className='make-pledge-with-reward-left'>
+                      <h2>$10 or more</h2>
+                      <h3>Thank you!</h3>
+                      <div className='make-pledge-with-reward-desc'>A public shoutout and thank you on our website!</div>
+                    </div>
+                    <div className='make-pledge-with-reward-right'>
+                      <div className='support-this-project-estimated-delivery'>
+                        <span>ESTIMATED DELIVERY</span>
+                        <p>Aug 2019</p>
+                      </div>
+                      <div className='ships-to'>
+                        <span>SHIPS TO</span>
+                        <p>Anywhere in the world</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
             <div className='support-this-project-right'>
