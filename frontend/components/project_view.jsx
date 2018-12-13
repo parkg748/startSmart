@@ -162,7 +162,7 @@ class ProjectView extends React.Component {
                           </div>
                         </div>
                         <div className='back-this-project'>
-                          <button className='back-this-project-button'>Back this project</button>
+                          <button className='back-this-project-button' onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/pledge`)}>Back this project</button>
                           <div className='back-this-project-one'>
                             <i className="remind-me-heart-front fas fa-heart"></i><button className='remind-me-button'>Remind me</button>
                             <div className='back-this-project-social-media'>
