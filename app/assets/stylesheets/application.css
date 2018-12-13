@@ -3186,6 +3186,33 @@ nav {
   background-color: white;
 }
 
+.make-pledge-without-reward {
+  height: 63px;
+  margin-bottom: 20px;
+  border: 1px solid #DCDEDD;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+  align-items: center;
+  transition: 0.1s;
+}
+
+.make-pledge-without-reward:hover {
+  transform: scale(1.05);
+}
+
+.make-pledge-without-reward-content {
+  padding: 20px 0 18px 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.make-pledge-without-reward input {
+  margin-right: 5px;
+}
+
 .reward-form-field-title {
   width: 453px;
   height: 38px;
