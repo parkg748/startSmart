@@ -490,6 +490,60 @@ nav {
   height: fit-content;
 }
 
+.frequently-asked-questions h6 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.frequently-asked-questions ul {
+  margin: 0 0 20px -6px;
+  padding-bottom: 5px;
+}
+
+.frequently-asked-questions li > span {
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 100;
+  padding-left: 9px;
+  cursor: pointer;
+  color: #282828;
+}
+
+.frequently-asked-questions li {
+  position: relative;
+}
+
+.frequently-asked-questions li > span:hover {
+  color: black;
+}
+
+.frequently-asked-questions-answer {
+  padding: 8px 10px 8px 20px;
+  color: #65697C;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.font-weight-500 {
+  font-weight: 500 !important;
+}
+
+.frequently-asked-questions-caret-right {
+  position: relative;
+  top: 2px;
+  margin-right: 6px;
+  color: #656969;
+}
+
+.frequently-asked-questions-caret-down {
+  position: relative;
+  top: 2px;
+  transform: rotate(90deg);
+  color: #656969;
+  margin-right: 6px;
+}
+
 .support-this-project-right {
   padding-left: 18px;
   height: fit-content;
