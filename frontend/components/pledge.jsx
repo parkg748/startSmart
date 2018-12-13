@@ -55,6 +55,16 @@ class Pledge extends React.Component {
               </ul>
             </div>
             <div className='support-this-project-right'>
+              <div className='startsmart-is-not-store'>
+                <h6>
+                  <span>StartSmart is not a store.</span>
+                  <p>It's a way to bring creative projects to life.</p>
+                </h6>
+                <p>StartSmart does not guarantee projects or investigate a creator's ability to complete their project. It is the responsibility of the project creator to complete their project as promised, and the claims of this project are theirs alone.</p>
+                <a>Learn more about accountability</a>
+              </div>
+              <div className='frequently-asked-questions'>
+              </div>
             </div>
           </div>
         </div>
