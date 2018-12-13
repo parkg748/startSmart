@@ -1,7 +1,4 @@
 import React from 'react';
-import Calendar from 'react-calendar/dist/entry.nostyle';
-import 'react-calendar/dist/Calendar.css';
-import '../../app/assets/stylesheets/reactcalendar.css';
 
 class BasicsForm extends React.Component {
   constructor(props) {

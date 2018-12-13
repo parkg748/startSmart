@@ -4,6 +4,9 @@ import merge from 'lodash/merge';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import {geocodeByAddress, geocodeByPlaceId, getLatLng} from 'react-places-autocomplete';
 import Modal from './modal';
+import Calendar from 'react-calendar/dist/entry.nostyle';
+import 'react-calendar/dist/Calendar.css';
+import '../../app/assets/stylesheets/reactcalendar.css';
 
 class EditProject extends React.Component {
   constructor(props) {
@@ -27,13 +30,15 @@ class EditProject extends React.Component {
       imageUrl: "",
       imageFile: "",
       imageUpload: 'close',
-      category_id: ''
+      category_id: '',
+      date: new Date()
     };
     this.addCollaborators = this.addCollaborators.bind(this);
     this.addItem = this.addItem.bind(this);
     this.closeAddItemForm = this.closeAddItemForm.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
@@ -53,7 +58,10 @@ class EditProject extends React.Component {
     }
   }
 
-
+  onChange(date) {
+    this.setState({ date });
+  }
+  
   deleteCurrentProject() {
     this.props.deleteProject(this.props.match.params.projectId).then(() => this.props.history.push('/'));
   }
@@ -225,7 +233,6 @@ class EditProject extends React.Component {
         obj.subcategories.forEach(subcat => subCategories.push([obj.id, subcat]));
       }});
     }
-    debugger;
     // let currentSubcategories = (this.state.category === '') ? (getState().entities.category[Object.values(getState().entities.project).slice(-1)[0].categoryId].subcategories) : (Object.values(this.props.category).filter(el => el.name === {this.state.category})[0].subcategories);
     return (
       <div>

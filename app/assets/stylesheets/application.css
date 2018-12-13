@@ -2114,7 +2114,7 @@ nav {
 
 .edit-form-box-inner {
   width: 910px;
-  height: 1232px;
+  min-height: 1232px;
   padding-top: 18px;
   padding-bottom: 18px;
   padding-left: 12px;
@@ -2123,6 +2123,8 @@ nav {
   margin-right: auto;
   margin-left: auto;
   background-color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .edit-form-box-inner-open {
@@ -2143,14 +2145,12 @@ nav {
   height: fit-content;
   margin-left: 10px;
   margin-right: 10px;
-  float: left;
 }
 
 .edit-form-input-inner {
   width: 640px;
   height: fit-content;
   margin-right: 20px;
-  float: left;
 }
 
 .project-image {
@@ -2880,7 +2880,6 @@ nav {
   padding-left: 6px;
   margin-left: 10px;
   margin-right: 10px;
-  float: left;
 }
 
 .edit-side-bar-content {
@@ -3178,7 +3177,7 @@ nav {
 
 .reward-form-field {
   float: left;
-  margin-top: 5px;
+  margin-top: 10px;
   width: 453px;
   height: 320px;
   border-top: 1px solid #dad7d4;
@@ -3505,7 +3504,7 @@ nav {
 }
 
 .what-is-disallowed {
-  width: 220px;
+  width: 200px;
   height: 136px;
   margin-bottom: 20px;
   list-style-type: disc;
