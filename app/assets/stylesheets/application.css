@@ -3275,6 +3275,118 @@ nav {
   transition: 0.1s;
 }
 
+.make-pledge-without-reward-check {
+  color: #009E74;
+  font-size: 18px;
+}
+
+.make-pledge-without-reward-input {
+  height: 106px;
+  width: 100%;
+  display: flex;
+}
+
+.make-pledge-without-reward-input-inner {
+  height: 81px;
+  width: 70%;
+}
+
+.make-pledge-without-reward-input-inner-inner {
+  height: 63px;
+  margin: 0 20px 18px 0;
+}
+
+.make-pledge-without-reward-input-inner-inner span {
+  font-size: 12px;
+  font-weight: 500px;
+  margin-bottom: 5px;
+}
+
+.make-pledge-without-reward-input button {
+  margin-top: 24px;
+  padding: 0 18px;
+  height: 42px;
+  background-color: #009E74;
+  color: white;
+  font-size: 13px;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 19%;
+  cursor: pointer;
+}
+
+.make-pledge-without-reward-input button:hover {
+  background-color: #037362 !important;
+  transition: all 0.25s ease-in-out !important;
+  cursor: pointer;
+}
+
+.make-pledge-without-reward-input-inner-inner-inner {
+  height: 42px;
+  border: 1px solid #DCDEDD;
+  display: flex;
+  margin-top: 5px;
+}
+
+.make-pledge-without-reward-input-inner-inner-inner-green {
+  height: 42px;
+  border: 1px solid #009E74;
+  display: flex;
+  margin-top: 5px;
+}
+
+.make-pledge-without-reward-input-inner-inner-inner-green input {
+  padding: 10px;
+  height: 53%;
+  font-weight: 100;
+  width: 100%;
+}
+
+.make-pledge-without-reward-input-inner-inner-inner input {
+  padding: 10px;
+  height: 53%;
+  font-weight: 100;
+  width: 100%;
+}
+
+.make-pledge-without-reward-currency-box {
+  font-size: 12px;
+  font-weight: 100;
+  color: #656969;
+  border-right: 1px solid #DCDEDD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 10%;
+}
+
+.make-pledge-without-reward-currency-box-green {
+  font-size: 12px;
+  font-weight: 100;
+  color: #656969;
+  border-right: 1px solid #009E74;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 10%;
+}
+
+.make-pledge-without-reward-bigger {
+  height: fit-content;
+  margin-bottom: 20px;
+  border: 1px solid #9B9E9E;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+  align-items: center;
+  transform: scale(1.05);
+  flex-flow: wrap;
+}
+
 .support-this-project-left li {
   margin-bottom: 20px;
   border: 1px solid #DCDEDD;
@@ -3356,9 +3468,10 @@ nav {
 .make-pledge-without-reward-content {
   padding: 20px 0 18px 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 18px;
   font-weight: 100;
+  width: 90%;
 }
 
 .support-this-project-estimated-delivery {

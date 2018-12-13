@@ -22,9 +22,14 @@ class Pledge extends React.Component {
       thirdDiv: 'location-none-display',
       fourthDiv: 'location-none-display',
       fifthDiv: 'location-none-display',
-      sixthDiv: 'location-none-display'
+      sixthDiv: 'location-none-display',
+      makePledge: 'make-pledge-without-reward',
+      borderColorCurrency: 'make-pledge-without-reward-currency-box',
+      borderColorInput: 'make-pledge-without-reward-input-inner-inner-inner'
     };
     this.revealAnswers = this.revealAnswers.bind(this);
+    this.enterPledgeAmount = this.enterPledgeAmount.bind(this);
+    this.addGreenBorder = this.addGreenBorder.bind(this);
   }
 
   componentDidMount() {
@@ -60,7 +65,39 @@ class Pledge extends React.Component {
     }
   }
 
+  enterPledgeAmount(type) {
+    if (type === 'without-reward' && this.state.makePledge === 'make-pledge-without-reward') {
+      this.setState({makePledge: 'make-pledge-without-reward-bigger'});
+    } else if (type === 'without-reward' && this.state.makePledge === 'make-pledge-without-reward-bigger') {
+      this.setState({makePledge: 'make-pledge-without-reward'});
+    }
+  }
+
+  addGreenBorder() {
+    this.setState({borderColorCurrency: 'make-pledge-without-reward-currency-box-green', borderColorInput: 'make-pledge-without-reward-input-inner-inner-inner-green'});
+  }
+
   render() {
+    let radioButton = '';
+    let pledgeInput = '';
+    if (this.state.makePledge === 'make-pledge-without-reward-bigger') {
+      radioButton = <i className="make-pledge-without-reward-check fas fa-check-circle"></i>;
+      pledgeInput = <div className='make-pledge-without-reward-input'>
+        <div className='make-pledge-without-reward-input-inner'>
+          <div className='make-pledge-without-reward-input-inner-inner'>
+            <span>Pledge amount</span>
+            <div className={`${this.state.borderColorInput}`}>
+              <div className={`${this.state.borderColorCurrency}`}>$</div>
+              <input type='text' onClick={() => this.addGreenBorder()} placeholder='10' />
+            </div>
+          </div>
+        </div>
+        <button>Continue</button>
+      </div>;
+    } else {
+      radioButton = <input type='radio' onClick={() => this.enterPledgeAmount('without-reward')} />;
+      pledgeInput = '';
+    }
     return (
       <div>
         <nav className='pledge-header'>
@@ -74,15 +111,16 @@ class Pledge extends React.Component {
           <div className='support-this-project-inner'>
             <div className='support-this-project-left'>
               <h2>Support this project</h2>
-              <div className='make-pledge-without-reward'>
-                <input type='radio' />
+              <div className={`${this.state.makePledge}`}>
+                {radioButton}
                 <div className='make-pledge-without-reward-content'>
                   Make a pledge without a reward
                 </div>
+                {pledgeInput}
               </div>
               <ul>
                 <li>
-                  <input type='radio' />
+                  <input type='radio' onClick={() => this.enterPledgeAmount()} />
                   <div className='make-pledge-with-reward-content'>
                     <div className='make-pledge-with-reward-left'>
                       <h2>$10 or more</h2>
@@ -143,7 +181,7 @@ class Pledge extends React.Component {
                   <li>
                     <i className={`${this.state.sixthCaret} fas fa-caret-right`}></i>
                   <span className={`${this.state.sixthSpan}`} onClick={() => this.revealAnswers('sixth')}>If this project is funded, how do I get my reward?</span>
-                <div className={`${this.state.sixthDiv}`}>When your reward is ready, Wil Petre & Chiaki Murata will send you a survey via email to request any info needed to deliver your reward (mailing address, T-shirt size, etc).</div>
+                <div className={`${this.state.sixthDiv}`}>When your reward is ready, {Object.values(this.props.user).length === 1 ? '' : Object.values(this.props.user)[0].name} will send you a survey via email to request any info needed to deliver your reward (mailing address, T-shirt size, etc).</div>
                   </li>
                 </ul>
               </div>
