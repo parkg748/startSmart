@@ -22,6 +22,7 @@ class Api::ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    
     if @project.update_attributes(project_params)
       render 'api/projects/show'
     else
