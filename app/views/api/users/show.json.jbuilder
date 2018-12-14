@@ -5,6 +5,7 @@
 #   end
 # end
 
+
 json.set! @user.id do
   json.extract! @user, :id, :name, :email, :biography, :websites, :google_analytics, :projects, :created_at, :updated_at
   json.projects @projects
