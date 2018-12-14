@@ -53,7 +53,7 @@
     "start": "webpack --watch --mode=development",
     "postinstall": "webpack --mode=development"
   },
-  "repository": {
+  "repository": { 
     "type": "git",
     "url": "git+https://github.com/parkg748/Exquivert.git"
   },
