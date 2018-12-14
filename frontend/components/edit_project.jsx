@@ -4,6 +4,9 @@ import merge from 'lodash/merge';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import {geocodeByAddress, geocodeByPlaceId, getLatLng} from 'react-places-autocomplete';
 import Modal from './modal';
+import Calendar from 'react-calendar/dist/entry.nostyle';
+import 'react-calendar/dist/Calendar.css';
+import '../../app/assets/stylesheets/reactcalendar.css';
 
 class EditProject extends React.Component {
   constructor(props) {
@@ -244,21 +247,21 @@ class EditProject extends React.Component {
         obj.subcategories.forEach(subcat => subCategories.push([obj.id, subcat]));
       }});
     }
-    // let calendar = '';
-    // if (this.state.calendarView) {
-    //   calendar = <div className='calendar-time-container'>
-    //     <Calendar onChange={this.onChange} value={this.state.date} />
-    //     <div className='calendar-time'>
-    //       <div className='calendar-time-input'>
-    //         Time:
-    //         <input className={`${this.state.blackBorder}`} type='text' onClick={() => this.addBlackBorder()} placeholder='5:00 pm'/>
-    //       </div>
-    //       PST
-    //     </div>
-    //   </div>;
-    // } else {
-    //   calendar = '';
-    // }
+    let calendar = '';
+    if (this.state.calendarView) {
+      calendar = <div className='calendar-time-container'>
+        <Calendar onChange={this.onChange} value={this.state.date} />
+        <div className='calendar-time'>
+          <div className='calendar-time-input'>
+            Time:
+            <input className={`${this.state.blackBorder}`} type='text' onClick={() => this.addBlackBorder()} placeholder='5:00 pm'/>
+          </div>
+          PST
+        </div>
+      </div>;
+    } else {
+      calendar = '';
+    }
     // let currentSubcategories = (this.state.category === '') ? (getState().entities.category[Object.values(getState().entities.project).slice(-1)[0].categoryId].subcategories) : (Object.values(this.props.category).filter(el => el.name === {this.state.category})[0].subcategories);
     return (
       <div>
@@ -403,6 +406,7 @@ class EditProject extends React.Component {
                                         <input name='eta-group' onClick={() => this.showCalendar('show-calendar')} onChange={this.update('end-of-date')} type='radio' />
                                         <span>End on date & time</span>
                                       </div>
+                                      {calendar}
                                     </div>
                                     <div className='funding-duration-disclaimer'>
                                       <p>Projects with shorter durations have higher success rates. You won’t be able to adjust your duration after you launch.</p>
