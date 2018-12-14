@@ -262,14 +262,6 @@ class EditProject extends React.Component {
     } else {
       calendar = '';
     }
-    function activatePlacesSearch() {
-      var options = {
-        types: ['(cities)']
-       };
-       debugger;
-      var input = document.body.getElementById('search-term');
-      var autocomplete = new google.maps.places.Autocomplete(input, options);
-    }
     // let currentSubcategories = (this.state.category === '') ? (getState().entities.category[Object.values(getState().entities.project).slice(-1)[0].categoryId].subcategories) : (Object.values(this.props.category).filter(el => el.name === {this.state.category})[0].subcategories);
     return (
       <div>
@@ -388,9 +380,9 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Location</div>
                               <div className='location-input'>
                                 <i className="location-search fas fa-search"></i>
-                                <input type='text' id='search-term' />
+
+                                </div>
                               </div>
-                            </div>
                           </div>
                           <fieldset id='eta-group'>
                             <div className='funding-duration'>
