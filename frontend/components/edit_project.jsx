@@ -351,7 +351,7 @@ class EditProject extends React.Component {
                               <div className='category-content-inner'>
                                 <div className='category-dropdown-container'>
                                   <i className="category-dropdown-container-arrow fas fa-angle-down"></i>
-                                  <select className='category-dropdown' onChange={this.update('category')} value={this.state.category === '' ? '' : this.state.category}>
+                                  <select className='category-dropdown' onChange={this.update('category')} value={this.state.category === '' ? 'getState().entities.category[Object.values(getState().entities.project)[0].categoryId].name' : this.state.category}>
                                     {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
                                       if (obj.id === Object.values(getState().entities.project)[0].categoryId || obj.id === this.state.category_id) {
                                         return <option key={obj.id} value={obj.name}>Film & Video</option>
@@ -367,7 +367,7 @@ class EditProject extends React.Component {
                                     }})}
                                   </select>
                                   <i className="category-dropdown-two-container-arrow fas fa-angle-down"></i>
-                                  <select onChange={this.update('subcategory')} className='category-dropdown-two' value={this.state.subcategory === 'your-category' && Object.values(getState().entities.project)[0].subcategory != '' ? '' : this.state.subcategory}>
+                                  <select onChange={this.update('subcategory')} className='category-dropdown-two' value={this.state.subcategory === 'your-category' && Object.values(getState().entities.project)[0].subcategory != '' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory}>
                                     <option value='your-category'>Subcategory (optional)</option>
                                     {subCategories.map(el => <option key={el[1]} value={el[1]}>{el[1]}</option>)}
                                   </select>
