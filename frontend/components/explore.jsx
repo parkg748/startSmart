@@ -9,8 +9,9 @@ class Explore extends React.Component {
   render() {
     return (
       <div className='explore-background'>
+        <div className='explore-top-filler'></div>
         <div className='explore-collections'>
-          <h1>Collections <i className="fas fa-times"></i></h1>
+          <h1>Collections <i onClick={() => this.props.history.push('/')} className="fas fa-times"></i></h1>
         </div>
         <div className='explore-collections-tab-down'>
           <div className='explore-collections-tab-down-inner'>

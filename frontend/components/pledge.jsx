@@ -88,7 +88,7 @@ class Pledge extends React.Component {
             <span>Pledge amount</span>
             <div className={`${this.state.borderColorInput}`}>
               <div className={`${this.state.borderColorCurrency}`}>$</div>
-              <input type='text' onClick={() => this.addGreenBorder()} placeholder='10' />
+              <input name='pledge-list' type='text' onClick={() => this.addGreenBorder()} placeholder='10' />
             </div>
           </div>
         </div>
@@ -119,26 +119,28 @@ class Pledge extends React.Component {
                 {pledgeInput}
               </div>
               <ul>
-                <li>
-                  <input type='radio' onClick={() => this.enterPledgeAmount()} />
-                  <div className='make-pledge-with-reward-content'>
-                    <div className='make-pledge-with-reward-left'>
-                      <h2>$10 or more</h2>
-                      <h3>Thank you!</h3>
-                      <div className='make-pledge-with-reward-desc'>A public shoutout and thank you on our website!</div>
-                    </div>
-                    <div className='make-pledge-with-reward-right'>
-                      <div className='support-this-project-estimated-delivery'>
-                        <span>ESTIMATED DELIVERY</span>
-                        <p>Aug 2019</p>
+                <fieldset id='pledge-list'>
+                  <li>
+                    <input name='pledge-list' type='radio' onClick={() => this.enterPledgeAmount()} />
+                    <div className='make-pledge-with-reward-content'>
+                      <div className='make-pledge-with-reward-left'>
+                        <h2>$10 or more</h2>
+                        <h3>Thank you!</h3>
+                        <div className='make-pledge-with-reward-desc'>A public shoutout and thank you on our website!</div>
                       </div>
-                      <div className='ships-to'>
-                        <span>SHIPS TO</span>
-                        <p>Anywhere in the world</p>
+                      <div className='make-pledge-with-reward-right'>
+                        <div className='support-this-project-estimated-delivery'>
+                          <span>ESTIMATED DELIVERY</span>
+                          <p>Aug 2019</p>
+                        </div>
+                        <div className='ships-to'>
+                          <span>SHIPS TO</span>
+                          <p>Anywhere in the world</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
+                </fieldset>
               </ul>
             </div>
             <div className='support-this-project-right'>
