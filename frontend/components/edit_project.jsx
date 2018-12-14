@@ -380,7 +380,6 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Location</div>
                               <div className='location-input'>
                                 <i className="location-search fas fa-search"></i>
-
                                 </div>
                               </div>
                           </div>
