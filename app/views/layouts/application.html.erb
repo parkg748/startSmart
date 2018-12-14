@@ -8,9 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <%= javascript_include_tag 'application' %>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX4IIJ3fumoVC3xlJxE4iCAn9vOtEj49I&libraries=places&callback=activatePlacesSearch"></script>
   </head>
 
   <body>
     <%= yield %>
   </body>
+
 </html>
