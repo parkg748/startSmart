@@ -7,7 +7,6 @@ export const fetchCategory = category => {
   });
 };
 
-
 export const fetchCategories = () => {
   return $.ajax({
     method: 'GET',
