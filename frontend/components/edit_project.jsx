@@ -31,7 +31,9 @@ class EditProject extends React.Component {
       imageFile: "",
       imageUpload: 'close',
       category_id: '',
-      date: new Date()
+      date: new Date(),
+      calendarView: false,
+      blackBorder: ''
     };
     this.addCollaborators = this.addCollaborators.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -61,7 +63,7 @@ class EditProject extends React.Component {
   onChange(date) {
     this.setState({ date });
   }
-  
+
   deleteCurrentProject() {
     this.props.deleteProject(this.props.match.params.projectId).then(() => this.props.history.push('/'));
   }
@@ -117,6 +119,18 @@ class EditProject extends React.Component {
 
   closeAddItemForm() {
     this.setState({addItem: 'js-modal-close', addBackground: ''});
+  }
+
+  showCalendar(view) {
+    if (view === 'hide-calendar') {
+      this.setState({calendarView: false});
+    } else {
+      this.setState({calendarView: true});
+    }
+  }
+
+  addBlackBorder() {
+    this.setState({blackBorder: 'black-border'});
   }
 
   update(field) {
@@ -233,11 +247,26 @@ class EditProject extends React.Component {
         obj.subcategories.forEach(subcat => subCategories.push([obj.id, subcat]));
       }});
     }
+    let calendar = '';
+    if (this.state.calendarView) {
+      calendar = <div className='calendar-time-container'>
+        <Calendar onChange={this.onChange} value={this.state.date} />
+        <div className='calendar-time'>
+          <div className='calendar-time-input'>
+            Time:
+            <input className={`${this.state.blackBorder}`} type='text' onClick={() => this.addBlackBorder()} placeholder='5:00 pm'/>
+          </div>
+          PST
+        </div>
+      </div>;
+    } else {
+      calendar = '';
+    }
     // let currentSubcategories = (this.state.category === '') ? (getState().entities.category[Object.values(getState().entities.project).slice(-1)[0].categoryId].subcategories) : (Object.values(this.props.category).filter(el => el.name === {this.state.category})[0].subcategories);
     return (
       <div>
         <div className={this.state.addBackground}>
-          <nav>
+          <nav className='nav-boxshadow'>
             <section className='explore-project'>
               <Link to='/help/handbook' className='creator-handbook-navbar'>Creator Handbook</Link>
               <Link to='/campus' className='campus-navbar'>Campus</Link>
@@ -362,7 +391,7 @@ class EditProject extends React.Component {
                                   <div className='funding-duration-content-form'>
                                     <div className='funding-duration-content-form-inner'>
                                       <div className='number-of-days'>
-                                        <input name='eta-group' type='radio' defaultChecked />
+                                        <input name='eta-group' onClick={() => this.showCalendar('hide-calendar')} type='radio' defaultChecked />
                                         <span>Number of days</span>
                                       </div>
                                       <div className='number-of-days-input'>
@@ -374,88 +403,10 @@ class EditProject extends React.Component {
                                     </div>
                                     <div className='end-on-date'>
                                       <div className='end-on-date-inner'>
-                                        <input name='eta-group' onChange={this.update('end-of-date')} type='radio' />
+                                        <input name='eta-group' onClick={() => this.showCalendar('show-calendar')} onChange={this.update('end-of-date')} type='radio' />
                                         <span>End on date & time</span>
                                       </div>
-                                      <div className='calendar location-none-display'>
-                                        <table>
-                                          <thead className='month'>
-                                            <tr>
-                                              <th>
-                                                <i className="fas fa-angle-left"></i>
-                                                <i className="fas fa-angle-right"></i>
-                                                <span>November</span>
-                                                <span>2018</span>
-                                              </th>
-                                            </tr>
-                                          </thead>
-                                          <thead className='days-of-week'>
-                                            <tr>
-                                              <th>S</th>
-                                              <th>M</th>
-                                              <th>T</th>
-                                              <th>W</th>
-                                              <th>T</th>
-                                              <th>F</th>
-                                              <th>S</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                            </tr>
-                                            <tr>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                            </tr>
-                                            <tr>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                            </tr>
-                                            <tr>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                            </tr>
-                                            <tr>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                              <td></td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                        <div className='time'>
-                                          <div className='time-content'>
-                                            Time:
-                                            <input type='time-text'/>
-                                            PDT
-                                          </div>
-                                        </div>
-                                      </div>
+                                      {calendar}
                                     </div>
                                     <div className='funding-duration-disclaimer'>
                                       <p>Projects with shorter durations have higher success rates. You won’t be able to adjust your duration after you launch.</p>

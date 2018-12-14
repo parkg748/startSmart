@@ -259,6 +259,10 @@ form h2 {
   margin-bottom: 2rem;
 }
 
+.nav-boxshadow {
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
+}
+
 nav {
   display: flex;
   height: 70px;
@@ -2676,28 +2680,27 @@ nav {
 
 .funding-duration {
   width: 640px;
-  height: 211px;
+  min-height: 211px;
 }
 
 .funding-duration-content {
   width: 632px;
-  height: 185px;
+  min-height: 185px;
   padding: 4px;
   margin-bottom: 18px;
   background-color: #F8F9FD;
   border-radius: 6px;
-  float: left;
+  display: flex;
 }
 
 .funding-duration-content-inner {
   width: 449px;
-  height: 185px;
-  float: left;
+  min-height: 185px;
 }
 
 .funding-duration-content-form {
   width: 449px;
-  height: 133px;
+  min-height: 133px;
 }
 
 .funding-duration-content-form-inner {
@@ -2762,9 +2765,10 @@ nav {
 
 .end-on-date {
   width: 447px;
-  height: 38px;
+  min-height: 38px;
   background-color: white;
   border: 1px solid #F1EEEA;
+  display: flex;
 }
 
 .end-on-date-inner {
@@ -2829,7 +2833,7 @@ nav {
 
 .funding-duration-disclaimer {
   width: 449px;
-  height: 32px;
+  height: fit-content;
   padding-top: 10px;
 }
 

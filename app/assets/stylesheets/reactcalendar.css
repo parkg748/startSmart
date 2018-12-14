@@ -1,8 +1,108 @@
 .react-calendar {
-  width: 350px;
+  width: 100%;
   max-width: 100%;
   background: white;
-  border: 1px solid #a0a096;
+  border: 1px solid #F1EEEA;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
+}
+
+.calendar-time-container {
+  width: 60%;
+}
+
+.calendar-time {
+  border-left: 1px solid #F1EEEA;
+  height: 57px;
+  padding: 10px 0;
+  background-color: #F0F0F0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 100;
+}
+
+.react-calendar__tile:hover {
+  background-color: transparent !important;
+}
+
+.react-calendar__tile--active:hover {
+  background-color: #2752ff !important;
+}
+
+.calendar-time-input input {
+  width: 53px;
+  height: 13px;
+  padding: 10px;
+  border: 1px solid #DCDEDD;
+  margin-left: 5px;
+  font-size: 11px;
+  font-weight: 100;
+}
+
+.black-border {
+  border: 1px solid black !important;
+}
+
+.calendar-time-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 162px;
+  padding: 10px 5px 10px 10px;
+  margin-right: 5px;
+  background-color: white;
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.react-calendar__navigation button {
+  display: flex;
+  justify-content: center;
+}
+
+.react-calendar__navigation {
+  height: 31px;
+  background: linear-gradient(#fdfdfd, #F0F0F0);
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.react-calendar__month-view__weekdays {
+  height: 15px;
+  align-items: center;
+  background: linear-gradient(#F0F0F0, #ebebeb);
+  font-size: 10px;
+  font-weight: 100;
+  padding-bottom: 4px;
+}
+
+.react-calendar__month-view__days {
+  height: 166px;
+}
+
+.react-calendar__tile {
+  padding: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.react-calendar__tile--active {
+  background: #2752ff !important;
+}
+
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  background-color: #F0F0F0 !important;
+  color: transparent !important;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth:hover {
+  background-color: #F0F0F0 !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: black;
 }
