@@ -343,7 +343,6 @@ class Homepage extends React.Component {
         </div>
       </div>
     </div>);
-  
     return (
       <div>
         <nav>
