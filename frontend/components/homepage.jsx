@@ -355,7 +355,6 @@ class Homepage extends React.Component {
             <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
             {profile}
           </section>
-          
         </nav>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='homepage-body'>
