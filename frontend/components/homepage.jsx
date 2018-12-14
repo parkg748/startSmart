@@ -344,7 +344,7 @@ class Homepage extends React.Component {
       </div>
     </div>);
     return (
-      <div ref={ref => this.myRef = ref}>
+      <div>
         <nav>
           <section className='explore-project'>
             <Link to='/explore' className='explore'>Explore</Link>
