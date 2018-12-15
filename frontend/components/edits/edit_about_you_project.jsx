@@ -1,6 +1,9 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
-import Modal from './modal';
+import Modal from '../modal';
+import EditPageNavbar from './edit_page_navbar';
+import EditPageFooter from './edit_page_footer';
+import EditPageNav from './edit_page_nav';
 
 class EditAboutYouProject extends React.Component {
   constructor(props) {
@@ -127,18 +130,7 @@ class EditAboutYouProject extends React.Component {
     return (
       <div>
         <div className='edit-about-you-background'>
-          <nav>
-            <section className='explore-project'>
-              <Link to='/help/handbook' className='creator-handbook-navbar'>Creator Handbook</Link>
-              <Link to='/campus' className='campus-navbar'>Campus</Link>
-              <Link to='/help' className='help-navbar'>Help</Link>
-              <Link to='/rules' className='rules-navbar'>Project Rules</Link>
-            </section>
-            <Link to='/'><img className='center-logo-position logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-            <section className={`search-signin ${navbarWidth}`}>
-              {profile}
-            </section>
-          </nav>
+          <EditPageNav navbarWidth={navbarWidth} profile={profile} />
           <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
           <ul>
             <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
@@ -146,23 +138,7 @@ class EditAboutYouProject extends React.Component {
             <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
           </ul>
           <div className='edit-page-content'>
-            <div className='edit-page-navbar'>
-              <div className='edit-page-navbar-inner'>
-                <ul>
-                  <li className='exit-editor'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`}><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
-                  <li className='edit-options'>
-                    <ul>
-                      <li className='edit-option-basics'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/basics`}><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
-                      <li className='edit-option-rewards'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/rewards`}><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
-                      <li className='edit-option-story'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/story`}><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
-                      <li className='edit-option-about-you current-page-button-highlight'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/about-you`}><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
-                      <li className='edit-option-account'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/account`}><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
-                      <li className='preview'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/edit`}>Preview</Link></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <EditPageNavbar buttonHighlight={'aboutyou-page-button-highlight'} userId={this.props.match.params.userId} projectId={this.props.match.params.projectId} />
             <div className='edit-form'>
               <div className='edit-form-title'>
                 <div className='edit-form-title-inner'>
@@ -275,12 +251,7 @@ class EditAboutYouProject extends React.Component {
               </div>
             </div>
           </div>
-          <div className='edit-page-footer'>
-            <div className='edit-page-footer-changes'>
-              <a onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`)}>Discard changes</a>
-              <button onClick={(e) => this.handleSubmit(e)}>Save</button>
-            </div>
-          </div>
+          <EditPageFooter handleSubmit={(e) => this.handleSubmit(e)} />
       </div>
     );
   }

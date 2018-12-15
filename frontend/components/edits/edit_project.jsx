@@ -6,6 +6,10 @@ import Calendar from 'react-calendar/dist/entry.nostyle';
 import 'react-calendar/dist/Calendar.css';
 import '../../../app/assets/stylesheets/reactcalendar.css';
 import FundingDuration from './funding_duration';
+import UploadImage from './upload_image';
+import EditPageFooter from './edit_page_footer';
+import EditPageNavbar from './edit_page_navbar';
+import EditPageNav from './edit_page_nav';
 
 class EditProject extends React.Component {
   constructor(props) {
@@ -161,7 +165,7 @@ class EditProject extends React.Component {
       this.setState({city: city, state: state});
     } else if (field === 'time') {
       let suffix = e.target.value.split(' ');
-      let time = time[0].split(':');
+      let time = suffix[0].split(':');
       let hour = 0;
       let min = parseInt(time[1]);
       if (suffix[1] === 'am') {
@@ -200,55 +204,6 @@ class EditProject extends React.Component {
         };
       });
     }
-    let currentProjectImage = '';
-    if (this.state.imageUpload === 'close') {
-      currentProjectImage = (<div className='project-image'>
-        <div className='project-image-inner'>
-          <div className='project-image-inner-title'>Project image</div>
-          <div className='project-image-inner-content'>
-            <div className='project-image-upload'>
-              <div className='project-image-upload-inner'>
-                <label htmlFor='image-upload'>
-                  <input id='image-upload' onChange={(e) => this.handleFile(e)} type='file' />
-                  <span className='choose-an-image'>Choose an image from your computer</span>
-                  <span className='choose-an-image-description'>This is the main image associated with your project. Make it count!</span>
-                  <span className='choose-an-image-description'>JPEG, PNG, GIF, or BMP • 200MB file limit</span>
-                  <span className='choose-an-image-description'>At least 1024x576 pixels • 16:9 aspect ratio</span>
-                </label>
-              </div>
-            </div>
-            <div className='project-image-content'>
-              <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. <Link className='some-tips' to='/help/images'>Here are some tips.</Link></p>
-            </div>
-          </div>
-        </div>
-      </div>);
-    } else {
-      currentProjectImage = (<div className='project-image-open'>
-        <div className='project-image-inner-open'>
-          <div className='project-image-inner-title'>Project image</div>
-          <div className='project-image-inner-content'>
-            <div className='project-image-upload-open'>
-              <div className='project-image-upload-inner-inner'>
-                {imagePreview}
-              </div>
-              <div className='project-image-upload-inner-open'>
-                <label htmlFor='image-upload'>
-                  <input id='image-upload' onChange={this.handleFile} type='file' />
-                  <span className='choose-an-image'>Choose an image from your computer</span>
-                  <span className='choose-an-image-description'>This is the main image associated with your project. Make it count!</span>
-                  <span className='choose-an-image-description'>JPEG, PNG, GIF, or BMP • 200MB file limit</span>
-                  <span className='choose-an-image-description'>At least 1024x576 pixels • 16:9 aspect ratio</span>
-                </label>
-              </div>
-            </div>
-            <div className='project-image-content-open'>
-              <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. <Link className='some-tips' to='/help/images'>Here are some tips.</Link></p>
-            </div>
-          </div>
-        </div>
-      </div>);
-    }
     let subCategories = [];
     if (this.state.category === '') {
       Object.values(getState().entities.category).forEach(obj => {if (obj.name === getState().entities.category[Object.values(getState().entities.project)[0].categoryId].name) {
@@ -278,18 +233,7 @@ class EditProject extends React.Component {
     return (
       <div>
         <div className={this.state.addBackground}>
-          <nav className='nav-boxshadow'>
-            <section className='explore-project'>
-              <Link to='/help/handbook' className='creator-handbook-navbar'>Creator Handbook</Link>
-              <Link to='/campus' className='campus-navbar'>Campus</Link>
-              <Link to='/help' className='help-navbar'>Help</Link>
-              <Link to='/rules' className='rules-navbar'>Project Rules</Link>
-            </section>
-            <Link to='/'><img className='center-logo-position logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-            <section className={`search-signin ${navbarWidth}`}>
-              {profile}
-            </section>
-          </nav>
+          <EditPageNav navbarWidth={navbarWidth} profile={profile} />
           <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
           <div className='edit-background'>
             <ul>
@@ -298,23 +242,7 @@ class EditProject extends React.Component {
               <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
             </ul>
             <div className='edit-page-content'>
-              <div className='edit-page-navbar'>
-                <div className='edit-page-navbar-inner'>
-                  <ul>
-                    <li className='exit-editor'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`}><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
-                    <li className='edit-options'>
-                      <ul>
-                        <li className='edit-option-basics current-page-button-highlight'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/basics`}><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
-                        <li className='edit-option-rewards'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/rewards`}><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
-                        <li className='edit-option-story'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/story`}><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
-                        <li className='edit-option-about-you'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/about-you`}><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
-                        <li className='edit-option-account'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/account`}><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
-                        <li className='preview'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/edit`}>Preview</Link></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <EditPageNavbar buttonHighlight={'basic-page-button-highlight'} userId={this.props.match.params.userId} projectId={this.props.match.params.projectId} />
               <div className='edit-form'>
                 <div className='edit-form-title'>
                   <div className='edit-form-title-inner'>
@@ -327,7 +255,7 @@ class EditProject extends React.Component {
                     <div className='edit-form-input'>
                       <div className='edit-form-input-inner'>
                         <form onSubmit={(e) => this.handleSubmit(e)}>
-                          {currentProjectImage}
+                          <UploadImage imageUpload={this.state.imageUpload} handleFile={this.handleFile} handleOtherFile={(e) => this.handleFile(e)} imagePreview={imagePreview} />
                           <div className='project-title-box'>
                             <div className='project-title-content'>
                               <div className='project-image-inner-title'>Project title</div>
@@ -469,12 +397,7 @@ class EditProject extends React.Component {
               </div>
             </div>
           </div>
-          <div className='edit-page-footer'>
-            <div className='edit-page-footer-changes'>
-              <a onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`)}>Discard changes</a>
-              <button onClick={(e) => this.handleSubmit(e)}>Save</button>
-            </div>
-          </div>
+          <EditPageFooter handleSubmit={(e) => this.handleSubmit(e)} />
         </div>
         <div className={this.state.addItem}>
           <div className='fee-breakdown'>

@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import EditAboutYouProject from './edit_about_you_project';
-import {logout, updateUser, fetchUser} from '../actions/session_actions';
-import {fetchProjects, updateProject, deleteProject} from '../actions/project_actions';
+import {logout, updateUser, fetchUser} from '../../actions/session_actions';
+import {fetchProjects, updateProject, deleteProject} from '../../actions/project_actions';
 
 const mapStateToProps = state => {
   return {

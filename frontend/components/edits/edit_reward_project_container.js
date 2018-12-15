@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import EditRewardProject from './edit_reward_project';
-import {deleteReward} from '../actions/reward_actions';
-import {fetchProject, fetchProjects, deleteProject} from '../actions/project_actions';
-import {createItem} from '../actions/item_actions';
-import {logout, fetchUser} from '../actions/session_actions';
+import {deleteReward} from '../../actions/reward_actions';
+import {fetchProject, fetchProjects, deleteProject} from '../../actions/project_actions';
+import {createItem} from '../../actions/item_actions';
+import {logout, fetchUser} from '../../actions/session_actions';
 
 const mapStateToProps = state => {
   return {
