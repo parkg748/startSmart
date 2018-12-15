@@ -5,9 +5,14 @@ import Modal from './modal';
 class Preview extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  addBackground: '',
+                  userInfoModal: 'js-modal-close',
+                  currentTime: 'days',
+                  currentTimeNum: 0};
     this.showUserBio = this.showUserBio.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
+    this.calculate = this.calculate.bind(this);
   }
 
   componentDidMount() {
@@ -46,9 +51,32 @@ class Preview extends React.Component {
     return (e) => this.setState({[field]: e.target.value});
   }
 
+  calculate() {
+    debugger;
+    let seconds = Math.ceil((Object.values(this.props.project)[0].eta.getTime() - new Date().getTime()) / 1000);
+    if (seconds > 86400) {
+      this.setState({currentTime: 'days', currentTimeNum: `${Math.floor(seconds / 86400)}`});
+    } else if (seconds > 82800) {
+      this.setState({currentTime: 'day', currentTimeNum: '1'});
+    } else if (seconds > 7200) {
+      this.setState({currentTime: 'hours', currentTimeNum: `${Math.floor(seconds / 3600)}`});
+    } else if (seconds > 3600) {
+      this.setState({currentTime: 'hour', currentTimeNum: '1'});
+    } else if (seconds > 120) {
+      this.setState({currentTime: 'minutes', currentTimeNum: `${Math.floor(seconds / 60)}`});
+    } else if (seconds > 60) {
+      this.setState({currentTime: 'minute', currentTimeNum: '1'});
+    } else if (seconds > 1) {
+      this.setState({currentTime: 'seconds', currentTimeNum: `${seconds}`});
+    } else if (second === 1) {
+      this.setState({currentTime: 'second', currentTimeNum: `${seconds / 1}`});
+    }
+  }
+
   render() {
     if (Object.values(this.props.project).length === 0) return null;
     if (Object.values(this.props.category).length === 0) return null;
+    this.calculate();
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -163,8 +191,8 @@ class Preview extends React.Component {
                           <span className='pledge-goal-of'>backers</span>
                         </div>
                         <div className='preview-body-content-six'>
-                          <span>0</span>
-                          <span className='pledge-goal-of'>seconds to go</span>
+                          <span>{this.state.currentTimeNum}</span>
+                          <span className='pledge-goal-of'>{this.state.currentTime} to go</span>
                         </div>
                       </div>
                       <div className='back-this-project'>

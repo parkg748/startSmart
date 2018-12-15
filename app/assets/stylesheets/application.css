@@ -9685,6 +9685,7 @@ iframe > body {
 .preview-body-content-picture img {
   height: 439px;
   object-fit: cover;
+  width: 100%;
 }
 
 .preview-body-content-picture-inner {
