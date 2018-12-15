@@ -10000,6 +10000,58 @@ iframe > body {
   text-align: end;
 }
 
+.project-front-body-updates-left a > h2:hover {
+  background-color: #00f2ba;
+}
+
+.project-updates-timeline {
+  margin: 40px auto 80px;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+}
+
+.project-updates-timeline-inner {
+  border: 1px solid #F1EEEA;
+  color: #3D3D66;
+  font-size: 14px;
+  padding: 10px 15px;
+  font-weight: 100;
+  width: fit-content;
+}
+
+.project-updates-project-launched {
+  width: 35%;
+  height: 100px;
+  margin: 60px auto 0 auto;
+  padding: 50px 100px;
+  background-color: #034752;
+}
+
+.project-updates-project-launched-inner {
+  height: 80px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  align-items: center;
+}
+
+.project-updates-project-launched-inner p {
+  color: white;
+  margin-bottom: 12px;
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.project-updates-project-launched-inner h2 {
+  color: white;
+  font-family: "Cooper Light";
+  font-size: 32px;
+}
+
 .project-front-body-updates-left a > span {
   line-height: 24px;
   font-size: 16px;

@@ -14,6 +14,15 @@ function Updates({ content, styles, onClick }) {
                 <div className='project-updates-likes'>2 likes</div>
               </a>
             </div>
+            <div className='project-updates-timeline'>
+              <div className='project-updates-timeline-inner'>Nov 2018</div>
+            </div>
+            <div className='project-updates-project-launched'>
+              <div className='project-updates-project-launched-inner'>
+                <p>November 18, 2018</p>
+                <h2>Project launched</h2>
+              </div>
+            </div>
           </div>
         </div>
       </div>
