@@ -38,7 +38,8 @@ class EditProject extends React.Component {
       calendarView: false,
       blackBorder: '',
       time: '5:00 pm',
-      finalTime: []
+      finalTime: [],
+      finalDate: []
     };
     this.addCollaborators = this.addCollaborators.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -67,8 +68,9 @@ class EditProject extends React.Component {
   }
 
   onChange(date) {
-    this.setState({ date });
-    console.log(this.state.date)
+    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    let currentDate = date.toString().split(' ');
+    this.setState({ date: date, finalDate: [parseInt(currentDate[3]), months.indexOf(currentDate[1]), parseInt(currentDate[2])] });
   }
 
   deleteCurrentProject() {
@@ -89,7 +91,16 @@ class EditProject extends React.Component {
           processData: false
         });
     }
-    const params = {id: this.props.match.params.projectId, title: this.state.title === '' ? Object.values(getState().entities.project)[0].title : this.state.title, description: this.state.description === '' ? Object.values(getState().entities.project)[0].description : this.state.description, category_id: this.state.category_id === '' ? Object.values(getState().entities.project)[0].categoryId : this.state.category_id, subcategory: this.state.subcategory === 'your-category' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory, city: this.state.city === '' ? Object.values(getState().entities.project)[0].city : this.state.city, state: this.state.state === '' ? Object.values(getState().entities.project)[0].state : this.state.state, duration: this.state.duration === 0 ? Object.values(getState().entities.project)[0].duration : this.state.duration, funding_goal: this.state.funding_goal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.funding_goal};
+    const params = {id: this.props.match.params.projectId,
+                      title: this.state.title === '' ? Object.values(getState().entities.project)[0].title : this.state.title,
+                      description: this.state.description === '' ? Object.values(getState().entities.project)[0].description : this.state.description,
+                      category_id: this.state.category_id === '' ? Object.values(getState().entities.project)[0].categoryId : this.state.category_id,
+                      subcategory: this.state.subcategory === 'your-category' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory,
+                      city: this.state.city === '' ? Object.values(getState().entities.project)[0].city : this.state.city,
+                      state: this.state.state === '' ? Object.values(getState().entities.project)[0].state : this.state.state,
+                      duration: this.state.duration === 0 ? Object.values(getState().entities.project)[0].duration : this.state.duration,
+                      funding_goal: this.state.funding_goal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.funding_goal,
+                      eta: new Date(...this.state.finalDate, ...this.state.finalTime)};
     this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
