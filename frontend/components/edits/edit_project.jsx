@@ -38,7 +38,7 @@ class EditProject extends React.Component {
       calendarView: false,
       blackBorder: '',
       time: '5:00 pm',
-      finalTime: [],
+      finalTime: 61200,
       finalDate: []
     };
     this.addCollaborators = this.addCollaborators.bind(this);
@@ -100,7 +100,8 @@ class EditProject extends React.Component {
                       state: this.state.state === '' ? Object.values(getState().entities.project)[0].state : this.state.state,
                       duration: this.state.duration === 0 ? Object.values(getState().entities.project)[0].duration : this.state.duration,
                       funding_goal: this.state.funding_goal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.funding_goal,
-                      eta: new Date(...this.state.finalDate, ...this.state.finalTime)};
+                      eta: new Date(...this.state.finalDate),
+                      time: this.state.finalTime};
     this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
@@ -178,13 +179,13 @@ class EditProject extends React.Component {
       let suffix = e.target.value.split(' ');
       let time = suffix[0].split(':');
       let hour = 0;
-      let min = parseInt(time[1]);
+      let min = parseInt(time[1]) * 60;
       if (suffix[1] === 'am') {
-        hour = parseInt(time[0]);
+        time[0] === '12' ? hour = 0 : hour = parseInt(time[0]) * 3600;
       } else {
-        hour = parseInt(time[0]) + 12;
+        hour = (parseInt(time[0]) + 12) * 3600;
       }
-      this.setState({time: e.target.value, finalTime: [hour, min]});
+      this.setState({time: e.target.value, finalTime: hour + min});
     }};
   }
 

@@ -26,7 +26,7 @@ import SavedProjectsContainer from './saved_project_container';
 import AccountContainer from './account_container';
 import EditProfileContainer from './edit_profile_container';
 import ExploreContainer from './explore_container';
-import PreviewContainer from './preview_container';
+import PreviewContainer from './edits/preview_container';
 import {ProtectedRoute} from '../util/route_util';
 import ProjectViewContainer from './project_view_container';
 import PledgeContainer from './pledge_container';

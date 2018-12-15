@@ -3959,6 +3959,11 @@ nav {
   color: #2752ff !important;
 }
 
+.preview-page-button-highlight {
+  background-color: rgba(240,240,240,0.6);
+  color: #2752ff !important;
+}
+
 .help-navbar {
   margin-right: 1.2rem;
 }

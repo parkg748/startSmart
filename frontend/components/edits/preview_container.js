@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 import Preview from './preview';
-import {logout, fetchUser} from '../actions/session_actions';
-import {fetchProject, fetchProjects} from '../actions/project_actions';
-import {fetchCategories} from '../actions/category_actions';
+import {logout, fetchUser} from '../../actions/session_actions';
+import {fetchProject, fetchProjects} from '../../actions/project_actions';
+import {fetchCategories} from '../../actions/category_actions';
 
 const mapStateToProps = state => {
   return {

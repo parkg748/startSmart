@@ -1,6 +1,8 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
-import Modal from './modal';
+import Modal from '../modal';
+import EditPageNavbar from './edit_page_navbar';
+import EditPageNav from './edit_page_nav';
 
 class Preview extends React.Component {
   constructor(props) {
@@ -8,8 +10,8 @@ class Preview extends React.Component {
     this.state = {displayProfileMenu: 'js-modal-close',
                   addBackground: '',
                   userInfoModal: 'js-modal-close',
-                  currentTime: 'days',
-                  currentTimeNum: 0};
+                  currentTime: 'days'};
+    this.currentTimeNum = 0;
     this.showUserBio = this.showUserBio.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.calculate = this.calculate.bind(this);
@@ -42,6 +44,23 @@ class Preview extends React.Component {
     }
   }
 
+  startTimer() {
+    if (this.state.currentTimeNum > 0) {
+      this.currentTimeNum = setInterval(function() {
+        this.countDown();
+        this.calculate();
+      }, 1000);
+    }
+  }
+
+  countDown() {
+    let seconds = this.state.currentTimeNum - 1 < 0 ? 0 : this.state.currentTimeNum - 1;
+    this.currentTimeNum = seconds;
+    if (seconds == 0) {
+      clearInterval(this.currentTimeNum);
+    }
+  }
+
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
@@ -52,31 +71,39 @@ class Preview extends React.Component {
   }
 
   calculate() {
-    debugger;
-    let seconds = Math.ceil((Object.values(this.props.project)[0].eta.getTime() - new Date().getTime()) / 1000);
+    if (Object.values(this.props.project)[0] === undefined) return;
+    let endDate = new Date(Object.values(this.props.project)[0].eta.split('-'));
+    let seconds = Math.ceil((endDate.getTime() + Object.values(this.props.project)[0].time - new Date().getTime()) / 1000);
     if (seconds > 86400) {
-      this.setState({currentTime: 'days', currentTimeNum: `${Math.floor(seconds / 86400)}`});
+      this.currentTimeNum = Math.ceil(seconds / 86400);
+      this.setState({currentTime: 'days'});
     } else if (seconds > 82800) {
-      this.setState({currentTime: 'day', currentTimeNum: '1'});
+      this.currentTimeNum = 1
+      this.setState({currentTime: 'day'});
     } else if (seconds > 7200) {
-      this.setState({currentTime: 'hours', currentTimeNum: `${Math.floor(seconds / 3600)}`});
+      this.currentTimeNum = Math.ceil(seconds / 3600);
+      this.setState({currentTime: 'hours'});
     } else if (seconds > 3600) {
-      this.setState({currentTime: 'hour', currentTimeNum: '1'});
+      this.currentTimeNum = 1;
+      this.setState({currentTime: 'hour'});
     } else if (seconds > 120) {
-      this.setState({currentTime: 'minutes', currentTimeNum: `${Math.floor(seconds / 60)}`});
+      this.currentTimeNum = Math.ceil(seconds / 60);
+      this.setState({currentTime: 'minutes'});
     } else if (seconds > 60) {
-      this.setState({currentTime: 'minute', currentTimeNum: '1'});
+      this.currentTimeNum = 1;
+      this.setState({currentTime: 'minute'});
     } else if (seconds > 1) {
-      this.setState({currentTime: 'seconds', currentTimeNum: `${seconds}`});
+      this.currentTimeNum = seconds;
+      this.setState({currentTime: 'seconds'});
     } else if (second === 1) {
-      this.setState({currentTime: 'second', currentTimeNum: `${seconds / 1}`});
+      this.currentTimeNum = seconds / 1;
+      this.setState({currentTime: 'second'});
     }
   }
 
   render() {
     if (Object.values(this.props.project).length === 0) return null;
     if (Object.values(this.props.category).length === 0) return null;
-    this.calculate();
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -108,18 +135,7 @@ class Preview extends React.Component {
     return (
       <div className='preview-project-body'>
         <div className='edit-story-background'>
-          <nav>
-            <section className='explore-project'>
-              <Link to='/help/handbook' className='creator-handbook-navbar'>Creator Handbook</Link>
-              <Link to='/campus' className='campus-navbar'>Campus</Link>
-              <Link to='/help' className='help-navbar'>Help</Link>
-              <Link to='/rules' className='rules-navbar'>Project Rules</Link>
-            </section>
-            <Link to='/'><img className='center-logo-position logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-            <section className={`search-signin ${navbarWidth}`}>
-              {profile}
-            </section>
-          </nav>
+          <EditPageNav navbarWidth={navbarWidth} profile={profile} />
           <div className={this.state.addBackground}>
             <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
             <ul>
@@ -128,23 +144,7 @@ class Preview extends React.Component {
               <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
             </ul>
             <div className='preview-page-content'>
-            <div className='edit-page-navbar'>
-              <div className='edit-page-navbar-inner'>
-                <ul>
-                  <li className='exit-editor'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`}><i className="fas fa-arrow-left"></i>Exit editor</Link></li>
-                  <li className='edit-options'>
-                    <ul>
-                      <li className='edit-option-basics'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/basics`}><i className="edit-circle-check fas fa-check-circle"></i>Basics</Link></li>
-                      <li className='edit-option-rewards'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/rewards`}><i className="edit-circle-check fas fa-check-circle"></i>Rewards</Link></li>
-                      <li className='edit-option-story'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/story`}><i className="edit-circle-check fas fa-check-circle"></i>Story</Link></li>
-                      <li className='edit-option-about-you'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/about-you`}><i className="edit-circle-check fas fa-check-circle"></i>About you</Link></li>
-                      <li className='edit-option-account'><Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/account`}><i className="edit-circle-check fas fa-check-circle"></i>Account</Link></li>
-                      <li className='preview current-page-button-highlight'><Link to='/'>Preview</Link></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <EditPageNavbar buttonHighlight={'preview-page-button-highlight'} userId={this.props.match.params.userId} projectId={this.props.match.params.projectId} />
             <div className='preview-form'>
               <div className='preview-form-alert'>
                 <div className='preview-form-alert-one'><Link className='policy-link' to='/'>Share a preview of your project with friends</Link>. Once you launch, the preview link will redirect to your live project page.</div>
@@ -191,7 +191,7 @@ class Preview extends React.Component {
                           <span className='pledge-goal-of'>backers</span>
                         </div>
                         <div className='preview-body-content-six'>
-                          <span>{this.state.currentTimeNum}</span>
+                          <span>{this.currentTimeNum}</span>
                           <span className='pledge-goal-of'>{this.state.currentTime} to go</span>
                         </div>
                       </div>
