@@ -183,6 +183,18 @@ class ProjectView extends React.Component {
     const styles = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'];
     let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
     let endDate = new Date(project.eta.split('-')).toString().split('-')[0];
+    let currentProjectBody = '';
+    if (this.state.projectView === 'campaign') {
+      currentProjectBody = <Campaign content={content} styles={styles} onClick={this.state.onClick} />;
+    } else if (this.state.projectView === 'faq') {
+      currentProjectBody = '';
+    } else if (this.state.projectView === 'updates') {
+      currentProjectBody = '';
+    } else if (this.state.projectView === 'comments') {
+      currentProjectBody = '';
+    } else if (this.state.projectView === 'community') {
+      currentProjectBody = '';
+    }
     return (
       <div>
         <div className='edit-story-background-front'>
@@ -277,11 +289,16 @@ class ProjectView extends React.Component {
                   <div className='project-front-navbar-inner'>
                     <div className='project-front-navbar-inner-inner'>
                       <div className='project-front-navbar-left'>
-                        <a onClick={() => this.viewProjectBody('campaign')}>Campaign</a>
-                        <a>FAQ</a>
-                        <a>Updates<p>2</p></a>
-                        <a>Comments<p>15</p></a>
-                        <a>Community</a>
+                        <a className={this.state.projectView === 'campaign' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('campaign')}>Campaign</a>
+                        <div className={this.state.projectView === 'campaign' ? 'black-bar-campaign' : 'js-modal-close'}></div>
+                        <a className={this.state.projectView === 'faq' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('faq')}>FAQ</a>
+                        <div className={this.state.projectView === 'faq' ? 'black-bar-faq' : 'js-modal-close'}></div>
+                        <a className={this.state.projectView === 'updates' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('updates')}>Updates<p>2</p></a>
+                        <div className={this.state.projectView === 'updates' ? 'black-bar-updates' : 'js-modal-close'}></div>
+                        <a className={this.state.projectView === 'comments' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('comments')}>Comments<p>15</p></a>
+                        <div className={this.state.projectView === 'comments' ? 'black-bar-comments' : 'js-modal-close'}></div>
+                        <a className={this.state.projectView === 'community' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('community')}>Community</a>
+                        <div className={this.state.projectView === 'community' ? 'black-bar-community' : 'js-modal-close'}></div>
                       </div>
                       <div className='project-front-navbar-right'>
                         <button>Back this project</button>
@@ -293,7 +310,7 @@ class ProjectView extends React.Component {
                     </div>
                   </div>
                 </div>
-                <Campaign content={content} styles={styles} onClick={this.state.onClick} />
+                {currentProjectBody}
               </div>
             </div>
           </div>
