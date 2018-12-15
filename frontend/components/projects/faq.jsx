@@ -1,5 +1,4 @@
 import React from 'react';
-import IFrame from './iframe';
 
 function FAQ({ content, styles, onClick }) {
   return (
