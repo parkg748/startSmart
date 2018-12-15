@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
-import Modal from './modal';
-import IFrame from './iframe';
+import Modal from '../modal';
+import Campaign from './campaign';
 
 class ProjectView extends React.Component {
   constructor(props) {
@@ -9,13 +9,15 @@ class ProjectView extends React.Component {
     this.state = {displayProfileMenu: 'js-modal-close',
                   addBackground: '',
                   userInfoModal: 'js-modal-close',
-                  onClick: 'make-a-pledge'};
+                  onClick: 'make-a-pledge',
+                  projectView: 'campaign'};
     this.currentTimeNum = 0;
     this.currentTime = 'days';
     this.showUserBio = this.showUserBio.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.changeBorder = this.changeBorder.bind(this);
     this.calculate = this.calculate.bind(this);
+    this.viewProjectBody = this.viewProjectBody.bind(this);
   }
 
   componentDidMount() {
@@ -132,6 +134,10 @@ class ProjectView extends React.Component {
     }
     if (mins < 10) mins = '0' + mins;
     return hours + ':' + mins + ' ' + daylightTime;
+  }
+
+  viewProjectBody(tab) {
+    this.setState({projectView: tab});
   }
 
   render() {
@@ -270,7 +276,7 @@ class ProjectView extends React.Component {
                   <div className='project-front-navbar-inner'>
                     <div className='project-front-navbar-inner-inner'>
                       <div className='project-front-navbar-left'>
-                        <a>Campaign</a>
+                        <a onClick={() => this.viewProjectBody('campaign')}>Campaign</a>
                         <a>FAQ</a>
                         <a>Updates<p>2</p></a>
                         <a>Comments<p>15</p></a>
@@ -286,46 +292,7 @@ class ProjectView extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className='preview-bottom-front'>
-                  <div className='project-front-body'>
-                    <div className='project-front-body-inner'>
-                      <div className='project-front-body-inner-inner'>
-                        <div className='project-front-body-left'>
-                          <h3>About</h3>
-                          <h1><IFrame content={content} stylesheets={styles}/></h1>
-                          <h3>Risks and challenges</h3>
-                          <a>Learn about accountability on StartSmart</a>
-                          <div className='question-about-project'>
-                            <p>Questions about this project? <a>Check out the FAQ</a></p>
-                          </div>
-                          <div className='report-this-project'>
-                            <button>Report this project to StartSmart</button>
-                          </div>
-                        </div>
-                        <div className='project-front-body-right'>
-                          <h3>Support</h3>
-                          <ul>
-                            <li className={this.state.onClick}>
-                              <div className='make-a-pledge-inner'>Make a pledge without a reward</div>
-                              <div className='make-a-pledge-inner-inner'>
-                                <div className='make-a-pledge-input'>
-                                  <div className='make-a-pledge-input-inner'>
-                                    <div className='make-a-pledge-input-inner-inner'>
-                                      <div className='make-a-pledge-currency'>£</div>
-                                      <input type='text' value='10' />
-                                    </div>
-                                    <div className='make-a-pledge-currency-disclaimer'>ABOUT $13</div>
-                                  </div>
-                                  <button>Continue</button>
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Campaign content={content} styles={styles} onClick={this.state.onClick} />
               </div>
             </div>
           </div>
