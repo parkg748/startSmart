@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Updates({ content, styles, onClick }) {
+function Updates({ projectCreatedYear, projectCreatedMonth, projectCreatedDay }) {
   return (
     <div className='preview-bottom-front'>
       <div className='project-front-body'>
@@ -19,7 +19,7 @@ function Updates({ content, styles, onClick }) {
             </div>
             <div className='project-updates-project-launched'>
               <div className='project-updates-project-launched-inner'>
-                <p>November 18, 2018</p>
+                <p>{projectCreatedMonth} {projectCreatedDay}, {projectCreatedYear}</p>
                 <h2>Project launched</h2>
               </div>
             </div>

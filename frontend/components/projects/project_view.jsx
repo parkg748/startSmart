@@ -183,6 +183,10 @@ class ProjectView extends React.Component {
     let lastLoggedInMonth = month[lastLoggedIn[1] - 1];
     let day = lastLoggedIn[2].indexOf('T');
     let lastLoggedInDay = lastLoggedIn[2].slice(0, day);
+    let projectCreated = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0].createdAt.split('-');
+    let projectCreatedYear = projectCreated[0];
+    let projectCreatedMonth = monthFullName[projectCreated[1] - 1];
+    let projectCreatedDay = projectCreated[2].slice(0, projectCreated[2].indexOf('T'));
     const content = currentProject === '' ? '' : currentProject.editorHtml;
     const styles = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'];
     let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
@@ -193,7 +197,7 @@ class ProjectView extends React.Component {
     } else if (this.state.projectView === 'faq') {
       currentProjectBody = <FAQ content={content} styles={styles} onClick={this.state.onClick} />;
     } else if (this.state.projectView === 'updates') {
-      currentProjectBody = <Updates content={content} styles={styles} onClick={this.state.onClick} />;
+      currentProjectBody = <Updates projectCreatedYear={projectCreatedYear} projectCreatedMonth={projectCreatedMonth} projectCreatedDay={projectCreatedDay} />;
     } else if (this.state.projectView === 'comments') {
       currentProjectBody = <Comments content={content} styles={styles} onClick={this.state.onClick} />;
     } else if (this.state.projectView === 'community') {
