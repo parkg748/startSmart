@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 import EditProject from './edit_project';
-import {updateProject, fetchProject, deleteProject} from '../actions/project_actions';
-import {logout, fetchUser} from '../actions/session_actions';
-import {fetchCategories} from '../actions/category_actions';
+import {updateProject, fetchProject, deleteProject} from '../../actions/project_actions';
+import {logout, fetchUser} from '../../actions/session_actions';
+import {fetchCategories} from '../../actions/category_actions';
 
 const mapStateToProps = state => {
   return {

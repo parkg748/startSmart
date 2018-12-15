@@ -10,7 +10,7 @@ import FooterContainer from './footer_container';
 import RecommendationsContainer from './recommendations_container';
 import StartProjectPageOneContainer from './start_project_pageone_container';
 import UserProjectContainer from './user_project_container';
-import EditProjectContainer from './edit_project_container';
+import EditProjectContainer from './edits/edit_project_container';
 import EditRewardProjectContainer from './edit_reward_project_container';
 import EditStoryProjectContainer from './edit_story_project_container';
 import EditAboutYouProjectContainer from './edit_about_you_project_container';
@@ -29,7 +29,6 @@ import ExploreContainer from './explore_container';
 import PreviewContainer from './preview_container';
 import {ProtectedRoute} from '../util/route_util';
 import ProjectViewContainer from './project_view_container';
-import BasicsFormContainer from './basics_form_container';
 import PledgeContainer from './pledge_container';
 
 class App extends React.Component {
@@ -39,7 +38,6 @@ class App extends React.Component {
       <div>
         <header>
           <Switch>
-            <Route path='/basics' component={BasicsFormContainer} />
             <Route path='/learn' component={StartProjectContainer} />
             <Route path='/login' component={LoginFormContainer} />
             <Route path='/signup' component={SignupFormContainer} />

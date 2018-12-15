@@ -1,12 +1,11 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import merge from 'lodash/merge';
-import PlacesAutocomplete from 'react-places-autocomplete';
-import {geocodeByAddress, geocodeByPlaceId, getLatLng} from 'react-places-autocomplete';
-import Modal from './modal';
+import Modal from '../modal';
 import Calendar from 'react-calendar/dist/entry.nostyle';
 import 'react-calendar/dist/Calendar.css';
-import '../../app/assets/stylesheets/reactcalendar.css';
+import '../../../app/assets/stylesheets/reactcalendar.css';
+import FundingDuration from './funding_duration';
 
 class EditProject extends React.Component {
   constructor(props) {
@@ -33,7 +32,9 @@ class EditProject extends React.Component {
       category_id: '',
       date: new Date(),
       calendarView: false,
-      blackBorder: ''
+      blackBorder: '',
+      time: '5:00 pm',
+      finalTime: []
     };
     this.addCollaborators = this.addCollaborators.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -41,6 +42,7 @@ class EditProject extends React.Component {
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.showCalendar = this.showCalendar.bind(this);
   }
 
   componentDidMount() {
@@ -62,6 +64,7 @@ class EditProject extends React.Component {
 
   onChange(date) {
     this.setState({ date });
+    console.log(this.state.date)
   }
 
   deleteCurrentProject() {
@@ -146,7 +149,6 @@ class EditProject extends React.Component {
       this.setState({[field]: e.target.value, radioChecked: 'checked'});
     } else if (field === 'category') {
       if (e.target.value === 'Film & Video') {
-
         this.setState({[field]: 'Film', category_id: Object.values(getState().entities.category).filter(el => el.name === 'Film')[0].id});
       } else {
         this.setState({[field]: e.target.value, category_id: Object.values(getState().entities.category).filter(el => el.name === e.target.value)[0].id});
@@ -157,6 +159,17 @@ class EditProject extends React.Component {
       let city = e.target.value.split(', ')[0];
       let state = e.target.value.split(', ')[1];
       this.setState({city: city, state: state});
+    } else if (field === 'time') {
+      let suffix = e.target.value.split(' ');
+      let time = time[0].split(':');
+      let hour = 0;
+      let min = parseInt(time[1]);
+      if (suffix[1] === 'am') {
+        hour = parseInt(time[0]);
+      } else {
+        hour = parseInt(time[0]) + 12;
+      }
+      this.setState({time: e.target.value, finalTime: [hour, min]});
     }};
   }
 
@@ -165,7 +178,6 @@ class EditProject extends React.Component {
       return null
     }
     const imagePreview = this.state.imageUrl ? <img src={this.state.imageUrl}/> : null;
-    console.log(imagePreview)
     if (this.props.category === null || this.props.category === undefined) return null;
     if (this.props.project === null || this.props.project === undefined) return null;
     if (this.props.user === null || this.props.user === undefined) return null;
@@ -254,7 +266,7 @@ class EditProject extends React.Component {
         <div className='calendar-time'>
           <div className='calendar-time-input'>
             Time:
-            <input className={`${this.state.blackBorder}`} type='text' onClick={() => this.addBlackBorder()} placeholder='5:00 pm'/>
+            <input className={`${this.state.blackBorder}`} onChange={this.update('time')} type='text' onClick={() => this.addBlackBorder()} value={this.state.time} />
           </div>
           PST
         </div>
@@ -383,39 +395,7 @@ class EditProject extends React.Component {
                                 </div>
                               </div>
                           </div>
-                          <fieldset id='eta-group'>
-                            <div className='funding-duration'>
-                              <div className='funding-duration-content'>
-                                <div className='project-image-inner-title'>Funding duration</div>
-                                <div className='funding-duration-content-inner'>
-                                  <div className='funding-duration-content-form'>
-                                    <div className='funding-duration-content-form-inner'>
-                                      <div className='number-of-days'>
-                                        <input name='eta-group' onClick={() => this.showCalendar('hide-calendar')} type='radio' defaultChecked />
-                                        <span>Number of days</span>
-                                      </div>
-                                      <div className='number-of-days-input'>
-                                        <div className='number-of-days-input-inner'>
-                                          <input onChange={this.update('duration')} type='text' defaultValue='30'/>
-                                          <div className='number-of-days-input-inner-inner'>Up to 60 days, but we recommend 30 or fewer</div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div className='end-on-date'>
-                                      <div className='end-on-date-inner'>
-                                        <input name='eta-group' onClick={() => this.showCalendar('show-calendar')} onChange={this.update('end-of-date')} type='radio' />
-                                        <span>End on date & time</span>
-                                      </div>
-                                      {calendar}
-                                    </div>
-                                    <div className='funding-duration-disclaimer'>
-                                      <p>Projects with shorter durations have higher success rates. You won’t be able to adjust your duration after you launch.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </fieldset>
+                          <FundingDuration showCalendar={this.showCalendar} update={(e) => this.update(e)} calendar={calendar} />
                           <div className='funding-goal'>
                             <div className='funding-goal-content'>
                               <div className='project-image-inner-title'>Funding goal</div>
