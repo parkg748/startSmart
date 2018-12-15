@@ -92,6 +92,11 @@
 
 .react-calendar__tile--active {
   background: #2752ff !important;
+  color: white !important;
+}
+
+.react-calendar__tile--active:hover {
+  color: white !important;
 }
 
 

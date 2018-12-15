@@ -1,23 +1,34 @@
 import React from 'react';
+import '../../app/assets/stylesheets/clearbrain.css';
 
-class BasicsForm extends React.Component {
+class ClearBrain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: new Date(),
+      groceries: [],
+      grocery: ''
     };
-    this.onChange = this.onChange.bind(this);
   }
 
-  onChange(date) {
-    this.setState({ date });
+  update(field) {
+    return (e) => this.setState({[field]: this.state.groceries.push(e.target.value)});
   }
 
   render() {
+
     return (
-      <Calendar onChange={this.onChange} value={this.state.date} />
+      <div clasName='main'>
+        <div className='grocery-container'>
+          <h1>Groceries</h1>
+          <ul>
+            {this.state.groceries.map(grocery => <li>{grocery}</li>)};
+          </ul>
+          <textarea placeholder='Enter a title for this card...'></textarea>
+          <button onClick={(e) => this.update('groceries')}>+ Add Card...</button>
+        </div>
+      </div>
     );
   }
 }
 
-export default BasicsForm;
+export default ClearBrain;

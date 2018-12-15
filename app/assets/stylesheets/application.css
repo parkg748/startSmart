@@ -11189,3 +11189,7 @@ iframe > body {
 .explore-collections-tab-down-inner li:hover {
   color: #037362;
 }
+
+.main {
+  background-color: blue;
+}
