@@ -3,6 +3,10 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import Campaign from './campaign';
 import UserInfo from './user_info';
+import FAQ from './faq';
+import Updates from './updates';
+import Comments from './comments';
+import Community from './community';
 
 class ProjectView extends React.Component {
   constructor(props) {
@@ -187,13 +191,13 @@ class ProjectView extends React.Component {
     if (this.state.projectView === 'campaign') {
       currentProjectBody = <Campaign content={content} styles={styles} onClick={this.state.onClick} />;
     } else if (this.state.projectView === 'faq') {
-      currentProjectBody = '';
+      currentProjectBody = <FAQ content={content} styles={styles} onClick={this.state.onClick} />;
     } else if (this.state.projectView === 'updates') {
-      currentProjectBody = '';
+      currentProjectBody = <Updates content={content} styles={styles} onClick={this.state.onClick} />;
     } else if (this.state.projectView === 'comments') {
-      currentProjectBody = '';
+      currentProjectBody = <Comments content={content} styles={styles} onClick={this.state.onClick} />;
     } else if (this.state.projectView === 'community') {
-      currentProjectBody = '';
+      currentProjectBody = <Community content={content} styles={styles} onClick={this.state.onClick} />;
     }
     return (
       <div>

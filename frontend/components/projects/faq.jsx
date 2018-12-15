@@ -7,17 +7,18 @@ function FAQ({ content, styles, onClick }) {
       <div className='project-front-body'>
         <div className='project-front-body-inner'>
           <div className='project-front-body-inner-inner'>
-            <div className='project-front-body-left'>
-              <h3>About</h3>
-              <h1><IFrame content={content} stylesheets={styles}/></h1>
-              <h3>Risks and challenges</h3>
-              <a>Learn about accountability on StartSmart</a>
-              <div className='question-about-project'>
-                <p>Questions about this project? <a>Check out the FAQ</a></p>
-              </div>
-              <div className='report-this-project'>
-                <button>Report this project to StartSmart</button>
-              </div>
+            <div className='project-front-faq-body-left'>
+              <h3>Frequently Asked Questions</h3>
+              <h1>
+                <ul>
+                  <li>
+                    <a>
+                      <span>Can you tell me more about the mealworm?</span>
+                      <i className="fas fa-angle-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </h1>
             </div>
             <div className='project-front-body-right'>
               <h3>Support</h3>
