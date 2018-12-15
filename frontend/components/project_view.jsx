@@ -107,6 +107,33 @@ class ProjectView extends React.Component {
     return (e) => this.setState({[field]: e.target.value});
   }
 
+  convertSecondsToTime() {
+    let seconds = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0].time;
+    if (seconds === 0) return "12:00 AM";
+    let hours = 0;
+    let mins = 0;
+    let daylightTime = 'AM';
+    while (seconds > 0) {
+      if (seconds >= 3600) {
+        hours++;
+        seconds -= 3600;
+      } else {
+        mins++;
+        seconds -= 60;
+      }
+    }
+    if (hours === 12) { daylightTime = 'PM'; }
+    else if (hours === 24) {
+      hours = 12;
+      daylightTime = 'AM';
+    } else if (hours > 12) {
+      hours -= 12;
+      daylightTime = 'PM';
+    }
+    if (mins < 10) mins = '0' + mins;
+    return hours + ':' + mins + ' ' + daylightTime;
+  }
+
   render() {
     if (Object.values(getState().entities.users)[0] === null || getState().session.id === null || getState().session.id === undefined) return <Redirect to='/login' />;
     if (Object.values(this.props.project).length === 0) return null;
@@ -139,6 +166,7 @@ class ProjectView extends React.Component {
       mainImage = (<img src={currentProject === '' || currentProject.imageUrl === '' ? '' : currentProject.imageUrl} />);
     }
     const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const monthFullName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let lastLoggedIn = Object.values(getState().entities.users)[0].updatedAt.split('-');
     let lastLoggedInYear = lastLoggedIn[0];
     let lastLoggedInMonth = month[lastLoggedIn[1] - 1];
@@ -146,6 +174,8 @@ class ProjectView extends React.Component {
     let lastLoggedInDay = lastLoggedIn[2].slice(0, day);
     const content = currentProject === '' ? '' : currentProject.editorHtml;
     const styles = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'];
+    let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
+    let endDate = new Date(project.eta.split('-')).toString().split('-')[0];
     return (
       <div>
         <div className='edit-story-background-front'>
@@ -230,7 +260,7 @@ class ProjectView extends React.Component {
                           </div>
                         </div>
                         <div className='project-not-live-front'>
-                          <span><p>All or nothing.</p> This project will only be funded if it reaches its goal by Thu, November 29 2018 6:05 AM PST.</span>
+                          <span><p>All or nothing.</p> This project will only be funded if it reaches its goal by {endDate.split(' ')[0]}, {monthFullName[month.indexOf(endDate.split(' ')[1])]} {endDate.split(' ')[2]} {endDate.split(' ')[3]} {this.convertSecondsToTime()} PST.</span>
                         </div>
                       </div>
                     </div>
