@@ -6,38 +6,32 @@ function Comments({ content, styles, onClick }) {
     <div className='preview-bottom-front'>
       <div className='project-front-body'>
         <div className='project-front-body-inner'>
-          <div className='project-front-body-inner-inner'>
-            <div className='project-front-body-left'>
-              <h3>About</h3>
-              <h1><IFrame content={content} stylesheets={styles}/></h1>
-              <h3>Risks and challenges</h3>
-              <a>Learn about accountability on StartSmart</a>
-              <div className='question-about-project'>
-                <p>Questions about this project? <a>Check out the FAQ</a></p>
-              </div>
-              <div className='report-this-project'>
-                <button>Report this project to StartSmart</button>
-              </div>
-            </div>
-            <div className='project-front-body-right'>
-              <h3>Support</h3>
+          <div className='project-front-comments-body-inner-inner'>
+            <div className='project-front-comments-body-left'>
+              <p>Only backers can post comments. <a>Login</a></p>
               <ul>
-                <li className={onClick}>
-                  <div className='make-a-pledge-inner'>Make a pledge without a reward</div>
-                  <div className='make-a-pledge-inner-inner'>
-                    <div className='make-a-pledge-input'>
-                      <div className='make-a-pledge-input-inner'>
-                        <div className='make-a-pledge-input-inner-inner'>
-                          <div className='make-a-pledge-currency'>£</div>
-                          <input type='text' value='10' />
-                        </div>
-                        <div className='make-a-pledge-currency-disclaimer'>ABOUT $13</div>
+                <li>
+                  <div className='project-comments-box'>
+                    <div className='project-comments-box-inner'>
+                      <img />
+                      <div className='project-comments-box-user'>
+                        <span>Florian Nock</span>
+                        <p>5 days ago</p>
                       </div>
-                      <button>Continue</button>
                     </div>
+                    <div className='project-comments-box-inner-inner'>What a great job ! Thanks for putting this out to the universe. We need more of this kind of productsufeuwfhwoufeghwouefgwuoefgwgfwufg</div>
                   </div>
                 </li>
               </ul>
+            </div>
+            <div className='project-front-comments-body-right'>
+              <div className='project-front-comments-body-right-inner'>
+                <p>Use this space to cheer the creator along, and talk to your fellow backers.</p>
+                <div>
+                  <p className='have-a-question'>Have a question?</p>
+                  <a>Check out the FAQ</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
