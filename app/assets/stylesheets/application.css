@@ -9944,10 +9944,45 @@ iframe > body {
   float: left;
 }
 
+.project-front-body-right-inner {
+  border-left: 3px solid #DCDEDD;
+  margin-top: 60px;
+  height: 108px;
+  width: 100%;
+  padding: 12px 18px 12px 24px;
+}
+
+.project-front-body-right-inner p {
+  font-size: 14px;
+  margin-bottom: 18px;
+  line-height: 24px;
+}
+
+.project-front-body-right-inner button {
+  background-color: black;
+  height: 42px;
+  width: 94px;
+  padding: 0 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 100;
+}
+
 .project-front-body-right h3 {
   margin-top: 0;
   height: 30px;
   margin-bottom: 42px;
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.project-front-faq-body-left h3 {
+  margin-top: 0;
+  height: 30px;
+  margin-bottom: 30px;
   font-size: 21px;
   font-weight: 300;
 }

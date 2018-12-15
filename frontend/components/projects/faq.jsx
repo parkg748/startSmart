@@ -21,24 +21,10 @@ function FAQ({ content, styles, onClick }) {
               </h1>
             </div>
             <div className='project-front-body-right'>
-              <h3>Support</h3>
-              <ul>
-                <li className={onClick}>
-                  <div className='make-a-pledge-inner'>Make a pledge without a reward</div>
-                  <div className='make-a-pledge-inner-inner'>
-                    <div className='make-a-pledge-input'>
-                      <div className='make-a-pledge-input-inner'>
-                        <div className='make-a-pledge-input-inner-inner'>
-                          <div className='make-a-pledge-currency'>£</div>
-                          <input type='text' value='10' />
-                        </div>
-                        <div className='make-a-pledge-currency-disclaimer'>ABOUT $13</div>
-                      </div>
-                      <button>Continue</button>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+              <div className='project-front-body-right-inner'>
+                <p>Don't see the answer to your question? Ask the project creator directly.</p>
+                <button>Ask a question</button>
+              </div>
             </div>
           </div>
         </div>
