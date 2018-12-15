@@ -9,9 +9,9 @@ class Preview extends React.Component {
     super(props);
     this.state = {displayProfileMenu: 'js-modal-close',
                   addBackground: '',
-                  userInfoModal: 'js-modal-close',
-                  currentTime: 'days'};
+                  userInfoModal: 'js-modal-close'};
     this.currentTimeNum = 0;
+    this.currentTime = 'days';
     this.showUserBio = this.showUserBio.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.calculate = this.calculate.bind(this);
@@ -44,22 +44,22 @@ class Preview extends React.Component {
     }
   }
 
-  startTimer() {
-    if (this.state.currentTimeNum > 0) {
-      this.currentTimeNum = setInterval(function() {
-        this.countDown();
-        this.calculate();
-      }, 1000);
-    }
-  }
-
-  countDown() {
-    let seconds = this.state.currentTimeNum - 1 < 0 ? 0 : this.state.currentTimeNum - 1;
-    this.currentTimeNum = seconds;
-    if (seconds == 0) {
-      clearInterval(this.currentTimeNum);
-    }
-  }
+  // startTimer() {
+  //   if (this.state.currentTimeNum > 0) {
+  //     this.currentTimeNum = setInterval(function() {
+  //       this.countDown();
+  //       this.calculate();
+  //     }, 1000);
+  //   }
+  // }
+  //
+  // countDown() {
+  //   let seconds = this.state.currentTimeNum - 1 < 0 ? 0 : this.state.currentTimeNum - 1;
+  //   this.currentTimeNum = seconds;
+  //   if (seconds == 0) {
+  //     clearInterval(this.currentTimeNum);
+  //   }
+  // }
 
   logoutUser(e) {
     e.preventDefault();
@@ -76,34 +76,35 @@ class Preview extends React.Component {
     let seconds = Math.ceil((endDate.getTime() + Object.values(this.props.project)[0].time - new Date().getTime()) / 1000);
     if (seconds > 86400) {
       this.currentTimeNum = Math.ceil(seconds / 86400);
-      this.setState({currentTime: 'days'});
+      this.currentTime = 'days';
     } else if (seconds > 82800) {
       this.currentTimeNum = 1
-      this.setState({currentTime: 'day'});
+      this.currentTime = 'day';
     } else if (seconds > 7200) {
       this.currentTimeNum = Math.ceil(seconds / 3600);
-      this.setState({currentTime: 'hours'});
+      this.currentTime = 'hours';
     } else if (seconds > 3600) {
       this.currentTimeNum = 1;
-      this.setState({currentTime: 'hour'});
+      this.currentTime = 'hour';
     } else if (seconds > 120) {
       this.currentTimeNum = Math.ceil(seconds / 60);
-      this.setState({currentTime: 'minutes'});
+      this.currentTime = 'minutes';
     } else if (seconds > 60) {
       this.currentTimeNum = 1;
-      this.setState({currentTime: 'minute'});
+      this.currentTime = 'minute';
     } else if (seconds > 1) {
       this.currentTimeNum = seconds;
-      this.setState({currentTime: 'seconds'});
+      this.currentTime = 'seconds';
     } else if (second === 1) {
       this.currentTimeNum = seconds / 1;
-      this.setState({currentTime: 'second'});
+      this.currentTime = 'second';
     }
   }
 
   render() {
     if (Object.values(this.props.project).length === 0) return null;
     if (Object.values(this.props.category).length === 0) return null;
+    this.calculate();
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -192,7 +193,7 @@ class Preview extends React.Component {
                         </div>
                         <div className='preview-body-content-six'>
                           <span>{this.currentTimeNum}</span>
-                          <span className='pledge-goal-of'>{this.state.currentTime} to go</span>
+                          <span className='pledge-goal-of'>{this.currentTime} to go</span>
                         </div>
                       </div>
                       <div className='back-this-project'>

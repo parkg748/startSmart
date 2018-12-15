@@ -6,16 +6,71 @@ import IFrame from './iframe';
 class ProjectView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  addBackground: '',
+                  userInfoModal: 'js-modal-close',
+                  onClick: 'make-a-pledge'};
+    this.currentTimeNum = 0;
+    this.currentTime = 'days';
     this.showUserBio = this.showUserBio.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.changeBorder = this.changeBorder.bind(this);
+    this.calculate = this.calculate.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchAllUsers();
+  }
+
+  // startTimer() {
+  //   if (this.state.currentTimeNum > 0) {
+  //     this.currentTimeNum = setInterval(function() {
+  //       this.countDown();
+  //       this.calculate();
+  //     }, 1000);
+  //   }
+  // }
+  //
+  // countDown() {
+  //   let seconds = this.state.currentTimeNum - 1 < 0 ? 0 : this.state.currentTimeNum - 1;
+  //   this.currentTimeNum = seconds;
+  //   if (seconds == 0) {
+  //     clearInterval(this.currentTimeNum);
+  //   }
+  // }
+
+  calculate() {
+    let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
+    if (project.eta === null) return;
+    let endDate = new Date(project.eta.split('-'));
+    let seconds = Math.ceil((endDate.getTime() + project.time - new Date().getTime()) / 1000);
+    if (seconds > 86400) {
+      this.currentTimeNum = Math.ceil(seconds / 86400);
+      this.currentTime = 'days';
+    } else if (seconds > 82800) {
+      this.currentTimeNum = 1
+      this.currentTime = 'day';
+    } else if (seconds > 7200) {
+      this.currentTimeNum = Math.ceil(seconds / 3600);
+      this.currentTime = 'hours';
+    } else if (seconds > 3600) {
+      this.currentTimeNum = 1;
+      this.currentTime = 'hour';
+    } else if (seconds > 120) {
+      this.currentTimeNum = Math.ceil(seconds / 60);
+      this.currentTime = 'minutes';
+    } else if (seconds > 60) {
+      this.currentTimeNum = 1;
+      this.currentTime = 'minute';
+    } else if (seconds > 1) {
+      this.currentTimeNum = seconds;
+      this.currentTime = 'seconds';
+    } else if (second === 1) {
+      this.currentTimeNum = seconds / 1;
+      this.currentTime = 'second';
+    }
   }
 
   clickProfileIcon() {
@@ -56,6 +111,7 @@ class ProjectView extends React.Component {
     if (Object.values(getState().entities.users)[0] === null || getState().session.id === null || getState().session.id === undefined) return <Redirect to='/login' />;
     if (Object.values(this.props.project).length === 0) return null;
     if (Object.values(this.props.category).length === 0) return null;
+    this.calculate();
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -157,8 +213,8 @@ class ProjectView extends React.Component {
                             <span className='pledge-goal-of'>backers</span>
                           </div>
                           <div className='preview-body-content-six'>
-                            <span>0</span>
-                            <span className='pledge-goal-of'>seconds to go</span>
+                            <span>{this.currentTimeNum}</span>
+                            <span className='pledge-goal-of'>{this.currentTime} to go</span>
                           </div>
                         </div>
                         <div className='back-this-project'>

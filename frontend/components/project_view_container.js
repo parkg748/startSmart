@@ -9,7 +9,6 @@ const mapStateToProps = state => {
     user: state.entities.users,
     project: state.entities.project,
     category: state.entities.category,
-    class: {displayProfileMenu: 'js-modal-close', addBackground: '', userInfoModal: 'js-modal-close', onClick: 'make-a-pledge'}
   };
 };
 
