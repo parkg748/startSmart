@@ -30,6 +30,7 @@ import PreviewContainer from './edits/preview_container';
 import {ProtectedRoute} from '../util/route_util';
 import ProjectViewContainer from './projects/project_view_container';
 import PledgeContainer from './pledge_container';
+import NotificationsContainer from './settings/notifications_container';
 
 class App extends React.Component {
 
@@ -62,6 +63,7 @@ class App extends React.Component {
             <Route exact path='/profile/starred' component={SavedProjectsContainer} />
             <Route exact path='/settings/account' component={AccountContainer} />
             <Route exact path='/settings/profile' component={EditProfileContainer} />
+            <Route exact path='/settings/notifications' component={NotificationsContainer} />
             <Route exact path='/profile/:userId' component={ProfileContainer} />
             <Route exact path='/' component={HomepageContainer} />
             <Redirect to='/' />

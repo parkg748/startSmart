@@ -98,7 +98,7 @@ class Account extends React.Component {
                 <ul>
                   <li>Account</li>
                   <li className='inactive'><Link to='/settings/profile'>Edit Profile</Link></li>
-                  <li className='inactive'><Link to='/'>Notifications</Link></li>
+                  <li className='inactive'><Link to='/settings/notifications'>Notifications</Link></li>
                   <li className='inactive'><Link to='/'>Payment methods</Link></li>
                   <li className='inactive'><Link to='/profile/following/find_creators'>Following</Link></li>
                 </ul>

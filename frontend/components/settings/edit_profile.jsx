@@ -172,7 +172,7 @@ class EditProfile extends React.Component {
                 <ul>
                   <li className='inactive'><Link to='/settings/account'>Account</Link></li>
                   <li>Edit Profile</li>
-                  <li className='inactive'><Link to='/'>Notifications</Link></li>
+                  <li className='inactive'><Link to='/settings/notifications'>Notifications</Link></li>
                   <li className='inactive'><Link to='/'>Payment methods</Link></li>
                   <li className='inactive'><Link to='/profile/following/find_creators'>Following</Link></li>
                 </ul>
