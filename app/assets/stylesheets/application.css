@@ -8953,6 +8953,20 @@ strong {
   width: 412px;
 }
 
+.inactive {
+  color: #80809E;
+}
+
+.save-settings input {
+  border: none;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+  background-color: #2752ff;
+}
+
 .save-settings-two {
   height: 38px;
   width: 100%;

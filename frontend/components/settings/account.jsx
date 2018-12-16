@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
-import Modal from './modal';
+import Modal from '../modal';
+import MyStuffNav from '../mystuff/mystuff_nav';
 
 class Account extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Account extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
-    this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchUser(getState().session.id);
   }
 
   logoutUser(e) {
@@ -51,17 +52,7 @@ class Account extends React.Component {
     }
     return (
       <div>
-        <nav>
-          <section className='explore-project'>
-            <Link to='/explore' className='explore'>Explore</Link>
-            <Link to='/learn' className='project'>Start a project</Link>
-          </section>
-          <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-          <section className={`search-signin ${navbarWidth}`}>
-            <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
-            {profile}
-          </section>
-        </nav>
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='account-container'>
           <div className='account-container-header'>
@@ -71,10 +62,10 @@ class Account extends React.Component {
                 <div className='account-container-blue-bar'></div>
                 <ul>
                   <li>Account</li>
-                  <li>Edit Profile</li>
-                  <li>Notifications</li>
-                  <li>Payment methods</li>
-                  <li>Following</li>
+                  <li className='inactive'><Link to='/settings/profile'>Edit Profile</Link></li>
+                  <li className='inactive'><Link to='/'>Notifications</Link></li>
+                  <li className='inactive'><Link to='/'>Payment methods</Link></li>
+                  <li className='inactive'><Link to='/profile/following/find_creators'>Following</Link></li>
                 </ul>
               </div>
             </div>
