@@ -53,7 +53,11 @@ class EditAboutYouProject extends React.Component {
           processData: false
         });
     }
-    const params = {id: this.props.match.params.userId, name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name, biography: this.state.biography === '' ? Object.values(this.props.user)[0].biography : this.state.biography, websites: this.props.user ? Object.values(this.props.user)[0].websites : this.state.websites, googleAnalytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics};
+    const params = {id: this.props.match.params.userId,
+                      name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name,
+                      biography: this.state.biography === '' ? Object.values(this.props.user)[0].biography : this.state.biography,
+                      websites: this.props.user ? Object.values(this.props.user)[0].websites : this.state.websites,
+                      googleAnalytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics};
     this.props.updateUser(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 

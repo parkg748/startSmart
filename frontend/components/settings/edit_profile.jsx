@@ -15,15 +15,31 @@ class EditProfile extends React.Component {
                   nameGreenBorder: '',
                   locationGreenBorder: '',
                   website: '',
-                  websites: []};
+                  websites: [],
+                  vanityUrl: '',
+                  profileUrl: "",
+                  profileFile: "",
+                  profileUpload: 'close'};
     this.addGreenBorder = this.addGreenBorder.bind(this);
     this.addWebsite = this.addWebsite.bind(this);
     this.deleteWebsite = this.deleteWebsite.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchUser(getState().session.id);
+  }
+
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({profileFile: file, profileUrl: fileReader.result, profileUpload: "open"});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   logoutUser(e) {
@@ -72,6 +88,27 @@ class EditProfile extends React.Component {
 
   update(field) {
     return (e) => this.setState({[field]: e.target.value});
+  }
+
+  saveSettings(e) {
+    e.preventDefault();
+    const formData = new FormData();
+
+    if(this.state.profileFile){
+        formData.append('user[profile_url]', this.state.profileFile);
+        $.ajax({
+          url: `/api/users/${getState().session.id}`,
+          method: 'PATCH',
+          data: formData,
+          contentType: false,
+          processData: false
+        });
+    }
+    let user = Object.values(getState().entities.users)[0];
+    this.props.updateUser({id: getState().session.id,
+                          name: this.state.name === '' ? user.name : this.state.name,
+                          biography: this.state.biography === '' ? user.biography : this.state.biography})
+              .then(() => window.location.reload());
   }
 
   render() {
@@ -142,9 +179,12 @@ class EditProfile extends React.Component {
                     </li>
                     <li>
                       <span><strong>Picture</strong></span>
-                      <div className='edit-profile-choose-image'>
-                        {pictureUploadContainer}
-                      </div>
+                        <div className='edit-profile-choose-image'>
+                          <label htmlFor='profile-upload'>
+                            <input id='profile-upload' onChange={(e) => this.handleFile(e)} type='file' />
+                            {pictureUploadContainer}
+                          </label>
+                        </div>
                       <span>JPEG, PNG, GIF, or BMP • 200MB file limit</span>
                     </li>
                     <li>
@@ -244,7 +284,7 @@ class EditProfile extends React.Component {
                     <li>
                       <span><strong>Vanity URL</strong></span>
                       <strong>https:&#47;&#47;www.startsmart.com/profile/</strong>
-                      <input className={`vanity-url-input ${this.state.vanityUrlGreenBorder}`} type='text' onClick={() => this.addGreenBorder('vanity-url')}/>
+                      <input onChange={this.update('vanityUrl')} className={`vanity-url-input ${this.state.vanityUrlGreenBorder}`} type='text' onClick={() => this.addGreenBorder('vanity-url')}/>
                       <span>For example, if you'd like your URL to be www.startsmart.com/profile/polarbear, just type polarbear! Choose wisely though, once you set your vanity URL, it can't be reset.</span>
                     </li>
                     <li>
@@ -262,7 +302,7 @@ class EditProfile extends React.Component {
             <div className='edit-profile-divider'></div>
             <div className='edit-profile-footer'>
               <div className='save-settings-two'>
-                <input type='submit' value='Save settings' />
+                <input onClick={(e) => this.saveSettings(e)} type='submit' value='Save settings' />
                 <span><Link to={`/profile/${getState().session.id}`}>View profile</Link></span>
               </div>
             </div>
