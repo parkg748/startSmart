@@ -10,7 +10,7 @@ class CreatedProject extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
-    this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchUser(getState().session.id);
   }
 
   logoutUser(e) {
@@ -49,6 +49,30 @@ class CreatedProject extends React.Component {
         };
       });
     }
+    let projectList = [];
+    if (Object.values(getState().entities.project).length > 0) {
+      let projects = Object.values(getState().entities.project).filter(el => el.userId === getState().session.id);
+      for (let i = 0; i < projects.length; i++) {
+        projectList.push(<li>
+          <div className='created-project-section'>
+            <img src={projects[i].imageUrl === '' ? 'https://ksr-ugc.imgix.net/missing_project_photo.png?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=&auto=format&frame=1&q=92&s=54e77c822a7765d5b7243a3794d5edba' : projects[i].imageUrl} />
+            <div className='created-project-information'>
+              <div className='created-project-information-one'>
+                <div className='created-project-information-two'>
+                  <div className='created-project-information-three'><strong>/projects/{projects[i].id}</strong></div>
+                  <div className='created-project-information-four'>{projects[i].title}</div>
+                </div>
+              </div>
+            </div>
+            <div className='continue-editing'>
+              <div className='continue-editing-one'>
+                <Link className='policy-link' to={`/users/${getState().session.id}/projects/${projects[i].id}`}>Continue editing</Link>
+              </div>
+            </div>
+          </div>
+        </li>);
+      }
+    }
     return (
       <div>
         <nav>
@@ -68,10 +92,10 @@ class CreatedProject extends React.Component {
             <div className='created-project-navbar'>
               <ul>
                 <li>Profile (public)</li>
-                <li>Settings</li>
-                <li>Created projects</li>
-                <li>Backed projects</li>
-                <li>Activity</li>
+                <li><Link>Settings</Link></li>
+                <li><Link>Created projects</Link></li>
+                <li><Link>Backed projects</Link></li>
+                <li><Link>Activity</Link></li>
               </ul>
             </div>
             <div className='created-project-header'>
@@ -82,114 +106,7 @@ class CreatedProject extends React.Component {
                   <h2><strong>Started</strong></h2>
                   <div className='created-project-body'>
                     <ul>
-                      <li>
-                        <div className='created-project-section'>
-                          <img src='https://ksr-ugc.imgix.net/missing_project_photo.png?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=&auto=format&frame=1&q=92&s=54e77c822a7765d5b7243a3794d5edba'/>
-                          <div className='created-project-information'>
-                            <div className='created-project-information-one'>
-                              <div className='created-project-information-two'>
-                                <div className='created-project-information-three'><strong>/projects/437271183/1088503561</strong></div>
-                                <div className='created-project-information-four'>fhiewofhwf</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className='continue-editing'>
-                            <div className='continue-editing-one'>
-                              <Link className='policy-link' to='/'>Continue editing</Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className='created-project-section'>
-                          <img src='https://ksr-ugc.imgix.net/missing_project_photo.png?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=&auto=format&frame=1&q=92&s=54e77c822a7765d5b7243a3794d5edba'/>
-                          <div className='created-project-information'>
-                            <div className='created-project-information-one'>
-                              <div className='created-project-information-two'>
-                                <div className='created-project-information-three'><strong>/projects/437271183/1088503561</strong></div>
-                                <div className='created-project-information-four'>fhiewofhwf</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className='continue-editing'>
-                            <div className='continue-editing-one'>
-                              <Link className='policy-link' to='/'>Continue editing</Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className='created-project-section'>
-                          <img src='https://ksr-ugc.imgix.net/missing_project_photo.png?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=&auto=format&frame=1&q=92&s=54e77c822a7765d5b7243a3794d5edba'/>
-                          <div className='created-project-information'>
-                            <div className='created-project-information-one'>
-                              <div className='created-project-information-two'>
-                                <div className='created-project-information-three'><strong>/projects/437271183/1088503561</strong></div>
-                                <div className='created-project-information-four'>fhiewofhwf</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className='continue-editing'>
-                            <div className='continue-editing-one'>
-                              <Link className='policy-link' to='/'>Continue editing</Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className='created-project-section'>
-                          <img src='https://ksr-ugc.imgix.net/missing_project_photo.png?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=&auto=format&frame=1&q=92&s=54e77c822a7765d5b7243a3794d5edba'/>
-                          <div className='created-project-information'>
-                            <div className='created-project-information-one'>
-                              <div className='created-project-information-two'>
-                                <div className='created-project-information-three'><strong>/projects/437271183/1088503561</strong></div>
-                                <div className='created-project-information-four'>fhiewofhwf</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className='continue-editing'>
-                            <div className='continue-editing-one'>
-                              <Link className='policy-link' to='/'>Continue editing</Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className='created-project-section'>
-                          <img src='https://ksr-ugc.imgix.net/missing_project_photo.png?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=&auto=format&frame=1&q=92&s=54e77c822a7765d5b7243a3794d5edba'/>
-                          <div className='created-project-information'>
-                            <div className='created-project-information-one'>
-                              <div className='created-project-information-two'>
-                                <div className='created-project-information-three'><strong>/projects/437271183/1088503561</strong></div>
-                                <div className='created-project-information-four'>fhiewofhwf</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className='continue-editing'>
-                            <div className='continue-editing-one'>
-                              <Link className='policy-link' to='/'>Continue editing</Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className='created-project-section'>
-                          <img src='https://ksr-ugc.imgix.net/missing_project_photo.png?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=&auto=format&frame=1&q=92&s=54e77c822a7765d5b7243a3794d5edba'/>
-                          <div className='created-project-information'>
-                            <div className='created-project-information-one'>
-                              <div className='created-project-information-two'>
-                                <div className='created-project-information-three'><strong>/projects/437271183/1088503561</strong></div>
-                                <div className='created-project-information-four'>fhiewofhwf</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className='continue-editing'>
-                            <div className='continue-editing-one'>
-                              <Link className='policy-link' to='/'>Continue editing</Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
+                      {projectList}
                     </ul>
                   </div>
                 </section>

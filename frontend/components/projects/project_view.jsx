@@ -54,7 +54,10 @@ class ProjectView extends React.Component {
 
   calculate() {
     let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
-    if (project.eta === null) return;
+    if (project.eta === null) {
+      this.currentTime = 'second';
+      return
+    };
     let endDate = new Date(project.eta.split('-'));
     let seconds = Math.ceil((endDate.getTime() + project.time - new Date().getTime()) / 1000);
     if (seconds > 86400) {
@@ -78,7 +81,7 @@ class ProjectView extends React.Component {
     } else if (seconds > 1) {
       this.currentTimeNum = seconds;
       this.currentTime = 'seconds';
-    } else if (second === 1) {
+    } else if (second <= 1) {
       this.currentTimeNum = seconds / 1;
       this.currentTime = 'second';
     }

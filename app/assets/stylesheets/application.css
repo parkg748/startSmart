@@ -9451,6 +9451,7 @@ iframe > body {
   height: 42px;
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 
 .remind-me-project-front {

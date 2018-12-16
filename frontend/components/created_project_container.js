@@ -5,6 +5,7 @@ import {fetchProjects} from '../actions/project_actions';
 
 const mapStateToProps = state => {
   return {
+    projects: state.entities.projects,
     user: state.entities.users,
     class: {displayProfileMenu: 'js-modal-close'}
   };
