@@ -77,7 +77,7 @@ class EditProfile extends React.Component {
   addWebsite() {
     let websites = this.state.websites;
     websites.push(this.state.website);
-    this.setState({websites});
+    this.setState({websites: [...Object.values(getState().entities.users)[0].websites, ...websites]});
   }
 
   deleteWebsite(idx) {
@@ -107,7 +107,8 @@ class EditProfile extends React.Component {
     let user = Object.values(getState().entities.users)[0];
     this.props.updateUser({id: getState().session.id,
                           name: this.state.name === '' ? user.name : this.state.name,
-                          biography: this.state.biography === '' ? user.biography : this.state.biography})
+                          biography: this.state.biography === '' ? user.biography : this.state.biography,
+                          websites: this.state.websites.length === 0 ? user.websites : this.state.websites})
               .then(() => window.location.reload());
   }
 
@@ -139,13 +140,24 @@ class EditProfile extends React.Component {
       </div>;
     }
     let websites = [];
-    for (let i = 0; i < this.state.websites.length; i++) {
-      websites.push(<div className='url-list'>
-        {this.state.websites[i]}
-        <div onClick={() => this.deleteWebsite(i)} className='url-list-times-box'>
-          <i className="url-list-times fas fa-times"></i>
-        </div>
-      </div>);
+    if (Object.values(getState().entities.users)[0].length > 0 && this.state.websites.length === 0) {
+      for (let i = 0; i < Object.values(getState().entities.users)[0].length; i++) {
+        websites.push(<div className='url-list'>
+          {this.state.websites[i]}
+          <div onClick={() => this.deleteWebsite(i)} className='url-list-times-box'>
+            <i className="url-list-times fas fa-times"></i>
+          </div>
+        </div>);
+      }
+    } else {
+      for (let i = 0; i < this.state.websites.length; i++) {
+        websites.push(<div className='url-list'>
+          {this.state.websites[i]}
+          <div onClick={() => this.deleteWebsite(i)} className='url-list-times-box'>
+            <i className="url-list-times fas fa-times"></i>
+          </div>
+        </div>);
+      }
     }
     return (
       <div>

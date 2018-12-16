@@ -11,7 +11,8 @@ class EditAboutYouProject extends React.Component {
     this.state = {displayProfileMenu: 'js-modal-close',
                   name: '',
                   biography: '',
-                  websites: '',
+                  websites: [],
+                  website: '',
                   google_analytics: '',
                   profileUrl: "",
                   profileFile: "",
@@ -77,6 +78,12 @@ class EditAboutYouProject extends React.Component {
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
+  }
+
+  addWebsite() {
+    let websites = this.state.websites;
+    websites.push(this.state.website);
+    this.setState({websites});
   }
 
   update(field) {
@@ -214,7 +221,7 @@ class EditAboutYouProject extends React.Component {
                               <div className='websites-content-inner'>
                                 <div className='websites-content-inner-input'>
                                   <div className='websites-input'>
-                                    <input onChange={this.update('websites')} type='text' defaultValue={this.state.websites} />
+                                    <input onChange={this.update('website')} type='text' defaultValue={this.state.websites[0]} />
                                   </div>
                                   <button className='websites-add-button'>Add</button>
                                 </div>

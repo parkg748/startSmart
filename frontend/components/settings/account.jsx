@@ -15,6 +15,13 @@ class Account extends React.Component {
     this.props.fetchUser(getState().session.id);
   }
 
+  saveSettings() {
+    let user = Object.values(getState().entities.users)[0];
+    this.props.updateUser({id: getState().session.id,
+                          email: this.state.email === '' ? user.email : this.state.email})
+              .then(() => window.location.reload());
+  }
+
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
@@ -54,6 +61,29 @@ class Account extends React.Component {
           currentUserProjects.push(project);
         };
       });
+    }
+    const monthFullName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let lastLoggedIn = Object.values(getState().entities.users)[0].updatedAt.split('-');
+    let lastLoggedInYear = lastLoggedIn[0];
+    let lastLoggedInMonth = monthFullName[lastLoggedIn[1] - 1];
+    let day = lastLoggedIn[2].indexOf('T');
+    let lastLoggedInDay = lastLoggedIn[2].slice(0, day);
+    let lastLoggedInDayOfWeek = new Date(Object.values(getState().entities.users)[0].updatedAt).toString();
+    lastLoggedInDayOfWeek = lastLoggedInDayOfWeek.split(' ')[0];
+    let time = lastLoggedIn[2].split('T')[1].split(':');
+    let lastLoggedInHour = 0;
+    let lastLoggedInMin = time[1];
+    let daylightTime = 'AM';
+    if (parseInt(time[0]) > 12) {
+      daylightTime = 'PM';
+      lastLoggedInHour = parseInt(time[0]) - 12;
+    } else if (parseInt(time[0]) === 0) {
+      lastLoggedInHour = 12;
+    } else if (parseInt(time[0]) === 12) {
+      daylightTime = 'PM';
+      lastLoggedInHour = 12;
+    } else {
+      lastLoggedInHour = time[0];
     }
     return (
       <div>
@@ -156,7 +186,7 @@ class Account extends React.Component {
                       <div className='login-history-header-info-one'>
                         <div className='login-history-header-info-two'>
                           <div className='login-history-header-login-successful'>Login successful</div>
-                          <div className='login-history-header-time-info'>Tue, October 16 2018 9:49 AM PDT</div>
+                          <div className='login-history-header-time-info'>{lastLoggedInDayOfWeek}, {lastLoggedInMonth} {lastLoggedInDay} {lastLoggedInYear} {lastLoggedInHour}:{lastLoggedInMin} {daylightTime} PDT</div>
                           <div className='login-history-header-location-info'>San Francisco, 94133, US</div>
                           <div className='login-history-header-ipaddress-info'>12.23.56.98</div>
                         </div>
