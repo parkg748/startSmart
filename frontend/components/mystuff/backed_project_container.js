@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
-import Activity from './activity';
-import {logout, fetchUser} from '../actions/session_actions';
-import {fetchProjects} from '../actions/project_actions';
+import BackedProject from './backed_project';
+import {logout, fetchUser} from '../../actions/session_actions';
+import {fetchProjects} from '../../actions/project_actions';
 
 const mapStateToProps = state => {
   return {
@@ -18,4 +18,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Activity);
+export default connect(mapStateToProps, mapDispatchToProps)(BackedProject);

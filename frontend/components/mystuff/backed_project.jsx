@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
-import Modal from './modal';
+import Modal from '../modal';
+import MyStuffNav from './mystuff_nav';
 
 class BackedProject extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class BackedProject extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
-    this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchUser(getState().session.id);
   }
 
   logoutUser(e) {
@@ -51,28 +52,18 @@ class BackedProject extends React.Component {
     }
     return (
       <div>
-        <nav>
-          <section className='explore-project'>
-            <Link to='/explore' className='explore'>Explore</Link>
-            <Link to='/learn' className='project'>Start a project</Link>
-          </section>
-          <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-          <section className={`search-signin ${navbarWidth}`}>
-            <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
-            {profile}
-          </section>
-        </nav>
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='backed-project'>
           <div className='backed-project-one'>
             <div className='backed-project-two'>
               <div className='backed-project-navbar'>
                 <ul>
-                  <li>Profile (public)</li>
-                  <li>Settings</li>
-                  <li>Created projects</li>
-                  <li>Backed projects</li>
-                  <li>Activity</li>
+                  <li><Link to={`/profile/${getState().session.id}`}>Profile (public)</Link></li>
+                  <li><Link to='/settings/profile'>Settings</Link></li>
+                  <li><Link to='/profile/projects'>Created projects</Link></li>
+                  <li><Link to='/profile/backings'>Backed projects</Link></li>
+                  <li><Link to='/activity'>Activity</Link></li>
                 </ul>
               </div>
               <div className='backed-project-header'>

@@ -18,10 +18,10 @@ import EditAccountProjectContainer from './edits/edit_account_project_container'
 import FollowingContainer from './following_container';
 import FollowingFacebookContainer from './following_facebook_container';
 import MessagesContainer from './messages_container';
-import ActivityContainer from './activity_container';
+import ActivityContainer from './mystuff/activity_container';
 import ProfileContainer from './profile_container';
-import BackedProjectsContainer from './backed_project_container';
-import CreatedProjectsContainer from './created_project_container';
+import BackedProjectsContainer from './mystuff/backed_project_container';
+import CreatedProjectsContainer from './mystuff/created_project_container';
 import SavedProjectsContainer from './saved_project_container';
 import AccountContainer from './account_container';
 import EditProfileContainer from './edit_profile_container';
