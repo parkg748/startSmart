@@ -198,7 +198,7 @@ class ProjectView extends React.Component {
     const content = currentProject === '' ? '' : currentProject.editorHtml;
     const styles = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'];
     let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
-    let endDate = new Date(project.eta.split('-')).toString().split('-')[0];
+    let endDate = project.eta === null ? new Date().toString().split('-')[0] : new Date(project.eta.split('-')).toString().split('-')[0];
     let currentProjectBody = '';
     if (this.state.projectView === 'campaign') {
       currentProjectBody = <Campaign content={content} styles={styles} onClick={this.state.onClick} addGreenBorder={() => this.addGreenBorder()} greenBorder={this.state.greenBorder} currencyGreenBorder={this.state.currencyGreenBorder} blackBorder={this.state.blackBorder} />;
@@ -210,6 +210,13 @@ class ProjectView extends React.Component {
       currentProjectBody = <Comments content={content} styles={styles} onClick={this.state.onClick} />;
     } else if (this.state.projectView === 'community') {
       currentProjectBody = <Community content={content} styles={styles} onClick={this.state.onClick} />;
+    }
+    let bar = '';
+    if (currentProject.fundingGoal === null) {
+      bar = 0;
+    } else {
+      bar = Math.floor((currentProject.pledgeAmt / currentProject.fundingGoal) * 100);
+      if (bar > 100) bar = 100;
     }
     return (
       <div>
@@ -267,7 +274,8 @@ class ProjectView extends React.Component {
                         </div>
                       </div>
                       <div className='preview-body-content-three'>
-                        <div className='preview-green-border'></div>
+                        <div className='preview-gray-border'></div>
+                        <div className='preview-green-border' style={{width: `${bar}%`}}></div>
                         <div className='preview-body-content-four'>
                           <div className='preview-body-content-five-front'>
                             <span>$0 <i className="black fas fa-hand-holding-usd"></i></span>
