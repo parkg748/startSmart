@@ -6,7 +6,18 @@ import MyStuffNav from '../mystuff/mystuff_nav';
 class EditProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  name: '',
+                  biography: '',
+                  websiteGreenBorder: '',
+                  vanityUrlGreenBorder: '',
+                  biographyBlackBorder: '',
+                  nameGreenBorder: '',
+                  locationGreenBorder: '',
+                  website: '',
+                  websites: []};
+    this.addGreenBorder = this.addGreenBorder.bind(this);
+    this.addWebsite = this.addWebsite.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +41,30 @@ class EditProfile extends React.Component {
   changeProjectPage(idx) {
     this.props.history.push(`/users/${getState().session.id.id}/projects/${idx}`);
     window.location.reload();
+  }
+
+  addGreenBorder(section) {
+    if (section === 'website') {
+      this.setState({websiteGreenBorder: 'green-support-border', vanityUrlGreenBorder: '', biographyBlackBorder: '', nameGreenBorder: '', locationGreenBorder: ''});
+    } else if (section === 'vanity-url') {
+      this.setState({websiteGreenBorder: '', vanityUrlGreenBorder: 'green-support-border', biographyBlackBorder: '', nameGreenBorder: '', locationGreenBorder: ''});
+    } else if (section === 'biography') {
+      this.setState({websiteGreenBorder: '', vanityUrlGreenBorder: '', biographyBlackBorder: 'black-border', nameGreenBorder: '', locationGreenBorder: ''});
+    } else if (section === 'name') {
+      this.setState({websiteGreenBorder: '', vanityUrlGreenBorder: '', biographyBlackBorder: '', nameGreenBorder: 'green-support-border', locationGreenBorder: ''});
+    } else if (section === 'location') {
+      this.setState({websiteGreenBorder: '', vanityUrlGreenBorder: '', biographyBlackBorder: '', nameGreenBorder: '', locationGreenBorder: 'green-support-border'});
+    }
+  }
+
+  addWebsite() {
+    let websites = this.state.websites;
+    websites.push(this.state.website);
+    this.setState({websites});
+  }
+
+  update(field) {
+    return (e) => this.setState({[field]: e.target.value});
   }
 
   render() {
@@ -59,6 +94,15 @@ class EditProfile extends React.Component {
         <strong>Choose an image from your computer</strong>
       </div>;
     }
+    let websites = [];
+    for (let i = 0; i < this.state.websites.length; i++) {
+      websites.push(<div className='url-list'>
+        {this.state.websites[i]}
+        <div className='url-list-times-box'>
+          <i className="url-list-times fas fa-times"></i>
+        </div>
+      </div>);
+    }
     return (
       <div>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
@@ -86,7 +130,7 @@ class EditProfile extends React.Component {
                   <ul>
                     <li>
                       <span><strong>Name</strong></span>
-                      <input type='text' defaultValue='Grace' />
+                      <input onChange={this.update('name')} className={`${this.state.nameGreenBorder}`} onClick={() => this.addGreenBorder('name')} type='text' defaultValue={this.state.name === '' ? Object.values(getState().entities.users)[0].name : this.state.name} />
                       <span>Heads up: Once you launch a project, you cannot make changes to your name on StartSmart.</span>
                     </li>
                     <li>
@@ -98,7 +142,7 @@ class EditProfile extends React.Component {
                     </li>
                     <li>
                       <span><strong>Biography</strong></span>
-                      <textarea></textarea>
+                      <textarea onChange={this.update('biography')} value={Object.values(getState().entities.users)[0].biography === '' ? this.state.biography : Object.values(getState().entities.users)[0].biography} className={`${this.state.biographyBlackBorder}`} onClick={() => this.addGreenBorder('biography')}></textarea>
                       <span>We suggest a short bio. If it's 300 characters or less it'll look great on your profile.</span>
                     </li>
                     <li>
@@ -119,7 +163,7 @@ class EditProfile extends React.Component {
                       <span><strong>Location</strong></span>
                       <div className='edit-profile-location-input'>
                         <i className="edit-profile-search-icon fas fa-search"></i>
-                        <input type='text' placeholder='E.g. Brooklyn, NY' />
+                        <input className={`${this.state.locationGreenBorder}`} onClick={() => this.addGreenBorder('location')} type='text' placeholder='E.g. Brooklyn, NY' />
                       </div>
                     </li>
                     <li>
@@ -193,15 +237,16 @@ class EditProfile extends React.Component {
                     <li>
                       <span><strong>Vanity URL</strong></span>
                       <strong>https:&#47;&#47;www.startsmart.com/profile/</strong>
-                      <input className='vanity-url-input' type='text' />
+                      <input className={`vanity-url-input ${this.state.vanityUrlGreenBorder}`} type='text' onClick={() => this.addGreenBorder('vanity-url')}/>
                       <span>For example, if you'd like your URL to be www.startsmart.com/profile/polarbear, just type polarbear! Choose wisely though, once you set your vanity URL, it can't be reset.</span>
                     </li>
                     <li>
                       <span><strong>Websites</strong></span>
                       <div className='edit-profile-add-websites'>
-                        <input type='text' />
-                        <button>Add</button>
+                        <input onChange={this.update('website')} className={`${this.state.websiteGreenBorder}`} type='text' onClick={() => this.addGreenBorder('website')} />
+                        <button onClick={() => this.addWebsite()}>Add</button>
                       </div>
+                      {websites}
                     </li>
                   </ul>
                 </div>
@@ -211,7 +256,7 @@ class EditProfile extends React.Component {
             <div className='edit-profile-footer'>
               <div className='save-settings-two'>
                 <input type='submit' value='Save settings' />
-                <span>View profile</span>
+                <span><Link to={`/profile/${getState().session.id}`}>View profile</Link></span>
               </div>
             </div>
           </div>

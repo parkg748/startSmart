@@ -8476,6 +8476,7 @@ strong {
   font-size: 14px;
   font-weight: 100;
   resize: none;
+  transition: all 0.4s ease-in-out;
 }
 
 .private-profile-checkbox span {
@@ -8553,9 +8554,12 @@ strong {
   width: 186px;
   height: 17px;
   padding: 12px;
+  font-size: 14px;
+  font-weight: 100;
   border: 1px solid #DCDEDD;
   float: left;
   margin-right: 5px;
+  transition: all 0.4s ease-in-out;
 }
 
 .edit-profile-add-websites button {
@@ -8570,6 +8574,13 @@ strong {
   font-size: 14px;
   display: flex;
   align-items: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.edit-profile-add-websites button:hover {
+  background-color: #0030f3;
+  border: 2px solid #0030f3;
 }
 
 .vanity-url-input {
@@ -8579,6 +8590,7 @@ strong {
   border: 1px solid #DCDEDD;
   font-size: 14px;
   font-weight: 100;
+  transition: all 0.4s ease-in-out;
 }
 
 .edit-profile-right-one strong {
@@ -9010,6 +9022,12 @@ strong {
   text-align: center;
   font-size: 14px;
   float: left;
+  transition: all 0.2s ease-in-out;
+}
+
+.save-settings-two input:hover {
+  background-color: #0030f3;
+  border: 2px solid #0030f3;
 }
 
 .account-container-body-three {
@@ -11597,6 +11615,42 @@ iframe > body {
 
 .green-support-border {
   border: 1px solid #009E74 !important;
+  transition: all 0.4s ease-in-out;
+}
+
+.url-list {
+  width: 50%;
+  height: 16px;
+  padding: 12px;
+  margin-bottom: 5px;
+  background-color: #EFEFF3;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 100;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.url-list-times-box {
+  right: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.url-list-times-box:hover {
+  background-color: #d2d2dd;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.url-list-times {
+  margin-right: 0;
 }
 
 .green-currency-support-border {
