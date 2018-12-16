@@ -18,6 +18,7 @@ class EditProfile extends React.Component {
                   websites: []};
     this.addGreenBorder = this.addGreenBorder.bind(this);
     this.addWebsite = this.addWebsite.bind(this);
+    this.deleteWebsite = this.deleteWebsite.bind(this);
   }
 
   componentDidMount() {
@@ -63,6 +64,12 @@ class EditProfile extends React.Component {
     this.setState({websites});
   }
 
+  deleteWebsite(idx) {
+    let websites = this.state.websites;
+    websites = [...websites.slice(0, idx), ...websites.slice(idx + 1)];
+    this.setState({websites});
+  }
+
   update(field) {
     return (e) => this.setState({[field]: e.target.value});
   }
@@ -98,7 +105,7 @@ class EditProfile extends React.Component {
     for (let i = 0; i < this.state.websites.length; i++) {
       websites.push(<div className='url-list'>
         {this.state.websites[i]}
-        <div className='url-list-times-box'>
+        <div onClick={() => this.deleteWebsite(i)} className='url-list-times-box'>
           <i className="url-list-times fas fa-times"></i>
         </div>
       </div>);
