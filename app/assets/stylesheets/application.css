@@ -8379,7 +8379,7 @@ strong {
 }
 
 .account-container-body {
-  height: 763px;
+  height: fit-content;
   padding: 0 18px 0 18px;
   margin-left: 182px;
   margin-right: 182px;
@@ -8414,9 +8414,10 @@ strong {
 }
 
 .edit-profile-body-one {
-  height: 638px;
+  height: fit-content;
   margin-left: -18px;
   margin-right: -18px;
+  display: flex;
 }
 
 .account-container-body-two {
@@ -8433,7 +8434,6 @@ strong {
   padding: 0 18px 0 18px;
   margin-right: 89px;
   margin-bottom: 20px;
-  float: left;
 }
 
 .account-container-body-two form {
@@ -8482,7 +8482,6 @@ strong {
 .private-profile-checkbox span {
   font-size: 14px;
   font-weight: 100;
-  float: left;
 }
 
 .private-profile-checkbox input {
@@ -8521,7 +8520,6 @@ strong {
   width: 412px;
   height: 92px;
   margin-top: 6px;
-  float: left;
 }
 
 .privacy-description p {
@@ -8532,22 +8530,22 @@ strong {
 }
 
 .edit-profile-right {
-  float: left;
   width: 502px;
-  height: 496px;
+  height: fit-content;
   padding: 7px 18px 0 18px;
   margin-bottom: 20px;
 }
 
 .edit-profile-right-one {
   width: 502px;
-  height: 496px;
+  height: fit-content;
 }
 
 .edit-profile-add-websites {
   width: 284px;
   height: 43px;
   margin-bottom: 5px;
+  display: flex;
 }
 
 .edit-profile-add-websites input {
@@ -8557,13 +8555,11 @@ strong {
   font-size: 14px;
   font-weight: 100;
   border: 1px solid #DCDEDD;
-  float: left;
   margin-right: 5px;
   transition: all 0.4s ease-in-out;
 }
 
 .edit-profile-add-websites button {
-  float: left;
   width: 23px;
   height: 14px;
   padding: 10px 20px 13px 20px;
@@ -8643,7 +8639,6 @@ strong {
   border-radius: 6px;
   width: 502px;
   padding: 10px 40px 10px 10px;
-  float: left;
   font-size: 14px;
   font-weight: 100;
   background-color: white;
@@ -9008,7 +9003,7 @@ strong {
 }
 
 .edit-profile-container {
-  height: 993px;
+  height: fit-content;
   border-top: 1px solid black;
 }
 
