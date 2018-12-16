@@ -32,7 +32,6 @@ ul {
 
 .explore-project {
   display: block;
-  float: left;
   padding-top: 1.7rem;
   padding-bottom: 1.7rem;
   padding-left: 1.8rem;
@@ -59,7 +58,6 @@ ul {
 }
 
 .search-signin {
-  float: right;
   padding-right: 2.4rem;
   padding-top: 1.7rem;
   padding-bottom: 1.7rem;
@@ -73,7 +71,6 @@ ul {
 
 .search {
   margin-left: 0.6rem;
-  float: left;
 }
 
 .login:hover {
@@ -133,6 +130,7 @@ form h2 {
 
 .login-form-container {
   margin-bottom: 0.9rem;
+  position: relative;
 }
 
 .error-email-msg {
@@ -144,19 +142,24 @@ form h2 {
 }
 
 .signup-weekly-checkbox {
-  display: inline;
+  display: block;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-right: 20px;
   width: 10px;
   margin-right: 0;
-  float: left;
 }
 
 .signup-weekly-newsletter {
   display: inline;
   font-weight: 100;
   font-size: 14px;
+}
+
+.weekly-newsletter {
+  display: flex;
+  align-items: center;
+  height: fit-content;
 }
 
 .create-account-container {
@@ -293,7 +296,6 @@ nav {
 }
 
 .footer-links {
-  float: left;
   padding-top: 1.7rem;
   padding-bottom: 1.7rem;
   padding-left: 30px;
@@ -386,14 +388,15 @@ nav {
 }
 
 .error-email-msg-show {
-  display: block;
+  display: flex;
+  align-items: center;
   box-shadow: 3px 5px 5px rgb(155,158,158);
   border: 1px solid rgb(155,158,158);
   padding: 10px;
   border-radius: 4px;
   font-size: 14px;
   width: auto;
-  top: 425px;
+  top: 170px;
   position: absolute;
   background-color: white;
 }
@@ -413,7 +416,6 @@ nav {
 }
 
 .fa-exclamation-circle {
-  float: left;
   color: orange;
   display: block;
   padding-top: 10px;
@@ -7453,7 +7455,6 @@ strong {
   border: 1px solid black;
   margin: 6px 18px 0 0;
   background-color: white;
-  float: right;
   position: absolute;
   right: 0;
   z-index: 3;
@@ -7467,12 +7468,12 @@ strong {
 
 .profile-menu-body {
   height: 295px;
+  display: flex;
 }
 
 .profile-menu-body-left {
   width: 229px;
   height: 295px;
-  float: left;
 }
 
 .profile-menu-body-left-header {
@@ -7501,7 +7502,6 @@ strong {
 .profile-menu-body-middle {
   width: 153px;
   height: 295px;
-  float: left;
 }
 
 .profile-menu-body-middle ul {
@@ -7522,7 +7522,6 @@ strong {
 }
 
 .profile-menu-body-right {
-  float: left;
   width: 310px;
   height: 295px;
 }
@@ -9324,6 +9323,7 @@ strong {
   width: 100%;
   height: max-content;
   padding-bottom: 42px;
+  position: relative;
 }
 
 .preview-form-alert {
@@ -9357,6 +9357,8 @@ strong {
 
 .project-front-navbar {
   height: 71px;
+  position: sticky;
+  top: 0;
   background-color: white;
   border-top: 1px solid #DCDEDD;
   border-bottom: 1px solid #DCDEDD;
@@ -9383,7 +9385,6 @@ strong {
   margin-right: 0;
   display: flex;
   align-items: center;
-  float: left;
   position: relative;
 }
 
@@ -9514,7 +9515,6 @@ iframe > body {
 }
 
 .preview-form-body-header-three {
-  float: left;
   height: 147px;
   width: 177px;
   padding-top: 0 18px;
@@ -9529,7 +9529,6 @@ iframe > body {
 }
 
 .preview-form-body-header-four-front {
-  float: left;
   height: 165px;
   width: 711px;
   padding-top: 0 18px;
@@ -9616,7 +9615,6 @@ iframe > body {
   height: 516px;
   width: 60%;
   padding: 0 18px;
-  float: left;
 }
 
 .preview-body-content-two {
@@ -9703,7 +9701,6 @@ iframe > body {
   height: 3px;
   margin-bottom: 18px;
   background-color: #037362;
-  float: left;
   width: 100%;
 }
 
@@ -9748,7 +9745,6 @@ iframe > body {
   font-size: 16px !important;
   display: flex !important;
   justify-content: center !important;
-  float: left;
 }
 
 .back-this-project-button:hover {
@@ -9815,7 +9811,6 @@ iframe > body {
 }
 
 .remind-me-button {
-  float: left;
   font-size: 14px !important;
   font-weight: 100;
   height: 42px !important;
@@ -9865,7 +9860,6 @@ iframe > body {
   font-weight: 100;
   font-size: 12px;
   width: 100%;
-  float: left;
   display: block;
   line-height: 18px;
 }
@@ -9941,7 +9935,6 @@ iframe > body {
   width: 322px;
   height: 100%;
   padding: 0 18px;
-  float: left;
 }
 
 .project-front-comments-body-right {
@@ -10282,7 +10275,6 @@ iframe > body {
   width: 681px;
   height: 100%;
   padding: 0 18px 55px;
-  float: left;
 }
 
 .project-front-faq-body-left {
@@ -10394,6 +10386,7 @@ iframe > body {
   margin-right: -18px;
   width: 1076px;
   height: 100%;
+  display: flex;
 }
 
 .preview-bottom-four {
