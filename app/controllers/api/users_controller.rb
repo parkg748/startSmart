@@ -21,6 +21,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @projects = @user.projects
+    @backed_projects = @user.backed_projects
     render 'api/users/show'
   end
 
@@ -30,6 +31,6 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:id, :name, :email, :password, :biography, :websites, :google_analytics, :projects, :profile_url)
+    params.require(:user).permit(:id, :name, :email, :password, :biography, :websites, :google_analytics, :projects, :profile_url, :backed_projects)
   end
 end

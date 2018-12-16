@@ -33,5 +33,14 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: 'Project'
 
+  has_many :backings,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Backing'
+
+  has_many :backed_projects,
+    through: :backings,
+    source: :project
+
   has_one_attached :profile_url
 end

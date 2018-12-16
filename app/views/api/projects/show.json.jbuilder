@@ -1,6 +1,7 @@
 json.set! @project.id do
   json.extract! @project, :id, :title, :description, :duration, :pledge_amt, :eta, :shipping, :limit, :city, :state, :country, :funding_goal, :category_id, :user_id, :category, :subcategory, :challenges, :editor_html, :time, :created_at
   json.rewards @rewards
+  json.backers @backers
   json.imageUrl (@project.image_url.attached? ? url_for(@project.image_url) : "")
 end
 # json.project do
