@@ -1,7 +1,7 @@
 import React from 'react';
 import IFrame from './iframe';
 
-function Campaign({ content, styles, onClick }) {
+function Campaign({ content, styles, onClick, addGreenBorder, greenBorder, currencyGreenBorder, blackBorder }) {
   return (
     <div className='preview-bottom-front'>
       <div className='project-front-body'>
@@ -22,14 +22,14 @@ function Campaign({ content, styles, onClick }) {
             <div className='project-front-body-right'>
               <h3>Support</h3>
               <ul>
-                <li className={onClick}>
+                <li className={`${onClick} ${blackBorder}`}>
                   <div className='make-a-pledge-inner'>Make a pledge without a reward</div>
                   <div className='make-a-pledge-inner-inner'>
                     <div className='make-a-pledge-input'>
                       <div className='make-a-pledge-input-inner'>
                         <div className='make-a-pledge-input-inner-inner'>
-                          <div className='make-a-pledge-currency'>£</div>
-                          <input type='text' value='10' />
+                          <div className={`make-a-pledge-currency ${currencyGreenBorder}`}>£</div>
+                          <input className={`${greenBorder}`} onClick={addGreenBorder} type='text' placeholder='10' />
                         </div>
                         <div className='make-a-pledge-currency-disclaimer'>ABOUT $13</div>
                       </div>

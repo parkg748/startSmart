@@ -15,7 +15,10 @@ class ProjectView extends React.Component {
                   addBackground: '',
                   userInfoModal: 'js-modal-close',
                   onClick: 'make-a-pledge',
-                  projectView: 'campaign'};
+                  projectView: 'campaign',
+                  greenBorder: '',
+                  currencyGreenBorder: '',
+                  blackBorder: ''};
     this.currentTimeNum = 0;
     this.currentTime = 'days';
     this.showUserBio = this.showUserBio.bind(this);
@@ -23,6 +26,7 @@ class ProjectView extends React.Component {
     this.changeBorder = this.changeBorder.bind(this);
     this.calculate = this.calculate.bind(this);
     this.viewProjectBody = this.viewProjectBody.bind(this);
+    this.addGreenBorder = this.addGreenBorder.bind(this);
   }
 
   componentDidMount() {
@@ -145,6 +149,10 @@ class ProjectView extends React.Component {
     this.setState({projectView: tab});
   }
 
+  addGreenBorder() {
+    this.setState({greenBorder: 'green-support-border', currencyGreenBorder: 'green-currency-support-border', blackBorder: 'black-border'});
+  }
+
   render() {
     if (Object.values(getState().entities.users)[0] === null || getState().session.id === null || getState().session.id === undefined) return <Redirect to='/login' />;
     if (Object.values(this.props.project).length === 0) return null;
@@ -193,7 +201,7 @@ class ProjectView extends React.Component {
     let endDate = new Date(project.eta.split('-')).toString().split('-')[0];
     let currentProjectBody = '';
     if (this.state.projectView === 'campaign') {
-      currentProjectBody = <Campaign content={content} styles={styles} onClick={this.state.onClick} />;
+      currentProjectBody = <Campaign content={content} styles={styles} onClick={this.state.onClick} addGreenBorder={() => this.addGreenBorder()} greenBorder={this.state.greenBorder} currencyGreenBorder={this.state.currencyGreenBorder} blackBorder={this.state.blackBorder} />;
     } else if (this.state.projectView === 'faq') {
       currentProjectBody = <FAQ content={content} styles={styles} onClick={this.state.onClick} />;
     } else if (this.state.projectView === 'updates') {

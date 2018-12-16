@@ -10163,11 +10163,11 @@ iframe > body {
 
 .make-a-pledge-input-inner-inner {
   height: 42px;
+  display: flex;
 }
 
 .make-a-pledge-input-inner-inner input {
   width: 221px;
-  float: left;
   height: 22px;
   padding: 10px;
   border: 1px solid #DCDEDD;
@@ -10262,7 +10262,6 @@ iframe > body {
   border-top: 1px solid #DCDEDD;
   border-left: 1px solid #DCDEDD;
   border-bottom: 1px solid #DCDEDD;
-  float: left;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11558,4 +11557,18 @@ iframe > body {
   width: 80px;
   height: 3px;
   left: 416px;
+}
+
+.green-support-border {
+  border: 1px solid #009E74 !important;
+}
+
+.green-currency-support-border {
+  border-top: 1px solid #009E74 !important;
+  border-left: 1px solid #009E74 !important;
+  border-bottom: 1px solid #009E74 !important;
+}
+
+.black-border {
+  border: 1px solid black;
 }
