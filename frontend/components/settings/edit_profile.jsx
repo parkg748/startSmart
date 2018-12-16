@@ -50,10 +50,19 @@ class EditProfile extends React.Component {
         };
       });
     }
+    let pictureUploadContainer = '';
+    if (Object.values(getState().entities.users)[0].profileUrl === '') {
+      pictureUploadContainer = <strong>Choose an image from your computer</strong>;
+    } else {
+      pictureUploadContainer = <div className='edit-profile-choose-image-inner'>
+        <img src={`${Object.values(getState().entities.users)[0].profileUrl}`}/>
+        <strong>Choose an image from your computer</strong>
+      </div>;
+    }
     return (
       <div>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='edit-profile-container'>
           <div className='account-container-header'>
             <div className='account-container-header-one'>
@@ -83,7 +92,7 @@ class EditProfile extends React.Component {
                     <li>
                       <span><strong>Picture</strong></span>
                       <div className='edit-profile-choose-image'>
-                        <strong>Choose an image from your computer</strong>
+                        {pictureUploadContainer}
                       </div>
                       <span>JPEG, PNG, GIF, or BMP • 200MB file limit</span>
                     </li>
@@ -183,7 +192,7 @@ class EditProfile extends React.Component {
                     </li>
                     <li>
                       <span><strong>Vanity URL</strong></span>
-                      <strong>https:&#47;&#47;startsmart.com/profile/</strong>
+                      <strong>https:&#47;&#47;www.startsmart.com/profile/</strong>
                       <input className='vanity-url-input' type='text' />
                       <span>For example, if you'd like your URL to be www.startsmart.com/profile/polarbear, just type polarbear! Choose wisely though, once you set your vanity URL, it can't be reset.</span>
                     </li>

@@ -5,8 +5,7 @@ import {fetchProjects, deleteProject} from '../../actions/project_actions';
 
 const mapStateToProps = state => {
   return {
-    user: state.entities.users,
-    class: {displayProfileMenu: 'js-modal-close'}
+    user: state.entities.users
   };
 };
 

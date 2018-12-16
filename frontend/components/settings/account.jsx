@@ -6,7 +6,8 @@ import MyStuffNav from '../mystuff/mystuff_nav';
 class Account extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  email: ''};
   }
 
   componentDidMount() {
@@ -30,6 +31,10 @@ class Account extends React.Component {
   changeProjectPage(idx) {
     this.props.history.push(`/users/${getState().session.id.id}/projects/${idx}`);
     window.location.reload();
+  }
+
+  update(field) {
+    return (e) => this.setState({[field]: e.target.value});
   }
 
   render() {
@@ -77,7 +82,7 @@ class Account extends React.Component {
                   <ul>
                     <li>
                       <span><strong>Email</strong></span>
-                      <input type='text' />
+                      <input type='text' onChange={this.update('email')} value={this.state.email === '' ? Object.values(getState().entities.users)[0].email : this.state.email}/>
                       <span><strong>Unverified</strong> <Link className='policy-link thin-font' to='/'>Re-send verification-email</Link></span>
                     </li>
                     <li>
@@ -86,7 +91,7 @@ class Account extends React.Component {
                     </li>
                     <li>
                       <span><strong>Current Password</strong></span>
-                      <input type='text' />
+                      <input type='password' />
                       <span className='thin-font'>Enter your current password to save these changes.</span>
                     </li>
                   </ul>
