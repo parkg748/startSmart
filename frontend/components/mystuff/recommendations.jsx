@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
-import Modal from './modal';
+import Modal from '../modal';
+import MyStuffNav from './mystuff_nav';
 
 class Recommendations extends React.Component {
   constructor(props) {
@@ -154,18 +155,8 @@ class Recommendations extends React.Component {
     // });
     return (
       <div>
-        <nav>
-          <section className='explore-project'>
-            <Link to='/explore' className='explore'>Explore</Link>
-            <Link to='/learn' className='project'>Start a project</Link>
-          </section>
-          <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-          <section className={`search-signin ${navbarWidth}`}>
-            <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
-            {profile}
-          </section>
-        </nav>
-
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.users)[0]} userId={getState().session.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='recommendations-header'>
           <div className='recommendations-header-content'>
             <div className='recommendations-header-content-inner'>

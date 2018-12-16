@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
-import FollowingFacebook from './following_facebook';
-import {logout, fetchUser} from '../actions/session_actions';
-import {fetchProjects} from '../actions/project_actions';
+import SavedProject from './saved_project';
+import {logout, fetchUser} from '../../actions/session_actions';
+import {fetchProjects, fetchProjectsByCurrentUser} from '../../actions/project_actions';
 
 const mapStateToProps = state => {
   return {
@@ -14,8 +14,9 @@ const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
     fetchProjects: () => dispatch(fetchProjects()),
+    fetchProjectsByCurrentUser: userId => dispatch(fetchProjectsByCurrentUser(userId)),
     fetchUser: userId => dispatch(fetchUser(userId))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FollowingFacebook);
+export default connect(mapStateToProps, mapDispatchToProps)(SavedProject);

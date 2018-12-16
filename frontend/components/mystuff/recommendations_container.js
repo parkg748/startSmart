@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import Recommendations from './recommendations';
-import {logout} from '../actions/session_actions';
-import {fetchProjects} from '../actions/project_actions';
-import {fetchCategories} from '../actions/category_actions';
-import {fetchAllUsers, fetchUser} from '../actions/session_actions';
+import {logout} from '../../actions/session_actions';
+import {fetchProjects} from '../../actions/project_actions';
+import {fetchCategories} from '../../actions/category_actions';
+import {fetchAllUsers, fetchUser} from '../../actions/session_actions';
 
 const mapStateToProps = state => {
   return {
