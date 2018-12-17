@@ -12322,7 +12322,7 @@ iframe > body {
 }
 
 .featured-project-recommended-left h1 {
-  height: 36px;
+  height: fit-content;
   padding: 18px 0 12px 0;
   color: #282828;
   font-size: 28px;
@@ -12348,6 +12348,14 @@ iframe > body {
   font-weight: 100;
   color: #656969;
   font-size: 12px;
+}
+
+.featured-project-recommended-left-main-author a {
+  cursor: pointer;
+}
+
+.featured-project-recommended-left-main-author a:hover {
+  text-decoration: underline;
 }
 
 .featured-project-recommended-right {
@@ -12476,16 +12484,31 @@ iframe > body {
   height: 459px;
 }
 
-.guides-creative-independent-column img {
-  background-color: pink;
+.guides-creative-independent-column-image {
   height: 360px;
   margin-bottom: 12px;
   width: 100%;
+  cursor: pointer;
+  position: relative;
 }
 
-.guides-creative-independent-column img:hover {
+.guides-creative-independent-column-image img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.green-overlay {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
   background-color: rgba(3,115,98,0.1);
-  opacity: 0.5;
+  position: absolute;
+  top: 0;
+}
+
+.green-overlay:hover {
+  opacity: 1;
   transition: opacity 0.25s ease-in-out;
 }
 
@@ -12543,6 +12566,10 @@ iframe > body {
   cursor: pointer;
 }
 
+.explore-theater-header-view-more:hover {
+  text-decoration: underline;
+}
+
 .explore-theater-columns {
   display: flex;
   justify-content: space-between;
@@ -12550,7 +12577,7 @@ iframe > body {
 
 .explore-theater-column {
   width: 23%;
-  height: 350px;
+  height: fit-content;
   padding-bottom: 18px;
   display: flex;
   flex-flow: column;
@@ -12558,7 +12585,10 @@ iframe > body {
 
 .explore-theater-column img {
   width: 100%;
-  background-color: black;
+  height: 161px;
+}
+
+.explore-theater-column-image {
   height: 161px;
 }
 
@@ -12636,7 +12666,7 @@ iframe > body {
 
 .postcommodity img {
   width: 100%;
-  background-color: black;
+  object-fit: cover;
   height: 240px;
 }
 
