@@ -206,7 +206,7 @@ class Arts extends React.Component {
               <div className='explore-theater-inner-inner'>
                 <div className='explore-theater-header'>
                   <h3>EXPLORE THEATER</h3>
-                  <div className='explore-theater-header-view-more'>View more</div>
+                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/theater'>View more</Link></div>
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
@@ -214,7 +214,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectTheater[0] && theaterUsersProjects[0] ? `/users/${theaterUsersProjects[0].id}/projects/${projectTheater[0].id}` : '/'}><h1>{projectTheater[0] ? projectTheater[0].title : ''}</h1></Link>
+                    <Link to={projectTheater[0] && theaterUsersProjects[0] ? `/users/${theaterUsersProjects[0].id}/projects/${projectTheater[0].id}` : '/'}><h1>{projectTheater[0] ? projectTheater[0].title : ''}</h1></Link>
                     <p>{projectTheater[0] ? projectTheater[0].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{theaterUsersProjects[0] ? theaterUsersProjects[0].name : ''}</span></div>
                   </div>
@@ -223,7 +223,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectTheater[1] && theaterUsersProjects[1] ? `/users/${theaterUsersProjects[1].id}/projects/${projectTheater[1].id}` : '/'}><h1>{projectTheater[1] ? projectTheater[1].title : ''}</h1></Link>
+                    <Link to={projectTheater[1] && theaterUsersProjects[1] ? `/users/${theaterUsersProjects[1].id}/projects/${projectTheater[1].id}` : '/'}><h1>{projectTheater[1] ? projectTheater[1].title : ''}</h1></Link>
                     <p>{projectTheater[1] ? projectTheater[1].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{theaterUsersProjects[1] ? theaterUsersProjects[1].name : ''}</span></div>
                   </div>
@@ -232,7 +232,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectTheater[2] && theaterUsersProjects[2] ? `/users/${theaterUsersProjects[2].id}/projects/${projectTheater[2].id}` : '/'}><h1>{projectTheater[2] ? projectTheater[2].title : ''}</h1></Link>
+                    <Link to={projectTheater[2] && theaterUsersProjects[2] ? `/users/${theaterUsersProjects[2].id}/projects/${projectTheater[2].id}` : '/'}><h1>{projectTheater[2] ? projectTheater[2].title : ''}</h1></Link>
                     <p>{projectTheater[2] ? projectTheater[2].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{theaterUsersProjects[2] ? theaterUsersProjects[2].name : ''}</span></div>
                   </div>
@@ -241,7 +241,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectTheater[3] && theaterUsersProjects[3] ? `/users/${theaterUsersProjects[3].id}/projects/${projectTheater[3].id}` : '/'}><h1>{projectTheater[3] ? projectTheater[3].title : ''}</h1></Link>
+                    <Link to={projectTheater[3] && theaterUsersProjects[3] ? `/users/${theaterUsersProjects[3].id}/projects/${projectTheater[3].id}` : '/'}><h1>{projectTheater[3] ? projectTheater[3].title : ''}</h1></Link>
                     <p>{projectTheater[3] ? projectTheater[3].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{theaterUsersProjects[3] ? theaterUsersProjects[3].name : ''}</span></div>
                   </div>
@@ -278,7 +278,7 @@ class Arts extends React.Component {
               <div className='explore-theater-inner-inner'>
                 <div className='explore-theater-header'>
                   <h3>EXPLORE VISUAL ART</h3>
-                  <div className='explore-theater-header-view-more'>View more</div>
+                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/art'>View more</Link></div>
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
@@ -286,7 +286,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectArt[0] && artsUsersProjects[0] ? `/users/${artsUsersProjects[0].id}/projects/${projectArt[0].id}` : '/'}><h1>{projectArt[0] ? projectArt[0].title : ''}</h1></Link>
+                    <Link to={projectArt[0] && artsUsersProjects[0] ? `/users/${artsUsersProjects[0].id}/projects/${projectArt[0].id}` : '/'}><h1>{projectArt[0] ? projectArt[0].title : ''}</h1></Link>
                     <p>{projectArt[0] ? projectArt[0].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{artsUsersProjects[0] ? artsUsersProjects[0].name : ''}</span></div>
                   </div>
@@ -295,7 +295,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectArt[1] && artsUsersProjects[1] ? `/users/${artsUsersProjects[1].id}/projects/${projectArt[1].id}` : '/'}><h1>{projectArt[1] ? projectArt[1].title : ''}</h1></Link>
+                    <Link to={projectArt[1] && artsUsersProjects[1] ? `/users/${artsUsersProjects[1].id}/projects/${projectArt[1].id}` : '/'}><h1>{projectArt[1] ? projectArt[1].title : ''}</h1></Link>
                     <p>{projectArt[1] ? projectArt[1].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{artsUsersProjects[1] ? artsUsersProjects[1].name : ''}</span></div>
                   </div>
@@ -304,7 +304,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectArt[2] && artsUsersProjects[2] ? `/users/${artsUsersProjects[2].id}/projects/${projectArt[2].id}` : '/'}><h1>{projectArt[2] ? projectArt[2].title : ''}</h1></Link>
+                    <Link to={projectArt[2] && artsUsersProjects[2] ? `/users/${artsUsersProjects[2].id}/projects/${projectArt[2].id}` : '/'}><h1>{projectArt[2] ? projectArt[2].title : ''}</h1></Link>
                     <p>{projectArt[2] ? projectArt[2].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{artsUsersProjects[2] ? artsUsersProjects[2].name : ''}</span></div>
                   </div>
@@ -313,7 +313,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectArt[3] && artsUsersProjects[3] ? `/users/${artsUsersProjects[3].id}/projects/${projectArt[3].id}` : '/'}><h1>{projectArt[3] ? projectArt[3].title : ''}</h1></Link>
+                    <Link to={projectArt[3] && artsUsersProjects[3] ? `/users/${artsUsersProjects[3].id}/projects/${projectArt[3].id}` : '/'}><h1>{projectArt[3] ? projectArt[3].title : ''}</h1></Link>
                     <p>{projectArt[3] ? projectArt[3].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{artsUsersProjects[3] ? artsUsersProjects[3].name : ''}</span></div>
                   </div>
@@ -363,7 +363,7 @@ class Arts extends React.Component {
               <div className='explore-theater-inner-inner'>
                 <div className='explore-theater-header'>
                   <h3>EXPLORE DANCE</h3>
-                  <div className='explore-theater-header-view-more'>View more</div>
+                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/dance'>View more</Link></div>
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
@@ -371,7 +371,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectDance[0] && danceUsersProjects[0] ? `/users/${danceUsersProjects[0].id}/projects/${projectDance[0].id}` : '/'}><h1>{projectDance[0] ? projectDance[0].title : ''}</h1></Link>
+                    <Link to={projectDance[0] && danceUsersProjects[0] ? `/users/${danceUsersProjects[0].id}/projects/${projectDance[0].id}` : '/'}><h1>{projectDance[0] ? projectDance[0].title : ''}</h1></Link>
                     <p>{projectDance[0] ? projectDance[0].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{danceUsersProjects[0] ? danceUsersProjects[0].name : ''}</span></div>
                   </div>
@@ -380,7 +380,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectDance[1] && danceUsersProjects[1] ? `/users/${danceUsersProjects[1].id}/projects/${projectDance[1].id}` : '/'}><h1>{projectDance[1] ? projectDance[1].title : ''}</h1></Link>
+                    <Link to={projectDance[1] && danceUsersProjects[1] ? `/users/${danceUsersProjects[1].id}/projects/${projectDance[1].id}` : '/'}><h1>{projectDance[1] ? projectDance[1].title : ''}</h1></Link>
                     <p>{projectDance[1] ? projectDance[1].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{danceUsersProjects[1] ? danceUsersProjects[1].name : ''}</span></div>
                   </div>
@@ -389,7 +389,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectDance[2] && danceUsersProjects[2] ? `/users/${danceUsersProjects[2].id}/projects/${projectDance[2].id}` : '/'}><h1>{projectDance[2] ? projectDance[2].title : ''}</h1></Link>
+                    <Link to={projectDance[2] && danceUsersProjects[2] ? `/users/${danceUsersProjects[2].id}/projects/${projectDance[2].id}` : '/'}><h1>{projectDance[2] ? projectDance[2].title : ''}</h1></Link>
                     <p>{projectDance[2] ? projectDance[2].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{danceUsersProjects[2] ? danceUsersProjects[2].name : ''}</span></div>
                   </div>
@@ -398,7 +398,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectDance[3] && danceUsersProjects[3] ? `/users/${danceUsersProjects[3].id}/projects/${projectDance[3].id}` : '/'}><h1>{projectDance[3] ? projectDance[3].title : ''}</h1></Link>
+                    <Link to={projectDance[3] && danceUsersProjects[3] ? `/users/${danceUsersProjects[3].id}/projects/${projectDance[3].id}` : '/'}><h1>{projectDance[3] ? projectDance[3].title : ''}</h1></Link>
                     <p>{projectDance[3] ? projectDance[3].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{danceUsersProjects[3] ? danceUsersProjects[3].name : ''}</span></div>
                   </div>
@@ -435,7 +435,7 @@ class Arts extends React.Component {
               <div className='explore-theater-inner-inner'>
                 <div className='explore-theater-header'>
                   <h3>EXPLORE PHOTOGRAPHY</h3>
-                  <div className='explore-theater-header-view-more'>View more</div>
+                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/photography'>View more</Link></div>
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
@@ -443,7 +443,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectPhotography[0] && photographyUsersProjects[0] ? `/users/${photographyUsersProjects[0].id}/projects/${projectPhotography[0].id}` : '/'}><h1>{projectPhotography[0] ? projectPhotography[0].title : ''}</h1></Link>
+                    <Link to={projectPhotography[0] && photographyUsersProjects[0] ? `/users/${photographyUsersProjects[0].id}/projects/${projectPhotography[0].id}` : '/'}><h1>{projectPhotography[0] ? projectPhotography[0].title : ''}</h1></Link>
                     <p>{projectPhotography[0] ? projectPhotography[0].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{photographyUsersProjects[0] ? photographyUsersProjects[0].name : ''}</span></div>
                   </div>
@@ -452,7 +452,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectPhotography[1] && photographyUsersProjects[1] ? `/users/${photographyUsersProjects[1].id}/projects/${projectPhotography[1].id}` : '/'}><h1>{projectPhotography[1] ? projectPhotography[1].title : ''}</h1></Link>
+                    <Link to={projectPhotography[1] && photographyUsersProjects[1] ? `/users/${photographyUsersProjects[1].id}/projects/${projectPhotography[1].id}` : '/'}><h1>{projectPhotography[1] ? projectPhotography[1].title : ''}</h1></Link>
                     <p>{projectPhotography[1] ? projectPhotography[1].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{photographyUsersProjects[1] ? photographyUsersProjects[1].name : ''}</span></div>
                   </div>
@@ -461,7 +461,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectPhotography[2] && photographyUsersProjects[2] ? `/users/${photographyUsersProjects[2].id}/projects/${projectPhotography[2].id}` : '/'}><h1>{projectPhotography[2] ? projectPhotography[2].title : ''}</h1></Link>
+                    <Link to={projectPhotography[2] && photographyUsersProjects[2] ? `/users/${photographyUsersProjects[2].id}/projects/${projectPhotography[2].id}` : '/'}><h1>{projectPhotography[2] ? projectPhotography[2].title : ''}</h1></Link>
                     <p>{projectPhotography[2] ? projectPhotography[2].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{photographyUsersProjects[2] ? photographyUsersProjects[2].name : ''}</span></div>
                   </div>
@@ -470,7 +470,7 @@ class Arts extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link className='explore-theater-column-image' to={projectPhotography[3] && photographyUsersProjects[3] ? `/users/${photographyUsersProjects[3].id}/projects/${projectPhotography[3].id}` : '/'}><h1>{projectPhotography[3] ? projectPhotography[3].title : ''}</h1></Link>
+                    <Link to={projectPhotography[3] && photographyUsersProjects[3] ? `/users/${photographyUsersProjects[3].id}/projects/${projectPhotography[3].id}` : '/'}><h1>{projectPhotography[3] ? projectPhotography[3].title : ''}</h1></Link>
                     <p>{projectPhotography[3] ? projectPhotography[3].description : ''}</p>
                     <div className='explore-theater-column-author'>By <span>{photographyUsersProjects[3] ? photographyUsersProjects[3].name : ''}</span></div>
                   </div>
