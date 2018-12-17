@@ -8439,6 +8439,25 @@ strong {
   align-items: center;
 }
 
+.following-notifications-section-inner {
+  height: 27px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.new-pledge-activity {
+  height: fit-content;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.following-notifications-section {
+  height: fit-content;
+  margin-bottom: 40px;
+  display: flex;
+  flex-flow: column;
+}
+
 .notifications-right span {
   font-weight: 100;
   font-size: 18px;
@@ -8456,7 +8475,58 @@ strong {
   height: 27px;
   margin-right: 10px;
   display: flex;
-  font-size: 19px;
+  font-size: 17px;
+}
+
+.notification-frequency {
+  height: 71px;
+  margin: 12px 0;
+}
+
+.notification-frequency label {
+  height: 19px;
+  margin-bottom: 6px;
+  color: #292727;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.notification-frequency select {
+  -webkit-appearance: none;
+  border-radius: 0;
+  width: 192px;
+  padding: 10px 9px 10px 7px;
+  font-size: 15px;
+  font-weight: 100;
+  background-color: white;
+  -webkit-transition: border 1s;
+  transition: border 1s;
+  border: 1px solid #DCDEDD;
+  border-radius: 6px;
+  height: 44px;
+}
+
+.notification-frequency-inner {
+  position: relative;
+  width: 41%;
+}
+
+.notification-frequency-sort-up {
+  position: absolute;
+  top: 13px;
+  right: 7px;
+}
+
+.newsletters-notifications {
+  padding-top: 20px;
+  border-top: 1px solid #F1EEEA;
+  height: fit-content;
+}
+
+.notification-frequency-sort-down {
+  position: absolute;
+  top: 14px;
+  right: 7px;
 }
 
 .email-icon {
@@ -8464,6 +8534,84 @@ strong {
   height: 21px;
   margin: 0 10px 6px 0;
   color: #2752ff;
+}
+
+.newsletters-notifications-one {
+  height: 154px;
+  margin-bottom: 18px;
+}
+
+.newsletters-notifications-one p {
+  font-size: 16px;
+  font-family: "Cooper Light", Georgia, serif;
+  margin-bottom: 20px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.newsletters-notifications-one button {
+  width: 99px;
+  height: 21px;
+  padding: 10px 20px;
+  border: 2px solid #2752ff;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2752ff;
+}
+
+.notifications-boxes-left {
+  padding: 0 18px 20px 0;
+  width: 40%;
+  height: 498px;
+}
+
+.notifications-boxes-left-inner {
+  margin-bottom: 20px;
+  border: 1px solid #F1EEEA;
+}
+
+.notifications-boxes-left-inner img {
+  height: 240px;
+  background-color: black;
+}
+
+.notifications-boxes-left-inner-content {
+  height: 110px;
+  padding: 20px;
+}
+
+.notifications-boxes-left-inner-content h1 {
+  height: 25px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.notifications-boxes-left-inner-content p {
+  font-size: 18px;
+  color: #3D3D66;
+  line-height: 20px;
+}
+
+.notifications-boxes-left-bottom {
+  padding: 20px;
+  border-top: 1px solid #F1EEEA;
+}
+
+.notifications-boxes-left-bottom button {
+  width: 65px;
+  height: 21px;
+  padding: 10px 20px;
+  border: 2px solid #2752ff;
+  background-color: #2752ff;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .notifications-left a {

@@ -89,6 +89,137 @@ class Notifications extends React.Component {
                 <span>Project updates</span>
               </div>
               <hr></hr>
+              <label>Following</label>
+              <div className='following-notifications-section'>
+                <div className='following-notifications-section-inner'>
+                  <div className='email-phone'>
+                    <div className='email-icon'>
+                      <i className="fas fa-envelope"></i>
+                    </div>
+                    <div className='email-icon'>
+                      <i className="fas fa-mobile-alt"></i>
+                    </div>
+                  </div>
+                  <span>Someone you follow has backed or launched a project</span>
+                </div>
+                <div className='following-notifications-section-inner'>
+                  <div className='email-phone'>
+                    <div className='email-icon'>
+                      <i className="fas fa-envelope"></i>
+                    </div>
+                    <div className='email-icon'>
+                      <i className="fas fa-mobile-alt"></i>
+                    </div>
+                  </div>
+                  <span>Someone has followed you</span>
+                </div>
+              </div>
+              <hr></hr>
+              <label>Campus</label>
+              <div className='following-notifications-section'>
+                <div className='following-notifications-section-inner'>
+                  <div className='email-phone'>
+                    <div className='email-icon'>
+                      <i className="fas fa-envelope"></i>
+                    </div>
+                    <div className='email-icon'>
+                    </div>
+                  </div>
+                  <span>A new answer has been posted on a question you follow</span>
+                </div>
+                <div className='following-notifications-section-inner'>
+                  <div className='email-phone'>
+                    <div className='email-icon'>
+                      <i className="fas fa-envelope"></i>
+                    </div>
+                    <div className='email-icon'>
+                    </div>
+                  </div>
+                  <span>A daily digest of any follows or upvotes on your posts</span>
+                </div>
+              </div>
+              <hr></hr>
+              <label>Projects you've launched</label>
+              <div className='following-notifications-section'>
+                <div className='new-pledge-activity'>
+                  <div className='email-phone'>
+                    <div className='email-icon'>
+                      <i className="fas fa-envelope"></i>
+                    </div>
+                    <div className='email-icon'>
+                    </div>
+                  </div>
+                  <div>
+                    <span>New pledge activity (backings, adjustments, cancellations)</span>
+                    <div className='notification-frequency'>
+                      <label>Notification frequency:</label>
+                      <div className='notification-frequency-inner'>
+                        <select value='daily-digest'>
+                          <option value='individual-emails'>Individual Emails</option>
+                          <option value='daily-digest'>Daily Digest</option>
+                        </select>
+                        <i className="notification-frequency-sort-up fas fa-sort-up"></i>
+                        <i className="notification-frequency-sort-down fas fa-sort-down"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='following-notifications-section-inner'>
+                  <div className='email-phone'>
+                    <div className='email-icon'>
+                      <i className="fas fa-envelope"></i>
+                    </div>
+                    <div className='email-icon'>
+                    </div>
+                  </div>
+                  <span>New comments</span>
+                </div>
+                <div className='following-notifications-section-inner'>
+                  <div className='email-phone'>
+                    <div className='email-icon'>
+                      <i className="fas fa-envelope"></i>
+                    </div>
+                    <div className='email-icon'>
+                    </div>
+                  </div>
+                  <span>New likes</span>
+                </div>
+              </div>
+              <hr></hr>
+              <label>Tips for creators</label>
+              <div className='following-notifications-section'>
+                <div className='following-notifications-section-inner'>
+                  <div className='email-phone'>
+                    <div className='email-icon'>
+                      <i className="fas fa-envelope"></i>
+                    </div>
+                    <div className='email-icon'>
+                    </div>
+                  </div>
+                  <span>Advice and guidance to help you run your project</span>
+                </div>
+              </div>
+              <div className='newsletters-notifications'>
+                <div className='newsletters-notifications-one'>
+                  <h3>Newsletters</h3>
+                  <p>Stay up to date with our favorite projects, and any news and events that are on our radar.</p>
+                  <button>Subscribe to all</button>
+                </div>
+              </div>
+              <div className='notifications-boxes'>
+                <div className='notifications-boxes-left'>
+                  <div className='notifications-boxes-left-inner'>
+                    <img />
+                    <div className='notifications-boxes-left-inner-content'>
+                      <h1>Projects We Love</h1>
+                      <p>A weekly roundup of the best and brightest projects on Kickstarter, handpicked by our team.</p>
+                    </div>
+                    <div className='notifications-boxes-left-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
