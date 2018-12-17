@@ -323,7 +323,8 @@ class Homepage extends React.Component {
         <div className='category-contents-right-body'>
           <ul>
             <li>
-              <i className="category-contents-right-heart far fa-heart"></i>
+              <div id="category-contents-right-heart-id"><i className="category-contents-right-heart far fa-heart"></i></div>
+              <div id='category-contents-remind-me'>Remind Me</div>
               <Link className='category-contents-right-body-inner' to={`/users/${secondCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-2)[0].id : ''}/front`}>
                 <img src={currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].imageUrl : ''}/>
                 <div className='category-contents-right-body-content'>
@@ -333,7 +334,8 @@ class Homepage extends React.Component {
               </Link>
             </li>
             <li>
-              <i className="category-contents-right-heart far fa-heart"></i>
+              <div id="category-contents-right-heart-id"><i className="category-contents-right-heart far fa-heart"></i></div>
+              <div id='category-contents-remind-me'>Remind Me</div>
               <Link className='category-contents-right-body-inner' to={`/users/${thirdCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-3)[0].id : ''}/front`}>
                 <img src={currentPictureCategory.length > 2 ? currentPictureCategory.slice(-3)[0].imageUrl : ''}/>
                 <div className='category-contents-right-body-content'>
@@ -343,7 +345,8 @@ class Homepage extends React.Component {
               </Link>
             </li>
             <li>
-              <i className="category-contents-right-heart far fa-heart"></i>
+              <div id="category-contents-right-heart-id"><i className="category-contents-right-heart far fa-heart"></i></div>
+              <div id='category-contents-remind-me'>Remind Me</div>
               <Link className='category-contents-right-body-inner' to={`/users/${fourthCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-4)[0].id : ''}/front`}>
                 <img src={currentPictureCategory.length > 3 ? currentPictureCategory.slice(-4)[0].imageUrl : ''}/>
                 <div className='category-contents-right-body-content'>
@@ -353,7 +356,8 @@ class Homepage extends React.Component {
               </Link>
             </li>
             <li>
-              <i className="category-contents-right-heart far fa-heart"></i>
+              <div id="category-contents-right-heart-id"><i className="category-contents-right-heart far fa-heart"></i></div>
+              <div id='category-contents-remind-me'>Remind Me</div>
               <Link className='category-contents-right-body-inner' to={`/users/${fifthCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-5)[0].id : ''}/front`}>
                 <img src={currentPictureCategory.length > 4 ? currentPictureCategory.slice(-5)[0].imageUrl : ''}/>
                 <div className='category-contents-right-body-content'>

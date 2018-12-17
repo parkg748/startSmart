@@ -95,7 +95,7 @@ class Preview extends React.Component {
     } else if (seconds > 1) {
       this.currentTimeNum = seconds;
       this.currentTime = 'seconds';
-    } else if (second === 1) {
+    } else if (seconds === 1) {
       this.currentTimeNum = seconds / 1;
       this.currentTime = 'second';
     }

@@ -31,6 +31,7 @@ import {ProtectedRoute} from '../util/route_util';
 import ProjectViewContainer from './projects/project_view_container';
 import PledgeContainer from './pledge_container';
 import NotificationsContainer from './settings/notifications_container';
+import CheckoutContainer from './checkout_container';
 
 class App extends React.Component {
 
@@ -56,6 +57,7 @@ class App extends React.Component {
             <Route exact path='/users/:userId/projects/:projectId/pledge' component={PledgeContainer} />
             <Route exact path='/profile/following/find_creators' component={FollowingContainer} />
             <Route exact path='/profile/following/welcome' component={FollowingFacebookContainer} />
+            <Route exact path='/checkouts/:rewardId/payments/new' component={CheckoutContainer} />
             <Route exact path='/messages/inbox' component={MessagesContainer} />
             <Route exact path='/activity' component={ActivityContainer} />
             <Route exact path='/profile/backings' component={BackedProjectsContainer} />

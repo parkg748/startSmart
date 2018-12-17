@@ -1,5 +1,5 @@
 import React from 'react';
-import IFrame from './iframe';
+import {Link} from 'react-router-dom';
 
 function Comments({ content, styles, onClick }) {
   return (
@@ -8,7 +8,7 @@ function Comments({ content, styles, onClick }) {
         <div className='project-front-body-inner'>
           <div className='project-front-comments-body-inner-inner'>
             <div className='project-front-comments-body-left'>
-              <p>Only backers can post comments. <a>Login</a></p>
+              <p>Only backers can post comments. <Link to='/login'>Login</Link></p>
               <ul>
                 <li>
                   <div className='project-comments-box'>

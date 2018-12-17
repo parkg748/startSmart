@@ -123,10 +123,10 @@ class StartProject extends React.Component {
                 </div>
                 <div className='about-start-project-first-faq'>
                   <div className='about-start-project-first-faq-question'>
-                    <h3>What can I use Kickstarter to fund?</h3>
+                    <h3>What can I use StartSmart to fund?</h3>
                   </div>
                   <div className='about-start-project-first-faq-answer'>
-                    <p>Kickstarter is specifically for creative projects in the following categories: Art, Comics, Crafts, Dance, Design, Fashion, Film & Video, Food, Games, Journalism, Music, Photography, Publishing, Technology, and Theater. Make an album, write a book, create an immersive theater experience, score a film — you name it. Read more about <Link className='policy-link' to='/'>our project guidelines</Link>.</p>
+                    <p>StartSmart is specifically for creative projects in the following categories: Art, Comics, Crafts, Dance, Design, Fashion, Film & Video, Food, Games, Journalism, Music, Photography, Publishing, Technology, and Theater. Make an album, write a book, create an immersive theater experience, score a film — you name it. Read more about <Link className='policy-link' to='/'>our project guidelines</Link>.</p>
                   </div>
                 </div>
                 <div className='about-start-project-second-faq'>
@@ -134,7 +134,7 @@ class StartProject extends React.Component {
                     <h3>Who can I get pledges from?</h3>
                   </div>
                   <div className='about-start-project-first-faq-answer'>
-                    <p>Millions of people visit Kickstarter every week, but support always begins with people you know. Friends, fans, and the communities you’re a part of will likely be some of your earliest supporters, not to mention your biggest resources for spreading the word about your project.</p>
+                    <p>Millions of people visit StartSmart every week, but support always begins with people you know. Friends, fans, and the communities you’re a part of will likely be some of your earliest supporters, not to mention your biggest resources for spreading the word about your project.</p>
                   </div>
                 </div>
                 <div className='about-start-project-third-faq'>
@@ -142,7 +142,7 @@ class StartProject extends React.Component {
                     <h3>How much work is it to run a project?</h3>
                   </div>
                   <div className='about-start-project-first-faq-answer'>
-                    <p>Every Kickstarter project has its share of exhilarating and challenging moments, but the amount of work generally depends on the size and complexity of the project.</p>
+                    <p>Every StartSmart project has its share of exhilarating and challenging moments, but the amount of work generally depends on the size and complexity of the project.</p>
                     <p>Expect the first few days after launch to be very busy as you spread the word to your community, answer questions from potential backers, and more. You may need to spend the last few days rallying your social networks in order to reach your funding goal.</p>
                     <p>Projects sometimes take on a life of their own, and in that case you should expect to spend more time creating and fulfilling rewards.</p>
                   </div>
@@ -168,11 +168,11 @@ class StartProject extends React.Component {
                 <div className='why-startsmart-step-one'>
                   <div className='why-startsmart-step-one-title'>
                     <div className='number-one'>1</div>
-                    <h3>Kickstarter is <i>just</i> for creative projects.</h3>
+                    <h3>StartSmart is <i>just</i> for creative projects.</h3>
                   </div>
                   <div className='why-startsmart-step-one-body'>
                     <div className='why-startsmart-step-one-body-top'></div>
-                    <p>We built Kickstarter as a tool for artists, designers, makers, musicians, and creative people everywhere. We’re proud to be the only platform that’s fully dedicated to building community around creative projects.</p>
+                    <p>We built StartSmart as a tool for artists, designers, makers, musicians, and creative people everywhere. We’re proud to be the only platform that’s fully dedicated to building community around creative projects.</p>
                   </div>
                 </div>
                 <div className='why-startsmart-step-two'>
@@ -182,7 +182,7 @@ class StartProject extends React.Component {
                   </div>
                   <div className='why-startsmart-step-one-body'>
                     <div className='why-startsmart-step-one-body-top'></div>
-                    <p>Kickstarter’s all-or-nothing model allows you to choose a funding goal and a set number of days to reach that goal. This way, you don’t get stuck without enough funds to realize your project. It also gives backers incentive to pledge more to help you reach your goal.</p>
+                    <p>StartSmart’s all-or-nothing model allows you to choose a funding goal and a set number of days to reach that goal. This way, you don’t get stuck without enough funds to realize your project. It also gives backers incentive to pledge more to help you reach your goal.</p>
                   </div>
                 </div>
                 <div className='why-startsmart-step-one'>
@@ -192,7 +192,7 @@ class StartProject extends React.Component {
                   </div>
                   <div className='why-startsmart-step-one-body'>
                     <div className='why-startsmart-step-one-body-top'></div>
-                    <p>Millions of backers agree — helping to create something new is exciting. People love peeking behind the creative curtain and directly supporting the creative process. In fact, 13.9 million people have pledged more than $3.39 billion to bring Kickstarter projects to life over the years.</p>
+                    <p>Millions of backers agree — helping to create something new is exciting. People love peeking behind the creative curtain and directly supporting the creative process. In fact, 13.9 million people have pledged more than $3.39 billion to bring StartSmart projects to life over the years.</p>
                   </div>
                 </div>
               </div>

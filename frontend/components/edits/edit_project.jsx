@@ -24,7 +24,7 @@ class EditProject extends React.Component {
       subcategory: 'your-category',
       city: '',
       state: '',
-      duration: 0,
+      duration: 30,
       funding_goal: '€0',
       displayProfileMenu: 'js-modal-close',
       addItem: 'js-modal-close',
@@ -98,7 +98,7 @@ class EditProject extends React.Component {
                       subcategory: this.state.subcategory === 'your-category' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory,
                       city: this.state.city === '' ? Object.values(getState().entities.project)[0].city : this.state.city,
                       state: this.state.state === '' ? Object.values(getState().entities.project)[0].state : this.state.state,
-                      duration: this.state.duration === 0 ? Object.values(getState().entities.project)[0].duration : this.state.duration,
+                      duration: this.state.duration === 30 ? Object.values(getState().entities.project)[0].duration : this.state.duration,
                       funding_goal: this.state.funding_goal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.funding_goal,
                       eta: new Date(...this.state.finalDate),
                       time: this.state.finalTime};
@@ -162,7 +162,9 @@ class EditProject extends React.Component {
     } else if (field === 'end-of-date') {
       this.setState({radioChecked: ''});
     } else if (field === 'funding_goal') {
-      this.setState({[field]: e.target.value, radioChecked: 'checked'});
+      let fundingGoal = e.target.value;
+      fundingGoal = parseInt(fundingGoal);
+      this.setState({[field]: fundingGoal, radioChecked: 'checked'});
     } else if (field === 'category') {
       if (e.target.value === 'Film & Video') {
         this.setState({[field]: 'Film', category_id: Object.values(getState().entities.category).filter(el => el.name === 'Film')[0].id});
@@ -335,7 +337,7 @@ class EditProject extends React.Component {
                                 </div>
                               </div>
                           </div>
-                          <FundingDuration showCalendar={this.showCalendar} update={(e) => this.update(e)} calendar={calendar} />
+                          <FundingDuration showCalendar={this.showCalendar} update={(e) => this.update(e)} calendar={calendar} duration={Object.values(getState().entities.project)[0].duration === 0 ? this.state.duration : Object.values(getState().entities.project)[0].duration}/>
                           <div className='funding-goal'>
                             <div className='funding-goal-content'>
                               <div className='project-image-inner-title'>Funding goal</div>

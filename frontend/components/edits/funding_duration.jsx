@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FundingDuration({ showCalendar, update, calendar }) {
+function FundingDuration({ showCalendar, update, calendar, duration }) {
   return (
     <div>
       <fieldset id='eta-group'>
@@ -16,7 +16,7 @@ function FundingDuration({ showCalendar, update, calendar }) {
                   </div>
                   <div className='number-of-days-input'>
                     <div className='number-of-days-input-inner'>
-                      <input onChange={update('duration')} type='text' defaultValue='30'/>
+                      <input onChange={update('duration')} type='text' defaultValue={duration} />
                       <div className='number-of-days-input-inner-inner'>Up to 60 days, but we recommend 30 or fewer</div>
                     </div>
                   </div>
