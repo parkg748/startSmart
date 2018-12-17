@@ -12214,3 +12214,234 @@ iframe > body {
 .black-border {
   border: 1px solid black;
 }
+
+.categories-body {
+  height: fit-content;
+  padding-top: 60px;
+  border-top: 1px solid #DCDEDD;
+}
+
+.categories-header {
+  height: 111px;
+  padding: 0 60px;
+  margin: 0 37px 36px 37px;
+}
+
+.categories-header h3 {
+  height: 36px;
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  color: #282828;
+  font-size: 28px;
+  margin: 0;
+  font-weight: 100;
+}
+
+.categories-header p {
+  height: 24px;
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  padding-top: 12px;
+  margin-bottom: 18px;
+  color: #656969;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.subcategories-links {
+  margin-right: 24px;
+  color: #4C6CF8;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.subcategories-links:hover {
+  text-decoration: underline;
+}
+
+.featured-project-recommended {
+  height: fit-content;
+  border-bottom: 1px solid #DCDEDD;
+}
+
+.featured-project-recommended-inner {
+  height: 613px;
+  padding: 0 60px;
+  margin: 0 37px;
+  display: flex;
+}
+
+.featured-project-recommended-left {
+  width: 50%;
+  padding: 30px 60px 0 0;
+  border-right: 1px solid #DCDEDD;
+  margin-top: 24px;
+  height: 499px;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+}
+
+.featured-project-recommended-left h3 {
+  height: 18px;
+  margin: 0 0 18px 0;
+  font-weight: 500;
+  color: #656969;
+  font-size: 13px;
+}
+
+.featured-project-recommended-left img {
+  background-color: black;
+  height: 316px;
+  width: 100%;
+}
+
+.featured-project-recommended-left-main-heart {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgba(40,40,40,0.5);
+  cursor: pointer;
+  z-index: 2;
+  right: 78px;
+  top: 80px;
+}
+
+.featured-project-recommended-left-gray-bar {
+  background-color: #E8E8E8;
+  height: 12px;
+  position: relative;
+}
+
+.featured-project-recommended-left-green-bar {
+  background-color: #037362;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: -1px;
+}
+
+.featured-project-recommended-left h1 {
+  height: 36px;
+  padding: 18px 0 12px 0;
+  color: #282828;
+  font-size: 28px;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.featured-project-recommended-left h1:hover {
+  text-decoration: underline;
+  color: #037362;
+}
+
+.featured-project-recommended-left p {
+  height: fit-content;
+  padding-bottom: 24px;
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  color: #282828;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.featured-project-recommended-left-main-author {
+  font-weight: 100;
+  color: #656969;
+  font-size: 12px;
+}
+
+.featured-project-recommended-right {
+  width: 40%;
+  padding: 30px 0 0 60px;
+  margin-top: 24px;
+  height: 499px;
+}
+
+.featured-project-recommended-right h3 {
+  height: 18px;
+  margin: 0 0 18px 0;
+  font-weight: 500;
+  color: #656969;
+  font-size: 13px;
+}
+
+.featured-project-recommended-right li {
+  height: 93px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #DCDEDD;
+  display: flex;
+  margin-bottom: 18px;
+}
+
+.featured-project-recommended-right li > img {
+  background-color: black;
+  height: 100%;
+  width: 33%;
+  margin-right: 24px;
+}
+
+.feature-project-recommended-content {
+  width: 53%;
+  height: 100%;
+  display: flex;
+  flex-flow: wrap;
+  align-items: stretch;
+}
+
+.feature-project-recommended-content-title {
+  color: #282828;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.feature-project-recommended-content-title:hover {
+  text-decoration: underline;
+  color: #037362;
+}
+
+.feature-project-recommended-content span {
+  color: #037362;
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 12px;
+  width: 100%;
+}
+
+.feature-project-recommended-content-author {
+  font-weight: 100;
+  color: #656969;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.feature-project-recommended-content-author a {
+  cursor: pointer;
+}
+
+.feature-project-recommended-content-author a:hover {
+  text-decoration: underline;
+}
+
+.featured-project-recommended-right ul {
+  margin-bottom: 18px;
+}
+
+.feature-project-recommended-view-more {
+  margin-top: 30px;
+  height: 24px;
+  font-weight: 100;
+  color: #4C6CF8;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.feature-project-recommended-view-more:hover {
+  text-decoration: underline;
+}
+
+.guides-creative-independent {
+  height: 591px;
+  border-bottom: 1px solid #DCDEDD;
+}

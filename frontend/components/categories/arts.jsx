@@ -20,10 +20,6 @@ class Arts extends React.Component {
     this.props.fetchAllUsers();
   }
 
-  // changeDisplay() {
-  //   this.setState({displayNone: ''});
-  // }
-
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
@@ -62,7 +58,65 @@ class Arts extends React.Component {
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
-
+        <div className='categories-body'>
+          <div className='categories-header'>
+            <h3>Arts</h3>
+            <p>Discover the artists and organizations using Kickstarter to realize ambitious projects in visual art, dance, and performance.</p>
+            <Link className='subcategories-links' to='/discover/categories/art'>Explore Art</Link>
+            <Link className='subcategories-links' to='/discover/categories/dance'>Explore Dance</Link>
+            <Link className='subcategories-links' to='/discover/categories/photography'>Explore Photography</Link>
+            <Link className='subcategories-links' to='/discover/categories/theater'>Explore Theater</Link>
+          </div>
+          <div className='featured-project-recommended'>
+            <div className='featured-project-recommended-inner'>
+              <div className='featured-project-recommended-left'>
+                <h3>FEATURED PROJECT</h3>
+                <div className='featured-project-recommended-left-main-heart'></div>
+                <img />
+                <div className='featured-project-recommended-left-gray-bar'>
+                  <div className='featured-project-recommended-left-green-bar'></div>
+                </div>
+                <h1>Funkisfabriken</h1>
+                <p>A zero waste sculpture park, restaurant, far, and hotel--all in one.</p>
+                <div className='featured-project-recommended-left-main-author'>by David Risley</div>
+              </div>
+              <div className='featured-project-recommended-right'>
+                <h3>RECOMMENDED</h3>
+                <ul>
+                  <li>
+                    <img />
+                    <div className='feature-project-recommended-content'>
+                      <Link className='feature-project-recommended-content-title' to='/'>"Tagebuch eines Streuners" by Marco Klahold (Photobook)</Link>
+                      <span>137% funded</span>
+                      <div className='feature-project-recommended-content-author'>By <a>Marco Klahold</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <img />
+                    <div className='feature-project-recommended-content'>
+                      <Link className='feature-project-recommended-content-title' to='/'>"Tagebuch eines Streuners" by Marco Klahold (Photobook)</Link>
+                      <span>137% funded</span>
+                      <div className='feature-project-recommended-content-author'>By <a>Marco Klahold</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <img />
+                    <div className='feature-project-recommended-content'>
+                      <Link className='feature-project-recommended-content-title' to='/'>"Tagebuch eines Streuners" by Marco Klahold (Photobook)</Link>
+                      <span>137% funded</span>
+                      <div className='feature-project-recommended-content-author'>By <a>Marco Klahold</a></div>
+                    </div>
+                  </li>
+                </ul>
+                <div className='feature-project-recommended-view-more'>View more projects</div>
+              </div>
+            </div>
+          </div>
+          <div className='guides-creative-independent'>
+            <div className='guides-creative-independent-inner'>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
