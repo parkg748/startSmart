@@ -8404,6 +8404,8 @@ strong {
   padding-right: 18px;
   display: flex;
   flex-flow: column;
+  position: sticky;
+  top: 42px;
 }
 
 .notifications-right {
@@ -8613,13 +8615,19 @@ strong {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.notifications-boxes-left-bottom button:hover {
+  background-color: #0030f3;
+  border: 2px solid #0030f3;
 }
 
 .notifications-left a {
   height: 21px;
   padding-left: 6px;
   border-left: 2px solid #037362;
-  color: #037362;
   font-weight: 100;
   font-size: 14px;
   margin-bottom: 12px;
@@ -8688,6 +8696,13 @@ strong {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.notifications-boxes-right-bottom button:hover {
+  background-color: #0030f3;
+  border: 2px solid #0030f3;
 }
 
 .notifications-boxes-right-bottom-weekly-daily {
@@ -8708,6 +8723,13 @@ strong {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.notifications-boxes-right-bottom-weekly-daily button:hover {
+  background-color: #0030f3;
+  border: 2px solid #0030f3;
 }
 
 .notifications-right a {

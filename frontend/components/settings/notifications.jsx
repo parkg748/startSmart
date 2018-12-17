@@ -7,6 +7,8 @@ class Notifications extends React.Component {
   constructor(props) {
     super(props);
     this.state = {displayProfileMenu: 'js-modal-close'};
+    this.accountNotification = '#037362';
+    this.newsletters = 'black';
   }
 
   componentDidMount() {
@@ -49,6 +51,13 @@ class Notifications extends React.Component {
         };
       });
     }
+    if (window.scrollY < 1502) {
+      this.accountNotification = '#037362';
+      this.newsletters = 'black';
+    } else {
+      this.accountNotification = 'black';
+      this.newsletters = '#037362';
+    }
     return (
       <div>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
@@ -71,8 +80,8 @@ class Notifications extends React.Component {
           </div>
           <div className='notifications-container'>
             <div className='notifications-left'>
-              <a>Account Notifications</a>
-              <a>Newsletters</a>
+              <a style={{color: `${this.accountNotification}`}}>Account Notifications</a>
+              <a style={{color: `${this.newsletters}`}}>Newsletters</a>
             </div>
             <div className='notifications-right'>
               <h3>Account Notifications</h3>
