@@ -114,8 +114,34 @@ class Arts extends React.Component {
           </div>
           <div className='guides-creative-independent'>
             <div className='guides-creative-independent-inner'>
+              <div className='guides-creative-independent-inner-inner'>
+                <h3>GUIDES FROM THE CREATIVE INDEPENDENT</h3>
+                <div className='guides-creative-independent-columns'>
+                  <div className='guides-creative-independent-column'>
+                    <img />
+                    <span>Jeffrey Silverstein</span>
+                    <h1>How to balance full-time work with creative projects</h1>
+                  </div>
+                  <div className='guides-creative-independent-column'>
+                    <img />
+                    <span>Volunteer Lawyers for the Arts</span>
+                    <h1>An artist's guide to copyrights</h1>
+                  </div>
+                  <div className='guides-creative-independent-column'>
+                    <img />
+                    <span>Sarah Hotchkiss</span>
+                    <h1>How to write an artist statement</h1>
+                  </div>
+                  <div className='guides-creative-independent-column'>
+                    <img />
+                    <span>Kathryn Jaller</span>
+                    <h1>A creative person's guide to thoughtful promotion</h1>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <div className='explore-theater'></div>
         </div>
       </div>
     );
