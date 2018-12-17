@@ -12508,3 +12508,93 @@ iframe > body {
   text-decoration: underline;
   color: #037362;
 }
+
+.explore-theater {
+  height: 500px;
+  border-bottom: 1px solid #DCDEDD;
+}
+
+.explore-theater-inner {
+  padding: 0 60px;
+  margin: 0 37px;
+}
+
+.explore-theater-inner-inner {
+  padding: 48px 0;
+}
+
+.explore-theater-inner-inner h3 {
+  height: 18px;
+  margin: 0 0 18px 0;
+  font-weight: 500;
+  color: #656969;
+  font-size: 13px;
+}
+
+.explore-theater-header {
+  display: flex;
+}
+
+.explore-theater-header-view-more {
+  font-weight: 100;
+  color: #4C6CF8;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.explore-theater-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.explore-theater-column {
+  width: 24%;
+  height: 350px;
+  padding-bottom: 18px;
+}
+
+.explore-theater-column {
+  width: 100%;
+  background-color: black;
+  height: 161px;
+}
+
+.explore-theater-column-grey-bar {
+  height: 6px;
+  background-color: #E8E8E8;
+}
+
+.explore-theater-column-grey-bar {
+  height: 100%;
+  background-color: #037362;
+}
+
+.explore-theater-column h1 {
+  padding: 18px 0 12px 0;
+  color: #282828;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.explore-theater-column h1:hover {
+  text-decoration: underline;
+  color: #037362;
+}
+
+.explore-theater-column p {
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #282828;
+  padding-bottom: 12px;
+}
+
+.explore-theater-column-author {
+  color: #656969;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.explore-theater-column-author span:hover {
+  text-decoration: underline;
+}
