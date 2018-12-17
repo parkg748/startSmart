@@ -12499,7 +12499,7 @@ iframe > body {
   padding: 6px 0 12px 0;
   font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
   color: #282828;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 24px;
   cursor: pointer;
 }
@@ -12533,6 +12533,7 @@ iframe > body {
 
 .explore-theater-header {
   display: flex;
+  justify-content: space-between;
 }
 
 .explore-theater-header-view-more {
@@ -12548,12 +12549,14 @@ iframe > body {
 }
 
 .explore-theater-column {
-  width: 24%;
+  width: 23%;
   height: 350px;
   padding-bottom: 18px;
+  display: flex;
+  flex-flow: column;
 }
 
-.explore-theater-column {
+.explore-theater-column img {
   width: 100%;
   background-color: black;
   height: 161px;
@@ -12562,11 +12565,15 @@ iframe > body {
 .explore-theater-column-grey-bar {
   height: 6px;
   background-color: #E8E8E8;
+  position: relative;
 }
 
-.explore-theater-column-grey-bar {
+.explore-theater-column-green-bar {
   height: 100%;
   background-color: #037362;
+  position: absolute;
+  top: -1px;
+  width: 100%;
 }
 
 .explore-theater-column h1 {
@@ -12574,6 +12581,7 @@ iframe > body {
   color: #282828;
   font-size: 18px;
   line-height: 24px;
+  cursor: pointer;
 }
 
 .explore-theater-column h1:hover {
@@ -12595,6 +12603,74 @@ iframe > body {
   font-weight: 100;
 }
 
+.explore-theater-column-author span {
+  cursor: pointer;
+}
+
 .explore-theater-column-author span:hover {
   text-decoration: underline;
+}
+
+.postcommodity-newsletter {
+  height: 486px;
+  border-bottom: 1px solid #DCDEDD;
+}
+
+.postcommodity-newsletter-inner {
+  padding: 0 60px;
+  margin: 0 37px;
+}
+
+.postcommodity-newsletter-inner-inner {
+  padding: 48px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postcommodity {
+  width: 48%;
+  height: 390px;
+  display: flex;
+  flex-flow: column;
+}
+
+.postcommodity img {
+  width: 100%;
+  background-color: black;
+  height: 240px;
+}
+
+.postcommodity-content {
+  height: 102px;
+  padding-top: 18px;
+  margin-bottom: 30px;
+}
+
+.postcommodity-content-inner {
+  height: 78px;
+  padding-left: 18px;
+  border-left: 6px solid #037362;
+}
+
+.postcommodity-content-inner h3 {
+  margin: 0;
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  font-size: 28px;
+  color: #282828;
+  height: 36px;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.postcommodity-content-inner h3:hover {
+  text-decoration: underline;
+  color: #037362;
+}
+
+.postcommodity-content-inner p {
+  padding-top: 18px;
+  height: 24px;
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  font-size: 18px;
+  color: #282828;
 }

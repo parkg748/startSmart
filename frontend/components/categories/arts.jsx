@@ -146,7 +146,224 @@ class Arts extends React.Component {
               <div className='explore-theater-inner-inner'>
                 <div className='explore-theater-header'>
                   <h3>EXPLORE THEATER</h3>
-                  <div className='explore-theater-header-view-more'></div>
+                  <div className='explore-theater-header-view-more'>View more</div>
+                </div>
+                <div className='explore-theater-columns'>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='postcommodity-newsletter'>
+            <div className='postcommodity-newsletter-inner'>
+              <div className='postcommodity-newsletter-inner-inner'>
+                <div className='postcommodity'>
+                  <img />
+                  <div className='postcommodity-content'>
+                    <div className='postcommodity-content-inner'>
+                      <h3>Meet Postcommodity</h3>
+                      <p>Bridging Communities with art.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className='postcommodity'>
+                  <img />
+                  <div className='postcommodity-content'>
+                    <div className='postcommodity-content-inner'>
+                      <h3>Get our newsletter</h3>
+                      <p>Handpicked projects--spam not included.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='explore-theater'>
+            <div className='explore-theater-inner'>
+              <div className='explore-theater-inner-inner'>
+                <div className='explore-theater-header'>
+                  <h3>EXPLORE VISUAL ART</h3>
+                  <div className='explore-theater-header-view-more'>View more</div>
+                </div>
+                <div className='explore-theater-columns'>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='guides-creative-independent'>
+            <div className='guides-creative-independent-inner'>
+              <div className='guides-creative-independent-inner-inner'>
+                <h3>WHAT WE'RE READING</h3>
+                <div className='guides-creative-independent-columns'>
+                  <div className='guides-creative-independent-column'>
+                    <img />
+                    <h1>We tell ourselves stories: Didion's 'White Album' takes to the stage</h1>
+                  </div>
+                  <div className='guides-creative-independent-column'>
+                    <img />
+                    <h1>Excited for Amazon's arrival in Long Island City? The results for New York's art community won't be pretty</h1>
+                  </div>
+                  <div className='guides-creative-independent-column'>
+                    <img />
+                    <h1>Review: rage and ritual in 'What to Send up When It Goes Down'</h1>
+                  </div>
+                  <div className='guides-creative-independent-column'>
+                    <img />
+                    <h1>Women land artists get their day in the museum</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='explore-theater'>
+            <div className='explore-theater-inner'>
+              <div className='explore-theater-inner-inner'>
+                <div className='explore-theater-header'>
+                  <h3>EXPLORE DANCE</h3>
+                  <div className='explore-theater-header-view-more'>View more</div>
+                </div>
+                <div className='explore-theater-columns'>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <img />
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <h1>Skeleton Flower World Premiere</h1>
+                    <p>Bringing new dance, live music and cinematic video production to the stage</p>
+                    <div className='explore-theater-column-author'>By <span>Degenerate Art Ensemble</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='postcommodity-newsletter'>
+            <div className='postcommodity-newsletter-inner'>
+              <div className='postcommodity-newsletter-inner-inner'>
+                <div className='postcommodity'>
+                  <img />
+                  <div className='postcommodity-content'>
+                    <div className='postcommodity-content-inner'>
+                      <h3>StartSmart's 2017 PBC Statement</h3>
+                      <p>A year of impact in review.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className='postcommodity'>
+                  <img />
+                  <div className='postcommodity-content'>
+                    <div className='postcommodity-content-inner'>
+                      <h3>Meet Lucy Sparrow</h3>
+                      <p>Filling corner stores, stitch by stitch.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='explore-theater'>
+            <div className='explore-theater-inner'>
+              <div className='explore-theater-inner-inner'>
+                <div className='explore-theater-header'>
+                  <h3>EXPLORE PHOTOGRAPHY</h3>
+                  <div className='explore-theater-header-view-more'>View more</div>
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
