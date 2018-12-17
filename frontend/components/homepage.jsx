@@ -21,7 +21,8 @@ class Homepage extends React.Component {
                   musicBlack: '',
                   publishingBlack: '',
                   searchBar: 'search-bar-close',
-                  firstHeart: '',
+                  firstHeart: 'category-contents-right-heart-id-first',
+                  firstHeartFill: 'far',
                   secondHeart: 'category-contents-right-heart far',
                   thirdHeart: 'category-contents-right-heart far',
                   fourthHeart: 'category-contents-right-heart far',
@@ -78,7 +79,9 @@ class Homepage extends React.Component {
     if (idx === '') return;
     let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
     savedProjects.push(idx);
-    if (heart === 'second-heart' && this.state.secondHeart === 'category-contents-right-heart far') {
+    if (heart === 'first-heart' && this.state.firstHeart === 'category-contents-right-heart-id-first') {
+      this.setState({firstHeart: 'category-contents-right-heart-id-first-red', firstHeartFill: 'fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'second-heart' && this.state.secondHeart === 'category-contents-right-heart far') {
       this.setState({secondHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
     } else if (heart === 'third-heart' && this.state.thirdHeart === 'category-contents-right-heart far') {
       this.setState({thirdHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
@@ -86,7 +89,8 @@ class Homepage extends React.Component {
       this.setState({fourthHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
     } else if (heart === 'fifth-heart' && this.state.fifthHeart === 'category-contents-right-heart far') {
       this.setState({fifthHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
-    } else if ((this.state.secondHeart === 'category-contents-right-heart-red fas') ||
+    } else if ((this.state.firstHeart === 'category-contents-right-heart-id-first-red') ||
+               (this.state.secondHeart === 'category-contents-right-heart-red fas') ||
                (this.state.thirdHeart === 'category-contents-right-heart-red fas') ||
                (this.state.fourthHeart === 'category-contents-right-heart-red fas') ||
                (this.state.fifthHeart === 'category-contents-right-heart-red fas')) {
@@ -97,7 +101,9 @@ class Homepage extends React.Component {
   removeFromSavedProjects(idx, heart) {
     let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
     savedProjects = savedProjects.filter(el => el != idx);
-    if (heart === 'second-heart') {
+    if (heart === 'first-heart') {
+      this.setState({firstHeart: 'category-contents-right-heart-id-first', firstHeartFill: 'far'});
+    } else if (heart === 'second-heart') {
       this.setState({secondHeart: 'category-contents-right-heart far'});
     } else if (heart === 'third-heart') {
       this.setState({thirdHeart: 'category-contents-right-heart far'});
@@ -342,7 +348,10 @@ class Homepage extends React.Component {
         </div>
         <Link to={`/users/${firstCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-1)[0].id : ''}/front`}>
           <div className='category-contents-left-body'>
-            <i className="far fa-heart"></i>
+            <div id={`${this.state.firstHeart}`} onClick={() => this.addToSavedProjects(currentPictureCategory.length > 1 ? currentPictureCategory.slice(-1)[0].id : '', 'first-heart')}>
+              <i className={`${this.state.firstHeartFill} fa-heart`}></i>
+            </div>
+            <div id='category-contents-remind-me-first'>Remind Me</div>
             <img src={currentPictureCategory.length === 0 ? '' : currentPictureCategory.slice(-1)[0].imageUrl}/>
             <div className={`remind-me ${this.state.displayNone}`}>Remind Me</div>
             <div className='category-contents-left-description'>

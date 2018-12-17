@@ -32,6 +32,14 @@ import ProjectViewContainer from './projects/project_view_container';
 import PledgeContainer from './pledge_container';
 import NotificationsContainer from './settings/notifications_container';
 import CheckoutContainer from './checkout_container';
+import ArtsContainer from './categories/arts_container';
+import ComicsIllustrationContainer from './categories/comics_illustration_container';
+import DesignTechContainer from './categories/design_tech_container';
+import FilmContainer from './categories/film_container';
+import FoodCraftContainer from './categories/food_craft_container';
+import GamesContainer from './categories/games_container';
+import MusicContainer from './categories/music_container';
+import PublishingContainer from './categories/publishing_container';
 
 class App extends React.Component {
 
@@ -40,6 +48,14 @@ class App extends React.Component {
       <div>
         <header>
           <Switch>
+            <Route path='/arts' component={ArtsContainer} />
+            <Route path='/comics-illustration' component={ComicsIllustrationContainer} />
+            <Route path='/design-tech' component={DesignTechContainer} />
+            <Route path='/film' component={FilmContainer} />
+            <Route path='/food-craft' component={FoodCraftContainer} />
+            <Route path='/games' component={GamesContainer} />
+            <Route path='/music' component={MusicContainer} />
+            <Route path='/publishing' component={PublishingContainer} />
             <Route path='/learn' component={StartProjectContainer} />
             <Route path='/login' component={LoginFormContainer} />
             <Route path='/signup' component={SignupFormContainer} />
