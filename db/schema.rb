@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_215815) do
+ActiveRecord::Schema.define(version: 2018_12_17_075203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 2018_12_16_215815) do
     t.datetime "updated_at", null: false
     t.string "google_analytics"
     t.string "websites", default: [], array: true
+    t.integer "saved_projects", default: [], array: true
     t.index ["email"], name: "index_users_on_email"
     t.index ["session_token"], name: "index_users_on_session_token"
   end

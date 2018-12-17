@@ -6,6 +6,6 @@
 # end
 
 json.array! @users do |user|
-  json.extract! user, :id, :name, :email, :biography, :google_analytics, :created_at, :updated_at
+  json.extract! user, :id, :name, :email, :biography, :google_analytics, :saved_projects, :created_at, :updated_at
   json.profileUrl (user.profile_url.attached? ? url_for(user.profile_url) : "")
 end

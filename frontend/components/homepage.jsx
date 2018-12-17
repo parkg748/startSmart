@@ -20,12 +20,19 @@ class Homepage extends React.Component {
                   foodBlack: '',
                   musicBlack: '',
                   publishingBlack: '',
-                  searchBar: 'search-bar-close'};
+                  searchBar: 'search-bar-close',
+                  firstHeart: '',
+                  secondHeart: 'category-contents-right-heart far',
+                  thirdHeart: 'category-contents-right-heart far',
+                  fourthHeart: 'category-contents-right-heart far',
+                  fifthHeart: 'category-contents-right-heart far'};
     this.clickHandler = this.clickHandler.bind(this);
     // this.changeDisplay = this.changeDisplay.bind(this);
     this.clickHandlerSection = this.clickHandlerSection.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.clickSearchBar = this.clickSearchBar.bind(this);
+    this.addToSavedProjects = this.addToSavedProjects.bind(this);
+    this.removeFromSavedProjects = this.removeFromSavedProjects.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +72,41 @@ class Homepage extends React.Component {
     } else if (section === 'popular') {
       this.setState({newNoteworthySection: '', popularSection: 'navbar-black'});
     }
+  }
+
+  addToSavedProjects(idx, heart) {
+    if (idx === '') return;
+    let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
+    savedProjects.push(idx);
+    if (heart === 'second-heart' && this.state.secondHeart === 'category-contents-right-heart far') {
+      this.setState({secondHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'third-heart' && this.state.thirdHeart === 'category-contents-right-heart far') {
+      this.setState({thirdHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'fourth-heart' && this.state.fourthHeart === 'category-contents-right-heart far') {
+      this.setState({fourthHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'fifth-heart' && this.state.fifthHeart === 'category-contents-right-heart far') {
+      this.setState({fifthHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if ((this.state.secondHeart === 'category-contents-right-heart-red fas') ||
+               (this.state.thirdHeart === 'category-contents-right-heart-red fas') ||
+               (this.state.fourthHeart === 'category-contents-right-heart-red fas') ||
+               (this.state.fifthHeart === 'category-contents-right-heart-red fas')) {
+      this.removeFromSavedProjects(idx, heart);
+    }
+  }
+
+  removeFromSavedProjects(idx, heart) {
+    let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
+    savedProjects = savedProjects.filter(el => el != idx);
+    if (heart === 'second-heart') {
+      this.setState({secondHeart: 'category-contents-right-heart far'});
+    } else if (heart === 'third-heart') {
+      this.setState({thirdHeart: 'category-contents-right-heart far'});
+    } else if (heart === 'fourth-heart') {
+      this.setState({fourthHeart: 'category-contents-right-heart far'});
+    } else if (heart === 'fifth-heart') {
+      this.setState({fifthHeart: 'category-contents-right-heart far'});
+    }
+    this.props.updateUser({id: getState().session.id, saved_projects: savedProjects});
   }
 
   clickHandler(category) {
@@ -323,8 +365,8 @@ class Homepage extends React.Component {
         <div className='category-contents-right-body'>
           <ul>
             <li>
-              <div id="category-contents-right-heart-id"><i className="category-contents-right-heart far fa-heart"></i></div>
-              <div id='category-contents-remind-me'>Remind Me</div>
+              <div id="category-contents-right-heart-id" onClick={() => this.addToSavedProjects(currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].id : '', 'second-heart')}><i className={`${this.state.secondHeart} fa-heart`}></i></div>
+              {this.state.secondHeart === 'category-contents-right-heart far' ? <div id='category-contents-remind-me'>Remind Me</div> : <div id='category-contents-saved'>Saved</div>}
               <Link className='category-contents-right-body-inner' to={`/users/${secondCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-2)[0].id : ''}/front`}>
                 <img src={currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].imageUrl : ''}/>
                 <div className='category-contents-right-body-content'>
@@ -334,8 +376,8 @@ class Homepage extends React.Component {
               </Link>
             </li>
             <li>
-              <div id="category-contents-right-heart-id"><i className="category-contents-right-heart far fa-heart"></i></div>
-              <div id='category-contents-remind-me'>Remind Me</div>
+              <div id="category-contents-right-heart-id" onClick={() => this.addToSavedProjects(currentPictureCategory.length > 1 ? currentPictureCategory.slice(-3)[0].id : '', 'third-heart')}><i className={`${this.state.thirdHeart} fa-heart`}></i></div>
+              {this.state.thirdHeart === 'category-contents-right-heart far' ? <div id='category-contents-remind-me'>Remind Me</div> : <div id='category-contents-saved'>Saved</div>}
               <Link className='category-contents-right-body-inner' to={`/users/${thirdCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-3)[0].id : ''}/front`}>
                 <img src={currentPictureCategory.length > 2 ? currentPictureCategory.slice(-3)[0].imageUrl : ''}/>
                 <div className='category-contents-right-body-content'>
@@ -345,8 +387,8 @@ class Homepage extends React.Component {
               </Link>
             </li>
             <li>
-              <div id="category-contents-right-heart-id"><i className="category-contents-right-heart far fa-heart"></i></div>
-              <div id='category-contents-remind-me'>Remind Me</div>
+              <div id="category-contents-right-heart-id" onClick={() => this.addToSavedProjects(currentPictureCategory.length > 1 ? currentPictureCategory.slice(-4)[0].id : '', 'fourth-heart')}><i className={`${this.state.fourthHeart} fa-heart`}></i></div>
+              {this.state.fourthHeart === 'category-contents-right-heart far' ? <div id='category-contents-remind-me'>Remind Me</div> : <div id='category-contents-saved'>Saved</div>}
               <Link className='category-contents-right-body-inner' to={`/users/${fourthCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-4)[0].id : ''}/front`}>
                 <img src={currentPictureCategory.length > 3 ? currentPictureCategory.slice(-4)[0].imageUrl : ''}/>
                 <div className='category-contents-right-body-content'>
@@ -356,8 +398,8 @@ class Homepage extends React.Component {
               </Link>
             </li>
             <li>
-              <div id="category-contents-right-heart-id"><i className="category-contents-right-heart far fa-heart"></i></div>
-              <div id='category-contents-remind-me'>Remind Me</div>
+              <div id="category-contents-right-heart-id" onClick={() => this.addToSavedProjects(currentPictureCategory.length > 1 ? currentPictureCategory.slice(-5)[0].id : '', 'fifth-heart')}><i className={`${this.state.fifthHeart} fa-heart`}></i></div>
+              {this.state.fifthHeart === 'category-contents-right-heart far' ? <div id='category-contents-remind-me'>Remind Me</div> : <div id='category-contents-saved'>Saved</div>}
               <Link className='category-contents-right-body-inner' to={`/users/${fifthCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-5)[0].id : ''}/front`}>
                 <img src={currentPictureCategory.length > 4 ? currentPictureCategory.slice(-5)[0].imageUrl : ''}/>
                 <div className='category-contents-right-body-content'>

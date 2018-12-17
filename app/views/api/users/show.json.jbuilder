@@ -7,7 +7,7 @@
 
 
 json.set! @user.id do
-  json.extract! @user, :id, :name, :email, :biography, :websites, :google_analytics, :created_at, :updated_at
+  json.extract! @user, :id, :name, :email, :biography, :websites, :google_analytics, :saved_projects, :created_at, :updated_at
   json.projects @projects
   json.backed_projects @backed_projects
   json.profileUrl (@user.profile_url.attached? ? url_for(@user.profile_url) : "")

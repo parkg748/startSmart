@@ -1,6 +1,6 @@
 import Homepage from './homepage';
 import {connect} from 'react-redux';
-import {receiveCurrentUser, logout, fetchUser, fetchAllUsers} from '../actions/session_actions';
+import {receiveCurrentUser, logout, fetchUser, fetchAllUsers, updateUser} from '../actions/session_actions';
 import {fetchProjects} from '../actions/project_actions';
 import {fetchCategories} from '../actions/category_actions';
 
@@ -19,7 +19,8 @@ const mapDispatchToProps = dispatch => {
     logout: () => dispatch(logout()),
     fetchCategories: () => dispatch(fetchCategories()),
     fetchUser: userId => dispatch(fetchUser(userId)),
-    fetchAllUsers: () => dispatch(fetchAllUsers())
+    fetchAllUsers: () => dispatch(fetchAllUsers()),
+    updateUser: user => dispatch(updateUser(user))
   };
 };
 
