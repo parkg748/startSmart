@@ -209,13 +209,144 @@ class Notifications extends React.Component {
               <div className='notifications-boxes'>
                 <div className='notifications-boxes-left'>
                   <div className='notifications-boxes-left-inner'>
-                    <img />
+                    <img src='https://i.imgur.com/dwu4CRj.jpg'/>
                     <div className='notifications-boxes-left-inner-content'>
                       <h1>Projects We Love</h1>
                       <p>A weekly roundup of the best and brightest projects on Kickstarter, handpicked by our team.</p>
                     </div>
                     <div className='notifications-boxes-left-bottom'>
                       <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+                <div className='notifications-boxes-right'>
+                  <div className='notifications-boxes-right-inner'>
+                    <img src='https://i.imgur.com/I1O2kFw.jpg'/>
+                    <div className='notifications-boxes-right-inner-content'>
+                      <h1>Happening</h1>
+                      <p>The zeitgeist delivered to your inbox, via new projects and buzzworthy stories.</p>
+                    </div>
+                    <div className='notifications-boxes-right-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='notifications-boxes'>
+                <div className='notifications-boxes-left'>
+                  <div className='notifications-boxes-left-inner'>
+                    <img src='https://i.imgur.com/zPpgW0O.jpg'/>
+                    <div className='notifications-boxes-left-inner-content'>
+                      <h1>News & Events</h1>
+                      <p>Big StartSmart news and events near you, delivered just a few times a year.</p>
+                    </div>
+                    <div className='notifications-boxes-left-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+                <div className='notifications-boxes-right'>
+                  <div className='notifications-boxes-right-inner'>
+                    <img src='https://i.imgur.com/nsIodFO.jpg'/>
+                    <div className='notifications-boxes-right-inner-content'>
+                      <h1>StartSmart Loves Games</h1>
+                      <p>Join our secret society.</p>
+                    </div>
+                    <div className='notifications-boxes-right-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='notifications-boxes'>
+                <div className='notifications-boxes-left'>
+                  <div className='notifications-boxes-left-inner'>
+                    <img src='https://i.imgur.com/SAMrBaY.jpg'/>
+                    <div className='notifications-boxes-left-inner-content'>
+                      <h1>Invent</h1>
+                      <p>Discover the future of Design and Tech.</p>
+                    </div>
+                    <div className='notifications-boxes-left-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+                <div className='notifications-boxes-right'>
+                  <div className='notifications-boxes-right-inner'>
+                    <img src='https://i.imgur.com/1RIcQuk.jpg'/>
+                    <div className='notifications-boxes-right-inner-content'>
+                      <h1>Arts News</h1>
+                      <p>New work and big ideas from established and emerging artists.</p>
+                    </div>
+                    <div className='notifications-boxes-right-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='notifications-boxes'>
+                <div className='notifications-boxes-left'>
+                  <div className='notifications-boxes-left-inner'>
+                    <img src='https://i.imgur.com/bEGYqsY.jpg'/>
+                    <div className='notifications-boxes-left-inner-content'>
+                      <h1>StartSmart Films</h1>
+                      <p>Love film? We do, too.</p>
+                    </div>
+                    <div className='notifications-boxes-left-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+                <div className='notifications-boxes-right'>
+                  <div className='notifications-boxes-right-inner'>
+                    <img src='https://i.imgur.com/MGpNIVD.jpg'/>
+                    <div className='notifications-boxes-right-inner-content'>
+                      <h1>StartSmart Music</h1>
+                      <p>It's like the radio but nothing sucks and also it’s a newsletter.</p>
+                    </div>
+                    <div className='notifications-boxes-right-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='reads-notifications-boxes'>
+                <div className='notifications-boxes-right'>
+                  <div className='notifications-boxes-right-inner'>
+                    <img src='https://i.imgur.com/14Z7hOC.jpg'/>
+                    <div className='notifications-boxes-right-inner-content'>
+                      <h1>StartSmart Reads</h1>
+                      <p>Welcome to our library. Peruse the stacks with us.</p>
+                    </div>
+                    <div className='notifications-boxes-right-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='notifications-boxes'>
+                <div className='notifications-boxes-left'>
+                  <div className='notifications-boxes-left-inner'>
+                    <img src='https://i.imgur.com/E58gwCz.jpg'/>
+                    <div className='notifications-boxes-left-inner-content'>
+                      <h1>StartSmart Alumni</h1>
+                      <p>Keep in touch after your campaign and plan your next project.</p>
+                    </div>
+                    <div className='notifications-boxes-left-bottom'>
+                      <button>Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+                <div className='notifications-boxes-right'>
+                  <div className='notifications-boxes-right-inner'>
+                    <img src='https://i.imgur.com/9Z0IydJ.png'/>
+                    <div className='notifications-boxes-right-inner-content'>
+                      <h1>The Creative Independent</h1>
+                      <p>Learn to forge your own creative path with wisdom and insights from working artists.</p>
+                    </div>
+                    <div className='notifications-boxes-right-bottom-weekly-daily'>
+                      <button>Subscribe to Weekly</button>
+                      <button>Subscribe to Daily</button>
                     </div>
                   </div>
                 </div>

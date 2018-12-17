@@ -8393,7 +8393,7 @@ strong {
   margin-left: 12%;
   margin-right: 12%;
   height: fit-content;
-  padding: 0 18px;
+  padding: 0 18px 54px;
   margin-top: 40px;
   display: flex;
 }
@@ -8565,7 +8565,7 @@ strong {
 
 .notifications-boxes-left {
   padding: 0 18px 20px 0;
-  width: 40%;
+  width: 48%;
   height: 498px;
 }
 
@@ -8576,7 +8576,7 @@ strong {
 
 .notifications-boxes-left-inner img {
   height: 240px;
-  background-color: black;
+  width: 100%;
 }
 
 .notifications-boxes-left-inner-content {
@@ -8585,15 +8585,16 @@ strong {
 }
 
 .notifications-boxes-left-inner-content h1 {
-  height: 25px;
+  height: 22px;
   margin-bottom: 10px;
   font-size: 18px;
 }
 
 .notifications-boxes-left-inner-content p {
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: 100;
   color: #3D3D66;
-  line-height: 20px;
+  line-height: 24px;
 }
 
 .notifications-boxes-left-bottom {
@@ -8615,6 +8616,101 @@ strong {
 }
 
 .notifications-left a {
+  height: 21px;
+  padding-left: 6px;
+  border-left: 2px solid #037362;
+  color: #037362;
+  font-weight: 100;
+  font-size: 14px;
+  margin-bottom: 12px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.notifications-boxes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reads-notifications-boxes {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.notifications-boxes-right {
+  padding: 0 0 20px 18px;
+  width: 48%;
+  height: 498px;
+}
+
+.notifications-boxes-right-inner {
+  margin-bottom: 20px;
+  border: 1px solid #F1EEEA;
+}
+
+.notifications-boxes-right-inner img {
+  height: 240px;
+  width: 100%;
+}
+
+.notifications-boxes-right-inner-content {
+  height: 110px;
+  padding: 20px;
+}
+
+.notifications-boxes-right-inner-content h1 {
+  height: 22px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.notifications-boxes-right-inner-content p {
+  font-size: 17px;
+  font-weight: 100;
+  color: #3D3D66;
+  line-height: 24px;
+}
+
+.notifications-boxes-right-bottom {
+  padding: 20px;
+  border-top: 1px solid #F1EEEA;
+}
+
+.notifications-boxes-right-bottom button {
+  width: 65px;
+  height: 21px;
+  padding: 10px 20px;
+  border: 2px solid #2752ff;
+  background-color: #2752ff;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notifications-boxes-right-bottom-weekly-daily {
+  padding: 20px;
+  display: flex;
+  border-top: 1px solid #F1EEEA;
+  justify-content: space-between;
+}
+
+.notifications-boxes-right-bottom-weekly-daily button {
+  width: 110px;
+  height: 21px;
+  padding: 10px 16px;
+  border: 2px solid #2752ff;
+  background-color: #2752ff;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notifications-right a {
   height: 21px;
   padding-left: 6px;
   border-left: 2px solid #037362;
