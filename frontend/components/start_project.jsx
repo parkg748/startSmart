@@ -1,21 +1,32 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import Modal from './modal';
+import MyStuffNav from './mystuff/mystuff_nav';
+import SearchBar from './search_bar';
 
 class StartProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.class;
+    this.clickSearchBar = this.clickSearchBar.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
-    if (this.props.currentUser) this.props.fetchUser(this.props.currentUser.filter(el => el.id === getState().session.id)[0].id);
+    this.props.fetchUser(getState().session.id);
   }
 
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
+  }
+
+  clickSearchBar() {
+    if (this.state.searchBar === 'search-bar-close') {
+      this.setState({searchBar: ''});
+    } else {
+      this.setState({searchBar: 'search-bar-close'});
+    }
   }
 
   changeProjectPage(idx) {
@@ -51,17 +62,8 @@ class StartProject extends React.Component {
     }
     return (
       <div>
-        <nav>
-          <section className='explore-project'>
-            <Link to='/explore' className='explore'>Explore</Link>
-            <Link to='/learn' className='project'>Start a project</Link>
-          </section>
-          <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-          <section className={`search-signin ${navbarWidth}`}>
-            <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
-            {profile}
-          </section>
-        </nav>
+        <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(getState().entities.users)[0]} userId={Object.values(getState().entities.users)[0].id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='start-project-content'>
           <div className='start-project-middle'>

@@ -7,7 +7,6 @@ import {fetchCategories} from '../actions/category_actions';
 const mapStateToProps = state => {
   return {
     user: state.entities.users,
-    class: {displayProfileMenu: 'js-modal-close', displayNone: 'error-email-msg', newNoteworthySection: 'navbar-black', popularSection: '', currentCategory: 'Film', filmBlack: 'navbar-black', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''},
     projects: state.entities.project,
     category: state.entities.category
   };

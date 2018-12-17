@@ -2,16 +2,26 @@ import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from './mystuff_nav';
+import SearchBar from '../search_bar';
 
 class Messages extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.class;
+    this.clickSearchBar = this.clickSearchBar.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchUser(getState().session.id);
+  }
+
+  clickSearchBar() {
+    if (this.state.searchBar === 'search-bar-close') {
+      this.setState({searchBar: ''});
+    } else {
+      this.setState({searchBar: 'search-bar-close'});
+    }
   }
 
   logoutUser(e) {
@@ -52,7 +62,8 @@ class Messages extends React.Component {
     }
     return (
       <div>
-        <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
+        <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user)[0]} userId={getState().session.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='messages-inbox'>
           <div className='messages-inbox-one'>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from './mystuff_nav';
+import SearchBar from '../search_bar';
 
 class Recommendations extends React.Component {
   constructor(props) {
@@ -9,12 +10,21 @@ class Recommendations extends React.Component {
     this.state = this.props.class;
     // this.showArrow = this.showArrow.bind(this);
     // this.hideArrow = this.hideArrow.bind(this);
+    this.clickSearchBar = this.clickSearchBar.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchAllUsers();
+  }
+
+  clickSearchBar() {
+    if (this.state.searchBar === 'search-bar-close') {
+      this.setState({searchBar: ''});
+    } else {
+      this.setState({searchBar: 'search-bar-close'});
+    }
   }
 
   clickProfileIcon() {
@@ -155,7 +165,8 @@ class Recommendations extends React.Component {
     // });
     return (
       <div>
-        <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
+        <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.users)[0]} userId={getState().session.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='recommendations-header'>
           <div className='recommendations-header-content'>

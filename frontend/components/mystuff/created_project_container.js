@@ -7,7 +7,7 @@ const mapStateToProps = state => {
   return {
     projects: state.entities.projects,
     user: state.entities.users,
-    class: {displayProfileMenu: 'js-modal-close'}
+    class: {displayProfileMenu: 'js-modal-close', searchBar: 'search-bar-close'}
   };
 };
 

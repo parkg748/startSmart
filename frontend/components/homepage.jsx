@@ -1,15 +1,31 @@
 import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import Modal from './modal';
+import MyStuffNav from './mystuff/mystuff_nav';
+import SearchBar from './search_bar';
 
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  displayNone: 'error-email-msg',
+                  newNoteworthySection: 'navbar-black',
+                  popularSection: '',
+                  currentCategory: 'Film',
+                  filmBlack: 'navbar-black',
+                  artsBlack: '',
+                  designBlack: '',
+                  comicsBlack: '',
+                  gamesBlack: '',
+                  foodBlack: '',
+                  musicBlack: '',
+                  publishingBlack: '',
+                  searchBar: 'search-bar-close'};
     this.clickHandler = this.clickHandler.bind(this);
     // this.changeDisplay = this.changeDisplay.bind(this);
     this.clickHandlerSection = this.clickHandlerSection.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
+    this.clickSearchBar = this.clickSearchBar.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +48,14 @@ class Homepage extends React.Component {
       this.setState({displayProfileMenu: ''});
     } else {
       this.setState({displayProfileMenu: 'js-modal-close'});
+    }
+  }
+
+  clickSearchBar() {
+    if (this.state.searchBar === 'search-bar-close') {
+      this.setState({searchBar: ''});
+    } else {
+      this.setState({searchBar: 'search-bar-close'});
     }
   }
 
@@ -345,17 +369,8 @@ class Homepage extends React.Component {
     </div>);
     return (
       <div>
-        <nav>
-          <section className='explore-project'>
-            <Link to='/explore' className='explore'>Explore</Link>
-            <Link to='/learn' className='project'>Start a project</Link>
-          </section>
-          <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
-          <section className={`search-signin ${navbarWidth}`}>
-            <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
-            {profile}
-          </section>
-        </nav>
+        <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='homepage-body'>
           <div className='homepage-stats'>

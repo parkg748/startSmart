@@ -2,6 +2,7 @@ import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
+import SearchBar from '../search_bar';
 
 class Notifications extends React.Component {
   constructor(props) {
@@ -10,13 +11,23 @@ class Notifications extends React.Component {
                   accountNotification: '#037362',
                   accountNotificationBar: '#037362',
                   newsletters: 'black',
-                  newslettersBar: 'transparent'};
+                  newslettersBar: 'transparent',
+                  searchBar: 'search-bar-close'};
     this.handleScroll = this.handleScroll.bind(this);
+    this.clickSearchBar = this.clickSearchBar.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUser(getState().session.id);
     window.addEventListener('scroll', this.handleScroll);
+  }
+
+  clickSearchBar() {
+    if (this.state.searchBar === 'search-bar-close') {
+      this.setState({searchBar: ''});
+    } else {
+      this.setState({searchBar: 'search-bar-close'});
+    }
   }
 
   componentWillUnmount() {
@@ -69,7 +80,8 @@ class Notifications extends React.Component {
     }
     return (
       <div>
-        <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
+        <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(getState().entities.users)[0]} userId={getState().session.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div onScroll={this.handleScroll} className='edit-profile-container'>
           <div className='account-container-header'>

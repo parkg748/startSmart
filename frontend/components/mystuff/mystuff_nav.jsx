@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function MyStuffNav({ navbarWidth, profile }) {
+function MyStuffNav({ navbarWidth, profile, clickSearchBar }) {
   return (
     <div>
       <nav>
@@ -11,7 +11,7 @@ function MyStuffNav({ navbarWidth, profile }) {
         </section>
         <Link to='/'><img className='logo' src='https://i.imgur.com/YuU5VqC.jpg' /></Link>
         <section className={`search-signin ${navbarWidth}`}>
-          <Link to='/search' className='search'>Search<i className="fas fa-search"></i></Link>
+          <div onClick={clickSearchBar}><div className='search'>Search<i className="fas fa-search"></i></div></div>
           {profile}
         </section>
       </nav>

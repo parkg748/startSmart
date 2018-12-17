@@ -37,7 +37,7 @@ function Modal({ displayProfileMenu, user, userId, sessionId, projectId, logoutU
           <ul>
             <li><Link to='/settings/account'>Account</Link></li>
             <li><Link to='/settings/profile'>Edit profile</Link></li>
-            <li>Notifications</li>
+            <li><Link to='/settings/notifications'>Notifications</Link></li>
           </ul>
         </div>
         <div className='profile-menu-body-right'>

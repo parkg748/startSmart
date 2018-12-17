@@ -2,17 +2,28 @@ import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
+import SearchBar from '../search_bar';
 
 class Account extends React.Component {
   constructor(props) {
     super(props);
     this.state = {displayProfileMenu: 'js-modal-close',
-                  email: ''};
+                  email: '',
+                  searchBar: 'search-bar-close'};
+    this.clickSearchBar = this.clickSearchBar.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchUser(getState().session.id);
+  }
+
+  clickSearchBar() {
+    if (this.state.searchBar === 'search-bar-close') {
+      this.setState({searchBar: ''});
+    } else {
+      this.setState({searchBar: 'search-bar-close'});
+    }
   }
 
   saveSettings() {
@@ -87,7 +98,8 @@ class Account extends React.Component {
     }
     return (
       <div>
-        <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
+        <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='account-container'>
           <div className='account-container-header'>

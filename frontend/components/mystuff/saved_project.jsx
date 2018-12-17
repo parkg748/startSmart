@@ -2,16 +2,26 @@ import React from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from './mystuff_nav';
+import SearchBar from '../search_bar';
 
 class SavedProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.class;
+    this.clickSearchBar = this.clickSearchBar.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchUser(this.props.match.params.userId);
+  }
+
+  clickSearchBar() {
+    if (this.state.searchBar === 'search-bar-close') {
+      this.setState({searchBar: ''});
+    } else {
+      this.setState({searchBar: 'search-bar-close'});
+    }
   }
 
   logoutUser(e) {
@@ -52,7 +62,8 @@ class SavedProject extends React.Component {
     }
     return (
       <div>
-        <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
+        <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
+        <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='saved-project'>
           <div className='saved-project-one'>

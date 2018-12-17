@@ -4812,6 +4812,7 @@ strong {
 
 .navbar-width {
   width: 115px;
+  display: flex;
 }
 
 .homepage-body {
@@ -7300,6 +7301,10 @@ strong {
   right: 12px;
 }
 
+.search-bar-close {
+  display: none !important;
+}
+
 .js-modal-open-one {
   width: 640px;
   height: 471px;
@@ -8632,6 +8637,34 @@ strong {
   margin-bottom: 12px;
   width: 100%;
   display: flex;
+  align-items: center;
+}
+
+.search-bar-modal {
+  height: 70px;
+  position: absolute;
+  border-bottom: 0.1rem solid #DCDEDD;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
+  background-color: white;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+}
+
+.search-bar-modal input {
+  font-weight: 100;
+  font-size: 14px;
+  padding: 6px 5px;
+  height: 83%;
+  width: 100%;
+}
+
+.search-bar-modal-times {
+  position: relative;
+  width: 4%;
+  margin-right: 18px;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 

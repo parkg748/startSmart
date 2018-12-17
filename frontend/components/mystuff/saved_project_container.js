@@ -6,7 +6,7 @@ import {fetchProjects, fetchProjectsByCurrentUser} from '../../actions/project_a
 const mapStateToProps = state => {
   return {
     user: state.entities.users,
-    class: {displayProfileMenu: 'js-modal-close'}
+    class: {displayProfileMenu: 'js-modal-close', searchBar: 'search-bar-close'}
   };
 };
 
