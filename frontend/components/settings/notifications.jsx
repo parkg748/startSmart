@@ -6,13 +6,21 @@ import MyStuffNav from '../mystuff/mystuff_nav';
 class Notifications extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {displayProfileMenu: 'js-modal-close'};
-    this.accountNotification = '#037362';
-    this.newsletters = 'black';
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  accountNotification: '#037362',
+                  accountNotificationBar: '#037362',
+                  newsletters: 'black',
+                  newslettersBar: 'transparent'};
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUser(getState().session.id);
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   logoutUser(e) {
@@ -25,6 +33,14 @@ class Notifications extends React.Component {
       this.setState({displayProfileMenu: ''});
     } else {
       this.setState({displayProfileMenu: 'js-modal-close'});
+    }
+  }
+
+  handleScroll() {
+    if (window.scrollY < 1502) {
+      this.setState({accountNotification: '#037362', newsletters: 'black', accountNotificationBar: '#037362', newslettersBar: 'transparent'});
+    } else {
+      this.setState({accountNotification: 'black', newsletters: '#037362', accountNotificationBar: 'transparent', newslettersBar: '#037362'});
     }
   }
 
@@ -51,18 +67,11 @@ class Notifications extends React.Component {
         };
       });
     }
-    if (window.scrollY < 1502) {
-      this.accountNotification = '#037362';
-      this.newsletters = 'black';
-    } else {
-      this.accountNotification = 'black';
-      this.newsletters = '#037362';
-    }
     return (
       <div>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} />
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(getState().entities.users)[0]} userId={getState().session.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
-        <div className='edit-profile-container'>
+        <div onScroll={this.handleScroll} className='edit-profile-container'>
           <div className='account-container-header'>
             <div className='account-container-header-one'>
               <h1>Settings</h1>
@@ -80,8 +89,8 @@ class Notifications extends React.Component {
           </div>
           <div className='notifications-container'>
             <div className='notifications-left'>
-              <a style={{color: `${this.accountNotification}`}}>Account Notifications</a>
-              <a style={{color: `${this.newsletters}`}}>Newsletters</a>
+              <a style={{color: `${this.state.accountNotification}`, borderLeft: `2px solid ${this.state.accountNotificationBar}`}}>Account Notifications</a>
+              <a style={{color: `${this.state.newsletters}`, borderLeft: `2px solid ${this.state.newslettersBar}`}}>Newsletters</a>
             </div>
             <div className='notifications-right'>
               <h3>Account Notifications</h3>
