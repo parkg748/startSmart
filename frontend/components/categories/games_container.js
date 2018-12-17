@@ -1,13 +1,23 @@
-import {connect} from 'react-redux';
 import Games from './games';
+import {connect} from 'react-redux';
+import {logout, fetchAllUsers} from '../../actions/session_actions';
+import {fetchProjects} from '../../actions/project_actions';
+import {fetchCategories} from '../../actions/category_actions';
 
 const mapStateToProps = state => {
   return {
+    user: state.entities.users,
+    projects: state.entities.project,
+    category: state.entities.category
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchProjects: () => dispatch(fetchProjects()),
+    logout: () => dispatch(logout()),
+    fetchCategories: () => dispatch(fetchCategories()),
+    fetchAllUsers: () => dispatch(fetchAllUsers()),
   };
 };
 
