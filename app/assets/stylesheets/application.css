@@ -12265,7 +12265,7 @@ iframe > body {
 }
 
 .featured-project-recommended-inner {
-  height: 613px;
+  height: fit-content;
   padding: 0 60px;
   margin: 0 37px;
   display: flex;
@@ -12273,10 +12273,10 @@ iframe > body {
 
 .featured-project-recommended-left {
   width: 50%;
-  padding: 30px 60px 0 0;
+  padding: 30px 60px 60px 0;
   border-right: 1px solid #DCDEDD;
   margin-top: 24px;
-  height: 499px;
+  height: fit-content;
   position: relative;
   display: flex;
   flex-flow: column;

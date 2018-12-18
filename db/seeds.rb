@@ -589,8 +589,64 @@ ActiveRecord::Base.transaction do
   userpath74 = File.join(Rails.root, 'app', "assets", "images", "57d0c2a5326002085e59fc63b3fffbbf_original.jpg")
   user74.profile_url.attach(io: File.open(userpath74), filename: "57d0c2a5326002085e59fc63b3fffbbf_original.jpg")
   user74.save
-  project74 = Project.new(duration: 0, limit: false, user_id: user74.id, country: "Mexico", title: "MÍA - CORTOMETRAJE", description: "Un cortometraje de adaptación de "El Híbrido" de Franz Kafka.", pledge_amt: 0, eta: nil, shipping: "", city: "Mexico", state: "Mexico", funding_goal: 1243, category_id: categories[6].id, subcategory: "Shorts", challenges: "")
+  project74 = Project.new(duration: 0, limit: false, user_id: user74.id, country: "Mexico", title: "MÍA - CORTOMETRAJE", description: "Un cortometraje de adaptación de \"El Híbrido\" de Franz Kafka.", pledge_amt: 0, eta: nil, shipping: "", city: "Mexico", state: "Mexico", funding_goal: 1243, category_id: categories[6].id, subcategory: "Shorts", challenges: "")
   projectpath74 = File.join(Rails.root, 'app', "assets", "images", "bf9cbf30a7998aedbdeac8b0afc42af5_original.png")
   project74.image_url.attach(io: File.open(projectpath74), filename: "bf9cbf30a7998aedbdeac8b0afc42af5_original.png")
   project74.save
+  user75 = User.new(name: "Jared Morse", email: "jaredmorse@gmail.com", password: "starwars", biography: 'Originally from Lindon, Utah. I started my first business, Utah Valley Curb, at the age of 24 in 2008, installing decorative landscape curbing in residential and commercial properties. This business has grown every year since, and we are now a well known company throughout Utah County and South Salt Lake, and have an A rating through the Better Business Bureau. In 2010 I partnered with a friend to start a company called Leather Burned. Mainly an online business, we made custom scripture covers, journals, and other leather items, and focus on custom engravings. We sold that business in 2014. Soon after, my wife and I started Kodiak Leather. I\'ve always been an entrepreneur at heart and I\'m always looking for ways to make a difference through business.', google_analytics: "")
+  userpath75 = File.join(Rails.root, 'app', "assets", "images", "93566e7bd740bb5624360f876267a440_original.jpg")
+  user75.profile_url.attach(io: File.open(userpath75), filename: "93566e7bd740bb5624360f876267a440_original.jpg")
+  user75.save
+  project75 = Project.new(duration: 0, limit: false, user_id: user75.id, country: "the United States", title: "Kodiak Leather: Kobuk Leather Backpack", description: "Adventure Ready, Top Grain, Roll-Top Leather Backpack.", pledge_amt: 0, eta: nil, shipping: "", city: "Lehi", state: "UT", funding_goal: 10000, category_id: categories[5].id, subcategory: "Accessories", challenges: "")
+  projectpath75 = File.join(Rails.root, 'app', "assets", "images", "33f8aa35a1d927b84fb6f7b2e34ebe1c_original.jpg")
+  project75.image_url.attach(io: File.open(projectpath75), filename: "33f8aa35a1d927b84fb6f7b2e34ebe1c_original.jpg")
+  project75.save
+  user76 = User.new(name: "Superseche", email: "superseche@gmail.com", password: "starwars", biography: 'We\'ve been in the textile and apparel industry for over 2 decades. This is the first time we\'ve incorporated such innovative ideas into one of our products and we are so proud to present it to you here on Kickstarter.', google_analytics: "")
+  userpath76 = File.join(Rails.root, 'app', "assets", "images", "9f4fc1bedd1049eec7f13acba733c04a_original.jpg")
+  user76.profile_url.attach(io: File.open(userpath76), filename: "9f4fc1bedd1049eec7f13acba733c04a_original.jpg")
+  user76.save
+  project76 = Project.new(duration: 0, limit: false, user_id: user76.id, country: "Hong Kong", title: "Superseche - the T-shirt you can wear for 7 days", description: "The unbelievably quick dry garment that is also odor and stain repellent.", pledge_amt: 0, eta: nil, shipping: "", city: "Hong Kong", state: "Hong Kong", funding_goal: 1279, category_id: categories[5].id, subcategory: "Apparel", challenges: "")
+  projectpath76 = File.join(Rails.root, 'app', "assets", "images", "11d405dd7b8474f19d1ea87f6c5c994e_original.jpg")
+  project76.image_url.attach(io: File.open(projectpath76), filename: "11d405dd7b8474f19d1ea87f6c5c994e_original.jpg")
+  project76.save
+  user77 = User.new(name: "Woolly Clothing Co", email: "woollyclothingco@gmail.com", password: "starwars", biography: 'Merino wool living made possible. Born and raised in Seattle, WA.', google_analytics: "")
+  userpath77 = File.join(Rails.root, 'app', "assets", "images", "8d5305c5b633b0fcf22641d86abcc406_original.jpg")
+  user77.profile_url.attach(io: File.open(userpath77), filename: "8d5305c5b633b0fcf22641d86abcc406_original.jpg")
+  user77.save
+  project77 = Project.new(duration: 0, limit: false, user_id: user77.id, country: "the United States", title: "The Longhaul Pant - Merino performance in style by Woolly", description: "Creating the world's most stylish and versatile merino wool pants and shorts.", pledge_amt: 0, eta: nil, shipping: "", city: "Seattle", state: "WA", funding_goal: 20000, category_id: categories[5].id, subcategory: "Apparel", challenges: "")
+  projectpath77 = File.join(Rails.root, 'app', "assets", "images", "214a401b2c2dc0bcb3ae48824b5640e1_original.jpg")
+  project77.image_url.attach(io: File.open(projectpath77), filename: "214a401b2c2dc0bcb3ae48824b5640e1_original.jpg")
+  project77.save
+  user78 = User.new(name: "Clare Campbell", email: "clarecampbell@gmail.com", password: "starwars", biography: 'Being a Highland lass born and bred, tartan exists in my very DNA you could say. Through a series of life changing experiences, my obsession with restoring the design, manufacture and product finishing of the finest tartan collections balances both side of me. On one side the unique personal legacy creation that comes with an official Scottish tartan resonates with how I have dealt with losing loved ones over the years. We all have a story tell, some sadly have a short story while others are fortunate to have many threads to theirs. This then balances with the Chartered Accountant in me, having spent over 13 years in commerce working in a whole range of sectors and company formants. I have galvanised skills and experiences related to many products, services, operational challenges, compliance and risk management, and the obvious financial implications of creating a business that has the ability to grow and create new jobs. Taking these two halves, I have founded Prickly Thistle. A brand born from passion, commitment and integrity - to fulfil an uprising, which is restoring tartan to its Highland home.', google_analytics: "")
+  userpath78 = File.join(Rails.root, 'app', "assets", "images", "1509f96c57d75a2dfc1a11586592fde5_original.jpg")
+  user78.profile_url.attach(io: File.open(userpath78), filename: "1509f96c57d75a2dfc1a11586592fde5_original.jpg")
+  user78.save
+  project78 = Project.new(duration: 0, limit: false, user_id: user78.id, country: "the United Kingdom", title: "#SEASON2#PLANB #BUILDTHEMILL - TARTAN UPRISING CONTINUES....", description: "Plan B continues, our next release of the exclusive Black House Mill tartan collection, passionately crafted in the Scottish Highlands", pledge_amt: 0, eta: nil, shipping: "", city: "Culbokie", state: "UK", funding_goal: 63122, category_id: categories[2].id, subcategory: "Weaving", challenges: "")
+  projectpath78 = File.join(Rails.root, 'app', "assets", "images", "bc8db81fb40287f90e3b5af085d3fee2_original.png")
+  project78.image_url.attach(io: File.open(projectpath78), filename: "bc8db81fb40287f90e3b5af085d3fee2_original.png")
+  project78.save
+  user79 = User.new(name: "Karen S. Lauger", email: "karenslauger@gmail.com", password: "starwars", biography: 'My name is Karen S. Lauger and I am also known as Lykkefanten online. I am an Danish economist by day and an avid knitter and knitwear designer by night (or at least in the evenings). My aim is to create a feeling of simple complexity in my designs, drawing heavily on my love of mathematics and my Nordic heritage. For a number of years I have worked with small indie dyers and small and large yarn companies alike. I’ve also published independent designs through Ravelry and have had a design featured in Knitty.com. Approximately a year ago I published my first knitting book, Sjaler Nordfra, with my friend Signe Strømgaard and her small indie company Rauna as the publisher and collaborator.', google_analytics: "")
+  userpath79 = File.join(Rails.root, 'app', "assets", "images", "429dd1475f6280b6cb248de85719892f_original.jpg")
+  user79.profile_url.attach(io: File.open(userpath79), filename: "429dd1475f6280b6cb248de85719892f_original.jpg")
+  user79.save
+  project79 = Project.new(duration: 0, limit: false, user_id: user79.id, country: "Denmark", title: "Nordic Shawls - a knitting book", description: "The English version of the original Danish knitting book Sjaler Nordfra by Karen Skriver Lauger", pledge_amt: 0, eta: nil, shipping: "", city: "Copenhagen", state: "Denmark", funding_goal: 9877, category_id: categories[2].id, subcategory: "Knitting", challenges: "")
+  projectpath79 = File.join(Rails.root, 'app', "assets", "images", "47c462247dbcaa391836525a6c79e64a_original.jpg")
+  project79.image_url.attach(io: File.open(projectpath79), filename: "47c462247dbcaa391836525a6c79e64a_original.jpg")
+  project79.save
+  user80 = User.new(name: "PlanetPlush", email: "planetplush@gmail.com", password: "starwars", biography: 'PlanetPlush is located in the beautiful hills of West Virginia. Our business began in a small appalachian town across the Guyandotte River. We specialize in plush toys and work with endless dedication to assure you receive the best we have to offer. Every character is designed by hand and made with high quality materials. Our goal is to spread happiness and we take pride in our commitment to make our toys easily available world wide.', google_analytics: "")
+  userpath80 = File.join(Rails.root, 'app', "assets", "images", "05add61c44169142788bd16117ebbadc_original.jpg")
+  user80.profile_url.attach(io: File.open(userpath80), filename: "05add61c44169142788bd16117ebbadc_original.jpg")
+  user80.save
+  project80 = Project.new(duration: 0, limit: false, user_id: user80.id, country: "the United States", title: "Spooky the Fox Plush Toy", description: "He may be dead but he's got spirit!", pledge_amt: 0, eta: nil, shipping: "", city: "Huntington", state: "WV", funding_goal: 3000, category_id: categories[2].id, subcategory: nil, challenges: "")
+  projectpath80 = File.join(Rails.root, 'app', "assets", "images", "a0b70d92e3c1b21859790e8d85e3d30e_original.jpg")
+  project80.image_url.attach(io: File.open(projectpath80), filename: "a0b70d92e3c1b21859790e8d85e3d30e_original.jpg")
+  project80.save
+  user81 = User.new(name: "Kai Lebrecht", email: "kailebrecht@gmail.com", password: "starwars", biography: 'I\'m 54 years old, married and have 3 children. After studying economics I worked as Managing Director for different companies. Since three years I`m running my own business. With my experience in developing new products I`m helping my 20 year old son Dennis to bring his own idea to life.', google_analytics: "")
+  userpath81 = File.join(Rails.root, 'app', "assets", "images", "6930df31cb1c635b21b5a4ce8b1984c0_original.jpg")
+  user81.profile_url.attach(io: File.open(userpath81), filename: "6930df31cb1c635b21b5a4ce8b1984c0_original.jpg")
+  user81.save
+  project81 = Project.new(duration: 0, limit: false, user_id: user81.id, country: "Germany", title: "Nihon4you - A Japanese characters workbook", description: "An innovative workbook to learn and understand japanese characters in an easy way no matter where you are", pledge_amt: 0, eta: nil, shipping: "", city: "Freiburg", state: "Germany", funding_goal: 11347, category_id: categories[2].id, subcategory: "Stationery", challenges: "")
+  projectpath81 = File.join(Rails.root, 'app', "assets", "images", "4cde79bfffcf78720f5552295425ca2c_original.jpg")
+  project81.image_url.attach(io: File.open(projectpath81), filename: "4cde79bfffcf78720f5552295425ca2c_original.jpg")
+  project81.save
 end
