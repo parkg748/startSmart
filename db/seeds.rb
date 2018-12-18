@@ -581,8 +581,16 @@ ActiveRecord::Base.transaction do
   userpath73 = File.join(Rails.root, 'app', "assets", "images", "ab9173f6207eb340debf6de6ed2fce75_original.jpg")
   user73.profile_url.attach(io: File.open(userpath73), filename: "ab9173f6207eb340debf6de6ed2fce75_original.jpg")
   user73.save
-  project73 = Project.new(duration: 0, limit: false, user_id: user73.id, country: "Mexico", title: "La Última Escena.", description: "Daniela buscará romper con los paradigmas familiares para lograr su independencia y su sueño de ser actriz.", pledge_amt: 0, eta: nil, shipping: "", city: "Mexico", state: "Mexico", funding_goal: 2586, category_id: categories[6].id, subcategory: "Shorts", challenges: "")
-  projectpath73 = File.join(Rails.root, 'app', "assets", "images", "4fe547ee14b2478ebde4d58198242bf5_original.jpg")
-  project73.image_url.attach(io: File.open(projectpath73), filename: "4fe547ee14b2478ebde4d58198242bf5_original.jpg")
+  project73 = Project.new(duration: 0, limit: false, user_id: user73.id, country: "Germany", title: "SOPHIE (AT) - A Short Film", description: "SOPHIE (AT) is a 20-minutes political thriller with macroeconomic content. It concerns the future of Europe.", pledge_amt: 0, eta: nil, shipping: "", city: "Cologne", state: "Germany", funding_goal: 5654, category_id: categories[6].id, subcategory: "Shorts", challenges: "")
+  projectpath73 = File.join(Rails.root, 'app', "assets", "images", "e780161aa7e059d2f4533af31bc89c7f_original.jpg")
+  project73.image_url.attach(io: File.open(projectpath73), filename: "e780161aa7e059d2f4533af31bc89c7f_original.jpg")
   project73.save
+  user74 = User.new(name: "Sebastian Masso", email: "sebastianmasso@gmail.com", password: "starwars", biography: 'Comenzó en el mundo artístico con la música independiente para luego ligarse a la actuación y el cine. Como cineasta se ha enfocado en la producción y dirección de cortometrajes y videoclips en sus distintas áreas, siendo productor ejecutivo, gerente de producción, director, asistente de dirección y continuista sus principales pasiones. Como actor ha trabajado en cortometrajes independientes y comerciales, además de participar como extra en largometrajes como "Roma" de Alfonso Cuarón y "Esto No Es Berlín" de Hari Sama. Actualmente atiende varios proyectos como cineasta en distintas fases de la producción, y prepara un personaje protagónico para la ópera prima "Ensayo Sobre El Silencio".', google_analytics: "")
+  userpath74 = File.join(Rails.root, 'app', "assets", "images", "57d0c2a5326002085e59fc63b3fffbbf_original.jpg")
+  user74.profile_url.attach(io: File.open(userpath74), filename: "57d0c2a5326002085e59fc63b3fffbbf_original.jpg")
+  user74.save
+  project74 = Project.new(duration: 0, limit: false, user_id: user74.id, country: "Mexico", title: "MÍA - CORTOMETRAJE", description: "Un cortometraje de adaptación de "El Híbrido" de Franz Kafka.", pledge_amt: 0, eta: nil, shipping: "", city: "Mexico", state: "Mexico", funding_goal: 1243, category_id: categories[6].id, subcategory: "Shorts", challenges: "")
+  projectpath74 = File.join(Rails.root, 'app', "assets", "images", "bf9cbf30a7998aedbdeac8b0afc42af5_original.png")
+  project74.image_url.attach(io: File.open(projectpath74), filename: "bf9cbf30a7998aedbdeac8b0afc42af5_original.png")
+  project74.save
 end
