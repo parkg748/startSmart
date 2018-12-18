@@ -178,7 +178,7 @@ class EditAboutYouProject extends React.Component {
                                 <input onChange={this.update('name')} type='text' value={Object.values(this.props.user)[0].name} />
                               </div>
                               <div className='name-description'>
-                                <p>Heads up: Once you launch a project, you cannot make changes to your name on Kickstarter.</p>
+                                <p>Heads up: Once you launch a project, you cannot make changes to your name on StartSmart.</p>
                               </div>
                             </div>
                           </div>

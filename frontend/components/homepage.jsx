@@ -535,7 +535,7 @@ class Homepage extends React.Component {
                   <div className='people-quotes-content-body-title'>
                     To get good at anything, you have to fail a lot at it.
                   </div>
-                  <span>WRITER DANIEL ALARCÓN IN <strong><Link to='/'>THE CREATIVE INDEPENDENT</Link></strong>, A KICKSTARTER-PUBLISHED RESOURCE FOR CREATIVE PEOPLE</span>
+                  <span>WRITER DANIEL ALARCÓN IN <strong><Link to='/'>THE CREATIVE INDEPENDENT</Link></strong>, A STARTSMART-PUBLISHED RESOURCE FOR CREATIVE PEOPLE</span>
                   <p>READ MORE <i className="projects-we-love-arrow fas fa-long-arrow-alt-right"></i></p>
                 </div>
               </div>

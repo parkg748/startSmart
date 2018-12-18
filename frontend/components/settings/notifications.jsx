@@ -242,7 +242,7 @@ class Notifications extends React.Component {
                     <img src='https://i.imgur.com/dwu4CRj.jpg'/>
                     <div className='notifications-boxes-left-inner-content'>
                       <h1>Projects We Love</h1>
-                      <p>A weekly roundup of the best and brightest projects on Kickstarter, handpicked by our team.</p>
+                      <p>A weekly roundup of the best and brightest projects on StartSmart, handpicked by our team.</p>
                     </div>
                     <div className='notifications-boxes-left-bottom'>
                       <button>Subscribe</button>

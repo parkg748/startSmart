@@ -168,7 +168,7 @@ class Pledge extends React.Component {
                   <li>
                     <i className={`${this.state.thirdCaret} fas fa-caret-right`}></i>
                   <span className={`${this.state.thirdSpan}`} onClick={() => this.revealAnswers('third')}>So I'm only charged if funding succeeds?</span>
-                <div className={`${this.state.thirdDiv}`}>Yes! That's part of what makes Kickstarter special. If a project isn't successfully funded, no one pays anything.</div>
+                <div className={`${this.state.thirdDiv}`}>Yes! That's part of what makes StartSmart special. If a project isn't successfully funded, no one pays anything.</div>
                   </li>
                   <li>
                     <i className={`${this.state.fourthCaret} fas fa-caret-right`}></i>

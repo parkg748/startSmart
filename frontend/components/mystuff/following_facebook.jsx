@@ -86,7 +86,7 @@ class FollowingFacebook extends React.Component {
             <div className='facebook-friends-right-one'>
               <div className='facebook-friends-right-two'>
                 <h2>Following</h2>
-                <p>When you follow creators and your Facebook friends on Kickstarter, you’ll be notified when they back or launch a project. And while you’re exploring, we’ll show you whom has backed each project you find. (You can manage your notification settings <Link className='policy-link' to='/'>here</Link>.)</p>
+                <p>When you follow creators and your Facebook friends on StartSmart, you’ll be notified when they back or launch a project. And while you’re exploring, we’ll show you whom has backed each project you find. (You can manage your notification settings <Link className='policy-link' to='/'>here</Link>.)</p>
                 <div className='facebook-friends-right-three'>
                   <h5>Heads up: We don’t display your pledge amount, just the fact that you’re a proud backer. You can opt out of this feature <Link className='policy-link' to='/'>here</Link>.</h5>
                 </div>
