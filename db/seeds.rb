@@ -649,4 +649,68 @@ ActiveRecord::Base.transaction do
   projectpath81 = File.join(Rails.root, 'app', "assets", "images", "4cde79bfffcf78720f5552295425ca2c_original.jpg")
   project81.image_url.attach(io: File.open(projectpath81), filename: "4cde79bfffcf78720f5552295425ca2c_original.jpg")
   project81.save
+  user82 = User.new(name: "Renaud SAUZET", email: "renaudsauzet@gmail.com", password: "starwars", biography: 'Indie Game developer. Currently working on Koruldia, a merciful story-driven RPG made with a new take on HD pixel-art and various camera point of view.', google_analytics: "")
+  userpath82 = File.join(Rails.root, 'app', "assets", "images", "107f4020864718e4f94538df24104362_original.png")
+  user82.profile_url.attach(io: File.open(userpath82), filename: "107f4020864718e4f94538df24104362_original.png")
+  user82.save
+  project82 = Project.new(duration: 0, limit: false, user_id: user82.id, country: "the United Kingdom", title: "Koruldia Heritage, a pixel-painted adventure RPG", description: "Explore an alien world riddled with ominous wonders and puzzles. Dive into people's memories. Be ruthless or merciful.", pledge_amt: 0, eta: nil, shipping: "", city: "London", state: "UK", funding_goal: 12624, category_id: categories[8].id, subcategory: "Video Games", challenges: "")
+  projectpath82 = File.join(Rails.root, 'app', "assets", "images", "b79667d597c560dcb0618281636721ee_original.jpg")
+  project82.image_url.attach(io: File.open(projectpath82), filename: "b79667d597c560dcb0618281636721ee_original.jpg")
+  project82.save
+  user83 = User.new(name: "Shire Post Mint", email: "shirepostmint@gmail.com", password: "starwars", biography: 'Tom Maringer has been hand-crafting unique and beautiful metal objects since the late 1960s. In 1975 he started Maringer Custom Cutlery and made beautiful hand-crafted knives and swords. Beginning in 1987 he began making fantasy postage stamps, and in 2001 acquired his first press for the making of fantasy coins. Beginning strictly as a fan-art hobby project, fantasy coinmaking grew into a more serious project for Tom with the success his licensed A Game of Thrones™ series beginning in 2003. Today Shire Post Mint is a traditional fantasy coin making mint with four full time staff specializing in the fabrication of fully-licensed fantasy currency from fictional worlds, including George R.R. Martin\'s "A Game of Thrones" series, Robert E Howard’s "Conan™" series, "The Hobbit™" and "The Lord of the Rings™" trilogy by J.R.R. Tolkien, Robert Jordan’s "The Wheel of Time™" series, L.E. Modesitt’s "The Saga of Recluce™" series, Patrick Rothfuss’ "The Kingkiller Chronicle™" series, Peter V. Brett\'s "The Demon Cycle" series, and Edgar Rice Burroughs’ "John Carter of Mars™" series. Shire Post utilizes antique coin making processes to recreate the feel and look of ancient and medieval coins, from hand-carving dies, using solid metals (never cast or plated), stamping with antique machines, to tumbling and chemically or thermally treating the coins in order to bring about the weathered look of old coins. Our primary goal is to increase fans\' immersive experience in their favorite fantasies by creating simple tactile objects to enhance the sense-of-place and contribute to a state of "Suspension Of Disbelief" or "SOD" with respect to the beloved fantasy realm. Our goal was fully realized when a fan commented: "I thought those stories were made up... but these coins are REAL!" We hope that everybody may be enabled to experience such a SOD experience, even if it\'s only for a moment. To feel the world of Middle-earth take shape around you as you jingle some Hobbit coins in your hand... THAT is the best thing ever!', google_analytics: "")
+  userpath83 = File.join(Rails.root, 'app', "assets", "images", "a78677b03caeabcbc4679f38d9dca715_original.png")
+  user83.profile_url.attach(io: File.open(userpath83), filename: "a78677b03caeabcbc4679f38d9dca715_original.png")
+  user83.save
+  project83 = Project.new(duration: 0, limit: false, user_id: user83.id, country: "the United States", title: "A GAME OF THRONES, Fantasy Gaming Coins, by Shire Post Mint", description: "A Game of Thrones themed metal fantasy coins / tokens upgrade the experience of any card game, board game, LCG, LARP, or RPG.", pledge_amt: 0, eta: nil, shipping: "", city: "Fayetteville", state: "AR", funding_goal: 13500, category_id: categories[8].id, subcategory: "Gaming Hardware", challenges: "")
+  projectpath83 = File.join(Rails.root, 'app', "assets", "images", "bb4eb9ec42152395144793ebddf4e033_original.jpg")
+  project83.image_url.attach(io: File.open(projectpath83), filename: "bb4eb9ec42152395144793ebddf4e033_original.jpg")
+  project83.save
+  user84 = User.new(name: "Rich Stadler", email: "richstadler@gmail.com", password: "starwars", biography: 'Married to the greatest gal on the planet and have three wonderful kids! I wish I lived south where the weather is warmer but summer in Wisconsin in beautiful and we have the Packers!', google_analytics: "")
+  userpath84 = File.join(Rails.root, 'app', "assets", "images", "9a4fc5c664032e90b46706f57151f069_original.jpg")
+  user84.profile_url.attach(io: File.open(userpath84), filename: "9a4fc5c664032e90b46706f57151f069_original.jpg")
+  user84.save
+  project84 = Project.new(duration: 0, limit: false, user_id: user84.id, country: "the United States", title: "Billet Dice", description: "CNC Crafted out of billet aluminum. Unique, sophisticated yet practical.", pledge_amt: 0, eta: nil, shipping: "", city: "Oshkosh", state: "WI", funding_goal: 10000, category_id: categories[8].id, subcategory: "Gaming Hardware", challenges: "")
+  projectpath84 = File.join(Rails.root, 'app', "assets", "images", "b5a59e81c66aecb3754f23ce6fbf0bf3_original.jpeg")
+  project84.image_url.attach(io: File.open(projectpath84), filename: "b5a59e81c66aecb3754f23ce6fbf0bf3_original.jpeg")
+  project84.save
+  user85 = User.new(name: "Bree Arts", email: "breearts@gmail.com", password: "starwars", biography: 'Bree Arts is a small art and game development studio. Our current focus is in developing computer role playing games. Bree Arts is currently a husband and wife team of Jeremy (slowdive_fan) and Tamara. My wife is the lead artist and I am the lead programmer and writer.', google_analytics: "")
+  userpath85 = File.join(Rails.root, 'app', "assets", "images", "6457e5b5b4d719d19f50a64ea5b3c361_original.jpeg")
+  user85.profile_url.attach(io: File.open(userpath85), filename: "6457e5b5b4d719d19f50a64ea5b3c361_original.jpeg")
+  user85.save
+  project85 = Project.new(duration: 0, limit: false, user_id: user85.id, country: "the United States", title: "IceBlink Engine", description: "IceBlink is a story, party and turn-based computer RPG Engine and Toolset. Easily create your own adventures to share with anyone.", pledge_amt: 0, eta: nil, shipping: "", city: "Phoenix", state: "AZ", funding_goal: 500, category_id: categories[8].id, subcategory: "Gaming Hardware", challenges: "")
+  projectpath85 = File.join(Rails.root, 'app', "assets", "images", "4bc510ae4c171cc86a1beef3cba9a9ea_original.jpg")
+  project85.image_url.attach(io: File.open(projectpath85), filename: "4bc510ae4c171cc86a1beef3cba9a9ea_original.jpg")
+  project85.save
+  user86 = User.new(name: "Andy \"Cosmo-Joe\" Watkins", email: "andycosmojoewatkins@gmail.com", password: "starwars", biography: 'Andy "Cosmo-Joe" Watkins was born in Milwaukee in the late 70s. While living there he went to Roosevelt; a Milwaukee charter school that specializes in the arts. In his teens he moved to the Fox Cities where he worked several mid-level management jobs throughout his much of his twenties. When he was 28 he quit his job to pursue his life\'s dream of being a professional artist. Since then Watkins has spent his time painting, drawing, writing lyrics for a rock band, designing games andother game products, and performing his "action art" at schools. Cosmo has gained attention for his radical style of spray paint painting from the media. He can often be found on State Street painting for large crowds of passer-bys on most summer Saturdays. He says that the people inspire him to paint and that it is their energy that drives him. In 2007 Andy Watkins founded Cosmo-Joe Entertainment; a company dedicated to the promotion of artists and arts. In 2014 he opened Studio 6d6, a workshop and gallery for creative projects. Most of Studio 6d6\'s 2000 square feet are dedicated to creating designer game tables. Studio 6d6 has also produced several unique dice designs and is working on several tabletop games. In 2016 Studio 6d6 moved to a 8,700 sq ft building in Menasha WI where we continue to make great game tables and custom game products. Andy lives in a humble apartment with his 2 cats close to downtown Menasha. He is an active member of the local art community. He holds the copyright to over 5,000 works of art, several games, a few designs for dice, and dozens of songs.', google_analytics: "")
+  userpath86 = File.join(Rails.root, 'app', "assets", "images", "9cdc777267cc967e53fd61137c78617c_original.jpg")
+  user86.profile_url.attach(io: File.open(userpath86), filename: "9cdc777267cc967e53fd61137c78617c_original.jpg")
+  user86.save
+  project86 = Project.new(duration: 0, limit: false, user_id: user86.id, country: "the United States", title: "Double Dice Tower Ultimate GM Screen!", description: "This awesome GM screen looks like a cool castle! Features TWO dice towers and a dice dungeon. Run games like a MASTER.", pledge_amt: 0, eta: nil, shipping: "", city: "Menasha", state: "WI", funding_goal: 2000, category_id: categories[8].id, subcategory: "Gaming Hardware", challenges: "")
+  projectpath86 = File.join(Rails.root, 'app', "assets", "images", "e374f89ee75e7a6252a9bfcaa774e066_original.png")
+  project86.image_url.attach(io: File.open(projectpath86), filename: "e374f89ee75e7a6252a9bfcaa774e066_original.png")
+  project86.save
+  user87 = User.new(name: "Dized", email: "dized@gmail.com", password: "starwars", biography: 'Dized is a platform for everything digital that improves your board game experiences: tutorials, up-to-date rules, exclusive content, community interaction, game night planning, and more. Dized will be available for iOS and Android devices.', google_analytics: "")
+  userpath87 = File.join(Rails.root, 'app', "assets", "images", "2396ab0241d969e2a9fbc0e984f036a9_original.png")
+  user87.profile_url.attach(io: File.open(userpath87), filename: "2396ab0241d969e2a9fbc0e984f036a9_original.png")
+  user87.save
+  project87 = Project.new(duration: 0, limit: false, user_id: user87.id, country: "Belgium", title: "Dized: The Best Way To Learn Board Games", description: "Dized is the ultimate companion app: it adapts to your preferences, letting you skip the rulebook and play board games right away!", pledge_amt: 0, eta: nil, shipping: "", city: "Helsinki", state: "Finland", funding_goal: 75000, category_id: categories[8].id, subcategory: "Tabletop Games", challenges: "")
+  projectpath87 = File.join(Rails.root, 'app', "assets", "images", "8fcad5000003d2498acaadba60fa530c_original.png")
+  project87.image_url.attach(io: File.open(projectpath87), filename: "8fcad5000003d2498acaadba60fa530c_original.png")
+  project87.save
+  user88 = User.new(name: "itten", email: "itten@gmail.com", password: "starwars", biography: 'We are a tabletop designing and publishing company based in Tokyo.', google_analytics: "")
+  userpath88 = File.join(Rails.root, 'app', "assets", "images", "cd5c28ec0348a54563034897bbfd35b9_original.jpg")
+  user88.profile_url.attach(io: File.open(userpath88), filename: "cd5c28ec0348a54563034897bbfd35b9_original.jpg")
+  user88.save
+  project88 = Project.new(duration: 0, limit: false, user_id: user88.id, country: "Japan", title: "Stonehenge and the Sun", description: "A new gaming experiment which challenges and expands the scope of tabletop games.", pledge_amt: 0, eta: nil, shipping: "", city: "Tokyo", state: "Japan", funding_goal: 19546, category_id: categories[8].id, subcategory: "Tabletop Games", challenges: "")
+  projectpath88 = File.join(Rails.root, 'app', "assets", "images", "3169c82345750d87d029dd254b390689_original.jpg")
+  project88.image_url.attach(io: File.open(projectpath88), filename: "3169c82345750d87d029dd254b390689_original.jpg")
+  project88.save
+  user89 = User.new(name: "Draco Studios", email: "dracostudios@gmail.com", password: "starwars", biography: 'We love RPGs and miniatures. Creating new IPs for the world. Draco Studios was born in 2017 and incorporates 3 groups: Draco Gaming: Content creator and publisher Draco Forge: Resin miniatures manufacturer Draco Games: Distributor in Mexico Eldritch Century is our next release.', google_analytics: "")
+  userpath89 = File.join(Rails.root, 'app', "assets", "images", "b93ccbd30d983c7263c7ef32d0eaf462_original.png")
+  user89.profile_url.attach(io: File.open(userpath89), filename: "b93ccbd30d983c7263c7ef32d0eaf462_original.png")
+  user89.save
+  project89 = Project.new(duration: 0, limit: false, user_id: user89.id, country: "Mexico", title: "War for Chicken Island", description: "Chickens go to war on a tiny island to humiliate other clans. A gateway skirmish game with fun mechanics, art and miniatures.", pledge_amt: 0, eta: nil, shipping: "", city: "Mexico City", state: "Mexico", funding_goal: 18000, category_id: categories[8].id, subcategory: "Tabletop Games", challenges: "")
+  projectpath89 = File.join(Rails.root, 'app', "assets", "images", "0a9b9e8b7b24fa65ed9b7c3581867369_original.jpg")
+  project89.image_url.attach(io: File.open(projectpath89), filename: "0a9b9e8b7b24fa65ed9b7c3581867369_original.jpg")
+  project89.save
 end
