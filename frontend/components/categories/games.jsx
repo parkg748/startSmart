@@ -118,7 +118,9 @@ class Games extends React.Component {
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>
                 <h3>FEATURED PROJECT</h3>
-                <div className='featured-project-recommended-left-main-heart'></div>
+                <div className='featured-project-recommended-left-main-heart'>
+                  <i className='featured-project-recommended-left-main-heart-icon far fa-heart'></i>
+                </div>
                 <img src={gamesProjects.length > 0 ? gamesProjects.slice(-1)[0].imageUrl : ''}/>
                 <div className='featured-project-recommended-left-gray-bar'>
                   <div className='featured-project-recommended-left-green-bar'></div>

@@ -76,12 +76,20 @@ class Publishing extends React.Component {
     if (Object.values(this.props.projects).length > 0) {
       Object.values(this.props.projects).forEach(project => {
         if (publishingJournalismId.includes(project.categoryId)) {
-          publishingJournalismProjects.push(project);
           category = categoryName[publishingJournalismId.indexOf(project.categoryId)];
-          if (category === 'Art') { projectPublishing.push(project); }
-          else if (category === 'Dance') { projectJournalism.push(project); }
-          else if (category === 'Photography') { projectPoetry.push(project); }
-          else if (category === 'Theater') { projectChildrensBooks.push(project); }
+          if (category === 'Publishing' && project.subcategory === 'Poetry') {
+            publishingJournalismProjects.push(project);
+            projectPoetry.push(project);
+          } else if (category === 'Publishing' && project.subcategory === 'Children\'s Books') {
+            publishingJournalismProjects.push(project);
+            projectChildrensBooks.push(project);
+          } else if (category === 'Publishing') {
+            publishingJournalismProjects.push(project);
+            projectPublishing.push(project);
+          } else if (category === 'Journalism') {
+            publishingJournalismProjects.push(project);
+            projectJournalism.push(project);
+          }
         }
       });
     }
@@ -113,7 +121,9 @@ class Publishing extends React.Component {
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>
                 <h3>FEATURED PROJECT</h3>
-                <div className='featured-project-recommended-left-main-heart'></div>
+                <div className='featured-project-recommended-left-main-heart'>
+                  <i className='featured-project-recommended-left-main-heart-icon far fa-heart'></i>
+                </div>
                 <img src={publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-1)[0].imageUrl : ''}/>
                 <div className='featured-project-recommended-left-gray-bar'>
                   <div className='featured-project-recommended-left-green-bar'></div>

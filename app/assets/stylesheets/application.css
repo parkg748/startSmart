@@ -12304,8 +12304,16 @@ iframe > body {
   background-color: rgba(40,40,40,0.5);
   cursor: pointer;
   z-index: 2;
-  right: 78px;
-  top: 80px;
+  right: 74px;
+  top: 78px;
+}
+
+.featured-project-recommended-left-main-heart-icon {
+  color: white;
+  font-size: 13px;
+  top: 12px;
+  left: 12px;
+  position: absolute;
 }
 
 .featured-project-recommended-left-gray-bar {
