@@ -996,6 +996,7 @@ nav {
   position: absolute;
   left: 95px;
   top: 17px;
+  cursor: pointer;
 }
 
 .profile-photo-upload img {
@@ -12290,7 +12291,6 @@ iframe > body {
 }
 
 .featured-project-recommended-left img {
-  background-color: black;
   height: 316px;
   width: 100%;
 }
@@ -12382,7 +12382,6 @@ iframe > body {
 }
 
 .featured-project-recommended-right li > img {
-  background-color: black;
   height: 100%;
   width: 33%;
   margin-right: 24px;
@@ -12533,7 +12532,7 @@ iframe > body {
 }
 
 .explore-theater {
-  height: 500px;
+  height: fit-content;
   border-bottom: 1px solid #DCDEDD;
 }
 
@@ -12642,13 +12641,24 @@ iframe > body {
 }
 
 .postcommodity-newsletter {
-  height: 486px;
+  height: fit-content;
   border-bottom: 1px solid #DCDEDD;
 }
 
 .postcommodity-newsletter-inner {
   padding: 0 60px;
   margin: 0 37px;
+}
+
+.postcommodity-readmore {
+  padding-top: 24px;
+  font-size: 14px;
+  color: #4C6CF8;
+  cursor: pointer;
+}
+
+.postcommodity-readmore:hover {
+  text-decoration: underline;
 }
 
 .postcommodity-newsletter-inner-inner {
@@ -12659,7 +12669,7 @@ iframe > body {
 
 .postcommodity {
   width: 48%;
-  height: 390px;
+  height: fit-content;
   display: flex;
   flex-flow: column;
 }
@@ -12671,13 +12681,13 @@ iframe > body {
 }
 
 .postcommodity-content {
-  height: 102px;
+  height: fit-content;
   padding-top: 18px;
   margin-bottom: 30px;
 }
 
 .postcommodity-content-inner {
-  height: 78px;
+  height: fit-content;
   padding-left: 18px;
   border-left: 6px solid #037362;
 }
@@ -12687,7 +12697,8 @@ iframe > body {
   font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
   font-size: 28px;
   color: #282828;
-  height: 36px;
+  height: fit-content;
+  line-height: 36px;
   font-weight: 100;
   cursor: pointer;
 }
@@ -12699,8 +12710,133 @@ iframe > body {
 
 .postcommodity-content-inner p {
   padding-top: 18px;
-  height: 24px;
+  height: fit-content;
+  line-height: 24px;
   font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
   font-size: 18px;
   color: #282828;
+}
+
+.comics-illustrion-subscribe-newsletter {
+  height: 240px;
+  border-bottom: 1px solid #DCDEDD;
+}
+
+.comics-illustrion-subscribe-newsletter-inner {
+  padding: 0 60px;
+  margin: 0 37px;
+}
+
+.comics-illustrion-subscribe-newsletter-inner-inner {
+  padding: 48px 0;
+}
+
+.comics-illustrion-subscribe-newsletter-inner-inner h2 {
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  height: 30px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.comics-illustrion-subscribe-newsletter-inner-inner p {
+  font-weight: 100;
+  height: 24px;
+  font-size: 16px;
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.comics-illustrion-subscribe-newsletter-inner-inner-inner {
+  height: 42px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.comics-illustrion-subscribe-newsletter-inner-inner-inner button {
+  height: 100%;
+  background-color: black;
+  color: white;
+  font-weight: 100;
+  font-size: 14px;
+  width: fit-content;
+  padding: 0 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out !important;
+}
+
+.comics-illustrion-subscribe-newsletter-inner-inner-inner button:hover {
+  background-color: #4d4d4d;
+}
+
+.improving-our-community {
+  height: 336px;
+  border-bottom: 1px solid #DCDEDD;
+}
+
+.improving-our-community-inner {
+  padding: 0 60px;
+  margin: 0 37px;
+}
+
+.improving-our-community-inner-inner {
+  padding: 48px 0;
+  display: flex;
+}
+
+.improving-our-community-inner-inner img {
+  width: 64%;
+  height: 240px;
+}
+
+.improving-our-community-inner-inner-inner {
+  height: 210px;
+  padding-left: 24px;
+  margin-bottom: 30px;
+}
+
+.improving-our-community-inner-inner-inner-header {
+  height: fit-content;
+  padding-left: 18px;
+  border-left: 6px solid #037362;
+}
+
+.improving-our-community-inner-inner-inner-header h3 {
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  font-size: 28px;
+  line-height: 36px;
+  color: #282828;
+  margin: 0;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.improving-our-community-inner-inner-inner-header h3:hover {
+  color: #037362;
+  text-decoration: underline;
+}
+
+.improving-our-community-inner-inner-inner-header p {
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  padding-top: 18px;
+  color: #282828;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.improving-our-community-readmore {
+  padding-top: 24px;
+  color: #4C6CF8;
+  font-weight: 100;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.improving-our-community-readmore:hover {
+  text-decoration: underline;
 }

@@ -21,6 +21,11 @@ class Preview extends React.Component {
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
     this.props.fetchCategories();
     this.props.fetchUser(this.props.match.params.userId);
+    this.interval = setInterval(() => this.forceUpdate(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   clickProfileIcon() {
@@ -99,6 +104,7 @@ class Preview extends React.Component {
       this.currentTimeNum = seconds / 1;
       this.currentTime = 'second';
     }
+    console.log(seconds);
   }
 
   render() {

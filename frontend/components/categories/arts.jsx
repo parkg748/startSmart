@@ -109,7 +109,7 @@ class Arts extends React.Component {
         <div className='categories-body'>
           <div className='categories-header'>
             <h3>Arts</h3>
-            <p>Discover the artists and organizations using Kickstarter to realize ambitious projects in visual art, dance, and performance.</p>
+            <p>Discover the artists and organizations using StartSmart to realize ambitious projects in visual art, dance, and performance.</p>
             <Link className='subcategories-links' to='/discover/categories/art'>Explore Art</Link>
             <Link className='subcategories-links' to='/discover/categories/dance'>Explore Dance</Link>
             <Link className='subcategories-links' to='/discover/categories/photography'>Explore Photography</Link>
