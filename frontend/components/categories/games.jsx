@@ -53,53 +53,55 @@ class Games extends React.Component {
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
-    let artId = [];
+    let gamesId = [];
     let categoryName = [];
-    let idArt = [];
-    let idDance = [];
-    let idPhotography = [];
-    let idTheater = [];
+    let idGames = [];
     if (Object.values(this.props.category).length > 0) {
       Object.values(this.props.category).forEach(el => {
-        if (el.name === 'Art' || el.name === 'Dance' || el.name === 'Photography' || el.name === 'Theater') {
-          artId.push(el.id);
+        if (el.name === 'Games') {
+          gamesId.push(el.id);
           categoryName.push(el.name);
-          if (el.name === 'Art') { idArt.push(el.id); }
-          else if (el.name === 'Dance') { idDance.push(el.id); }
-          else if (el.name === 'Photography') { idPhotography.push(el.id); }
-          else if (el.name === 'Theater') { idTheater.push(el.id); }
+          if (el.name === 'Games') { idGames.push(el.id); }
         }
       });
     }
-    let artsProjects = [];
-    let projectArt = [];
-    let projectDance = [];
-    let projectPhotography = [];
-    let projectTheater = [];
+    let gamesProjects = [];
+    let projectGames = [];
+    let projectGamingHardware = [];
+    let projectVideoGames = [];
+    let projectTabletop = [];
     let category = '';
     if (Object.values(this.props.projects).length > 0) {
       Object.values(this.props.projects).forEach(project => {
-        if (artId.includes(project.categoryId)) {
-          artsProjects.push(project);
-          category = categoryName[artId.indexOf(project.categoryId)];
-          if (category === 'Art') { projectArt.push(project); }
-          else if (category === 'Dance') { projectDance.push(project); }
-          else if (category === 'Photography') { projectPhotography.push(project); }
-          else if (category === 'Theater') { projectTheater.push(project); }
+        if (gamesId.includes(project.categoryId)) {
+          category = categoryName[gamesId.indexOf(project.categoryId)];
+          if (category === 'Games' && project.subcategory === 'Gaming Hardware') {
+            gamesProjects.push(project);
+            projectGamingHardware.push(project);
+          } else if (category === 'Games' && project.subcategory === 'Tabletop Games') {
+            gamesProjects.push(project);
+            projectTabletop.push(project);
+          } else if (category === 'Games' && project.subcategory === 'Video Games') {
+            gamesProjects.push(project);
+            projectVideoGames.push(project);
+          } else if (category === 'Games') {
+            gamesProjects.push(project);
+            projectGames.push(project);
+          }
         }
       });
     }
-    let usersArtsProjects = [];
-    let artsUsersProjects = [];
-    let danceUsersProjects = [];
-    let photographyUsersProjects = [];
-    let theaterUsersProjects = [];
+    let usersGamesProjects = [];
+    let gamesUsersProjects = [];
+    let gamingHardwareUsersProjects = [];
+    let videoGamesUsersProjects = [];
+    let tabletopUsersProjects = [];
     if (Object.values(this.props.user).length > 1) {
-      usersArtsProjects = artsProjects.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
-      artsUsersProjects = projectArt.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
-      danceUsersProjects = projectDance.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
-      photographyUsersProjects = projectPhotography.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
-      theaterUsersProjects = projectTheater.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
+      usersGamesProjects = gamesProjects.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
+      gamesUsersProjects = projectGames.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
+      gamingHardwareUsersProjects = projectGamingHardware.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
+      videoGamesUsersProjects = projectVideoGames.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
+      tabletopUsersProjects = projectTabletop.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
     }
     return (
       <div>
@@ -108,51 +110,48 @@ class Games extends React.Component {
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
           <div className='categories-header'>
-            <h3>Arts</h3>
-            <p>Discover the artists and organizations using StartSmart to realize ambitious projects in visual art, dance, and performance.</p>
-            <Link className='subcategories-links' to='/discover/categories/art'>Explore Art</Link>
-            <Link className='subcategories-links' to='/discover/categories/dance'>Explore Dance</Link>
-            <Link className='subcategories-links' to='/discover/categories/photography'>Explore Photography</Link>
-            <Link className='subcategories-links' to='/discover/categories/theater'>Explore Theater</Link>
+            <h3>Games</h3>
+            <p>From tabletop adventures to beloved revivals, discover the projects forging the future of gameplay.</p>
+            <Link className='subcategories-links' to='/discover/categories/games'>Explore Games</Link>
           </div>
           <div className='featured-project-recommended'>
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>
                 <h3>FEATURED PROJECT</h3>
                 <div className='featured-project-recommended-left-main-heart'></div>
-                <img src={artsProjects.length > 0 ? artsProjects.slice(-1)[0].imageUrl : ''}/>
+                <img src={gamesProjects.length > 0 ? gamesProjects.slice(-1)[0].imageUrl : ''}/>
                 <div className='featured-project-recommended-left-gray-bar'>
                   <div className='featured-project-recommended-left-green-bar'></div>
                 </div>
-                <h1>{artsProjects.length > 0 ? artsProjects.slice(-1)[0].title : ''}</h1>
-                <p>{artsProjects.length > 0 ? artsProjects.slice(-1)[0].description : ''}</p>
-                <div className='featured-project-recommended-left-main-author'>by <a>{usersArtsProjects.length > 0 ? usersArtsProjects.slice(-1)[0].name : ''}</a></div>
+                <h1>{gamesProjects.length > 0 ? gamesProjects.slice(-1)[0].title : ''}</h1>
+                <p>{gamesProjects.length > 0 ? gamesProjects.slice(-1)[0].description : ''}</p>
+                <div className='featured-project-recommended-left-main-author'>by <a>{usersGamesProjects.length > 0 ? usersGamesProjects.slice(-1)[0].name : ''}</a></div>
               </div>
               <div className='featured-project-recommended-right'>
                 <h3>RECOMMENDED</h3>
                 <ul>
                   <li>
-                    <img src={artsProjects.length > 0 ? artsProjects.slice(-2)[0].imageUrl : ''}/>
+                    <img src={gamesProjects.length > 0 ? gamesProjects.slice(-2)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
-                      <Link className='feature-project-recommended-content-title' to='/'>{artsProjects.length > 0 ? artsProjects.slice(-2)[0].title : ''}</Link>
+                      <Link className='feature-project-recommended-content-title' to='/'>{gamesProjects.length > 0 ? gamesProjects.slice(-2)[0].title : ''}</Link>
                       <span>137% funded</span>
-                      <div className='feature-project-recommended-content-author'>By <a>{usersArtsProjects.length > 0 ? usersArtsProjects.slice(-2)[0].name : ''}</a></div>
+                      <div className='feature-project-recommended-content-author'>By <a>{usersGamesProjects.length > 0 ? usersGamesProjects.slice(-2)[0].name : ''}</a></div>
                     </div>
                   </li>
                   <li>
-                    <img src={artsProjects.length > 0 ? artsProjects.slice(-3)[0].imageUrl : ''}/>
+                    <img src={gamesProjects.length > 0 ? gamesProjects.slice(-3)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
-                      <Link className='feature-project-recommended-content-title' to='/'>{artsProjects.length > 0 ? artsProjects.slice(-3)[0].title : ''}</Link>
+                      <Link className='feature-project-recommended-content-title' to='/'>{gamesProjects.length > 0 ? gamesProjects.slice(-3)[0].title : ''}</Link>
                       <span>137% funded</span>
-                      <div className='feature-project-recommended-content-author'>By <a>{usersArtsProjects.length > 0 ? usersArtsProjects.slice(-3)[0].name : ''}</a></div>
+                      <div className='feature-project-recommended-content-author'>By <a>{usersGamesProjects.length > 0 ? usersGamesProjects.slice(-3)[0].name : ''}</a></div>
                     </div>
                   </li>
                   <li>
-                    <img src={artsProjects.length > 0 ? artsProjects.slice(-4)[0].imageUrl : ''}/>
+                    <img src={gamesProjects.length > 0 ? gamesProjects.slice(-4)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
-                      <Link className='feature-project-recommended-content-title' to='/'>{artsProjects.length > 0 ? artsProjects.slice(-4)[0].title : ''}</Link>
+                      <Link className='feature-project-recommended-content-title' to='/'>{gamesProjects.length > 0 ? gamesProjects.slice(-4)[0].title : ''}</Link>
                       <span>137% funded</span>
-                      <div className='feature-project-recommended-content-author'>By <a>{usersArtsProjects.length > 0 ? usersArtsProjects.slice(-4)[0].name : ''}</a></div>
+                      <div className='feature-project-recommended-content-author'>By <a>{usersGamesProjects.length > 0 ? usersGamesProjects.slice(-4)[0].name : ''}</a></div>
                     </div>
                   </li>
                 </ul>
@@ -160,43 +159,16 @@ class Games extends React.Component {
               </div>
             </div>
           </div>
-          <div className='guides-creative-independent'>
-            <div className='guides-creative-independent-inner'>
-              <div className='guides-creative-independent-inner-inner'>
-                <h3>GUIDES FROM THE CREATIVE INDEPENDENT</h3>
-                <div className='guides-creative-independent-columns'>
-                  <div className='guides-creative-independent-column'>
-                    <div className='guides-creative-independent-column-image'>
-                      <img src='https://i.imgur.com/oVarCJr.png'/>
-                      <div className='green-overlay'></div>
-                    </div>
-                    <span>Jeffrey Silverstein</span>
-                    <h1>How to balance full-time work with creative projects</h1>
+          <div className='improving-our-community'>
+            <div className='improving-our-community-inner'>
+              <div className='podcast-for-nerds'>
+                <img src='https://i.imgur.com/D8MgFon.gif'/>
+                <div className='improving-our-community-inner-inner-inner'>
+                  <div className='podcast-for-nerds-content'>
+                    <h3>A podcast for nerds like you</h3>
+                    <p>Join the StartSmart Games team as they attempt to make two games industry weirdos become friends.</p>
                   </div>
-                  <div className='guides-creative-independent-column'>
-                    <div className='guides-creative-independent-column-image'>
-                      <img src='https://i.imgur.com/n5NgX1o.png'/>
-                      <div className='green-overlay'></div>
-                    </div>
-                    <span>Volunteer Lawyers for the Arts</span>
-                    <h1>An artist's guide to copyrights</h1>
-                  </div>
-                  <div className='guides-creative-independent-column'>
-                    <div className='guides-creative-independent-column-image'>
-                      <img src='https://i.imgur.com/7kbQaoy.png'/>
-                      <div className='green-overlay'></div>
-                    </div>
-                    <span>Sarah Hotchkiss</span>
-                    <h1>How to write an artist statement</h1>
-                  </div>
-                  <div className='guides-creative-independent-column'>
-                    <div className='guides-creative-independent-column-image'>
-                      <img src='https://i.imgur.com/vq6Q64Y.png'/>
-                      <div className='green-overlay'></div>
-                    </div>
-                    <span>Kathryn Jaller</span>
-                    <h1>A creative person's guide to thoughtful promotion</h1>
-                  </div>
+                  <div className='improving-our-community-readmore'>Check it out</div>
                 </div>
               </div>
             </div>
@@ -205,275 +177,249 @@ class Games extends React.Component {
             <div className='explore-theater-inner'>
               <div className='explore-theater-inner-inner'>
                 <div className='explore-theater-header'>
-                  <h3>EXPLORE THEATER</h3>
-                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/theater'>View more</Link></div>
-                </div>
-                <div className='explore-theater-columns'>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectTheater[0] && theaterUsersProjects[0] ? `/users/${theaterUsersProjects[0].id}/projects/${projectTheater[0].id}` : '/'}><img src={projectTheater[0] ? projectTheater[0].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectTheater[0] && theaterUsersProjects[0] ? `/users/${theaterUsersProjects[0].id}/projects/${projectTheater[0].id}` : '/'}><h1>{projectTheater[0] ? projectTheater[0].title : ''}</h1></Link>
-                    <p>{projectTheater[0] ? projectTheater[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{theaterUsersProjects[0] ? theaterUsersProjects[0].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectTheater[1] && theaterUsersProjects[1] ? `/users/${theaterUsersProjects[1].id}/projects/${projectTheater[1].id}` : '/'}><img src={projectTheater[1] ? projectTheater[1].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectTheater[1] && theaterUsersProjects[1] ? `/users/${theaterUsersProjects[1].id}/projects/${projectTheater[1].id}` : '/'}><h1>{projectTheater[1] ? projectTheater[1].title : ''}</h1></Link>
-                    <p>{projectTheater[1] ? projectTheater[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{theaterUsersProjects[1] ? theaterUsersProjects[1].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectTheater[2] && theaterUsersProjects[2] ? `/users/${theaterUsersProjects[2].id}/projects/${projectTheater[2].id}` : '/'}><img src={projectTheater[2] ? projectTheater[2].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectTheater[2] && theaterUsersProjects[2] ? `/users/${theaterUsersProjects[2].id}/projects/${projectTheater[2].id}` : '/'}><h1>{projectTheater[2] ? projectTheater[2].title : ''}</h1></Link>
-                    <p>{projectTheater[2] ? projectTheater[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{theaterUsersProjects[2] ? theaterUsersProjects[2].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectTheater[3] && theaterUsersProjects[3] ? `/users/${theaterUsersProjects[3].id}/projects/${projectTheater[3].id}` : '/'}><img src={projectTheater[3] ? projectTheater[3].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectTheater[3] && theaterUsersProjects[3] ? `/users/${theaterUsersProjects[3].id}/projects/${projectTheater[3].id}` : '/'}><h1>{projectTheater[3] ? projectTheater[3].title : ''}</h1></Link>
-                    <p>{projectTheater[3] ? projectTheater[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{theaterUsersProjects[3] ? theaterUsersProjects[3].name : ''}</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='postcommodity-newsletter'>
-            <div className='postcommodity-newsletter-inner'>
-              <div className='postcommodity-newsletter-inner-inner'>
-                <div className='postcommodity'>
-                  <img src='https://i.imgur.com/ptaoPkO.png'/>
-                  <div className='postcommodity-content'>
-                    <div className='postcommodity-content-inner'>
-                      <h3>Meet Postcommodity</h3>
-                      <p>Bridging Communities with art.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className='postcommodity'>
-                  <img src='https://i.imgur.com/Dj9UoEd.jpg'/>
-                  <div className='postcommodity-content'>
-                    <div className='postcommodity-content-inner'>
-                      <h3>Get our newsletter</h3>
-                      <p>Handpicked projects--spam not included.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='explore-theater'>
-            <div className='explore-theater-inner'>
-              <div className='explore-theater-inner-inner'>
-                <div className='explore-theater-header'>
-                  <h3>EXPLORE VISUAL ART</h3>
-                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/art'>View more</Link></div>
-                </div>
-                <div className='explore-theater-columns'>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectArt[0] && artsUsersProjects[0] ? `/users/${artsUsersProjects[0].id}/projects/${projectArt[0].id}` : '/'}><img src={projectArt[0] ? projectArt[0].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectArt[0] && artsUsersProjects[0] ? `/users/${artsUsersProjects[0].id}/projects/${projectArt[0].id}` : '/'}><h1>{projectArt[0] ? projectArt[0].title : ''}</h1></Link>
-                    <p>{projectArt[0] ? projectArt[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{artsUsersProjects[0] ? artsUsersProjects[0].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectArt[1] && artsUsersProjects[1] ? `/users/${artsUsersProjects[1].id}/projects/${projectArt[1].id}` : '/'}><img src={projectArt[1] ? projectArt[1].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectArt[1] && artsUsersProjects[1] ? `/users/${artsUsersProjects[1].id}/projects/${projectArt[1].id}` : '/'}><h1>{projectArt[1] ? projectArt[1].title : ''}</h1></Link>
-                    <p>{projectArt[1] ? projectArt[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{artsUsersProjects[1] ? artsUsersProjects[1].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectArt[2] && artsUsersProjects[2] ? `/users/${artsUsersProjects[2].id}/projects/${projectArt[2].id}` : '/'}><img src={projectArt[2] ? projectArt[2].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectArt[2] && artsUsersProjects[2] ? `/users/${artsUsersProjects[2].id}/projects/${projectArt[2].id}` : '/'}><h1>{projectArt[2] ? projectArt[2].title : ''}</h1></Link>
-                    <p>{projectArt[2] ? projectArt[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{artsUsersProjects[2] ? artsUsersProjects[2].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectArt[3] && artsUsersProjects[3] ? `/users/${artsUsersProjects[3].id}/projects/${projectArt[3].id}` : '/'}><img src={projectArt[3] ? projectArt[3].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectArt[3] && artsUsersProjects[3] ? `/users/${artsUsersProjects[3].id}/projects/${projectArt[3].id}` : '/'}><h1>{projectArt[3] ? projectArt[3].title : ''}</h1></Link>
-                    <p>{projectArt[3] ? projectArt[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{artsUsersProjects[3] ? artsUsersProjects[3].name : ''}</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='guides-creative-independent'>
-            <div className='guides-creative-independent-inner'>
-              <div className='guides-creative-independent-inner-inner'>
-                <h3>WHAT WE'RE READING</h3>
-                <div className='guides-creative-independent-columns'>
-                  <div className='guides-creative-independent-column'>
-                    <div className='guides-creative-independent-column-image'>
-                      <img src='https://i.imgur.com/RdumQDE.jpg'/>
-                      <div className='green-overlay'></div>
-                    </div>
-                    <h1>We tell ourselves stories: Didion's 'White Album' takes to the stage</h1>
-                  </div>
-                  <div className='guides-creative-independent-column'>
-                    <div className='guides-creative-independent-column-image'>
-                      <img src='https://i.imgur.com/K3zipWb.jpg'/>
-                      <div className='green-overlay'></div>
-                    </div>
-                    <h1>Excited for Amazon's arrival in Long Island City? The results for New York's art community won't be pretty</h1>
-                  </div>
-                  <div className='guides-creative-independent-column'>
-                    <div className='guides-creative-independent-column-image'>
-                      <img src='https://i.imgur.com/UdLOp7u.png'/>
-                      <div className='green-overlay'></div>
-                    </div>
-                    <h1>Review: rage and ritual in 'What to Send up When It Goes Down'</h1>
-                  </div>
-                  <div className='guides-creative-independent-column'>
-                    <div className='guides-creative-independent-column-image'>
-                      <img src='https://i.imgur.com/EVuTWDv.jpg'/>
-                      <div className='green-overlay'></div>
-                    </div>
-                    <h1>Women land artists get their day in the museum</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='explore-theater'>
-            <div className='explore-theater-inner'>
-              <div className='explore-theater-inner-inner'>
-                <div className='explore-theater-header'>
-                  <h3>EXPLORE DANCE</h3>
-                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/dance'>View more</Link></div>
-                </div>
-                <div className='explore-theater-columns'>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectDance[0] && danceUsersProjects[0] ? `/users/${danceUsersProjects[0].id}/projects/${projectDance[0].id}` : '/'}><img src={projectDance[0] ? projectDance[0].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectDance[0] && danceUsersProjects[0] ? `/users/${danceUsersProjects[0].id}/projects/${projectDance[0].id}` : '/'}><h1>{projectDance[0] ? projectDance[0].title : ''}</h1></Link>
-                    <p>{projectDance[0] ? projectDance[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{danceUsersProjects[0] ? danceUsersProjects[0].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectDance[1] && danceUsersProjects[1] ? `/users/${danceUsersProjects[1].id}/projects/${projectDance[1].id}` : '/'}><img src={projectDance[1] ? projectDance[1].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectDance[1] && danceUsersProjects[1] ? `/users/${danceUsersProjects[1].id}/projects/${projectDance[1].id}` : '/'}><h1>{projectDance[1] ? projectDance[1].title : ''}</h1></Link>
-                    <p>{projectDance[1] ? projectDance[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{danceUsersProjects[1] ? danceUsersProjects[1].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectDance[2] && danceUsersProjects[2] ? `/users/${danceUsersProjects[2].id}/projects/${projectDance[2].id}` : '/'}><img src={projectDance[2] ? projectDance[2].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectDance[2] && danceUsersProjects[2] ? `/users/${danceUsersProjects[2].id}/projects/${projectDance[2].id}` : '/'}><h1>{projectDance[2] ? projectDance[2].title : ''}</h1></Link>
-                    <p>{projectDance[2] ? projectDance[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{danceUsersProjects[2] ? danceUsersProjects[2].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectDance[3] && danceUsersProjects[3] ? `/users/${danceUsersProjects[3].id}/projects/${projectDance[3].id}` : '/'}><img src={projectDance[3] ? projectDance[3].imageUrl : ''}/></Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectDance[3] && danceUsersProjects[3] ? `/users/${danceUsersProjects[3].id}/projects/${projectDance[3].id}` : '/'}><h1>{projectDance[3] ? projectDance[3].title : ''}</h1></Link>
-                    <p>{projectDance[3] ? projectDance[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{danceUsersProjects[3] ? danceUsersProjects[3].name : ''}</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='postcommodity-newsletter'>
-            <div className='postcommodity-newsletter-inner'>
-              <div className='postcommodity-newsletter-inner-inner'>
-                <div className='postcommodity'>
-                  <img src='https://i.imgur.com/jakjhvH.png'/>
-                  <div className='postcommodity-content'>
-                    <div className='postcommodity-content-inner'>
-                      <h3>StartSmart's 2017 PBC Statement</h3>
-                      <p>A year of impact in review.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className='postcommodity'>
-                  <img src='https://i.imgur.com/ITMsvl3.jpg'/>
-                  <div className='postcommodity-content'>
-                    <div className='postcommodity-content-inner'>
-                      <h3>Meet Lucy Sparrow</h3>
-                      <p>Filling corner stores, stitch by stitch.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='explore-theater'>
-            <div className='explore-theater-inner'>
-              <div className='explore-theater-inner-inner'>
-                <div className='explore-theater-header'>
-                  <h3>EXPLORE PHOTOGRAPHY</h3>
+                  <h3>RPGS</h3>
                   <div className='explore-theater-header-view-more'><Link to='/discover/categories/photography'>View more</Link></div>
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPhotography[0] && photographyUsersProjects[0] ? `/users/${photographyUsersProjects[0].id}/projects/${projectPhotography[0].id}` : '/'}><img src={projectPhotography[0] ? projectPhotography[0].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectVideoGames[0] && videoGamesUsersProjects[0] ? `/users/${videoGamesUsersProjects[0].id}/projects/${projectVideoGames[0].id}` : '/'}><img src={projectVideoGames[0] ? projectVideoGames[0].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPhotography[0] && photographyUsersProjects[0] ? `/users/${photographyUsersProjects[0].id}/projects/${projectPhotography[0].id}` : '/'}><h1>{projectPhotography[0] ? projectPhotography[0].title : ''}</h1></Link>
-                    <p>{projectPhotography[0] ? projectPhotography[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{photographyUsersProjects[0] ? photographyUsersProjects[0].name : ''}</span></div>
+                    <Link to={projectVideoGames[0] && videoGamesUsersProjects[0] ? `/users/${videoGamesUsersProjects[0].id}/projects/${projectVideoGames[0].id}` : '/'}><h1>{projectVideoGames[0] ? projectVideoGames[0].title : ''}</h1></Link>
+                    <p>{projectVideoGames[0] ? projectVideoGames[0].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{videoGamesUsersProjects[0] ? videoGamesUsersProjects[0].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPhotography[1] && photographyUsersProjects[1] ? `/users/${photographyUsersProjects[1].id}/projects/${projectPhotography[1].id}` : '/'}><img src={projectPhotography[1] ? projectPhotography[1].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectVideoGames[1] && videoGamesUsersProjects[1] ? `/users/${videoGamesUsersProjects[1].id}/projects/${projectVideoGames[1].id}` : '/'}><img src={projectVideoGames[1] ? projectVideoGames[1].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPhotography[1] && photographyUsersProjects[1] ? `/users/${photographyUsersProjects[1].id}/projects/${projectPhotography[1].id}` : '/'}><h1>{projectPhotography[1] ? projectPhotography[1].title : ''}</h1></Link>
-                    <p>{projectPhotography[1] ? projectPhotography[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{photographyUsersProjects[1] ? photographyUsersProjects[1].name : ''}</span></div>
+                    <Link to={projectVideoGames[1] && videoGamesUsersProjects[1] ? `/users/${videoGamesUsersProjects[1].id}/projects/${projectVideoGames[1].id}` : '/'}><h1>{projectVideoGames[1] ? projectVideoGames[1].title : ''}</h1></Link>
+                    <p>{projectVideoGames[1] ? projectVideoGames[1].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{videoGamesUsersProjects[1] ? videoGamesUsersProjects[1].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPhotography[2] && photographyUsersProjects[2] ? `/users/${photographyUsersProjects[2].id}/projects/${projectPhotography[2].id}` : '/'}><img src={projectPhotography[2] ? projectPhotography[2].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectVideoGames[2] && videoGamesUsersProjects[2] ? `/users/${videoGamesUsersProjects[2].id}/projects/${projectVideoGames[2].id}` : '/'}><img src={projectVideoGames[2] ? projectVideoGames[2].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPhotography[2] && photographyUsersProjects[2] ? `/users/${photographyUsersProjects[2].id}/projects/${projectPhotography[2].id}` : '/'}><h1>{projectPhotography[2] ? projectPhotography[2].title : ''}</h1></Link>
-                    <p>{projectPhotography[2] ? projectPhotography[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{photographyUsersProjects[2] ? photographyUsersProjects[2].name : ''}</span></div>
+                    <Link to={projectVideoGames[2] && videoGamesUsersProjects[2] ? `/users/${videoGamesUsersProjects[2].id}/projects/${projectVideoGames[2].id}` : '/'}><h1>{projectVideoGames[2] ? projectVideoGames[2].title : ''}</h1></Link>
+                    <p>{projectVideoGames[2] ? projectVideoGames[2].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{videoGamesUsersProjects[2] ? videoGamesUsersProjects[2].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPhotography[3] && photographyUsersProjects[3] ? `/users/${photographyUsersProjects[3].id}/projects/${projectPhotography[3].id}` : '/'}><img src={projectPhotography[3] ? projectPhotography[3].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectVideoGames[3] && videoGamesUsersProjects[3] ? `/users/${videoGamesUsersProjects[3].id}/projects/${projectVideoGames[3].id}` : '/'}><img src={projectVideoGames[3] ? projectVideoGames[3].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPhotography[3] && photographyUsersProjects[3] ? `/users/${photographyUsersProjects[3].id}/projects/${projectPhotography[3].id}` : '/'}><h1>{projectPhotography[3] ? projectPhotography[3].title : ''}</h1></Link>
-                    <p>{projectPhotography[3] ? projectPhotography[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{photographyUsersProjects[3] ? photographyUsersProjects[3].name : ''}</span></div>
+                    <Link to={projectVideoGames[3] && videoGamesUsersProjects[3] ? `/users/${videoGamesUsersProjects[3].id}/projects/${projectVideoGames[3].id}` : '/'}><h1>{projectVideoGames[3] ? projectVideoGames[3].title : ''}</h1></Link>
+                    <p>{projectVideoGames[3] ? projectVideoGames[3].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{videoGamesUsersProjects[3] ? videoGamesUsersProjects[3].name : ''}</span></div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='explore-theater'>
+            <div className='explore-theater-inner'>
+              <div className='explore-theater-inner-inner'>
+                <div className='explore-theater-header'>
+                  <h3>CONSOLE GAMES</h3>
+                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/dance'>View more</Link></div>
+                </div>
+                <div className='explore-theater-columns'>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGamingHardware[0] && gamingHardwareUsersProjects[0] ? `/users/${gamingHardwareUsersProjects[0].id}/projects/${projectGamingHardware[0].id}` : '/'}><img src={projectGamingHardware[0] ? projectGamingHardware[0].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGamingHardware[0] && gamingHardwareUsersProjects[0] ? `/users/${gamingHardwareUsersProjects[0].id}/projects/${projectGamingHardware[0].id}` : '/'}><h1>{projectGamingHardware[0] ? projectGamingHardware[0].title : ''}</h1></Link>
+                    <p>{projectGamingHardware[0] ? projectGamingHardware[0].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamingHardwareUsersProjects[0] ? gamingHardwareUsersProjects[0].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGamingHardware[1] && gamingHardwareUsersProjects[1] ? `/users/${gamingHardwareUsersProjects[1].id}/projects/${projectGamingHardware[1].id}` : '/'}><img src={projectGamingHardware[1] ? projectGamingHardware[1].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGamingHardware[1] && gamingHardwareUsersProjects[1] ? `/users/${gamingHardwareUsersProjects[1].id}/projects/${projectGamingHardware[1].id}` : '/'}><h1>{projectGamingHardware[1] ? projectGamingHardware[1].title : ''}</h1></Link>
+                    <p>{projectGamingHardware[1] ? projectGamingHardware[1].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamingHardwareUsersProjects[1] ? gamingHardwareUsersProjects[1].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGamingHardware[2] && gamingHardwareUsersProjects[2] ? `/users/${gamingHardwareUsersProjects[2].id}/projects/${projectGamingHardware[2].id}` : '/'}><img src={projectGamingHardware[2] ? projectGamingHardware[2].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGamingHardware[2] && gamingHardwareUsersProjects[2] ? `/users/${gamingHardwareUsersProjects[2].id}/projects/${projectGamingHardware[2].id}` : '/'}><h1>{projectGamingHardware[2] ? projectGamingHardware[2].title : ''}</h1></Link>
+                    <p>{projectGamingHardware[2] ? projectGamingHardware[2].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamingHardwareUsersProjects[2] ? gamingHardwareUsersProjects[2].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGamingHardware[3] && gamingHardwareUsersProjects[3] ? `/users/${gamingHardwareUsersProjects[3].id}/projects/${projectGamingHardware[3].id}` : '/'}><img src={projectGamingHardware[3] ? projectGamingHardware[3].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGamingHardware[3] && gamingHardwareUsersProjects[3] ? `/users/${gamingHardwareUsersProjects[3].id}/projects/${projectGamingHardware[3].id}` : '/'}><h1>{projectGamingHardware[3] ? projectGamingHardware[3].title : ''}</h1></Link>
+                    <p>{projectGamingHardware[3] ? projectGamingHardware[3].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamingHardwareUsersProjects[3] ? gamingHardwareUsersProjects[3].name : ''}</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='explore-theater'>
+            <div className='explore-theater-inner'>
+              <div className='explore-theater-inner-inner'>
+                <div className='explore-theater-header'>
+                  <h3>PC GAMES</h3>
+                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/art'>View more</Link></div>
+                </div>
+                <div className='explore-theater-columns'>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGames[0] && gamesUsersProjects[0] ? `/users/${gamesUsersProjects[0].id}/projects/${projectGames[0].id}` : '/'}><img src={projectGames[0] ? projectGames[0].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGames[0] && gamesUsersProjects[0] ? `/users/${gamesUsersProjects[0].id}/projects/${projectGames[0].id}` : '/'}><h1>{projectGames[0] ? projectGames[0].title : ''}</h1></Link>
+                    <p>{projectGames[0] ? projectGames[0].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamesUsersProjects[0] ? gamesUsersProjects[0].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGames[1] && gamesUsersProjects[1] ? `/users/${gamesUsersProjects[1].id}/projects/${projectGames[1].id}` : '/'}><img src={projectGames[1] ? projectGames[1].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGames[1] && gamesUsersProjects[1] ? `/users/${gamesUsersProjects[1].id}/projects/${projectGames[1].id}` : '/'}><h1>{projectGames[1] ? projectGames[1].title : ''}</h1></Link>
+                    <p>{projectGames[1] ? projectGames[1].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamesUsersProjects[1] ? gamesUsersProjects[1].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGames[2] && gamesUsersProjects[2] ? `/users/${gamesUsersProjects[2].id}/projects/${projectGames[2].id}` : '/'}><img src={projectGames[2] ? projectGames[2].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGames[2] && gamesUsersProjects[2] ? `/users/${gamesUsersProjects[2].id}/projects/${projectGames[2].id}` : '/'}><h1>{projectGames[2] ? projectGames[2].title : ''}</h1></Link>
+                    <p>{projectGames[2] ? projectGames[2].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamesUsersProjects[2] ? gamesUsersProjects[2].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGames[3] && gamesUsersProjects[3] ? `/users/${gamesUsersProjects[3].id}/projects/${projectGames[3].id}` : '/'}><img src={projectGames[3] ? projectGames[3].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGames[3] && gamesUsersProjects[3] ? `/users/${gamesUsersProjects[3].id}/projects/${projectGames[3].id}` : '/'}><h1>{projectGames[3] ? projectGames[3].title : ''}</h1></Link>
+                    <p>{projectGames[3] ? projectGames[3].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamesUsersProjects[3] ? gamesUsersProjects[3].name : ''}</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='explore-theater'>
+            <div className='explore-theater-inner'>
+              <div className='explore-theater-inner-inner'>
+                <div className='explore-theater-header'>
+                  <h3>STRATEGY GAMES</h3>
+                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/theater'>View more</Link></div>
+                </div>
+                <div className='explore-theater-columns'>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectTabletop[0] && tabletopUsersProjects[0] ? `/users/${tabletopUsersProjects[0].id}/projects/${projectTabletop[0].id}` : '/'}><img src={projectTabletop[0] ? projectTabletop[0].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectTabletop[0] && tabletopUsersProjects[0] ? `/users/${tabletopUsersProjects[0].id}/projects/${projectTabletop[0].id}` : '/'}><h1>{projectTabletop[0] ? projectTabletop[0].title : ''}</h1></Link>
+                    <p>{projectTabletop[0] ? projectTabletop[0].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{tabletopUsersProjects[0] ? tabletopUsersProjects[0].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectTabletop[1] && tabletopUsersProjects[1] ? `/users/${tabletopUsersProjects[1].id}/projects/${projectTabletop[1].id}` : '/'}><img src={projectTabletop[1] ? projectTabletop[1].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectTabletop[1] && tabletopUsersProjects[1] ? `/users/${tabletopUsersProjects[1].id}/projects/${projectTabletop[1].id}` : '/'}><h1>{projectTabletop[1] ? projectTabletop[1].title : ''}</h1></Link>
+                    <p>{projectTabletop[1] ? projectTabletop[1].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{tabletopUsersProjects[1] ? tabletopUsersProjects[1].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectTabletop[2] && tabletopUsersProjects[2] ? `/users/${tabletopUsersProjects[2].id}/projects/${projectTabletop[2].id}` : '/'}><img src={projectTabletop[2] ? projectTabletop[2].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectTabletop[2] && tabletopUsersProjects[2] ? `/users/${tabletopUsersProjects[2].id}/projects/${projectTabletop[2].id}` : '/'}><h1>{projectTabletop[2] ? projectTabletop[2].title : ''}</h1></Link>
+                    <p>{projectTabletop[2] ? projectTabletop[2].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{tabletopUsersProjects[2] ? tabletopUsersProjects[2].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectTabletop[3] && tabletopUsersProjects[3] ? `/users/${tabletopUsersProjects[3].id}/projects/${projectTabletop[3].id}` : '/'}><img src={projectTabletop[3] ? projectTabletop[3].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectTabletop[3] && tabletopUsersProjects[3] ? `/users/${tabletopUsersProjects[3].id}/projects/${projectTabletop[3].id}` : '/'}><h1>{projectTabletop[3] ? projectTabletop[3].title : ''}</h1></Link>
+                    <p>{projectTabletop[3] ? projectTabletop[3].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{tabletopUsersProjects[3] ? tabletopUsersProjects[3].name : ''}</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='explore-theater'>
+            <div className='explore-theater-inner'>
+              <div className='explore-theater-inner-inner'>
+                <div className='explore-theater-header'>
+                  <h3>VISUAL NOVELS</h3>
+                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/art'>View more</Link></div>
+                </div>
+                <div className='explore-theater-columns'>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGames[0] && gamesUsersProjects[0] ? `/users/${gamesUsersProjects[0].id}/projects/${projectGames[0].id}` : '/'}><img src={projectGames[0] ? projectGames[0].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGames[4] && gamesUsersProjects[4] ? `/users/${gamesUsersProjects[4].id}/projects/${projectGames[4].id}` : '/'}><h1>{projectGames[4] ? projectGames[4].title : ''}</h1></Link>
+                    <p>{projectGames[4] ? projectGames[4].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamesUsersProjects[4] ? gamesUsersProjects[4].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGames[1] && gamesUsersProjects[1] ? `/users/${gamesUsersProjects[1].id}/projects/${projectGames[1].id}` : '/'}><img src={projectGames[1] ? projectGames[1].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGames[5] && gamesUsersProjects[5] ? `/users/${gamesUsersProjects[5].id}/projects/${projectGames[5].id}` : '/'}><h1>{projectGames[5] ? projectGames[5].title : ''}</h1></Link>
+                    <p>{projectGames[5] ? projectGames[5].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamesUsersProjects[5] ? gamesUsersProjects[5].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGames[6] && gamesUsersProjects[6] ? `/users/${gamesUsersProjects[6].id}/projects/${projectGames[6].id}` : '/'}><img src={projectGames[6] ? projectGames[6].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGames[6] && gamesUsersProjects[6] ? `/users/${gamesUsersProjects[6].id}/projects/${projectGames[6].id}` : '/'}><h1>{projectGames[6] ? projectGames[6].title : ''}</h1></Link>
+                    <p>{projectGames[6] ? projectGames[6].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamesUsersProjects[6] ? gamesUsersProjects[6].name : ''}</span></div>
+                  </div>
+                  <div className='explore-theater-column'>
+                    <Link className='explore-theater-column-image' to={projectGames[7] && gamesUsersProjects[7] ? `/users/${gamesUsersProjects[7].id}/projects/${projectGames[7].id}` : '/'}><img src={projectGames[7] ? projectGames[7].imageUrl : ''}/></Link>
+                    <div className='explore-theater-column-grey-bar'>
+                      <div className='explore-theater-column-green-bar'></div>
+                    </div>
+                    <Link to={projectGames[7] && gamesUsersProjects[7] ? `/users/${gamesUsersProjects[7].id}/projects/${projectGames[7].id}` : '/'}><h1>{projectGames[7] ? projectGames[7].title : ''}</h1></Link>
+                    <p>{projectGames[7] ? projectGames[7].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{gamesUsersProjects[7] ? gamesUsersProjects[7].name : ''}</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='comics-illustrion-subscribe-newsletter'>
+            <div className='comics-illustrion-subscribe-newsletter-inner'>
+              <div className='comics-illustrion-subscribe-newsletter-inner-inner'>
+                <h2>Subscribe to our Games newsletter</h2>
+                <p>Join our secret society.</p>
+                <div className='comics-illustrion-subscribe-newsletter-inner-inner-inner'>
+                  <button>Subscribe now</button>
                 </div>
               </div>
             </div>

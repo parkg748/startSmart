@@ -12794,6 +12794,16 @@ iframe > body {
   height: 240px;
 }
 
+.podcast-for-nerds {
+  padding: 48px 0;
+  display: flex;
+}
+
+.podcast-for-nerds img {
+  width: 50%;
+  height: 240px;
+}
+
 .improving-our-community-inner-inner-inner {
   height: 210px;
   padding-left: 24px;
@@ -12822,6 +12832,35 @@ iframe > body {
 }
 
 .improving-our-community-inner-inner-inner-header p {
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  padding-top: 18px;
+  color: #282828;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.podcast-for-nerds-content {
+  height: fit-content;
+  padding-left: 18px;
+  border-left: 6px solid rgb(255, 8, 8);
+}
+
+.podcast-for-nerds-content h3 {
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  font-size: 28px;
+  line-height: 36px;
+  color: #282828;
+  margin: 0;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.podcast-for-nerds-content h3:hover {
+  color: #037362;
+  text-decoration: underline;
+}
+
+.podcast-for-nerds-content p {
   font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
   padding-top: 18px;
   color: #282828;
