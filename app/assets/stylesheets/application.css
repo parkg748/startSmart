@@ -8467,14 +8467,17 @@ strong {
 }
 
 .profile-container {
-  height: 678px;
+  height: fit-content;
   border-top: 1px solid black;
+}
+
+.profile-backed-show-container {
+  margin-top: 70px;
 }
 
 .profile-container-one {
   height: fit-content;
   background-color: white;
-  position: absolute;
   width: 100%;
 }
 
@@ -13639,6 +13642,8 @@ iframe > body {
   height: 533px;
   margin-bottom: 30px;
   border: 1px solid #DCDEDD;
+  display: flex;
+  flex-flow: column;
 }
 
 .profile-backed-show-inner-left-inner img {
@@ -13664,6 +13669,13 @@ iframe > body {
   margin-bottom: 8px;
   font-size: 18px;
   line-height: 24px;
+}
+
+.profile-backed-show-inner-bottom-inner-inner h3 {
+  margin-bottom: 6px;
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .profile-backed-show-inner-bottom-description {
