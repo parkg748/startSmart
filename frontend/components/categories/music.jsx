@@ -256,7 +256,13 @@ class Music extends React.Component {
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectNewYork[0] && newYorkUsersProjects[0] ? `/users/${newYorkUsersProjects[0].id}/projects/${projectNewYork[0].id}` : '/'}><img src={projectNewYork[0] ? projectNewYork[0].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectNewYork[0] && newYorkUsersProjects[0] ? `/users/${newYorkUsersProjects[0].id}/projects/${projectNewYork[0].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectNewYork[0] ? projectNewYork[0].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -265,7 +271,13 @@ class Music extends React.Component {
                     <div className='explore-theater-column-author'>By <span>{newYorkUsersProjects[0] ? newYorkUsersProjects[0].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectNewYork[1] && newYorkUsersProjects[1] ? `/users/${newYorkUsersProjects[1].id}/projects/${projectNewYork[1].id}` : '/'}><img src={projectNewYork[1] ? projectNewYork[1].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectNewYork[1] && newYorkUsersProjects[1] ? `/users/${newYorkUsersProjects[1].id}/projects/${projectNewYork[1].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectNewYork[1] ? projectNewYork[1].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -274,7 +286,13 @@ class Music extends React.Component {
                     <div className='explore-theater-column-author'>By <span>{newYorkUsersProjects[1] ? newYorkUsersProjects[1].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectNewYork[2] && newYorkUsersProjects[2] ? `/users/${newYorkUsersProjects[2].id}/projects/${projectNewYork[2].id}` : '/'}><img src={projectNewYork[2] ? projectNewYork[2].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectNewYork[2] && newYorkUsersProjects[2] ? `/users/${newYorkUsersProjects[2].id}/projects/${projectNewYork[2].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectNewYork[2] ? projectNewYork[2].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -283,7 +301,13 @@ class Music extends React.Component {
                     <div className='explore-theater-column-author'>By <span>{newYorkUsersProjects[2] ? newYorkUsersProjects[2].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectNewYork[3] && newYorkUsersProjects[3] ? `/users/${newYorkUsersProjects[3].id}/projects/${projectNewYork[3].id}` : '/'}><img src={projectNewYork[3] ? projectNewYork[3].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectNewYork[3] && newYorkUsersProjects[3] ? `/users/${newYorkUsersProjects[3].id}/projects/${projectNewYork[3].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectNewYork[3] ? projectNewYork[3].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -330,7 +354,13 @@ class Music extends React.Component {
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectMetal[0] && metalUsersProjects[0] ? `/users/${metalUsersProjects[0].id}/projects/${projectMetal[0].id}` : '/'}><img src={projectMetal[0] ? projectMetal[0].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectMetal[0] && metalUsersProjects[0] ? `/users/${metalUsersProjects[0].id}/projects/${projectMetal[0].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectMetal[0] ? projectMetal[0].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -339,7 +369,13 @@ class Music extends React.Component {
                     <div className='explore-theater-column-author'>By <span>{metalUsersProjects[0] ? metalUsersProjects[0].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectMetal[1] && metalUsersProjects[1] ? `/users/${metalUsersProjects[1].id}/projects/${projectMetal[1].id}` : '/'}><img src={projectMetal[1] ? projectMetal[1].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectMetal[1] && metalUsersProjects[1] ? `/users/${metalUsersProjects[1].id}/projects/${projectMetal[1].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectMetal[1] ? projectMetal[1].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -348,7 +384,13 @@ class Music extends React.Component {
                     <div className='explore-theater-column-author'>By <span>{metalUsersProjects[1] ? metalUsersProjects[1].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectMetal[2] && metalUsersProjects[2] ? `/users/${metalUsersProjects[2].id}/projects/${projectMetal[2].id}` : '/'}><img src={projectMetal[2] ? projectMetal[2].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectMetal[2] && metalUsersProjects[2] ? `/users/${metalUsersProjects[2].id}/projects/${projectMetal[2].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectMetal[2] ? projectMetal[2].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -357,7 +399,13 @@ class Music extends React.Component {
                     <div className='explore-theater-column-author'>By <span>{metalUsersProjects[2] ? metalUsersProjects[2].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectMetal[3] && metalUsersProjects[3] ? `/users/${metalUsersProjects[3].id}/projects/${projectMetal[3].id}` : '/'}><img src={projectMetal[3] ? projectMetal[3].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectMetal[3] && metalUsersProjects[3] ? `/users/${metalUsersProjects[3].id}/projects/${projectMetal[3].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectMetal[3] ? projectMetal[3].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -404,7 +452,13 @@ class Music extends React.Component {
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectMusic[4] && musicUsersProjects[4] ? `/users/${musicUsersProjects[4].id}/projects/${projectMusic[4].id}` : '/'}><img src={projectMusic[4] ? projectMusic[4].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectMusic[4] && musicUsersProjects[4] ? `/users/${musicUsersProjects[4].id}/projects/${projectMusic[4].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectMusic[4] ? projectMusic[4].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -413,7 +467,13 @@ class Music extends React.Component {
                     <div className='explore-theater-column-author'>By <span>{musicUsersProjects[4] ? musicUsersProjects[4].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectMusic[5] && musicUsersProjects[5] ? `/users/${musicUsersProjects[5].id}/projects/${projectMusic[5].id}` : '/'}><img src={projectMusic[5] ? projectMusic[5].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectMusic[5] && musicUsersProjects[5] ? `/users/${musicUsersProjects[5].id}/projects/${projectMusic[5].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectMusic[5] ? projectMusic[5].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -422,7 +482,13 @@ class Music extends React.Component {
                     <div className='explore-theater-column-author'>By <span>{musicUsersProjects[5] ? musicUsersProjects[5].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectMusic[6] && musicUsersProjects[6] ? `/users/${musicUsersProjects[6].id}/projects/${projectMusic[6].id}` : '/'}><img src={projectMusic[6] ? projectMusic[6].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectMusic[6] && musicUsersProjects[6] ? `/users/${musicUsersProjects[6].id}/projects/${projectMusic[6].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectMusic[6] ? projectMusic[6].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
@@ -431,7 +497,13 @@ class Music extends React.Component {
                     <div className='explore-theater-column-author'>By <span>{musicUsersProjects[6] ? musicUsersProjects[6].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectMusic[7] && musicUsersProjects[7] ? `/users/${musicUsersProjects[7].id}/projects/${projectMusic[7].id}` : '/'}><img src={projectMusic[7] ? projectMusic[7].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectMusic[7] && musicUsersProjects[7] ? `/users/${musicUsersProjects[7].id}/projects/${projectMusic[7].id}` : '/'}>
+                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
+                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
+                      </div>
+                      <div id='explore-project-remind-me-first'>Remind Me</div>
+                      <img src={projectMusic[7] ? projectMusic[7].imageUrl : ''}/>
+                    </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
