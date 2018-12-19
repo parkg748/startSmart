@@ -1,0 +1,16 @@
+<html>
+  <div>
+    <input type='text' class='form-control' name='term' id='search-term' placeholder="Search..." />
+  </div>
+</html>
+<script>
+  function activatePlacesSearch() {
+    var options = {
+      types: ['(cities)'],
+      componentRestrictions: {country: "us"}
+     };
+    var input = document.getElementById('search-term');
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+  }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX4IIJ3fumoVC3xlJxE4iCAn9vOtEj49I&libraries=places&callback=activatePlacesSearch"></script>

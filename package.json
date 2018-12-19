@@ -23,6 +23,7 @@
     "react-calendar": "^2.17.5",
     "react-dates": "^18.2.2",
     "react-dom": "^16.6.3",
+    "react-infinite-scroller": "^1.2.2",
     "react-native": "^0.57.7",
     "react-places-autocomplete": "^7.2.0",
     "react-quill": "^1.3.2",

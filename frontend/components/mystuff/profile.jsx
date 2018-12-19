@@ -5,6 +5,7 @@ import MyStuffNav from './mystuff_nav';
 import SearchBar from '../search_bar';
 import ProfileBacked from './profile_backed';
 import ProfileAbout from './profile_about';
+import InfiniteScroll from 'react-infinite-scroller';
 
 class Profile extends React.Component {
   constructor(props) {
