@@ -1,13 +1,11 @@
 import {connect} from 'react-redux';
-import Profile from './profile';
+import Messages from './messages';
 import {logout, fetchUser} from '../../actions/session_actions';
 import {fetchProjects} from '../../actions/project_actions';
 
 const mapStateToProps = state => {
   return {
     user: state.entities.users,
-    projects: state.entities.project,
-    sessionId: state.session.id,
     class: {displayProfileMenu: 'js-modal-close', searchBar: 'search-bar-close'}
   };
 };
@@ -20,4 +18,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Messages);

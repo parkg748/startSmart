@@ -62,6 +62,7 @@ ul {
   padding-top: 1.7rem;
   padding-bottom: 1.7rem;
   position: relative;
+  display: flex;
 }
 
 .search:hover {
@@ -8540,6 +8541,12 @@ strong {
   margin-left: auto;
 }
 
+.profile-only-visible-one button:hover {
+  background-color: #037362 !important;
+  transition: all 0.25s ease-in-out !important;
+  cursor: pointer;
+}
+
 .profile-container-five {
   display: flex;
   justify-content: center;
@@ -8596,6 +8603,7 @@ strong {
 .profile-container-eleven {
   height: 41px;
   padding: 10px 0 10px 0;
+  position: relative;
 }
 
 .profile-container-green-bar {
@@ -8603,8 +8611,7 @@ strong {
   height: 4px;
   background-color: #009E74;
   position: absolute;
-  bottom: -61px;
-  left: 716px;
+  bottom: -1px;
 }
 
 .profile-container-eleven li {
@@ -8614,15 +8621,21 @@ strong {
   align-items: center;
   font-size: 14px;
   float: left;
+  cursor: pointer;
+  position: relative;
 }
 
 .profile-container-eleven span {
-  left: 765px;
+  right: -10px;
   position: absolute;
   font-size: 9px;
   font-weight: 100;
   color: #009E74;
-  bottom: -27px;
+  bottom: 18px;
+}
+
+.three-hundred-digits {
+  right: -19px !important;
 }
 
 .profile-container-footer {
@@ -13119,8 +13132,13 @@ iframe > body {
 }
 
 #pieSlice1 .pie {
+  cursor: pointer;
   background-color: #ffbcaa;
   transform:rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice2 {
@@ -13128,8 +13146,13 @@ iframe > body {
 }
 
 #pieSlice2 .pie {
+  cursor: pointer;
   background-color: #fffb78;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice3 {
@@ -13137,8 +13160,13 @@ iframe > body {
 }
 
 #pieSlice3 .pie {
+  cursor: pointer;
   background-color: #ff81ab;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice4 {
@@ -13146,8 +13174,13 @@ iframe > body {
 }
 
 #pieSlice4 .pie {
+  cursor: pointer;
   background-color: #a796f9;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice5 {
@@ -13155,8 +13188,13 @@ iframe > body {
 }
 
 #pieSlice5 .pie {
+  cursor: pointer;
   background-color: #2752ff;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice6 {
@@ -13164,8 +13202,13 @@ iframe > body {
 }
 
 #pieSlice6 .pie {
+  cursor: pointer;
   background-color: #ff9ed5;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice7 {
@@ -13173,8 +13216,13 @@ iframe > body {
 }
 
 #pieSlice7 .pie {
+  cursor: pointer;
   background-color: #ff596d;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice8 {
@@ -13182,8 +13230,13 @@ iframe > body {
 }
 
 #pieSlice8 .pie {
+  cursor: pointer;
   background-color: #ff3642;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice9 {
@@ -13191,8 +13244,13 @@ iframe > body {
 }
 
 #pieSlice9 .pie {
+  cursor: pointer;
   background-color: #00caab;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice10 {
@@ -13200,8 +13258,13 @@ iframe > body {
 }
 
 #pieSlice10 .pie {
+  cursor: pointer;
   background-color: #11bcea;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice11 {
@@ -13209,8 +13272,13 @@ iframe > body {
 }
 
 #pieSlice11 .pie {
+  cursor: pointer;
   background-color: #a6ffd3;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice12 {
@@ -13218,8 +13286,13 @@ iframe > body {
 }
 
 #pieSlice12 .pie {
+  cursor: pointer;
   background-color: #00e4e5;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice13 {
@@ -13227,8 +13300,13 @@ iframe > body {
 }
 
 #pieSlice13 .pie {
+  cursor: pointer;
   background-color: #e1dccf;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice14 {
@@ -13236,8 +13314,13 @@ iframe > body {
 }
 
 #pieSlice14 .pie {
+  cursor: pointer;
   background-color: #6396fc;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 #pieSlice15 {
@@ -13245,8 +13328,13 @@ iframe > body {
 }
 
 #pieSlice15 .pie {
+  cursor: pointer;
   background-color: #ffc0b0;
   transform: rotate(24deg);
+}
+
+#pieSlice1 .pie:hover {
+  opacity: 0.5;
 }
 
 .hand1 {

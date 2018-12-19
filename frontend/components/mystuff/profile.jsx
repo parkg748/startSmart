@@ -3,6 +3,7 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from './mystuff_nav';
 import SearchBar from '../search_bar';
+import ProfileBacked from './profile_backed';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -60,6 +61,11 @@ class Profile extends React.Component {
         };
       });
     }
+    const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    let userCreated = Object.values(this.props.user)[0].createdAt.split('-');
+    let userCreatedYear = userCreated[0];
+    let userCreatedMonth = month[userCreated[1] - 1];
+    debugger;
     return (
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
@@ -80,11 +86,11 @@ class Profile extends React.Component {
                     </div>
                   </div>
                   <div className='profile-container-five'>
-                    <img src='https://ksr-ugc.imgix.net/missing_user_avatar.png?ixlib=rb-1.1.0&w=80&h=80&fit=crop&v=&auto=format&frame=1&q=92&s=bef8e9f35b956ef44fafa5156ee21f03'/>
+                    <img src={Object.values(this.props.user)[0].profileUrl ? Object.values(this.props.user)[0].profileUrl : 'https://ksr-ugc.imgix.net/missing_user_avatar.png?ixlib=rb-1.1.0&w=80&h=80&fit=crop&v=&auto=format&frame=1&q=92&s=bef8e9f35b956ef44fafa5156ee21f03'}/>
                   </div>
                   <div className='profile-container-seven'>
-                    <h2>Grace</h2>
-                    <p>Backed 0 projects · Joined Oct 2018</p>
+                    <h2>{Object.values(this.props.user)[0].name}</h2>
+                    <p>Backed 0 projects · {Object.values(this.props.projects).length === 0 ? '' : Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].city, Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].state} · Joined {userCreatedMonth} {userCreatedYear}</p>
                   </div>
                 </div>
                 <div className="pieBackground">
@@ -131,20 +137,14 @@ class Profile extends React.Component {
                     <ul>
                       <li>About</li>
                       <li>Backed<span>0</span></li>
+                      <li>Created<span>6</span></li>
+                      <li>Comments<span className='three-hundred-digits'>204</span></li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div className='profile-container-footer'>
-              <div className='profile-container-footer-one'>
-                <p>
-                  <strong>You haven't backed any projects. </strong>
-                  Let's change that!
-                  <span className='discover-projects'><Link className='policy-link' to='/'>Discover projects</Link></span>
-                </p>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
