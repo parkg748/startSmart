@@ -65,7 +65,6 @@ class Profile extends React.Component {
     let userCreated = Object.values(this.props.user)[0].createdAt.split('-');
     let userCreatedYear = userCreated[0];
     let userCreatedMonth = month[userCreated[1] - 1];
-    debugger;
     return (
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
@@ -90,7 +89,7 @@ class Profile extends React.Component {
                   </div>
                   <div className='profile-container-seven'>
                     <h2>{Object.values(this.props.user)[0].name}</h2>
-                    <p>Backed 0 projects · {Object.values(this.props.projects).length != 0 && Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0] != undefined ? `${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].city}, ${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].state}` : ''} · Joined {userCreatedMonth} {userCreatedYear}</p>
+                    <p>Backed 0 projects · <Link className='preparing-for-project-link' to='/'>{Object.values(this.props.projects).length != 0 && Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0] != undefined ? `${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].city}, ${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].state}` : ''}</Link> · Joined {userCreatedMonth} {userCreatedYear}</p>
                   </div>
                 </div>
                 <div className="pieBackground">
@@ -144,7 +143,30 @@ class Profile extends React.Component {
                 </div>
               </div>
             </div>
-
+            <div className='profile-about-container'>
+              <div className='profile-about-container-inner'>
+                <div className='profile-about-container-biography'>
+                  <div className='profile-about-container-biography-header'>Biography</div>
+                  <div className='profile-about-container-biography-content'>
+                    <div className='profile-about-time-creator'>6-time creator</div>
+                    <p>{Object.values(this.props.user)[0].biography ? Object.values(this.props.user)[0].biography : ''}</p>
+                  </div>
+                </div>
+                <div className='profile-about-container-biography'>
+                  <hr></hr>
+                  <div className='profile-about-container-websites'>
+                    <div className='profile-about-container-biography-header'>Websites</div>
+                    <p>
+                      <ul>
+                        <li>daron.ceciliatan.com</li>
+                        <li>daron.ceciliatan.com</li>
+                        <li>daron.ceciliatan.com</li>
+                      </ul>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

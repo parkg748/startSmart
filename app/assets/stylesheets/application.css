@@ -7887,7 +7887,6 @@ strong {
   width: 61px;
   height: 29px;
   margin-right: 12px;
-  float: left;
 }
 
 .profile-menu-footer {
@@ -8468,22 +8467,21 @@ strong {
 }
 
 .profile-container {
-  height: 678px;
+  height: fit-content;
   border-top: 1px solid black;
 }
 
 .profile-container-one {
-  height: 424px;
-  background-color: #F7F7F9;
+  height: fit-content;
+  background-color: white;
   position: absolute;
   width: 100%;
 }
 
 .profile-container-two {
   height: 399px;
-  margin-left: 37px;
-  margin-right: 37px;
-  padding: 0 60px 0 60px;
+  padding: 0 97px 0 97px;
+  background-color: #F7F7F9;
 }
 
 .profile-container-three {
@@ -8500,7 +8498,7 @@ strong {
 
 .profile-only-visible {
   height: 72px;
-  margin-top: 24px;
+  padding-top: 24px;
 }
 
 .profile-only-visible-one {
@@ -8518,7 +8516,6 @@ strong {
   font-weight: 100;
   display: flex;
   align-items: center;
-  float: left;
 }
 
 .profile-only-visible-eye {
@@ -8529,7 +8526,6 @@ strong {
 .profile-only-visible-one button {
   width: 189px;
   height: 42px;
-  float: right;
   padding: 0 18px 0 18px;
   background-color: #009E74;
   color: white;
@@ -8620,7 +8616,6 @@ strong {
   display: flex;
   align-items: center;
   font-size: 14px;
-  float: left;
   cursor: pointer;
   position: relative;
 }
@@ -13520,4 +13515,97 @@ iframe > body {
   left: -34px;
   background-color: white;
   top: -32px;
+}
+
+.profile-about-container {
+  padding: 0 60px 30px 60px;
+  margin: 30px 37px 0 37px;
+}
+
+.profile-about-container-inner {
+  margin: 0 195px;
+  padding: 0 18px;
+}
+
+.profile-about-container-biography {
+  padding-top: 18px;
+  display: flex;
+  flex-flow: wrap;
+}
+
+.profile-about-container-biography-header {
+  height: 30px;
+  padding-right: 18px;
+  color: #95959E;
+  font-size: 14px;
+  width: 28%;
+}
+
+.profile-about-container-biography-content {
+  padding: 0 18px;
+  width: 50%;
+}
+
+.profile-about-time-creator {
+  height: 14px;
+  margin-bottom: 18px;
+  width: 80px;
+  margin-right: 5px;
+  padding: 5px 7px;
+  background-color: #2B60FF;
+  font-size: 12px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-about-container-biography-content p {
+  margin: 18px 0 20px 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 100;
+}
+
+.profile-about-container-biography hr {
+  border-top: 1px solid #F1EEEA !important;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-style: none;
+  height: 0;
+  margin-top: 0;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+.profile-about-container-biography p {
+  padding: 0 18px 0 0;
+  width: 50%;
+}
+
+.profile-about-container-websites p {
+  padding: 0 18px;
+  width: 50%;
+}
+
+.profile-about-container-biography ul {
+  margin-bottom: 36px;
+}
+
+.profile-about-container-biography li {
+  color: #2752ff;
+  cursor: pointer;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.profile-container-eleven ul {
+  display: flex;
+  width: fit-content;
+}
+
+.profile-about-container-websites {
+  width: 100%;
+  display: flex;
 }
