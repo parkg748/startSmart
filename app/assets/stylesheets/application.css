@@ -13102,6 +13102,7 @@ iframe > body {
   width: 150px;
   height: 150px;
   border-radius: 75px;
+  transform: scale(0.5);
 }
 
 .pie {
@@ -13122,7 +13123,7 @@ iframe > body {
 }
 
 #pieSlice1 .pie {
-  background-color: #1b458b;
+  background-color: #ffbcaa;
   transform:rotate(24deg);
 }
 
@@ -13131,7 +13132,7 @@ iframe > body {
 }
 
 #pieSlice2 .pie {
-  background-color: #0a0;
+  background-color: #fffb78;
   transform: rotate(24deg);
 }
 
@@ -13140,7 +13141,7 @@ iframe > body {
 }
 
 #pieSlice3 .pie {
-  background-color: #f80;
+  background-color: #ff81ab;
   transform: rotate(24deg);
 }
 
@@ -13149,7 +13150,7 @@ iframe > body {
 }
 
 #pieSlice4 .pie {
-  background-color: #08f;
+  background-color: #a796f9;
   transform: rotate(24deg);
 }
 
@@ -13158,7 +13159,7 @@ iframe > body {
 }
 
 #pieSlice5 .pie {
-  background-color: #a04;
+  background-color: #2752ff;
   transform: rotate(24deg);
 }
 
@@ -13167,7 +13168,7 @@ iframe > body {
 }
 
 #pieSlice6 .pie {
-  background-color: #ffd700;
+  background-color: #ff9ed5;
   transform: rotate(24deg);
 }
 
@@ -13176,7 +13177,7 @@ iframe > body {
 }
 
 #pieSlice7 .pie {
-  background-color: #0a0;
+  background-color: #ff596d;
   transform: rotate(24deg);
 }
 
@@ -13185,7 +13186,7 @@ iframe > body {
 }
 
 #pieSlice8 .pie {
-  background-color: #a04;
+  background-color: #ff3642;
   transform: rotate(24deg);
 }
 
@@ -13194,7 +13195,7 @@ iframe > body {
 }
 
 #pieSlice9 .pie {
-  background-color: #f80;
+  background-color: #00caab;
   transform: rotate(24deg);
 }
 
@@ -13203,7 +13204,7 @@ iframe > body {
 }
 
 #pieSlice10 .pie {
-  background-color: #08f;
+  background-color: #11bcea;
   transform: rotate(24deg);
 }
 
@@ -13212,7 +13213,7 @@ iframe > body {
 }
 
 #pieSlice11 .pie {
-  background-color: #a04;
+  background-color: #a6ffd3;
   transform: rotate(24deg);
 }
 
@@ -13221,7 +13222,7 @@ iframe > body {
 }
 
 #pieSlice12 .pie {
-  background-color: #ffd700;
+  background-color: #00e4e5;
   transform: rotate(24deg);
 }
 
@@ -13230,7 +13231,7 @@ iframe > body {
 }
 
 #pieSlice13 .pie {
-  background-color: #a04;
+  background-color: #e1dccf;
   transform: rotate(24deg);
 }
 
@@ -13239,7 +13240,7 @@ iframe > body {
 }
 
 #pieSlice14 .pie {
-  background-color: #ffd700;
+  background-color: #6396fc;
   transform: rotate(24deg);
 }
 
@@ -13248,14 +13249,14 @@ iframe > body {
 }
 
 #pieSlice15 .pie {
-  background-color: #a04;
+  background-color: #ffc0b0;
   transform: rotate(24deg);
 }
 
 .hand1 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13265,8 +13266,8 @@ iframe > body {
 
 .hand2 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13276,8 +13277,8 @@ iframe > body {
 
 .hand3 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13287,8 +13288,8 @@ iframe > body {
 
 .hand4 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13298,8 +13299,8 @@ iframe > body {
 
 .hand5 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13309,8 +13310,8 @@ iframe > body {
 
 .hand6 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13320,8 +13321,8 @@ iframe > body {
 
 .hand7 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13331,8 +13332,8 @@ iframe > body {
 
 .hand8 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13342,8 +13343,8 @@ iframe > body {
 
 .hand9 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13353,8 +13354,8 @@ iframe > body {
 
 .hand10 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13364,8 +13365,8 @@ iframe > body {
 
 .hand11 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13375,8 +13376,8 @@ iframe > body {
 
 .hand12 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13386,8 +13387,8 @@ iframe > body {
 
 .hand13 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13397,8 +13398,8 @@ iframe > body {
 
 .hand14 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13408,8 +13409,8 @@ iframe > body {
 
 .hand15 {
   width: 50%;
-  height: 3px;
-  background: black;
+  height: 4px;
+  background: #e6e6e6;
   position: absolute;
   top: 49%;
   transform-origin: 100%;
@@ -13422,7 +13423,17 @@ iframe > body {
   height: 145px;
   z-index: 4;
   border-radius: 50%;
-  border: 3px solid black;
+  border: 4px solid #e6e6e6;
   position: absolute;
   left: -2px;
+}
+
+.under-circle {
+  width: 218px;
+  height: 218px;
+  border-radius: 50%;
+  position: absolute;
+  left: -34px;
+  background-color: white;
+  top: -32px;
 }
