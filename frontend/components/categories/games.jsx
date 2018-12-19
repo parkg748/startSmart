@@ -41,6 +41,8 @@ class Games extends React.Component {
       this.setState({thirdHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
     } else if (heart === 'main-heart' && this.state.mainHeart === 'category-recommended-right-heart-id-first') {
       this.setState({mainHeart: 'category-recommended-right-heart-id-first-red', mainHeartFill: 'featured-project-recommended-left-main-heart-icon-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'first-project' && this.state.firstProject === 'explore-project-heart-id-first') {
+      this.setState({firstProject: 'explore-project-heart-id-first-red', firstProjectFill: 'explore-project-heart-id-first-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
     } else if ((this.state.firstHeart === 'category-recommended-right-heart-red fas') ||
                (this.state.secondHeart === 'category-recommended-right-heart-red fas') ||
                (this.state.thirdHeart === 'category-recommended-right-heart-red fas') ||
@@ -60,6 +62,8 @@ class Games extends React.Component {
       this.setState({thirdHeart: 'category-recommended-right-heart far'});
     } else if (heart === 'main-heart') {
       this.setState({mainHeart: 'category-recommended-right-heart-id-first', mainHeartFill: 'featured-project-recommended-left-main-heart-icon far'});
+    } else if (heart === 'first-project') {
+      this.setState({mainHeart: 'explore-project-heart-id-first', mainHeartFill: 'explore-project-heart-icon far'});
     }
     this.props.updateUser({id: getState().session.id, saved_projects: savedProjects});
   }
