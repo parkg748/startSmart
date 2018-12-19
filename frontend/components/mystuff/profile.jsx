@@ -90,7 +90,7 @@ class Profile extends React.Component {
                   </div>
                   <div className='profile-container-seven'>
                     <h2>{Object.values(this.props.user)[0].name}</h2>
-                    <p>Backed 0 projects · {Object.values(this.props.projects).length === 0 ? '' : Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].city, Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].state} · Joined {userCreatedMonth} {userCreatedYear}</p>
+                    <p>Backed 0 projects · {Object.values(this.props.projects).length != 0 && Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0] != undefined ? `${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].city}, ${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].state}` : ''} · Joined {userCreatedMonth} {userCreatedYear}</p>
                   </div>
                 </div>
                 <div className="pieBackground">
