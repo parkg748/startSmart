@@ -8467,7 +8467,7 @@ strong {
 }
 
 .profile-container {
-  height: fit-content;
+  height: 678px;
   border-top: 1px solid black;
 }
 
@@ -8479,7 +8479,7 @@ strong {
 }
 
 .profile-container-two {
-  height: 399px;
+  height: fit-content;
   padding: 0 97px 0 97px;
   background-color: #F7F7F9;
 }
@@ -13106,7 +13106,7 @@ iframe > body {
   border-radius: 75px;
   transform: scale(0.5);
   right: -24px;
-  bottom: -48px;
+  bottom: -70px;
 }
 
 .pie {
@@ -13608,4 +13608,109 @@ iframe > body {
 .profile-about-container-websites {
   width: 100%;
   display: flex;
+}
+
+.profile-backed-show-inner {
+  padding: 0 60px 30px 60px;
+  margin: 30px 37px 0 37px;
+}
+
+.profile-backed-show-inner ul {
+  margin-top: 20px;
+  display: flex;
+}
+
+.profile-backed-show-inner-left {
+  width: 30%;
+  padding-right: 18px;
+}
+
+.profile-backed-show-inner-center {
+  width: 30%;
+  padding: 0 18px;
+}
+
+.profile-backed-show-inner-right {
+  width: 30%;
+  padding-left: 18px;
+}
+
+.profile-backed-show-inner-left-inner {
+  height: 533px;
+  margin-bottom: 30px;
+  border: 1px solid #DCDEDD;
+}
+
+.profile-backed-show-inner-left-inner img {
+  height: 218px;
+  width: 100%;
+  background-color: black;
+}
+
+.profile-backed-show-inner-bottom {
+  height: 313px;
+}
+
+.profile-backed-show-inner-bottom-inner {
+  height: 156px;
+  padding: 24px 18px 0 18px;
+}
+
+.profile-backed-show-inner-bottom-inner-inner {
+  margin-bottom: 18px;
+}
+
+.profile-backed-show-inner-bottom-inner-inner {
+  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.profile-backed-show-inner-bottom-description {
+  margin-bottom: 20px;
+  color: #9B9E9E;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.profile-backed-show-inner-bottom-bottom {
+  margin-top: 18px;
+  border-top: 1px solid #DCDEDD;
+  padding: 0 30px 30px 30px;
+  height: 84px;
+}
+
+.profile-backed-show-inner-bottom-bottom-inner {
+  padding-top: 18px;
+}
+
+.profile-backed-show-inner-bottom-bottom-inner-inner {
+  height: 48px;
+  display: flex;
+}
+
+.profile-backed-show-inner-bottom-bottom-inner-inner-inner {
+  height: 24px;
+  margin-top: 24px;
+  display: flex;
+}
+
+.profile-backed-show-inner-bottom-bottom-inner-inner-inner img {
+  height: 22px;
+  width: 22px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.profile-backed-show-inner-bottom-author {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 100;
+}
+
+.profile-backed-show-inner-bottom-author a {
+  font-weight: 500;
 }

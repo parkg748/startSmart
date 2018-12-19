@@ -4,6 +4,7 @@ import Modal from '../modal';
 import MyStuffNav from './mystuff_nav';
 import SearchBar from '../search_bar';
 import ProfileBacked from './profile_backed';
+import ProfileAbout from './profile_about';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -143,29 +144,163 @@ class Profile extends React.Component {
                 </div>
               </div>
             </div>
-            <div className='profile-about-container'>
-              <div className='profile-about-container-inner'>
-                <div className='profile-about-container-biography'>
-                  <div className='profile-about-container-biography-header'>Biography</div>
-                  <div className='profile-about-container-biography-content'>
-                    <div className='profile-about-time-creator'>6-time creator</div>
-                    <p>{Object.values(this.props.user)[0].biography ? Object.values(this.props.user)[0].biography : ''}</p>
+          </div>
+          <div className='profile-backed-show-container'>
+            <div className='profile-backed-show-inner'>
+              <ul>
+                <li className='profile-backed-show-inner-left'>
+                  <div className='profile-backed-show-inner-left-inner'>
+                    <img />
+                    <div className='profile-backed-show-inner-bottom'>
+                      <div className='profile-backed-show-inner-bottom-inner'>
+                        <div className='profile-backed-show-inner-bottom-inner-inner'>
+                          <h3>KORE TEK BELT</h3>
+                          <div className='profile-backed-show-inner-bottom-description'>PERFECT FIT. Features Titanium Buckles, Micro Adjustability, Full-Grain Leather belt, Flex-Core™ Center.</div>
+                        </div>
+                      </div>
+                      <div className='profile-backed-show-inner-bottom-bottom'>
+                        <div className='profile-backed-show-inner-bottom-bottom-inner'>
+                          <div className='profile-backed-show-inner-bottom-bottom-inner-inner'>
+                            <div className='profile-backed-show-inner-bottom-bottom-inner-inner-inner'>
+                              <img />
+                              <div className='profile-backed-show-inner-bottom-author'>
+                                by <a>Karl Kozak</a> and 1,517 backers
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className='profile-about-container-biography'>
-                  <hr></hr>
-                  <div className='profile-about-container-websites'>
-                    <div className='profile-about-container-biography-header'>Websites</div>
-                    <p>
-                      <ul>
-                        <li>daron.ceciliatan.com</li>
-                        <li>daron.ceciliatan.com</li>
-                        <li>daron.ceciliatan.com</li>
-                      </ul>
-                    </p>
+                </li>
+                <li className='profile-backed-show-inner-center'>
+                  <div className='profile-backed-show-inner-left-inner'>
+                    <img />
+                    <div className='profile-backed-show-inner-bottom'>
+                      <div className='profile-backed-show-inner-bottom-inner'>
+                        <div className='profile-backed-show-inner-bottom-inner-inner'>
+                          <h3>KORE TEK BELT</h3>
+                          <div className='profile-backed-show-inner-bottom-description'>PERFECT FIT. Features Titanium Buckles, Micro Adjustability, Full-Grain Leather belt, Flex-Core™ Center.</div>
+                        </div>
+                      </div>
+                      <div className='profile-backed-show-inner-bottom-bottom'>
+                        <div className='profile-backed-show-inner-bottom-bottom-inner'>
+                          <div className='profile-backed-show-inner-bottom-bottom-inner-inner'>
+                            <div className='profile-backed-show-inner-bottom-bottom-inner-inner-inner'>
+                              <img />
+                              <div className='profile-backed-show-inner-bottom-author'>
+                                by <a>Karl Kozak</a> and 1,517 backers
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </li>
+                <li className='profile-backed-show-inner-center'>
+                  <div className='profile-backed-show-inner-left-inner'>
+                    <img />
+                    <div className='profile-backed-show-inner-bottom'>
+                      <div className='profile-backed-show-inner-bottom-inner'>
+                        <div className='profile-backed-show-inner-bottom-inner-inner'>
+                          <h3>KORE TEK BELT</h3>
+                          <div className='profile-backed-show-inner-bottom-description'>PERFECT FIT. Features Titanium Buckles, Micro Adjustability, Full-Grain Leather belt, Flex-Core™ Center.</div>
+                        </div>
+                      </div>
+                      <div className='profile-backed-show-inner-bottom-bottom'>
+                        <div className='profile-backed-show-inner-bottom-bottom-inner'>
+                          <div className='profile-backed-show-inner-bottom-bottom-inner-inner'>
+                            <div className='profile-backed-show-inner-bottom-bottom-inner-inner-inner'>
+                              <img />
+                              <div className='profile-backed-show-inner-bottom-author'>
+                                by <a>Karl Kozak</a> and 1,517 backers
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul>
+                <li className='profile-backed-show-inner-left'>
+                  <div className='profile-backed-show-inner-left-inner'>
+                    <img />
+                    <div className='profile-backed-show-inner-bottom'>
+                      <div className='profile-backed-show-inner-bottom-inner'>
+                        <div className='profile-backed-show-inner-bottom-inner-inner'>
+                          <h3>KORE TEK BELT</h3>
+                          <div className='profile-backed-show-inner-bottom-description'>PERFECT FIT. Features Titanium Buckles, Micro Adjustability, Full-Grain Leather belt, Flex-Core™ Center.</div>
+                        </div>
+                      </div>
+                      <div className='profile-backed-show-inner-bottom-bottom'>
+                        <div className='profile-backed-show-inner-bottom-bottom-inner'>
+                          <div className='profile-backed-show-inner-bottom-bottom-inner-inner'>
+                            <div className='profile-backed-show-inner-bottom-bottom-inner-inner-inner'>
+                              <img />
+                              <div className='profile-backed-show-inner-bottom-author'>
+                                by <a>Karl Kozak</a> and 1,517 backers
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li className='profile-backed-show-inner-center'>
+                  <div className='profile-backed-show-inner-left-inner'>
+                    <img />
+                    <div className='profile-backed-show-inner-bottom'>
+                      <div className='profile-backed-show-inner-bottom-inner'>
+                        <div className='profile-backed-show-inner-bottom-inner-inner'>
+                          <h3>KORE TEK BELT</h3>
+                          <div className='profile-backed-show-inner-bottom-description'>PERFECT FIT. Features Titanium Buckles, Micro Adjustability, Full-Grain Leather belt, Flex-Core™ Center.</div>
+                        </div>
+                      </div>
+                      <div className='profile-backed-show-inner-bottom-bottom'>
+                        <div className='profile-backed-show-inner-bottom-bottom-inner'>
+                          <div className='profile-backed-show-inner-bottom-bottom-inner-inner'>
+                            <div className='profile-backed-show-inner-bottom-bottom-inner-inner-inner'>
+                              <img />
+                              <div className='profile-backed-show-inner-bottom-author'>
+                                by <a>Karl Kozak</a> and 1,517 backers
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li className='profile-backed-show-inner-center'>
+                  <div className='profile-backed-show-inner-left-inner'>
+                    <img />
+                    <div className='profile-backed-show-inner-bottom'>
+                      <div className='profile-backed-show-inner-bottom-inner'>
+                        <div className='profile-backed-show-inner-bottom-inner-inner'>
+                          <h3>KORE TEK BELT</h3>
+                          <div className='profile-backed-show-inner-bottom-description'>PERFECT FIT. Features Titanium Buckles, Micro Adjustability, Full-Grain Leather belt, Flex-Core™ Center.</div>
+                        </div>
+                      </div>
+                      <div className='profile-backed-show-inner-bottom-bottom'>
+                        <div className='profile-backed-show-inner-bottom-bottom-inner'>
+                          <div className='profile-backed-show-inner-bottom-bottom-inner-inner'>
+                            <div className='profile-backed-show-inner-bottom-bottom-inner-inner-inner'>
+                              <img />
+                              <div className='profile-backed-show-inner-bottom-author'>
+                                by <a>Karl Kozak</a> and 1,517 backers
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
