@@ -2351,6 +2351,7 @@ nav {
   border: 1px dashed #586BE9;
   border-radius: 6px;
   background-color: white;
+  cursor: pointer;
 }
 
 .project-image-upload-inner-inner {
@@ -3642,6 +3643,7 @@ nav {
   height: 39px;
   float: left;
   border-left: 1px solid #dad7d4;
+  cursor: pointer;
 }
 
 .add-an-item-inner {
@@ -13086,4 +13088,341 @@ iframe > body {
 
 .improving-our-community-readmore:hover {
   text-decoration: underline;
+}
+
+.pieContainer {
+  height: 150px;
+  margin-left: 30px;
+  position: relative;
+  display: flex;
+}
+
+.pieBackground {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+}
+
+.pie {
+  transition: all 1s;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  clip: rect(0px, 75px, 150px, 0px);
+}
+
+.hold {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  clip: rect(0px, 150px, 150px, 75px);
+}
+
+#pieSlice1 .pie {
+  background-color: #1b458b;
+  transform:rotate(24deg);
+}
+
+#pieSlice2 {
+  transform: rotate(24deg);
+}
+
+#pieSlice2 .pie {
+  background-color: #0a0;
+  transform: rotate(24deg);
+}
+
+#pieSlice3 {
+  transform: rotate(48deg);
+}
+
+#pieSlice3 .pie {
+  background-color: #f80;
+  transform: rotate(24deg);
+}
+
+#pieSlice4 {
+  transform: rotate(72deg);
+}
+
+#pieSlice4 .pie {
+  background-color: #08f;
+  transform: rotate(24deg);
+}
+
+#pieSlice5 {
+  transform: rotate(96deg);
+}
+
+#pieSlice5 .pie {
+  background-color: #a04;
+  transform: rotate(24deg);
+}
+
+#pieSlice6 {
+  transform: rotate(120deg);
+}
+
+#pieSlice6 .pie {
+  background-color: #ffd700;
+  transform: rotate(24deg);
+}
+
+#pieSlice7 {
+  transform: rotate(144deg);
+}
+
+#pieSlice7 .pie {
+  background-color: #0a0;
+  transform: rotate(24deg);
+}
+
+#pieSlice8 {
+  transform: rotate(168deg);
+}
+
+#pieSlice8 .pie {
+  background-color: #a04;
+  transform: rotate(24deg);
+}
+
+#pieSlice9 {
+  transform: rotate(192deg);
+}
+
+#pieSlice9 .pie {
+  background-color: #f80;
+  transform: rotate(24deg);
+}
+
+#pieSlice10 {
+  transform: rotate(216deg);
+}
+
+#pieSlice10 .pie {
+  background-color: #08f;
+  transform: rotate(24deg);
+}
+
+#pieSlice11 {
+  transform: rotate(240deg);
+}
+
+#pieSlice11 .pie {
+  background-color: #a04;
+  transform: rotate(24deg);
+}
+
+#pieSlice12 {
+  transform: rotate(264deg);
+}
+
+#pieSlice12 .pie {
+  background-color: #ffd700;
+  transform: rotate(24deg);
+}
+
+#pieSlice13 {
+  transform: rotate(288deg);
+}
+
+#pieSlice13 .pie {
+  background-color: #a04;
+  transform: rotate(24deg);
+}
+
+#pieSlice14 {
+  transform: rotate(312deg);
+}
+
+#pieSlice14 .pie {
+  background-color: #ffd700;
+  transform: rotate(24deg);
+}
+
+#pieSlice15 {
+  transform: rotate(336deg);
+}
+
+#pieSlice15 .pie {
+  background-color: #a04;
+  transform: rotate(24deg);
+}
+
+.hand1 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(114deg);
+  z-index: 4;
+}
+
+.hand2 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(138deg);
+  z-index: 4;
+}
+
+.hand3 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(162deg);
+  z-index: 4;
+}
+
+.hand4 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(186deg);
+  z-index: 4;
+}
+
+.hand5 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(210deg);
+  z-index: 4;
+}
+
+.hand6 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(234deg);
+  z-index: 4;
+}
+
+.hand7 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(258deg);
+  z-index: 4;
+}
+
+.hand8 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(282deg);
+  z-index: 4;
+}
+
+.hand9 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(306deg);
+  z-index: 4;
+}
+
+.hand10 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(330deg);
+  z-index: 4;
+}
+
+.hand11 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(354deg);
+  z-index: 4;
+}
+
+.hand12 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(378deg);
+  z-index: 4;
+}
+
+.hand13 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(402deg);
+  z-index: 4;
+}
+
+.hand14 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(426deg);
+  z-index: 4;
+}
+
+.hand15 {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: 49%;
+  transform-origin: 100%;
+  transform: rotate(450deg);
+  z-index: 4;
+}
+
+.circle {
+  width: 148px;
+  height: 145px;
+  z-index: 4;
+  border-radius: 50%;
+  border: 3px solid black;
+  position: absolute;
+  left: -2px;
 }

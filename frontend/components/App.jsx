@@ -40,6 +40,7 @@ import FoodCraftContainer from './categories/food_craft_container';
 import GamesContainer from './categories/games_container';
 import MusicContainer from './categories/music_container';
 import PublishingContainer from './categories/publishing_container';
+import TestContainer from './test_container';
 
 class App extends React.Component {
 
@@ -48,6 +49,7 @@ class App extends React.Component {
       <div>
         <header>
           <Switch>
+            <Route path='/test' component={TestContainer} />
             <Route path='/arts' component={ArtsContainer} />
             <Route path='/comics-illustration' component={ComicsIllustrationContainer} />
             <Route path='/design-tech' component={DesignTechContainer} />
