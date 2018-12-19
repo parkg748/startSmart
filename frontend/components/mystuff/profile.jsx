@@ -87,6 +87,40 @@ class Profile extends React.Component {
                     <p>Backed 0 projects · Joined Oct 2018</p>
                   </div>
                 </div>
+                <div className="pieBackground">
+                  <div className='circle'></div>
+                  <div className='under-circle'></div>
+                  <div className="hand1"></div>
+                  <div className="hand2"></div>
+                  <div className="hand3"></div>
+                  <div className="hand4"></div>
+                  <div className="hand5"></div>
+                  <div className="hand6"></div>
+                  <div className="hand7"></div>
+                  <div className="hand8"></div>
+                  <div className="hand9"></div>
+                  <div className="hand10"></div>
+                  <div className="hand11"></div>
+                  <div className="hand12"></div>
+                  <div className="hand13"></div>
+                  <div className="hand14"></div>
+                  <div className="hand15"></div>
+                  <div id="pieSlice1" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice2" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice3" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice4" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice5" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice6" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice7" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice8" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice9" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice10" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice11" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice12" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice13" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice14" className="hold"><div className="pie"></div></div>
+                  <div id="pieSlice15" className="hold"><div className="pie"></div></div>
+                </div>
               </div>
             </div>
             <div className='profile-container-eight'>

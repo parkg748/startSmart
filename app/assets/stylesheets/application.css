@@ -8489,6 +8489,7 @@ strong {
   margin-left: -18px;
   margin-right: -18px;
   height: 424px;
+  position: relative;
 }
 
 .profile-container-four {
@@ -13090,19 +13091,14 @@ iframe > body {
   text-decoration: underline;
 }
 
-.pieContainer {
-  height: 150px;
-  margin-left: 30px;
-  position: relative;
-  display: flex;
-}
-
 .pieBackground {
   position: absolute;
   width: 150px;
   height: 150px;
   border-radius: 75px;
   transform: scale(0.5);
+  right: -24px;
+  bottom: -48px;
 }
 
 .pie {
