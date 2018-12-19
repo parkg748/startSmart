@@ -769,4 +769,36 @@ ActiveRecord::Base.transaction do
   projectpath96 = File.join(Rails.root, 'app', "assets", "images", "3a79fd3fb1daa62d8161121d799765e7_original.jpg")
   project96.image_url.attach(io: File.open(projectpath96), filename: "3a79fd3fb1daa62d8161121d799765e7_original.jpg")
   project96.save
+  user97 = User.new(name: "S. Bear Bergman", email: "sbearbergman@gmail.com", password: "starwars", biography: 'S. Bear Bergman is an author, storyteller, and educator working to create positive, celebratory representations of trans lives. Recent or current projects include two fabulous children’s storybooks featuring trans-identified kid characters, a performance about loving and living in a queer/ed Jewish family titled Gathering Light, teaching pleasure-positive trans/genderqueer sex ed, and his sixth book Blood, Marriage, Wine & Glitter (Arsenal Pulp, 2013).', google_analytics: "")
+  userpath97 = File.join(Rails.root, 'app', "assets", "images", "51c9a456eeb6037c5c685605c5501aa4_original.jpeg")
+  user97.profile_url.attach(io: File.open(userpath97), filename: "51c9a456eeb6037c5c685605c5501aa4_original.jpeg")
+  user97.save
+  project97 = Project.new(duration: 0, limit: false, user_id: user97.id, country: "Canada", title: "Flamingo Rampant 2019: Discovery!", description: "LGBT2Q+, feminist, multi-ethnic children's books back for another season!", pledge_amt: 0, eta: nil, shipping: "", city: "Toronto", state: "Canada", funding_goal: 81000, category_id: categories[12].id, subcategory: "Children's Books", challenges: "")
+  projectpath97 = File.join(Rails.root, 'app', "assets", "images", "bcd34c9712b299f50e023a129c058fc5_original.jpg")
+  project97.image_url.attach(io: File.open(projectpath97), filename: "bcd34c9712b299f50e023a129c058fc5_original.jpg")
+  project97.save
+  user98 = User.new(name: "Nancy Xu", email: "nancyxu@gmail.com", password: "starwars", biography: 'Hi, I\'m Nancy! I\'m a high school senior who loves all things art and reading. I\'m interested in pursuing psychology in college and I hope to make a positive impact on immigrant communities across the world with my new children\'s book.', google_analytics: "")
+  userpath98 = File.join(Rails.root, 'app', "assets", "images", "c5d542c9a1e460b217ed16ab0864b859_original.jpg")
+  user98.profile_url.attach(io: File.open(userpath98), filename: "c5d542c9a1e460b217ed16ab0864b859_original.jpg")
+  user98.save
+  project98 = Project.new(duration: 0, limit: false, user_id: user98.id, country: "the United States", title: "Hana & Arnie - A Picture Book about Diversity & Compassion", description: "A colorful, hand-painted children's book about how a girl taught her town to embrace diversity. Written and illustrated by a student.", pledge_amt: 0, eta: nil, shipping: "", city: "Los Angeles", state: "CA", funding_goal: 3000, category_id: categories[12].id, subcategory: "Children's Books", challenges: "")
+  projectpath98 = File.join(Rails.root, 'app', "assets", "images", "abd6d40aabe4bf50ba473609e8daaaee_original.jpg")
+  project98.image_url.attach(io: File.open(projectpath98), filename: "abd6d40aabe4bf50ba473609e8daaaee_original.jpg")
+  project98.save
+  user99 = User.new(name: "Georgie Badiel", email: "georgiebadiel@gmail.com", password: "starwars", biography: 'Georgie Badiel-Liberty is a high-fashion model, activist, and author from Burkina Faso.', google_analytics: "")
+  userpath99 = File.join(Rails.root, 'app', "assets", "images", "333f9b22a40f2effcf194ed1bf26b49c_original.jpg")
+  user99.profile_url.attach(io: File.open(userpath99), filename: "333f9b22a40f2effcf194ed1bf26b49c_original.jpg")
+  user99.save
+  project99 = Project.new(duration: 0, limit: false, user_id: user99.id, country: "the United States", title: "Princess GieGie - Water Is Here.", description: "Princess GieGie Publishing and Production is a literature and cartoon production company.", pledge_amt: 0, eta: nil, shipping: "", city: "Manhattan", state: "NY", funding_goal: 15000, category_id: categories[12].id, subcategory: "Children's Books", challenges: "")
+  projectpath99 = File.join(Rails.root, 'app', "assets", "images", "6f0023de9c673a3189d0f7bc71683b34_original.jpg")
+  project99.image_url.attach(io: File.open(projectpath99), filename: "6f0023de9c673a3189d0f7bc71683b34_original.jpg")
+  project99.save
+  user100 = User.new(name: "Brooke", email: "brooke@gmail.com", password: "starwars", biography: 'Hi! I’m Brooke, a self-taught artist from Columbus, Ohio. I specialize in the design of kawaii style cats and other cute critters!', google_analytics: "")
+  userpath100 = File.join(Rails.root, 'app', "assets", "images", "4ffb8fcdce725cf09dbe42ca57f2cb54_original.png")
+  user100.profile_url.attach(io: File.open(userpath100), filename: "4ffb8fcdce725cf09dbe42ca57f2cb54_original.png")
+  user100.save
+  project100 = Project.new(duration: 0, limit: false, user_id: user100.id, country: "the United States", title: "Color Me-ow", description: "Softbound coloring book for youth, adults, and lovers of cats!", pledge_amt: 0, eta: nil, shipping: "", city: "Columbus", state: "OH", funding_goal: 500, category_id: categories[12].id, subcategory: "Children's Books", challenges: "")
+  projectpath100 = File.join(Rails.root, 'app', "assets", "images", "5976d66cc054960e31a16bcf2b34ef25_original.jpeg")
+  project100.image_url.attach(io: File.open(projectpath100), filename: "5976d66cc054960e31a16bcf2b34ef25_original.jpeg")
+  project100.save
 end

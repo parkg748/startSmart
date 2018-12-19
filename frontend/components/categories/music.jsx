@@ -9,15 +9,59 @@ class Music extends React.Component {
     super(props);
     this.state = {displayProfileMenu: 'js-modal-close',
                   displayNone: 'error-email-msg',
-                  searchBar: 'search-bar-close'};
+                  searchBar: 'search-bar-close',
+                  firstHeart: 'category-recommended-right-heart far',
+                  secondHeart: 'category-recommended-right-heart far',
+                  thirdHeart: 'category-recommended-right-heart far',
+                  mainHeart: 'category-recommended-right-heart-id-first',
+                  mainHeartFill: 'featured-project-recommended-left-main-heart-icon far',
+                  firstProject: 'explore-project-heart-id-first',
+                  firstProjectFill: 'explore-project-heart-icon far'};
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.clickSearchBar = this.clickSearchBar.bind(this);
+    this.addToSavedProjects = this.addToSavedProjects.bind(this);
+    this.removeFromSavedProjects = this.removeFromSavedProjects.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchAllUsers();
+  }
+
+  addToSavedProjects(idx, heart) {
+    if (idx === '') return;
+    let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
+    savedProjects.push(idx);
+    if (heart === 'first-heart' && this.state.firstHeart === 'category-recommended-right-heart far') {
+      this.setState({firstHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'second-heart' && this.state.secondHeart === 'category-recommended-right-heart far') {
+      this.setState({secondHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'third-heart' && this.state.thirdHeart === 'category-recommended-right-heart far') {
+      this.setState({thirdHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'main-heart' && this.state.mainHeart === 'category-recommended-right-heart-id-first') {
+      this.setState({mainHeart: 'category-recommended-right-heart-id-first-red', mainHeartFill: 'featured-project-recommended-left-main-heart-icon-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if ((this.state.firstHeart === 'category-recommended-right-heart-red fas') ||
+               (this.state.secondHeart === 'category-recommended-right-heart-red fas') ||
+               (this.state.thirdHeart === 'category-recommended-right-heart-red fas') ||
+               (this.state.mainHeart === 'category-recommended-right-heart-id-first-red')) {
+      this.removeFromSavedProjects(idx, heart);
+    }
+  }
+
+  removeFromSavedProjects(idx, heart) {
+    let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
+    savedProjects = savedProjects.filter(el => el != idx);
+    if (heart === 'first-heart') {
+      this.setState({firstHeart: 'category-recommended-right-heart far'});
+    } else if (heart === 'second-heart') {
+      this.setState({secondHeart: 'category-recommended-right-heart far'});
+    } else if (heart === 'third-heart') {
+      this.setState({thirdHeart: 'category-recommended-right-heart far'});
+    } else if (heart === 'main-heart') {
+      this.setState({mainHeart: 'category-recommended-right-heart-id-first', mainHeartFill: 'featured-project-recommended-left-main-heart-icon far'});
+    }
+    this.props.updateUser({id: getState().session.id, saved_projects: savedProjects});
   }
 
   logoutUser(e) {
@@ -112,9 +156,10 @@ class Music extends React.Component {
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>
                 <h3>FEATURED PROJECT</h3>
-                <div className='featured-project-recommended-left-main-heart'>
-                  <i className='featured-project-recommended-left-main-heart-icon far fa-heart'></i>
+                <div id={`${this.state.mainHeart}`} className='featured-project-recommended-left-main-heart' onClick={() => this.addToSavedProjects(musicProjects.length > 1 ? musicProjects.slice(-1)[0].id : '', 'main-heart')}>
+                  <i className={`${this.state.mainHeartFill} fa-heart`}></i>
                 </div>
+                <div id='category-recommended-remind-me-first'>Remind Me</div>
                 <img src={musicProjects.length > 0 ? musicProjects.slice(-1)[0].imageUrl : ''}/>
                 <div className='featured-project-recommended-left-gray-bar'>
                   <div className='featured-project-recommended-left-green-bar'></div>
@@ -127,6 +172,8 @@ class Music extends React.Component {
                 <h3>RECOMMENDED</h3>
                 <ul>
                   <li>
+                    <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(musicProjects.length > 0 ? musicProjects.slice(-2)[0].id : '', 'first-heart')}><i className={`${this.state.firstHeart} fa-heart`}></i></div>
+                    {this.state.firstHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     <img src={musicProjects.length > 0 ? musicProjects.slice(-2)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
                       <Link className='feature-project-recommended-content-title' to='/'>{musicProjects.length > 0 ? musicProjects.slice(-2)[0].title : ''}</Link>
@@ -135,6 +182,8 @@ class Music extends React.Component {
                     </div>
                   </li>
                   <li>
+                    <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(musicProjects.length > 0 ? musicProjects.slice(-3)[0].id : '', 'second-heart')}><i className={`${this.state.secondHeart} fa-heart`}></i></div>
+                    {this.state.secondHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     <img src={musicProjects.length > 0 ? musicProjects.slice(-3)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
                       <Link className='feature-project-recommended-content-title' to='/'>{musicProjects.length > 0 ? musicProjects.slice(-3)[0].title : ''}</Link>
@@ -143,6 +192,8 @@ class Music extends React.Component {
                     </div>
                   </li>
                   <li>
+                    <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(musicProjects.length > 0 ? musicProjects.slice(-4)[0].id : '', 'third-heart')}><i className={`${this.state.thirdHeart} fa-heart`}></i></div>
+                    {this.state.thirdHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     <img src={musicProjects.length > 0 ? musicProjects.slice(-4)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
                       <Link className='feature-project-recommended-content-title' to='/'>{musicProjects.length > 0 ? musicProjects.slice(-4)[0].title : ''}</Link>

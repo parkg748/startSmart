@@ -9,15 +9,92 @@ class Publishing extends React.Component {
     super(props);
     this.state = {displayProfileMenu: 'js-modal-close',
                   displayNone: 'error-email-msg',
-                  searchBar: 'search-bar-close'};
+                  searchBar: 'search-bar-close',
+                  firstHeart: 'category-recommended-right-heart far',
+                  secondHeart: 'category-recommended-right-heart far',
+                  thirdHeart: 'category-recommended-right-heart far',
+                  mainHeart: 'category-recommended-right-heart-id-first',
+                  mainHeartFill: 'featured-project-recommended-left-main-heart-icon far',
+                  firstProject: 'explore-project-heart-id-first',
+                  firstProjectFill: 'explore-project-heart-icon far'};
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.clickSearchBar = this.clickSearchBar.bind(this);
+    this.addToSavedProjects = this.addToSavedProjects.bind(this);
+    this.removeFromSavedProjects = this.removeFromSavedProjects.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchAllUsers();
+  }
+
+  addToSavedProjects(idx, heart) {
+    if (idx === '') return;
+    let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
+    savedProjects.push(idx);
+    if (heart === 'first-heart' && this.state.firstHeart === 'category-recommended-right-heart far') {
+      this.setState({firstHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'second-heart' && this.state.secondHeart === 'category-recommended-right-heart far') {
+      this.setState({secondHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'third-heart' && this.state.thirdHeart === 'category-recommended-right-heart far') {
+      this.setState({thirdHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'main-heart' && this.state.mainHeart === 'category-recommended-right-heart-id-first') {
+      this.setState({mainHeart: 'category-recommended-right-heart-id-first-red', mainHeartFill: 'featured-project-recommended-left-main-heart-icon-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if ((this.state.firstHeart === 'category-recommended-right-heart-red fas') ||
+               (this.state.secondHeart === 'category-recommended-right-heart-red fas') ||
+               (this.state.thirdHeart === 'category-recommended-right-heart-red fas') ||
+               (this.state.mainHeart === 'category-recommended-right-heart-id-first-red')) {
+      this.removeFromSavedProjects(idx, heart);
+    }
+  }
+
+  removeFromSavedProjects(idx, heart) {
+    let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
+    savedProjects = savedProjects.filter(el => el != idx);
+    if (heart === 'first-heart') {
+      this.setState({firstHeart: 'category-recommended-right-heart far'});
+    } else if (heart === 'second-heart') {
+      this.setState({secondHeart: 'category-recommended-right-heart far'});
+    } else if (heart === 'third-heart') {
+      this.setState({thirdHeart: 'category-recommended-right-heart far'});
+    } else if (heart === 'main-heart') {
+      this.setState({mainHeart: 'category-recommended-right-heart-id-first', mainHeartFill: 'featured-project-recommended-left-main-heart-icon far'});
+    }
+    this.props.updateUser({id: getState().session.id, saved_projects: savedProjects});
+  }addToSavedProjects(idx, heart) {
+    if (idx === '') return;
+    let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
+    savedProjects.push(idx);
+    if (heart === 'first-heart' && this.state.firstHeart === 'category-recommended-right-heart far') {
+      this.setState({firstHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'second-heart' && this.state.secondHeart === 'category-recommended-right-heart far') {
+      this.setState({secondHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'third-heart' && this.state.thirdHeart === 'category-recommended-right-heart far') {
+      this.setState({thirdHeart: 'category-recommended-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if (heart === 'main-heart' && this.state.mainHeart === 'category-recommended-right-heart-id-first') {
+      this.setState({mainHeart: 'category-recommended-right-heart-id-first-red', mainHeartFill: 'featured-project-recommended-left-main-heart-icon-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+    } else if ((this.state.firstHeart === 'category-recommended-right-heart-red fas') ||
+               (this.state.secondHeart === 'category-recommended-right-heart-red fas') ||
+               (this.state.thirdHeart === 'category-recommended-right-heart-red fas') ||
+               (this.state.mainHeart === 'category-recommended-right-heart-id-first-red')) {
+      this.removeFromSavedProjects(idx, heart);
+    }
+  }
+
+  removeFromSavedProjects(idx, heart) {
+    let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
+    savedProjects = savedProjects.filter(el => el != idx);
+    if (heart === 'first-heart') {
+      this.setState({firstHeart: 'category-recommended-right-heart far'});
+    } else if (heart === 'second-heart') {
+      this.setState({secondHeart: 'category-recommended-right-heart far'});
+    } else if (heart === 'third-heart') {
+      this.setState({thirdHeart: 'category-recommended-right-heart far'});
+    } else if (heart === 'main-heart') {
+      this.setState({mainHeart: 'category-recommended-right-heart-id-first', mainHeartFill: 'featured-project-recommended-left-main-heart-icon far'});
+    }
+    this.props.updateUser({id: getState().session.id, saved_projects: savedProjects});
   }
 
   logoutUser(e) {
@@ -70,17 +147,13 @@ class Publishing extends React.Component {
     let publishingJournalismProjects = [];
     let projectPublishing = [];
     let projectJournalism = [];
-    let projectPoetry = [];
     let projectChildrensBooks = [];
     let category = '';
     if (Object.values(this.props.projects).length > 0) {
       Object.values(this.props.projects).forEach(project => {
         if (publishingJournalismId.includes(project.categoryId)) {
           category = categoryName[publishingJournalismId.indexOf(project.categoryId)];
-          if (category === 'Publishing' && project.subcategory === 'Poetry') {
-            publishingJournalismProjects.push(project);
-            projectPoetry.push(project);
-          } else if (category === 'Publishing' && project.subcategory === 'Children\'s Books') {
+          if (category === 'Publishing' && project.subcategory === "Children's Books") {
             publishingJournalismProjects.push(project);
             projectChildrensBooks.push(project);
           } else if (category === 'Publishing') {
@@ -96,13 +169,11 @@ class Publishing extends React.Component {
     let usersPublishingJournalismProjects = [];
     let publishingUsersProjects = [];
     let journalismUsersProjects = [];
-    let poetryUsersProjects = [];
     let childrensBooksUsersProjects = [];
     if (Object.values(this.props.user).length > 1) {
       usersPublishingJournalismProjects = publishingJournalismProjects.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
       publishingUsersProjects = projectPublishing.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
       journalismUsersProjects = projectJournalism.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
-      poetryUsersProjects = projectPoetry.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
       childrensBooksUsersProjects = projectChildrensBooks.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
     }
     return (
@@ -121,9 +192,10 @@ class Publishing extends React.Component {
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>
                 <h3>FEATURED PROJECT</h3>
-                <div className='featured-project-recommended-left-main-heart'>
-                  <i className='featured-project-recommended-left-main-heart-icon far fa-heart'></i>
+                <div id={`${this.state.mainHeart}`} className='featured-project-recommended-left-main-heart' onClick={() => this.addToSavedProjects(publishingJournalismProjects.length > 1 ? publishingJournalismProjects.slice(-1)[0].id : '', 'main-heart')}>
+                  <i className={`${this.state.mainHeartFill} fa-heart`}></i>
                 </div>
+                <div id='category-recommended-remind-me-first'>Remind Me</div>
                 <img src={publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-1)[0].imageUrl : ''}/>
                 <div className='featured-project-recommended-left-gray-bar'>
                   <div className='featured-project-recommended-left-green-bar'></div>
@@ -136,6 +208,8 @@ class Publishing extends React.Component {
                 <h3>RECOMMENDED</h3>
                 <ul>
                   <li>
+                    <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-2)[0].id : '', 'first-heart')}><i className={`${this.state.firstHeart} fa-heart`}></i></div>
+                    {this.state.firstHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     <img src={publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-2)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
                       <Link className='feature-project-recommended-content-title' to='/'>{publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-2)[0].title : ''}</Link>
@@ -144,6 +218,8 @@ class Publishing extends React.Component {
                     </div>
                   </li>
                   <li>
+                    <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-3)[0].id : '', 'second-heart')}><i className={`${this.state.secondHeart} fa-heart`}></i></div>
+                    {this.state.secondHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     <img src={publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-3)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
                       <Link className='feature-project-recommended-content-title' to='/'>{publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-3)[0].title : ''}</Link>
@@ -152,6 +228,8 @@ class Publishing extends React.Component {
                     </div>
                   </li>
                   <li>
+                    <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-4)[0].id : '', 'third-heart')}><i className={`${this.state.thirdHeart} fa-heart`}></i></div>
+                    {this.state.thirdHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     <img src={publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-4)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
                       <Link className='feature-project-recommended-content-title' to='/'>{publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-4)[0].title : ''}</Link>
@@ -173,40 +251,40 @@ class Publishing extends React.Component {
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPoetry[0] && poetryUsersProjects[0] ? `/users/${poetryUsersProjects[0].id}/projects/${projectPoetry[0].id}` : '/'}><img src={projectPoetry[0] ? projectPoetry[0].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectPublishing[0] && publishingUsersProjects[0] ? `/users/${publishingUsersProjects[0].id}/projects/${projectPublishing[0].id}` : '/'}><img src={projectPublishing[0] ? projectPublishing[0].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPoetry[0] && poetryUsersProjects[0] ? `/users/${poetryUsersProjects[0].id}/projects/${projectPoetry[0].id}` : '/'}><h1>{projectPoetry[0] ? projectPoetry[0].title : ''}</h1></Link>
-                    <p>{projectPoetry[0] ? projectPoetry[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{poetryUsersProjects[0] ? poetryUsersProjects[0].name : ''}</span></div>
+                    <Link to={projectPublishing[0] && publishingUsersProjects[0] ? `/users/${publishingUsersProjects[0].id}/projects/${projectPublishing[0].id}` : '/'}><h1>{projectPublishing[0] ? projectPublishing[0].title : ''}</h1></Link>
+                    <p>{projectPublishing[0] ? projectPublishing[0].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[0] ? publishingUsersProjects[0].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPoetry[1] && poetryUsersProjects[1] ? `/users/${poetryUsersProjects[1].id}/projects/${projectPoetry[1].id}` : '/'}><img src={projectPoetry[1] ? projectPoetry[1].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectPublishing[1] && publishingUsersProjects[1] ? `/users/${publishingUsersProjects[1].id}/projects/${projectPublishing[1].id}` : '/'}><img src={projectPublishing[1] ? projectPublishing[1].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPoetry[1] && poetryUsersProjects[1] ? `/users/${poetryUsersProjects[1].id}/projects/${projectPoetry[1].id}` : '/'}><h1>{projectPoetry[1] ? projectPoetry[1].title : ''}</h1></Link>
-                    <p>{projectPoetry[1] ? projectPoetry[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{poetryUsersProjects[1] ? poetryUsersProjects[1].name : ''}</span></div>
+                    <Link to={projectPublishing[1] && publishingUsersProjects[1] ? `/users/${publishingUsersProjects[1].id}/projects/${projectPublishing[1].id}` : '/'}><h1>{projectPublishing[1] ? projectPublishing[1].title : ''}</h1></Link>
+                    <p>{projectPublishing[1] ? projectPublishing[1].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[1] ? publishingUsersProjects[1].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPoetry[2] && poetryUsersProjects[2] ? `/users/${poetryUsersProjects[2].id}/projects/${projectPoetry[2].id}` : '/'}><img src={projectPoetry[2] ? projectPoetry[2].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectPublishing[2] && publishingUsersProjects[2] ? `/users/${publishingUsersProjects[2].id}/projects/${projectPublishing[2].id}` : '/'}><img src={projectPublishing[2] ? projectPublishing[2].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPoetry[2] && poetryUsersProjects[2] ? `/users/${poetryUsersProjects[2].id}/projects/${projectPoetry[2].id}` : '/'}><h1>{projectPoetry[2] ? projectPoetry[2].title : ''}</h1></Link>
-                    <p>{projectPoetry[2] ? projectPoetry[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{poetryUsersProjects[2] ? poetryUsersProjects[2].name : ''}</span></div>
+                    <Link to={projectPublishing[2] && publishingUsersProjects[2] ? `/users/${publishingUsersProjects[2].id}/projects/${projectPublishing[2].id}` : '/'}><h1>{projectPublishing[2] ? projectPublishing[2].title : ''}</h1></Link>
+                    <p>{projectPublishing[2] ? projectPublishing[2].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[2] ? publishingUsersProjects[2].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPoetry[3] && poetryUsersProjects[3] ? `/users/${poetryUsersProjects[3].id}/projects/${projectPoetry[3].id}` : '/'}><img src={projectPoetry[3] ? projectPoetry[3].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectPublishing[3] && publishingUsersProjects[3] ? `/users/${publishingUsersProjects[3].id}/projects/${projectPublishing[3].id}` : '/'}><img src={projectPublishing[3] ? projectPublishing[3].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPoetry[3] && poetryUsersProjects[3] ? `/users/${poetryUsersProjects[3].id}/projects/${projectPoetry[3].id}` : '/'}><h1>{projectPoetry[3] ? projectPoetry[3].title : ''}</h1></Link>
-                    <p>{projectPoetry[3] ? projectPoetry[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{poetryUsersProjects[3] ? poetryUsersProjects[3].name : ''}</span></div>
+                    <Link to={projectPublishing[3] && publishingUsersProjects[3] ? `/users/${publishingUsersProjects[3].id}/projects/${projectPublishing[3].id}` : '/'}><h1>{projectPublishing[3] ? projectPublishing[3].title : ''}</h1></Link>
+                    <p>{projectPublishing[3] ? projectPublishing[3].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[3] ? publishingUsersProjects[3].name : ''}</span></div>
                   </div>
                 </div>
               </div>
@@ -284,36 +362,36 @@ class Publishing extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPublishing[0] && publishingUsersProjects[0] ? `/users/${publishingUsersProjects[0].id}/projects/${projectPublishing[0].id}` : '/'}><h1>{projectPublishing[0] ? projectPublishing[0].title : ''}</h1></Link>
-                    <p>{projectPublishing[0] ? projectPublishing[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[0] ? publishingUsersProjects[0].name : ''}</span></div>
+                    <Link to={projectPublishing[4] && publishingUsersProjects[4] ? `/users/${publishingUsersProjects[4].id}/projects/${projectPublishing[4].id}` : '/'}><h1>{projectPublishing[4] ? projectPublishing[4].title : ''}</h1></Link>
+                    <p>{projectPublishing[4] ? projectPublishing[4].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[4] ? publishingUsersProjects[4].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPublishing[1] && publishingUsersProjects[1] ? `/users/${publishingUsersProjects[1].id}/projects/${projectPublishing[1].id}` : '/'}><img src={projectPublishing[1] ? projectPublishing[1].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectPublishing[5] && publishingUsersProjects[5] ? `/users/${publishingUsersProjects[5].id}/projects/${projectPublishing[5].id}` : '/'}><img src={projectPublishing[5] ? projectPublishing[5].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPublishing[1] && publishingUsersProjects[1] ? `/users/${publishingUsersProjects[1].id}/projects/${projectPublishing[1].id}` : '/'}><h1>{projectPublishing[1] ? projectPublishing[1].title : ''}</h1></Link>
-                    <p>{projectPublishing[1] ? projectPublishing[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[1] ? publishingUsersProjects[1].name : ''}</span></div>
+                    <Link to={projectPublishing[5] && publishingUsersProjects[5] ? `/users/${publishingUsersProjects[5].id}/projects/${projectPublishing[5].id}` : '/'}><h1>{projectPublishing[5] ? projectPublishing[5].title : ''}</h1></Link>
+                    <p>{projectPublishing[5] ? projectPublishing[5].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[5] ? publishingUsersProjects[5].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPublishing[2] && publishingUsersProjects[2] ? `/users/${publishingUsersProjects[2].id}/projects/${projectPublishing[2].id}` : '/'}><img src={projectPublishing[2] ? projectPublishing[2].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectPublishing[6] && publishingUsersProjects[6] ? `/users/${publishingUsersProjects[6].id}/projects/${projectPublishing[6].id}` : '/'}><img src={projectPublishing[6] ? projectPublishing[6].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPublishing[2] && publishingUsersProjects[2] ? `/users/${publishingUsersProjects[2].id}/projects/${projectPublishing[2].id}` : '/'}><h1>{projectPublishing[2] ? projectPublishing[2].title : ''}</h1></Link>
-                    <p>{projectPublishing[2] ? projectPublishing[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[2] ? publishingUsersProjects[2].name : ''}</span></div>
+                    <Link to={projectPublishing[6] && publishingUsersProjects[6] ? `/users/${publishingUsersProjects[6].id}/projects/${projectPublishing[6].id}` : '/'}><h1>{projectPublishing[6] ? projectPublishing[6].title : ''}</h1></Link>
+                    <p>{projectPublishing[6] ? projectPublishing[6].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[6] ? publishingUsersProjects[6].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectPublishing[3] && publishingUsersProjects[3] ? `/users/${publishingUsersProjects[3].id}/projects/${projectPublishing[3].id}` : '/'}><img src={projectPublishing[3] ? projectPublishing[3].imageUrl : ''}/></Link>
+                    <Link className='explore-theater-column-image' to={projectPublishing[7] && publishingUsersProjects[7] ? `/users/${publishingUsersProjects[7].id}/projects/${projectPublishing[7].id}` : '/'}><img src={projectPublishing[7] ? projectPublishing[7].imageUrl : ''}/></Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectPublishing[3] && publishingUsersProjects[3] ? `/users/${publishingUsersProjects[3].id}/projects/${projectPublishing[3].id}` : '/'}><h1>{projectPublishing[3] ? projectPublishing[3].title : ''}</h1></Link>
-                    <p>{projectPublishing[3] ? projectPublishing[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[3] ? publishingUsersProjects[3].name : ''}</span></div>
+                    <Link to={projectPublishing[7] && publishingUsersProjects[7] ? `/users/${publishingUsersProjects[7].id}/projects/${projectPublishing[7].id}` : '/'}><h1>{projectPublishing[7] ? projectPublishing[7].title : ''}</h1></Link>
+                    <p>{projectPublishing[7] ? projectPublishing[7].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{publishingUsersProjects[7] ? publishingUsersProjects[7].name : ''}</span></div>
                   </div>
                 </div>
               </div>
