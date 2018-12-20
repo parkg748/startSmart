@@ -143,7 +143,7 @@ class EditAboutYouProject extends React.Component {
     let storyProgress = 3;
     let aboutYouProgress = 6;
     let accountProgress = 1;
-    let project = Object.values(this.props.project).filter(el => el.id === this.props.match.params.projectId)[0];
+    let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
     let user = Object.values(this.props.user)[0];
     let completed = [];
     if (project.imageUrl != '') basicsProgress--;

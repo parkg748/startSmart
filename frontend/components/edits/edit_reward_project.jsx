@@ -144,7 +144,21 @@ class EditRewardProject extends React.Component {
                   <textarea onChange={this.update('description')}></textarea>
                 </div>
                 <button className='add-an-item'>
-                  {}
+                  <ul>
+                    <li>
+                      <div className='add-an-item-list'>
+                        <span>fheifhw</span>
+                        <div className='add-or-remove'>
+                          <a className='add-or-remove-edit'>edit</a><a className='add-or-remove-remove'>remove</a>
+                        </div>
+                      </div>
+                      <div className='add-an-item-counter'>
+                        <button className='add-an-item-counter-minus'>-</button>
+                        <p>1</p>
+                        <button className='add-an-item-counter-plus'>+</button>
+                      </div>
+                    </li>
+                  </ul>
                   <div onClick={() => this.addItem()} className='add-an-item-inner'>
                     <div className='add-an-item-inner-inner'>
                       <i className="fas fa-plus"></i>Add an item
@@ -203,6 +217,7 @@ class EditRewardProject extends React.Component {
             </button>
           </div>
         </div>);
+        let itemBox = [];
     }
     let basicsProgress = 7;
     let rewardsProgress = 5;

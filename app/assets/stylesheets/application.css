@@ -3300,14 +3300,17 @@ nav {
 
 .reward-box-inner {
   width: 640px;
-  height: 373px;
+  height: fit-content;
   background-color: #F8F9FD;
   border-radius: 6px;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: flex-end;
 }
 
 .reward-box-inner-inner {
   width: 632px;
-  height: 365px;
+  height: fit-content;
   padding: 4px;
   margin-bottom: 18px;
 }
@@ -3316,7 +3319,6 @@ nav {
   width: 159px;
   height: 42px;
   padding: 10px 5px 10px 10px;
-  float: left;
 }
 
 .reward-title-number {
@@ -3334,14 +3336,14 @@ nav {
 }
 
 .reward-form-field {
-  float: left;
   margin-top: 10px;
   width: 453px;
-  height: 320px;
+  height: fit-content;
   border-top: 1px solid #dad7d4;
   border-left: 1px solid #dad7d4;
   border-right: 1px solid #dad7d4;
   background-color: white;
+  margin-right: 10px;
 }
 
 .make-pledge-without-reward {
@@ -3603,6 +3605,7 @@ nav {
   width: 453px;
   height: 38px;
   border-bottom: 1px solid #dad7d4;
+  display: flex;
 }
 
 .reward-form-field-title-desc {
@@ -3614,14 +3617,12 @@ nav {
   font-weight: 100;
   display: flex;
   align-items: center;
-  float: left;
 }
 
 .reward-form-field-title-input input {
   width: 317px;
   height: 18px;
   padding: 9px;
-  float: left;
   font-size: 14px;
   font-weight: 100;
   border: 1px solid transparent;
@@ -3635,19 +3636,19 @@ nav {
 
 .reward-form-field-description {
   width: 453px;
-  height: 107px;
+  height: fit-content;
   border-bottom: 1px solid #dad7d4;
+  display: flex;
 }
 
 .reward-form-field-description-desc {
-  width: 100px;
+  width: 134px;
   height: 18px;
   padding: 10px 5px 10px 10px;
   font-size: 12px;
   font-weight: 100;
   display: flex;
   align-items: center;
-  float: left;
 }
 
 .reward-form-field-description-textarea {
@@ -3657,26 +3658,125 @@ nav {
   border-left: 1px solid #dad7d4;
   font-size: 14px;
   font-weight: 100;
-  float: left;
   border-bottom: 1px solid #dad7d4;
 }
 
 .add-an-item {
-  width: 107%;
-  height: 39px;
-  float: left;
+  width: 100%;
+  height: fit-content;
   border-left: 1px solid #dad7d4;
   cursor: pointer;
+  display: flex;
+  flex-flow: wrap;
 }
 
 .add-an-item-inner {
-  width: 319px;
-  height: 38px;
+  width: 96.5%;
+  height: 100%;
   padding: 0 6px 0 6px;
 }
 
+.add-an-item ul {
+  padding: 0 6px;
+}
+
+.add-an-item li {
+  margin-top: 10px;
+  display: flex;
+}
+
+.add-an-item-list {
+  padding: 6px 6px 6px 10px;
+  background-color: #F8F9FD;
+  width: 155px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.add-an-item-list span {
+  font-weight: 100;
+  font-size: 14px;
+  width: 100%;
+}
+
+.add-or-remove {
+  display: flex;
+  align-items: center;
+}
+
+.add-or-remove a {
+  color: #2752ff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.add-or-remove-edit {
+  margin-right: 5px;
+}
+
+.add-or-remove-remove {
+  padding-left: 5px;
+  border-left: 0.01rem solid black;
+}
+
+.add-an-item-counter {
+  width: 106px;
+  padding: 6px 10px 6px 6px;
+  height: 36px;
+  background-color: #F8F9FD;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.add-an-item-counter-minus {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  color: white;
+  background-color: #3D3D66;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-an-item-counter-minus:hover {
+  background-color: #5a5a96;
+}
+
+.add-an-item-counter-plus:hover {
+  background-color: #5a5a96;
+}
+
+.add-an-item-counter p {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.add-an-item-counter-plus {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  color: white;
+  background-color: #3D3D66;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-or-remove a:hover {
+  color: black;
+}
+
 .add-an-item-inner-inner {
-  width: 299px;
+  width: 94%;
   height: 18px;
   padding: 10px;
   font-size: 14px;
@@ -3687,9 +3787,8 @@ nav {
 }
 
 .reward-form-field-description-inner {
-  width: 316px;
-  height: 106px;
-  float: left;
+  width: 100%;
+  height: 100%;
 }
 
 .estimated-delivery {
