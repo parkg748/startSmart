@@ -8,7 +8,12 @@ import EditPageNav from './edit_page_nav';
 class EditRewardProject extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.reward;
+    this.state = {displayProfileMenu: 'js-modal-close',
+             addItem: 'js-modal-close',
+             addBackground: '',
+             numOfRewardBox: 1,
+             addedItems: [],
+             item_name: ''};
     this.closeAddItemForm = this.closeAddItemForm.bind(this);
     this.addItem = this.addItem.bind(this);
     this.increaseRewardBox = this.increaseRewardBox.bind(this);
@@ -58,7 +63,9 @@ class EditRewardProject extends React.Component {
   }
 
   closeAddItemForm() {
-    this.setState({addItem: 'js-modal-close', addBackground: ''});
+    let addedItems = this.state.addedItems;
+    addedItems.push(this.state.item_name);
+    this.setState({addItem: 'js-modal-close', addBackground: '', addedItems});
   }
 
   addItem() {
@@ -197,6 +204,34 @@ class EditRewardProject extends React.Component {
           </div>
         </div>);
     }
+    let basicsProgress = 7;
+    let rewardsProgress = 5;
+    let storyProgress = 3;
+    let aboutYouProgress = 6;
+    let accountProgress = 1;
+    let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
+    let user = Object.values(this.props.user)[0];
+    let completed = [];
+    if (project.imageUrl != '') basicsProgress--;
+    if (project.title != '') basicsProgress--;
+    if (project.subcategory != '') basicsProgress--;
+    if (project.city != '') basicsProgress--; aboutYouProgress--;
+    if (project.description != '') basicsProgress--;
+    if (project.fundingGoal != null) basicsProgress--;
+    if (project.eta != null) basicsProgress--;
+    if (project.editorHtml != '') storyProgress--;
+    if (project.challenges != '') storyProgress--;
+    if (user.profileUrl != '') aboutYouProgress--;
+    if (user.name != '') aboutYouProgress--;
+    if (user.biography != '') aboutYouProgress--;
+    if (user.websites.length != 0) aboutYouProgress--;
+    if (user.googleAnalytics != null) aboutYouProgress--;
+    if (user.email != '') accountProgress--;
+    if (basicsProgress === 0) { completed.push('basic'); }
+    if (rewardsProgress === 0) { completed.push('reward'); }
+    if (storyProgress === 0) { completed.push('story'); }
+    if (aboutYouProgress === 0) { completed.push('aboutyou'); }
+    if (accountProgress === 0) { completed.push('account'); }
     return (
       <div>
         <div className={this.state.addBackground}>
@@ -209,7 +244,7 @@ class EditRewardProject extends React.Component {
               <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
             </ul>
             <div className='edit-page-content'>
-              <EditPageNavbar buttonHighlight={'rewards-page-button-highlight'} userId={this.props.match.params.userId} projectId={this.props.match.params.projectId} />
+              <EditPageNavbar buttonHighlight={'rewards-page-button-highlight'} userId={this.props.match.params.userId} projectId={this.props.match.params.projectId} completed={completed} />
               <div className='edit-form'>
                 <div className='edit-form-title'>
                   <div className='edit-form-title-inner'>
