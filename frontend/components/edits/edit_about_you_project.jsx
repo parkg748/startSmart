@@ -107,6 +107,12 @@ class EditAboutYouProject extends React.Component {
     this.setState({websites});
   }
 
+  deleteWebsite(idx) {
+    let websites = this.state.websites;
+    websites = [...websites.slice(0, idx), ...websites.slice(idx + 1)];
+    this.setState({websites});
+  }
+
   update(field) {
     return (e) => this.setState({[field]: e.target.value});
   }
@@ -193,7 +199,7 @@ class EditAboutYouProject extends React.Component {
     for (let i = 0; i < this.state.websites.length; i++) {
       websiteBox.push(<div className='websites-dropdown'>
         <span>{this.state.websites[i]}</span>
-        <div className='your-location-dropdown-close'>
+        <div onClick={() => this.deleteWebsite(i)} className='your-location-dropdown-close'>
           <i className="your-location-button fas fa-times"></i>
         </div>
       </div>);
@@ -298,7 +304,7 @@ class EditAboutYouProject extends React.Component {
                             <div className='google-analytics-content'>
                               <div className='profile-photo-title'>Google Analytics</div>
                               <div className='google-analytics-content-inner'>
-                                <div className={`google-analytics-content-input ${this.state.googleAnalytics}`}>
+                                <div className={`google-analytics-content-input ${this.state.googleAnalyticsBorder}`}>
                                   <input onClick={() => this.addBlackBorder('google-analytics')} onChange={this.update('google_analytics')} type='text' placeholder='UA-XXXXXXXX-X' value={this.state.google_analytics} />
                                 </div>
                                 <div className='google-analytics-description'>

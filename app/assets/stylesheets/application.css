@@ -4783,6 +4783,7 @@ strong {
   padding: 4px;
   background-color: #F8F9FD;
   border-radius: 6px;
+  display: flex;
 }
 
 .google-analytics-content-inner {
