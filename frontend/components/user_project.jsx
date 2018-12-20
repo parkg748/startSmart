@@ -71,6 +71,16 @@ class UserProject extends React.Component {
     let storyProgress = 3;
     let aboutYouProgress = 6;
     let accountProgress = 1;
+    let basicsInnerCircle = 'white';
+    let rewardsInnerCircle = 'white';
+    let storyInnerCircle = 'white';
+    let aboutYouInnerCircle = 'white';
+    let accountInnerCircle = 'white';
+    let basicsCheck = '#DCDEDD';
+    let rewardsCheck = '#DCDEDD';
+    let storyCheck = '#DCDEDD';
+    let aboutYouCheck = '#DCDEDD';
+    let accountCheck = '#DCDEDD';
     let project = Object.values(this.props.project)[0];
     let user = Object.values(this.props.user)[0];
     if (project.imageUrl != '') basicsProgress--;
@@ -98,26 +108,42 @@ class UserProject extends React.Component {
     let aboutYouDegree = 360 * (aboutYouPercentage / 100);
     let accountPercentage = Math.floor((accountProgress / 1) * 100);
     let accountDegree = 360 * (accountPercentage / 100);
-    if (basicsDegree > 180) {
+    if (basicsProgress === 0) {
+      basicsInnerCircle = '#027363';
+      basicsCheck = 'white';
+    } else if (basicsDegree > 180) {
       basicsRightHalf = 180;
       basicsLeftHalf = 360 - basicsDegree;
     } else { basicsRightHalf = basicsDegree; }
-    if (rewardsDegree > 180) {
+    if (rewardsProgress === 0) {
+      rewardsInnerCircle = '#027363';
+      rewardsCheck = 'white';
+    } else if (rewardsDegree > 180) {
       rewardsRightHalf = 180;
       rewardsLeftHalf = 360 - rewardsDegree;
     } else { rewardsRightHalf = rewardsDegree; }
-    if (storyDegree > 180) {
+    if (storyProgress === 0) {
+      storyInnerCircle = '#027363';
+      storyCheck = 'white';
+    } else if (storyDegree > 180) {
       storyRightHalf = 180;
       storyLeftHalf = 360 - storyDegree;
     } else { storyRightHalf = storyDegree; }
-    if (aboutYouDegree > 180) {
+    if (aboutYouProgress === 0) {
+      aboutYouInnerCircle = '#027363';
+      aboutYouCheck = 'white';
+    } else if (aboutYouDegree > 180) {
       aboutYouRightHalf = 180;
       aboutYouLeftHalf = 360 - aboutYouDegree;
     } else { aboutYouRightHalf = aboutYouDegree; }
-    if (accountDegree > 180) {
+    if (accountProgress === 0) {
+      accountInnerCircle = '#027363';
+      accountCheck = 'white';
+    } else if (accountDegree > 180) {
       accountRightHalf = 180;
       accountLeftHalf = 360 - accountDegree;
     } else { accountRightHalf = accountDegree; }
+    let totalComplete = [basicsProgress, rewardsProgress, storyProgress, aboutYouProgress, accountProgress].filter(el => el === 0).length;
     return (
       <div>
         <nav>
@@ -159,8 +185,8 @@ class UserProject extends React.Component {
                         <div className="edit-page-progress-circle">
                           <div id="progress-circle-basic" className="hold"><div style={{transform: `rotate(${basicsRightHalf}deg)`}} className="pie"></div></div>
                           <div id="progress-circle-basic-other-half" className="hold"><div style={{transform: `rotate(${basicsLeftHalf}deg)`}} className="pie"></div></div>
-                          <i className="edit-page-progress-circle-check fas fa-check"></i>
-                          <div className="innerCircle"></div>
+                          <i style={{color: `${basicsCheck}`}} className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div style={{backgroundColor: `${basicsInnerCircle}`}} className="innerCircle"></div>
                         </div>
                         <div className='basics-content'>
                           <div className='basics-content-title'>Basics</div>
@@ -173,8 +199,8 @@ class UserProject extends React.Component {
                         <div className="edit-page-progress-circle-reward">
                           <div id="progress-circle-reward" className="hold"><div style={{transform: `rotate(${rewardsRightHalf}deg)`}} className="pie"></div></div>
                           <div id="progress-circle-reward-other-half" className="hold"><div style={{transform: `rotate(${rewardsLeftHalf}deg)`}} className="pie"></div></div>
-                          <i className="edit-page-progress-circle-check fas fa-check"></i>
-                          <div className="innerCircle"></div>
+                          <i style={{color: `${rewardsCheck}`}} className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div style={{backgroundColor: `${rewardsInnerCircle}`}} className="innerCircle"></div>
                         </div>
                         <div className='basics-content'>
                           <div className='basics-content-title'>Rewards</div>
@@ -187,8 +213,8 @@ class UserProject extends React.Component {
                         <div className="edit-page-progress-circle-reward">
                           <div id="progress-circle-story" className="hold"><div style={{transform: `rotate(${storyRightHalf}deg)`}} className="pie"></div></div>
                           <div id="progress-circle-story-other-half" className="hold"><div style={{transform: `rotate(${storyLeftHalf}deg)`}} className="pie"></div></div>
-                          <i className="edit-page-progress-circle-check fas fa-check"></i>
-                          <div className="innerCircle"></div>
+                          <i style={{color: `${storyCheck}`}} className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div style={{backgroundColor: `${storyInnerCircle}`}} className="innerCircle"></div>
                         </div>
                         <div className='basics-content'>
                           <div className='basics-content-title'>Story</div>
@@ -201,8 +227,8 @@ class UserProject extends React.Component {
                         <div className="edit-page-progress-circle-reward">
                           <div id="progress-circle-aboutyou" className="hold"><div style={{transform: `rotate(${aboutYouRightHalf}deg)`}} className="pie"></div></div>
                           <div id="progress-circle-aboutyou-other-half" className="hold"><div style={{transform: `rotate(${aboutYouLeftHalf}deg)`}} className="pie"></div></div>
-                          <i className="edit-page-progress-circle-check fas fa-check"></i>
-                          <div className="innerCircle"></div>
+                          <i style={{color: `${aboutYouCheck}`}} className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div style={{backgroundColor: `${aboutYouInnerCircle}`}} className="innerCircle"></div>
                         </div>
                         <div className='basics-content'>
                           <div className='basics-content-title'>Profile</div>
@@ -215,8 +241,8 @@ class UserProject extends React.Component {
                         <div className="edit-page-progress-circle-account">
                           <div id="progress-circle-account" className="hold"><div style={{transform: `rotate(${accountRightHalf}deg)`}} className="pie"></div></div>
                           <div id="progress-circle-account-other-half" className="hold"><div style={{transform: `rotate(${accountLeftHalf}deg)`}} className="pie"></div></div>
-                          <i className="edit-page-progress-circle-check fas fa-check"></i>
-                          <div className="innerCircle"></div>
+                          <i style={{color: `${accountCheck}`}} className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div style={{backgroundColor: `${accountInnerCircle}`}} className="innerCircle"></div>
                         </div>
                         <div className='account-content'>
                           <div className='basics-content-title'>Account</div>
@@ -230,7 +256,7 @@ class UserProject extends React.Component {
                 <div className='completed-list'>
                   <div className='completed-list-content'>
                     <div className='completed-list-content-inner'>
-                      <p className='completed-list-num'>0 of 5 complete</p>
+                      <p className='completed-list-num'>{totalComplete} of 5 complete</p>
                       <p className='completed-list-num-desc'>When everything is done, you'll submit your project for review. Review of your project may take up to five business days.</p>
                     </div>
                   </div>
