@@ -139,6 +139,36 @@ class Preview extends React.Component {
     let lastLoggedInMonth = month[lastLoggedIn[1] - 1];
     let day = lastLoggedIn[2].indexOf('T');
     let lastLoggedInDay = lastLoggedIn[2].slice(0, day);
+    let basicsProgress = 7;
+    let rewardsProgress = 5;
+    let storyProgress = 3;
+    let aboutYouProgress = 6;
+    let accountProgress = 1;
+    let project = Object.values(this.props.project)[0];
+    let user = Object.values(this.props.user)[0];
+    let completed = [];
+    if (project != undefined) {
+      if (project.imageUrl != '') basicsProgress--;
+      if (project.title != '') basicsProgress--;
+      if (project.subcategory != '') basicsProgress--;
+      if (project.city != '') basicsProgress--; aboutYouProgress--;
+      if (project.description != '') basicsProgress--;
+      if (project.fundingGoal != null) basicsProgress--;
+      if (project.eta != null) basicsProgress--;
+      if (project.editorHtml != '') storyProgress--;
+      if (project.challenges != '') storyProgress--;
+      if (user.profileUrl != '') aboutYouProgress--;
+      if (user.name != '') aboutYouProgress--;
+      if (user.biography != '') aboutYouProgress--;
+      if (user.websites.length != 0) aboutYouProgress--;
+      if (user.googleAnalytics != null) aboutYouProgress--;
+      if (user.email != '') accountProgress--;
+    }
+    if (basicsProgress === 0) { completed.push('basic'); }
+    if (rewardsProgress === 0) { completed.push('reward'); }
+    if (storyProgress === 0) { completed.push('story'); }
+    if (aboutYouProgress === 0) { completed.push('aboutyou'); }
+    if (accountProgress === 0) { completed.push('account'); }
     return (
       <div className='preview-project-body'>
         <div className='edit-story-background'>
@@ -151,7 +181,7 @@ class Preview extends React.Component {
               <li><Link className='edit-button' to='/help/handbook'>Creator Handbook</Link></li>
             </ul>
             <div className='preview-page-content'>
-            <EditPageNavbar buttonHighlight={'preview-page-button-highlight'} userId={this.props.match.params.userId} projectId={this.props.match.params.projectId} />
+            <EditPageNavbar buttonHighlight={'preview-page-button-highlight'} userId={this.props.match.params.userId} projectId={this.props.match.params.projectId} completed={completed} />
             <div className='preview-form'>
               <div className='preview-form-alert'>
                 <div className='preview-form-alert-one'><Link className='policy-link' to='/'>Share a preview of your project with friends</Link>. Once you launch, the preview link will redirect to your live project page.</div>
