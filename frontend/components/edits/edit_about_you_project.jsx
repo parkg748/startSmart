@@ -239,12 +239,8 @@ class EditAboutYouProject extends React.Component {
                           <div className='your-location'>
                             <div className='your-location-content'>
                               <div className='profile-photo-title'>Your location</div>
-                              <div className='your-location-dropdown'>
-                                <span>San Francisco, CA</span>
-                                <div className='your-location-dropdown-close'>
-                                  <i className="your-location-button fas fa-times"></i>
-                                </div>
-                              </div>
+                              <input type='text' />
+                              <i className="location-search-aboutyou fas fa-search"></i>
                             </div>
                           </div>
                           <div className='websites'>
