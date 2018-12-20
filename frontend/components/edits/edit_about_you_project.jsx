@@ -266,8 +266,6 @@ class EditAboutYouProject extends React.Component {
                                   <i className="your-location-button fas fa-times"></i>
                                 </div>
                               </div>
-                              <input className={`${this.state.yourLocationBorder}`} onClick={() => this.addBlackBorder('your-location')} type='text' />
-                              <i className="location-search-aboutyou fas fa-search"></i>
                             </div>
                           </div>
                           <div className='websites'>
@@ -279,6 +277,12 @@ class EditAboutYouProject extends React.Component {
                                     <input onClick={() => this.addBlackBorder('websites')} onChange={this.update('website')} type='text' defaultValue={this.state.websites[0]} />
                                   </div>
                                   <button onClick={() => this.addWebsite()} className='websites-add-button'>Add</button>
+                                </div>
+                                <div className='websites-dropdown'>
+                                  <span></span>
+                                  <div className='your-location-dropdown-close'>
+                                    <i className="your-location-button fas fa-times"></i>
+                                  </div>
                                 </div>
                                 <div className='websites-description'>
                                   <p>Some suggestions: Link to your blog, portfolio, Twitter, Instagram, etc.</p>
