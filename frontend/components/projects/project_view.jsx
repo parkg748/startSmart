@@ -33,6 +33,11 @@ class ProjectView extends React.Component {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchAllUsers();
+    this.interval = setInterval(() => this.forceUpdate(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   // startTimer() {

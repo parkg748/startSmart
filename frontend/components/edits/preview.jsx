@@ -3,18 +3,29 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import EditPageNavbar from './edit_page_navbar';
 import EditPageNav from './edit_page_nav';
+import Campaign from '../projects/campaign';
+import FAQ from '../projects/faq';
+import Updates from '../projects/updates';
+import Comments from '../projects/comments';
+import Community from '../projects/community';
 
 class Preview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {displayProfileMenu: 'js-modal-close',
                   addBackground: '',
-                  userInfoModal: 'js-modal-close'};
+                  userInfoModal: 'js-modal-close',
+                  projectView: 'campaign',
+                  onClick: 'make-a-pledge',
+                  greenBorder: '',
+                  currencyGreenBorder: '',
+                  blackBorder: ''};
     this.currentTimeNum = 0;
     this.currentTime = 'days';
     this.showUserBio = this.showUserBio.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.calculate = this.calculate.bind(this);
+    this.viewProjectBody = this.viewProjectBody.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +37,14 @@ class Preview extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.interval);
+  }
+
+  addGreenBorder() {
+    this.setState({greenBorder: 'green-support-border', currencyGreenBorder: 'green-currency-support-border', blackBorder: 'black-border'});
+  }
+
+  viewProjectBody(tab) {
+    this.setState({projectView: tab});
   }
 
   clickProfileIcon() {
@@ -169,6 +188,29 @@ class Preview extends React.Component {
     if (storyProgress === 0) { completed.push('story'); }
     if (aboutYouProgress === 0) { completed.push('aboutyou'); }
     if (accountProgress === 0) { completed.push('account'); }
+    let currentProject = '';
+    if (Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId).length != 0) {
+      currentProject = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
+    }
+    const monthFullName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let projectCreated = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0].createdAt.split('-');
+    let projectCreatedYear = projectCreated[0];
+    let projectCreatedMonth = monthFullName[projectCreated[1] - 1];
+    let projectCreatedDay = projectCreated[2].slice(0, projectCreated[2].indexOf('T'));
+    const content = currentProject === '' ? '' : currentProject.editorHtml;
+    const styles = ['https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'];
+    let currentProjectBody = '';
+    if (this.state.projectView === 'campaign') {
+      currentProjectBody = <Campaign content={content} styles={styles} onClick={this.state.onClick} addGreenBorder={() => this.addGreenBorder()} greenBorder={this.state.greenBorder} currencyGreenBorder={this.state.currencyGreenBorder} blackBorder={this.state.blackBorder} />;
+    } else if (this.state.projectView === 'faq') {
+      currentProjectBody = <FAQ content={content} styles={styles} onClick={this.state.onClick} />;
+    } else if (this.state.projectView === 'updates') {
+      currentProjectBody = <Updates projectCreatedYear={projectCreatedYear} projectCreatedMonth={projectCreatedMonth} projectCreatedDay={projectCreatedDay} />;
+    } else if (this.state.projectView === 'comments') {
+      currentProjectBody = <Comments content={content} styles={styles} onClick={this.state.onClick} />;
+    } else if (this.state.projectView === 'community') {
+      currentProjectBody = <Community content={content} styles={styles} onClick={this.state.onClick} />;
+    }
     return (
       <div className='preview-project-body'>
         <div className='edit-story-background'>
@@ -257,17 +299,23 @@ class Preview extends React.Component {
                   <div className='project-front-navbar-inner'>
                     <div className='project-front-navbar-inner-inner'>
                       <div className='project-front-navbar-left'>
-                        <a>Campaign</a>
-                        <a>FAQ</a>
-                        <a>Updates<p>2</p></a>
-                        <a>Comments<p>15</p></a>
-                        <a>Community</a>
+                        <a className={this.state.projectView === 'campaign' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('campaign')}>Campaign</a>
+                        <div className={this.state.projectView === 'campaign' ? 'black-bar-campaign' : 'js-modal-close'}></div>
+                        <a className={this.state.projectView === 'faq' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('faq')}>FAQ</a>
+                        <div className={this.state.projectView === 'faq' ? 'black-bar-faq' : 'js-modal-close'}></div>
+                        <a className={this.state.projectView === 'updates' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('updates')}>Updates<p>2</p></a>
+                        <div className={this.state.projectView === 'updates' ? 'black-bar-updates' : 'js-modal-close'}></div>
+                        <a className={this.state.projectView === 'comments' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('comments')}>Comments<p>15</p></a>
+                        <div className={this.state.projectView === 'comments' ? 'black-bar-comments' : 'js-modal-close'}></div>
+                        <a className={this.state.projectView === 'community' ? 'font-weight-500' : ''} onClick={() => this.viewProjectBody('community')}>Community</a>
+                        <div className={this.state.projectView === 'community' ? 'black-bar-community' : 'js-modal-close'}></div>
                       </div>
                       <div className='project-front-navbar-right'>
                       </div>
                       </div>
                     </div>
                   </div>
+                  {currentProjectBody}
                   <div className='preview-bottom-one'>
                     <div className='preview-bottom-two'>
                       <div className='preview-bottom-three'>
