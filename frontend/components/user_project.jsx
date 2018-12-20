@@ -94,7 +94,12 @@ class UserProject extends React.Component {
                     <h3>Project overview</h3>
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/basics`}>
                       <div className='basics'>
-                        <i className="far fa-check-circle"></i>
+                        <div className="edit-page-progress-circle">
+                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <i className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div className="innerCircle"></div>
+                        </div>
                         <div className='basics-content'>
                           <div className='basics-content-title'>Basics</div>
                           <div className='basics-content-desc'>Add an image, set your funding goal, and more.</div>
@@ -103,7 +108,12 @@ class UserProject extends React.Component {
                     </Link>
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/rewards`}>
                       <div className='rewards'>
-                        <i className="far fa-check-circle"></i>
+                        <div className="edit-page-progress-circle-reward">
+                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <i className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div className="innerCircle"></div>
+                        </div>
                         <div className='basics-content'>
                           <div className='basics-content-title'>Rewards</div>
                           <div className='basics-content-desc'>Set your rewards and shipping costs.</div>
@@ -112,7 +122,12 @@ class UserProject extends React.Component {
                     </Link>
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/story`}>
                       <div className='rewards'>
-                        <i className="far fa-check-circle"></i>
+                        <div className="edit-page-progress-circle-reward">
+                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <i className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div className="innerCircle"></div>
+                        </div>
                         <div className='basics-content'>
                           <div className='basics-content-title'>Story</div>
                           <div className='basics-content-desc'>Add a video and detailed project description.</div>
@@ -121,7 +136,12 @@ class UserProject extends React.Component {
                     </Link>
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/about-you`}>
                       <div className='rewards'>
-                        <i className="far fa-check-circle"></i>
+                        <div className="edit-page-progress-circle-reward">
+                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <i className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div className="innerCircle"></div>
+                        </div>
                         <div className='basics-content'>
                           <div className='basics-content-title'>Profile</div>
                           <div className='basics-content-desc'>Please add your profile photo, biography, and location.</div>
@@ -130,7 +150,12 @@ class UserProject extends React.Component {
                     </Link>
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/account`}>
                       <div className='account'>
-                        <i className="far fa-check-circle"></i>
+                        <div className="edit-page-progress-circle-account">
+                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <i className="edit-page-progress-circle-check fas fa-check"></i>
+                          <div className="innerCircle"></div>
+                        </div>
                         <div className='account-content'>
                           <div className='basics-content-title'>Account</div>
                           <div className='basics-content-desc'>Confirm your identity and link a bank account.</div>

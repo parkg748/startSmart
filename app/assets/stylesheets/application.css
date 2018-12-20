@@ -1661,11 +1661,12 @@ nav {
 }
 
 .basics {
-  display: block;
+  display: flex;
   height: 42px;
   padding-top: 30px;
   padding-bottom: 30px;
   border: 1px solid #DCDEDD;
+  position: relative;
 }
 
 .basics:hover {
@@ -1674,15 +1675,22 @@ nav {
 }
 
 .basics i {
+  top: 43px;
   width: 48px;
   height: 42px;
+  position: absolute;
   padding-left: 12px;
   padding-right: 12px;
+  left: 31px;
+  font-size: 64px;
+  color: #DCDEDD;
 }
 
 .basics-content {
   width: 303px;
   height: 42px;
+  position: absolute;
+  left: 80px;
 }
 
 .basics-content-title {
@@ -1710,12 +1718,13 @@ nav {
 }
 
 .rewards {
-  display: block;
+  display: flex;
   height: 42px;
   padding-top: 30px;
   padding-bottom: 30px;
   border: 1px solid #DCDEDD;
   border-top: 1px solid transparent;
+  position: relative;
 }
 
 .rewards:hover {
@@ -1724,10 +1733,15 @@ nav {
 }
 
 .rewards i {
+  top: 43px;
   width: 48px;
   height: 42px;
+  position: absolute;
   padding-left: 12px;
   padding-right: 12px;
+  left: 31px;
+  font-size: 64px;
+  color: #DCDEDD;
 }
 
 .account {
@@ -1736,6 +1750,8 @@ nav {
   padding-bottom: 30px;
   border: 1px solid #DCDEDD;
   border-top: 1px solid transparent;
+  display: flex;
+  position: relative;
 }
 
 .account:hover {
@@ -1744,15 +1760,22 @@ nav {
 }
 
 .account i {
+  top: 43px;
   width: 48px;
   height: 42px;
+  position: absolute;
   padding-left: 12px;
   padding-right: 12px;
+  left: 31px;
+  font-size: 64px;
+  color: #DCDEDD;
 }
 
 .account-content {
   width: 352px;
   height: 66px;
+  position: absolute;
+  left: 80px;
 }
 
 .account-content-disclaimer {
@@ -1762,7 +1785,6 @@ nav {
   font-size: 12px;
   color: #2752ff;
   font-weight: 100;
-  left: 72px;
   position: relative;
 }
 
@@ -13815,4 +13837,76 @@ iframe > body {
 
 .profile-created-section-author-inner-inner-inner a {
   font-weight: 500;
+}
+
+.edit-page-progress-circle {
+  height: 34%;
+  margin-left: 30px;
+  position: absolute;
+  transform: scale(0.3);
+  bottom: 50px;
+  left: -14px;
+}
+
+.edit-page-progress-circle-account {
+  height: 34%;
+  margin-left: 30px;
+  position: absolute;
+  transform: scale(0.3);
+  bottom: 68px;
+  left: -14px;
+}
+
+.edit-page-progress-circle-reward {
+  height: 34%;
+  margin-left: 30px;
+  position: absolute;
+  transform: scale(0.3);
+  bottom: 50px;
+  left: -14px;
+}
+
+#progress-circle .pie {
+  background-color: #027363;
+  transform:rotate(10deg);
+}
+
+#progress-circle {
+  transform: rotate(0deg);
+}
+
+#progress-circle-other-half .pie {
+  background-color: #027363;
+  transform:rotate(0deg);
+}
+
+#progress-circle-other-half {
+  transform: rotate(180deg);
+}
+
+
+.edit-page-progress-circle-check {
+  z-index: 2;
+  color: black;
+}
+
+.innerCircle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border-radius: 60px;
+  top: 15px;
+  left: 15px;
+  box-shadow: 0px 0px 14px rgba(0,0,0,0.5);
+  color: white;
+}
+.innerCircle .content {
+  position: absolute;
+  display: block;
+  width: 120px;
+  top: 30px;
+  left: 0;
+  text-align: center;
+  font-size: 14px;
 }
