@@ -16,13 +16,34 @@ class EditAboutYouProject extends React.Component {
                   google_analytics: '',
                   profileUrl: "",
                   profileFile: "",
-                  profileUpload: 'close'};
+                  profileUpload: 'close',
+                  nameBorder: '',
+                  biographyBorder: '',
+                  yourLocationBorder: '',
+                  websitesBorder: '',
+                  googleAnalyticsBorder: ''};
     this.handleFile = this.handleFile.bind(this);
+    this.addBlackBorder = this.addBlackBorder.bind(this);
+    this.addWebsite = this.addWebsite.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchUser(this.props.match.params.userId);
+  }
+
+  addBlackBorder(type) {
+    if (type === 'name') {
+      this.setState({nameBorder: 'black-border', biographyBorder: '', yourLocationBorder: '', websitesBorder: '', googleAnalyticsBorder: ''});
+    } else if (type === 'biography') {
+      this.setState({nameBorder: '', biographyBorder: 'black-border', yourLocationBorder: '', websitesBorder: '', googleAnalyticsBorder: ''});
+    } else if (type === 'your-location') {
+      this.setState({nameBorder: '', biographyBorder: '', yourLocationBorder: 'black-border', websitesBorder: '', googleAnalyticsBorder: ''});
+    } else if (type === 'websites') {
+      this.setState({nameBorder: '', biographyBorder: '', yourLocationBorder: '', websitesBorder: 'black-border', googleAnalyticsBorder: ''});
+    } else if (type === 'google-analytics') {
+      this.setState({nameBorder: '', biographyBorder: '', yourLocationBorder: '', websitesBorder: '', googleAnalyticsBorder: 'black-border'});
+    }
   }
 
   handleFile(e) {
@@ -204,8 +225,8 @@ class EditAboutYouProject extends React.Component {
                           <div className='name-box-content'>
                             <div className='profile-photo-title'>Name</div>
                             <div className='name-content-inner'>
-                              <div className='name-input'>
-                                <input onChange={this.update('name')} type='text' value={Object.values(this.props.user)[0].name} />
+                              <div className={`name-input ${this.state.nameBorder}`}>
+                                <input onClick={() => this.addBlackBorder('name')} onChange={this.update('name')} type='text' value={Object.values(this.props.user)[0].name} />
                               </div>
                               <div className='name-description'>
                                 <p>Heads up: Once you launch a project, you cannot make changes to your name on StartSmart.</p>
@@ -230,8 +251,8 @@ class EditAboutYouProject extends React.Component {
                             <div className='biography-content'>
                               <div className='profile-photo-title'>Biography</div>
                               <div className='biography-content-inner'>
-                                <div className='biography-input'>
-                                  <textarea onChange={this.update('biography')} value={this.state.biography === '' ? Object.values(getState().entities.users)[0].biography : this.state.biography}></textarea>
+                                <div className={`biography-input ${this.state.biographyBorder}`}>
+                                  <textarea onClick={() => this.addBlackBorder('biography')} onChange={this.update('biography')} value={this.state.biography === '' ? Object.values(getState().entities.users)[0].biography : this.state.biography}></textarea>
                                 </div>
                               </div>
                             </div>
@@ -239,7 +260,13 @@ class EditAboutYouProject extends React.Component {
                           <div className='your-location'>
                             <div className='your-location-content'>
                               <div className='profile-photo-title'>Your location</div>
-                              <input type='text' />
+                              <div className='your-location-dropdown'>
+                                <span>{project != undefined ? project.city : ''}, {project != undefined ? project.state : ''}</span>
+                                <div className='your-location-dropdown-close'>
+                                  <i className="your-location-button fas fa-times"></i>
+                                </div>
+                              </div>
+                              <input className={`${this.state.yourLocationBorder}`} onClick={() => this.addBlackBorder('your-location')} type='text' />
                               <i className="location-search-aboutyou fas fa-search"></i>
                             </div>
                           </div>
@@ -248,10 +275,10 @@ class EditAboutYouProject extends React.Component {
                               <div className='profile-photo-title'>Websites</div>
                               <div className='websites-content-inner'>
                                 <div className='websites-content-inner-input'>
-                                  <div className='websites-input'>
-                                    <input onChange={this.update('website')} type='text' defaultValue={this.state.websites[0]} />
+                                  <div className={`websites-input ${this.state.websitesBorder}`}>
+                                    <input onClick={() => this.addBlackBorder('websites')} onChange={this.update('website')} type='text' defaultValue={this.state.websites[0]} />
                                   </div>
-                                  <button className='websites-add-button'>Add</button>
+                                  <button onClick={() => this.addWebsite()} className='websites-add-button'>Add</button>
                                 </div>
                                 <div className='websites-description'>
                                   <p>Some suggestions: Link to your blog, portfolio, Twitter, Instagram, etc.</p>
@@ -263,8 +290,8 @@ class EditAboutYouProject extends React.Component {
                             <div className='google-analytics-content'>
                               <div className='profile-photo-title'>Google Analytics</div>
                               <div className='google-analytics-content-inner'>
-                                <div className='google-analytics-content-input'>
-                                  <input onChange={this.update('google_analytics')} type='text' placeholder='UA-XXXXXXXX-X' value={this.state.google_analytics} />
+                                <div className={`google-analytics-content-input ${this.state.googleAnalytics}`}>
+                                  <input onClick={() => this.addBlackBorder('google-analytics')} onChange={this.update('google_analytics')} type='text' placeholder='UA-XXXXXXXX-X' value={this.state.google_analytics} />
                                 </div>
                                 <div className='google-analytics-description'>
                                   <p>Enter your tracking ID to enable Google Analytics for your project. <Link className='creator-faq policy-link' to='/hc/en-us/articles/115005138613'>Check out our FAQ for more info</Link>.</p>
