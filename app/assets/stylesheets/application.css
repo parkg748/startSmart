@@ -4644,10 +4644,26 @@ strong {
   position: relative;
 }
 
-.your-location-button {
+.your-location-dropdown-close {
+  width: 40px;
+  height: 38px;
   position: absolute;
-  top: 11px;
-  left: 422px;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.your-location-dropdown-close:hover {
+  background-color: #2752ff;
+  color: white;
+}
+
+.your-location-button {
+  margin-right: 0 !important;
 }
 
 .websites {
