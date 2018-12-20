@@ -189,6 +189,15 @@ class EditAboutYouProject extends React.Component {
     if (storyProgress === 0) { completed.push('story'); }
     if (aboutYouProgress === 0) { completed.push('aboutyou'); }
     if (accountProgress === 0) { completed.push('account'); }
+    let websiteBox = [];
+    for (let i = 0; i < this.state.websites.length; i++) {
+      websiteBox.push(<div className='websites-dropdown'>
+        <span>{this.state.websites[i]}</span>
+        <div className='your-location-dropdown-close'>
+          <i className="your-location-button fas fa-times"></i>
+        </div>
+      </div>);
+    }
     return (
       <div>
         <div className='edit-about-you-background'>
@@ -278,12 +287,7 @@ class EditAboutYouProject extends React.Component {
                                   </div>
                                   <button onClick={() => this.addWebsite()} className='websites-add-button'>Add</button>
                                 </div>
-                                <div className='websites-dropdown'>
-                                  <span></span>
-                                  <div className='your-location-dropdown-close'>
-                                    <i className="your-location-button fas fa-times"></i>
-                                  </div>
-                                </div>
+                                {websiteBox}
                                 <div className='websites-description'>
                                   <p>Some suggestions: Link to your blog, portfolio, Twitter, Instagram, etc.</p>
                                 </div>
