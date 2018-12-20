@@ -64,21 +64,23 @@ class EditAccountProject extends React.Component {
     let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
     let user = Object.values(this.props.user)[0];
     let completed = [];
-    if (project.imageUrl != '') basicsProgress--;
-    if (project.title != '') basicsProgress--;
-    if (project.subcategory != '') basicsProgress--;
-    if (project.city != '') basicsProgress--; aboutYouProgress--;
-    if (project.description != '') basicsProgress--;
-    if (project.fundingGoal != null) basicsProgress--;
-    if (project.eta != null) basicsProgress--;
-    if (project.editorHtml != '') storyProgress--;
-    if (project.challenges != '') storyProgress--;
-    if (user.profileUrl != '') aboutYouProgress--;
-    if (user.name != '') aboutYouProgress--;
-    if (user.biography != '') aboutYouProgress--;
-    if (user.websites.length != 0) aboutYouProgress--;
-    if (user.googleAnalytics != null) aboutYouProgress--;
-    if (user.email != '') accountProgress--;
+    if (project != undefined) {
+      if (project.imageUrl != '') basicsProgress--;
+      if (project.title != '') basicsProgress--;
+      if (project.subcategory != '') basicsProgress--;
+      if (project.city != '') basicsProgress--; aboutYouProgress--;
+      if (project.description != '') basicsProgress--;
+      if (project.fundingGoal != null) basicsProgress--;
+      if (project.eta != null) basicsProgress--;
+      if (project.editorHtml != '') storyProgress--;
+      if (project.challenges != '') storyProgress--;
+      if (user.profileUrl != '') aboutYouProgress--;
+      if (user.name != '') aboutYouProgress--;
+      if (user.biography != '') aboutYouProgress--;
+      if (user.websites.length != 0) aboutYouProgress--;
+      if (user.googleAnalytics != null) aboutYouProgress--;
+      if (user.email != '') accountProgress--;
+    }
     if (basicsProgress === 0) { completed.push('basic'); }
     if (rewardsProgress === 0) { completed.push('reward'); }
     if (storyProgress === 0) { completed.push('story'); }

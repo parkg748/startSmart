@@ -13,7 +13,8 @@ class EditRewardProject extends React.Component {
              addBackground: '',
              numOfRewardBox: 1,
              addedItems: [],
-             item_name: ''};
+             item_name: '',
+             currentRewardIndex: 0};
     this.closeAddItemForm = this.closeAddItemForm.bind(this);
     this.addItem = this.addItem.bind(this);
     this.increaseRewardBox = this.increaseRewardBox.bind(this);
@@ -63,13 +64,11 @@ class EditRewardProject extends React.Component {
   }
 
   closeAddItemForm() {
-    let addedItems = this.state.addedItems;
-    addedItems.push(this.state.item_name);
-    this.setState({addItem: 'js-modal-close', addBackground: '', addedItems});
+    this.setState({addItem: 'js-modal-close', addBackground: ''});
   }
 
-  addItem() {
-    this.setState({addItem: 'js-modal-open', addBackground: 'is-open'});
+  addItem(idx) {
+    this.setState({currentRewardIndex: idx, addItem: 'js-modal-open', addBackground: 'is-open'});
   }
 
   update(field) {
@@ -88,8 +87,14 @@ class EditRewardProject extends React.Component {
     }
   }
 
-  addItemToAddedItems(item) {
-    this.setState({addedItems: this.state.addedItems.push(item)});
+  addItemToAddedItems(item, idx) {
+    let addedItems = this.state.addedItems;
+    if (addedItems.length < idx) {
+      addedItems[idx].push(item);
+    } else {
+      addedItems.push([item]);
+    }
+    this.setState({addedItems, addItem: 'js-modal-close', addBackground: ''});
   }
 
   moveToTrash(e) {
@@ -120,6 +125,26 @@ class EditRewardProject extends React.Component {
         };
       });
     }
+    let itemBox = [];
+    let temp = [];
+    if (this.state.addedItems.length < this.state.currentRewardIndex) {
+      for (let i = 0; i < this.state.addedItems[this.state.currentRewardIndex].length; i++) {
+        temp.push(<li>
+          <div className='add-an-item-list'>
+            <span>{this.state.addItems[this.state.currentRewardIndex][i]}</span>
+            <div className='add-or-remove'>
+              <a className='add-or-remove-edit'>edit</a><a className='add-or-remove-remove'>remove</a>
+            </div>
+          </div>
+          <div className='add-an-item-counter'>
+            <button className='add-an-item-counter-minus'>-</button>
+            <p>1</p>
+            <button className='add-an-item-counter-plus'>+</button>
+          </div>
+        </li>);
+      }
+      itemBox.push(temp);
+    }
     let rewardBox = [];
     for (let i = 0; i < this.state.numOfRewardBox; i++) {
       rewardBox.push(<div className='reward-box-inner-inner'>
@@ -143,28 +168,16 @@ class EditRewardProject extends React.Component {
                 <div className='reward-form-field-description-textarea'>
                   <textarea onChange={this.update('description')}></textarea>
                 </div>
-                <button className='add-an-item'>
+                <div className='add-an-item'>
                   <ul>
-                    <li>
-                      <div className='add-an-item-list'>
-                        <span>fheifhw</span>
-                        <div className='add-or-remove'>
-                          <a className='add-or-remove-edit'>edit</a><a className='add-or-remove-remove'>remove</a>
-                        </div>
-                      </div>
-                      <div className='add-an-item-counter'>
-                        <button className='add-an-item-counter-minus'>-</button>
-                        <p>1</p>
-                        <button className='add-an-item-counter-plus'>+</button>
-                      </div>
-                    </li>
+                    {itemBox[i]}
                   </ul>
-                  <div onClick={() => this.addItem()} className='add-an-item-inner'>
+                  <div onClick={() => this.addItem(i)} className='add-an-item-inner'>
                     <div className='add-an-item-inner-inner'>
                       <i className="fas fa-plus"></i>Add an item
                     </div>
                   </div>
-                </button>
+                </div>
               </div>
             </div>
             <div className='estimated-delivery'>
@@ -217,7 +230,6 @@ class EditRewardProject extends React.Component {
             </button>
           </div>
         </div>);
-        let itemBox = [];
     }
     let basicsProgress = 7;
     let rewardsProgress = 5;
@@ -331,7 +343,7 @@ class EditRewardProject extends React.Component {
                   <h1>Add a reward item</h1>
                   <p>Backers will see the items listed when pledging. Questions about how this works? <Link className='policy-link' to='/'>Visit our FAQ.</Link></p>
                 </div>
-                <form onSubmit={() => this.addItemToAddedItems(this.state.item_name).then((e) => this.handleSubmit(e))}>
+                <form onSubmit={() => this.addItemToAddedItems(this.state.item_name, this.state.currentRewardIndex)}>
                   <div className='js-modal-open-middle'>
                     <div className='js-modal-open-middle-one'>
                       <div className='js-modal-open-middle-two'>
