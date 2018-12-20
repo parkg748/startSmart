@@ -5,7 +5,7 @@ import Modal from './modal';
 class UserProject extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {displayProfileMenu: 'js-modal-close'};
   }
 
   componentDidMount() {
@@ -56,6 +56,68 @@ class UserProject extends React.Component {
         };
       });
     }
+    let basicsRightHalf = 0;
+    let basicsLeftHalf = 0;
+    let rewardsRightHalf = 0;
+    let rewardsLeftHalf = 0;
+    let storyRightHalf = 0;
+    let storyLeftHalf = 0;
+    let aboutYouRightHalf = 0;
+    let aboutYouLeftHalf = 0;
+    let accountRightHalf = 0;
+    let accountLeftHalf = 0;
+    let basicsProgress = 7;
+    let rewardsProgress = 5;
+    let storyProgress = 3;
+    let aboutYouProgress = 6;
+    let accountProgress = 1;
+    let project = Object.values(this.props.project)[0];
+    let user = Object.values(this.props.user)[0];
+    if (project.imageUrl != '') basicsProgress--;
+    if (project.title != '') basicsProgress--;
+    if (project.subcategory != '') basicsProgress--;
+    if (project.city != '') basicsProgress--; aboutYouProgress--;
+    if (project.description != '') basicsProgress--;
+    if (project.fundingGoal != null) basicsProgress--;
+    if (project.eta != null) basicsProgress--;
+    if (project.editorHtml != '') storyProgress--;
+    if (project.challenges != '') storyProgress--;
+    if (user.profileUrl != '') aboutYouProgress--;
+    if (user.name != '') aboutYouProgress--;
+    if (user.biography != '') aboutYouProgress--;
+    if (user.websites.length != 0) aboutYouProgress--;
+    if (user.googleAnalytics != null) aboutYouProgress--;
+    if (user.email != '') accountProgress--;
+    let basicsPercentage = Math.floor((basicsProgress / 7) * 100);
+    let basicsDegree = 360 * (basicsPercentage / 100);
+    let rewardsPercentage = Math.floor((rewardsProgress / 5) * 100);
+    let rewardsDegree = 360 * (rewardsPercentage / 100);
+    let storyPercentage = Math.floor((storyProgress / 3) * 100);
+    let storyDegree = 360 * (storyPercentage / 100);
+    let aboutYouPercentage = Math.floor((aboutYouProgress / 6) * 100);
+    let aboutYouDegree = 360 * (aboutYouPercentage / 100);
+    let accountPercentage = Math.floor((accountProgress / 1) * 100);
+    let accountDegree = 360 * (accountPercentage / 100);
+    if (basicsDegree > 180) {
+      basicsRightHalf = 180;
+      basicsLeftHalf = 360 - basicsDegree;
+    } else { basicsRightHalf = basicsDegree; }
+    if (rewardsDegree > 180) {
+      rewardsRightHalf = 180;
+      rewardsLeftHalf = 360 - rewardsDegree;
+    } else { rewardsRightHalf = rewardsDegree; }
+    if (storyDegree > 180) {
+      storyRightHalf = 180;
+      storyLeftHalf = 360 - storyDegree;
+    } else { storyRightHalf = storyDegree; }
+    if (aboutYouDegree > 180) {
+      aboutYouRightHalf = 180;
+      aboutYouLeftHalf = 360 - aboutYouDegree;
+    } else { aboutYouRightHalf = aboutYouDegree; }
+    if (accountDegree > 180) {
+      accountRightHalf = 180;
+      accountLeftHalf = 360 - accountDegree;
+    } else { accountRightHalf = accountDegree; }
     return (
       <div>
         <nav>
@@ -95,8 +157,8 @@ class UserProject extends React.Component {
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/basics`}>
                       <div className='basics'>
                         <div className="edit-page-progress-circle">
-                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
-                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-basic" className="hold"><div style={{transform: `rotate(${basicsRightHalf}deg)`}} className="pie"></div></div>
+                          <div id="progress-circle-basic-other-half" className="hold"><div style={{transform: `rotate(${basicsLeftHalf}deg)`}} className="pie"></div></div>
                           <i className="edit-page-progress-circle-check fas fa-check"></i>
                           <div className="innerCircle"></div>
                         </div>
@@ -109,8 +171,8 @@ class UserProject extends React.Component {
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/rewards`}>
                       <div className='rewards'>
                         <div className="edit-page-progress-circle-reward">
-                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
-                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-reward" className="hold"><div style={{transform: `rotate(${rewardsRightHalf}deg)`}} className="pie"></div></div>
+                          <div id="progress-circle-reward-other-half" className="hold"><div style={{transform: `rotate(${rewardsLeftHalf}deg)`}} className="pie"></div></div>
                           <i className="edit-page-progress-circle-check fas fa-check"></i>
                           <div className="innerCircle"></div>
                         </div>
@@ -123,8 +185,8 @@ class UserProject extends React.Component {
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/story`}>
                       <div className='rewards'>
                         <div className="edit-page-progress-circle-reward">
-                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
-                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-story" className="hold"><div style={{transform: `rotate(${storyRightHalf}deg)`}} className="pie"></div></div>
+                          <div id="progress-circle-story-other-half" className="hold"><div style={{transform: `rotate(${storyLeftHalf}deg)`}} className="pie"></div></div>
                           <i className="edit-page-progress-circle-check fas fa-check"></i>
                           <div className="innerCircle"></div>
                         </div>
@@ -137,8 +199,8 @@ class UserProject extends React.Component {
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/about-you`}>
                       <div className='rewards'>
                         <div className="edit-page-progress-circle-reward">
-                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
-                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-aboutyou" className="hold"><div style={{transform: `rotate(${aboutYouRightHalf}deg)`}} className="pie"></div></div>
+                          <div id="progress-circle-aboutyou-other-half" className="hold"><div style={{transform: `rotate(${aboutYouLeftHalf}deg)`}} className="pie"></div></div>
                           <i className="edit-page-progress-circle-check fas fa-check"></i>
                           <div className="innerCircle"></div>
                         </div>
@@ -151,8 +213,8 @@ class UserProject extends React.Component {
                     <Link to={`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/account`}>
                       <div className='account'>
                         <div className="edit-page-progress-circle-account">
-                          <div id="progress-circle" className="hold"><div className="pie"></div></div>
-                          <div id="progress-circle-other-half" className="hold"><div className="pie"></div></div>
+                          <div id="progress-circle-account" className="hold"><div style={{transform: `rotate(${accountRightHalf}deg)`}} className="pie"></div></div>
+                          <div id="progress-circle-account-other-half" className="hold"><div style={{transform: `rotate(${accountLeftHalf}deg)`}} className="pie"></div></div>
                           <i className="edit-page-progress-circle-check fas fa-check"></i>
                           <div className="innerCircle"></div>
                         </div>

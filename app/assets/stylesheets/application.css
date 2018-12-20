@@ -13866,24 +13866,95 @@ iframe > body {
   left: -14px;
 }
 
-#progress-circle .pie {
+#progress-circle-basic .pie {
   background-color: #027363;
   transform:rotate(10deg);
 }
 
-#progress-circle {
+#progress-circle-basic {
   transform: rotate(0deg);
 }
 
-#progress-circle-other-half .pie {
+#progress-circle-basic-other-half .pie {
   background-color: #027363;
   transform:rotate(0deg);
 }
 
-#progress-circle-other-half {
+#progress-circle-basic-other-half {
   transform: rotate(180deg);
 }
 
+#progress-circle-reward .pie {
+  background-color: #027363;
+  transform:rotate(10deg);
+}
+
+#progress-circle-reward {
+  transform: rotate(0deg);
+}
+
+#progress-circle-reward-other-half .pie {
+  background-color: #027363;
+  transform:rotate(0deg);
+}
+
+#progress-circle-reward-other-half {
+  transform: rotate(180deg);
+}
+
+#progress-circle-story .pie {
+  background-color: #027363;
+  transform:rotate(10deg);
+}
+
+#progress-circle-story {
+  transform: rotate(0deg);
+}
+
+#progress-circle-story-other-half .pie {
+  background-color: #027363;
+  transform:rotate(0deg);
+}
+
+#progress-circle-story-other-half {
+  transform: rotate(180deg);
+}
+
+#progress-circle-aboutyou .pie {
+  background-color: #027363;
+  transform:rotate(10deg);
+}
+
+#progress-circle-aboutyou {
+  transform: rotate(0deg);
+}
+
+#progress-circle-aboutyou-other-half .pie {
+  background-color: #027363;
+  transform:rotate(0deg);
+}
+
+#progress-circle-aboutyou-other-half {
+  transform: rotate(180deg);
+}
+
+#progress-circle-account .pie {
+  background-color: #027363;
+  transform:rotate(10deg);
+}
+
+#progress-circle-account {
+  transform: rotate(0deg);
+}
+
+#progress-circle-account-other-half .pie {
+  background-color: #027363;
+  transform:rotate(0deg);
+}
+
+#progress-circle-account-other-half {
+  transform: rotate(180deg);
+}
 
 .edit-page-progress-circle-check {
   z-index: 2;
