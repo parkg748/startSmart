@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_17_075203) do
+ActiveRecord::Schema.define(version: 2018_12_21_182143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2018_12_17_075203) do
     t.string "subcategory"
     t.string "challenges"
     t.string "editor_html"
-    t.integer "time"
+    t.string "time"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

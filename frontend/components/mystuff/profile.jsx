@@ -188,7 +188,7 @@ class Profile extends React.Component {
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user)[0]} userId={Object.values(this.props.user)[0].id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user)[0]} userId={this.props.sessionId} sessionId={this.props.sessionId} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='profile-container'>
           <div className='profile-container-one'>
             <div className='profile-container-two'>

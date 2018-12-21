@@ -96,34 +96,36 @@ class Preview extends React.Component {
 
   calculate() {
     if (Object.values(this.props.project)[0] === undefined) return;
-    let endDate = new Date(Object.values(this.props.project)[0].eta.split('-'));
-    let seconds = Math.ceil((endDate.getTime() + Object.values(this.props.project)[0].time - new Date().getTime()) / 1000);
-    if (seconds > 86400) {
-      this.currentTimeNum = Math.ceil(seconds / 86400);
-      this.currentTime = 'days';
-    } else if (seconds > 82800) {
-      this.currentTimeNum = 1
-      this.currentTime = 'day';
-    } else if (seconds > 7200) {
-      this.currentTimeNum = Math.ceil(seconds / 3600);
-      this.currentTime = 'hours';
-    } else if (seconds > 3600) {
-      this.currentTimeNum = 1;
-      this.currentTime = 'hour';
-    } else if (seconds > 120) {
-      this.currentTimeNum = Math.ceil(seconds / 60);
-      this.currentTime = 'minutes';
-    } else if (seconds > 60) {
-      this.currentTimeNum = 1;
-      this.currentTime = 'minute';
-    } else if (seconds > 1) {
-      this.currentTimeNum = seconds;
-      this.currentTime = 'seconds';
-    } else if (seconds === 1) {
-      this.currentTimeNum = seconds / 1;
-      this.currentTime = 'second';
+    let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
+    if (project != null) {
+      let endDate = new Date(project.eta.split('-'));
+      let seconds = Math.ceil((endDate.getTime() + project.time - new Date().getTime()) / 1000);
+      if (seconds > 86400) {
+        this.currentTimeNum = Math.ceil(seconds / 86400);
+        this.currentTime = 'days';
+      } else if (seconds > 82800) {
+        this.currentTimeNum = 1
+        this.currentTime = 'day';
+      } else if (seconds > 7200) {
+        this.currentTimeNum = Math.ceil(seconds / 3600);
+        this.currentTime = 'hours';
+      } else if (seconds > 3600) {
+        this.currentTimeNum = 1;
+        this.currentTime = 'hour';
+      } else if (seconds > 120) {
+        this.currentTimeNum = Math.ceil(seconds / 60);
+        this.currentTime = 'minutes';
+      } else if (seconds > 60) {
+        this.currentTimeNum = 1;
+        this.currentTime = 'minute';
+      } else if (seconds > 1) {
+        this.currentTimeNum = seconds;
+        this.currentTime = 'seconds';
+      } else if (seconds === 1) {
+        this.currentTimeNum = seconds / 1;
+        this.currentTime = 'second';
+      }
     }
-    console.log(seconds);
   }
 
   render() {

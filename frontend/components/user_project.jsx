@@ -82,7 +82,7 @@ class UserProject extends React.Component {
     let aboutYouCheck = '#DCDEDD';
     let accountCheck = '#DCDEDD';
     let project = Object.values(this.props.project)[0];
-    let user = Object.values(this.props.user)[0];
+    let user = Object.values(this.props.user).filter(el => el.id == this.props.session.id)[0];
     if (project != undefined) {
       if (project.imageUrl != '') basicsProgress--;
       if (project.title != '') basicsProgress--;
@@ -160,7 +160,7 @@ class UserProject extends React.Component {
             {profile}
           </section>
         </nav>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='project-front-header'>
           <div className='project-front-header-inner'>
             <div className='project-front-header-title'>
