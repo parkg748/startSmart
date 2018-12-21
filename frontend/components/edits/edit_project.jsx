@@ -177,7 +177,11 @@ class EditProject extends React.Component {
       let state = e.target.value.split(', ')[1];
       this.setState({city: city, state: state});
     } else if (field === 'time') {
-      this.setState({time: e.target.value});
+      if (this.state.finalDate.length === 0) {
+        let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        let currentDate = date.toString().split(' ');
+      }
+      this.setState({time: e.target.value, finalDate: [parseInt(currentDate[3]), months.indexOf(currentDate[1]) + 1, parseInt(currentDate[2])]});
     }};
   }
 

@@ -10821,6 +10821,7 @@ iframe > body {
   left: 42px;
   color: black;
   font-size: 15px;
+  margin-right: 5px;
 }
 
 .remind-me-button {
