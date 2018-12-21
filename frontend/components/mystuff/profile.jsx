@@ -66,22 +66,22 @@ class Profile extends React.Component {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
     let currentUserProjects = [];
-    if (Object.values(getState().entities.users)[0].projects != null) {
-      Object.values(getState().entities.users)[0].projects.forEach(project => {
+    if (Object.values(this.props.user)[0].projects != null) {
+      Object.values(this.props.user)[0].projects.forEach(project => {
         if (project.user_id === getState().session.id.id) {
           currentUserProjects.push(project);
         };
       });
+      const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      let userCreated = Object.values(this.props.user)[0].createdAt.split('-');
+      var userCreatedYear = userCreated[0];
+      var userCreatedMonth = month[userCreated[1] - 1];
     }
-    const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    let userCreated = Object.values(this.props.user)[0].createdAt.split('-');
-    let userCreatedYear = userCreated[0];
-    let userCreatedMonth = month[userCreated[1] - 1];
     return (
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user)[0]} userId={Object.values(this.props.user)[0].id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='profile-container'>
           <div className='profile-container-one'>
             <div className='profile-container-two'>
@@ -101,7 +101,7 @@ class Profile extends React.Component {
                   </div>
                   <div className='profile-container-seven'>
                     <h2>{Object.values(this.props.user)[0].name}</h2>
-                    <p>Backed 0 projects · <Link className='preparing-for-project-link' to='/'>{Object.values(this.props.projects).length != 0 && Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0] != undefined ? `${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].city}, ${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].state}` : ''}</Link> · Joined {userCreatedMonth} {userCreatedYear}</p>
+                    <p>Backed 0 projects · <Link className='preparing-for-project-link' to='/'>{Object.values(this.props.projects).length != 0 && Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0] != undefined ? `${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].city}, ${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].state}` : ''}</Link> · Joined {Object.values(this.props.user)[0].projects != null ? userCreatedMonth : ''} {Object.values(this.props.user)[0].projects != null ? userCreatedYear : ''}</p>
                   </div>
                 </div>
                 <div className="pieBackground">
