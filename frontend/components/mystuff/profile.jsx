@@ -61,69 +61,69 @@ class Profile extends React.Component {
 
   displayCategoryMouseMove(e, category) {
     if (category === 'art') {
-      this.setState({artLeft: e.pageX - 400, artTop: e.pageY - 500, artDisplay: 'block'});
+      this.setState({artLeft: e.pageX - 20, artTop: e.pageY - 24, artDisplay: ''});
     } else if (category === 'comics') {
-      this.setState({comicsLeft: e.pageX - 400, comicsTop: e.pageY - 500, comicsDisplay: 'block'});
+      this.setState({comicsLeft: e.pageX - 20, comicsTop: e.pageY - 24, comicsDisplay: ''});
     } else if (category === 'crafts') {
-      this.setState({craftsLeft: e.pageX - 400, craftsTop: e.pageY - 500, craftsDisplay: 'block'});
+      this.setState({craftsLeft: e.pageX - 20, craftsTop: e.pageY - 24, craftsDisplay: ''});
     } else if (category === 'dance') {
-      this.setState({danceLeft: e.pageX - 400, danceTop: e.pageY - 500, danceDisplay: 'block'});
+      this.setState({danceLeft: e.pageX - 20, danceTop: e.pageY - 24, danceDisplay: ''});
     } else if (category === 'design') {
-      this.setState({designLeft: e.pageX - 400, designTop: e.pageY - 500, designDisplay: 'block'});
+      this.setState({designLeft: e.pageX - 20, designTop: e.pageY - 24, designDisplay: ''});
     } else if (category === 'fashion') {
-      this.setState({fashionLeft: e.pageX - 400, fashionTop: e.pageY - 500, fashionDisplay: 'block'});
+      this.setState({fashionLeft: e.pageX - 20, fashionTop: e.pageY - 24, fashionDisplay: ''});
     } else if (category === 'film') {
-      this.setState({filmLeft: e.pageX - 400, filmTop: e.pageY - 500, filmDisplay: 'block'});
+      this.setState({filmLeft: e.pageX - 20, filmTop: e.pageY - 24, filmDisplay: ''});
     } else if (category === 'food') {
-      this.setState({foodLeft: e.pageX - 400, foodTop: e.pageY - 500, foodDisplay: 'block'});
+      this.setState({foodLeft: e.pageX - 20, foodTop: e.pageY - 24, foodDisplay: ''});
     } else if (category === 'games') {
-      this.setState({gamesLeft: e.pageX - 400, gamesTop: e.pageY - 500, gamesDisplay: 'block'});
+      this.setState({gamesLeft: e.pageX - 20, gamesTop: e.pageY - 24, gamesDisplay: ''});
     } else if (category === 'journalism') {
-      this.setState({journalismLeft: e.pageX - 400, journalismTop: e.pageY - 500, journalismDisplay: 'block'});
+      this.setState({journalismLeft: e.pageX - 20, journalismTop: e.pageY - 24, journalismDisplay: ''});
     } else if (category === 'music') {
-      this.setState({musicLeft: e.pageX - 400, musicTop: e.pageY - 500, musicDisplay: 'block'});
+      this.setState({musicLeft: e.pageX - 20, musicTop: e.pageY - 24, musicDisplay: ''});
     } else if (category === 'photography') {
-      this.setState({photographyLeft: e.pageX - 400, photographyTop: e.pageY - 500, photographyDisplay: 'block'});
+      this.setState({photographyLeft: e.pageX - 20, photographyTop: e.pageY - 24, photographyDisplay: ''});
     } else if (category === 'publishing') {
-      this.setState({publishingLeft: e.pageX - 400, publishingTop: e.pageY - 500, publishingDisplay: 'block'});
+      this.setState({publishingLeft: e.pageX - 20, publishingTop: e.pageY - 24, publishingDisplay: ''});
     } else if (category === 'technology') {
-      this.setState({technologyLeft: e.pageX - 400, technologyTop: e.pageY - 500, technologyDisplay: 'block'});
+      this.setState({technologyLeft: e.pageX - 20, technologyTop: e.pageY - 24, technologyDisplay: ''});
     } else if (category === 'theater') {
-      this.setState({theaterLeft: e.pageX - 400, theaterTop: e.pageY - 500, theaterDisplay: 'block'});
+      this.setState({theaterLeft: e.pageX - 20, theaterTop: e.pageY - 24, theaterDisplay: ''});
     }
   }
 
   displayCategoryMouseLeave(e, category) {
     if (category === 'art') {
-      this.setState({artLeft: e.pageX - 400, artTop: e.pageY - 500, artDisplay: 'none'});
+      this.setState({artLeft: e.pageX - 20, artTop: e.pageY - 24, artDisplay: 'none'});
     } else if (category === 'comics') {
-      this.setState({comicsLeft: e.pageX - 400, comicsTop: e.pageY - 500, comicsDisplay: 'none'});
+      this.setState({comicsLeft: e.pageX - 20, comicsTop: e.pageY - 24, comicsDisplay: 'none'});
     } else if (category === 'crafts') {
-      this.setState({craftsLeft: e.pageX - 400, craftsTop: e.pageY - 500, craftsDisplay: 'none'});
+      this.setState({craftsLeft: e.pageX - 20, craftsTop: e.pageY - 24, craftsDisplay: 'none'});
     } else if (category === 'dance') {
-      this.setState({danceLeft: e.pageX - 400, danceTop: e.pageY - 500, danceDisplay: 'none'});
+      this.setState({danceLeft: e.pageX - 20, danceTop: e.pageY - 24, danceDisplay: 'none'});
     } else if (category === 'design') {
-      this.setState({designLeft: e.pageX - 400, designTop: e.pageY - 500, designDisplay: 'none'});
+      this.setState({designLeft: e.pageX - 20, designTop: e.pageY - 24, designDisplay: 'none'});
     } else if (category === 'fashion') {
-      this.setState({fashionLeft: e.pageX - 400, fashionTop: e.pageY - 500, fashionDisplay: 'none'});
+      this.setState({fashionLeft: e.pageX - 20, fashionTop: e.pageY - 24, fashionDisplay: 'none'});
     } else if (category === 'film') {
-      this.setState({filmLeft: e.pageX - 400, filmTop: e.pageY - 500, filmDisplay: 'none'});
+      this.setState({filmLeft: e.pageX - 20, filmTop: e.pageY - 24, filmDisplay: 'none'});
     } else if (category === 'food') {
-      this.setState({foodLeft: e.pageX - 400, foodTop: e.pageY - 500, foodDisplay: 'none'});
+      this.setState({foodLeft: e.pageX - 20, foodTop: e.pageY - 24, foodDisplay: 'none'});
     } else if (category === 'games') {
-      this.setState({gamesLeft: e.pageX - 400, gamesTop: e.pageY - 500, gamesDisplay: 'none'});
+      this.setState({gamesLeft: e.pageX - 20, gamesTop: e.pageY - 24, gamesDisplay: 'none'});
     } else if (category === 'journalism') {
-      this.setState({journalismLeft: e.pageX - 400, journalismTop: e.pageY - 500, journalismDisplay: 'none'});
+      this.setState({journalismLeft: e.pageX - 20, journalismTop: e.pageY - 24, journalismDisplay: 'none'});
     } else if (category === 'music') {
-      this.setState({musicLeft: e.pageX - 400, musicTop: e.pageY - 500, musicDisplay: 'none'});
+      this.setState({musicLeft: e.pageX - 20, musicTop: e.pageY - 24, musicDisplay: 'none'});
     } else if (category === 'photography') {
-      this.setState({photographyLeft: e.pageX - 400, photographyTop: e.pageY - 500, photographyDisplay: 'none'});
+      this.setState({photographyLeft: e.pageX - 20, photographyTop: e.pageY - 24, photographyDisplay: 'none'});
     } else if (category === 'publishing') {
-      this.setState({publishingLeft: e.pageX - 400, publishingTop: e.pageY - 500, publishingDisplay: 'none'});
+      this.setState({publishingLeft: e.pageX - 20, publishingTop: e.pageY - 24, publishingDisplay: 'none'});
     } else if (category === 'technology') {
-      this.setState({technologyLeft: e.pageX - 400, technologyTop: e.pageY - 500, technologyDisplay: 'none'});
+      this.setState({technologyLeft: e.pageX - 20, technologyTop: e.pageY - 24, technologyDisplay: 'none'});
     } else if (category === 'theater') {
-      this.setState({theaterLeft: e.pageX - 400, theaterTop: e.pageY - 500, theaterDisplay: 'none'});
+      this.setState({theaterLeft: e.pageX - 20, theaterTop: e.pageY - 24, theaterDisplay: 'none'});
     }
   }
 
@@ -201,65 +201,50 @@ class Profile extends React.Component {
                   <div className="hand15"></div>
                   <ul className='slice-pie'>
                     <li className='slice-one'>
-                      <div onMouseEnter={{}} onMouseMove={(e) => this.displayCategoryMouseMove(e, '')} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'art')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'art')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'art')} ref={art => {this.art = art}} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-two'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'comics')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'comics')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'comics')} ref={comics => {this.comics = comics}} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-three'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'crafts')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'crafts')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'crafts')} ref={crafts => {this.}} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-four'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'dance')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'dance')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'dance')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-five'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'design')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'design')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'design')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-six'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'fashion')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'fashion')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'fashion')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-seven'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'film')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'film')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'film')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-eight'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'food')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'food')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'food')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-nine'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'games')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'games')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'games')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-ten'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'journalism')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'journalism')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'journalism')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-eleven'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'music')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'music')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'music')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-twelve'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'photography')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'photography')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'photography')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-thirteen'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'publishing')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'publishing')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'publishing')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-fourteen'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'technology')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'technology')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'technology')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-fifteen'>
-                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'theater')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'theater')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'theater')} ref={} className='slice-contents'></div>
                     </li>
-                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                   </ul>
                 </div>
               </div>
@@ -279,6 +264,21 @@ class Profile extends React.Component {
                 </div>
               </div>
             </div>
+            <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`, display: `${this.state.artDisplay}`}} className='drag-indicator'>Art</div>
+            <div style={{top: `${this.state.comicsTop}px`, left: `${this.state.comicsLeft}px`, display: `${this.state.comicsDisplay}`}} className='drag-indicator'>Comics</div>
+            <div style={{top: `${this.state.craftsTop}px`, left: `${this.state.craftsLeft}px`, display: `${this.state.craftsDisplay}`}} className='drag-indicator'>Crafts</div>
+            <div style={{top: `${this.state.danceTop}px`, left: `${this.state.danceLeft}px`, display: `${this.state.danceDisplay}`}} className='drag-indicator'>Dance</div>
+            <div style={{top: `${this.state.designTop}px`, left: `${this.state.designLeft}px`, display: `${this.state.designDisplay}`}} className='drag-indicator'>Design</div>
+            <div style={{top: `${this.state.fashionTop}px`, left: `${this.state.fashionLeft}px`, display: `${this.state.fashionDisplay}`}} className='drag-indicator'>Fashion</div>
+            <div style={{top: `${this.state.filmTop}px`, left: `${this.state.filmLeft}px`, display: `${this.state.filmDisplay}`}} className='drag-indicator'>Film & Video</div>
+            <div style={{top: `${this.state.foodTop}px`, left: `${this.state.foodLeft}px`, display: `${this.state.foodDisplay}`}} className='drag-indicator'>Food</div>
+            <div style={{top: `${this.state.gamesTop}px`, left: `${this.state.gamesLeft}px`, display: `${this.state.gamesDisplay}`}} className='drag-indicator'>Games</div>
+            <div style={{top: `${this.state.journalismTop}px`, left: `${this.state.journalismLeft}px`, display: `${this.state.journalismDisplay}`}} className='drag-indicator'>Journalism</div>
+            <div style={{top: `${this.state.musicTop}px`, left: `${this.state.musicLeft}px`, display: `${this.state.musicDisplay}`}} className='drag-indicator'>Music</div>
+            <div style={{top: `${this.state.photographyTop}px`, left: `${this.state.photographyLeft}px`, display: `${this.state.photographyDisplay}`}} className='drag-indicator'>Photography</div>
+            <div style={{top: `${this.state.publishingTop}px`, left: `${this.state.publishingLeft}px`, display: `${this.state.publishingDisplay}`}} className='drag-indicator'>Publishing</div>
+            <div style={{top: `${this.state.technologyTop}px`, left: `${this.state.technologyLeft}px`, display: `${this.state.technologyDisplay}`}} className='drag-indicator'>Technology</div>
+            <div style={{top: `${this.state.theaterTop}px`, left: `${this.state.theaterLeft}px`, display: `${this.state.theaterDisplay}`}} className='drag-indicator'>Theater</div>
           </div>
         </div>
       </div>
