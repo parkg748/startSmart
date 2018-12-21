@@ -11,8 +11,26 @@ import InfiniteScroll from 'react-infinite-scroller';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  searchBar: 'search-bar-close',
+                  artLeft: '', artTop: '', artDisplay: 'none',
+                  comicsLeft: '', comicsTop: '', comicsDisplay: 'none',
+                  craftsLeft: '', craftsTop: '', craftsDisplay: 'none',
+                  danceLeft: '', danceTop: '', danceDisplay: 'none',
+                  designLeft: '', designTop: '', designDisplay: 'none',
+                  fashionLeft: '', fashionTop: '', fashionDisplay: 'none',
+                  filmLeft: '', filmTop: '', filmDisplay: 'none',
+                  foodLeft: '', foodTop: '', foodDisplay: 'none',
+                  gamesLeft: '', gamesTop: '', gamesDisplay: 'none',
+                  journalismLeft: '', journalismTop: '', journalismDisplay: 'none',
+                  musicLeft: '', musicTop: '', musicDisplay: 'none',
+                  photographyLeft: '', photographyTop: '', photographyDisplay: 'none',
+                  publishingLeft: '', publishingTop: '', publishingDisplay: 'none',
+                  technologyLeft: '', technologyTop: '', technologyDisplay: 'none',
+                  theaterLeft: '', theaterTop: '', theaterDisplay: 'none'};
     this.clickSearchBar = this.clickSearchBar.bind(this);
+    this.displayCategoryMouseMove = this.displayCategoryMouseMove.bind(this);
+    this.displayCategoryMouseLeave = this.displayCategoryMouseLeave.bind(this);
   }
 
   componentDidMount() {
@@ -41,18 +59,77 @@ class Profile extends React.Component {
     }
   }
 
-  displayCategory(e) {
-    console.log(e.pageX)
-    console.log(e.pageY)
+  displayCategoryMouseMove(e, category) {
+    if (category === 'art') {
+      this.setState({artLeft: e.pageX - 400, artTop: e.pageY - 500, artDisplay: 'block'});
+    } else if (category === 'comics') {
+      this.setState({comicsLeft: e.pageX - 400, comicsTop: e.pageY - 500, comicsDisplay: 'block'});
+    } else if (category === 'crafts') {
+      this.setState({craftsLeft: e.pageX - 400, craftsTop: e.pageY - 500, craftsDisplay: 'block'});
+    } else if (category === 'dance') {
+      this.setState({danceLeft: e.pageX - 400, danceTop: e.pageY - 500, danceDisplay: 'block'});
+    } else if (category === 'design') {
+      this.setState({designLeft: e.pageX - 400, designTop: e.pageY - 500, designDisplay: 'block'});
+    } else if (category === 'fashion') {
+      this.setState({fashionLeft: e.pageX - 400, fashionTop: e.pageY - 500, fashionDisplay: 'block'});
+    } else if (category === 'film') {
+      this.setState({filmLeft: e.pageX - 400, filmTop: e.pageY - 500, filmDisplay: 'block'});
+    } else if (category === 'food') {
+      this.setState({foodLeft: e.pageX - 400, foodTop: e.pageY - 500, foodDisplay: 'block'});
+    } else if (category === 'games') {
+      this.setState({gamesLeft: e.pageX - 400, gamesTop: e.pageY - 500, gamesDisplay: 'block'});
+    } else if (category === 'journalism') {
+      this.setState({journalismLeft: e.pageX - 400, journalismTop: e.pageY - 500, journalismDisplay: 'block'});
+    } else if (category === 'music') {
+      this.setState({musicLeft: e.pageX - 400, musicTop: e.pageY - 500, musicDisplay: 'block'});
+    } else if (category === 'photography') {
+      this.setState({photographyLeft: e.pageX - 400, photographyTop: e.pageY - 500, photographyDisplay: 'block'});
+    } else if (category === 'publishing') {
+      this.setState({publishingLeft: e.pageX - 400, publishingTop: e.pageY - 500, publishingDisplay: 'block'});
+    } else if (category === 'technology') {
+      this.setState({technologyLeft: e.pageX - 400, technologyTop: e.pageY - 500, technologyDisplay: 'block'});
+    } else if (category === 'theater') {
+      this.setState({theaterLeft: e.pageX - 400, theaterTop: e.pageY - 500, theaterDisplay: 'block'});
+    }
+  }
+
+  displayCategoryMouseLeave(e, category) {
+    if (category === 'art') {
+      this.setState({artLeft: e.pageX - 400, artTop: e.pageY - 500, artDisplay: 'none'});
+    } else if (category === 'comics') {
+      this.setState({comicsLeft: e.pageX - 400, comicsTop: e.pageY - 500, comicsDisplay: 'none'});
+    } else if (category === 'crafts') {
+      this.setState({craftsLeft: e.pageX - 400, craftsTop: e.pageY - 500, craftsDisplay: 'none'});
+    } else if (category === 'dance') {
+      this.setState({danceLeft: e.pageX - 400, danceTop: e.pageY - 500, danceDisplay: 'none'});
+    } else if (category === 'design') {
+      this.setState({designLeft: e.pageX - 400, designTop: e.pageY - 500, designDisplay: 'none'});
+    } else if (category === 'fashion') {
+      this.setState({fashionLeft: e.pageX - 400, fashionTop: e.pageY - 500, fashionDisplay: 'none'});
+    } else if (category === 'film') {
+      this.setState({filmLeft: e.pageX - 400, filmTop: e.pageY - 500, filmDisplay: 'none'});
+    } else if (category === 'food') {
+      this.setState({foodLeft: e.pageX - 400, foodTop: e.pageY - 500, foodDisplay: 'none'});
+    } else if (category === 'games') {
+      this.setState({gamesLeft: e.pageX - 400, gamesTop: e.pageY - 500, gamesDisplay: 'none'});
+    } else if (category === 'journalism') {
+      this.setState({journalismLeft: e.pageX - 400, journalismTop: e.pageY - 500, journalismDisplay: 'none'});
+    } else if (category === 'music') {
+      this.setState({musicLeft: e.pageX - 400, musicTop: e.pageY - 500, musicDisplay: 'none'});
+    } else if (category === 'photography') {
+      this.setState({photographyLeft: e.pageX - 400, photographyTop: e.pageY - 500, photographyDisplay: 'none'});
+    } else if (category === 'publishing') {
+      this.setState({publishingLeft: e.pageX - 400, publishingTop: e.pageY - 500, publishingDisplay: 'none'});
+    } else if (category === 'technology') {
+      this.setState({technologyLeft: e.pageX - 400, technologyTop: e.pageY - 500, technologyDisplay: 'none'});
+    } else if (category === 'theater') {
+      this.setState({theaterLeft: e.pageX - 400, theaterTop: e.pageY - 500, theaterDisplay: 'none'});
+    }
   }
 
   changeProjectPage(idx) {
     this.props.history.push(`/users/${getState().session.id.id}/projects/${idx}`);
     window.location.reload();
-  }
-
-  _onMouseOver(e) {
-    console.log('here')
   }
 
   render() {
@@ -124,50 +201,65 @@ class Profile extends React.Component {
                   <div className="hand15"></div>
                   <ul className='slice-pie'>
                     <li className='slice-one'>
-                      <div className='slice-contents'></div>
+                      <div onMouseEnter={{}} onMouseMove={(e) => this.displayCategoryMouseMove(e, '')} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-two'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-three'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-four'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-five'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-six'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-seven'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-eight'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-nine'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-ten'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-eleven'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-twelve'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-thirteen'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-fourteen'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                     <li className='slice-fifteen'>
-                      <div className='slice-contents'></div>
+                      <div onMouseOver={(e) => console.log(e.pageX)} className='slice-contents'></div>
                     </li>
+                    <div style={{top: `${this.state.artTop}px`, left: `${this.state.artLeft}px`}} className='drag-indicator'>DRAG INDICATOR</div>
                   </ul>
                 </div>
               </div>

@@ -14293,3 +14293,12 @@ iframe > body {
   text-align: center;
   font-size: 14px;
 }
+
+.drag-indicator {
+  position: absolute;
+  background-color: black;
+  height: 100px;
+  z-index: 10;
+  width: fit-content;
+  padding: 10px;
+}
