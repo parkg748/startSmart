@@ -10989,16 +10989,21 @@ iframe > body {
   justify-content: flex-end;
 }
 
-.project-front-body-updates-left a > h2 {
+.project-front-body-updates-left-title span {
   font-family: "Cooper Light", Georgia, serif;
   line-height: 38px;
   font-size: 31px;
   color: #282828;
-  margin-bottom: 20px;
   text-align: end;
 }
 
-.project-front-body-updates-left a > h2:hover {
+.project-front-body-updates-left-title {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.project-front-body-updates-left-title span:hover {
   background-color: #00f2ba;
 }
 
@@ -11050,7 +11055,7 @@ iframe > body {
   font-size: 32px;
 }
 
-.project-front-body-updates-left a > span {
+.project-front-body-updates-left-description {
   line-height: 24px;
   font-size: 16px;
   color: #282828;
@@ -13310,214 +13315,336 @@ iframe > body {
   clip: rect(0px, 150px, 150px, 75px);
 }
 
-#pieSlice1 .pie {
-  cursor: pointer;
-  background-color: #ffbcaa;
-  transform:rotate(24deg);
+.slice-pie {
+  position: absolute;
+  margin: 1em auto;
+  padding: 0;
+  width: 32em; height: 32em;
+  border-radius: 50%;
+  list-style: none;
+  top: -197px;
+  transform: scale(0.295);
+  left: -181px;
+  z-index: 3;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-one {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice2 {
-  transform: rotate(24deg);
+.slice-two {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice2 .pie {
-  cursor: pointer;
-  background-color: #fffb78;
-  transform: rotate(24deg);
+.slice-three {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-four {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice3 {
-  transform: rotate(48deg);
+.slice-five {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice3 .pie {
-  cursor: pointer;
-  background-color: #ff81ab;
-  transform: rotate(24deg);
+.slice-six {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-seven {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice4 {
-  transform: rotate(72deg);
+.slice-eight {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice4 .pie {
-  cursor: pointer;
-  background-color: #a796f9;
-  transform: rotate(24deg);
+.slice-nine {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-ten {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice5 {
-  transform: rotate(96deg);
+.slice-eleven {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice5 .pie {
-  cursor: pointer;
-  background-color: #2752ff;
-  transform: rotate(24deg);
+.slice-twelve {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-thirteen {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice6 {
-  transform: rotate(120deg);
+.slice-fourteen {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice6 .pie {
-  cursor: pointer;
-  background-color: #ff9ed5;
-  transform: rotate(24deg);
+.slice-fifteen {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-one {
+  transform: rotate(0deg) skewY(-65.5deg);
 }
-
-#pieSlice7 {
-  transform: rotate(144deg);
+.slice-two {
+  transform: rotate(24deg) skewY(-65.5deg);
 }
-
-#pieSlice7 .pie {
-  cursor: pointer;
-  background-color: #ff596d;
-  transform: rotate(24deg);
+.slice-three {
+  transform: rotate(48deg) skewY(-65.5deg);
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-four {
+  transform: rotate(72deg) skewY(-65.5deg);
 }
-
-#pieSlice8 {
-  transform: rotate(168deg);
+.slice-five {
+  transform: rotate(96deg) skewY(-65.5deg);
 }
-
-#pieSlice8 .pie {
-  cursor: pointer;
-  background-color: #ff3642;
-  transform: rotate(24deg);
+.slice-six {
+  transform: rotate(120deg) skewY(-65.5deg);
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-seven {
+  transform: rotate(144deg) skewY(-65.5deg);
 }
-
-#pieSlice9 {
-  transform: rotate(192deg);
+.slice-eight {
+  transform: rotate(168deg) skewY(-65.5deg);
 }
-
-#pieSlice9 .pie {
-  cursor: pointer;
-  background-color: #00caab;
-  transform: rotate(24deg);
+.slice-nine {
+  transform: rotate(192deg) skewY(-65.5deg);
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-ten {
+  transform: rotate(216deg) skewY(-65.5deg);
 }
-
-#pieSlice10 {
-  transform: rotate(216deg);
+.slice-eleven {
+  transform: rotate(240deg) skewY(-65.5deg);
 }
-
-#pieSlice10 .pie {
-  cursor: pointer;
-  background-color: #11bcea;
-  transform: rotate(24deg);
+.slice-twelve {
+  transform: rotate(264deg) skewY(-65.5deg);
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-thirteen {
+  transform: rotate(288deg) skewY(-65.5deg);
 }
-
-#pieSlice11 {
-  transform: rotate(240deg);
+.slice-fourteen {
+  transform: rotate(312deg) skewY(-65.5deg);
 }
-
-#pieSlice11 .pie {
-  cursor: pointer;
-  background-color: #a6ffd3;
-  transform: rotate(24deg);
+.slice-fifteen {
+  transform: rotate(336deg) skewY(-65.5deg);
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-one .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #ffbcaa;
 }
-
-#pieSlice12 {
-  transform: rotate(264deg);
+.slice-two .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #fffb78;
 }
-
-#pieSlice12 .pie {
-  cursor: pointer;
-  background-color: #00e4e5;
-  transform: rotate(24deg);
+.slice-three .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #ff81ab;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-four .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #a796f9;
 }
-
-#pieSlice13 {
-  transform: rotate(288deg);
+.slice-five .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #2752ff;
 }
-
-#pieSlice13 .pie {
-  cursor: pointer;
-  background-color: #e1dccf;
-  transform: rotate(24deg);
+.slice-six .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #ff9ed5;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-seven .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #ff596d;
 }
-
-#pieSlice14 {
-  transform: rotate(312deg);
+.slice-eight .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #ff3642;
 }
-
-#pieSlice14 .pie {
-  cursor: pointer;
-  background-color: #6396fc;
-  transform: rotate(24deg);
+.slice-nine .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #00caab;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-ten .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #11bcea;
 }
-
-#pieSlice15 {
-  transform: rotate(336deg);
+.slice-eleven .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #a6ffd3;
 }
-
-#pieSlice15 .pie {
-  cursor: pointer;
-  background-color: #ffc0b0;
-  transform: rotate(24deg);
+.slice-twelve .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #00e4e5;
 }
-
-#pieSlice1 .pie:hover {
-  opacity: 0.5;
+.slice-thirteen .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #e1dccf;
 }
+.slice-fourteen .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #6396fc;
+}
+.slice-fifteen .slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+  background: #ffc0b0;
+}
+.slice-one .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-two .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-three .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-four .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-five .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-six .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-seven .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-eight .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-nine .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-ten .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-eleven .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-twelve .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-thirteen .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-fourteen .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-fifteen .slice-contents {
+  transform: skewY(65.5deg);
+}
+.slice-one:hover .slice-contents { opacity: 0.5; }
+.slice-two:hover .slice-contents { opacity: 0.5; }
+.slice-three:hover .slice-contents { opacity: 0.5; }
+.slice-four:hover .slice-contents { opacity: 0.5; }
+.slice-five:hover .slice-contents { opacity: 0.5; }
+.slice-six:hover .slice-contents { opacity: 0.5; }
+.slice-seven:hover .slice-contents { opacity: 0.5; }
+.slice-eight:hover .slice-contents { opacity: 0.5; }
+.slice-nine:hover .slice-contents { opacity: 0.5; }
+.slice-ten:hover .slice-contents { opacity: 0.5; }
+.slice-eleven:hover .slice-contents { opacity: 0.5; }
+.slice-twelve:hover .slice-contents { opacity: 0.5; }
+.slice-thirteen:hover .slice-contents { opacity: 0.5; }
+.slice-fourteen:hover .slice-contents { opacity: 0.5; }
+.slice-fifteen:hover .slice-contents { opacity: 0.5; }
 
 .hand1 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
@@ -13528,7 +13655,7 @@ iframe > body {
 }
 
 .hand2 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
@@ -13539,7 +13666,7 @@ iframe > body {
 }
 
 .hand3 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
@@ -13550,145 +13677,146 @@ iframe > body {
 }
 
 .hand4 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(186deg);
   z-index: 4;
 }
 
 .hand5 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(210deg);
   z-index: 4;
 }
 
 .hand6 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(234deg);
   z-index: 4;
 }
 
 .hand7 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(258deg);
   z-index: 4;
 }
 
 .hand8 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(282deg);
   z-index: 4;
 }
 
 .hand9 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(306deg);
   z-index: 4;
 }
 
 .hand10 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(330deg);
   z-index: 4;
 }
 
 .hand11 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(354deg);
   z-index: 4;
 }
 
 .hand12 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(378deg);
   z-index: 4;
 }
 
 .hand13 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(402deg);
   z-index: 4;
 }
 
 .hand14 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(426deg);
   z-index: 4;
 }
 
 .hand15 {
-  width: 50%;
+  width: 51%;
   height: 4px;
   background: #e6e6e6;
   position: absolute;
-  top: 49%;
+  top: 48%;
   transform-origin: 100%;
   transform: rotate(450deg);
   z-index: 4;
 }
 
 .circle {
-  width: 148px;
-  height: 145px;
-  z-index: 4;
+  width: 150px;
+  height: 150px;
+  z-index: 2;
   border-radius: 50%;
   border: 4px solid #e6e6e6;
   position: absolute;
-  left: -2px;
+  left: -4px;
+  top: -4px;
 }
 
 .under-circle {

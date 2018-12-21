@@ -41,9 +41,18 @@ class Profile extends React.Component {
     }
   }
 
+  displayCategory(e) {
+    console.log(e.pageX)
+    console.log(e.pageY)
+  }
+
   changeProjectPage(idx) {
     this.props.history.push(`/users/${getState().session.id.id}/projects/${idx}`);
     window.location.reload();
+  }
+
+  _onMouseOver(e) {
+    console.log('here')
   }
 
   render() {
@@ -113,21 +122,53 @@ class Profile extends React.Component {
                   <div className="hand13"></div>
                   <div className="hand14"></div>
                   <div className="hand15"></div>
-                  <div id="pieSlice1" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice2" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice3" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice4" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice5" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice6" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice7" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice8" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice9" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice10" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice11" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice12" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice13" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice14" className="hold"><div className="pie"></div></div>
-                  <div id="pieSlice15" className="hold"><div className="pie"></div></div>
+                  <ul className='slice-pie'>
+                    <li className='slice-one'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-two'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-three'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-four'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-five'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-six'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-seven'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-eight'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-nine'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-ten'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-eleven'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-twelve'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-thirteen'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-fourteen'>
+                      <div className='slice-contents'></div>
+                    </li>
+                    <li className='slice-fifteen'>
+                      <div className='slice-contents'></div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -147,7 +188,6 @@ class Profile extends React.Component {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     );
