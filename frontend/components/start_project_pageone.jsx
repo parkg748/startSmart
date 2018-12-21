@@ -139,14 +139,24 @@ class StartProjectPageOne extends React.Component {
                   <h3>Pick a project category to connect with a specific community. You can always update this later.</h3>
                   <div className='select-your-category-dropdown'>
                     <i className="select-your-category-arrow fas fa-caret-down"></i>
-                    <select className='select-your-category' onChange={this.update('category')} defaultValue='your-category'>
-                      <option value='your-category' disabled>Select your category</option>
-                      {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
-                        return <option key={obj.id} value={obj.name}>Film & Video</option>
-                      } else {
-                        return <option key={obj.id} value={obj.name}>{obj.name}</option>
-                      }})}
-                    </select>
+                    <div className='select-your-category'>Select your category</div>
+                    <ul>
+                      <li>Art</li>
+                      <li>Comics</li>
+                      <li>Crafts</li>
+                      <li>Dance</li>
+                      <li>Design</li>
+                      <li>Fashion</li>
+                      <li>Film & Video</li>
+                      <li>Food</li>
+                      <li>Games</li>
+                      <li>Journalism</li>
+                      <li>Music</li>
+                      <li>Photography</li>
+                      <li>Publishing</li>
+                      <li>Technology</li>
+                      <li>Theater</li>
+                    </ul>
                   </div>
                 </div>
               </div>

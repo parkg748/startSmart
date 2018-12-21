@@ -308,7 +308,7 @@ class StartProject extends React.Component {
                         <div className='create-project-body-right-body'>
                           <h4>Interested?</h4>
                           <p>Click start and get sketching. See how it looks. Then share it with your friends!</p>
-                          <button>Start a project</button>
+                          <button onClick={() => this.props.history.push('/start')}>Start a project</button>
                         </div>
                       </div>
                     </div>

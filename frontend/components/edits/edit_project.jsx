@@ -53,6 +53,7 @@ class EditProject extends React.Component {
     this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
     this.props.fetchUser(this.props.match.params.userId);
+    setTimeout(this.startAutocomplete.bind(this), 5000);
   }
 
   handleFile(e) {
@@ -183,6 +184,15 @@ class EditProject extends React.Component {
       }
       this.setState({time: e.target.value, finalDate: [parseInt(currentDate[3]), months.indexOf(currentDate[1]) + 1, parseInt(currentDate[2])]});
     }};
+  }
+
+  startAutocomplete() {
+    var options = {
+      types: ['(cities)'],
+      componentRestrictions: {country: "us"}
+     };
+    var input = this.inputRef;
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
   }
 
   render() {
@@ -355,8 +365,9 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Location</div>
                               <div className='location-input'>
                                 <i className="location-search fas fa-search"></i>
-                                </div>
+                                <input ref={ref => this.inputRef = ref} type='text' className='form-control' name='term' id='search-term' placeholder="Search..." />
                               </div>
+                            </div>
                           </div>
                           <FundingDuration showCalendar={this.showCalendar} update={(e) => this.update(e)} calendar={calendar} duration={Object.values(getState().entities.project)[0].duration === 0 ? this.state.duration : Object.values(getState().entities.project)[0].duration}/>
                           <div className='funding-goal'>
