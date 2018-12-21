@@ -8795,8 +8795,8 @@ strong {
   position: relative;
 }
 
-.profile-container-green-bar {
-  width: 56px;
+.profile-container-green-bar-about {
+  width: 36px;
   height: 4px;
   background-color: #009E74;
   position: absolute;
@@ -8811,6 +8811,10 @@ strong {
   font-size: 14px;
   cursor: pointer;
   position: relative;
+}
+
+.profile-container-eleven li:hover {
+  color: black;
 }
 
 .profile-container-eleven span {
@@ -13935,6 +13939,10 @@ iframe > body {
   cursor: pointer;
   font-weight: 100;
   font-size: 14px;
+}
+
+.profile-about-container-biography li:hover {
+  color: black;
 }
 
 .profile-container-eleven ul {

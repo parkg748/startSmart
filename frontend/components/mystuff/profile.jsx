@@ -27,10 +27,18 @@ class Profile extends React.Component {
                   photographyLeft: '', photographyTop: '', photographyDisplay: 'none',
                   publishingLeft: '', publishingTop: '', publishingDisplay: 'none',
                   technologyLeft: '', technologyTop: '', technologyDisplay: 'none',
-                  theaterLeft: '', theaterTop: '', theaterDisplay: 'none'};
+                  theaterLeft: '', theaterTop: '', theaterDisplay: 'none',
+                  profileView: 'about',
+                  about: '',
+                  backed: 'inactive',
+                  created: 'inactive',
+                  comments: 'inactive',
+                  greenBar: 'profile-container-green-bar-about'};
     this.clickSearchBar = this.clickSearchBar.bind(this);
     this.displayCategoryMouseMove = this.displayCategoryMouseMove.bind(this);
     this.displayCategoryMouseLeave = this.displayCategoryMouseLeave.bind(this);
+    this.displayProfileSection = this.displayProfileSection.bind(this);
+    this.art = React.createRef();
   }
 
   componentDidMount() {
@@ -61,75 +69,87 @@ class Profile extends React.Component {
 
   displayCategoryMouseMove(e, category) {
     if (category === 'art') {
-      this.setState({artLeft: e.pageX - 20, artTop: e.pageY - 24, artDisplay: ''});
+      this.setState({artLeft: e.pageX, artTop: e.pageY - 24, artDisplay: ''});
     } else if (category === 'comics') {
-      this.setState({comicsLeft: e.pageX - 20, comicsTop: e.pageY - 24, comicsDisplay: ''});
+      this.setState({comicsLeft: e.pageX, comicsTop: e.pageY - 24, comicsDisplay: ''});
     } else if (category === 'crafts') {
-      this.setState({craftsLeft: e.pageX - 20, craftsTop: e.pageY - 24, craftsDisplay: ''});
+      this.setState({craftsLeft: e.pageX, craftsTop: e.pageY - 24, craftsDisplay: ''});
     } else if (category === 'dance') {
-      this.setState({danceLeft: e.pageX - 20, danceTop: e.pageY - 24, danceDisplay: ''});
+      this.setState({danceLeft: e.pageX, danceTop: e.pageY - 24, danceDisplay: ''});
     } else if (category === 'design') {
-      this.setState({designLeft: e.pageX - 20, designTop: e.pageY - 24, designDisplay: ''});
+      this.setState({designLeft: e.pageX, designTop: e.pageY - 24, designDisplay: ''});
     } else if (category === 'fashion') {
-      this.setState({fashionLeft: e.pageX - 20, fashionTop: e.pageY - 24, fashionDisplay: ''});
+      this.setState({fashionLeft: e.pageX, fashionTop: e.pageY - 24, fashionDisplay: ''});
     } else if (category === 'film') {
-      this.setState({filmLeft: e.pageX - 20, filmTop: e.pageY - 24, filmDisplay: ''});
+      this.setState({filmLeft: e.pageX, filmTop: e.pageY - 24, filmDisplay: ''});
     } else if (category === 'food') {
-      this.setState({foodLeft: e.pageX - 20, foodTop: e.pageY - 24, foodDisplay: ''});
+      this.setState({foodLeft: e.pageX, foodTop: e.pageY - 24, foodDisplay: ''});
     } else if (category === 'games') {
-      this.setState({gamesLeft: e.pageX - 20, gamesTop: e.pageY - 24, gamesDisplay: ''});
+      this.setState({gamesLeft: e.pageX, gamesTop: e.pageY - 24, gamesDisplay: ''});
     } else if (category === 'journalism') {
-      this.setState({journalismLeft: e.pageX - 20, journalismTop: e.pageY - 24, journalismDisplay: ''});
+      this.setState({journalismLeft: e.pageX, journalismTop: e.pageY - 24, journalismDisplay: ''});
     } else if (category === 'music') {
-      this.setState({musicLeft: e.pageX - 20, musicTop: e.pageY - 24, musicDisplay: ''});
+      this.setState({musicLeft: e.pageX, musicTop: e.pageY - 24, musicDisplay: ''});
     } else if (category === 'photography') {
-      this.setState({photographyLeft: e.pageX - 20, photographyTop: e.pageY - 24, photographyDisplay: ''});
+      this.setState({photographyLeft: e.pageX, photographyTop: e.pageY - 24, photographyDisplay: ''});
     } else if (category === 'publishing') {
-      this.setState({publishingLeft: e.pageX - 20, publishingTop: e.pageY - 24, publishingDisplay: ''});
+      this.setState({publishingLeft: e.pageX, publishingTop: e.pageY - 24, publishingDisplay: ''});
     } else if (category === 'technology') {
-      this.setState({technologyLeft: e.pageX - 20, technologyTop: e.pageY - 24, technologyDisplay: ''});
+      this.setState({technologyLeft: e.pageX, technologyTop: e.pageY - 24, technologyDisplay: ''});
     } else if (category === 'theater') {
-      this.setState({theaterLeft: e.pageX - 20, theaterTop: e.pageY - 24, theaterDisplay: ''});
+      this.setState({theaterLeft: e.pageX, theaterTop: e.pageY - 24, theaterDisplay: ''});
     }
   }
 
   displayCategoryMouseLeave(e, category) {
     if (category === 'art') {
-      this.setState({artLeft: e.pageX - 20, artTop: e.pageY - 24, artDisplay: 'none'});
+      this.setState({artLeft: e.pageX, artTop: e.pageY - 24, artDisplay: 'none'});
     } else if (category === 'comics') {
-      this.setState({comicsLeft: e.pageX - 20, comicsTop: e.pageY - 24, comicsDisplay: 'none'});
+      this.setState({comicsLeft: e.pageX, comicsTop: e.pageY - 24, comicsDisplay: 'none'});
     } else if (category === 'crafts') {
-      this.setState({craftsLeft: e.pageX - 20, craftsTop: e.pageY - 24, craftsDisplay: 'none'});
+      this.setState({craftsLeft: e.pageX, craftsTop: e.pageY - 24, craftsDisplay: 'none'});
     } else if (category === 'dance') {
-      this.setState({danceLeft: e.pageX - 20, danceTop: e.pageY - 24, danceDisplay: 'none'});
+      this.setState({danceLeft: e.pageX, danceTop: e.pageY - 24, danceDisplay: 'none'});
     } else if (category === 'design') {
-      this.setState({designLeft: e.pageX - 20, designTop: e.pageY - 24, designDisplay: 'none'});
+      this.setState({designLeft: e.pageX, designTop: e.pageY - 24, designDisplay: 'none'});
     } else if (category === 'fashion') {
-      this.setState({fashionLeft: e.pageX - 20, fashionTop: e.pageY - 24, fashionDisplay: 'none'});
+      this.setState({fashionLeft: e.pageX, fashionTop: e.pageY - 24, fashionDisplay: 'none'});
     } else if (category === 'film') {
-      this.setState({filmLeft: e.pageX - 20, filmTop: e.pageY - 24, filmDisplay: 'none'});
+      this.setState({filmLeft: e.pageX, filmTop: e.pageY - 24, filmDisplay: 'none'});
     } else if (category === 'food') {
-      this.setState({foodLeft: e.pageX - 20, foodTop: e.pageY - 24, foodDisplay: 'none'});
+      this.setState({foodLeft: e.pageX, foodTop: e.pageY - 24, foodDisplay: 'none'});
     } else if (category === 'games') {
-      this.setState({gamesLeft: e.pageX - 20, gamesTop: e.pageY - 24, gamesDisplay: 'none'});
+      this.setState({gamesLeft: e.pageX, gamesTop: e.pageY - 24, gamesDisplay: 'none'});
     } else if (category === 'journalism') {
-      this.setState({journalismLeft: e.pageX - 20, journalismTop: e.pageY - 24, journalismDisplay: 'none'});
+      this.setState({journalismLeft: e.pageX, journalismTop: e.pageY - 24, journalismDisplay: 'none'});
     } else if (category === 'music') {
-      this.setState({musicLeft: e.pageX - 20, musicTop: e.pageY - 24, musicDisplay: 'none'});
+      this.setState({musicLeft: e.pageX, musicTop: e.pageY - 24, musicDisplay: 'none'});
     } else if (category === 'photography') {
-      this.setState({photographyLeft: e.pageX - 20, photographyTop: e.pageY - 24, photographyDisplay: 'none'});
+      this.setState({photographyLeft: e.pageX, photographyTop: e.pageY - 24, photographyDisplay: 'none'});
     } else if (category === 'publishing') {
-      this.setState({publishingLeft: e.pageX - 20, publishingTop: e.pageY - 24, publishingDisplay: 'none'});
+      this.setState({publishingLeft: e.pageX, publishingTop: e.pageY - 24, publishingDisplay: 'none'});
     } else if (category === 'technology') {
-      this.setState({technologyLeft: e.pageX - 20, technologyTop: e.pageY - 24, technologyDisplay: 'none'});
+      this.setState({technologyLeft: e.pageX, technologyTop: e.pageY - 24, technologyDisplay: 'none'});
     } else if (category === 'theater') {
-      this.setState({theaterLeft: e.pageX - 20, theaterTop: e.pageY - 24, theaterDisplay: 'none'});
+      this.setState({theaterLeft: e.pageX, theaterTop: e.pageY - 24, theaterDisplay: 'none'});
     }
   }
 
   changeProjectPage(idx) {
     this.props.history.push(`/users/${getState().session.id.id}/projects/${idx}`);
     window.location.reload();
+  }
+
+  displayProfileSection(section) {
+    if (section === 'about') {
+      this.setState({about: '', backed: 'inactive', created: 'inactive', comments: 'inactive', greenBar: 'profile-container-green-bar-about', profileView: 'about'});
+    } else if (section === 'backed') {
+      this.setState({about: 'inactive', backed: '', created: 'inactive', comments: 'inactive', greenBar: 'profile-container-green-bar-backed', profileView: 'backed'});
+    } else if (section === 'created') {
+      this.setState({about: 'inactive', backed: 'inactive', created: '', comments: 'inactive', greenBar: 'profile-container-green-bar-created', profileView: 'created'});
+    } else if (section === 'comments') {
+      this.setState({about: 'inactive', backed: 'inactive', created: 'inactive', comments: '', greenBar: 'profile-container-green-bar-comments', profileView: 'comments'});
+    }
   }
 
   render() {
@@ -154,6 +174,16 @@ class Profile extends React.Component {
       var userCreatedYear = userCreated[0];
       var userCreatedMonth = month[userCreated[1] - 1];
     }
+    let currentProfileBody = '';
+    if (this.state.profileView === 'about') {
+      currentProfileBody = <ProfileAbout biography={Object.values(this.props.user)[0].biography ? Object.values(this.props.user)[0].biography : ''}/>;
+    } else if (this.state.profileView === 'backed') {
+      currentProfileBody = <ProfileBacked backedProjects={Object.values(this.props.user)[0].backedProjects} />;
+    } else if (this.state.profileView === 'created') {
+      currentProfileBody = <ProfileCreated  />;
+    } //else if (this.state.profileView === 'comments') {
+      // currentProfileBody = <Comments content={content} styles={styles} onClick={this.state.onClick} />;
+    // }
     return (
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
@@ -207,43 +237,43 @@ class Profile extends React.Component {
                       <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'comics')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'comics')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'comics')} ref={comics => {this.comics = comics}} className='slice-contents'></div>
                     </li>
                     <li className='slice-three'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'crafts')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'crafts')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'crafts')} ref={crafts => {this.}} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'crafts')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'crafts')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'crafts')} ref={crafts => {this.crafts = crafts}} className='slice-contents'></div>
                     </li>
                     <li className='slice-four'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'dance')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'dance')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'dance')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'dance')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'dance')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'dance')} ref={dance => {this.dance = dance}} className='slice-contents'></div>
                     </li>
                     <li className='slice-five'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'design')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'design')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'design')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'design')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'design')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'design')} ref={design => {this.design = design}} className='slice-contents'></div>
                     </li>
                     <li className='slice-six'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'fashion')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'fashion')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'fashion')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'fashion')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'fashion')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'fashion')} ref={fashion => {this.fashion = fashion}} className='slice-contents'></div>
                     </li>
                     <li className='slice-seven'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'film')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'film')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'film')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'film')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'film')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'film')} ref={film => {this.film = film}} className='slice-contents'></div>
                     </li>
                     <li className='slice-eight'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'food')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'food')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'food')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'food')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'food')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'food')} ref={food => {this.food = food}} className='slice-contents'></div>
                     </li>
                     <li className='slice-nine'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'games')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'games')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'games')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'games')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'games')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'games')} ref={games => {this.games = games}} className='slice-contents'></div>
                     </li>
                     <li className='slice-ten'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'journalism')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'journalism')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'journalism')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'journalism')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'journalism')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'journalism')} ref={journalism => {this.journalism = journalism}} className='slice-contents'></div>
                     </li>
                     <li className='slice-eleven'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'music')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'music')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'music')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'music')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'music')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'music')} ref={music => {this.music = music}} className='slice-contents'></div>
                     </li>
                     <li className='slice-twelve'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'photography')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'photography')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'photography')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'photography')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'photography')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'photography')} ref={photography => {this.photography = photography}} className='slice-contents'></div>
                     </li>
                     <li className='slice-thirteen'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'publishing')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'publishing')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'publishing')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'publishing')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'publishing')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'publishing')} ref={publishing => {this.publishing = publishing}} className='slice-contents'></div>
                     </li>
                     <li className='slice-fourteen'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'technology')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'technology')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'technology')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'technology')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'technology')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'technology')} ref={technology => {this.technology = technology}} className='slice-contents'></div>
                     </li>
                     <li className='slice-fifteen'>
-                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'theater')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'theater')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'theater')} ref={} className='slice-contents'></div>
+                      <div onMouseEnter={(e) => this.displayCategoryMouseMove(e, 'theater')} onMouseMove={(e) => this.displayCategoryMouseMove(e, 'theater')} onMouseLeave={(e) => this.displayCategoryMouseLeave(e, 'theater')} ref={theater => {this.theater = theater}} className='slice-contents'></div>
                     </li>
                   </ul>
                 </div>
@@ -253,12 +283,12 @@ class Profile extends React.Component {
               <div className='profile-container-nine'>
                 <div className='profile-container-ten'>
                   <div className='profile-container-eleven'>
-                    <div className='profile-container-green-bar'></div>
+                    <div className={`${this.state.greenBar}`}></div>
                     <ul>
-                      <li>About</li>
-                      <li>Backed<span>0</span></li>
-                      <li>Created<span>6</span></li>
-                      <li>Comments<span className='three-hundred-digits'>204</span></li>
+                      <li onClick={() => this.displayProfileSection('about')} className={`${this.state.about}`}>About</li>
+                      <li onClick={() => this.displayProfileSection('backed')} className={`${this.state.backed}`}>Backed<span>0</span></li>
+                      <li onClick={() => this.displayProfileSection('created')} className={`${this.state.created}`}>Created<span>6</span></li>
+                      <li onClick={() => this.displayProfileSection('comments')} className={`${this.state.comments}`}>Comments<span className='three-hundred-digits'>204</span></li>
                     </ul>
                   </div>
                 </div>
@@ -280,6 +310,7 @@ class Profile extends React.Component {
             <div style={{top: `${this.state.technologyTop}px`, left: `${this.state.technologyLeft}px`, display: `${this.state.technologyDisplay}`}} className='drag-indicator'>Technology</div>
             <div style={{top: `${this.state.theaterTop}px`, left: `${this.state.theaterLeft}px`, display: `${this.state.theaterDisplay}`}} className='drag-indicator'>Theater</div>
           </div>
+          {currentProfileBody}
         </div>
       </div>
     );

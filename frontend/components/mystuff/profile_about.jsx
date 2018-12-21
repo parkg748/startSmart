@@ -9,7 +9,7 @@ function ProfileAbout({ biography }) {
           <div className='profile-about-container-biography-header'>Biography</div>
           <div className='profile-about-container-biography-content'>
             <div className='profile-about-time-creator'>6-time creator</div>
-            <p>{Object.values(this.props.user)[0].biography ? Object.values(this.props.user)[0].biography : ''}</p>
+            <p>{biography}</p>
           </div>
         </div>
         <div className='profile-about-container-biography'>
