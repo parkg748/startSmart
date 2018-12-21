@@ -7,13 +7,24 @@ import SearchBar from './search_bar';
 class StartProject extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.class;
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  searchBar: 'search-bar-close',
+                  arts: 'font-black',
+                  comicsIllustration: '',
+                  designTech: '',
+                  film: '',
+                  foodCraft: '',
+                  games: '',
+                  music: '',
+                  publishing: ''};
     this.clickSearchBar = this.clickSearchBar.bind(this);
+    this.displayCategoryDescription = this.displayCategoryDescription.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
-    this.props.fetchUser(getState().session.id);
+    this.props.fetchUser(this.props.session.id);
+    this.props.fetchCategories();
   }
 
   logoutUser(e) {
@@ -42,6 +53,26 @@ class StartProject extends React.Component {
     }
   }
 
+  displayCategoryDescription(category) {
+    if (category === 'art') {
+      this.setState({arts: 'font-black', comicsIllustration: '', designTech: '', film: '', foodCraft: '', games: '', music: '', publishing: ''});
+    } else if (category === 'comics-illustration') {
+      this.setState({arts: '', comicsIllustration: 'font-black', designTech: '', film: '', foodCraft: '', games: '', music: '', publishing: ''});
+    } else if (category === 'design-tech') {
+      this.setState({arts: '', comicsIllustration: '', designTech: 'font-black', film: '', foodCraft: '', games: '', music: '', publishing: ''});
+    } else if (category === 'film') {
+      this.setState({arts: '', comicsIllustration: '', designTech: '', film: 'font-black', foodCraft: '', games: '', music: '', publishing: ''});
+    } else if (category === 'food-craft') {
+      this.setState({arts: '', comicsIllustration: '', designTech: '', film: '', foodCraft: 'font-black', games: '', music: '', publishing: ''});
+    } else  if (category === 'games') {
+      this.setState({arts: '', comicsIllustration: '', designTech: '', film: '', foodCraft: '', games: 'font-black', music: '', publishing: ''});
+    } else if (category === 'music') {
+      this.setState({arts: '', comicsIllustration: '', designTech: '', film: '', foodCraft: '', games: '', music: 'font-black', publishing: ''});
+    } else if (category === 'publishing') {
+      this.setState({arts: '', comicsIllustration: '', designTech: '', film: '', foodCraft: '', games: '', music: '', publishing: 'font-black'});
+    }
+  }
+
   render() {
     if (Object.values(getState().entities.users)[0] === null || getState().session.id === null || getState().session.id === undefined) return <Redirect to='/login' />;
     let profile = undefined;
@@ -59,6 +90,47 @@ class StartProject extends React.Component {
           currentUserProjects.push(project);
         };
       });
+    }
+    let exampleArtProjects = [];
+    if (Object.values(this.props.category).length != 0) {
+      let artCategoryId = Object.values(this.props.category).filter(el => el.name === 'Art')[0].id;
+      if (Object.values(this.props.projects).length != 0) {
+        let projects = Object.values(this.props.projects).filter(el => el.categoryId == artCategoryId);
+        let i = 0;
+        while (i < 4) {
+          let randomProject = projects[Math.floor(Math.random() * projects.length)];
+          if (!exampleArtProjects.includes(randomProject)) {
+            exampleArtProjects.push(randomProject);
+            i++;
+          }
+        }
+      }
+    }
+    let currentDescription = '';
+    let artsDescription = 'From backyard performances to large public murals, thousands of arts projects have broken new ground, sparked meaningful dialogue, and given people the opportunity to share their work with the world.';
+    let comicsDescription = 'Whether you work in ink or online, a StartSmart project can get your work on your fans’ walls, or on the shelves of your local comic shop.';
+    let designDescription = 'From innovative new products to civic design projects that revitalize public spaces across the globe, designers and technologists use StartSmart to bring ambitious ideas to life.';
+    let filmDescription = 'More than 150 StartSmart-funded films have made theatrical debuts and thousands have played at festivals around the world — including a film that would go on to win an Academy Award. Shoot your first film, restore an old classic, or make your documentary feature debut.';
+    let foodDescription = 'Whether you’re a budding chef with big restaurant plans or a fashion designer working on your breakthrough line, a StartSmart project can help bring your dreams to life.';
+    let gamesDescription = 'Whether you’re an aspiring game maker or a seasoned pro, StartSmart gives game designers a platform to bring their boldest ideas to life. Our community has helped launch groundbreaking indie games, epic tabletop games, beloved revivals, and even a household name or two.';
+    let musicDescription = 'Whether you’re an unsigned musician or a career artist, StartSmart connects creators with fans to help them bring amazing new albums, shows, and performances to life — together.';
+    let publishingDescription = 'From anthologies to zines and everything in between, writers and journalists can find readers and listeners on StartSmart. Whether you dream of making an illustrated biography, a podcast, or a full-color magazine, you can make it here.';
+    if (this.state.arts === 'font-black') {
+      currentDescription = artsDescription;
+    } else if (this.state.comicsIllustration === 'font-black') {
+      currentDescription = comicsDescription;
+    } else if (this.state.designTech === 'font-black') {
+      currentDescription = designDescription;
+    } else if (this.state.film === 'font-black') {
+      currentDescription = filmDescription;
+    } else if (this.state.foodCraft === 'font-black') {
+      currentDescription = foodDescription;
+    } else if (this.state.games === 'font-black') {
+      currentDescription = gamesDescription;
+    } else if (this.state.music === 'font-black') {
+      currentDescription = musicDescription;
+    } else if (this.state.publishing === 'font-black') {
+      currentDescription = publishingDescription;
     }
     return (
       <div>
@@ -210,14 +282,14 @@ class StartProject extends React.Component {
               <div className='create-project-navbar-inner'>
                 <div className='create-project-navbar-inner-inner'>
                   <ul>
-                    <li>Arts</li>
-                    <li>Comics & Illustration</li>
-                    <li>Design & Tech</li>
-                    <li>Film</li>
-                    <li>Food & Craft</li>
-                    <li>Games</li>
-                    <li>Music</li>
-                    <li>Publishing</li>
+                    <li onClick={() => this.displayCategoryDescription('arts')} className={`${this.state.arts}`}>Arts</li>
+                    <li onClick={() => this.displayCategoryDescription('comics-illustration')} className={`${this.state.comicsIllustration}`}>Comics & Illustration</li>
+                    <li onClick={() => this.displayCategoryDescription('design-tech')} className={`${this.state.designTech}`}>Design & Tech</li>
+                    <li onClick={() => this.displayCategoryDescription('film')} className={`${this.state.film}`}>Film</li>
+                    <li onClick={() => this.displayCategoryDescription('food-craft')} className={`${this.state.foodCraft}`}>Food & Craft</li>
+                    <li onClick={() => this.displayCategoryDescription('games')} className={`${this.state.games}`}>Games</li>
+                    <li onClick={() => this.displayCategoryDescription('music')} className={`${this.state.music}`}>Music</li>
+                    <li onClick={() => this.displayCategoryDescription('publishing')} className={`${this.state.publishing}`}>Publishing</li>
                   </ul>
                 </div>
               </div>
@@ -230,7 +302,7 @@ class StartProject extends React.Component {
                       <div className='create-project-body-top-inner'>
                         <div className='create-project-body-top-left'>
                           <div className='create-project-body-top-left-top'>
-                            <p>From backyard performances to large public murals, thousands of arts projects have broken new ground, sparked meaningful dialogue, and given people the opportunity to share their work with the world.</p>
+                            <p>{currentDescription}</p>
                           </div>
                         </div>
                         <div className='create-project-body-right-body'>
@@ -243,6 +315,34 @@ class StartProject extends React.Component {
                   </div>
                   <div className='example-art-projects'>
                     <div className='example-art-projects-title'>EXAMPLE ARTS PROJECTS</div>
+                    <div className='example-art-projects-content'>
+                      <div className='example-art-projects-content-inner'>
+                        <div className='example-art-projects-content-inner-left'>
+                          <div className='example-art-projects-content-inner-left-inner'>
+                            <img src={exampleArtProjects.length > 0 ? exampleArtProjects[0].imageUrl : ''}/>
+                            <Link to={exampleArtProjects.length > 0 ? `/users/${exampleArtProjects[0].userId}/projects/${exampleArtProjects[0].id}` : '/'}><h5>{exampleArtProjects.length > 0 ? exampleArtProjects[0].title : ''}</h5></Link>
+                          </div>
+                        </div>
+                        <div className='example-art-projects-content-inner-center'>
+                          <div className='example-art-projects-content-inner-left-inner'>
+                            <img src={exampleArtProjects.length > 0 ? exampleArtProjects[1].imageUrl : ''}/>
+                            <Link to={exampleArtProjects.length > 0 ? `/users/${exampleArtProjects[1].userId}/projects/${exampleArtProjects[1].id}` : '/'}><h5>{exampleArtProjects.length > 0 ? exampleArtProjects[1].title : ''}</h5></Link>
+                          </div>
+                        </div>
+                        <div className='example-art-projects-content-inner-center'>
+                          <div className='example-art-projects-content-inner-left-inner'>
+                            <img src={exampleArtProjects.length > 0 ? exampleArtProjects[2].imageUrl : ''}/>
+                            <Link to={exampleArtProjects.length > 0 ? `/users/${exampleArtProjects[2].userId}/projects/${exampleArtProjects[2].id}` : '/'}><h5>{exampleArtProjects.length > 0 ? exampleArtProjects[2].title : ''}</h5></Link>
+                          </div>
+                        </div>
+                        <div className='example-art-projects-content-inner-right'>
+                          <div className='example-art-projects-content-inner-left-inner'>
+                            <img src={exampleArtProjects.length > 0 ? exampleArtProjects[3].imageUrl : ''}/>
+                            <Link to={exampleArtProjects.length > 0 ? `/users/${exampleArtProjects[3].userId}/projects/${exampleArtProjects[3].id}` : '/'}><h5>{exampleArtProjects.length > 0 ? exampleArtProjects[3].title : ''}</h5></Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

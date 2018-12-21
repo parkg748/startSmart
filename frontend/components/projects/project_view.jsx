@@ -18,7 +18,10 @@ class ProjectView extends React.Component {
                   projectView: 'campaign',
                   greenBorder: '',
                   currencyGreenBorder: '',
-                  blackBorder: ''};
+                  blackBorder: '',
+                  firstButtonHeart: 'remind-me-heart-front',
+                  favoriteText: 'Remind me',
+                  secondButtonHeart: 'remind-me-heart-project-front'};
     this.currentTimeNum = 0;
     this.currentTime = 'days';
     this.showUserBio = this.showUserBio.bind(this);
@@ -27,6 +30,7 @@ class ProjectView extends React.Component {
     this.calculate = this.calculate.bind(this);
     this.viewProjectBody = this.viewProjectBody.bind(this);
     this.addGreenBorder = this.addGreenBorder.bind(this);
+    this.addToSavedProjects = this.addToSavedProjects.bind(this);
   }
 
   componentDidMount() {
@@ -161,6 +165,14 @@ class ProjectView extends React.Component {
 
   addGreenBorder() {
     this.setState({greenBorder: 'green-support-border', currencyGreenBorder: 'green-currency-support-border', blackBorder: 'black-border'});
+  }
+
+  addToSavedProjects() {
+    if (this.state.firstButtonHeart === 'remind-me-heart-front') {
+      this.setState({firstButtonHeart: 'remind-me-heart-front-red', favoriteText: 'Saved', secondButtonHeart: 'remind-me-heart-project-front-red'});
+    } else if (this.state.firstButtonHeart === 'remind-me-heart-front-red') {
+      this.setState({firstButtonHeart: 'remind-me-heart-front', favoriteText: 'Remind me', secondButtonHeart: 'remind-me-heart-project-front'});
+    }
   }
 
   render() {
@@ -303,7 +315,7 @@ class ProjectView extends React.Component {
                         <div className='back-this-project'>
                           <button className='back-this-project-button' onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/pledge`)}>Back this project</button>
                           <div className='back-this-project-one'>
-                            <button className='remind-me-button'><i className="remind-me-heart-front fas fa-heart"></i><span>Remind me</span></button>
+                            <button onClick={() => this.addToSavedProjects()} className='remind-me-button'><i className={`${this.state.firstButtonHeart} fas fa-heart`}></i><span>{this.state.favoriteText}</span></button>
                             <div className='back-this-project-social-media'>
                               <i className="preview-facebook fab fa-facebook"></i>
                               <i className="preview-twitter fab fa-twitter"></i>
@@ -337,8 +349,8 @@ class ProjectView extends React.Component {
                       <div className='project-front-navbar-right'>
                         <button>Back this project</button>
                         <div className='remind-me-project-front'>
-                          <i className="remind-me-heart-project-front fas fa-heart"></i>
-                          <span>Remind Me</span>
+                          <i className={`${this.state.secondButtonHeart} fas fa-heart`}></i>
+                          <span onClick={() => this.addToSavedProjects()}>{this.state.favoriteText}</span>
                         </div>
                       </div>
                     </div>
