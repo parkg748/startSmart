@@ -1,43 +1,172 @@
 import React from 'react';
 import IFrame from './iframe';
 
-function Community({ content, styles, onClick }) {
+function Community({ user }) {
   return (
-    <div className='preview-bottom-front'>
-      <div className='project-front-body'>
-        <div className='project-front-body-inner'>
-          <div className='project-front-body-inner-inner'>
-            <div className='project-front-body-left'>
-              <h3>About</h3>
-              <h1><IFrame content={content} stylesheets={styles}/></h1>
-              <h3>Risks and challenges</h3>
-              <a>Learn about accountability on StartSmart</a>
-              <div className='question-about-project'>
-                <p>Questions about this project? <a>Check out the FAQ</a></p>
-              </div>
-              <div className='report-this-project'>
-                <button>Report this project to StartSmart</button>
+    <div className='community-container'>
+      <div className='community-header'>31,719 people are supporting {user}</div>
+      <div className='community-body'>
+        <div className='community-body-inner'>
+          <div className='community-body-inner-left'>
+            <div className='community-body-inner-left-inner'>
+              <div className='community-body-inner-left-header'>Where Backers Come From</div>
+              <div className='community-body-inner-left-top-cities'>Top Cities</div>
+              <div className='community-body-inner-left-top-cities-body'>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                    <div className='community-body-inner-left-top-cities-body-list-left-country'>United Kingdom</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
               </div>
             </div>
-            <div className='project-front-body-right'>
-              <h3>Support</h3>
-              <ul>
-                <li className={onClick}>
-                  <div className='make-a-pledge-inner'>Make a pledge without a reward</div>
-                  <div className='make-a-pledge-inner-inner'>
-                    <div className='make-a-pledge-input'>
-                      <div className='make-a-pledge-input-inner'>
-                        <div className='make-a-pledge-input-inner-inner'>
-                          <div className='make-a-pledge-currency'>£</div>
-                          <input type='text' value='10' />
-                        </div>
-                        <div className='make-a-pledge-currency-disclaimer'>ABOUT $13</div>
-                      </div>
-                      <button>Continue</button>
-                    </div>
+          </div>
+          <div className='community-body-inner-right'>
+            <div className='community-body-inner-left-inner'>
+              <div className='community-body-inner-left-header'>Where Backers Come From</div>
+              <div className='community-body-inner-left-top-cities'>Top Countries</div>
+              <div className='community-body-inner-left-top-cities-body'>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
                   </div>
-                </li>
-              </ul>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+                <div className='community-body-inner-left-top-cities-body-list'>
+                  <div className='community-body-inner-left-top-cities-body-list-left'>
+                    <div className='community-body-inner-left-top-cities-body-list-left-city'>London</div>
+                  </div>
+                  <div className='community-body-inner-left-top-cities-body-list-right'>577 backers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='community-new-backers'>
+        <div className='community-new-backers-inner'>
+          <div className='community-new-backers-inner-inner'>
+            <div className='community-new-backers-inner-left'>
+              <h5>New Backers</h5>
+              <div className='community-new-backers-inner-left-number'>2,732</div>
+              <div className='community-new-backers-inner-left-description'>backers had never backed a project on StartSmart before</div>
+            </div>
+            <div className='community-new-backers-inner-right'>
+              <h5>Returning Backers</h5>
+              <div className='community-new-backers-inner-left-number'>28,987</div>
+              <div className='community-new-backers-inner-left-description'>backers had backed a project on StartSmart before</div>
             </div>
           </div>
         </div>

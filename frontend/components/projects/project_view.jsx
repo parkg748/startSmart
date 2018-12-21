@@ -58,37 +58,39 @@ class ProjectView extends React.Component {
   // }
 
   calculate() {
+    if (Object.values(this.props.project)[0] === undefined) return;
     let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
-    if (project.eta === null) {
-      this.currentTime = 'second';
-      return
-    };
-    let endDate = new Date(project.eta.split('-'));
-    let seconds = Math.ceil((endDate.getTime() + project.time - new Date().getTime()) / 1000);
-    if (seconds > 86400) {
-      this.currentTimeNum = Math.ceil(seconds / 86400);
-      this.currentTime = 'days';
-    } else if (seconds > 82800) {
-      this.currentTimeNum = 1
-      this.currentTime = 'day';
-    } else if (seconds > 7200) {
-      this.currentTimeNum = Math.ceil(seconds / 3600);
-      this.currentTime = 'hours';
-    } else if (seconds > 3600) {
-      this.currentTimeNum = 1;
-      this.currentTime = 'hour';
-    } else if (seconds > 120) {
-      this.currentTimeNum = Math.ceil(seconds / 60);
-      this.currentTime = 'minutes';
-    } else if (seconds > 60) {
-      this.currentTimeNum = 1;
-      this.currentTime = 'minute';
-    } else if (seconds > 1) {
-      this.currentTimeNum = seconds;
-      this.currentTime = 'seconds';
-    } else if (seconds <= 1) {
-      this.currentTimeNum = seconds / 1;
-      this.currentTime = 'second';
+    if (project != null) {
+      let endDate = new Date(`${project.eta} ${project.time}`);
+      let seconds = Math.floor((endDate.getTime() - new Date().getTime()) / 1000);
+      if (seconds > 86400) {
+        this.currentTimeNum = Math.ceil(seconds / 86400);
+        this.currentTime = 'days';
+      } else if (seconds > 82800) {
+        this.currentTimeNum = 1;
+        this.currentTime = 'day';
+      } else if (seconds > 7200) {
+        this.currentTimeNum = Math.ceil(seconds / 3600);
+        this.currentTime = 'hours';
+      } else if (seconds > 3600) {
+        this.currentTimeNum = 1;
+        this.currentTime = 'hour';
+      } else if (seconds > 120) {
+        this.currentTimeNum = Math.ceil(seconds / 60);
+        this.currentTime = 'minutes';
+      } else if (seconds > 60) {
+        this.currentTimeNum = 1;
+        this.currentTime = 'minute';
+      } else if (seconds > 1) {
+        this.currentTimeNum = seconds;
+        this.currentTime = 'seconds';
+      } else if (seconds === 1) {
+        this.currentTimeNum = seconds / 1;
+        this.currentTime = 'second';
+      } else if (seconds <= 0) {
+        this.currentTimeNum = 0;
+        this.currentTime = 'seconds';
+      }
     }
   }
 
@@ -217,7 +219,7 @@ class ProjectView extends React.Component {
     } else if (this.state.projectView === 'comments') {
       currentProjectBody = <Comments content={content} styles={styles} onClick={this.state.onClick} />;
     } else if (this.state.projectView === 'community') {
-      currentProjectBody = <Community content={content} styles={styles} onClick={this.state.onClick} />;
+      currentProjectBody = <Community user={Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].name} />;
     }
     let bar = '';
     if (currentProject.fundingGoal === null) {
@@ -301,7 +303,7 @@ class ProjectView extends React.Component {
                         <div className='back-this-project'>
                           <button className='back-this-project-button' onClick={() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}/pledge`)}>Back this project</button>
                           <div className='back-this-project-one'>
-                            <i className="remind-me-heart-front fas fa-heart"></i><button className='remind-me-button'>Remind me</button>
+                            <button className='remind-me-button'><i className="remind-me-heart-front fas fa-heart"></i><span>Remind me</span></button>
                             <div className='back-this-project-social-media'>
                               <i className="preview-facebook fab fa-facebook"></i>
                               <i className="preview-twitter fab fa-twitter"></i>
