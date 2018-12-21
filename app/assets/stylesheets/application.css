@@ -8803,6 +8803,33 @@ strong {
   bottom: -1px;
 }
 
+.profile-container-green-bar-backed {
+  width: 47px;
+  height: 4px;
+  background-color: #009E74;
+  position: absolute;
+  bottom: -1px;
+  left: 76px;
+}
+
+.profile-container-green-bar-created {
+  width: 50px;
+  height: 4px;
+  background-color: #009E74;
+  position: absolute;
+  bottom: -1px;
+  left: 163px;
+}
+
+.profile-container-green-bar-comments {
+  width: 67px;
+  height: 4px;
+  background-color: #009E74;
+  position: absolute;
+  bottom: -1px;
+  left: 253px;
+}
+
 .profile-container-eleven li {
   padding: 10px 0 10px 0;
   margin-right: 40px;
@@ -14095,7 +14122,6 @@ iframe > body {
 .profile-created-section-inner img {
   width: 50%;
   height: 100%;
-  background-color: black;
 }
 
 .profile-created-section-content {
@@ -14145,7 +14171,6 @@ iframe > body {
   width: 22px;
   margin-right: 12px;
   border-radius: 50%;
-  background-color: black;
 }
 
 .profile-created-section-author-inner-inner-inner {

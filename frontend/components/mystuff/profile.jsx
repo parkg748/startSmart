@@ -180,7 +180,7 @@ class Profile extends React.Component {
     } else if (this.state.profileView === 'backed') {
       currentProfileBody = <ProfileBacked backedProjects={Object.values(this.props.user)[0].backedProjects} />;
     } else if (this.state.profileView === 'created') {
-      currentProfileBody = <ProfileCreated  />;
+      currentProfileBody = <ProfileCreated projects={Object.values(this.props.projects).filter(el => el.userId == this.props.sessionId)} user={Object.values(this.props.user)[0]} />;
     } //else if (this.state.profileView === 'comments') {
       // currentProfileBody = <Comments content={content} styles={styles} onClick={this.state.onClick} />;
     // }
