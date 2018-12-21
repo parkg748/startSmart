@@ -8,7 +8,8 @@ const mapStateToProps = state => {
     user: state.entities.users,
     users: state.entities.users,
     project: state.entities.project,
-    class: {displayProfileMenu: 'js-modal-close'}
+    class: {displayProfileMenu: 'js-modal-close'},
+    session: state.session
   };
 };
 

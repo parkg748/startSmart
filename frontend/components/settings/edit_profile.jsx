@@ -174,7 +174,7 @@ class EditProfile extends React.Component {
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()} />
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='edit-profile-container'>
           <div className='account-container-header'>
             <div className='account-container-header-one'>

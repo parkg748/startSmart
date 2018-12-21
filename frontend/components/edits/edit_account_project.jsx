@@ -90,7 +90,7 @@ class EditAccountProject extends React.Component {
       <div>
         <div className='edit-account-background'>
           <EditPageNav navbarWidth={navbarWidth} profile={profile} />
-          <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
+          <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
           <ul>
             <li><Link className='edit-button' to='/rules'>Our Rules</Link></li>
             <li><Link className='edit-button' to='/hc/en-us'>Help</Link></li>

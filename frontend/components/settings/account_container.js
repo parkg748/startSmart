@@ -5,7 +5,8 @@ import {fetchProjects, deleteProject} from '../../actions/project_actions';
 
 const mapStateToProps = state => {
   return {
-    user: state.entities.users
+    user: state.entities.users,
+    session: state.session
   };
 };
 

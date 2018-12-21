@@ -8,8 +8,8 @@ import {logout, fetchUser} from '../../actions/session_actions';
 const mapStateToProps = state => {
   return {
     project: state.entities.project,
-    user: state.entities.users
-    // user_id: Object.values(state.entities.users)[0].id,
+    user: state.entities.users,
+    session: state.session
     // project_id: Object.values(state.entities.project)[0].id
   };
 };

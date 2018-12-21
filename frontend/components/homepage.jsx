@@ -12,6 +12,7 @@ class Homepage extends React.Component {
                   newNoteworthySection: 'navbar-black',
                   popularSection: '',
                   currentCategory: 'Film',
+                  currentCategoryLink: 'film',
                   filmBlack: 'navbar-black',
                   artsBlack: '',
                   designBlack: '',
@@ -117,21 +118,21 @@ class Homepage extends React.Component {
 
   clickHandler(category) {
     if (category === 'Film') {
-      this.setState({currentCategory: 'Film', filmBlack: 'navbar-black', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
+      this.setState({currentCategoryLink: 'film', currentCategory: 'Film', filmBlack: 'navbar-black', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
     } else if (category === 'Arts') {
-      this.setState({currentCategory: 'Arts', filmBlack: '', artsBlack: 'navbar-black', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
+      this.setState({currentCategoryLink: 'arts', currentCategory: 'Arts', filmBlack: '', artsBlack: 'navbar-black', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
     } else if (category === 'Design & Tech') {
-      this.setState({currentCategory: 'Design & Tech', filmBlack: '', artsBlack: '', designBlack: 'navbar-black', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
+      this.setState({currentCategoryLink: 'design-tech', currentCategory: 'Design & Tech', filmBlack: '', artsBlack: '', designBlack: 'navbar-black', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
     } else if (category === 'Comics & Illustration') {
-      this.setState({currentCategory: 'Comics & Illustration', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: 'navbar-black', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
+      this.setState({currentCategoryLink: 'comics-illustration', currentCategory: 'Comics & Illustration', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: 'navbar-black', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: ''});
     } else if (category === 'Games') {
-      this.setState({currentCategory: 'Games', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: 'navbar-black', foodBlack: '', musicBlack: '', publishingBlack: ''});
+      this.setState({currentCategoryLink: 'games', currentCategory: 'Games', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: 'navbar-black', foodBlack: '', musicBlack: '', publishingBlack: ''});
     } else if (category === 'Food & Craft') {
-      this.setState({currentCategory: 'Food & Craft', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: 'navbar-black', musicBlack: '', publishingBlack: ''});
+      this.setState({currentCategoryLink: 'food-craft', currentCategory: 'Food & Craft', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: 'navbar-black', musicBlack: '', publishingBlack: ''});
     } else if (category === 'Music') {
-      this.setState({currentCategory: 'Music', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: 'navbar-black', publishingBlack: ''});
+      this.setState({currentCategoryLink: 'music', currentCategory: 'Music', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: 'navbar-black', publishingBlack: ''});
     } else if (category === 'Publishing') {
-      this.setState({currentCategory: 'Publishing', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: 'navbar-black'});
+      this.setState({currentCategoryLink: 'publishing', currentCategory: 'Publishing', filmBlack: '', artsBlack: '', designBlack: '', comicsBlack: '', gamesBlack: '', foodBlack: '', musicBlack: '', publishingBlack: 'navbar-black'});
     }
   }
 
@@ -418,7 +419,7 @@ class Homepage extends React.Component {
               </Link>
             </li>
           </ul>
-          <button className='category-contents-right-view-all'>VIEW ALL</button>
+          <button onClick={() => this.props.history.push(`/${this.state.currentCategoryLink}`)} className='category-contents-right-view-all'>VIEW ALL</button>
         </div>
       </div>
     </div>);
@@ -426,7 +427,7 @@ class Homepage extends React.Component {
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.sessionId)[0]} userId={this.props.sessionId} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='homepage-body'>
           <div className='homepage-stats'>
             <div className='homepage-stats-content'>
@@ -471,7 +472,7 @@ class Homepage extends React.Component {
               <div className='homepage-category-title'>
                 <div className='homepage-category-title-inner'>
                   <div className='homepage-category-title-inner-inner'>{this.state.currentCategory}</div>
-                  <div className='view-all'>VIEW ALL <i className="view-all-arrow fas fa-long-arrow-alt-right"></i></div>
+                  <div className='view-all'><Link to={`/${this.state.currentCategoryLink}`}>VIEW ALL <i className="view-all-arrow fas fa-long-arrow-alt-right"></i></Link></div>
                 </div>
               </div>
             </div>

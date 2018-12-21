@@ -147,7 +147,7 @@ class FoodCraft extends React.Component {
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
           <div className='categories-header'>
             <h3>Food & Craft</h3>
@@ -176,33 +176,39 @@ class FoodCraft extends React.Component {
                 <h3>RECOMMENDED</h3>
                 <ul>
                   <li>
-                    <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(foodCraftProjects.length > 0 ? foodCraftProjects.slice(-2)[0].id : '', 'first-heart')}><i className={`${this.state.firstHeart} fa-heart`}></i></div>
-                    {this.state.firstHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     <img src={foodCraftProjects.length > 0 ? foodCraftProjects.slice(-2)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
                       <Link className='feature-project-recommended-content-title' to='/'>{foodCraftProjects.length > 0 ? foodCraftProjects.slice(-2)[0].title : ''}</Link>
                       <span>137% funded</span>
                       <div className='feature-project-recommended-content-author'>By <a>{usersFoodCraftsProjects.length > 0 ? usersFoodCraftsProjects.slice(-2)[0].name : ''}</a></div>
                     </div>
+                    <div className='feature-project-recommended-heart-container'>
+                      <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(foodCraftProjects.length > 0 ? foodCraftProjects.slice(-2)[0].id : '', 'first-heart')}><i className={`${this.state.firstHeart} fa-heart`}></i></div>
+                      {this.state.firstHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
+                    </div>
                   </li>
                   <li>
-                    <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(foodCraftProjects.length > 0 ? foodCraftProjects.slice(-3)[0].id : '', 'second-heart')}><i className={`${this.state.secondHeart} fa-heart`}></i></div>
-                    {this.state.secondHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     <img src={foodCraftProjects.length > 0 ? foodCraftProjects.slice(-3)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
                       <Link className='feature-project-recommended-content-title' to='/'>{foodCraftProjects.length > 0 ? foodCraftProjects.slice(-3)[0].title : ''}</Link>
                       <span>137% funded</span>
                       <div className='feature-project-recommended-content-author'>By <a>{usersFoodCraftsProjects.length > 0 ? usersFoodCraftsProjects.slice(-3)[0].name : ''}</a></div>
                     </div>
+                    <div className='feature-project-recommended-heart-container'>
+                      <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(foodCraftProjects.length > 0 ? foodCraftProjects.slice(-3)[0].id : '', 'second-heart')}><i className={`${this.state.secondHeart} fa-heart`}></i></div>
+                      {this.state.secondHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
+                    </div>
                   </li>
                   <li>
-                    <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(foodCraftProjects.length > 0 ? foodCraftProjects.slice(-4)[0].id : '', 'third-heart')}><i className={`${this.state.thirdHeart} fa-heart`}></i></div>
-                    {this.state.thirdHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     <img src={foodCraftProjects.length > 0 ? foodCraftProjects.slice(-4)[0].imageUrl : ''}/>
                     <div className='feature-project-recommended-content'>
                       <Link className='feature-project-recommended-content-title' to='/'>{foodCraftProjects.length > 0 ? foodCraftProjects.slice(-4)[0].title : ''}</Link>
                       <span>137% funded</span>
                       <div className='feature-project-recommended-content-author'>By <a>{usersFoodCraftsProjects.length > 0 ? usersFoodCraftsProjects.slice(-4)[0].name : ''}</a></div>
+                    </div>
+                    <div className='feature-project-recommended-heart-container'>
+                      <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(foodCraftProjects.length > 0 ? foodCraftProjects.slice(-4)[0].id : '', 'third-heart')}><i className={`${this.state.thirdHeart} fa-heart`}></i></div>
+                      {this.state.thirdHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
                     </div>
                   </li>
                 </ul>
