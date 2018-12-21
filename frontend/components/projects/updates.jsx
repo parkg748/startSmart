@@ -9,9 +9,7 @@ function Updates({ projectCreatedYear, projectCreatedMonth, projectCreatedDay })
             <div className='project-front-body-updates-left'>
               <a>
                 <p>December 3, 2018</p>
-                <div className='project-front-body-updates-left-title'>
-                  <span>30% of our Goal and more than 200 backers! You ROCK ! now let´s keep wriggling ;)</span>
-                </div>
+                <span>30% of our Goal and more than 200 backers! You ROCK ! now let´s keep wriggling ;)</span>
                 <div className='project-front-body-updates-left-description'>To all our awesome Explorers out there! <strong>A BIG THANK YOU</strong>  for all your support! We are 12 days in and have sold almost 200 Hive Explorers! We are so... <u>Read more</u></div>
                 <div className='project-updates-likes'>2 likes</div>
               </a>
