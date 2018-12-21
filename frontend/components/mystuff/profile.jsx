@@ -176,7 +176,7 @@ class Profile extends React.Component {
     }
     let currentProfileBody = '';
     if (this.state.profileView === 'about') {
-      currentProfileBody = <ProfileAbout biography={Object.values(this.props.user)[0].biography ? Object.values(this.props.user)[0].biography : ''}/>;
+      currentProfileBody = <ProfileAbout biography={Object.values(this.props.user)[0].biography ? Object.values(this.props.user)[0].biography : ''} websites={Object.values(this.props.user)[0].websites}/>;
     } else if (this.state.profileView === 'backed') {
       currentProfileBody = <ProfileBacked backedProjects={Object.values(this.props.user)[0].backedProjects} />;
     } else if (this.state.profileView === 'created') {

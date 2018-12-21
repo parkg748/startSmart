@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function ProfileAbout({ biography }) {
+function ProfileAbout({ biography, websites }) {
+
   return (
     <div className='profile-about-container'>
       <div className='profile-about-container-inner'>
@@ -18,9 +19,7 @@ function ProfileAbout({ biography }) {
             <div className='profile-about-container-biography-header'>Websites</div>
             <p>
               <ul>
-                <li>daron.ceciliatan.com</li>
-                <li>daron.ceciliatan.com</li>
-                <li>daron.ceciliatan.com</li>
+                {websites.map(el => <li>el</li>)}
               </ul>
             </p>
           </div>
