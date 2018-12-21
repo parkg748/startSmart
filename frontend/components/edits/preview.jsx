@@ -98,13 +98,13 @@ class Preview extends React.Component {
     if (Object.values(this.props.project)[0] === undefined) return;
     let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
     if (project != null) {
-      let endDate = new Date(project.eta.split('-'));
-      let seconds = Math.ceil((endDate.getTime() + project.time - new Date().getTime()) / 1000);
+      let endDate = new Date(`${project.eta} ${project.time}`);
+      let seconds = Math.floor((endDate.getTime() - new Date().getTime()) / 1000);
       if (seconds > 86400) {
         this.currentTimeNum = Math.ceil(seconds / 86400);
         this.currentTime = 'days';
       } else if (seconds > 82800) {
-        this.currentTimeNum = 1
+        this.currentTimeNum = 1;
         this.currentTime = 'day';
       } else if (seconds > 7200) {
         this.currentTimeNum = Math.ceil(seconds / 3600);

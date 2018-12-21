@@ -69,7 +69,7 @@ class EditProject extends React.Component {
   onChange(date) {
     let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let currentDate = date.toString().split(' ');
-    this.setState({ date: date, finalDate: [parseInt(currentDate[3]), months.indexOf(currentDate[1]), parseInt(currentDate[2])] });
+    this.setState({ date: date, finalDate: [parseInt(currentDate[3]), months.indexOf(currentDate[1]) + 1, parseInt(currentDate[2])] });
   }
 
   deleteCurrentProject() {
