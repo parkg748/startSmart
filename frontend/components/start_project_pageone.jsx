@@ -39,12 +39,19 @@ class StartProjectPageOne extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.updateCategory = this.updateCategory.bind(this);
     this.displayDropdown = this.displayDropdown.bind(this);
+    this.changePages = this.changePages.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchProjects();
     if (this.props.currentUser) this.props.fetchUser(Object.values(this.props.currentUser)[0].id);
+  }
+
+  changePages(type) {
+    if (type === 'category') {
+      this.setState({pageNo: 1});
+    }
   }
 
   clickProfileIcon() {
@@ -274,7 +281,7 @@ class StartProjectPageOne extends React.Component {
               <div className='step-two-next-step-content'>
                 <div className='step-two-next-step-inner'>
                   <button onClick={() => this.handleSubmit()} className={this.state.className}><p className='next-location'>Next: Location</p></button>
-                  <div className='category-arrow'><i className="fas fa-long-arrow-alt-left"></i><span>Category</span></div>
+                  <div className='category-arrow'><i className="fas fa-long-arrow-alt-left"></i><span onClick={() => this.changePages('category')}>Category</span></div>
                 </div>
               </div>
             </div>

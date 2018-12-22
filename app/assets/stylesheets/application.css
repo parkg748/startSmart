@@ -902,7 +902,8 @@ nav {
 .select-your-category {
   -webkit-appearance: none;
   -moz-appearance: none;
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 20px;
   border-radius: 0;
   background-color: white;
@@ -1183,8 +1184,12 @@ nav {
 .category-arrow {
   margin-top: 12px;
   width: 82px;
-  height: 42px;
+  height: fit-content;
   float: left;
+}
+
+.category-arrow:hover {
+  color: black !important;
 }
 
 .next-location {
@@ -1579,6 +1584,11 @@ nav {
 
 .step-two-next-step-inner span {
   color: rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+
+.step-two-next-step-inner span:hover {
+  color: black;
 }
 
 .project-front-header {
