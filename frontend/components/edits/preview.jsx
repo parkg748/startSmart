@@ -321,21 +321,6 @@ class Preview extends React.Component {
                     </div>
                   </div>
                   {currentProjectBody}
-                  <div className='preview-bottom-one'>
-                    <div className='preview-bottom-two'>
-                      <div className='preview-bottom-three'>
-                        <div className='preview-bottom-four'>
-                          <div className='preview-bottom-left'>
-                            <span>About</span>
-                            <p>Questions about this project? <strong>Check out the FAQ</strong></p>
-                          </div>
-                          <div className='preview-bottom-right'>
-                            <span>Support</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

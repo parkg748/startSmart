@@ -2079,7 +2079,6 @@ nav {
 .preview-page-content {
   height: 95.3%;
   padding-top: 42px;
-  padding-bottom: 42px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -10436,7 +10435,6 @@ strong {
   padding-top: 42px;
   width: 104%;
   height: fit-content;
-  padding-bottom: 42px;
 }
 
 .preview-form-front {
@@ -14664,4 +14662,139 @@ iframe > body {
 
 .font-black {
   color: black !important;
+}
+
+.search-bar-dropdown {
+  height: 529px;
+  overflow: scroll;
+  position: absolute;
+  width: 100%;
+  top: 70px;
+  background-color: white;
+  z-index: 5;
+}
+
+.search-bar-modal-box {
+  position: relative;
+}
+
+.search-bar-dropdown ul {
+  margin: 18px 0 6px 0;
+}
+
+.search-bar-dropdown li {
+  height: 24px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 18px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar-projects {
+  height: 91px !important;
+}
+
+.search-bar-projects img {
+  width: 120px !important;
+  height: 67px !important;
+  background-color: black !important;
+  margin-right: 12px !important;
+  margin-left: 0 !important;
+  border-radius: 0 !important;
+}
+
+.search-bar-projects-content {
+  display: flex;
+  flex-flow: column;
+}
+
+.search-bar-projects-content-title {
+  height: 24px;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #282828;
+  font-weight: 100;
+}
+
+.search-bar-projects-content-author {
+  height: 18px;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  font-weight: 100;
+  color: #28282B;
+  font-size: 12px;
+}
+
+.search-bar-projects-content-funding {
+  height: 18px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  font-weight: 100;
+}
+
+.search-bar-projects-content-fund-amt {
+  color: #034752;
+  margin-right: 6px;
+}
+
+.search-bar-projects-content-date {
+  color: #28282B;
+}
+
+.search-bar-see-all-results {
+  margin: 18px 24px 0 24px;
+  padding: 0 18px;
+  box-shadow: inset 0px 0px 0px 1px #DCDEDD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 100;
+  transition: all 0.25s ease-in-out !important;
+  color: #282828;
+  height: 42px;
+  width: 94%;
+  cursor: pointer;
+}
+
+.search-bar-see-all-results:hover {
+  box-shadow: inset 0px 0px 0px 1px #282828;
+  transform: translateY(-1px);
+}
+
+.search-bar-dropdown img {
+  background-color: black;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+  margin: 0 12px;
+}
+
+.search-bar-dropdown li:hover {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.17);
+}
+
+.search-bar-dropdown span {
+  color: #656969;
+  margin-left: 6px;
+}
+
+.search-bar-creators {
+  height: 36px;
+}
+
+.search-bar-categories {
+  height: 24px;
+  margin: 6px 0 6px 24px;
+  color: #656969;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  font-weight: 100;
 }
