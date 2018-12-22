@@ -15,8 +15,8 @@ function FundingDuration({ showCalendar, update, calendar, duration, addBlackBor
                     <span>Number of days</span>
                   </div>
                   <div className='number-of-days-input'>
-                    <div className={`number-of-days-input-inner ${durationInput}`}>
-                      <input onClick={addBlackBorder} onChange={update('duration')} type='text' defaultValue={duration} />
+                    <div className='number-of-days-input-inner'>
+                      <input className={`${durationInput}`} onClick={addBlackBorder} onChange={update('duration')} type='text' defaultValue={duration} />
                       <div className='number-of-days-input-inner-inner'>Up to 60 days, but we recommend 30 or fewer</div>
                     </div>
                   </div>

@@ -55,6 +55,7 @@ class EditProject extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.showCalendar = this.showCalendar.bind(this);
     this.addBlackBorder = this.addBlackBorder.bind(this);
+    this.addBlackBorderToInput = this.addBlackBorderToInput.bind(this);
   }
 
   componentDidMount() {
@@ -64,7 +65,7 @@ class EditProject extends React.Component {
     setTimeout(this.startAutocomplete.bind(this), 5000);
   }
 
-  addBlackBorder(input) {
+  addBlackBorderToInput(input) {
     if (input === 'name') {
       this.setState({nameInput: 'black-border', shortBlurbInput: '', locationInput: '', durationInput: '', fundingGoalInput: '', categoryInput: '', subcategoryInput: ''});
     } else if (input === 'short-blurb') {
@@ -333,7 +334,7 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Project title</div>
                               <div className='project-title-content-inner'>
                                 <div className={`title-input ${this.state.nameInput}`}>
-                                  <input onClick={() => this.addBlackBorder('name')} onChange={this.update('title')} type='text' defaultValue={Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].title} />
+                                  <input onClick={() => this.addBlackBorderToInput('name')} onChange={this.update('title')} type='text' defaultValue={Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].title} />
                                   <span>{this.state.title === '' ? (60 - Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].title.length) : this.state.titleWordCount}/60</span>
                                 </div>
                                 <div className='project-title-description'>
@@ -348,7 +349,7 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Short blurb</div>
                               <div className='short-blurb-content-inner'>
                                 <div className={`short-blurb-input ${this.state.shortBlurbInput}`}>
-                                  <textarea onClick={() => this.addBlackBorder('short-blurb')} onChange={this.update('description')} defaultValue={Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].description}></textarea>
+                                  <textarea onClick={() => this.addBlackBorderToInput('short-blurb')} onChange={this.update('description')} defaultValue={Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].description}></textarea>
                                   <span>{this.state.description === '' ? (135 - Object.values(getState().entities.project).filter(el => el.userId === Object.values(getState().entities.users)[0].id)[0].description.length) : this.state.shortBlurbWordCount}/135</span>
                                 </div>
                                 <div className='short-blurb-description'>
@@ -363,7 +364,7 @@ class EditProject extends React.Component {
                               <div className='category-content-inner'>
                                 <div className='category-dropdown-container'>
                                   <i className="category-dropdown-container-arrow fas fa-angle-down"></i>
-                                  <select onClick={() => this.addBlackBorder('category')} className={`category-dropdown ${this.state.categoryInput}`} onChange={this.update('category')} value={this.state.category === '' ? 'getState().entities.category[Object.values(getState().entities.project)[0].categoryId].name' : this.state.category}>
+                                  <select onClick={() => this.addBlackBorderToInput('category')} className={`category-dropdown ${this.state.categoryInput}`} onChange={this.update('category')} value={this.state.category === '' ? 'getState().entities.category[Object.values(getState().entities.project)[0].categoryId].name' : this.state.category}>
                                     {Object.values(getState().entities.category).map(obj => {if (obj.name === 'Film') {
                                       if (obj.id === Object.values(getState().entities.project)[0].categoryId || obj.id === this.state.category_id) {
                                         return <option key={obj.id} value={obj.name}>Film & Video</option>
@@ -379,7 +380,7 @@ class EditProject extends React.Component {
                                     }})}
                                   </select>
                                   <i className="category-dropdown-two-container-arrow fas fa-angle-down"></i>
-                                  <select onClick={() => this.addBlackBorder('subcategory')} onChange={this.update('subcategory')} className={`category-dropdown-two ${this.state.subcategoryInput}`} value={this.state.subcategory === 'your-category' && Object.values(getState().entities.project)[0].subcategory != '' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory}>
+                                  <select onClick={() => this.addBlackBorderToInput('subcategory')} onChange={this.update('subcategory')} className={`category-dropdown-two ${this.state.subcategoryInput}`} value={this.state.subcategory === 'your-category' && Object.values(getState().entities.project)[0].subcategory != '' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory}>
                                     <option value='your-category'>Subcategory (optional)</option>
                                     {subCategories.map(el => <option key={el[1]} value={el[1]}>{el[1]}</option>)}
                                   </select>
@@ -392,16 +393,16 @@ class EditProject extends React.Component {
                               <div className='project-image-inner-title'>Location</div>
                               <div className={`location-input ${this.state.locationInput}`}>
                                 <i className="location-search fas fa-search"></i>
-                                <input onClick={() => this.addBlackBorder('location')} onChange={this.update('city')} ref={ref => this.inputRef = ref} type='text' className='form-control' name='term' id='search-term' placeholder=''/>
+                                <input onClick={() => this.addBlackBorderToInput('location')} onChange={this.update('city')} ref={ref => this.inputRef = ref} type='text' className='form-control' name='term' id='search-term' placeholder=''/>
                               </div>
                             </div>
                           </div>
-                          <FundingDuration showCalendar={this.showCalendar} update={(e) => this.update(e)} calendar={calendar} duration={Object.values(getState().entities.project)[0].duration === 0 ? this.state.duration : Object.values(getState().entities.project)[0].duration} durationInput={this.state.durationInput} addBlackBorder={() => this.addBlackBorder('duration')} />
+                          <FundingDuration showCalendar={this.showCalendar} update={(e) => this.update(e)} calendar={calendar} duration={Object.values(getState().entities.project)[0].duration === 0 ? this.state.duration : Object.values(getState().entities.project)[0].duration} durationInput={this.state.durationInput} addBlackBorder={() => this.addBlackBorderToInput('duration')} />
                           <div className='funding-goal'>
                             <div className='funding-goal-content'>
                               <div className='project-image-inner-title'>Funding goal</div>
                               <div className='funding-goal-content-inner'>
-                                <div className={`funding-goal-content-input ${this.state.fundingGoalInput}`}><input onClick={() => this.addBlackBorder('funding-goal')} onChange={this.update('funding_goal')} type='text' defaultValue={this.state.funding_goal === '€0' && Object.values(getState().entities.project)[0].fundingGoal != null ? Object.values(getState().entities.project)[0].fundingGoal : this.state.funding_goal} /></div>
+                                <div className={`funding-goal-content-input ${this.state.fundingGoalInput}`}><input onClick={() => this.addBlackBorderToInput('funding-goal')} onChange={this.update('funding_goal')} type='text' defaultValue={this.state.funding_goal === '€0' && Object.values(getState().entities.project)[0].fundingGoal != null ? Object.values(getState().entities.project)[0].fundingGoal : this.state.funding_goal} /></div>
                                 <div className='funding-goal-disclaimer'>
                                   <p className='funding-goal-disclaimer-one'>Funding on StartSmart is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
                                   <p className='funding-goal-disclaimer-two'>If your project is successfully funded, the following fees will be collected from your funding total: StartSmart's 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.</p>
