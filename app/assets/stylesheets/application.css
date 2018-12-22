@@ -835,6 +835,11 @@ nav {
   width: 104px;
   font-weight: 100;
   font-family: Helvetica;
+  transition: all 0.2s ease-in-out;
+}
+
+.green-box-1:hover {
+  background-color: #037362;
 }
 
 .step-one-main {
@@ -981,6 +986,9 @@ nav {
   box-shadow: 0 3px 6px 1px rgba(0,0,0,0.17);
   overflow: scroll;
   z-index: 4;
+  width: 97.6%;
+  position: absolute;
+  background-color: white;
 }
 
 .select-your-category-dropdown li {
@@ -991,6 +999,7 @@ nav {
   align-items: center;
   transition: all 600ms cubic-bezier(0.175, 0.885, 0.335, 1);
   cursor: pointer;
+  font-size: 18px;
 }
 
 .select-your-category-dropdown li:hover {
@@ -1111,6 +1120,7 @@ nav {
 
 .disabled-no {
   background-color: black;
+  cursor: pointer;
 }
 
 .description-box {

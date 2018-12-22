@@ -5,9 +5,40 @@ import Modal from './modal';
 class StartProjectPageOne extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.project;
+    this.state = {displayProfileMenu: 'js-modal-close',
+                  country: '',
+                  ageButton: 'verification-button far fa-check-circle',
+                  bankButton: 'verification-button far fa-check-circle',
+                  cardButton: 'verification-button far fa-check-circle',
+                  ageButtonColor: 'white-button',
+                  bankButtonColor: 'white-button',
+                  cardButtonColor: 'white-button',
+                  ageButtonBorder: '',
+                  bankButtonBorder: '',
+                  cardButtonBorder: '',
+                  wordCount: 0,
+                  pageNo: 1,
+                  disabled: 'disabled',
+                  className: 'disabled-yes',
+                  title: '',
+                  description: '',
+                  duration: 0,
+                  pledge_amt: 0,
+                  eta: '',
+                  shipping: '',
+                  limit: false,
+                  city: '',
+                  state: '',
+                  category_id: '',
+                  user_id: '',
+                  image_url: '',
+                  funding_goal: 0,
+                  dropdown: 'location-none-display',
+                  currentCategory: 'Select your category'};
     this.update = this.update.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.updateCategory = this.updateCategory.bind(this);
+    this.displayDropdown = this.displayDropdown.bind(this);
   }
 
   componentDidMount() {
@@ -51,7 +82,7 @@ class StartProjectPageOne extends React.Component {
           city: this.state.city,
           state: this.state.state,
           country: this.state.country,
-          user_id: this.state.user_id,
+          user_id: this.props.session.id,
           category_id: this.state.category_id})
           .then(action => {
             let project = Object.values(action.project)[0];
@@ -79,16 +110,7 @@ class StartProjectPageOne extends React.Component {
 
   update(category) {
     return (e) => {
-      if (this.state.pageNo === 1) {
-        if (category === 'your-category') {
-          this.setState({button: 'disabled', className: 'disabled-yes'});
-        } else {
-          this.setState({button: '', className: 'disabled-no'});
-          Object.values(getState().entities.category).forEach(obj => {if (obj.name === e.currentTarget.value) {
-            this.setState({category_id: obj.id});
-          }});
-        }
-      } else if (this.state.pageNo === 2) {
+      if (this.state.pageNo === 2) {
         this.setState({className: 'disabled-no', description: e.target.value, wordCount: e.target.value.length});
         let randPlaceholder = e.target.value;
       } else if (this.state.pageNo === 3) {
@@ -99,6 +121,49 @@ class StartProjectPageOne extends React.Component {
         }
       }
     }
+  }
+
+  displayDropdown() {
+    if (this.state.dropdown === 'location-none-display') {
+      this.setState({dropdown: ''});
+    } else {
+      this.setState({dropdown: 'location-none-display'});
+    }
+  }
+
+  updateCategory(category) {
+    if (category === 'Art') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Art', button: '', className: 'disabled-no'});
+    } else if (category === 'Comics') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Comics', button: '', className: 'disabled-no'});
+    } else if (category === 'Crafts') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Crafts', button: '', className: 'disabled-no'});
+    } else if (category === 'Dance') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Dance', button: '', className: 'disabled-no'});
+    } else if (category === 'Design') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Design', button: '', className: 'disabled-no'});
+    } else if (category === 'Fashion') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Fashion', button: '', className: 'disabled-no'});
+    } else if (category === 'Film') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Film & Video', button: '', className: 'disabled-no'});
+    } else if (category === 'Food') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Food', button: '', className: 'disabled-no'});
+    } else if (category === 'Games') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Games', button: '', className: 'disabled-no'});
+    } else if (category === 'Journalism') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Journalism', button: '', className: 'disabled-no'});
+    } else if (category === 'Music') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Music', button: '', className: 'disabled-no'});
+    } else if (category === 'Photography') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Photography', button: '', className: 'disabled-no'});
+    } else if (category === 'Publishing') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Publishing', button: '', className: 'disabled-no'});
+    } else if (category === 'Technology') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Technology', button: '', className: 'disabled-no'});
+    } else if (category === 'Theater') {
+      this.setState({dropdown: 'location-none-display', currentCategory: 'Theater', button: '', className: 'disabled-no'});
+    }
+    this.setState({category_id: Object.values(this.props.categories).filter(el => el.name === category)[0].id});
   }
 
   render() {
@@ -114,7 +179,7 @@ class StartProjectPageOne extends React.Component {
     let currentUserProjects = [];
     if (Object.values(getState().entities.users)[0].projects != null) {
       Object.values(getState().entities.users)[0].projects.forEach(project => {
-        if (project.user_id === getState().session.id.id) {
+        if (project.user_id === this.props.session.id) {
           currentUserProjects.push(project);
         };
       });
@@ -128,7 +193,7 @@ class StartProjectPageOne extends React.Component {
               {profile}
             </div>
           </nav>
-          <Modal displayProfileMenu={this.state.displayProfileMenu} user={this.props.user.user} userId={this.props.user.id} sessionId={getState().session.id.id} logoutUser={(e) => this.logoutUser(e)}/>
+          <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
           <div className='step-one-main'>
             <div className='line'></div>
             <div className='page-info'>1 of 3</div>
@@ -139,23 +204,23 @@ class StartProjectPageOne extends React.Component {
                   <h3>Pick a project category to connect with a specific community. You can always update this later.</h3>
                   <div className='select-your-category-dropdown'>
                     <i className="select-your-category-arrow fas fa-caret-down"></i>
-                    <div className='select-your-category'>Select your category</div>
-                    <ul>
-                      <li>Art</li>
-                      <li>Comics</li>
-                      <li>Crafts</li>
-                      <li>Dance</li>
-                      <li>Design</li>
-                      <li>Fashion</li>
-                      <li>Film & Video</li>
-                      <li>Food</li>
-                      <li>Games</li>
-                      <li>Journalism</li>
-                      <li>Music</li>
-                      <li>Photography</li>
-                      <li>Publishing</li>
-                      <li>Technology</li>
-                      <li>Theater</li>
+                    <div onClick={() => this.displayDropdown()} className='select-your-category'>{this.state.currentCategory}</div>
+                    <ul className={`${this.state.dropdown}`}>
+                      <li onClick={() => this.updateCategory('Art')}>Art</li>
+                      <li onClick={() => this.updateCategory('Comics')}>Comics</li>
+                      <li onClick={() => this.updateCategory('Crafts')}>Crafts</li>
+                      <li onClick={() => this.updateCategory('Dance')}>Dance</li>
+                      <li onClick={() => this.updateCategory('Design')}>Design</li>
+                      <li onClick={() => this.updateCategory('Fashion')}>Fashion</li>
+                      <li onClick={() => this.updateCategory('Film')}>Film & Video</li>
+                      <li onClick={() => this.updateCategory('Food')}>Food</li>
+                      <li onClick={() => this.updateCategory('Games')}>Games</li>
+                      <li onClick={() => this.updateCategory('Journalism')}>Journalism</li>
+                      <li onClick={() => this.updateCategory('Music')}>Music</li>
+                      <li onClick={() => this.updateCategory('Photography')}>Photography</li>
+                      <li onClick={() => this.updateCategory('Publishing')}>Publishing</li>
+                      <li onClick={() => this.updateCategory('Technology')}>Technology</li>
+                      <li onClick={() => this.updateCategory('Theater')}>Theater</li>
                     </ul>
                   </div>
                 </div>
