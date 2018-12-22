@@ -65,6 +65,12 @@ class EditProject extends React.Component {
     setTimeout(this.startAutocomplete.bind(this), 5000);
   }
 
+  fetchCities(input) {
+    const endpoint = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=(cities)&language=pt_BR&key=AIzaSyBX4IIJ3fumoVC3xlJxE4iCAn9vOtEj49I`;
+    const cities = [];
+    fetch(endpoint).then(blob => blob.json()).then(data => cities.push(...data));
+  }
+
   addBlackBorderToInput(input) {
     if (input === 'name') {
       this.setState({nameInput: 'black-border', shortBlurbInput: '', locationInput: '', durationInput: '', fundingGoalInput: '', categoryInput: '', subcategoryInput: ''});

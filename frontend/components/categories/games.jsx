@@ -539,7 +539,7 @@ class Games extends React.Component {
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLiveGames[0] &&{liveGamesUsersProjects[0] ? `/users/${liveGamesUsersProjects[0].id}/projects/${projectLiveGames[0].id}` : '/'}>
+                    <Link className='explore-theater-column-image' to={projectLiveGames[0] && liveGamesUsersProjects[0] ? `/users/${liveGamesUsersProjects[0].id}/projects/${projectLiveGames[0].id}` : '/'}>
                       <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
                         <i className={`${this.state.firstProjectFill} fa-heart`}></i>
                       </div>
@@ -549,12 +549,12 @@ class Games extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectLiveGames[0] &&{liveGamesUsersProjects[0] ? `/users/${liveGamesUsersProjects[0].id}/projects/${projectLiveGames[0].id}` : '/'}><h1>{projectLiveGames[0] ? projectLiveGames[0].title : ''}</h1></Link>
+                    <Link to={projectLiveGames[0] && liveGamesUsersProjects[0] ? `/users/${liveGamesUsersProjects[0].id}/projects/${projectLiveGames[0].id}` : '/'}><h1>{projectLiveGames[0] ? projectLiveGames[0].title : ''}</h1></Link>
                     <p>{projectLiveGames[0] ? projectLiveGames[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{liveGamesUsersProjects[0] ?{liveGamesUsersProjects[0].name : ''}</span></div>
+                    <div className='explore-theater-column-author'>By <span>{liveGamesUsersProjects[0] ? liveGamesUsersProjects[0].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLiveGames[1] &&{liveGamesUsersProjects[1] ? `/users/${liveGamesUsersProjects[1].id}/projects/${projectLiveGames[1].id}` : '/'}>
+                    <Link className='explore-theater-column-image' to={projectLiveGames[1] && liveGamesUsersProjects[1] ? `/users/${liveGamesUsersProjects[1].id}/projects/${projectLiveGames[1].id}` : '/'}>
                       <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
                         <i className={`${this.state.firstProjectFill} fa-heart`}></i>
                       </div>
@@ -564,12 +564,12 @@ class Games extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectLiveGames[1] &&{liveGamesUsersProjects[1] ? `/users/${liveGamesUsersProjects[1].id}/projects/${projectLiveGames[1].id}` : '/'}><h1>{projectLiveGames[1] ? projectLiveGames[1].title : ''}</h1></Link>
+                    <Link to={projectLiveGames[1] && liveGamesUsersProjects[1] ? `/users/${liveGamesUsersProjects[1].id}/projects/${projectLiveGames[1].id}` : '/'}><h1>{projectLiveGames[1] ? projectLiveGames[1].title : ''}</h1></Link>
                     <p>{projectLiveGames[1] ? projectLiveGames[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{liveGamesUsersProjects[1] ?{liveGamesUsersProjects[1].name : ''}</span></div>
+                    <div className='explore-theater-column-author'>By <span>{liveGamesUsersProjects[1] ? liveGamesUsersProjects[1].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLiveGames[2] &&{liveGamesUsersProjects[2] ? `/users/${liveGamesUsersProjects[2].id}/projects/${projectLiveGames[2].id}` : '/'}>
+                    <Link className='explore-theater-column-image' to={projectLiveGames[2] && liveGamesUsersProjects[2] ? `/users/${liveGamesUsersProjects[2].id}/projects/${projectLiveGames[2].id}` : '/'}>
                       <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
                         <i className={`${this.state.firstProjectFill} fa-heart`}></i>
                       </div>
@@ -579,12 +579,12 @@ class Games extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectLiveGames[2] &&{liveGamesUsersProjects[2] ? `/users/${liveGamesUsersProjects[2].id}/projects/${projectLiveGames[2].id}` : '/'}><h1>{projectLiveGames[2] ? projectLiveGames[2].title : ''}</h1></Link>
+                    <Link to={projectLiveGames[2] && liveGamesUsersProjects[2] ? `/users/${liveGamesUsersProjects[2].id}/projects/${projectLiveGames[2].id}` : '/'}><h1>{projectLiveGames[2] ? projectLiveGames[2].title : ''}</h1></Link>
                     <p>{projectLiveGames[2] ? projectLiveGames[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{liveGamesUsersProjects[2] ?{liveGamesUsersProjects[2].name : ''}</span></div>
+                    <div className='explore-theater-column-author'>By <span>{liveGamesUsersProjects[2] ? liveGamesUsersProjects[2].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLiveGames[3] &&{liveGamesUsersProjects[3] ? `/users/${liveGamesUsersProjects[3].id}/projects/${projectLiveGames[3].id}` : '/'}>
+                    <Link className='explore-theater-column-image' to={projectLiveGames[3] && liveGamesUsersProjects[3] ? `/users/${liveGamesUsersProjects[3].id}/projects/${projectLiveGames[3].id}` : '/'}>
                       <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
                         <i className={`${this.state.firstProjectFill} fa-heart`}></i>
                       </div>
@@ -594,9 +594,9 @@ class Games extends React.Component {
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectLiveGames[3] &&{liveGamesUsersProjects[3] ? `/users/${liveGamesUsersProjects[3].id}/projects/${projectLiveGames[3].id}` : '/'}><h1>{projectLiveGames[3] ? projectLiveGames[3].title : ''}</h1></Link>
+                    <Link to={projectLiveGames[3] && liveGamesUsersProjects[3] ? `/users/${liveGamesUsersProjects[3].id}/projects/${projectLiveGames[3].id}` : '/'}><h1>{projectLiveGames[3] ? projectLiveGames[3].title : ''}</h1></Link>
                     <p>{projectLiveGames[3] ? projectLiveGames[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{liveGamesUsersProjects[3] ?{liveGamesUsersProjects[3].name : ''}</span></div>
+                    <div className='explore-theater-column-author'>By <span>{liveGamesUsersProjects[3] ? liveGamesUsersProjects[3].name : ''}</span></div>
                   </div>
                 </div>
               </div>

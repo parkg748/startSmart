@@ -10,7 +10,9 @@
       componentRestrictions: {country: "us"}
      };
     var input = document.getElementById('search-term');
-    debugger;
     var autocomplete = new google.maps.places.Autocomplete(input, options);
+    var place = autocomplete.getPlace();
+    console.log(place)
   }
 </script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX4IIJ3fumoVC3xlJxE4iCAn9vOtEj49I&libraries=places&callback=activatePlacesSearch"></script>

@@ -27,7 +27,8 @@ class Homepage extends React.Component {
                   secondHeart: 'category-contents-right-heart far',
                   thirdHeart: 'category-contents-right-heart far',
                   fourthHeart: 'category-contents-right-heart far',
-                  fifthHeart: 'category-contents-right-heart far'};
+                  fifthHeart: 'category-contents-right-heart far',
+                  searchOptions: 'location-none-display'};
     this.clickHandler = this.clickHandler.bind(this);
     // this.changeDisplay = this.changeDisplay.bind(this);
     this.clickHandlerSection = this.clickHandlerSection.bind(this);
@@ -35,6 +36,7 @@ class Homepage extends React.Component {
     this.clickSearchBar = this.clickSearchBar.bind(this);
     this.addToSavedProjects = this.addToSavedProjects.bind(this);
     this.removeFromSavedProjects = this.removeFromSavedProjects.bind(this);
+    this.saveToState = this.saveToState.bind(this);
   }
 
   componentDidMount() {
@@ -57,6 +59,14 @@ class Homepage extends React.Component {
       this.setState({displayProfileMenu: ''});
     } else {
       this.setState({displayProfileMenu: 'js-modal-close'});
+    }
+  }
+
+  saveToState(state) {
+    if (state === 'location-none-display') {
+      this.setState({searchOptions: '', searchBar: ''});
+    } else {
+      this.setState({searchOptions: 'location-none-display', searchBar: 'search-bar-close'});
     }
   }
 
@@ -425,7 +435,7 @@ class Homepage extends React.Component {
     </div>);
     return (
       <div>
-        <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
+        <SearchBar searchBar={this.state.searchBar} clickSearchBar={this.clickSearchBar} searchOptions={this.state.searchOptions} saveToState={this.saveToState}/>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.sessionId)[0]} userId={this.props.sessionId} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='homepage-body'>
