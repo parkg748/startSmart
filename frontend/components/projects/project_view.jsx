@@ -167,6 +167,10 @@ class ProjectView extends React.Component {
     this.setState({greenBorder: 'green-support-border', currencyGreenBorder: 'green-currency-support-border', blackBorder: 'black-border'});
   }
 
+  addCommasToNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   addToSavedProjects() {
     if (this.state.firstButtonHeart === 'remind-me-heart-front') {
       this.setState({firstButtonHeart: 'remind-me-heart-front-red', favoriteText: 'Saved', secondButtonHeart: 'remind-me-heart-project-front-red'});
@@ -301,7 +305,7 @@ class ProjectView extends React.Component {
                         <div className='preview-body-content-four'>
                           <div className='preview-body-content-five-front'>
                             <span>$0 <i className="black fas fa-hand-holding-usd"></i></span>
-                            <span className='pledge-goal-of'>pledged of {currentProject === '' || currentProject.fundingGoal === null ? '$0' : currentProject.fundingGoal} goal</span>
+                            <span className='pledge-goal-of'>pledged of {currentProject === '' || currentProject.fundingGoal === null ? '$0' : '$' + this.addCommasToNumber(currentProject.fundingGoal)} goal</span>
                           </div>
                           <div className='preview-body-content-six'>
                             <span>0</span>

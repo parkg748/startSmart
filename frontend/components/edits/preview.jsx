@@ -68,6 +68,10 @@ class Preview extends React.Component {
     }
   }
 
+  addCommasToNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   // startTimer() {
   //   if (this.state.currentTimeNum > 0) {
   //     this.currentTimeNum = setInterval(function() {
@@ -268,7 +272,7 @@ class Preview extends React.Component {
                       <div className='preview-body-content-four'>
                         <div className='preview-body-content-five'>
                           <span>$0 <i className="fas fa-hand-holding-usd"></i></span>
-                          <span className='pledge-goal-of'>pledged of {Object.values(getState().entities.project)[0].fundingGoal === null ? '$0' : Object.values(getState().entities.project)[0].fundingGoal} goal</span>
+                          <span className='pledge-goal-of'>pledged of {Object.values(getState().entities.project)[0].fundingGoal === null ? '$0' : '$' + this.addCommasToNumber(Object.values(getState().entities.project)[0].fundingGoal)} goal</span>
                         </div>
                         <div className='preview-body-content-six'>
                           <span>0</span>

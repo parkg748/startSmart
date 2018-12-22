@@ -10708,6 +10708,13 @@ iframe > body {
   display: flex;
   align-items: center;
   background-color: #E8E8E8;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.preview-form-body-header-three button:hover {
+  background-color: #9B9E9E;
+  transform: translateY(-1px);
 }
 
 .preview-form-profile-icon {
