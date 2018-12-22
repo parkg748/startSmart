@@ -2561,6 +2561,7 @@ nav {
   position: relative;
   font-size: 14px;
   font-weight: 100;
+  transition: all 0.2s ease-in-out;
 }
 
 .title-input span {
@@ -2631,6 +2632,7 @@ nav {
   position: relative;
   font-size: 14px;
   font-weight: 100;
+  transition: all 0.2s ease-in-out;
 }
 
 .short-blurb-input textarea {
@@ -2701,6 +2703,7 @@ nav {
   border-radius: 0;
   font-size: 14px;
   font-weight: 100;
+  transition: all 0.2s ease-in-out;
 }
 
 .category-dropdown-container-arrow {
@@ -2732,6 +2735,7 @@ nav {
   font-weight: 100;
   font-size: 14px;
   margin-top: 3px;
+  transition: all 0.2s ease-in-out;
 }
 
 .location-box {
@@ -2758,6 +2762,7 @@ nav {
   float: left;
   font-size: 14px;
   font-weight: 100;
+  transition: all 0.2s ease-in-out;
 }
 
 .location-search {
@@ -2812,7 +2817,7 @@ nav {
 
 .funding-duration {
   width: 640px;
-  min-height: 211px;
+  min-height: 191px;
 }
 
 .funding-duration-content {
@@ -2883,6 +2888,7 @@ nav {
   padding: 10px;
   border: 1px solid #DCDEDD;
   font-weight: 100;
+  transition: all 0.2s ease-in-out;
   font-size: 14px;
 }
 
@@ -3009,6 +3015,7 @@ nav {
   font-size: 14px;
   font-weight: 100;
   display: block;
+  transition: all 0.2s ease-in-out;
 }
 
 .funding-goal-content-input input {
@@ -4349,6 +4356,7 @@ nav {
   background-color: white;
   font-size: 14px;
   font-weight: 100;
+  transition: all 0.2s ease-in-out;
 }
 
 .risks-challenges-input textarea {
@@ -4996,6 +5004,12 @@ strong {
   justify-content: center;
   align-items: center;
   display: flex;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.send-verification-email:hover {
+  background-color: #0030f3;
 }
 
 .funds-recipient {

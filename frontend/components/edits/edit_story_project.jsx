@@ -14,10 +14,12 @@ class EditStoryProject extends React.Component {
       displayProfileMenu: 'js-modal-close',
       challenges: '',
       editor_html: '',
-      theme: 'snow'
+      theme: 'snow',
+      blackBorder: ''
     };
     this.onChange = (editorState) => this.setState({editorState});
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.addBlackBorder = this.addBlackBorder.bind(this);
   }
 
   componentDidMount() {
@@ -66,6 +68,10 @@ class EditStoryProject extends React.Component {
 
   update(field) {
     return (e) => this.setState({[field]: e.target.value});
+  }
+
+  addBlackBorder() {
+    this.setState({blackBorder: 'black-border'});
   }
 
   render() {
@@ -188,8 +194,8 @@ class EditStoryProject extends React.Component {
                               <p>Every project comes with its own unique risks and challenges. Let your backers know how you’re prepared to overcome these challenges by setting proper expectations and communicating anything that could cause delays or changes in your production plan.</p>
                               <p>Please mention if you’re still in the process of completing any past projects or if your project requires approval or premarket review from an outside company or agency before you can distribute rewards.</p>
                               <p>Being fully transparent and addressing these potential challenges from the start will help backers understand that your project is a work in progress, and that you’ve thought through all of the possible outcomes.</p>
-                              <div className='risks-challenges-input'>
-                                <textarea onChange={this.update('challenges')} value={Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0] != undefined ? Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0].challenges : this.state.challenges}></textarea>
+                              <div className={`risks-challenges-input ${this.state.blackBorder}`}>
+                                <textarea onClick={() => this.addBlackBorder()} onChange={this.update('challenges')} value={Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0] != undefined ? Object.values(getState().entities.project).filter(el => el.id == this.props.match.params.projectId)[0].challenges : this.state.challenges}></textarea>
                               </div>
                             </div>
                           </div>
