@@ -120,6 +120,7 @@ class DesignTech extends React.Component {
     let project3D = [];
     let projectDesign = [];
     let projectTechnology = [];
+    let projectDIYElectronics = [];
     let category = '';
     if (Object.values(this.props.projects).length > 0) {
       Object.values(this.props.projects).forEach(project => {
@@ -131,6 +132,9 @@ class DesignTech extends React.Component {
           } else if (category === 'Technology' && project.subcategory === '3D Printing') {
             designTechProjects.push(project);
             project3D.push(project);
+          } else if (category === 'Technology' && project.subcategory === 'DIY Electronics') {
+            designTechProjects.push(project);
+            projectDIYElectronics.push(project);
           } else if (category === 'Design') {
             designTechProjects.push(project);
             projectDesign.push(project);
@@ -146,12 +150,14 @@ class DesignTech extends React.Component {
     let threeDUsersProjects = [];
     let designUsersProjects = [];
     let technologyUsersProjects = [];
+    let diyElectronicsUsersProjects = [];
     if (Object.values(this.props.user).length > 1) {
       usersDesignTechProjects = designTechProjects.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
       designUsersProjects = projectDesign.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
       technologyUsersProjects = projectTechnology.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
       productDesignUsersProjects = projectProductDesign.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
       threeDUsersProjects = project3D.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
+      diyElectronicsUsersProjects = projectDIYElectronics.map(el => Object.values(this.props.user).find(user => user.id === el.userId));
     }
     return (
       <div>
@@ -573,49 +579,49 @@ class DesignTech extends React.Component {
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectTechnology[4] && technologyUsersProjects[4] ? `/users/${technologyUsersProjects[4].id}/projects/${projectTechnology[4].id}` : '/'}>
+                    <Link className='explore-theater-column-image' to={projectDIYElectronics[0] && diyElectronicsUsersProjects[0] ? `/users/${diyElectronicsUsersProjects[0].id}/projects/${projectDIYElectronics[0].id}` : '/'}>
                       <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
                         <i className={`${this.state.firstProjectFill} fa-heart`}></i>
                       </div>
                       <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectTechnology[4] ? projectTechnology[4].imageUrl : ''}/>
+                      <img src={projectDIYElectronics[0] ? projectDIYElectronics[0].imageUrl : ''}/>
                     </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectTechnology[4] && technologyUsersProjects[4] ? `/users/${technologyUsersProjects[4].id}/projects/${projectTechnology[4].id}` : '/'}><h1>{projectTechnology[4] ? projectTechnology[4].title : ''}</h1></Link>
-                    <p>{projectTechnology[4] ? projectTechnology[4].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{technologyUsersProjects[4] ? technologyUsersProjects[4].name : ''}</span></div>
+                    <Link to={projectDIYElectronics[0] && diyElectronicsUsersProjects[0] ? `/users/${diyElectronicsUsersProjects[0].id}/projects/${projectDIYElectronics[0].id}` : '/'}><h1>{projectDIYElectronics[0] ? projectDIYElectronics[0].title : ''}</h1></Link>
+                    <p>{projectDIYElectronics[0] ? projectDIYElectronics[0].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{diyElectronicsUsersProjects[0] ? diyElectronicsUsersProjects[0].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectTechnology[5] && technologyUsersProjects[5] ? `/users/${technologyUsersProjects[5].id}/projects/${projectTechnology[5].id}` : '/'}>
+                    <Link className='explore-theater-column-image' to={projectDIYElectronics[1] && diyElectronicsUsersProjects[1] ? `/users/${diyElectronicsUsersProjects[1].id}/projects/${projectDIYElectronics[1].id}` : '/'}>
                       <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
                         <i className={`${this.state.firstProjectFill} fa-heart`}></i>
                       </div>
                       <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectTechnology[5] ? projectTechnology[5].imageUrl : ''}/>
+                      <img src={projectDIYElectronics[1] ? projectDIYElectronics[1].imageUrl : ''}/>
                     </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectTechnology[5] && technologyUsersProjects[5] ? `/users/${technologyUsersProjects[5].id}/projects/${projectTechnology[5].id}` : '/'}><h1>{projectTechnology[5] ? projectTechnology[5].title : ''}</h1></Link>
-                    <p>{projectTechnology[5] ? projectTechnology[5].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{technologyUsersProjects[5] ? technologyUsersProjects[5].name : ''}</span></div>
+                    <Link to={projectDIYElectronics[1] && diyElectronicsUsersProjects[1] ? `/users/${diyElectronicsUsersProjects[1].id}/projects/${projectDIYElectronics[1].id}` : '/'}><h1>{projectDIYElectronics[1] ? projectDIYElectronics[1].title : ''}</h1></Link>
+                    <p>{projectDIYElectronics[1] ? projectDIYElectronics[1].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{diyElectronicsUsersProjects[1] ? diyElectronicsUsersProjects[1].name : ''}</span></div>
                   </div>
                   <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectTechnology[6] && technologyUsersProjects[6] ? `/users/${technologyUsersProjects[6].id}/projects/${projectTechnology[6].id}` : '/'}>
+                    <Link className='explore-theater-column-image' to={projectDIYElectronics[2] && diyElectronicsUsersProjects[2] ? `/users/${diyElectronicsUsersProjects[2].id}/projects/${projectDIYElectronics[2].id}` : '/'}>
                       <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
                         <i className={`${this.state.firstProjectFill} fa-heart`}></i>
                       </div>
                       <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectTechnology[6] ? projectTechnology[6].imageUrl : ''}/>
+                      <img src={projectDIYElectronics[2] ? projectDIYElectronics[2].imageUrl : ''}/>
                     </Link>
                     <div className='explore-theater-column-grey-bar'>
                       <div className='explore-theater-column-green-bar'></div>
                     </div>
-                    <Link to={projectTechnology[6] && technologyUsersProjects[6] ? `/users/${technologyUsersProjects[6].id}/projects/${projectTechnology[6].id}` : '/'}><h1>{projectTechnology[6] ? projectTechnology[6].title : ''}</h1></Link>
-                    <p>{projectTechnology[6] ? projectTechnology[6].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{technologyUsersProjects[6] ? technologyUsersProjects[6].name : ''}</span></div>
+                    <Link to={projectDIYElectronics[2] && diyElectronicsUsersProjects[2] ? `/users/${diyElectronicsUsersProjects[2].id}/projects/${projectDIYElectronics[2].id}` : '/'}><h1>{projectDIYElectronics[2] ? projectDIYElectronics[2].title : ''}</h1></Link>
+                    <p>{projectDIYElectronics[2] ? projectDIYElectronics[2].description : ''}</p>
+                    <div className='explore-theater-column-author'>By <span>{diyElectronicsUsersProjects[2] ? diyElectronicsUsersProjects[2].name : ''}</span></div>
                   </div>
                 </div>
               </div>

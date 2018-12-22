@@ -801,4 +801,300 @@ ActiveRecord::Base.transaction do
   projectpath100 = File.join(Rails.root, 'app', "assets", "images", "5976d66cc054960e31a16bcf2b34ef25_original.jpeg")
   project100.image_url.attach(io: File.open(projectpath100), filename: "5976d66cc054960e31a16bcf2b34ef25_original.jpeg")
   project100.save
+  user101 = User.new(name: "Gizmo Films", email: "gizmofilms@gmail.com", password: "starwars", biography: 'Gizmo Films, founded in 1986, is a well established and award winning UK based film production company with a number of current projects in production and development as well as a fascinating and diverse back catalogue of completed productions. We started specialising in documentaries for TV working with the BBC, ITV, Channel 4 and Discovery. From 2012 we also moved into feature films for theatrical, VOD and TV release worldwide working with major distributors such as Entertainment One, IFC Sundance and Samuel Goldwyn.', google_analytics: "")
+  userpath101 = File.join(Rails.root, 'app', "assets", "images", "cb4e5ae7455019c188ce37cfd34139f3_original.jpg")
+  user101.profile_url.attach(io: File.open(userpath101), filename: "cb4e5ae7455019c188ce37cfd34139f3_original.jpg")
+  user101.save
+  project101 = Project.new(duration: 0, limit: false, user_id: user101.id, country: "the United Kingdom", title: "Second Skin - A short film", description: "Second Skin: A 15 min short film exploring issues of identity and self image across generations of women.", pledge_amt: 0, eta: nil, shipping: "", city: "London", state: "UK", funding_goal: 6316, category_id: categories[6].id, subcategory: "", challenges: "")
+  projectpath101 = File.join(Rails.root, 'app', "assets", "images", "69c0698a645f7ecd4b71c7192c3d5451_original.jpg")
+  project101.image_url.attach(io: File.open(projectpath101), filename: "69c0698a645f7ecd4b71c7192c3d5451_original.jpg")
+  project101.save
+  user102 = User.new(name: "One Year Lease Theater Company", email: "oneyearleasetheatercompany@gmail.com", password: "starwars", biography: 'One Year Lease Theater Company (OYL) is an ensemble-based company with a mission to premiere bold international works of theater in New York City; contribute to the advancement of international collaboration in the theater by commissioning new plays from playwrights based in the US and abroad; and provide training and education to young artists through student workshops in the USA and our annual Apprentice Program in Greece. OYL advocates for physically powerful, ensemble-based theater and believes in the importance of theater as a forum for community enrichment, connecting us to each other and our past.', google_analytics: "")
+  userpath102 = File.join(Rails.root, 'app', "assets", "images", "d8eaeeb9cb8c0264cc13f0f3536b4e06_original.jpeg")
+  user102.profile_url.attach(io: File.open(userpath102), filename: "d8eaeeb9cb8c0264cc13f0f3536b4e06_original.jpeg")
+  user102.save
+  project102 = Project.new(duration: 0, limit: false, user_id: user102.id, country: "the United States", title: "EAT THE DEVIL; a theater production.", description: "An alt-right fever dream about a terrifying virus gone viral in a post-fact America.", pledge_amt: 0, eta: nil, shipping: "", city: "New York", state: "NY", funding_goal: 7000, category_id: categories[14].id, subcategory: "", challenges: "")
+  projectpath102 = File.join(Rails.root, 'app', "assets", "images", "a18288284147bc655ae5ccc559dad939_original.jpg")
+  project102.image_url.attach(io: File.open(projectpath102), filename: "a18288284147bc655ae5ccc559dad939_original.jpg")
+  project102.save
+  user103 = User.new(name: "onlinetheater.live", email: "onlinetheaterlive@gmail.com", password: "starwars", biography: '// All the world wide web\'s a stage Das onlinetheater.live hat sich der Produktion von Stücken und Performances im digitalen Raum verschrieben. Nach Jahren gemeinsamer Zusammenarbeit in wechselnden Konstellationen eignen wir uns heute als erstes ausschließlich online existierendes Theater Social-Media-Plattformen, Webseiten und Livestream-Kanäle als Bühnenräume an. Unsere Abende finden online statt, sind stets live und für jede*n Interessierte*n frei und kostenlos zugänglich. Unsere Zuschauer*innen sollen im Netz diskutieren, interagieren, recherchieren. Während wir von außen zunächst häufig in Opposition zu Stadt- und Staatstheater gesehen werden, wollen wir, im Gegenteil, den Wirkraum des Theaters nicht beschneiden, sondern radikal erweitern - ins Netz hinein Wir wollen nicht unkritisch und unreflektiert unser Leben einem Medium unterwerfen, genauso wenig denen, die uns dies vorwerfen. Nur wollen wir weder die Gestaltung dieses Raumes noch seine Deutung restlos anderen überlassen - nicht den Konzernen, nicht den großen Medien, nicht der Politik, nicht dem wütenden Mob. Statt uns ohnmächtig einem einseitigen Kulturfatalismus anzuschließen, wollen wir mit theatralen Mitteln produktiv und spielerisch Räume erobern und schaffen, die dort herrschenden und etablierten Macht- und Meinungsstrukturen hinterfragen und mitgestalten, immer auf der Suche nach neuen und eigenständigen Formen, die dieser hybriden Lebensrealität gerecht werden können. Wir glauben an die kritische, politisch-emanzipatorische, schöpferische Kraft von Theater. Jede unserer Arbeiten strebt danach, das Theater und die theatralen Ausdrucksmittel und Sprachen konsequent und ohne falsche Kompromisse auf die digitalen Bühnen zu holen - nicht um des Experimentes Willen, sondern aus der Notwen- digkeit, der kybernetischen Welt und uns als ihren Bewohner*innen mit allen gebotenen Mitteln (ernsthaft, unnachgiebig, lustvoll) auf Augenhöhe zu begegnen und entgegenzutreten. Im onlinetheater.live versammeln sich mittlerweile über 10 Schauspieler*innen, Regisseur*innen, Dramaturg*innen, bildende Künstler*innen, Autor*innen, Performer*innen, technikaffine, kulturschaffende und experimentiertfreudige Menschen.', google_analytics: "")
+  userpath103 = File.join(Rails.root, 'app', "assets", "images", "b6bdaef7046a133bcc6e5fb36e4c6188_original.png")
+  user103.profile_url.attach(io: File.open(userpath103), filename: "b6bdaef7046a133bcc6e5fb36e4c6188_original.png")
+  user103.save
+  project103 = Project.new(duration: 0, limit: false, user_id: user103.id, country: "Germany", title: "Camshow Vol. I: Gary. Eine Produktion des onlinetheater.live", description: "Gary ist auf der Suche nach dem großen Geld auf einer Pornoplattform, ein Stück des weltweit ersten Internettheaters", pledge_amt: 0, eta: nil, shipping: "", city: "Magdeburg", state: "Germany", funding_goal: 909, category_id: categories[14].id, subcategory: "", challenges: "")
+  projectpath103 = File.join(Rails.root, 'app', "assets", "images", "2d705edf209d182007d55fe31abe5586_original.png")
+  project103.image_url.attach(io: File.open(projectpath103), filename: "2d705edf209d182007d55fe31abe5586_original.png")
+  project103.save
+  user104 = User.new(name: "Lidelab", email: "lidelab@gmail.com", password: "starwars", biography: 'LideLab, from Danish “Lab of pleasure and pain”, is a female collective of independent artists deriving from different backgrounds with the aim of creating performances that play with paradoxes and spark wonder. The group was born around a table, sharing food with people we love - first for the human qualities and later for the professional. The dream is to create our performances like a dinner invite; each bringing different ingredients and each proposing their unique recipes, for then to cook together and once more gather around the table, sharing new flavours. The day after whilst washing the dishes left to soak out of tiredness, a feeling of happiness lingers thinking about the most beautiful evening. ------- LideLab, dal danese “laboratorio del piacere e del dolore” è un collettivo al feminile di artiste indipendenti provenienti da diversi background che si riuniscono per creare performance che corteggiano i paradossi e suscitano meraviglia. Il gruppo è nato a tavola, condividendo del cibo con persone amate prima dal lato umano e poi da quello professionale. Il nostro sogno è creare performance che siano come un invito a cena, ognuno porta ingredienti diversi, ognuno propone i suoi piatti forti, si cucina insieme e poi ci si ritrova intorno a un tavola, condividendo sapori nuovi. Il giorno dopo mentre si lavano i piatti lasciati a mollo per la stanchezza ci si sente felici e si pensa di aver passato la serata più bella di sempre.', google_analytics: "")
+  userpath104 = File.join(Rails.root, 'app', "assets", "images", "84ffa59108e6afc9a7eccdba8ee046bf_original.jpg")
+  user104.profile_url.attach(io: File.open(userpath104), filename: "84ffa59108e6afc9a7eccdba8ee046bf_original.jpg")
+  user104.save
+  project104 = Project.new(duration: 0, limit: false, user_id: user104.id, country: "Italy", title: "Theatre Project: Wunderkammer - Le mille e una notte", description: "About seduction, sensuality and the erotic games found in the stories of \"Arabian Nights\"", pledge_amt: 0, eta: nil, shipping: "", city: "Milan", state: "Italy", funding_goal: 2842, category_id: categories[14].id, subcategory: "", challenges: "")
+  projectpath104 = File.join(Rails.root, 'app', "assets", "images", "d5fe9dcbf4f0847bf298e2aab541f216_original.jpg")
+  project104.image_url.attach(io: File.open(projectpath104), filename: "d5fe9dcbf4f0847bf298e2aab541f216_original.jpg")
+  project104.save
+  user105 = User.new(name: "DeseoTeatro365", email: "deseoteatro@gmail.com", password: "starwars", biography: 'La compañía Deseo Teatro 365 surge como un espacio para dignificar el teatro mexicano a través de la creación y montaje de obras que sean una alquimia entre lo reflexivo y lo entretenido, lo profundo y lo ligero, lo novedoso y lo clásico. Deseo Teatro 365 busca hacer de la experiencia teatral algo deseable para una audiencia mayor y así competir con los grandes espacios de entretenimiento. Así mismo esta compañía está convencida de que a través del arte se puede sanar el tejido social y contribuir, de alguna manera, a la discusión de ideas para el beneficio político, económico y humano.', google_analytics: "")
+  userpath105 = File.join(Rails.root, 'app', "assets", "images", "b0ceca4f3ec87af949aede3461aa2cd3_original.jpeg")
+  user105.profile_url.attach(io: File.open(userpath105), filename: "b0ceca4f3ec87af949aede3461aa2cd3_original.jpeg")
+  user105.save
+  project105 = Project.new(duration: 0, limit: false, user_id: user105.id, country: "Mexico", title: "ANTES DEL ÚLTIMO BAILE - Trío de Monólogos de Maruxa Vilalta", description: "Obra de teatro sobre la relación que las personas tenemos con el tiempo, la muerte y la insatisfacción personal.", pledge_amt: 0, eta: nil, shipping: "", city: "Mexico", state: "Mexico", funding_goal: 15044, category_id: categories[14].id, subcategory: "", challenges: "")
+  projectpath105 = File.join(Rails.root, 'app', "assets", "images", "f9ca624bf4fb81b42043e6f9e0058645_original.jpg")
+  project105.image_url.attach(io: File.open(projectpath105), filename: "f9ca624bf4fb81b42043e6f9e0058645_original.jpg")
+  project105.save
+  user106 = User.new(name: "Pivo", email: "pivo@gmail.com", password: "starwars", biography: 'Pivo is brought to you by YouVR, a company dedicated to developing everyday use VR technologies. For the last few years, we\'ve been developing and manufacturing our latest product Pivo, and we\'re excited to share it with the world.', google_analytics: "")
+  userpath106 = File.join(Rails.root, 'app', "assets", "images", "dace54c612856c36fdc5c3ef29d87c3e_original.png")
+  user106.profile_url.attach(io: File.open(userpath106), filename: "dace54c612856c36fdc5c3ef29d87c3e_original.png")
+  user106.save
+  project106 = Project.new(duration: 0, limit: false, user_id: user106.id, country: "the United States", title: "Pivo. Get Insanely Creative GIFs, Photos & Videos.", description: "Sensationalize your smartphone photography with a genius little pod ⚡️ 360° | Auto-Tracking | ManyMe | DoubleTake | Tiny Planet | &More", pledge_amt: 0, eta: nil, shipping: "", city: "San Jose", state: "CA", funding_goal: 25000, category_id: categories[13].id, subcategory: "Gadgets", challenges: "")
+  projectpath106 = File.join(Rails.root, 'app', "assets", "images", "75d01f538a648b95f04c9173a8039561_original.jpg")
+  project106.image_url.attach(io: File.open(projectpath106), filename: "75d01f538a648b95f04c9173a8039561_original.jpg")
+  project106.save
+  user107 = User.new(name: "Primo Toys", email: "primotoys@gmail.com", password: "starwars", biography: 'Our mission is to inspire young girls and boys to explore the digital world around them. We make toys that are loved by children and trusted by parents and educators. Learning time should be playtime too. Our smart, intuitive toys are built with friendly technologies, providing fun learning experiences for curious little minds with big imaginations.', google_analytics: "")
+  userpath107 = File.join(Rails.root, 'app', "assets", "images", "a0337cf2cf19e3415ed8eea1b6e044c9_original.jpg")
+  user107.profile_url.attach(io: File.open(userpath107), filename: "a0337cf2cf19e3415ed8eea1b6e044c9_original.jpg")
+  user107.save
+  project107 = Project.new(duration: 0, limit: false, user_id: user107.id, country: "the United States", title: "Pigzbe: Helps Kids 6+ Develop Great Money Habits", description: "Teach children how to save, earn and budget in the 21st-century and give them financial superpowers! By PrimoToys, a five-time creator!", pledge_amt: 0, eta: nil, shipping: "", city: "San Francisco", state: "CA", funding_goal: 50000, category_id: categories[13].id, subcategory: "Gadgets", challenges: "")
+  projectpath107 = File.join(Rails.root, 'app', "assets", "images", "39239e561c07d4cfa32ba55289666035_original.jpg")
+  project107.image_url.attach(io: File.open(projectpath107), filename: "39239e561c07d4cfa32ba55289666035_original.jpg")
+  project107.save
+  user108 = User.new(name: "Dust London", email: "dustlondon@gmail.com", password: "starwars", biography: 'Dust London is a design company creating homeware from natural materials. It is a collaboration between Michael McManus and Matthew Grant. We met over 10 years ago. Whilst studying art and architecture, we developed similar interests and had talked about collaborating on a project for some time. We then began living together in Camberwell and started our search for local studio space that could accommodate our needs.', google_analytics: "")
+  userpath108 = File.join(Rails.root, 'app', "assets", "images", "b043de815c037f74aa85a2ccd97afd0b_original.jpg")
+  user108.profile_url.attach(io: File.open(userpath108), filename: "b043de815c037f74aa85a2ccd97afd0b_original.jpg")
+  user108.save
+  project108 = Project.new(duration: 0, limit: false, user_id: user108.id, country: "the United Kingdom", title: "Transforming Tea Waste Into Beautiful Homeware", description: "Changing how we recycle. Bringing the organic into design. This collection transforms tea into beautiful homeware.", pledge_amt: 0, eta: nil, shipping: "", city: "London", state: "UK", funding_goal: 3789, category_id: categories[4].id, subcategory: "", challenges: "")
+  projectpath108 = File.join(Rails.root, 'app', "assets", "images", "680eb9d8c69117e643254e1564d6d808_original.jpg")
+  project108.image_url.attach(io: File.open(projectpath108), filename: "680eb9d8c69117e643254e1564d6d808_original.jpg")
+  project108.save
+  user109 = User.new(name: "Sol 66", email: "sol66@gmail.com", password: "starwars", biography: 'Sol 66 is a newly established organisation (registered LLC in 2018) with an optimistic, pro-active, and pragmatic outlook. It has been set up with the goal of helping shape a more sustainable, brighter, and more unified future for one of America\'s most loved & recognisable highways!', google_analytics: "")
+  userpath109 = File.join(Rails.root, 'app', "assets", "images", "f4871e31880fe3369c0a22b249651745_original.jpg")
+  user109.profile_url.attach(io: File.open(userpath109), filename: "f4871e31880fe3369c0a22b249651745_original.jpg")
+  user109.save
+  project109 = Project.new(duration: 0, limit: false, user_id: user109.id, country: "the United States", title: "A Solar Powered EV Charge Station for the Route 66!!", description: "Make this concept a reality, choose from a great selection of rewards, and in so doing, help towards a number of worthy causes!", pledge_amt: 0, eta: nil, shipping: "", city: "Albuquerque", state: "NM", funding_goal: 15790, category_id: categories[4].id, subcategory: "Architecture", challenges: "")
+  projectpath109 = File.join(Rails.root, 'app', "assets", "images", "aedbbb5e9204a9fc2b7b47949f36ca01_original.jpg")
+  project109.image_url.attach(io: File.open(projectpath109), filename: "aedbbb5e9204a9fc2b7b47949f36ca01_original.jpg")
+  project109.save
+  user110 = User.new(name: "Pia C Jensen", email: "piacjensen@gmail.com", password: "starwars", biography: 'Disabled and living in Salto, Uruguay - creating a safe place for travelers passing through Uruguay on their way to Argentina, Brazil, Paraguay and beyond. There are no Hostels in this region. I\'m creating the first one here, but, I need some help with construction materials. Donors get free stay.', google_analytics: "")
+  userpath110 = File.join(Rails.root, 'app', "assets", "images", "47ca1084cfb99b6e206c5898bf21e74a_original.jpeg")
+  user110.profile_url.attach(io: File.open(userpath110), filename: "47ca1084cfb99b6e206c5898bf21e74a_original.jpeg")
+  user110.save
+  project110 = Project.new(duration: 0, limit: false, user_id: user110.id, country: "", title: "Traveling through South America & need a safe place to stay?", description: "A hostel and chef's creations to serve travelers visiting South America for extraordinary experiences, affordably. Tourism Guru.", pledge_amt: 0, eta: nil, shipping: "", city: "Salto", state: "Uruguay", funding_goal: 2000, category_id: categories[4].id, subcategory: "Architecture", challenges: "")
+  projectpath110 = File.join(Rails.root, 'app', "assets", "images", "7d0a664f78bf1930cb1eab9e60ec2dc2_original.jpeg")
+  project110.image_url.attach(io: File.open(projectpath110), filename: "7d0a664f78bf1930cb1eab9e60ec2dc2_original.jpeg")
+  project110.save
+  user111 = User.new(name: "PAX Monographs", email: "paxmonographs@gmail.com", password: "starwars", biography: 'PAX Monographs was established in 2017 by Ali Karimi, Daniela Leon, Paul Matevosyan, and Raffy Mardirossian.', google_analytics: "")
+  userpath111 = File.join(Rails.root, 'app', "assets", "images", "3c32dc62f41c0237188ea8681c633aa9_original.png")
+  user111.profile_url.attach(io: File.open(userpath111), filename: "3c32dc62f41c0237188ea8681c633aa9_original.png")
+  user111.save
+  project111 = Project.new(duration: 0, limit: false, user_id: user111.id, country: "the United States", title: "\"Andrea Palladio in Los Angeles\"", description: "\"Andrea Palladio in Los Angeles\" is a monograph of Palladio's work in Los Angeles. It is the world's first projective monograph.", pledge_amt: 0, eta: nil, shipping: "", city: "Los Angeles", state: "CA", funding_goal: 6000, category_id: categories[4].id, subcategory: "Architecture", challenges: "")
+  projectpath111 = File.join(Rails.root, 'app', "assets", "images", "7982ee271846efa08303b317c8bdb56f_original.jpg")
+  project111.image_url.attach(io: File.open(projectpath111), filename: "7982ee271846efa08303b317c8bdb56f_original.jpg")
+  project111.save
+  user112 = User.new(name: "CH MAKER Ed", email: "chmakered@gmail.com", password: "starwars", biography: 'CH MakerEd is short for Chaihuo Maker Education. We are based in Shenzhen, China. We help users gain knowledge and master skills in design, electronics, mechanics, programming and other STEM areas by creating high-quality, affordable products that integrate fun into learning. These products unleash creativity and imagination while empowering users to innovate, craft and achieve. CH MakerEd was spun off from Seeed in 2015, to better develop educational services. An independent team was founded to develop STEM education products and promote business cooperation within the education sector. After three years of development, CH MakerEd is now cooperating with over two-hundred schools, making it the leading STEM education brand in China.', google_analytics: "")
+  userpath112 = File.join(Rails.root, 'app', "assets", "images", "a1c302df0bf2b04554cde3db3e974ab0_original.jpg")
+  user112.profile_url.attach(io: File.open(userpath112), filename: "a1c302df0bf2b04554cde3db3e974ab0_original.jpg")
+  user112.save
+  project112 = Project.new(duration: 0, limit: false, user_id: user112.id, country: "the United States", title: "Grove Junior: Snap-and-Play programmable modules $29", description: "Compatible With LEGO®| Versatile Magnetic Connection | Scratch 3.0 | Graphical Programming", pledge_amt: 0, eta: nil, shipping: "", city: "Santa Clara", state: "CA", funding_goal: 5000, category_id: categories[13].id, subcategory: "DIY Electronics", challenges: "")
+  projectpath112 = File.join(Rails.root, 'app', "assets", "images", "dcf2543c5c87c847dc5bef6e5d1199cb_original.jpg")
+  project112.image_url.attach(io: File.open(projectpath112), filename: "dcf2543c5c87c847dc5bef6e5d1199cb_original.jpg")
+  project112.save
+  user113 = User.new(name: "PowerChest", email: "powerchest@gmail.com", password: "starwars", biography: 'Team of local engineers gather to form a company that will manage batteries extending their life to the maximum potential.', google_analytics: "")
+  userpath113 = File.join(Rails.root, 'app', "assets", "images", "a67eea9b3cbef1bb7f70dd8cf67a64d6_original.jpg")
+  user113.profile_url.attach(io: File.open(userpath113), filename: "a67eea9b3cbef1bb7f70dd8cf67a64d6_original.jpg")
+  user113.save
+  project113 = Project.new(duration: 0, limit: false, user_id: user113.id, country: "the United States", title: "PowerChest: a DIY Home Power System", description: "Build your own AC power system", pledge_amt: 0, eta: nil, shipping: "", city: "Seattle", state: "WA", funding_goal: 80000, category_id: categories[13].id, subcategory: "DIY Electronics", challenges: "")
+  projectpath113 = File.join(Rails.root, 'app', "assets", "images", "5a82260463fd026fe672fe05e6b08bcc_original.png")
+  project113.image_url.attach(io: File.open(projectpath113), filename: "5a82260463fd026fe672fe05e6b08bcc_original.png")
+  project113.save
+  user114 = User.new(name: "Dimitri Synodinos", email: "dimitrisynodinos@gmail.com", password: "starwars", biography: 'Bachelor degree from the University of Akron, in Ohio. The last few years I been designing embedded PCB boards and working with firmware.', google_analytics: "")
+  userpath114 = File.join(Rails.root, 'app', "assets", "images", "bcb37eafc52f345924761ac0292e16b8_original.jpg")
+  user114.profile_url.attach(io: File.open(userpath114), filename: "bcb37eafc52f345924761ac0292e16b8_original.jpg")
+  user114.save
+  project114 = Project.new(duration: 0, limit: false, user_id: user114.id, country: "the United States", title: "Zero BZ1, (Arduino-Compatible) with SD and LiPo charger.", description: "48MHz ARM Cortex M0+ micro-controller , zero bootloader with LiPo battery charger and SD card socket.", pledge_amt: 0, eta: nil, shipping: "", city: "Canton", state: "OH", funding_goal: 2345, category_id: categories[13].id, subcategory: "DIY Electronics", challenges: "")
+  projectpath114 = File.join(Rails.root, 'app', "assets", "images", "942f0ec0b48d8ffee31134162a89f590_original.png")
+  project114.image_url.attach(io: File.open(projectpath114), filename: "942f0ec0b48d8ffee31134162a89f590_original.png")
+  project114.save
+  user115 = User.new(name: "Vera Greentea", email: "veragreentea@gmail.com", password: "starwars", biography: 'Vera Greentea is a hopeful idealist who loves baking cookies and writing creepy stories. She is the author of GRIMOIRE NOIR (Spring 2019, First Second/Macmillan), the Recipes for the Dead series; Nenetl of the Forgotten Spirits; PAPA and the founder of Greentea Publishing, an independent comic book publishing company. Contact her at vera@greenteapublishing.com', google_analytics: "")
+  userpath115 = File.join(Rails.root, 'app', "assets", "images", "0117efcb39528da8812e908fd41b39cd_original.jpg")
+  user115.profile_url.attach(io: File.open(userpath115), filename: "0117efcb39528da8812e908fd41b39cd_original.jpg")
+  user115.save
+  project115 = Project.new(duration: 0, limit: false, user_id: user115.id, country: "the United States", title: "Wraith: The Psychic and the Poet", description: "Support WRAITH, a nightmarish tale about forest animals and the haunted house they live in. Story by Vera Greentea and art by ELK.", pledge_amt: 0, eta: nil, shipping: "", city: "New York", state: "NY", funding_goal: 9500, category_id: categories[1].id, subcategory: "Comic Books", challenges: "")
+  projectpath115 = File.join(Rails.root, 'app', "assets", "images", "7634fb6f5369bf5b87a483f146f08e98_original.jpg")
+  project115.image_url.attach(io: File.open(projectpath115), filename: "7634fb6f5369bf5b87a483f146f08e98_original.jpg")
+  project115.save
+  user116 = User.new(name: "Benjamin Combes", email: "benjamincombes@gmail.com", password: "starwars", biography: 'Video director for Ubisoft Entertainement, YouTube Film Maker. www.benjamincombes.com', google_analytics: "")
+  userpath116 = File.join(Rails.root, 'app', "assets", "images", "2fd53596c7681727393fca43970583ff_original.jpg")
+  user116.profile_url.attach(io: File.open(userpath116), filename: "2fd53596c7681727393fca43970583ff_original.jpg")
+  user116.save
+  project116 = Project.new(duration: 0, limit: false, user_id: user116.id, country: "France", title: "Commando Ninja: Back in 'Nam - The Comic Book", description: "The prequel of \"COMMANDO NINJA: The Movie\"! Follow our heroes through the jungles of Vietnam, full of Ninjas, Dinosaurs and Communists!", pledge_amt: 0, eta: nil, shipping: "", city: "Montpellier", state: "France", funding_goal: 1137, category_id: categories[1].id, subcategory: "", challenges: "")
+  projectpath116 = File.join(Rails.root, 'app', "assets", "images", "bc64eb9fa32a04375be3d798565eeddc_original.jpg")
+  project116.image_url.attach(io: File.open(projectpath116), filename: "bc64eb9fa32a04375be3d798565eeddc_original.jpg")
+  project116.save
+  user117 = User.new(name: "Sterling Clinton Hundley", email: "sterlingclintonhundley@gmail.com", password: "starwars", biography: '(b. 1976, United States) Sterling Hundley is an acclaimed illustrator, educator and artist, as well as the Founder of Legendeer (www.legendeer.org). Sterling currently serves as a Professor within the Department of Communication Arts at Virginia Commonwealth University, in Richmond, Virginia, where he teaches the Capstone Experience course for students graduating in industries related to illustration, animation, graphic design, concept art, entertainment and painting. In addition, Sterling has created post graduate mentorship programs in illustration and story-telling, which focus on personal voice and content development. Sterling is highly sought after for his creative solutions and skills related to the commercial illustration, fine art, corporate and creative educational industries.', google_analytics: "")
+  userpath117 = File.join(Rails.root, 'app', "assets", "images", "d5faa12ed98e2bcc9441ab5726632562_original.jpg")
+  user117.profile_url.attach(io: File.open(userpath117), filename: "d5faa12ed98e2bcc9441ab5726632562_original.jpg")
+  user117.save
+  project117 = Project.new(duration: 0, limit: false, user_id: user117.id, country: "the United States", title: "Curating Chaos: The personal sketchbooks of Sterling Hundley", description: "I'm printing a collection of drawings from my personal journals, which depict time through careful observation of my habits & routines.", pledge_amt: 0, eta: nil, shipping: "", city: "Richmond", state: "VA", funding_goal: 14250, category_id: categories[0].id, subcategory: "Illustration", challenges: "")
+  projectpath117 = File.join(Rails.root, 'app', "assets", "images", "d0990d2f4228a45a1c360001228b4e04_original.jpg")
+  project117.image_url.attach(io: File.open(projectpath117), filename: "d0990d2f4228a45a1c360001228b4e04_original.jpg")
+  project117.save
+  user118 = User.new(name: "Cthulhuscape", email: "cthulhuscape@gmail.com", password: "starwars", biography: 'Cthulhuscape was founded in 2017', google_analytics: "")
+  userpath118 = File.join(Rails.root, 'app', "assets", "images", "5f59460a4b672ee829d5ebf2393cf12c_original.png")
+  user118.profile_url.attach(io: File.open(userpath118), filename: "5f59460a4b672ee829d5ebf2393cf12c_original.png")
+  user118.save
+  project118 = Project.new(duration: 0, limit: false, user_id: user118.id, country: "Germany", title: "Cthulhuscape - The artworks! H.P. Lovecrafts perilous places", description: "A collection of six different artworks showing some of the most exciting places of the Cthulhu mythos, illustrated by Nele Diel!", pledge_amt: 0, eta: nil, shipping: "", city: "Remscheid", state: "Germany", funding_goal: 2274, category_id: categories[0].id, subcategory: "Illustration", challenges: "")
+  projectpath118 = File.join(Rails.root, 'app', "assets", "images", "e8652147c7ea3e247c67d7f8d4b73b4c_original.jpg")
+  project118.image_url.attach(io: File.open(projectpath118), filename: "e8652147c7ea3e247c67d7f8d4b73b4c_original.jpg")
+  project118.save
+  user119 = User.new(name: "Noel Arthur Heimpel", email: "noelarthurheimpel@gmail.com", password: "starwars", biography: 'Queer, nonbinary comics creator, writer, illustrator and Tarot reader living in Seattle, WA. I make magical stories with deep thoughts and happy endings for under-represented groups. Recent projects include the webcomic Ignition Zero and the Numinous Tarot deck.', google_analytics: "")
+  userpath119 = File.join(Rails.root, 'app', "assets", "images", "b5814588f6fda7dfe2f14429dac44c10_original.jpg")
+  user119.profile_url.attach(io: File.open(userpath119), filename: "b5814588f6fda7dfe2f14429dac44c10_original.jpg")
+  user119.save
+  project119 = Project.new(duration: 0, limit: false, user_id: user119.id, country: "the United States", title: "The Numinous Tarot 2nd Printing", description: "Second print run of an intersectional, queer, feminist Tarot deck and guidebook with gender neutral language.", pledge_amt: 0, eta: nil, shipping: "", city: "Seattle", state: "WA", funding_goal: 18000, category_id: categories[0].id, subcategory: "Illustration", challenges: "")
+  projectpath119 = File.join(Rails.root, 'app', "assets", "images", "6783260c97730858a1cf7e225698b6e8_original.jpg")
+  project119.image_url.attach(io: File.open(projectpath119), filename: "6783260c97730858a1cf7e225698b6e8_original.jpg")
+  project119.save
+  user120 = User.new(name: "MazM", email: "mazm@gmail.com", password: "starwars", biography: 'The Best Influential Story Game Creator to help the younger generation experience, awaken, and grow up', google_analytics: "")
+  userpath120 = File.join(Rails.root, 'app', "assets", "images", "c43c97e117d9be3d3a20f2278de4df22_original.jpg")
+  user120.profile_url.attach(io: File.open(userpath120), filename: "c43c97e117d9be3d3a20f2278de4df22_original.jpg")
+  user120.save
+  project120 = Project.new(duration: 0, limit: false, user_id: user120.id, country: "the United States", title: "The Phantom of the Opera | Story-driven adventure for Mobile", description: "MazM presents ‘The Phantom of the Opera’ | Bringing Classical Literature to Life", pledge_amt: 0, eta: nil, shipping: "", city: "San Jose", state: "CA", funding_goal: 20000, category_id: categories[8].id, subcategory: "Mobile Games", challenges: "")
+  projectpath120 = File.join(Rails.root, 'app', "assets", "images", "287821a68814b3fe65a4843056a88a16_original.png")
+  project120.image_url.attach(io: File.open(projectpath120), filename: "287821a68814b3fe65a4843056a88a16_original.png")
+  project120.save
+  user121 = User.new(name: "Dante", email: "dante@gmail.com", password: "starwars", biography: 'I spent my teenager years programming and building my own computer and have never lost the passion for gaming. I want to bring a quality of game that I would not only be proud of, but would want to play myself. I am endeavouring to create a game with aspects that stops it from getting boring or repetitive, and something you can escape to when you like.', google_analytics: "")
+  userpath121 = File.join(Rails.root, 'app', "assets", "images", "a8cb4dd9fc7372e30d1ffeac91e9cde5_original.jpg")
+  user121.profile_url.attach(io: File.open(userpath121), filename: "a8cb4dd9fc7372e30d1ffeac91e9cde5_original.jpg")
+  user121.save
+  project121 = Project.new(duration: 0, limit: false, user_id: user121.id, country: "Australia", title: "Zombiescape: Survival in a post zombie apocalypse", description: "A zombie survival game. You will be able to interact with the world almost realistically while creating your own fort to survive in", pledge_amt: 0, eta: nil, shipping: "", city: "Sydney", state: "AU", funding_goal: 14076, category_id: categories[8].id, subcategory: "Mobile Games", challenges: "")
+  projectpath121 = File.join(Rails.root, 'app', "assets", "images", "f180387e58d6ca72c58096f96d034867_original.jpg")
+  project121.image_url.attach(io: File.open(projectpath121), filename: "f180387e58d6ca72c58096f96d034867_original.jpg")
+  project121.save
+  user122 = User.new(name: "George Herrera", email: "georgeherrera@gmail.com", password: "starwars", biography: 'Christian youth worker & minister in Manchester, England.', google_analytics: "")
+  userpath122 = File.join(Rails.root, 'app', "assets", "images", "b1296d1a54f256bf432e9dae68cfbd64_original.jpg")
+  user122.profile_url.attach(io: File.open(userpath122), filename: "b1296d1a54f256bf432e9dae68cfbd64_original.jpg")
+  user122.save
+  project122 = Project.new(duration: 0, limit: false, user_id: user122.id, country: "the United Kingdom", title: "Virtual Reality Encounter with Jesus Christ", description: "Virtual Reality app for young people to Encounter Jesus Christ and get excited about the Gospel.", pledge_amt: 0, eta: nil, shipping: "", city: "Manchester", state: "UK", funding_goal: 107375, category_id: categories[8].id, subcategory: "Mobile Games", challenges: "")
+  projectpath122 = File.join(Rails.root, 'app', "assets", "images", "d8ce11d30a21ffcf68e3b5f6da710830_original.jpg")
+  project122.image_url.attach(io: File.open(projectpath122), filename: "d8ce11d30a21ffcf68e3b5f6da710830_original.jpg")
+  project122.save
+  user123 = User.new(name: "Myss Tic", email: "mysstic@gmail.com", password: "starwars", biography: 'Myss Tic is an immersive theatrical Escape Room experience. We strive to offer unique experiences and we mix our two passions: Escape Rooms and immersive theatre.', google_analytics: "")
+  userpath123 = File.join(Rails.root, 'app', "assets", "images", "fc31ddb6d50310cc2197856360bd32f0_original.jpg")
+  user123.profile_url.attach(io: File.open(userpath123), filename: "fc31ddb6d50310cc2197856360bd32f0_original.jpg")
+  user123.save
+  project123 = Project.new(duration: 0, limit: false, user_id: user123.id, country: "the United States", title: "Myss Tic - Immersive Escape Rooms", description: "A fully immersive live experience, where you create your own adventure - a story only you can tell.", pledge_amt: 0, eta: nil, shipping: "", city: "Brooklyn", state: "NY", funding_goal: 7940, category_id: categories[8].id, subcategory: "Live Games", challenges: "")
+  projectpath123 = File.join(Rails.root, 'app', "assets", "images", "13dbf2b998cf6cdb6dd1a499c0abb862_original.png")
+  project123.image_url.attach(io: File.open(projectpath123), filename: "13dbf2b998cf6cdb6dd1a499c0abb862_original.png")
+  project123.save
+  user124 = User.new(name: "Kymbr Mundstock", email: "kymbrmundstock@gmail.com", password: "starwars", biography: 'When I was a kid I played role-playing games. Sitting at a table, rolling dice while the game master lead us in a tale of adventure and intrigue. I enjoyed the escape into that fantasy world for even a few hours per week. But real life, family and school didn\'t allow that escape to go on as long as I would have liked. I went to camps occasionally, and I had fun, but they usually had a focus that wasn\'t exactly mine. I didn\'t enjoy exercise for its own sake. I didn\'t make friends easily with the ultra-religious delighting in the wonders of God\'s creation or the adrenaline junkies who conquered mountains for bragging rights. Why struggle so hard to get up just to waste nearly as much time and effort to get back down. Fighting my way up to save a prisoner, defeat a villain or even just get information seemed a better motivation. As I grew older I got into costuming and visited renaissance fairs. I ran children\'s at a reigonal science fiction convention for many years. I taught kids of all ages in many subjects in childcare centers, afterschool care and homeschool co-ops. I was a scout leader and a tutor before I got my BA in Education. I write fantasy and light sci-fi books for young adults and sell crafts at local shows and conventions.', google_analytics: "")
+  userpath124 = File.join(Rails.root, 'app', "assets", "images", "42b6ce8beaaf37191421c6f3bbd5ee16_original.jpg")
+  user124.profile_url.attach(io: File.open(userpath124), filename: "42b6ce8beaaf37191421c6f3bbd5ee16_original.jpg")
+  user124.save
+  project124 = Project.new(duration: 0, limit: false, user_id: user124.id, country: "the United States", title: "Freehold Village", description: "Live Action Role Playing event space in Southern California", pledge_amt: 0, eta: nil, shipping: "", city: "Bakersfield", state: "CA", funding_goal: 25000, category_id: categories[8].id, subcategory: "Live Games", challenges: "")
+  projectpath124 = File.join(Rails.root, 'app', "assets", "images", "86f92c6dee5b3f13d654f98950dde48e_original.jpg")
+  project124.image_url.attach(io: File.open(projectpath124), filename: "86f92c6dee5b3f13d654f98950dde48e_original.jpg")
+  project124.save
+  user125 = User.new(name: "Gareth Rigby", email: "garethrigby@gmail.com", password: "starwars", biography: 'Ex bar, film and financial industry worker looking to realise a long-term dream of bringing an innovative social concept to Geneva.', google_analytics: "")
+  userpath125 = File.join(Rails.root, 'app', "assets", "images", "8acf0242a6205173df985bbb2badb404_original.png")
+  user125.profile_url.attach(io: File.open(userpath125), filename: "8acf0242a6205173df985bbb2badb404_original.png")
+  user125.save
+  project125 = Project.new(duration: 0, limit: false, user_id: user125.id, country: "Switzerland", title: "Rollers - Switzerland's first mini-golf bar", description: "Whack and roll through your favourite cinematic moments. A new concept for Geneva - a mini golf cocktail bar!", pledge_amt: 0, eta: nil, shipping: "", city: "Geneva", state: "Switzerland", funding_goal: 12561, category_id: categories[8].id, subcategory: "Live Games", challenges: "")
+  projectpath125 = File.join(Rails.root, 'app', "assets", "images", "e0355f6faa18a1ce0ad947ad42d75923_original.jpg")
+  project125.image_url.attach(io: File.open(projectpath125), filename: "e0355f6faa18a1ce0ad947ad42d75923_original.jpg")
+  project125.save
+  user126 = User.new(name: "Kevin", email: "kevin@gmail.com", password: "starwars", biography: 'Born and raised in Winona Ontario. Joined the military as a combat engineer and was posted in New Brunswick. After four years of service, I moved to the west coast of Canada to work in special effects and pyrotechnics in film and live events, My injury from the military took a bad turn, now back in Ontario, trying to make something of myself.', google_analytics: "")
+  userpath126 = File.join(Rails.root, 'app', "assets", "images", "58865ab26b72fedf0cbb33326669e95d_original.jpg")
+  user126.profile_url.attach(io: File.open(userpath126), filename: "58865ab26b72fedf0cbb33326669e95d_original.jpg")
+  user126.save
+  project126 = Project.new(duration: 0, limit: false, user_id: user126.id, country: "Canada", title: "Veteran operated paintball and airsoft field", description: "We need help getting our project off the ground to help other veterans in trouble", pledge_amt: 0, eta: nil, shipping: "", city: "Durham", state: "Canada", funding_goal: 3675, category_id: categories[8].id, subcategory: "Live Games", challenges: "")
+  projectpath126 = File.join(Rails.root, 'app', "assets", "images", "d5b2b99ea2518a2e4d8c326ffca246c5_original.jpg")
+  project126.image_url.attach(io: File.open(projectpath126), filename: "d5b2b99ea2518a2e4d8c326ffca246c5_original.jpg")
+  project126.save
+  user127 = User.new(name: "Hayde Bluegrass Orchestra", email: "haydebluegrassorchestra@gmail.com", password: "starwars", biography: 'A cold december morning they bought themselves a Upright Bass and held their first rehearsal in an apartment in Oslo. 5 years and 7 instruments later the eight member strong bluegrass orchestra still only has one song out on digital platforms, but over 450.000 views on their Youtube channel. Now it\'s time to make some more music available to the listeners.', google_analytics: "")
+  userpath127 = File.join(Rails.root, 'app', "assets", "images", "7fc8c9bc09c60fb12abe9b750f2f6c6c_original.jpg")
+  user127.profile_url.attach(io: File.open(userpath127), filename: "7fc8c9bc09c60fb12abe9b750f2f6c6c_original.jpg")
+  user127.save
+  project127 = Project.new(duration: 0, limit: false, user_id: user127.id, country: "Norway", title: "HAYDE BLUEGRASS ORCHESTRA: The First Album", description: "Support HAYDE BLUEGRASS ORCHESTRA in the making of their first Bluegrass/Folk/Americana album!", pledge_amt: 0, eta: nil, shipping: "", city: "Oslo", state: "Norway", funding_goal: 5706, category_id: categories[10].id, subcategory: "Country & Folk", challenges: "")
+  projectpath127 = File.join(Rails.root, 'app', "assets", "images", "3647fbb8ab22b689ae8aab3ca22ae816_original.jpg")
+  project127.image_url.attach(io: File.open(projectpath127), filename: "3647fbb8ab22b689ae8aab3ca22ae816_original.jpg")
+  project127.save
+  user128 = User.new(name: "Caitlin Cannon Eddins", email: "caitlincannoneddins@gmail.com", password: "starwars", biography: 'After beginning her songwriting career in Brooklyn, Caitlin Cannon (former NYC-based actor) moved to Colorado to learn everything she could about the well-crafted song. She released self-titled EP "Caitlin Cannon and the Artillery" with producer Tim "Randolph" Edgar (Imagine Dragons) off of which songs were recognized by the Rocky Mountain Folks Festival, featured on Democracy Now. She has since toured nationally with projects "Caitlin Cannon and the Artillery" and "The Cannondolls (& Balls)" sharing and/or warming stages for the likes of Lydia Loveless, Whitey Morgan, The Revered Horton Heat, We Dream Dawn, Julia Haltigan, Eleanore Whitmore, Eilen Jewel, Ned Ledoux, Farewell Angelina, Sundance Head, Tony Furtado and more.', google_analytics: "")
+  userpath128 = File.join(Rails.root, 'app', "assets", "images", "f5cafd1e1d31c7734a1c094866c8142b_original.jpg")
+  user128.profile_url.attach(io: File.open(userpath128), filename: "f5cafd1e1d31c7734a1c094866c8142b_original.jpg")
+  user128.save
+  project128 = Project.new(duration: 0, limit: false, user_id: user128.id, country: "the United States", title: "TrashCannon: A Satirical Reformist Ratchet-Country Album", description: "Caitlin Cannon repurposes her inner-garbage with TrashCannon, while paying homage to iconic female voices in country music.", pledge_amt: 0, eta: nil, shipping: "", city: "Denver", state: "CO", funding_goal: 10000, category_id: categories[10].id, subcategory: "Country & Folk", challenges: "")
+  projectpath128 = File.join(Rails.root, 'app', "assets", "images", "d58951e7fae233285e2d63f9a5cb0fa0_original.png")
+  project128.image_url.attach(io: File.open(projectpath128), filename: "d58951e7fae233285e2d63f9a5cb0fa0_original.png")
+  project128.save
+  user129 = User.new(name: "Sian Baker", email: "sianbaker@gmail.com", password: "starwars", biography: 'Portal is collaborative. We create a platform for DJs and live acts from Porto and beyond to share their talents with the world via our live stream. Electronic music is the heart of Portal, with no limits upon what you create and how you do it, we invite likeminded people to share our experience.', google_analytics: "")
+  userpath129 = File.join(Rails.root, 'app', "assets", "images", "402797f4a35cf86ee03487dd568f8956_original.png")
+  user129.profile_url.attach(io: File.open(userpath129), filename: "402797f4a35cf86ee03487dd568f8956_original.png")
+  user129.save
+  project129 = Project.new(duration: 0, limit: false, user_id: user129.id, country: "", title: "Portal: Arts and Music Space", description: "Portal will be a unique community space encompassing live music, artistic performances, installations and food.", pledge_amt: 0, eta: nil, shipping: "", city: "Porto", state: "Portugal", funding_goal: 12632, category_id: categories[10].id, subcategory: "Electronic Music", challenges: "")
+  projectpath129 = File.join(Rails.root, 'app', "assets", "images", "dfacd6a7f685b0f36510a5c6aad99b68_original.jpg")
+  project129.image_url.attach(io: File.open(projectpath129), filename: "dfacd6a7f685b0f36510a5c6aad99b68_original.jpg")
+  project129.save
+  user130 = User.new(name: "HAPE Collective", email: "hapecollective@gmail.com", password: "starwars", biography: 'HAPE Collective, born in Havana in 2016 at the time of a historic moment for Cuba, is committed to advancing content from the antipodes of the world, by connecting the dots between the musical industries, musical talents and institutions on the ground. Today, the collective has spread to more than 10 countries and multiplying collaborations with artists from Cuba, Chad, Mexico, United States, Italy, Belgium, the United Kingdom, etc… Formed by a group of deejays, musicians, music lovers and cultural promoters from different countries, HAPE Collective creates a unique space for experimentation, spanning various arts and facilitating international collaborations. MISSION STATEMENT We are a platform that promotes cultural exchange through barrier-breaking encounters. We celebrate diversity, creativity and cultural heritage, focusing on the discovery of music, people, and places. By putting at the center the cultural mix, the unquenchable thirst for modernizing roots, we strive to feed content from diverse parts of the world in a circular way to promote cross-fertilisation. The quest to bring us closer begins with music. We strengthen the interaction between musical actors of the center and periphery of the musical industry to improve skills and mutual understanding. We want and need people to be the main fuel of this melting pot: open-minded people who are willing to engage in unexpected cultural journeys and discoveries, and to become engine for creation.', google_analytics: "")
+  userpath130 = File.join(Rails.root, 'app', "assets", "images", "bbf723f4a1a29479319fa35e568f2a01_original.png")
+  user130.profile_url.attach(io: File.open(userpath130), filename: "bbf723f4a1a29479319fa35e568f2a01_original.png")
+  user130.save
+  project130 = Project.new(duration: 0, limit: false, user_id: user130.id, country: "", title: "Pulo NDJ's debut album: 'Desert to Douala' (Wonderwheel Rec)", description: "Pulo NDJ is an encounter between talented artists from Chad & Cameroon, globe-trotting Nickodemus and HAPE Collective's own DJ Buosis", pledge_amt: 0, eta: nil, shipping: "", city: "N'Djamena", state: "Chad", funding_goal: 3183, category_id: categories[10].id, subcategory: "World Music", challenges: "")
+  projectpath130 = File.join(Rails.root, 'app', "assets", "images", "722376da803b9cf21fd2f7ed1226c941_original.jpeg")
+  project130.image_url.attach(io: File.open(projectpath130), filename: "722376da803b9cf21fd2f7ed1226c941_original.jpeg")
+  project130.save
+  user131 = User.new(name: "Popula", email: "popula@gmail.com", password: "starwars", biography: 'News and culture, local to the world, since June 2018.', google_analytics: "")
+  userpath131 = File.join(Rails.root, 'app', "assets", "images", "4faab3bb1c6c28724c6d6d2f066562a4_original.jpeg")
+  user131.profile_url.attach(io: File.open(userpath131), filename: "4faab3bb1c6c28724c6d6d2f066562a4_original.jpeg")
+  user131.save
+  project131 = Project.new(duration: 0, limit: false, user_id: user131.id, country: "the United States", title: "Popula: the Alt-Global Magazine of News and Culture", description: "Journalist-owned, reader-supported, ad-free, permanently archived, high-quality independent art and information from planet Earth.", pledge_amt: 0, eta: nil, shipping: "", city: "Los Angeles", state: "CA", funding_goal: 25000, category_id: categories[9].id, subcategory: "", challenges: "")
+  projectpath131 = File.join(Rails.root, 'app', "assets", "images", "3b68ab225e49dcf7b27ac7f800f68998_original.jpg")
+  project131.image_url.attach(io: File.open(projectpath131), filename: "3b68ab225e49dcf7b27ac7f800f68998_original.jpg")
+  project131.save
+  user132 = User.new(name: "Media Diversified", email: "mediadiversified@gmail.com", password: "starwars", biography: 'Media Diversified was established in 2013 to help change the conversation in the media and foreground the voices of writers of colour. Since then we’ve made a considerable impact for a small non-profit organisation - we’ve been challenging and shaping the regular news agenda in our own way, diversifying the media landscape and platforming voices you wouldn’t necessarily hear in mainstream outlets. We’ve been focused in our mission to open authentic narratives of marginalised experience to the mainstream and become a well-known brand in media circles.', google_analytics: "")
+  userpath132 = File.join(Rails.root, 'app', "assets", "images", "9c82979f256e1e570beb28f7acd3d031_original.png")
+  user132.profile_url.attach(io: File.open(userpath132), filename: "9c82979f256e1e570beb28f7acd3d031_original.png")
+  user132.save
+  project132 = Project.new(duration: 0, limit: false, user_id: user132.id, country: "the United Kingdom", title: "Media Diversified: funding a new era of writers of colour", description: "Media Diversified is here to help change the conversation in the media and foreground the voices of writers of colour.", pledge_amt: 0, eta: nil, shipping: "", city: "London", state: "UK", funding_goal: 7579, category_id: categories[9].id, subcategory: "Web", challenges: "")
+  projectpath132 = File.join(Rails.root, 'app', "assets", "images", "d919009c39057c0b560eef9d4c05b88e_original.png")
+  project132.image_url.attach(io: File.open(projectpath132), filename: "d919009c39057c0b560eef9d4c05b88e_original.png")
+  project132.save
+  user133 = User.new(name: "For Truth Media Group", email: "fortruthmediagroup@gmail.com", password: "starwars", biography: 'Chris Grisby is back with an all new show: Community Pulse. He will be visiting your communities to tell your stories, search for truth, and unite us in the pursuit of the answers we are all seeking. Chris is here to be the voice for Florida’s environment and you! Community Pulse with Chris Grisby will have new episodes weekly.', google_analytics: "")
+  userpath133 = File.join(Rails.root, 'app', "assets", "images", "4450d33e0a5021ae77a50c5cee23ff33_original.png")
+  user133.profile_url.attach(io: File.open(userpath133), filename: "4450d33e0a5021ae77a50c5cee23ff33_original.png")
+  user133.save
+  project133 = Project.new(duration: 0, limit: false, user_id: user133.id, country: "the United States", title: "Help For Truth Media Produce Its Next Investigative Report", description: "Community-backed, justice-driven & solution-oriented press coverage of red tide, climate change & other environmental concerns in FL.", pledge_amt: 0, eta: nil, shipping: "", city: "Fort Meyers", state: "FL", funding_goal: 5000, category_id: categories[9].id, subcategory: "Video", challenges: "")
+  projectpath133 = File.join(Rails.root, 'app', "assets", "images", "a40a9a70a42bc2ca5e271fe34fadde7a_original.jpg")
+  project133.image_url.attach(io: File.open(projectpath133), filename: "a40a9a70a42bc2ca5e271fe34fadde7a_original.jpg")
+  project133.save
+  user134 = User.new(name: "lawrence donegan", email: "lawrencedonegan@gmail.com", password: "starwars", biography: 'McKellar was founded jointly by Lawrence Donegan and Thomas Dunne, two long-established figures in the world of golf journalist. Lawrence was the long-time golf correspondent of the Guardian newspaper. Thomas was deputy editor of Travel and Leisure Golf and currently works for Golfweek magazine.', google_analytics: "")
+  userpath134 = File.join(Rails.root, 'app', "assets", "images", "b6a98d9c28e081c4618fc92b294109de_original.png")
+  user134.profile_url.attach(io: File.open(userpath134), filename: "b6a98d9c28e081c4618fc92b294109de_original.png")
+  user134.save
+  project134 = Project.new(duration: 0, limit: false, user_id: user134.id, country: "the United States", title: "McKellar Magazine", description: "McKellar is a literary golf journal showcasing world-class writing and illustration. Issue #2 will be published in February", pledge_amt: 0, eta: nil, shipping: "", city: "Rye", state: "NY", funding_goal: 4000, category_id: categories[9].id, subcategory: "Print", challenges: "")
+  projectpath134 = File.join(Rails.root, 'app', "assets", "images", "6a5dd7ca267894c283d9eb28432ad45a_original.jpg")
+  project134.image_url.attach(io: File.open(projectpath134), filename: "6a5dd7ca267894c283d9eb28432ad45a_original.jpg")
+  project134.save
+  user135 = User.new(name: "Mouse Books", email: "mousebooks@gmail.com", password: "starwars", biography: 'Mouse Books is 4 people: Brian Chappell: Ph.D, Teacher, Spiritual Philosopher David Dewane: Architect, Journalist, Social Entrepreneur Courtney Garvin: Graphic Designer, Runner, Epoch B All-Star Chris Motley: Architect, Snowboarder, Smooth Operator', google_analytics: "")
+  userpath135 = File.join(Rails.root, 'app', "assets", "images", "224d52646396decb4a07139a5b7a6c57_original.jpg")
+  user135.profile_url.attach(io: File.open(userpath135), filename: "224d52646396decb4a07139a5b7a6c57_original.jpg")
+  user135.save
+  project135 = Project.new(duration: 0, limit: false, user_id: user135.id, country: "the United States", title: "MOUSE BOOKS: SEASON 2", description: "Great Literature for a Mobile Life", pledge_amt: 0, eta: nil, shipping: "", city: "Chicago", state: "IL", funding_goal: 10000, category_id: categories[12].id, subcategory: "", challenges: "")
+  projectpath135 = File.join(Rails.root, 'app', "assets", "images", "55cce6a4b06e8b145e7c80e6e9e45c38_original.jpg")
+  project135.image_url.attach(io: File.open(projectpath135), filename: "55cce6a4b06e8b145e7c80e6e9e45c38_original.jpg")
+  project135.save
+  user136 = User.new(name: "Lucy Saunders", email: "lucysaunders@gmail.com", password: "starwars", biography: 'I am a British freelance photographer and designer based in Bath, England and the founder of Flourish. I initially trained at University studying Photography giving me a wealth of other talents such as graphic design, magazine creating and book binding. It was then I started to create magazine publications. After graduating I worked upon my own project \'Flourish\' with its key focus on photography - based around lifestyle and travel. I have a major passion for all arts including illustration, graphics, fine art and textiles which is why I want to build an artistic community not just a magazine. I want to encourage artistic collaborations, which I hope kickstarter will start. My other personal work has been set in other publications such as \'Boots, Tracks & Biscuits\' and freelance travel writing for other magazines. I enjoy the outdoors more than anything and thats why I wanted to share outdoors thriving with the world. Whether it is in the UK or abroad the most important thing is to capture and embrace what is around you. Thank you everyone!', google_analytics: "")
+  userpath136 = File.join(Rails.root, 'app', "assets", "images", "b905f19d85091559c300b644e6b3b449_original.jpg")
+  user136.profile_url.attach(io: File.open(userpath136), filename: "b905f19d85091559c300b644e6b3b449_original.jpg")
+  user136.save
+  project136 = Project.new(duration: 0, limit: false, user_id: user136.id, country: "the United Kingdom", title: "Flourish Vol. 2: A Travel & Lifestyle Magazine", description: "Vol. 2 - The British Isles is all about how we thrive in a particular place, community, or culture, and flourishing in the outdoors.", pledge_amt: 0, eta: nil, shipping: "", city: "Bath", state: "UK", funding_goal: 3158, category_id: categories[12].id, subcategory: "Periodicals", challenges: "")
+  projectpath136 = File.join(Rails.root, 'app', "assets", "images", "2797f9c8ca2fa62b281fdaffc0b5a813_original.jpg")
+  project136.image_url.attach(io: File.open(projectpath136), filename: "2797f9c8ca2fa62b281fdaffc0b5a813_original.jpg")
+  project136.save
+  user137 = User.new(name: "Microcosm Publishing", email: "microcosmpublishing@gmail.com", password: "starwars", biography: 'A small and innovative publishing house, Microcosm Publishing specializes in work designed to empower readers to improve their lives and communities. Microcosm fosters creativity by challenging conventional publishing wisdom, and tries to always have the most fun. Originally a zine distro and record label, Microcosm was founded in Cleveland, OH in 1996 and is now based in Portland, OR (you can read all about our history in our Kickstarter-funded book Good Trouble!). Our books are printed in the USA.', google_analytics: "")
+  userpath137 = File.join(Rails.root, 'app', "assets", "images", "9b5299e059ae0b61697427349866a2c3_original.jpeg")
+  user137.profile_url.attach(io: File.open(userpath137), filename: "9b5299e059ae0b61697427349866a2c3_original.jpeg")
+  user137.save
+  project137 = Project.new(duration: 0, limit: false, user_id: user137.id, country: "the United States", title: "Unf*ck Your Intimacy: Relationships, Sex & Dating", description: "Dr. Faith's inclusive, wise, funny guide to getting your love and sex lives on track. From the author of Unf*ck Your Brain.", pledge_amt: 0, eta: nil, shipping: "", city: "Portland", state: "OR", funding_goal: 10000, category_id: categories[12].id, subcategory: "Nonfiction", challenges: "")
+  projectpath137 = File.join(Rails.root, 'app', "assets", "images", "d2c6d78a2bf4df32c89c36fedeca5d3c_original.jpg")
+  project137.image_url.attach(io: File.open(projectpath137), filename: "d2c6d78a2bf4df32c89c36fedeca5d3c_original.jpg")
+  project137.save
 end
