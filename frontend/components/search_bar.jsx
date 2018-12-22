@@ -31,10 +31,15 @@ class SearchBar extends React.Component {
     let categoryBox = [];
     matchingCategories.forEach((category, id) => {
       categoryBox.push(<div key={id}>
-        <li>All<span>in {category.name}</span></li>
+        <Link to={category.name === 'Film' ? `/discover/categories/film-video` : `/discover/categories/${category.name.toLowerCase()}`}><li>All<span>in {category.name}</span></li></Link>
         <li>{category.name}<span>in {category.subcategories[0]}</span></li>
         <li>{category.name}<span>in {category.subcategories[1]}</span></li>
       </div>);
+    });
+    let matchingCreators = this.props.creators.filter(creator => creator.name.match(regex) != null);
+    let creatorsBox = [];
+    matchingCreators.forEach((creator, id) => {
+      creatorsBox.push(<div key={id}><li className='search-bar-creators'><img src={`${creator.profileUrl}`}/> {creator.name}</li></div>);
     });
     return (
       <div className='search-bar-modal-box'>
@@ -48,8 +53,8 @@ class SearchBar extends React.Component {
           <ul>
             {matchingCategories.length != 0 ? <div className='search-bar-categories'>Categories</div> : ''}
             {categoryBox}
-            <div className='search-bar-categories'>Creators</div>
-            <li className='search-bar-creators'><img /> Nimba Fashion</li>
+            {creatorsBox.length != 0 ? <div className='search-bar-categories'>Creators</div> : ''}
+            {creatorsBox.length > 3 ? `${creatorsBox[0]}${creatorsBox[1]}${creatorsBox[2]}` : creatorsBox}
             <div className='search-bar-categories'>Projects</div>
             <li className='search-bar-projects'>
               <img />
