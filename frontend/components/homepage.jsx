@@ -435,7 +435,7 @@ class Homepage extends React.Component {
     </div>);
     return (
       <div>
-        <SearchBar searchBar={this.state.searchBar} clickSearchBar={this.clickSearchBar} searchOptions={this.state.searchOptions} saveToState={this.saveToState}/>
+        <SearchBar searchBar={this.state.searchBar} clickSearchBar={this.clickSearchBar} searchOptions={this.state.searchOptions} saveToState={this.saveToState} categories={Object.values(this.props.category)} creators={Object.values(this.props.user)} projects={Object.values(this.props.projects)} />
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.sessionId)[0]} userId={this.props.sessionId} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='homepage-body'>

@@ -26,8 +26,16 @@ class SearchBar extends React.Component {
   }
 
   render() {
-
-
+    let regex = new RegExp(this.state.keyword, 'gi');
+    let matchingCategories = this.props.categories.filter(category => category.name.match(regex) != null);
+    let categoryBox = [];
+    matchingCategories.forEach((category, id) => {
+      categoryBox.push(<div key={id}>
+        <li>All<span>in {category.name}</span></li>
+        <li>{category.name}<span>in {category.subcategories[0]}</span></li>
+        <li>{category.name}<span>in {category.subcategories[1]}</span></li>
+      </div>);
+    });
     return (
       <div className='search-bar-modal-box'>
         <div className={`${this.props.searchBar} search-bar-modal`}>
@@ -38,8 +46,8 @@ class SearchBar extends React.Component {
         </div>
         <div className={`search-bar-dropdown ${this.props.searchOptions}`}>
           <ul>
-            <div className='search-bar-categories'>Categories</div>
-            <li>All <span>in Fashion</span> </li>
+            {matchingCategories.length != 0 ? <div className='search-bar-categories'>Categories</div> : ''}
+            {categoryBox}
             <div className='search-bar-categories'>Creators</div>
             <li className='search-bar-creators'><img /> Nimba Fashion</li>
             <div className='search-bar-categories'>Projects</div>
