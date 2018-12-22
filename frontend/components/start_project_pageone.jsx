@@ -6,7 +6,7 @@ class StartProjectPageOne extends React.Component {
   constructor(props) {
     super(props);
     this.state = {displayProfileMenu: 'js-modal-close',
-                  country: '',
+                  country: 'Select your country',
                   ageButton: 'verification-button far fa-check-circle',
                   bankButton: 'verification-button far fa-check-circle',
                   cardButton: 'verification-button far fa-check-circle',
@@ -34,12 +34,15 @@ class StartProjectPageOne extends React.Component {
                   image_url: '',
                   funding_goal: 0,
                   dropdown: 'location-none-display',
-                  currentCategory: 'Select your category'};
+                  currentCategory: 'Select your category',
+                  countryDropdown: 'location-none-display'};
     this.update = this.update.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.updateCategory = this.updateCategory.bind(this);
     this.displayDropdown = this.displayDropdown.bind(this);
     this.changePages = this.changePages.bind(this);
+    this.displayCountryDropdown = this.displayCountryDropdown.bind(this);
+    this.updateCountry = this.updateCountry.bind(this);
   }
 
   componentDidMount() {
@@ -120,12 +123,6 @@ class StartProjectPageOne extends React.Component {
       if (this.state.pageNo === 2) {
         this.setState({className: 'disabled-no', description: e.target.value, wordCount: e.target.value.length});
         let randPlaceholder = e.target.value;
-      } else if (this.state.pageNo === 3) {
-        if (category === 'your-category') {
-          this.setState({button: 'disabled', className: 'disabled-yes'});
-        } else {
-          this.setState({[category]: e.target.value});
-        }
       }
     }
   }
@@ -136,6 +133,18 @@ class StartProjectPageOne extends React.Component {
     } else {
       this.setState({dropdown: 'location-none-display'});
     }
+  }
+
+  displayCountryDropdown() {
+    if (this.state.countryDropdown === 'location-none-display') {
+      this.setState({countryDropdown: ''});
+    } else {
+      this.setState({countryDropdown: 'location-none-display'});
+    }
+  }
+
+  updateCountry(country) {
+    this.setState({country, countryDropdown: 'location-none-display'});
   }
 
   updateCategory(category) {
@@ -312,13 +321,13 @@ class StartProjectPageOne extends React.Component {
               <div className='step-three-box-inner-inner'>
                 <h2>Finally, let's confirm your eligibility.</h2>
                 <h3>Tell us where you're based and confirm a few other details before we proceed.</h3>
-                <div className='country-dropdown'>
+                <div onClick={() => this.displayCountryDropdown()} className='country-dropdown'>
                   <i className="select-your-country-arrow fas fa-caret-down"></i>
-                  <select className='select-your-country' onChange={this.update('country')} defaultValue='your-category'>
-                    <option value='your-category' disabled>Select your country</option>
-                    {countries.map((country, id) => <option key={id} value={country}>{country}</option>)}
-                  </select>
+                  {this.state.country}
                 </div>
+                <ul className={`${this.state.countryDropdown}`}>
+                  {countries.map((country, id) => <li key={id} onClick={() => this.updateCountry(`${country}`)}>{country}</li>)}
+                </ul>
                 <div className='faqs'><Link to='/'><i className="far fa-question-circle"></i> What if my country isn’t listed?</Link></div>
                 <div className='verification'>
                   <button onClick={() => this.handleClick('ageButton')} className={`age-verification ${this.state.ageButtonBorder}`}><i className={`${this.state.ageButton} ${this.state.ageButtonColor}`}></i><span>I am at least 18 years old.</span></button>

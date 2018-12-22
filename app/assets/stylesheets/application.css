@@ -992,6 +992,30 @@ nav {
   background-color: white;
 }
 
+.step-three-box-inner-inner ul {
+  padding: 6px;
+  margin: 6px 0 60px 0;
+  height: 286px;
+  border: 1px solid black;
+  box-shadow: 0 3px 6px 1px rgba(0,0,0,0.17);
+  overflow: scroll;
+  z-index: 4;
+  width: 43.6%;
+  position: absolute;
+  background-color: white;
+}
+
+.step-three-box-inner-inner li {
+  padding: 12px;
+  height: 28px;
+  color: #282828;
+  display: flex;
+  align-items: center;
+  transition: all 600ms cubic-bezier(0.175, 0.885, 0.335, 1);
+  cursor: pointer;
+  font-size: 18px;
+}
+
 .select-your-category-dropdown li {
   padding: 12px;
   height: 28px;
@@ -1001,6 +1025,10 @@ nav {
   transition: all 600ms cubic-bezier(0.175, 0.885, 0.335, 1);
   cursor: pointer;
   font-size: 18px;
+}
+
+.step-three-box-inner-inner li:hover {
+  background-color: #E8E8E8;
 }
 
 .select-your-category-dropdown li:hover {
@@ -1398,7 +1426,7 @@ nav {
 .country-dropdown {
   -webkit-appearance: none;
   -moz-appearance: none;
-  display: block;
+  display: flex;
   border-radius: 0;
   background-color: white;
   font-size: 18px;
@@ -1406,35 +1434,17 @@ nav {
   font-weight: 100;
   box-shadow: #DCDEDD 0 2px 5px;
   width: 605px;
-  height: 55px;
+  height: 28px;
   position: relative;
+  padding: 12px 18px;
+  align-items: center;
 }
 
-.select-your-country:hover {
+.country-dropdown:hover {
   cursor: pointer;
   border: 1px solid black;
   transition: border 0.25s ease-in-out;
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.17);
-}
-
-.select-your-country {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  display: block;
-  padding: 20px;
-  border-radius: 0;
-  background-color: white;
-  font-size: 18px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 18px;
-  padding-right: 18px;
-  border: none;
-  font-weight: 100;
-  box-shadow: #DCDEDD 0 2px 5px;
-  color: rgba(0,0,0,0.6);
-  width: 605px;
-  height: 55px;
 }
 
 .select-your-country-arrow {

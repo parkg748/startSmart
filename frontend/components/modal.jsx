@@ -44,7 +44,7 @@ function Modal({ displayProfileMenu, user, userId, sessionId, projectId, logoutU
           <div className='profile-menu-body-left-header'>MY PROJECTS</div>
           <ul>
             {currentUserProjects.slice(0, 5).map((project, idx) => {
-              if (project.description === '') {
+              if (project.imageUrl === '') {
                 return <li key={idx}>
                   <div className='profile-menu-projects'>
                     <div className='profile-menu-projects-image'>
