@@ -8,7 +8,6 @@ import {fetchAllUsers, fetchUser} from '../../actions/session_actions';
 const mapStateToProps = state => {
   return {
     user: state.entities.users[state.session.id],
-    class: {display: 'location-none-display', displayProfileMenu: 'js-modal-close', searchBar: 'search-bar-close'},
     projects: state.entities.project,
     categories: state.entities.category,
     users: state.entities.users

@@ -7232,7 +7232,7 @@ strong {
 
 .recommendations-body-inner-inner {
   height: 96.7%;
-  padding-top: 60px;
+  padding-top: 10px;
 }
 
 .recommendations-body-inner-inner-inner-inner {
@@ -7293,7 +7293,7 @@ strong {
 .recommendations-body-two {
   height: 318px;
   border: 1px solid #DCDEDD;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   width: 100%;
 }
 
@@ -10415,6 +10415,7 @@ strong {
   font-weight: 100;
   font-size: 16px;
   color: #656969;
+  cursor: pointer;
 }
 
 .fa-trash {
