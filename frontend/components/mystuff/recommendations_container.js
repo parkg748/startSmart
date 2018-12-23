@@ -10,7 +10,8 @@ const mapStateToProps = state => {
     user: state.entities.users[state.session.id],
     projects: state.entities.project,
     categories: state.entities.category,
-    users: state.entities.users
+    users: state.entities.users,
+    session: state.session
   };
 };
 

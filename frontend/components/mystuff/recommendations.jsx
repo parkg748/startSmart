@@ -82,7 +82,7 @@ class Recommendations extends React.Component {
     if (this.props.projects === undefined || this.props.projects === null) return null;
     if (this.props.categories === undefined || this.props.categories === null) return null;
     if (this.props.users === undefined || this.props.users === null) return null;
-    if (this.props.user === null) return <Redirect to='/login' />;
+    if (this.props.user === null || this.props.session.session === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     let currentProfileIcon = getState().session.id === null || getState().session.session === null ? '' : Object.values(getState().entities.users).filter(el => el.id === getState().session.id)[0].profileUrl;
@@ -381,7 +381,7 @@ class Recommendations extends React.Component {
                     <div className='recommendations-body-header-one'>
                       <h3>Projects for you</h3>
                       <h5>
-                        <a><div>See all 282 live projects</div><i className={`${this.state.display} recommendations-body-arrow fas fa-long-arrow-alt-right`}></i></a>
+                        <a><div>See all {Object.values(this.props.user).length} live projects</div><i className={`${this.state.display} recommendations-body-arrow fas fa-long-arrow-alt-right`}></i></a>
                       </h5>
                     </div>
                   </div>
@@ -398,7 +398,7 @@ class Recommendations extends React.Component {
                             </div>
                             <div className='recommendations-body-seven-author'>
                               <img src='https://ksr-ugc.imgix.net/assets/006/347/287/83a01d5959e63f24f2ad447b4a0797f9_original.png?ixlib=rb-1.1.0&w=20&h=20&fit=crop&v=1503090035&auto=format&frame=1&q=92&s=d66f0ce35895ac6e08f4f2592cdbc9b8'/>
-                              by <span>{Object.values(this.props.users).length > 2 ? users[users.length - 1].name : ''}</span>
+                              by <Link to={`/profile/${Object.values(this.props.users).length > 2 ? users[users.length - 1].id : ''}`}><span>{Object.values(this.props.users).length > 2 ? users[users.length - 1].name : ''}</span></Link>
                             </div>
                             <div className='recommendations-body-seven-description'>{projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].description : ''}</div>
                             <div className='recommendations-body-seven-category'>

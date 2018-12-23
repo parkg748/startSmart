@@ -43,7 +43,7 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.props.fetchProjects();
-    this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchAllUsers();
   }
 
   clickSearchBar() {
@@ -154,10 +154,12 @@ class Profile extends React.Component {
 
   render() {
     if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    let profileUser = Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0];
+    let loggedInUser = Object.values(this.props.user).filter(el => el.id === this.props.sessionId)[0];
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null && Object.values(this.props.user)[0] != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={loggedInUser === undefined || loggedInUser.profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : loggedInUser.profileUrl} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
@@ -170,17 +172,17 @@ class Profile extends React.Component {
         };
       });
       const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      let userCreated = Object.values(this.props.user)[0].createdAt.split('-');
+      let userCreated = profileUser.createdAt.split('-');
       var userCreatedYear = userCreated[0];
       var userCreatedMonth = month[userCreated[1] - 1];
     }
     let currentProfileBody = '';
     if (this.state.profileView === 'about') {
-      currentProfileBody = <ProfileAbout biography={Object.values(this.props.user)[0].biography ? Object.values(this.props.user)[0].biography : ''} websites={Object.values(this.props.user)[0].websites}/>;
+      currentProfileBody = <ProfileAbout biography={profileUser != undefined ? profileUser.biography : ''} websites={profileUser != undefined ? profileUser.websites : []}/>;
     } else if (this.state.profileView === 'backed') {
-      currentProfileBody = <ProfileBacked backedProjects={Object.values(this.props.user)[0].backedProjects} />;
+      currentProfileBody = <ProfileBacked backedProjects={profileUser != undefined ? profileUser.backedProjects : []} />;
     } else if (this.state.profileView === 'created') {
-      currentProfileBody = <ProfileCreated projects={Object.values(this.props.projects).filter(el => el.userId == this.props.sessionId)} user={Object.values(this.props.user)[0]} />;
+      currentProfileBody = <ProfileCreated projects={Object.values(this.props.projects).filter(el => el.userId == this.props.match.params.userId)} user={profileUser} />;
     } //else if (this.state.profileView === 'comments') {
       // currentProfileBody = <Comments content={content} styles={styles} onClick={this.state.onClick} />;
     // }
@@ -204,11 +206,11 @@ class Profile extends React.Component {
                     </div>
                   </div>
                   <div className='profile-container-five'>
-                    <img src={Object.values(this.props.user)[0].profileUrl ? Object.values(this.props.user)[0].profileUrl : 'https://ksr-ugc.imgix.net/missing_user_avatar.png?ixlib=rb-1.1.0&w=80&h=80&fit=crop&v=&auto=format&frame=1&q=92&s=bef8e9f35b956ef44fafa5156ee21f03'}/>
+                    <img src={profileUser != undefined ? profileUser.profileUrl : 'https://ksr-ugc.imgix.net/missing_user_avatar.png?ixlib=rb-1.1.0&w=80&h=80&fit=crop&v=&auto=format&frame=1&q=92&s=bef8e9f35b956ef44fafa5156ee21f03'}/>
                   </div>
                   <div className='profile-container-seven'>
-                    <h2>{Object.values(this.props.user)[0].name}</h2>
-                    <p>Backed 0 projects · <Link className='preparing-for-project-link' to='/'>{Object.values(this.props.projects).length != 0 && Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0] != undefined ? `${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].city}, ${Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0].state}` : ''}</Link> · Joined {Object.values(this.props.user)[0].projects != null ? userCreatedMonth : ''} {Object.values(this.props.user)[0].projects != null ? userCreatedYear : ''}</p>
+                    <h2>{profileUser != undefined ? profileUser.name : ''}</h2>
+                    <p>Backed 0 projects · <Link className='preparing-for-project-link' to='/'>{Object.values(this.props.projects).length != 0 && Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0] != undefined ? `${Object.values(this.props.projects).filter(el => el.userId == this.props.match.params.userId)[0].city}, ${Object.values(this.props.projects).filter(el => el.userId == this.props.match.params.userId)[0].state}` : ''}</Link> · Joined {Object.values(this.props.user)[0].projects != null ? userCreatedMonth : ''} {Object.values(this.props.user)[0].projects != null ? userCreatedYear : ''}</p>
                   </div>
                 </div>
                 <div className="pieBackground">
