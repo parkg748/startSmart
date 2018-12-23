@@ -8,6 +8,7 @@ import FAQ from '../projects/faq';
 import Updates from '../projects/updates';
 import Comments from '../projects/comments';
 import Community from '../projects/community';
+import UserInfo from '../projects/user_info';
 
 class Preview extends React.Component {
   constructor(props) {
@@ -330,43 +331,7 @@ class Preview extends React.Component {
             </div>
           </div>
         </div>
-        <div className={this.state.userInfoModal}>
-          <i className="preview-user-info-close fas fa-times" onClick={() => this.showUserBio('off')}></i>
-          <div className='preview-user-info-one'>
-            <div className='preview-user-info-two'>
-              <h1>About the creator</h1>
-              <div className='preview-user-info-three'>
-                <div className='preview-user-info-four'>
-                  <h3>{Object.values(this.props.user)[0].name}</h3>
-                  <span>{Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].city}, {Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].state}</span>
-                </div>
-                <div className='preview-user-info-biography'>
-                  <span>{Object.values(this.props.user)[0].biography}</span>
-                </div>
-                <div className='preview-user-info-five'>
-                  <div className='preview-user-info-list'>
-                    <i className="preview-close fas fa-times"></i>
-                    <span>Identity not verified</span>
-                  </div>
-                  <div className='preview-user-info-list'>
-                    <i className="fas fa-lock"></i>
-                    <span>Last login {lastLoggedInMonth} {lastLoggedInDay} {lastLoggedInYear}</span>
-                  </div>
-                  <div className='preview-user-info-list'>
-                    <i className="preview-facebook-user-info fab fa-facebook"></i>
-                    <span>Not connected</span>
-                  </div>
-                  <div className='preview-user-info-list'>
-                    <i className="preview-user-info-s fab fa-stripe-s"></i>
-                    <span><a>7 created</a> · <a>0 backed</a></span>
-                  </div>
-                </div>
-                <button>Contact me</button>
-              </div>
-            </div>
-          </div>
-          <p onClick={() => this.showUserBio('off')}>Close</p>
-        </div>
+        <UserInfo id={this.props.match.params.userId} userInfoModal={this.state.userInfoModal} closeUserBio={() => this.showUserBio('off')} name={Object.values(this.props.user)[0].name} biography={Object.values(this.props.user)[0].biography} city={Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].city} state={Object.values(this.props.project).length === 0 ? '' : Object.values(this.props.project)[0].state} lastLoggedInMonth={lastLoggedInMonth} lastLoggedInDay={lastLoggedInDay} lastLoggedInYear={lastLoggedInYear} />
       </div>
     );
   }

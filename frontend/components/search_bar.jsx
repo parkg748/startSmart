@@ -27,23 +27,23 @@ class SearchBar extends React.Component {
 
   render() {
     let regex = new RegExp(this.state.keyword, 'gi');
-    let matchingCategories = this.props.categories.filter(category => category.name.match(regex) != null);
-    let categoryBox = [];
-    matchingCategories.forEach((category, id) => {
-      categoryBox.push(<div key={id}>
-        <Link to={category.name === 'Film' ? `/discover/categories/film-video` : `/discover/categories/${category.name.toLowerCase()}`}><li>All<span>in {category.name}</span></li></Link>
-        <li>{category.name}<span>in {category.subcategories[0]}</span></li>
-        <li>{category.name}<span>in {category.subcategories[1]}</span></li>
-      </div>);
-    });
-    let matchingCreators = this.props.creators.filter(creator => creator.name.match(regex) != null);
-    let creatorsBox = [];
-    matchingCreators.forEach((creator, id) => {
-      creatorsBox.push(<div key={id}><li className='search-bar-creators'><img src={`${creator.profileUrl}`}/> {creator.name}</li></div>);
-    });
+    // let matchingCategories = this.props.categories.filter(category => category.name.match(regex) != null);
+    // let categoryBox = [];
+    // matchingCategories.forEach((category, id) => {
+    //   categoryBox.push(<div key={id}>
+    //     <Link to={category.name === 'Film' ? `/discover/categories/film-video` : `/discover/categories/${category.name.toLowerCase()}`}><li>All<span>in {category.name}</span></li></Link>
+    //     <li>{category.name}<span>in {category.subcategories[0]}</span></li>
+    //     <li>{category.name}<span>in {category.subcategories[1]}</span></li>
+    //   </div>);
+    // });
+    // let matchingCreators = this.props.creators.filter(creator => creator.name.match(regex) != null);
+    // let creatorsBox = [];
+    // matchingCreators.forEach((creator, id) => {
+    //   creatorsBox.push(<div key={id}><li className='search-bar-creators'><img src={`${creator.profileUrl}`}/> {creator.name}</li></div>);
+    // });
     return (
       <div className='search-bar-modal-box'>
-        <div className={`${this.props.searchBar} search-bar-modal`}>
+        {/*<div className={`${this.props.searchBar} search-bar-modal`}>
           <input onChange={(e) => this.displaySearchOption(e)} type='text' placeholder='Search for projects or categories'/>
           <div className='search-bar-modal-times'>
             <i onClick={() => {this.props.clickSearchBar; this.props.saveToState('')}} className="search-bar-modal-times-symbol fas fa-times"></i>
@@ -69,7 +69,7 @@ class SearchBar extends React.Component {
             </li>
             <button className='search-bar-see-all-results'>See all 2384234 results</button>
           </ul>
-        </div>
+        </div>*/}
       </div>
     );
   }

@@ -365,7 +365,7 @@ class ProjectView extends React.Component {
             </div>
           </div>
         </div>
-        <UserInfo userInfoModal={this.state.userInfoModal} closeUserBio={() => this.showUserBio('off')} name={Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId).length === 0 ? '' : Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].name} biography={Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId).length === 0 ? '' : Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].biography} city={currentProject === '' ? '' : currentProject.city} state={currentProject === '' ? '' : currentProject.state} lastLoggedInMonth={lastLoggedInMonth} lastLoggedInDay={lastLoggedInDay} lastLoggedInYear={lastLoggedInYear} />
+        <UserInfo id={this.props.match.params.userId} userInfoModal={this.state.userInfoModal} closeUserBio={() => this.showUserBio('off')} name={Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId).length === 0 ? '' : Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].name} biography={Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId).length === 0 ? '' : Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0].biography} city={currentProject === '' ? '' : currentProject.city} state={currentProject === '' ? '' : currentProject.state} lastLoggedInMonth={lastLoggedInMonth} lastLoggedInDay={lastLoggedInDay} lastLoggedInYear={lastLoggedInYear} />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-function UserInfo({ userInfoModal, closeUserBio, name, biography, city, state, lastLoggedInMonth, lastLoggedInDay, lastLoggedInYear }) {
+function UserInfo({ id, userInfoModal, closeUserBio, name, biography, city, state, lastLoggedInMonth, lastLoggedInDay, lastLoggedInYear }) {
   return (
     <div className={userInfoModal}>
       <i className="preview-user-info-close fas fa-times" onClick={closeUserBio}></i>
@@ -9,7 +10,7 @@ function UserInfo({ userInfoModal, closeUserBio, name, biography, city, state, l
           <h1>About the creator</h1>
           <div className='preview-user-info-three'>
             <div className='preview-user-info-four'>
-              <h3>{name}</h3>
+              <Link to={`/profile/${id}`}><h3>{name}</h3></Link>
               <span>{city}, {state}</span>
             </div>
             <div className='preview-user-info-biography'>

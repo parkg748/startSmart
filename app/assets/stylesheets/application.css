@@ -7709,6 +7709,12 @@ strong {
   font-weight: 500;
   font-size: 24px;
   margin: 0;
+  cursor: pointer;
+}
+
+.preview-user-info-four h3:hover {
+  text-decoration: underline;
+  color: #037362;
 }
 
 .preview-user-info-biography {
@@ -14063,7 +14069,7 @@ iframe > body {
 
 .profile-about-container-biography-content {
   padding: 0 18px;
-  width: 50%;
+  width: 65%;
 }
 
 .profile-about-time-creator {
@@ -14101,7 +14107,7 @@ iframe > body {
 
 .profile-about-container-biography p {
   padding: 0 18px 0 0;
-  width: 50%;
+  width: 100%;
 }
 
 .profile-about-container-websites p {
