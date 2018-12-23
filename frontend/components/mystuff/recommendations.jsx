@@ -10,7 +10,8 @@ class Recommendations extends React.Component {
     this.state = {display: 'location-none-display',
                   displayProfileMenu: 'js-modal-close',
                   searchBar: 'search-bar-close',
-                  projectsNum: 2};
+                  projectsNum: 2,
+                  categories: 'All Categories'};
     // this.showArrow = this.showArrow.bind(this);
     // this.hideArrow = this.hideArrow.bind(this);
     this.clickSearchBar = this.clickSearchBar.bind(this);
@@ -193,14 +194,30 @@ class Recommendations extends React.Component {
                     </div>
                     <span>projects in</span>
                     <div className='recommendations-second-box'>
-                      <select className='select-your-second-category' defaultValue='all-categories'>
-                        <option value='all-categories' disabled>All Categories</option>
-                        {Object.values(this.props.categories).map(obj => {if (obj.name === 'Film') {
-                          return <option key={obj.id} value={obj.name}>Film & Video</option>
-                        } else {
-                          return <option key={obj.id} value={obj.name}>{obj.name}</option>
-                        }})}
-                      </select>
+                      <div className='select-your-second-category'>{this.state.categories}</div>
+                      <ul>
+                        <h5>CATEGORIES</h5>
+                        <div className='recommendations-second-box-category-list'>
+                          <li>All categories</li>
+                          <li>Art</li>
+                          <li>Comics</li>
+                          <li>Crafts</li>
+                          <li>Dance</li>
+                          <li>Design</li>
+                          <li>Fashion</li>
+                          <li>Film & Video</li>
+                        </div>
+                        <div className='recommendations-second-box-category-list'>
+                          <li>Food</li>
+                          <li>Games</li>
+                          <li>Journalism</li>
+                          <li>Music</li>
+                          <li>Photography</li>
+                          <li>Publishing</li>
+                          <li>Technology</li>
+                          <li>Theater</li>
+                        </div>
+                      </ul>
                       <i className="all-categories-caret fas fa-caret-down"></i>
                     </div>
                     <span className='on-recommendations'>on</span>
