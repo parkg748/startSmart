@@ -194,35 +194,35 @@ class Games extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'RPGS'}
-                           viewmore={'photography'}
+                           viewmore={'games'}
                            project={projectVideoGames.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={videoGamesUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'CONSOLE GAMES'}
-                           viewmore={'photography'}
+                           viewmore={'games'}
                            project={projectGamingHardware.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={gamingHardwareUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'PC GAMES'}
-                           viewmore={'photography'}
+                           viewmore={'games'}
                            project={projectGames.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={gamesUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'STRATEGY GAMES'}
-                           viewmore={'photography'}
+                           viewmore={'games'}
                            project={projectTabletop.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={tabletopUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'VISUAL NOVELS'}
-                           viewmore={'photography'}
+                           viewmore={'games'}
                            project={projectLiveGames.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}

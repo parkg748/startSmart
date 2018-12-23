@@ -166,21 +166,21 @@ class FoodCraft extends React.Component {
                             addToSavedProjectsSecondHeart={() => this.addToSavedProjects(foodCraftProjects.length > 0 ? foodCraftProjects.slice(-3)[0].id : '', 'second-heart')}
                             addToSavedProjectsThirdHeart={() => this.addToSavedProjects(foodCraftProjects.length > 0 ? foodCraftProjects.slice(-4)[0].id : '', 'third-heart')}/>
           <ExploreProjects title={'FOOD PROJECTS WE LOVE'}
-                           viewmore={'art'}
+                           viewmore={'food'}
                            project={projectFood.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={foodUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'FASHION PROJECTS WE LOVE'}
-                           viewmore={'photography'}
+                           viewmore={'fashion'}
                            project={projectFashion.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={fashionUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'POPULAR IN FOOD & CRAFT'}
-                           viewmore={'dance'}
+                           viewmore={'crafts'}
                            project={projectCrafts.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}

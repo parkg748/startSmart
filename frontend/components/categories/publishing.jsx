@@ -170,14 +170,14 @@ class Publishing extends React.Component {
                             addToSavedProjectsSecondHeart={() => this.addToSavedProjects(publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-3)[0].id : '', 'second-heart')}
                             addToSavedProjectsThirdHeart={() => this.addToSavedProjects(publishingJournalismProjects.length > 0 ? publishingJournalismProjects.slice(-4)[0].id : '', 'third-heart')}/>
           <ExploreProjects title={'CIVIC-MINDED PROJECTS'}
-                           viewmore={'photography'}
+                           viewmore={'publishing'}
                            project={projectPublishing.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={publishingUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'EXPLORE OTHER WORLDS'}
-                           viewmore={'photography'}
+                           viewmore={'journalism'}
                            project={projectJournalism.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
@@ -195,14 +195,14 @@ class Publishing extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'POPULAR IN PUBLISHING'}
-                           viewmore={'photography'}
+                           viewmore={'publishing'}
                            project={projectPublishing.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={publishingUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'GREAT BOOKS FOR KIDS'}
-                           viewmore={'photography'}
+                           viewmore={'publishing'}
                            project={projectChildrensBooks.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}

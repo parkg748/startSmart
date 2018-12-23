@@ -205,7 +205,7 @@ class Music extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'LIVE FROM NEW YORK'}
-                           viewmore={'photography'}
+                           viewmore={'music'}
                            project={projectNewYork.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
@@ -238,7 +238,7 @@ class Music extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'EXTREMELY METAL'}
-                           viewmore={'photography'}
+                           viewmore={'music'}
                            project={projectMetal.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
@@ -271,7 +271,7 @@ class Music extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'WITCHSTARTER'}
-                           viewmore={'photography'}
+                           viewmore={'music'}
                            project={projectMusic.slice(4, 8)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}

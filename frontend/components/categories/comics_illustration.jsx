@@ -170,28 +170,28 @@ class ComicsIllustration extends React.Component {
                             addToSavedProjectsSecondHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-3)[0].id : '', 'second-heart')}
                             addToSavedProjectsThirdHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-4)[0].id : '', 'third-heart')}/>
           <ExploreProjects title={'PROJECTS WE LOVE'}
-                           viewmore={'art'}
+                           viewmore={'comics'}
                            project={projectComics.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={comicsUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'LGBTQIA+ PROJECTS'}
-                           viewmore={'dance'}
+                           viewmore={'comics'}
                            project={projectLGBTQ.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={lgbtqUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'POPULAR IN COMICS & ILLUSTRATION'}
-                           viewmore={'dance'}
+                           viewmore={'comics'}
                            project={projectIllustration.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
                            user={illustrationUsersProjects}
                            addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <ExploreProjects title={'SPOOKY, SCARY, AND SUPERNATURAL'}
-                           viewmore={'photography'}
+                           viewmore={'comics'}
                            project={projectLGBTQ.slice(4, 8)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}

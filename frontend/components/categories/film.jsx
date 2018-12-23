@@ -174,7 +174,7 @@ class Film extends React.Component {
                             addToSavedProjectsSecondHeart={() => this.addToSavedProjects(filmProjects.length > 0 ? filmProjects.slice(-3)[0].id : '', 'second-heart')}
                             addToSavedProjectsThirdHeart={() => this.addToSavedProjects(filmProjects.length > 0 ? filmProjects.slice(-4)[0].id : '', 'third-heart')}/>
           <ExploreProjects title={'DOCUMENTARY PROJECTS WE LOVE'}
-                           viewmore={'theater'}
+                           viewmore={'film'}
                            project={projectDocumentary.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
@@ -207,7 +207,7 @@ class Film extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'PROJECTS FROM THE UK'}
-                           viewmore={'art'}
+                           viewmore={'film'}
                            project={projectUK.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
@@ -255,7 +255,7 @@ class Film extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'SHORTS'}
-                           viewmore={'dance'}
+                           viewmore={'film'}
                            project={projectShorts.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}

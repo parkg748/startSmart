@@ -193,7 +193,7 @@ class DesignTech extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'PROJECTS FEATURED IN OUR INVENT NEWSLETTER'}
-                           viewmore={'dance'}
+                           viewmore={'technology'}
                            project={projectTechnology.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
@@ -226,7 +226,7 @@ class DesignTech extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'PRODUCT DESIGN PROJECTS'}
-                           viewmore={'theater'}
+                           viewmore={'design'}
                            project={projectProductDesign.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
@@ -247,7 +247,7 @@ class DesignTech extends React.Component {
             </div>
           </div>
           <ExploreProjects title={'3D PRINTING PROJECTS'}
-                           viewmore={'art'}
+                           viewmore={'technology'}
                            project={project3D.slice(0, 4)}
                            firstProject={this.state.firstProject}
                            firstProjectFill={this.state.firstProjectFill}
@@ -265,7 +265,7 @@ class DesignTech extends React.Component {
               <div className='explore-theater-inner-inner'>
                 <div className='explore-theater-header'>
                   <h3>DIY PROJECTS</h3>
-                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/photography'>View more</Link></div>
+                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/technology'>View more</Link></div>
                 </div>
                 <div className='explore-theater-columns'>
                   <div className='explore-theater-column'>
