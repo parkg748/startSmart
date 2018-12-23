@@ -37,17 +37,17 @@ function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSave
           </div>
           <Link to={`/users/${firstUser.id}/projects/${firstProject.id}/front`}><h1>{firstProject.title}</h1></Link>
           <p>{firstProject.description}</p>
-          <div className='featured-project-recommended-left-main-author'>by <a>{firstUser.name}</a></div>
+          <div className='featured-project-recommended-left-main-author'>by <Link to={`/profile/${firstUser.id}`}>{firstUser.name}</Link></div>
         </div>
         <div className='featured-project-recommended-right'>
           <h3>RECOMMENDED</h3>
           <ul>
             <li>
-              <img src={secondProject.imageUrl}/>
+              <Link className='feature-project-recommended-image' to={`/users/${secondUser.id}/projects/${secondProject.id}/front`}><img src={secondProject.imageUrl}/></Link>
               <div className='feature-project-recommended-content'>
                 <Link className='feature-project-recommended-content-title' to={`/users/${secondUser.id}/projects/${secondProject.id}/front`}>{secondProject.title}</Link>
                 <span>137% funded</span>
-                <div className='feature-project-recommended-content-author'>By <a>{secondUser.name}</a></div>
+                <div className='feature-project-recommended-content-author'>By <Link to={`/profile/${secondUser.id}`}>{secondUser.name}</Link></div>
               </div>
               <div className='feature-project-recommended-heart-container'>
                 <div id="category-recommended-heart-id" onClick={addToSavedProjectsFirstHeart}>
@@ -57,11 +57,11 @@ function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSave
               </div>
             </li>
             <li>
-              <img src={thirdProject.imageUrl}/>
+              <Link className='feature-project-recommended-image' to={`/users/${thirdUser.id}/projects/${thirdProject.id}/front`}><img src={thirdProject.imageUrl}/></Link>
               <div className='feature-project-recommended-content'>
                 <Link className='feature-project-recommended-content-title' to={`/users/${thirdUser.id}/projects/${thirdProject.id}/front`}>{thirdProject.title}</Link>
                 <span>137% funded</span>
-                <div className='feature-project-recommended-content-author'>By <a>{thirdUser.name}</a></div>
+                <div className='feature-project-recommended-content-author'>By <Link to={`/profile/${thirdUser.id}`}>{thirdUser.name}</Link></div>
               </div>
               <div className='feature-project-recommended-heart-container'>
                 <div id="category-recommended-heart-id" onClick={addToSavedProjectsSecondHeart}>
@@ -71,7 +71,7 @@ function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSave
               </div>
             </li>
             <li>
-              <img src={fourthProject.imageUrl}/>
+              <Link className='feature-project-recommended-image' to={`/users/${fourthUser.id}/projects/${fourthProject.id}/front`}><img src={fourthProject.imageUrl}/></Link>
               <div className='feature-project-recommended-content'>
                 <Link className='feature-project-recommended-content-title' to={`/users/${fourthUser.id}/projects/${fourthProject.id}/front`}>{fourthProject.title}</Link>
                 <span>137% funded</span>
@@ -85,7 +85,7 @@ function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSave
               </div>
             </li>
           </ul>
-          <div className='feature-project-recommended-view-more'>View more projects</div>
+          <div className='feature-project-recommended-view-more'><Link to='/recommendations'>View more projects</Link></div>
         </div>
       </div>
     </div>

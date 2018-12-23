@@ -169,66 +169,17 @@ class DesignTech extends React.Component {
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
           <CategoriesHeader category={'Design & Tech'} subcategories={['design', 'technology']} subcategoriesUppercase={['Design', 'Technology']} description={'From fine design to innovative tech, discover projects from creators working to build a more beautiful, sustainable future.'}/>
-          <div className='featured-project-recommended'>
-            <div className='featured-project-recommended-inner'>
-              <div className='featured-project-recommended-left'>
-                <h3>FEATURED PROJECT</h3>
-                <div id={`${this.state.mainHeart}`} className='featured-project-recommended-left-main-heart' onClick={() => this.addToSavedProjects(designTechProjects.length > 1 ? designTechProjects.slice(-1)[0].id : '', 'main-heart')}>
-                  <i className={`${this.state.mainHeartFill} fa-heart`}></i>
-                </div>
-                <div id='category-recommended-remind-me-first'>Remind Me</div>
-                <img src={designTechProjects.length > 0 ? designTechProjects.slice(-1)[0].imageUrl : ''}/>
-                <div className='featured-project-recommended-left-gray-bar'>
-                  <div className='featured-project-recommended-left-green-bar'></div>
-                </div>
-                <h1>{designTechProjects.length > 0 ? designTechProjects.slice(-1)[0].title : ''}</h1>
-                <p>{designTechProjects.length > 0 ? designTechProjects.slice(-1)[0].description : ''}</p>
-                <div className='featured-project-recommended-left-main-author'>by <a>{usersDesignTechProjects.length > 0 ? usersDesignTechProjects.slice(-1)[0].name : ''}</a></div>
-              </div>
-              <div className='featured-project-recommended-right'>
-                <h3>RECOMMENDED</h3>
-                <ul>
-                  <li>
-                    <img src={designTechProjects.length > 0 ? designTechProjects.slice(-2)[0].imageUrl : ''}/>
-                    <div className='feature-project-recommended-content'>
-                      <Link className='feature-project-recommended-content-title' to='/'>{designTechProjects.length > 0 ? designTechProjects.slice(-2)[0].title : ''}</Link>
-                      <span>137% funded</span>
-                      <div className='feature-project-recommended-content-author'>By <a>{usersDesignTechProjects.length > 0 ? usersDesignTechProjects.slice(-2)[0].name : ''}</a></div>
-                    </div>
-                    <div className='feature-project-recommended-heart-container'>
-                      <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(designTechProjects.length > 0 ? designTechProjects.slice(-2)[0].id : '', 'first-heart')}><i className={`${this.state.firstHeart} fa-heart`}></i></div>
-                      {this.state.firstHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
-                    </div>
-                  </li>
-                  <li>
-                    <img src={designTechProjects.length > 0 ? designTechProjects.slice(-3)[0].imageUrl : ''}/>
-                    <div className='feature-project-recommended-content'>
-                      <Link className='feature-project-recommended-content-title' to='/'>{designTechProjects.length > 0 ? designTechProjects.slice(-3)[0].title : ''}</Link>
-                      <span>137% funded</span>
-                      <div className='feature-project-recommended-content-author'>By <a>{usersDesignTechProjects.length > 0 ? usersDesignTechProjects.slice(-3)[0].name : ''}</a></div>
-                    </div>
-                    <div className='feature-project-recommended-heart-container'>
-                      <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(designTechProjects.length > 0 ? designTechProjects.slice(-3)[0].id : '', 'second-heart')}><i className={`${this.state.secondHeart} fa-heart`}></i></div>
-                      {this.state.secondHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
-                    </div>
-                  </li>
-                  <li>
-                    <img src={designTechProjects.length > 0 ? designTechProjects.slice(-4)[0].imageUrl : ''}/>
-                    <div className='feature-project-recommended-content'>
-                      <Link className='feature-project-recommended-content-title' to='/'>{designTechProjects.length > 0 ? designTechProjects.slice(-4)[0].title : ''}</Link>
-                      <span>137% funded</span>
-                      <div className='feature-project-recommended-content-author'>By <a>{usersDesignTechProjects.length > 0 ? usersDesignTechProjects.slice(-4)[0].name : ''}</a></div>
-                    </div>
-                    <div className='feature-project-recommended-heart-container'>
-                      <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(designTechProjects.length > 0 ? designTechProjects.slice(-4)[0].id : '', 'third-heart')}><i className={`${this.state.thirdHeart} fa-heart`}></i></div>
-                      {this.state.thirdHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
-                    </div>
-                  </li>
-                </ul>
-                <div className='feature-project-recommended-view-more'>View more projects</div>
-              </div>
-            </div>
-          </div>
+          <FeaturedProjects mainHeart={this.state.mainHeart}
+                            mainHeartFill={this.state.mainHeartFill}
+                            projects={designTechProjects}
+                            users={usersDesignTechProjects}
+                            firstHeart={this.state.firstHeart}
+                            secondHeart={this.state.secondHeart}
+                            thirdHeart={this.state.thirdHeart}
+                            addToSavedProjectsMainHeart={() => this.addToSavedProjects(designTechProjects.length > 1 ? designTechProjects.slice(-1)[0].id : '', 'main-heart')}
+                            addToSavedProjectsFirstHeart={() => this.addToSavedProjects(designTechProjects.length > 0 ? designTechProjects.slice(-2)[0].id : '', 'first-heart')}
+                            addToSavedProjectsSecondHeart={() => this.addToSavedProjects(designTechProjects.length > 0 ? designTechProjects.slice(-3)[0].id : '', 'second-heart')}
+                            addToSavedProjectsThirdHeart={() => this.addToSavedProjects(designTechProjects.length > 0 ? designTechProjects.slice(-4)[0].id : '', 'third-heart')}/>
           <div className='comics-illustrion-subscribe-newsletter'>
             <div className='comics-illustrion-subscribe-newsletter-inner'>
               <div className='comics-illustrion-subscribe-newsletter-inner-inner'>

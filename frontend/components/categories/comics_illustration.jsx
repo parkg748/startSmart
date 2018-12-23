@@ -157,17 +157,17 @@ class ComicsIllustration extends React.Component {
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
           <CategoriesHeader category={'Comics & Illustration'} subcategories={['comics', 'art/illustration']} subcategoriesUppercase={['Comics', 'Illustration']} description={'Explore fantastical worlds and original characters from StartSmart\'s community of comics creators and illustrators.'}/>
-            <FeaturedProjects mainHeart={this.state.mainHeart}
-                              mainHeartFill={this.state.mainHeartFill}
-                              projects={comicsIllustrationsProject}
-                              users={usersComicsIllustrationProjects}
-                              firstHeart={this.state.firstHeart}
-                              secondHeart={this.state.secondHeart}
-                              thirdHeart={this.state.thirdHeart}
-                              addToSavedProjectsMainHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 1 ? comicsIllustrationsProject.slice(-1)[0].id : '', 'main-heart')}
-                              addToSavedProjectsFirstHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-2)[0].id : '', 'first-heart')}
-                              addToSavedProjectsSecondHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-3)[0].id : '', 'second-heart')}
-                              addToSavedProjectsThirdHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-4)[0].id : '', 'third-heart')}/>
+          <FeaturedProjects mainHeart={this.state.mainHeart}
+                            mainHeartFill={this.state.mainHeartFill}
+                            projects={comicsIllustrationsProject}
+                            users={usersComicsIllustrationProjects}
+                            firstHeart={this.state.firstHeart}
+                            secondHeart={this.state.secondHeart}
+                            thirdHeart={this.state.thirdHeart}
+                            addToSavedProjectsMainHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 1 ? comicsIllustrationsProject.slice(-1)[0].id : '', 'main-heart')}
+                            addToSavedProjectsFirstHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-2)[0].id : '', 'first-heart')}
+                            addToSavedProjectsSecondHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-3)[0].id : '', 'second-heart')}
+                            addToSavedProjectsThirdHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-4)[0].id : '', 'third-heart')}/>
           <div className='explore-theater'>
             <div className='explore-theater-inner'>
               <div className='explore-theater-inner-inner'>
