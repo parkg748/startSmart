@@ -5,6 +5,7 @@ import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
 import CategoriesHeader from './categories_header';
 import FeaturedProjects from './featured_projects';
+import ExploreProjects from './explore_projects';
 
 class ComicsIllustration extends React.Component {
   constructor(props) {
@@ -168,294 +169,34 @@ class ComicsIllustration extends React.Component {
                             addToSavedProjectsFirstHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-2)[0].id : '', 'first-heart')}
                             addToSavedProjectsSecondHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-3)[0].id : '', 'second-heart')}
                             addToSavedProjectsThirdHeart={() => this.addToSavedProjects(comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-4)[0].id : '', 'third-heart')}/>
-          <div className='explore-theater'>
-            <div className='explore-theater-inner'>
-              <div className='explore-theater-inner-inner'>
-                <div className='explore-theater-header'>
-                  <h3>PROJECTS WE LOVE</h3>
-                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/art'>View more</Link></div>
-                </div>
-                <div className='explore-theater-columns'>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectComics[0] && comicsUsersProjects[0] ? `/users/${comicsUsersProjects[0].id}/projects/${projectComics[0].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectComics[0] ? projectComics[0].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectComics[0] && comicsUsersProjects[0] ? `/users/${comicsUsersProjects[0].id}/projects/${projectComics[0].id}` : '/'}><h1>{projectComics[0] ? projectComics[0].title : ''}</h1></Link>
-                    <p>{projectComics[0] ? projectComics[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{comicsUsersProjects[0] ? comicsUsersProjects[0].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectComics[1] && comicsUsersProjects[1] ? `/users/${comicsUsersProjects[1].id}/projects/${projectComics[1].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectComics[1] ? projectComics[1].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectComics[1] && comicsUsersProjects[1] ? `/users/${comicsUsersProjects[1].id}/projects/${projectComics[1].id}` : '/'}><h1>{projectComics[1] ? projectComics[1].title : ''}</h1></Link>
-                    <p>{projectComics[1] ? projectComics[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{comicsUsersProjects[1] ? comicsUsersProjects[1].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectComics[2] && comicsUsersProjects[2] ? `/users/${comicsUsersProjects[2].id}/projects/${projectComics[2].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectComics[2] ? projectComics[2].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectComics[2] && comicsUsersProjects[2] ? `/users/${comicsUsersProjects[2].id}/projects/${projectComics[2].id}` : '/'}><h1>{projectComics[2] ? projectComics[2].title : ''}</h1></Link>
-                    <p>{projectComics[2] ? projectComics[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{comicsUsersProjects[2] ? comicsUsersProjects[2].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectComics[3] && comicsUsersProjects[3] ? `/users/${comicsUsersProjects[3].id}/projects/${projectComics[3].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectComics[3] ? projectComics[3].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectComics[3] && comicsUsersProjects[3] ? `/users/${comicsUsersProjects[3].id}/projects/${projectComics[3].id}` : '/'}><h1>{projectComics[3] ? projectComics[3].title : ''}</h1></Link>
-                    <p>{projectComics[3] ? projectComics[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{comicsUsersProjects[3] ? comicsUsersProjects[3].name : ''}</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='explore-theater'>
-            <div className='explore-theater-inner'>
-              <div className='explore-theater-inner-inner'>
-                <div className='explore-theater-header'>
-                  <h3>LGBTQIA+ PROJECTS</h3>
-                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/dance'>View more</Link></div>
-                </div>
-                <div className='explore-theater-columns'>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLGBTQ[0] && lgbtqUsersProjects[0] ? `/users/${lgbtqUsersProjects[0].id}/projects/${projectLGBTQ[0].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectLGBTQ[0] ? projectLGBTQ[0].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectLGBTQ[0] && lgbtqUsersProjects[0] ? `/users/${lgbtqUsersProjects[0].id}/projects/${projectLGBTQ[0].id}` : '/'}><h1>{projectLGBTQ[0] ? projectLGBTQ[0].title : ''}</h1></Link>
-                    <p>{projectLGBTQ[0] ? projectLGBTQ[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{lgbtqUsersProjects[0] ? lgbtqUsersProjects[0].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLGBTQ[1] && lgbtqUsersProjects[1] ? `/users/${lgbtqUsersProjects[1].id}/projects/${projectLGBTQ[1].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectLGBTQ[1] ? projectLGBTQ[1].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectLGBTQ[1] && lgbtqUsersProjects[1] ? `/users/${lgbtqUsersProjects[1].id}/projects/${projectLGBTQ[1].id}` : '/'}><h1>{projectLGBTQ[1] ? projectLGBTQ[1].title : ''}</h1></Link>
-                    <p>{projectLGBTQ[1] ? projectLGBTQ[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{lgbtqUsersProjects[1] ? lgbtqUsersProjects[1].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLGBTQ[2] && lgbtqUsersProjects[2] ? `/users/${lgbtqUsersProjects[2].id}/projects/${projectLGBTQ[2].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectLGBTQ[2] ? projectLGBTQ[2].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectLGBTQ[2] && lgbtqUsersProjects[2] ? `/users/${lgbtqUsersProjects[2].id}/projects/${projectLGBTQ[2].id}` : '/'}><h1>{projectLGBTQ[2] ? projectLGBTQ[2].title : ''}</h1></Link>
-                    <p>{projectLGBTQ[2] ? projectLGBTQ[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{lgbtqUsersProjects[2] ? lgbtqUsersProjects[2].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLGBTQ[3] && lgbtqUsersProjects[3] ? `/users/${lgbtqUsersProjects[3].id}/projects/${projectLGBTQ[3].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectLGBTQ[3] ? projectLGBTQ[3].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectLGBTQ[3] && lgbtqUsersProjects[3] ? `/users/${lgbtqUsersProjects[3].id}/projects/${projectLGBTQ[3].id}` : '/'}><h1>{projectLGBTQ[3] ? projectLGBTQ[3].title : ''}</h1></Link>
-                    <p>{projectLGBTQ[3] ? projectLGBTQ[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{lgbtqUsersProjects[3] ? lgbtqUsersProjects[3].name : ''}</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='explore-theater'>
-            <div className='explore-theater-inner'>
-              <div className='explore-theater-inner-inner'>
-                <div className='explore-theater-header'>
-                  <h3>POPULAR IN COMICS & ILLUSTRATION</h3>
-                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/dance'>View more</Link></div>
-                </div>
-                <div className='explore-theater-columns'>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectIllustration[0] && illustrationUsersProjects[0] ? `/users/${illustrationUsersProjects[0].id}/projects/${projectIllustration[0].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectIllustration[0] ? projectIllustration[0].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectIllustration[0] && illustrationUsersProjects[0] ? `/users/${illustrationUsersProjects[0].id}/projects/${projectIllustration[0].id}` : '/'}><h1>{projectIllustration[0] ? projectIllustration[0].title : ''}</h1></Link>
-                    <p>{projectIllustration[0] ? projectIllustration[0].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{illustrationUsersProjects[0] ? illustrationUsersProjects[0].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectIllustration[1] && illustrationUsersProjects[1] ? `/users/${illustrationUsersProjects[1].id}/projects/${projectIllustration[1].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectIllustration[1] ? projectIllustration[1].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectIllustration[1] && illustrationUsersProjects[1] ? `/users/${illustrationUsersProjects[1].id}/projects/${projectIllustration[1].id}` : '/'}><h1>{projectIllustration[1] ? projectIllustration[1].title : ''}</h1></Link>
-                    <p>{projectIllustration[1] ? projectIllustration[1].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{illustrationUsersProjects[1] ? illustrationUsersProjects[1].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectIllustration[2] && illustrationUsersProjects[2] ? `/users/${illustrationUsersProjects[2].id}/projects/${projectIllustration[2].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectIllustration[2] ? projectIllustration[2].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectIllustration[2] && illustrationUsersProjects[2] ? `/users/${illustrationUsersProjects[2].id}/projects/${projectIllustration[2].id}` : '/'}><h1>{projectIllustration[2] ? projectIllustration[2].title : ''}</h1></Link>
-                    <p>{projectIllustration[2] ? projectIllustration[2].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{illustrationUsersProjects[2] ? illustrationUsersProjects[2].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectIllustration[3] && illustrationUsersProjects[3] ? `/users/${illustrationUsersProjects[3].id}/projects/${projectIllustration[3].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectIllustration[3] ? projectIllustration[3].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectIllustration[3] && illustrationUsersProjects[3] ? `/users/${illustrationUsersProjects[3].id}/projects/${projectIllustration[3].id}` : '/'}><h1>{projectIllustration[3] ? projectIllustration[3].title : ''}</h1></Link>
-                    <p>{projectIllustration[3] ? projectIllustration[3].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{illustrationUsersProjects[3] ? illustrationUsersProjects[3].name : ''}</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='explore-theater'>
-            <div className='explore-theater-inner'>
-              <div className='explore-theater-inner-inner'>
-                <div className='explore-theater-header'>
-                  <h3>SPOOKY, SCARY, AND SUPERNATURAL</h3>
-                  <div className='explore-theater-header-view-more'><Link to='/discover/categories/photography'>View more</Link></div>
-                </div>
-                <div className='explore-theater-columns'>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectComics[4] && comicsUsersProjects[4] ? `/users/${comicsUsersProjects[4].id}/projects/${projectComics[4].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectComics[4] ? projectComics[4].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectLGBTQ[4] && lgbtqUsersProjects[4] ? `/users/${lgbtqUsersProjects[4].id}/projects/${projectLGBTQ[4].id}` : '/'}><h1>{projectLGBTQ[4] ? projectLGBTQ[4].title : ''}</h1></Link>
-                    <p>{projectLGBTQ[4] ? projectLGBTQ[4].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{lgbtqUsersProjects[4] ? lgbtqUsersProjects[4].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLGBTQ[5] && lgbtqUsersProjects[5] ? `/users/${lgbtqUsersProjects[5].id}/projects/${projectLGBTQ[5].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectLGBTQ[5] ? projectLGBTQ[5].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectLGBTQ[5] && lgbtqUsersProjects[5] ? `/users/${lgbtqUsersProjects[5].id}/projects/${projectLGBTQ[5].id}` : '/'}><h1>{projectLGBTQ[5] ? projectLGBTQ[5].title : ''}</h1></Link>
-                    <p>{projectLGBTQ[5] ? projectLGBTQ[5].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{lgbtqUsersProjects[5] ? lgbtqUsersProjects[5].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLGBTQ[6] && lgbtqUsersProjects[6] ? `/users/${lgbtqUsersProjects[6].id}/projects/${projectLGBTQ[6].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectLGBTQ[6] ? projectLGBTQ[6].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectLGBTQ[6] && lgbtqUsersProjects[6] ? `/users/${lgbtqUsersProjects[6].id}/projects/${projectLGBTQ[6].id}` : '/'}><h1>{projectLGBTQ[6] ? projectLGBTQ[6].title : ''}</h1></Link>
-                    <p>{projectLGBTQ[6] ? projectLGBTQ[6].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{lgbtqUsersProjects[6] ? lgbtqUsersProjects[6].name : ''}</span></div>
-                  </div>
-                  <div className='explore-theater-column'>
-                    <Link className='explore-theater-column-image' to={projectLGBTQ[7] && lgbtqUsersProjects[7] ? `/users/${lgbtqUsersProjects[7].id}/projects/${projectLGBTQ[7].id}` : '/'}>
-                      <div id={`${this.state.firstProject}`} className='explore-project-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                        <i className={`${this.state.firstProjectFill} fa-heart`}></i>
-                      </div>
-                      <div id='explore-project-remind-me-first'>Remind Me</div>
-                      <img src={projectLGBTQ[7] ? projectLGBTQ[7].imageUrl : ''}/>
-                    </Link>
-                    <div className='explore-theater-column-grey-bar'>
-                      <div className='explore-theater-column-green-bar'></div>
-                    </div>
-                    <Link to={projectLGBTQ[7] && lgbtqUsersProjects[7] ? `/users/${lgbtqUsersProjects[7].id}/projects/${projectLGBTQ[7].id}` : '/'}><h1>{projectLGBTQ[7] ? projectLGBTQ[7].title : ''}</h1></Link>
-                    <p>{projectLGBTQ[7] ? projectLGBTQ[7].description : ''}</p>
-                    <div className='explore-theater-column-author'>By <span>{lgbtqUsersProjects[7] ? lgbtqUsersProjects[7].name : ''}</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ExploreProjects title={'PROJECTS WE LOVE'}
+                           viewmore={'art'}
+                           project={projectComics.slice(0, 4)}
+                           firstProject={this.state.firstProject}
+                           firstProjectFill={this.state.firstProjectFill}
+                           user={comicsUsersProjects}
+                           addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
+          <ExploreProjects title={'LGBTQIA+ PROJECTS'}
+                           viewmore={'dance'}
+                           project={projectLGBTQ.slice(0, 4)}
+                           firstProject={this.state.firstProject}
+                           firstProjectFill={this.state.firstProjectFill}
+                           user={lgbtqUsersProjects}
+                           addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
+          <ExploreProjects title={'POPULAR IN COMICS & ILLUSTRATION'}
+                           viewmore={'dance'}
+                           project={projectIllustration.slice(0, 4)}
+                           firstProject={this.state.firstProject}
+                           firstProjectFill={this.state.firstProjectFill}
+                           user={illustrationUsersProjects}
+                           addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
+          <ExploreProjects title={'SPOOKY, SCARY, AND SUPERNATURAL'}
+                           viewmore={'photography'}
+                           project={projectLGBTQ.slice(4, 8)}
+                           firstProject={this.state.firstProject}
+                           firstProjectFill={this.state.firstProjectFill}
+                           user={lgbtqUsersProjects}
+                           addToSavedProjects={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}/>
           <div className='comics-illustrion-subscribe-newsletter'>
             <div className='comics-illustrion-subscribe-newsletter-inner'>
               <div className='comics-illustrion-subscribe-newsletter-inner-inner'>

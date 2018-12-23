@@ -20,7 +20,7 @@ function ExploreProjects({ title, viewmore, project, user, firstProject, firstPr
           </div>
           <div className='explore-theater-columns'>
             <div className='explore-theater-column'>
-              <Link className='explore-theater-column-image' to={firstproject && firstuser ? `/users/${firstuser.id}/projects/${firstproject.id}` : '/'}>
+              <Link className='explore-theater-column-image' to={firstproject && firstuser ? `/users/${firstuser.id}/projects/${firstproject.id}/front` : '/'}>
                 <div id={`${firstProject}`} className='explore-project-main-heart' onClick={addToSavedProjects}>
                   <i className={`${firstProjectFill} fa-heart`}></i>
                 </div>
@@ -30,12 +30,12 @@ function ExploreProjects({ title, viewmore, project, user, firstProject, firstPr
               <div className='explore-theater-column-grey-bar'>
                 <div className='explore-theater-column-green-bar'></div>
               </div>
-              <Link to={firstproject && firstuser ? `/users/${firstuser.id}/projects/${firstproject.id}` : '/'}><h1>{firstproject.title}</h1></Link>
+              <Link to={firstproject && firstuser ? `/users/${firstuser.id}/projects/${firstproject.id}/front` : '/'}><h1>{firstproject.title}</h1></Link>
               <p>{firstproject.description}</p>
               <div className='explore-theater-column-author'>By <span><Link to={`/profile/${firstuser.id}`}>{firstuser.name}</Link></span></div>
             </div>
             <div className='explore-theater-column'>
-              <Link className='explore-theater-column-image' to={secondproject && seconduser ? `/users/${seconduser.id}/projects/${secondproject.id}` : '/'}>
+              <Link className='explore-theater-column-image' to={secondproject && seconduser ? `/users/${seconduser.id}/projects/${secondproject.id}/front` : '/'}>
                 <div id={`${firstProject}`} className='explore-project-main-heart' onClick={addToSavedProjects}>
                   <i className={`${firstProjectFill} fa-heart`}></i>
                 </div>
@@ -45,12 +45,12 @@ function ExploreProjects({ title, viewmore, project, user, firstProject, firstPr
               <div className='explore-theater-column-grey-bar'>
                 <div className='explore-theater-column-green-bar'></div>
               </div>
-              <Link to={secondproject && seconduser ? `/users/${seconduser.id}/projects/${secondproject.id}` : '/'}><h1>{secondproject.title}</h1></Link>
+              <Link to={secondproject && seconduser ? `/users/${seconduser.id}/projects/${secondproject.id}/front` : '/'}><h1>{secondproject.title}</h1></Link>
               <p>{secondproject.description}</p>
               <div className='explore-theater-column-author'>By <span><Link to={`/profile/${seconduser.id}`}>{seconduser.name}</Link></span></div>
             </div>
             <div className='explore-theater-column'>
-              <Link className='explore-theater-column-image' to={thirdproject && thirduser ? `/users/${thirduser.id}/projects/${thirdproject.id}` : '/'}>
+              <Link className='explore-theater-column-image' to={thirdproject && thirduser ? `/users/${thirduser.id}/projects/${thirdproject.id}/front` : '/'}>
                 <div id={`${firstProject}`} className='explore-project-main-heart' onClick={addToSavedProjects}>
                   <i className={`${firstProjectFill} fa-heart`}></i>
                 </div>
@@ -60,12 +60,12 @@ function ExploreProjects({ title, viewmore, project, user, firstProject, firstPr
               <div className='explore-theater-column-grey-bar'>
                 <div className='explore-theater-column-green-bar'></div>
               </div>
-              <Link to={thirdproject && thirduser ? `/users/${thirduser.id}/projects/${thirdproject.id}` : '/'}><h1>{thirdproject.title}</h1></Link>
+              <Link to={thirdproject && thirduser ? `/users/${thirduser.id}/projects/${thirdproject.id}/front` : '/'}><h1>{thirdproject.title}</h1></Link>
               <p>{thirdproject.description}</p>
               <div className='explore-theater-column-author'>By <span><Link to={`/profile/${thirduser.id}`}>{thirduser.name}</Link></span></div>
             </div>
             <div className='explore-theater-column'>
-              <Link className='explore-theater-column-image' to={fourthproject && fourthuser ? `/users/${fourthuser.id}/projects/${fourthproject.id}` : '/'}>
+              <Link className='explore-theater-column-image' to={fourthproject && fourthuser ? `/users/${fourthuser.id}/projects/${fourthproject.id}/front` : '/'}>
                 <div id={`${firstProject}`} className='explore-project-main-heart' onClick={addToSavedProjects}>
                   <i className={`${firstProjectFill} fa-heart`}></i>
                 </div>
@@ -75,7 +75,7 @@ function ExploreProjects({ title, viewmore, project, user, firstProject, firstPr
               <div className='explore-theater-column-grey-bar'>
                 <div className='explore-theater-column-green-bar'></div>
               </div>
-              <Link to={fourthproject && fourthuser ? `/users/${fourthuser.id}/projects/${fourthproject.id}` : '/'}><h1>{fourthproject.title}</h1></Link>
+              <Link to={fourthproject && fourthuser ? `/users/${fourthuser.id}/projects/${fourthproject.id}/front` : '/'}><h1>{fourthproject.title}</h1></Link>
               <p>{fourthproject.description}</p>
               <div className='explore-theater-column-author'>By <span><Link to={`/profile/${fourthuser.id}`}>{fourthuser.name}</Link></span></div>
             </div>
