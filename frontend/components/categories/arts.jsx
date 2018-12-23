@@ -159,7 +159,17 @@ class Arts extends React.Component {
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
           <CategoriesHeader category={'Art'} subcategories={['art', 'dance', 'photography', 'theater']} subcategoriesUppercase={['Art', 'Dance', 'Photography', 'Theater']} description={'Discover the artists and organizations using StartSmart to realize ambitious projects in visual art, dance, and performance.'}/>
-          <FeaturedProjects mainHeart={this.state.mainHeart} mainHeartFill={this.state.mainHeartFill} projects={artsProjects} users={usersArtsProjects} firstHeart={this.state.firstHeart} secondHeart={this.state.secondHeart} thirdHeart={this.state.thirdHeart} addToSavedProjectsMainHeart={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')} addToSavedProjectsFirstHeart={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-2)[0].id : '', 'first-heart')} addToSavedProjectsSecondHeart={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-3)[0].id : '', 'second-heart')} addToSavedProjectsThirdHeart={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-4)[0].id : '', 'third-heart')}/>
+          <FeaturedProjects mainHeart={this.state.mainHeart} 
+                            mainHeartFill={this.state.mainHeartFill}
+                            projects={artsProjects}
+                            users={usersArtsProjects}
+                            firstHeart={this.state.firstHeart}
+                            secondHeart={this.state.secondHeart}
+                            thirdHeart={this.state.thirdHeart}
+                            addToSavedProjectsMainHeart={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}
+                            addToSavedProjectsFirstHeart={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-2)[0].id : '', 'first-heart')}
+                            addToSavedProjectsSecondHeart={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-3)[0].id : '', 'second-heart')}
+                            addToSavedProjectsThirdHeart={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-4)[0].id : '', 'third-heart')}/>
           <div className='guides-creative-independent'>
             <div className='guides-creative-independent-inner'>
               <div className='guides-creative-independent-inner-inner'>

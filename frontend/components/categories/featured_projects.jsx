@@ -2,6 +2,26 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSavedProjectsMainHeart, addToSavedProjectsFirstHeart, addToSavedProjectsSecondHeart, addToSavedProjectsThirdHeart, firstHeart, secondHeart, thirdHeart }) {
+  let firstUser = '';
+  let secondUser = '';
+  let thirdUser = '';
+  let fourthUser = '';
+  let firstProject = '';
+  let secondProject = '';
+  let thirdProject = '';
+  let fourthProject = '';
+  if (users.length > 0) {
+    firstUser = users.slice(-1)[0];
+    secondUser = users.slice(-2)[0];
+    thirdUser = users.slice(-3)[0];
+    fourthUser = users.slice(-4)[0];
+  }
+  if (projects.length > 0) {
+    firstProject = projects.slice(-1)[0];
+    secondProject = projects.slice(-2)[0];
+    thirdProject = projects.slice(-3)[0];
+    fourthProject = projects.slice(-4)[0];
+  }
   return (
     <div className='featured-project-recommended'>
       <div className='featured-project-recommended-inner'>
@@ -11,23 +31,23 @@ function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSave
             <i className={`${mainHeartFill} fa-heart`}></i>
           </div>
           <div id='category-recommended-remind-me-first'>Remind Me</div>
-          <Link to={`/users/${users.length > 0 ? users.slice(-1)[0].id : ''}/projects/${projects.length > 0 ? projects.slice(-1)[0].id : ''}/front`}><img src={projects.length > 0 ? projects.slice(-1)[0].imageUrl : ''}/></Link>
+          <Link to={`/users/${firstUser.id}/projects/${firstProject.id}/front`}><img src={firstProject.imageUrl}/></Link>
           <div className='featured-project-recommended-left-gray-bar'>
             <div className='featured-project-recommended-left-green-bar'></div>
           </div>
-          <h1>{projects.length > 0 ? projects.slice(-1)[0].title : ''}</h1>
-          <p>{projects.length > 0 ? projects.slice(-1)[0].description : ''}</p>
-          <div className='featured-project-recommended-left-main-author'>by <a>{users.length > 0 ? users.slice(-1)[0].name : ''}</a></div>
+          <Link to={`/users/${firstUser.id}/projects/${firstProject.id}/front`}><h1>{firstProject.title}</h1></Link>
+          <p>{firstProject.description}</p>
+          <div className='featured-project-recommended-left-main-author'>by <a>{firstUser.name}</a></div>
         </div>
         <div className='featured-project-recommended-right'>
           <h3>RECOMMENDED</h3>
           <ul>
             <li>
-              <img src={projects.length > 0 ? projects.slice(-2)[0].imageUrl : ''}/>
+              <img src={secondProject.imageUrl}/>
               <div className='feature-project-recommended-content'>
-                <Link className='feature-project-recommended-content-title' to='/'>{projects.length > 0 ? projects.slice(-2)[0].title : ''}</Link>
+                <Link className='feature-project-recommended-content-title' to={`/users/${secondUser.id}/projects/${secondProject.id}/front`}>{secondProject.title}</Link>
                 <span>137% funded</span>
-                <div className='feature-project-recommended-content-author'>By <a>{users.length > 0 ? users.slice(-2)[0].name : ''}</a></div>
+                <div className='feature-project-recommended-content-author'>By <a>{secondUser.name}</a></div>
               </div>
               <div className='feature-project-recommended-heart-container'>
                 <div id="category-recommended-heart-id" onClick={addToSavedProjectsFirstHeart}>
@@ -37,11 +57,11 @@ function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSave
               </div>
             </li>
             <li>
-              <img src={projects.length > 0 ? projects.slice(-3)[0].imageUrl : ''}/>
+              <img src={thirdProject.imageUrl}/>
               <div className='feature-project-recommended-content'>
-                <Link className='feature-project-recommended-content-title' to='/'>{projects.length > 0 ? projects.slice(-3)[0].title : ''}</Link>
+                <Link className='feature-project-recommended-content-title' to={`/users/${thirdUser.id}/projects/${thirdProject.id}/front`}>{thirdProject.title}</Link>
                 <span>137% funded</span>
-                <div className='feature-project-recommended-content-author'>By <a>{users.length > 0 ? users.slice(-3)[0].name : ''}</a></div>
+                <div className='feature-project-recommended-content-author'>By <a>{thirdUser.name}</a></div>
               </div>
               <div className='feature-project-recommended-heart-container'>
                 <div id="category-recommended-heart-id" onClick={addToSavedProjectsSecondHeart}>
@@ -51,11 +71,11 @@ function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSave
               </div>
             </li>
             <li>
-              <img src={projects.length > 0 ? projects.slice(-4)[0].imageUrl : ''}/>
+              <img src={fourthProject.imageUrl}/>
               <div className='feature-project-recommended-content'>
-                <Link className='feature-project-recommended-content-title' to='/'>{projects.length > 0 ? projects.slice(-4)[0].title : ''}</Link>
+                <Link className='feature-project-recommended-content-title' to={`/users/${fourthUser.id}/projects/${fourthProject.id}/front`}>{fourthProject.title}</Link>
                 <span>137% funded</span>
-                <div className='feature-project-recommended-content-author'>By <a>{users.length > 0 ? users.slice(-4)[0].name : ''}</a></div>
+                <div className='feature-project-recommended-content-author'>By <a>{fourthUser.name}</a></div>
               </div>
               <div className='feature-project-recommended-heart-container'>
                 <div id="category-recommended-heart-id" onClick={addToSavedProjectsThirdHeart}>

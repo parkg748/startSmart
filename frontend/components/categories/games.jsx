@@ -4,6 +4,7 @@ import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
 import CategoriesHeader from './categories_header';
+import FeaturedProjects from './featured_projects';
 
 class Games extends React.Component {
   constructor(props) {

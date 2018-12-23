@@ -5494,9 +5494,6 @@ strong {
 }
 
 .category-recommended-right-heart-red {
-  position: absolute;
-  top: -4px;
-  left: 0;
   z-index: 2;
   color: #FF5151;
   font-size: 18px;
@@ -5617,7 +5614,7 @@ strong {
    display: flex;
    justify-content: center;
    align-items: center;
-   right: -16px;
+   right: -24px;
    border-radius: 3px;
    top: -12px;
    opacity: 1;
