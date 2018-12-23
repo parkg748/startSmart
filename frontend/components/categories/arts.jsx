@@ -4,6 +4,7 @@ import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
 import CategoriesHeader from './categories_header';
+import FeaturedProjects from './featured_projects';
 
 class Arts extends React.Component {
   constructor(props) {
@@ -93,6 +94,7 @@ class Arts extends React.Component {
   render() {
     if (Object.values(getState().entities.users)[0] == null) return null;
     if (this.props.category === null || this.props.category === undefined) return null;
+    if (this.props.session.session === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     let currentProfileIcon = Object.values(getState().entities.users)[0] == null || getState().session.session === null ? '' : Object.values(getState().entities.users).filter(el => el.id === getState().session.id)[0].profileUrl;
@@ -157,72 +159,7 @@ class Arts extends React.Component {
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
           <CategoriesHeader category={'Art'} subcategories={['art', 'dance', 'photography', 'theater']} subcategoriesUppercase={['Art', 'Dance', 'Photography', 'Theater']} description={'Discover the artists and organizations using StartSmart to realize ambitious projects in visual art, dance, and performance.'}/>
-          <div className='featured-project-recommended'>
-            <div className='featured-project-recommended-inner'>
-              <div className='featured-project-recommended-left'>
-                <h3>FEATURED PROJECT</h3>
-                <div id={`${this.state.mainHeart}`} className='featured-project-recommended-left-main-heart' onClick={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')}>
-                  <i className={`${this.state.mainHeartFill} fa-heart`}></i>
-                </div>
-                <div id='category-recommended-remind-me-first'>Remind Me</div>
-                <Link to={`/users/${usersArtsProjects.length > 0 ? usersArtsProjects.slice(-1)[0].id : ''}/projects/${artsProjects.length > 0 ? artsProjects.slice(-1)[0].id : ''}/front`}><img src={artsProjects.length > 0 ? artsProjects.slice(-1)[0].imageUrl : ''}/></Link>
-                <div className='featured-project-recommended-left-gray-bar'>
-                  <div className='featured-project-recommended-left-green-bar'></div>
-                </div>
-                <h1>{artsProjects.length > 0 ? artsProjects.slice(-1)[0].title : ''}</h1>
-                <p>{artsProjects.length > 0 ? artsProjects.slice(-1)[0].description : ''}</p>
-                <div className='featured-project-recommended-left-main-author'>by <a>{usersArtsProjects.length > 0 ? usersArtsProjects.slice(-1)[0].name : ''}</a></div>
-              </div>
-              <div className='featured-project-recommended-right'>
-                <h3>RECOMMENDED</h3>
-                <ul>
-                  <li>
-                    <img src={artsProjects.length > 0 ? artsProjects.slice(-2)[0].imageUrl : ''}/>
-                    <div className='feature-project-recommended-content'>
-                      <Link className='feature-project-recommended-content-title' to='/'>{artsProjects.length > 0 ? artsProjects.slice(-2)[0].title : ''}</Link>
-                      <span>137% funded</span>
-                      <div className='feature-project-recommended-content-author'>By <a>{usersArtsProjects.length > 0 ? usersArtsProjects.slice(-2)[0].name : ''}</a></div>
-                    </div>
-                    <div className='feature-project-recommended-heart-container'>
-                      <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-2)[0].id : '', 'first-heart')}>
-                        <i className={`${this.state.firstHeart} fa-heart`}></i>
-                      </div>
-                      {this.state.firstHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
-                    </div>
-                  </li>
-                  <li>
-                    <img src={artsProjects.length > 0 ? artsProjects.slice(-3)[0].imageUrl : ''}/>
-                    <div className='feature-project-recommended-content'>
-                      <Link className='feature-project-recommended-content-title' to='/'>{artsProjects.length > 0 ? artsProjects.slice(-3)[0].title : ''}</Link>
-                      <span>137% funded</span>
-                      <div className='feature-project-recommended-content-author'>By <a>{usersArtsProjects.length > 0 ? usersArtsProjects.slice(-3)[0].name : ''}</a></div>
-                    </div>
-                    <div className='feature-project-recommended-heart-container'>
-                      <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-3)[0].id : '', 'second-heart')}>
-                        <i className={`${this.state.secondHeart} fa-heart`}></i>
-                      </div>
-                      {this.state.secondHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
-                    </div>
-                  </li>
-                  <li>
-                    <img src={artsProjects.length > 0 ? artsProjects.slice(-4)[0].imageUrl : ''}/>
-                    <div className='feature-project-recommended-content'>
-                      <Link className='feature-project-recommended-content-title' to='/'>{artsProjects.length > 0 ? artsProjects.slice(-4)[0].title : ''}</Link>
-                      <span>137% funded</span>
-                      <div className='feature-project-recommended-content-author'>By <a>{usersArtsProjects.length > 0 ? usersArtsProjects.slice(-4)[0].name : ''}</a></div>
-                    </div>
-                    <div className='feature-project-recommended-heart-container'>
-                      <div id="category-recommended-heart-id" onClick={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-4)[0].id : '', 'third-heart')}>
-                        <i className={`${this.state.thirdHeart} fa-heart`}></i>
-                      </div>
-                      {this.state.thirdHeart === 'category-recommended-right-heart far' ? <div id='category-recommended-remind-me'>Remind Me</div> : <div id='category-recommended-saved'>Saved</div>}
-                    </div>
-                  </li>
-                </ul>
-                <div className='feature-project-recommended-view-more'>View more projects</div>
-              </div>
-            </div>
-          </div>
+          <FeaturedProjects mainHeart={this.state.mainHeart} mainHeartFill={this.state.mainHeartFill} projects={artsProjects} users={usersArtsProjects} firstHeart={this.state.firstHeart} secondHeart={this.state.secondHeart} thirdHeart={this.state.thirdHeart} addToSavedProjectsMainHeart={() => this.addToSavedProjects(artsProjects.length > 1 ? artsProjects.slice(-1)[0].id : '', 'main-heart')} addToSavedProjectsFirstHeart={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-2)[0].id : '', 'first-heart')} addToSavedProjectsSecondHeart={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-3)[0].id : '', 'second-heart')} addToSavedProjectsThirdHeart={() => this.addToSavedProjects(artsProjects.length > 0 ? artsProjects.slice(-4)[0].id : '', 'third-heart')}/>
           <div className='guides-creative-independent'>
             <div className='guides-creative-independent-inner'>
               <div className='guides-creative-independent-inner-inner'>

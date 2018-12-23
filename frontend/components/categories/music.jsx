@@ -93,6 +93,7 @@ class Music extends React.Component {
   render() {
     if (Object.values(getState().entities.users)[0] == null) return null;
     if (this.props.category === null || this.props.category === undefined) return null;
+    if (this.props.session.session === null) return <Redirect to='/login' />;
     let profile = undefined;
     let navbarWidth = '';
     let currentProfileIcon = Object.values(getState().entities.users)[0] == null || getState().session.session === null ? '' : Object.values(getState().entities.users).filter(el => el.id === getState().session.id)[0].profileUrl;
