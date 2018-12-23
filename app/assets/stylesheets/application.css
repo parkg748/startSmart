@@ -7512,17 +7512,18 @@ strong {
   height: 61%;
   display: flex;
   flex-flow: wrap;
-  align-items: flex-end;
+  align-content: space-between;
 }
 
 .recommendations-category-one-content-inner {
-  height: fit-content;
+  height: 197px;
   padding: 0 18px;
 }
 
 .recommendations-category-one-content-inner-inner {
   height: auto;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
+  margin-top: 28px;
 }
 
 .recommendations-category-one-content-inner-inner h3 {
@@ -7596,6 +7597,11 @@ strong {
   float: left;
   margin-right: 35px;
   position: relative;
+  cursor: pointer;
+}
+
+.recommendations-category-bottom-link:hover {
+  color: #282828;
 }
 
 .location-category-recommendations {
@@ -7626,6 +7632,14 @@ strong {
   padding: 20px 10px 20px 10px;
   font-size: 12px;
   border: 1px solid #DCDEDD;
+  cursor: pointer;
+  transition: all 600ms cubic-bezier(0.175, 0.885, 0.335, 1);
+}
+
+.more-recommendations-inner a:hover {
+  border: 1px solid black;
+  box-shadow: 0 3px 6px 1px rgba(0,0,0,0.17);
+  transform: translateY(-1px);
 }
 
 .is-open {
