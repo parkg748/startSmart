@@ -12,9 +12,12 @@ class Recommendations extends React.Component {
                   searchBar: 'search-bar-close',
                   projectsNum: 2,
                   categories: 'All Categories',
+                  popularity: 'Magic',
                   subcategories: '',
                   categoryBorder: '',
+                  popularityBorder: '',
                   categoryBox: 'location-none-display',
+                  popularityBox: 'location-none-display',
                   categoryBoxWidth: 298,
                   categoryTitleWidth: 100,
                   categoryTitle: '',
@@ -24,6 +27,7 @@ class Recommendations extends React.Component {
     // this.hideArrow = this.hideArrow.bind(this);
     this.clickSearchBar = this.clickSearchBar.bind(this);
     this.displayCategoryBox = this.displayCategoryBox.bind(this);
+    this.displayPopularityBox = this.displayPopularityBox.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +49,14 @@ class Recommendations extends React.Component {
       this.setState({subcategories: `All of ${this.state.categories}`, categoryBorder: '', categoryBox: 'location-none-display', subCategoryBox: 'location-none-display'});
     } else {
       this.setState({subcategories: type, categoryBox: 'location-none-display', subCategoryBox: 'location-none-display', categoryBorder: ''});
+    }
+  }
+
+  displayPopularityBox(type) {
+    if (type === 'display') {
+      this.setState({popularityBorder: 'black-border', popularityBox: ''});
+    } else if (type === 'Magic' || type === 'Popularity' || type === 'Newest' || type === 'End Date' || type === 'Most Funded' || type === 'Most Backed' || type === 'Newest') {
+      this.setState({popularity: type, popularityBox: 'location-none-display', popularityBorder: ''});
     }
   }
 
@@ -353,14 +365,16 @@ class Recommendations extends React.Component {
                     </div>
                     <span className='sorted-by'>sorted by</span>
                     <div className='recommendations-eighth-box'>
-                      <select className='select-your-eighth-category' defaultValue='magic'>
-                        <option value='magic'>Magic</option>
-                        <option value='popularity'>Popularity</option>
-                        <option value='newest'>Newest</option>
-                        <option value='end-date'>End Date</option>
-                        <option value='most-funded'>Most Funded</option>
-                        <option value='most-backed'>Most Backed</option>
-                      </select>
+                      <div className={`select-your-eighth-category ${this.state.popularityBorder}`} onClick={() => this.displayPopularityBox('display')}>{this.state.popularity}</div>
+                      <ul className={`${this.state.popularityBox}`}>
+                        <li className={this.state.popularity === 'Magic' ? 'green-font-color' : ''} onClick={() => this.displayPopularityBox('Magic')}>Magic</li>
+                        <li className={this.state.popularity === 'Popularity' ? 'green-font-color' : ''} onClick={() => this.displayPopularityBox('Popularity')}>Popularity</li>
+                        <li className={this.state.popularity === 'Newest' ? 'green-font-color' : ''} onClick={() => this.displayPopularityBox('Newest')}>Newest</li>
+                        <li className={this.state.popularity === 'End Date' ? 'green-font-color' : ''} onClick={() => this.displayPopularityBox('End Date')}>End Date</li>
+                        <li className={this.state.popularity === 'Most Funded' ? 'green-font-color' : ''} onClick={() => this.displayPopularityBox('Most Funded')}>Most Funded</li>
+                        <li className={this.state.popularity === 'Most Backed' ? 'green-font-color' : ''} onClick={() => this.displayPopularityBox('Most Backed')}>Most Backed</li>
+                        <li className={this.state.popularity === 'Newest' ? 'green-font-color' : ''} onClick={() => this.displayPopularityBox('Newest')}>Newest</li>
+                      </ul>
                       <i className="magic-caret fas fa-caret-down"></i>
                     </div>
                   </div>
