@@ -73,23 +73,6 @@ class Preview extends React.Component {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  // startTimer() {
-  //   if (this.state.currentTimeNum > 0) {
-  //     this.currentTimeNum = setInterval(function() {
-  //       this.countDown();
-  //       this.calculate();
-  //     }, 1000);
-  //   }
-  // }
-  //
-  // countDown() {
-  //   let seconds = this.state.currentTimeNum - 1 < 0 ? 0 : this.state.currentTimeNum - 1;
-  //   this.currentTimeNum = seconds;
-  //   if (seconds == 0) {
-  //     clearInterval(this.currentTimeNum);
-  //   }
-  // }
-
   logoutUser(e) {
     e.preventDefault();
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});

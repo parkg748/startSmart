@@ -7007,8 +7007,7 @@ strong {
 
 .recommendations-second-box ul {
   position: absolute;
-  width: 298px;
-  height: 337px;
+  height: fit-content;
   border: 1px solid black;
   background-color: white;
   z-index: 4;
@@ -7027,9 +7026,8 @@ strong {
   font-size: 12px;
   display: flex;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 0;
   margin-top: 0;
-  width: 100%;
 }
 
 .recommendations-second-box li {

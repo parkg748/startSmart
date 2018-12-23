@@ -12,8 +12,14 @@ class Recommendations extends React.Component {
                   searchBar: 'search-bar-close',
                   projectsNum: 2,
                   categories: 'All Categories',
+                  subcategories: '',
                   categoryBorder: '',
-                  categoryBox: 'location-none-display'};
+                  categoryBox: 'location-none-display',
+                  categoryBoxWidth: 298,
+                  categoryTitleWidth: 100,
+                  categoryTitle: '',
+                  subCategoryBox: 'location-none-display',
+                  subcategoryBoxWidth: 50};
     // this.showArrow = this.showArrow.bind(this);
     // this.hideArrow = this.hideArrow.bind(this);
     this.clickSearchBar = this.clickSearchBar.bind(this);
@@ -27,10 +33,18 @@ class Recommendations extends React.Component {
   }
 
   displayCategoryBox(type) {
-    if (type === 'display') {
+    if (type === 'display' && this.state.subcategories != '') {
+      this.setState({categoryBorder: 'black-border', categoryBox: '', subCategoryBox: ''});
+    } else if (type === 'display') {
       this.setState({categoryBorder: 'black-border', categoryBox: ''});
+    } else if (type === 'Art' || type === 'Comics' || type === 'Crafts' || type === 'Dance' || type === 'Design' || type === 'Fashion' || type === 'Film & Video' || type === 'Food' || type === 'Games' || type === 'Journalism' || type === 'Music' || type === 'Photography' || type === 'Publishing' || type === 'Technology' || type === 'Theater') {
+      this.setState({categories: type, categoryBoxWidth: 598, subCategoryBox: '', categoryTitleWidth: 43.95, categoryTitle: type.toUpperCase(), subcategoryBoxWidth: 25});
+    } else if (type === 'hide') {
+      this.setState({subcategories: '', categories: 'All Categories', categoryBoxWidth: 298, categoryTitleWidth: 100, subcategoryBoxWidth: 50, categoryTitle: '', categoryBorder: '', categoryBox: 'location-none-display', subCategoryBox: 'location-none-display'});
+    } else if (type === 'hide-subcategory') {
+      this.setState({subcategories: `All of ${this.state.categories}`, categoryBorder: '', categoryBox: 'location-none-display', subCategoryBox: 'location-none-display'});
     } else {
-      this.setState({categoryBorder: '', categoryBox: 'location-none-display'});
+      this.setState({subcategories: type, categoryBox: 'location-none-display', subCategoryBox: 'location-none-display', categoryBorder: ''});
     }
   }
 
@@ -187,6 +201,36 @@ class Recommendations extends React.Component {
       </div>);
       }
     }
+    const artFirstSubcategories = ['Ceramics', 'Conceptual Art', 'Digital Art', 'Illustration', 'Installations', 'Mixed Media'];
+    const artSecondSubcategories = ['Painting', 'Performance Art', 'Public Art', 'Sculpture', 'Textiles', 'Video Art'];
+    const comicsFirstSubcategories = ['Anthologies', 'Comic Books'];
+    const comicsSecondSubcategories = ['Events', 'Graphic Novels', 'Webcomics'];
+    const craftsFirstSubcategories = ['Candles', 'Crochet', 'DIY', 'Embroidery', 'Glass', 'Knitting'];
+    const craftsSecondSubcategories = ['Pottery', 'Printing', 'Quilts', 'Stationery', 'Taxidermy', 'Weaving', 'Woodworking'];
+    const danceFirstSubcategories = ['Performances', 'Residencies'];
+    const danceSecondSubcategories = ['Spaces', 'Workshops'];
+    const designFirstSubcategories = ['Architecture', 'Civic Design', 'Graphic Design'];
+    const designSecondSubcategories = ['Interactive Design', 'Product Design', 'Typography'];
+    const fashionFirstSubcategories = ['Accessories', 'Apparel', 'Childrenswear', 'Couture'];
+    const fashionSecondSubcategories = ['Footwear', 'Jewelry', 'Pet Fashion', 'Ready-to-wear'];
+    const filmFirstSubcategories = ['Action', 'Animation', 'Comedy', 'Documentary', 'Drama', 'Experimental', 'Family', 'Fantasy', 'Festivals'];
+    const filmSecondSubcategories = ['Horror', 'Movie Theaters', 'Music Videos', 'Narrative Film', 'Romance', 'Science Fiction', 'Shorts', 'Television', 'Thrillers', 'Webseries'];
+    const foodFirstSubcategories = ['Bacon', 'Community Gardens', 'Cookbooks', 'Drinks', 'Events'];
+    const foodSecondSubcategories = ['Farmer\'s Markets', 'Farms', 'Food Trucks', 'Restaurants', 'Small Batch', 'Spaces', 'Vegan'];
+    const gamesFirstSubcategories = ['Gaming Hardware', 'Live Games', 'Mobile Games'];
+    const gamesSecondSubcategories = ['Playing Cards', 'Puzzles', 'Tabletop Games', 'Video Games'];
+    const journalismFirstSubcategories = ['Audio', 'Photo'];
+    const journalismSecondSubcategories = ['Print', 'Video', 'Web'];
+    const musicFirstSubcategories = ['Blues', 'Chiptune', 'Classical Music', 'Comedy', 'Country & Folk', 'Electronic Music', 'Faith', 'Hip-Hop'];
+    const musicSecondSubcategories = ['Indie Rock', 'Jazz', 'Kids', 'Latin', 'Metal', 'Pop', 'Punk', 'R&B', 'Rock', 'World Music'];
+    const photographyFirstSubcategories = ['Animals', 'Fine Art'];
+    const photographySecondSubcategories = ['Nature', 'People', 'Photobooks', 'Places'];
+    const publishingFirstSubcategories = ['Academic', 'Anthologies', 'Art Books', 'Calendars', 'Children\'s Books', 'Comedy', 'Fiction', 'Letterpress'];
+    const publishingSecondSubcategories = ['Literary Journals', 'Nonfiction', 'Periodicals', 'Poetry', 'Radio & Podcasts', 'Translations', 'Young Adult', 'Zines', 'Literary Spaces'];
+    const technologyFirstSubcategories = ['3D Printing', 'Apps', 'Camera Equipment', 'DIY Electronics', 'Fabrication Tools', 'Flight'];
+    const technologySecondSubcategories = ['Gadgets', 'Hardware', 'Makerspaces', 'Robots', 'Software', 'Sound', 'Space Exploration', 'Wearables', 'Web'];
+    const theaterFirstSubcategories = ['Comedy', 'Experimental', 'Festivals'];
+    const theaterSecondSubcategories = ['Immersive', 'Musical', 'Plays', 'Spaces'];
     return (
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
@@ -206,27 +250,63 @@ class Recommendations extends React.Component {
                     <span>projects in</span>
                     <div className='recommendations-second-box'>
                       <div onClick={() => this.displayCategoryBox('display')} className={`select-your-second-category ${this.state.categoryBorder}`}>{this.state.categories}</div>
-                      <ul className={`${this.state.categoryBox}`}>
-                        <h5>CATEGORIES</h5>
-                        <div className='recommendations-second-box-category-list'>
+                      <ul style={{width: `${this.state.categoryBoxWidth}px`}} className={`${this.state.categoryBox}`}>
+                        <h5 style={{width: `${this.state.categoryTitleWidth}%`}}>ALL CATEGORIES</h5>
+                        <h5 className={this.state.subCategoryBox} style={{width: `${this.state.categoryTitleWidth}%`}}>{this.state.categoryTitle}</h5>
+                        <div style={{width: `${this.state.subcategoryBoxWidth}%`}} className={`${this.state.categoryBox} recommendations-second-box-category-list`}>
                           <li className={this.state.categories === 'All Categories' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('hide')}>All categories</li>
-                          <li className={this.state.categories === 'Art' ? 'green-font-color' : ''}>Art</li>
-                          <li className={this.state.categories === 'Comics' ? 'green-font-color' : ''}>Comics</li>
-                          <li className={this.state.categories === 'Crafts' ? 'green-font-color' : ''}>Crafts</li>
-                          <li className={this.state.categories === 'Dance' ? 'green-font-color' : ''}>Dance</li>
-                          <li className={this.state.categories === 'Design' ? 'green-font-color' : ''}>Design</li>
-                          <li className={this.state.categories === 'Fashion' ? 'green-font-color' : ''}>Fashion</li>
-                          <li className={this.state.categories === 'Film & Video' ? 'green-font-color' : ''}>Film & Video</li>
+                          <li className={this.state.categories === 'Art' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Art')}>Art</li>
+                          <li className={this.state.categories === 'Comics' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Comics')}>Comics</li>
+                          <li className={this.state.categories === 'Crafts' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Crafts')}>Crafts</li>
+                          <li className={this.state.categories === 'Dance' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Dance')}>Dance</li>
+                          <li className={this.state.categories === 'Design' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Design')}>Design</li>
+                          <li className={this.state.categories === 'Fashion' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Fashion')}>Fashion</li>
+                          <li className={this.state.categories === 'Film & Video' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Film & Video')}>Film & Video</li>
                         </div>
-                        <div className='recommendations-second-box-category-list'>
-                          <li className={this.state.categories === 'Food' ? 'green-font-color' : ''}>Food</li>
-                          <li className={this.state.categories === 'Games' ? 'green-font-color' : ''}>Games</li>
-                          <li className={this.state.categories === 'Journalism' ? 'green-font-color' : ''}>Journalism</li>
-                          <li className={this.state.categories === 'Music' ? 'green-font-color' : ''}>Music</li>
-                          <li className={this.state.categories === 'Photography' ? 'green-font-color' : ''}>Photography</li>
-                          <li className={this.state.categories === 'Publishing' ? 'green-font-color' : ''}>Publishing</li>
-                          <li className={this.state.categories === 'Technology' ? 'green-font-color' : ''}>Technology</li>
-                          <li className={this.state.categories === 'Theater' ? 'green-font-color' : ''}>Theater</li>
+                        <div style={{width: `${this.state.subcategoryBoxWidth}%`}} className={`${this.state.categoryBox} recommendations-second-box-category-list`}>
+                          <li className={this.state.categories === 'Food' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Food')}>Food</li>
+                          <li className={this.state.categories === 'Games' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Games')}>Games</li>
+                          <li className={this.state.categories === 'Journalism' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Journalism')}>Journalism</li>
+                          <li className={this.state.categories === 'Music' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Music')}>Music</li>
+                          <li className={this.state.categories === 'Photography' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Photography')}>Photography</li>
+                          <li className={this.state.categories === 'Publishing' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Publishing')}>Publishing</li>
+                          <li className={this.state.categories === 'Technology' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Technology')}>Technology</li>
+                          <li className={this.state.categories === 'Theater' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('Theater')}>Theater</li>
+                        </div>
+                        <div style={{width: `${this.state.subcategoryBoxWidth}%`}} className={`${this.state.subCategoryBox} recommendations-second-box-category-list`}>
+                          <li className={this.state.subcategories === `All of ${this.state.categories}` ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('hide-subcategory')}>All of {this.state.categories}</li>
+                          {this.state.categories === 'Art' ? artFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Comics' ? comicsFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Crafts' ? craftsFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Dance' ? danceFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Design' ? designFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Fashion' ? fashionFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Film & Video' ? filmFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Food' ? foodFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Games' ? gamesFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Journalism' ? journalismFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Music' ? musicFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Photography' ? photographyFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Publishing' ? publishingFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Technology' ? technologyFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Theater' ? theaterFirstSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                        </div>
+                        <div style={{width: `${this.state.subcategoryBoxWidth}%`}} className={`${this.state.subCategoryBox} recommendations-second-box-category-list`}>
+                          {this.state.categories === 'Art' ? artSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Comics' ? comicsSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Crafts' ? craftsSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Dance' ? danceSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Design' ? designSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Fashion' ? fashionSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Film & Video' ? filmSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Food' ? foodSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Games' ? gamesSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Journalism' ? journalismSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Music' ? musicSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Photography' ? photographySecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Publishing' ? publishingSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Technology' ? technologySecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
+                          {this.state.categories === 'Theater' ? theaterSecondSubcategories.map(el => <li className={this.state.subcategories === el ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox(el)}>{el}</li>) : ''}
                         </div>
                       </ul>
                       <i className="all-categories-caret fas fa-caret-down"></i>
