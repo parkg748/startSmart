@@ -11,16 +11,27 @@ class Recommendations extends React.Component {
                   displayProfileMenu: 'js-modal-close',
                   searchBar: 'search-bar-close',
                   projectsNum: 2,
-                  categories: 'All Categories'};
+                  categories: 'All Categories',
+                  categoryBorder: '',
+                  categoryBox: 'location-none-display'};
     // this.showArrow = this.showArrow.bind(this);
     // this.hideArrow = this.hideArrow.bind(this);
     this.clickSearchBar = this.clickSearchBar.bind(this);
+    this.displayCategoryBox = this.displayCategoryBox.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchAllUsers();
+  }
+
+  displayCategoryBox(type) {
+    if (type === 'display') {
+      this.setState({categoryBorder: 'black-border', categoryBox: ''});
+    } else {
+      this.setState({categoryBorder: '', categoryBox: 'location-none-display'});
+    }
   }
 
   clickSearchBar() {
@@ -194,28 +205,28 @@ class Recommendations extends React.Component {
                     </div>
                     <span>projects in</span>
                     <div className='recommendations-second-box'>
-                      <div className='select-your-second-category'>{this.state.categories}</div>
-                      <ul>
+                      <div onClick={() => this.displayCategoryBox('display')} className={`select-your-second-category ${this.state.categoryBorder}`}>{this.state.categories}</div>
+                      <ul className={`${this.state.categoryBox}`}>
                         <h5>CATEGORIES</h5>
                         <div className='recommendations-second-box-category-list'>
-                          <li>All categories</li>
-                          <li>Art</li>
-                          <li>Comics</li>
-                          <li>Crafts</li>
-                          <li>Dance</li>
-                          <li>Design</li>
-                          <li>Fashion</li>
-                          <li>Film & Video</li>
+                          <li className={this.state.categories === 'All Categories' ? 'green-font-color' : ''} onClick={() => this.displayCategoryBox('hide')}>All categories</li>
+                          <li className={this.state.categories === 'Art' ? 'green-font-color' : ''}>Art</li>
+                          <li className={this.state.categories === 'Comics' ? 'green-font-color' : ''}>Comics</li>
+                          <li className={this.state.categories === 'Crafts' ? 'green-font-color' : ''}>Crafts</li>
+                          <li className={this.state.categories === 'Dance' ? 'green-font-color' : ''}>Dance</li>
+                          <li className={this.state.categories === 'Design' ? 'green-font-color' : ''}>Design</li>
+                          <li className={this.state.categories === 'Fashion' ? 'green-font-color' : ''}>Fashion</li>
+                          <li className={this.state.categories === 'Film & Video' ? 'green-font-color' : ''}>Film & Video</li>
                         </div>
                         <div className='recommendations-second-box-category-list'>
-                          <li>Food</li>
-                          <li>Games</li>
-                          <li>Journalism</li>
-                          <li>Music</li>
-                          <li>Photography</li>
-                          <li>Publishing</li>
-                          <li>Technology</li>
-                          <li>Theater</li>
+                          <li className={this.state.categories === 'Food' ? 'green-font-color' : ''}>Food</li>
+                          <li className={this.state.categories === 'Games' ? 'green-font-color' : ''}>Games</li>
+                          <li className={this.state.categories === 'Journalism' ? 'green-font-color' : ''}>Journalism</li>
+                          <li className={this.state.categories === 'Music' ? 'green-font-color' : ''}>Music</li>
+                          <li className={this.state.categories === 'Photography' ? 'green-font-color' : ''}>Photography</li>
+                          <li className={this.state.categories === 'Publishing' ? 'green-font-color' : ''}>Publishing</li>
+                          <li className={this.state.categories === 'Technology' ? 'green-font-color' : ''}>Technology</li>
+                          <li className={this.state.categories === 'Theater' ? 'green-font-color' : ''}>Theater</li>
                         </div>
                       </ul>
                       <i className="all-categories-caret fas fa-caret-down"></i>

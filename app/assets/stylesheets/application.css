@@ -2791,7 +2791,7 @@ nav {
 }
 
 .location-none-display {
-  display: none;
+  display: none !important;
 }
 
 .location-display {
@@ -6979,6 +6979,7 @@ strong {
   margin-bottom: 12px;
   position: relative;
   float: left;
+  cursor: pointer;
 }
 
 .recommendations-first-box span {
@@ -7046,6 +7047,10 @@ strong {
   color: #009E74;
 }
 
+.green-font-color {
+  color: #009E74;
+}
+
 .recommendations-second-box-category-list {
   display: flex;
   flex-flow: column;
@@ -7065,6 +7070,7 @@ strong {
   font-weight: 100;
   box-shadow: #DCDEDD 0 2px 5px;
   color: rgb(155,158,158);
+  cursor: pointer;
 }
 
 .on-recommendations {
@@ -7098,6 +7104,7 @@ strong {
   font-weight: 100;
   box-shadow: #DCDEDD 0 2px 5px;
   color: rgb(155,158,158);
+  cursor: pointer;
 }
 
 .earth-caret {
@@ -7116,6 +7123,7 @@ strong {
   margin-bottom: 12px;
   position: relative;
   float: left;
+  cursor: pointer;
 }
 
 .that-are {
@@ -7148,6 +7156,7 @@ strong {
   margin-bottom: 12px;
   position: relative;
   float: left;
+  cursor: pointer;
 }
 
 .recommendations-fifth-close {
@@ -7175,6 +7184,7 @@ strong {
   margin-bottom: 12px;
   position: relative;
   float: left;
+  cursor: pointer;
 }
 
 .recommendations-sixth-close {
@@ -7202,6 +7212,7 @@ strong {
   margin-bottom: 12px;
   position: relative;
   float: left;
+  cursor: pointer;
 }
 
 .recommendations-seventh-close {
@@ -7245,6 +7256,7 @@ strong {
   box-shadow: #DCDEDD 0 2px 5px;
   color: rgb(155,158,158);
   width: auto !important;
+  cursor: pointer;
 }
 
 .magic-caret {
