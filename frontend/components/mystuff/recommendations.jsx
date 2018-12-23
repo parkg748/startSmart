@@ -48,15 +48,9 @@ class Recommendations extends React.Component {
     this.props.logout().then(() => {this.props.history.push(`/login`), this.setState({displayProfileMenu: 'js-modal-close'})});
   }
 
-  // showArrow() {
-  //   this.setState({display: ''});
-  // }
-  //
-  // hideArrow() {
-  //   this.setState({display: 'location-none-display'});
-  // }
-
-
+  addCommasToNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 
   render() {
     if (this.props.projects === undefined || this.props.projects === null) return null;
@@ -108,7 +102,7 @@ class Recommendations extends React.Component {
                 <div className='recommendations-category-one-content-bar'>
                 </div>
                 <div className='recommendations-category-funding-info'>
-                  <h1>$395,347 pledged</h1>
+                  <h1>${this.addCommasToNumber(projects[i].fundingGoal)} pledged</h1>
                   <p>1,129% funded</p>
                   <p>{projects[i] === undefined ? '' : projects[i].duration} days to go</p>
                   <div className='recommendations-category-bottom-link'>{projects[i] === undefined ? '' : projects[i].subcategory}</div>
@@ -138,7 +132,7 @@ class Recommendations extends React.Component {
                 <div className='recommendations-category-one-content-bar'>
                 </div>
                 <div className='recommendations-category-funding-info'>
-                  <h1>$395,347 pledged</h1>
+                  <h1>${this.addCommasToNumber(projects[i - 1].fundingGoal)} pledged</h1>
                   <p>1,129% funded</p>
                   <p>{projects[i - 1] === undefined ? '' : projects[i - 1].duration} days to go</p>
                   <div className='recommendations-category-bottom-link'>{projects[i - 1] === undefined ? '' : projects[i - 1].subcategory}</div>
@@ -168,7 +162,7 @@ class Recommendations extends React.Component {
                 <div className='recommendations-category-one-content-bar'>
                 </div>
                 <div className='recommendations-category-funding-info'>
-                  <h1>$395,347 pledged</h1>
+                  <h1>${this.addCommasToNumber(projects[i - 1].fundingGoal)} pledged</h1>
                   <p>1,129% funded</p>
                   <p>{projects[i - 2] === undefined ? '' : projects[i - 2].duration} days to go</p>
                   <div className='recommendations-category-bottom-link'>{projects[i - 2] === undefined ? '' : projects[i - 2].subcategory}</div>
@@ -295,7 +289,7 @@ class Recommendations extends React.Component {
                           </div>
                           <ul>
                             <li><strong>2512%</strong><span>funded</span></li>
-                            <li><strong>$628,149</strong><span>pledged</span></li>
+                            <li><strong>${this.addCommasToNumber(projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].fundingGoal : '')}</strong><span>pledged</span></li>
                             <li><strong>8,016</strong><span>backers</span></li>
                             <li><strong>{projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].duration : ''}</strong><span>days to go</span></li>
                           </ul>
