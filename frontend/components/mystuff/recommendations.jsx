@@ -38,7 +38,7 @@ class Recommendations extends React.Component {
     } else if (type === 'display') {
       this.setState({categoryBorder: 'black-border', categoryBox: ''});
     } else if (type === 'Art' || type === 'Comics' || type === 'Crafts' || type === 'Dance' || type === 'Design' || type === 'Fashion' || type === 'Film & Video' || type === 'Food' || type === 'Games' || type === 'Journalism' || type === 'Music' || type === 'Photography' || type === 'Publishing' || type === 'Technology' || type === 'Theater') {
-      this.setState({categories: type, categoryBoxWidth: 598, subCategoryBox: '', categoryTitleWidth: 43.95, categoryTitle: type.toUpperCase(), subcategoryBoxWidth: 25});
+      this.setState({subcategories: `All of ${type}`, categories: type, categoryBoxWidth: 598, subCategoryBox: '', categoryTitleWidth: 43.95, categoryTitle: type.toUpperCase(), subcategoryBoxWidth: 25});
     } else if (type === 'hide') {
       this.setState({subcategories: '', categories: 'All Categories', categoryBoxWidth: 298, categoryTitleWidth: 100, subcategoryBoxWidth: 50, categoryTitle: '', categoryBorder: '', categoryBox: 'location-none-display', subCategoryBox: 'location-none-display'});
     } else if (type === 'hide-subcategory') {
@@ -372,7 +372,7 @@ class Recommendations extends React.Component {
             </div>
           </div>
         </div>
-        <section className='recommendations-body'>
+        {projects != undefined && projects.length != 0 ? <section className='recommendations-body'>
           <div className='recommendations-body-inner'>
             <section className='recommendations-body-inner-inner'>
               <div className='recommendations-body-inner-inner-inner-inner'>
@@ -433,7 +433,7 @@ class Recommendations extends React.Component {
               </div>
             </section>
           </div>
-        </section>
+        </section> : ''}
       </div>
     );
   }
