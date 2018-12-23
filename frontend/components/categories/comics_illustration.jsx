@@ -3,6 +3,7 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
+import CategoriesHeader from './categories_header';
 
 class ComicsIllustration extends React.Component {
   constructor(props) {
@@ -153,12 +154,7 @@ class ComicsIllustration extends React.Component {
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
-          <div className='categories-header'>
-            <h3>Comics & Illustration</h3>
-            <p>Explore fantastical worlds and original characters from StartSmart's community of comics creators and illustrators.</p>
-            <Link className='subcategories-links' to='/discover/categories/comics'>Explore Comics</Link>
-            <Link className='subcategories-links' to='/discover/categories/art/illustration'>Explore Illustration</Link>
-          </div>
+          <CategoriesHeader category={'Comics & Illustration'} subcategories={['comics', 'art/illustration']} subcategoriesUppercase={['Comics', 'Illustration']} description={'Explore fantastical worlds and original characters from StartSmart\'s community of comics creators and illustrators.'}/>
           <div className='featured-project-recommended'>
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>
@@ -167,7 +163,7 @@ class ComicsIllustration extends React.Component {
                   <i className={`${this.state.mainHeartFill} fa-heart`}></i>
                 </div>
                 <div id='category-recommended-remind-me-first'>Remind Me</div>
-                <img src={comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-1)[0].imageUrl : ''}/>
+                <Link to={`/users/${comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-1)[0].id : ''}/projects/${usersComicsIllustrationProjects.length > 0 ? usersComicsIllustrationProjects.slice(-1)[0].id : ''}/front`}><img src={comicsIllustrationsProject.length > 0 ? comicsIllustrationsProject.slice(-1)[0].imageUrl : ''}/></Link>
                 <div className='featured-project-recommended-left-gray-bar'>
                   <div className='featured-project-recommended-left-green-bar'></div>
                 </div>

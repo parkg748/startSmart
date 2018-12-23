@@ -3,6 +3,7 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
+import CategoriesHeader from './categories_header';
 
 class DesignTech extends React.Component {
   constructor(props) {
@@ -165,12 +166,7 @@ class DesignTech extends React.Component {
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
-          <div className='categories-header'>
-            <h3>Design & Tech</h3>
-            <p>From fine design to innovative tech, discover projects from creators working to build a more beautiful, sustainable future.</p>
-            <Link className='subcategories-links' to='/discover/categories/design'>Explore Design</Link>
-            <Link className='subcategories-links' to='/discover/categories/technology'>Explore Technology</Link>
-          </div>
+          <CategoriesHeader category={'Design & Tech'} subcategories={['design', 'technology']} subcategoriesUppercase={['Design', 'Technology']} description={'From fine design to innovative tech, discover projects from creators working to build a more beautiful, sustainable future.'}/>
           <div className='featured-project-recommended'>
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>

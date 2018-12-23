@@ -3,6 +3,7 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
+import CategoriesHeader from './categories_header';
 
 class Publishing extends React.Component {
   constructor(props) {
@@ -153,12 +154,7 @@ class Publishing extends React.Component {
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
-          <div className='categories-header'>
-            <h3>Publishing</h3>
-            <p>Explore how writers and publishers are using StartSmart to bring new literature, periodicals, podcasts, and more to life.</p>
-            <Link className='subcategories-links' to='/discover/categories/journalism'>Explore Journalism</Link>
-            <Link className='subcategories-links' to='/discover/categories/publishing'>Explore Publishing</Link>
-          </div>
+          <CategoriesHeader category={'Publishing'} subcategories={['journalism', 'publishing']} subcategoriesUppercase={['Journalism', 'Publishing']} description={'Explore how writers and publishers are using StartSmart to bring new literature, periodicals, podcasts, and more to life.'}/>
           <div className='featured-project-recommended'>
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>

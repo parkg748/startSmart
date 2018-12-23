@@ -3,6 +3,7 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
+import CategoriesHeader from './categories_header';
 
 class Music extends React.Component {
   constructor(props) {
@@ -151,11 +152,7 @@ class Music extends React.Component {
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
-          <div className='categories-header'>
-            <h3>Music</h3>
-            <p>Discover new albums, performances, and independent venues from creators using StartSmart to shape the future of sound.</p>
-            <Link className='subcategories-links' to='/discover/categories/music'>Explore Music</Link>
-          </div>
+          <CategoriesHeader category={'Music'} subcategories={['music']} subcategoriesUppercase={['Music']} description={'Discover new albums, performances, and independent venues from creators using StartSmart to shape the future of sound.'}/>
           <div className='featured-project-recommended'>
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>

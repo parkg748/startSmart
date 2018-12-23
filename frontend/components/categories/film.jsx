@@ -3,6 +3,7 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
+import CategoriesHeader from './categories_header';
 
 class Film extends React.Component {
   constructor(props) {
@@ -157,11 +158,7 @@ class Film extends React.Component {
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
-          <div className='categories-header'>
-            <h3>Film</h3>
-            <p>Join forces with the intrepid filmmakers and festival creators changing the way stories get told on screen.</p>
-            <Link className='subcategories-links' to='/discover/categories/film-video'>Explore Film & Video</Link>
-          </div>
+          <CategoriesHeader category={'Film'} subcategories={['film-video']} subcategoriesUppercase={['Film & Video']} description={'Join forces with the intrepid filmmakers and festival creators changing the way stories get told on screen.'}/>
           <div className='featured-project-recommended'>
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>

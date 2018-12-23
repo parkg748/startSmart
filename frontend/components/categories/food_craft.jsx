@@ -3,6 +3,7 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
+import CategoriesHeader from './categories_header';
 
 class FoodCraft extends React.Component {
   constructor(props) {
@@ -149,13 +150,7 @@ class FoodCraft extends React.Component {
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
-          <div className='categories-header'>
-            <h3>Food & Craft</h3>
-            <p>See how artisans and entrepreneurs are using StartSmart to break new ground in food, fashion, and crafts.</p>
-            <Link className='subcategories-links' to='/discover/categories/crafts'>Explore Crafts</Link>
-            <Link className='subcategories-links' to='/discover/categories/fashion'>Explore Fashion</Link>
-            <Link className='subcategories-links' to='/discover/categories/food'>Explore Food</Link>
-          </div>
+          <CategoriesHeader category={'Food & Craft'} subcategories={['crafts', 'fashion', 'food']} subcategoriesUppercase={['Crafts', 'Fashion', 'Food']} description={'See how artisans and entrepreneurs are using StartSmart to break new ground in food, fashion, and crafts.'}/>
           <div className='featured-project-recommended'>
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>

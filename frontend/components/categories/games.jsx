@@ -3,6 +3,7 @@ import {Redirect, Link} from 'react-router-dom';
 import Modal from '../modal';
 import MyStuffNav from '../mystuff/mystuff_nav';
 import SearchBar from '../search_bar';
+import CategoriesHeader from './categories_header';
 
 class Games extends React.Component {
   constructor(props) {
@@ -163,11 +164,7 @@ class Games extends React.Component {
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
         <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='categories-body'>
-          <div className='categories-header'>
-            <h3>Games</h3>
-            <p>From tabletop adventures to beloved revivals, discover the projects forging the future of gameplay.</p>
-            <Link className='subcategories-links' to='/discover/categories/games'>Explore Games</Link>
-          </div>
+          <CategoriesHeader category={'Games'} subcategories={['games']} subcategoriesUppercase={['Games']} description={'From tabletop adventures to beloved revivals, discover the projects forging the future of gameplay.'}/>
           <div className='featured-project-recommended'>
             <div className='featured-project-recommended-inner'>
               <div className='featured-project-recommended-left'>
