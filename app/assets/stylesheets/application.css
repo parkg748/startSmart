@@ -1044,10 +1044,9 @@ nav {
 
 .first-three-row {
   width: 100%;
-  height: 556px;
+  height: fit-content;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
 }
 
 .profile-circle img {
@@ -7278,7 +7277,7 @@ strong {
 
 .recommendations-body {
   width: 100%;
-  height: 1830px;
+  height: fit-content;
   padding-top: 18px;
   border-top: 1px solid #DCDEDD;
 
@@ -7514,17 +7513,20 @@ strong {
   width: 33%;
   height: 583px;
   padding: 0 41px 0 0;
+  margin-bottom: 20px;
 }
 
 .recommendations-category-one-right {
   width: 33%;
   height: 583px;
   padding: 0 0 0 41px;
+  margin-bottom: 20px;
 }
 
 .recommendations-category-one {
   width: 33%;
   height: 583px;
+  margin-bottom: 20px;
 }
 
 .recommendations-category-one-inner {

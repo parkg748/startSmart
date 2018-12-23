@@ -105,10 +105,26 @@ class Recommendations extends React.Component {
     var projectRowBox = [];
     if (Object.values(this.props.projects).length > 1 && Object.values(this.props.users).length > 2) {
       var projects = Object.values(this.props.projects);
+      let category = '';
+      if (this.state.categories != 'All Categories' && this.state.subcategories === '' || this.state.subcategories.includes('All of')) {
+        if (this.state.categories === 'Film & Video') {
+          category = Object.values(this.props.categories).filter(el => el.name === 'Film')[0].id;
+        } else {
+          category = Object.values(this.props.categories).filter(el => el.name === this.state.categories)[0].id;
+        }
+        projects = projects.filter(el => el.categoryId === category);
+      } else if (this.state.categories != 'All Categories' && this.state.subcategories != '') {
+        if (this.state.categories === 'Film & Video') {
+          category = Object.values(this.props.categories).filter(el => el.name === 'Film')[0].id;
+        } else {
+          category = Object.values(this.props.categories).filter(el => el.name === this.state.categories)[0].id;
+        }
+        projects = projects.filter(el => el.categoryId === category && el.subcategory === this.state.subcategories);
+      }
       var users = projects.map(el => Object.values(this.props.users).find(user => user.id === el.userId));
       for (let i = projects.length - 2; i > (projects.length - (this.state.projectsNum * 3) - 2); i -= 3) {
         projectRowBox.push(<div className='first-three-row'>
-        <div className='recommendations-category-one-left'>
+        {i > -1 ? <div className='recommendations-category-one-left'>
           <div className='recommendations-category-one-inner'>
             <Link to={`/users/${projects.length != 0 ? projects[i].id : ''}/projects/${projects.length != 0 ? projects[i].id : ''}/front`}>
               <img src={projects[i] === undefined ? '' : projects[i].imageUrl} />
@@ -137,8 +153,8 @@ class Recommendations extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className='recommendations-category-one'>
+        </div> : ''}
+        {i - 1 > -1 ? <div className='recommendations-category-one'>
           <div className='recommendations-category-one-inner'>
             <Link to={`/users/${projects.length != 0 ? users[i - 1].id : ''}/projects/${projects.length != 0 ? projects[i - 1].id : ''}/front`}>
               <img src={projects[i - 1] === undefined ? '' : projects[i - 1].imageUrl} />
@@ -167,8 +183,8 @@ class Recommendations extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className='recommendations-category-one-right'>
+        </div> : ''}
+        {i - 2 > -1 ? <div className='recommendations-category-one-right'>
           <div className='recommendations-category-one-inner'>
             <Link to={`/users/${projects.length != 0 ? users[i - 2].id : ''}/projects/${projects.length != 0 ? projects[i - 2].id : ''}/front`}>
               <img src={projects[i - 2] === undefined ? '' : projects[i - 2].imageUrl} />
@@ -197,7 +213,7 @@ class Recommendations extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> : ''}
       </div>);
       }
     }
