@@ -381,7 +381,7 @@ class Recommendations extends React.Component {
                     <div className='recommendations-body-header-one'>
                       <h3>Projects for you</h3>
                       <h5>
-                        <a><div>See all {Object.values(this.props.user).length} live projects</div><i className={`${this.state.display} recommendations-body-arrow fas fa-long-arrow-alt-right`}></i></a>
+                        <a><div>See all {this.props.user != undefined ? Object.values(this.props.user).length : ''} live projects</div><i className={`${this.state.display} recommendations-body-arrow fas fa-long-arrow-alt-right`}></i></a>
                       </h5>
                     </div>
                   </div>
