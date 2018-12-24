@@ -191,7 +191,14 @@ class Recommendations extends React.Component {
       else if (this.state.filterByGoalAmt === '$10,000 to $100,000 goal') { projects = projects.filter(el => el.fundingGoal >= 10000 && el.fundingGoal < 100000); }
       else if (this.state.filterByGoalAmt === '$100,000 to $1,000,000 goal') { projects = projects.filter(el => el.fundingGoal >= 100000 && el.fundingGoal < 1000000); }
       else if (this.state.filterByGoalAmt === 'greater $1,000,000 goal') { projects = projects.filter(el => el.fundingGoal >= 1000000); }
-      if (this.state.filterByPledgeAmt)
+      if (this.state.filterByPledgeAmt === 'less $1,000 pledged') { projects = projects.filter(el => el.pledgeAmt < 1000); }
+      else if (this.state.filterByPledgeAmt === '$1,000 to $10,000 pledged') { projects = projects.filter(el => el.pledgeAmt >= 1000 && el.pledgeAmt < 10000); }
+      else if (this.state.filterByPledgeAmt === '$10,000 to $100,000 pledged') { projects = projects.filter(el => el.pledgeAmt >= 10000 && el.pledgeAmt < 100000); }
+      else if (this.state.filterByPledgeAmt === '$100,000 to $1,000,000 pledged') { projects = projects.filter(el => el.pledgeAmt >= 100000 && el.pledgeAmt < 1000000); }
+      else if (this.state.filterByPledgeAmt === 'greater $1,000,000 pledged') { projects = projects.filter(el => el.pledgeAmt >= 1000000); }
+      if (this.state.filterByRaised === 'less 75% raised') { projects = projects.filter(el => (Math.floor(el.pledgeAmt / el.fundingGoal) * 100) < 75); }
+      else if (this.state.filterByRaised === '75% to 100% raised') { projects = projects.filter(el => (Math.floor(el.pledgeAmt / el.fundingGoal) * 100) >= 75 && (Math.floor(el.pledgeAmt / el.fundingGoal) * 100) < 100); }
+      else if (this.state.filterByRaised === 'greater 100% raised') { projects = projects.filter(el => (Math.floor(el.pledgeAmt / el.fundingGoal) * 100) >= 100); }
       var users = projects.map(el => allUsers.find(user => user.id === el.userId));
       for (let i = projects.length - 2; i > (projects.length - (this.state.projectsNum * 3) - 2); i -= 3) {
         projectRowBox.push(<div className='first-three-row'>
