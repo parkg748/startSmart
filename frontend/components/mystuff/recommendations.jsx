@@ -341,9 +341,32 @@ class Recommendations extends React.Component {
                     </div>
                     <span className='on-recommendations'>on</span>
                     <div className='recommendations-third-box'>
-                      <select className='select-your-third-category' defaultValue='earth'>
-                        <option value='earth' disabled>Earth</option>
-                      </select>
+                      <div className='select-your-third-category'>Earth</div>
+                      <ul>
+                        <div className='earth-search-bar'>
+                          <div className='earth-search-bar-box'>
+                            <input type='text' placeholder='Search by city, state, country, ...'/>
+                            <div className='earth-search-bar-icon'>
+                              <i className="fas fa-search"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <h5>BROADER LOCATIONS</h5>
+                        <h5>NEARBY LOCATIONS</h5>
+                        <div className='recommendations-second-box-category-list'>
+                          <li>Earth</li>
+                          <li>United States</li>
+                          <li>California, US</li>
+                          <li>Los Angeles, CA</li>
+                        </div>
+                        <div className='recommendations-second-box-category-list blue-font'>
+                          <li>Los Angeles, CA</li>
+                          <li>San Francisco, CA</li>
+                          <li>San Diego, CA</li>
+                          <li>Oakland, CA</li>
+                          <li>San Jose, CA</li>
+                        </div>
+                      </ul>
                       <i className="earth-caret fas fa-caret-down"></i>
                     </div>
                     <span className='that-are'>that are</span>
