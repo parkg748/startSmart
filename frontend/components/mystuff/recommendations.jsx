@@ -15,7 +15,9 @@ class Recommendations extends React.Component {
                   filter: '',
                   popularity: 'Magic',
                   earth: 'Earth',
+                  filterByGoalAmt: 'Goal',
                   filterByPledgeAmt: 'Amount Pledged',
+                  filterByRaised: '% Raised',
                   subcategories: '',
                   categoryBorder: '',
                   popularityBorder: '',
@@ -88,12 +90,22 @@ class Recommendations extends React.Component {
 
   update(type) {
     return (e) => {
-      if (type === 'pledge') {
-        if (e.target.value === 'less $1,000 pledged') { this.setState({filterByPledgeAmt: '&#60; $1,000 pledged'}); }
+      if (type === 'goal') {
+        if (e.target.value === 'less $1,000 goal') { this.setState({filterByGoalAmt: 'less $1,000 goal'}); }
+        else if (e.target.value === '$1,000 to $10,000 goal') { this.setState({filterByGoalAmt: '$1,000 to $10,000 goal'}); }
+        else if (e.target.value === '$10,000 to $100,000 goal') { this.setState({filterByGoalAmt: '$10,000 to $100,000 goal'}); }
+        else if (e.target.value === '$100,000 to $1,000,000 goal') { this.setState({filterByGoalAmt: '$100,000 to $1,000,000 goal'}); }
+        else if (e.target.value === 'greater $1,000,000 goal') { this.setState({filterByGoalAmt: 'greater $1,000,000 goal'}); }
+      } else if (type === 'pledge') {
+        if (e.target.value === 'less $1,000 pledged') { this.setState({filterByPledgeAmt: 'less $1,000 pledged'}); }
         else if (e.target.value === '$1,000 to $10,000 pledged') { this.setState({filterByPledgeAmt: '$1,000 to $10,000 pledged'}); }
         else if (e.target.value === '$10,000 to $100,000 pledged') { this.setState({filterByPledgeAmt: '$10,000 to $100,000 pledged'}); }
         else if (e.target.value === '$100,000 to $1,000,000 pledged') { this.setState({filterByPledgeAmt: '$100,000 to $1,000,000 pledged'}); }
-        else if (e.target.value === 'greater $1,000,000 pledged') { this.setState({filterByPledgeAmt: '&#62; $1,000,000 pledged'}); }
+        else if (e.target.value === 'greater $1,000,000 pledged') { this.setState({filterByPledgeAmt: 'greater $1,000,000 pledged'}); }
+      } else if (type === 'raise') {
+        if (e.target.value === 'less 75% raised') { this.setState({filterByRaised: 'less 75% raised'}); }
+        else if (e.target.value === '75% to 100% raised') { this.setState({filterByRaised: '75% to 100% raised'}); }
+        else if (e.target.value === 'greater 100% raised') { this.setState({filterByRaised: 'greater 100% raised'}); }
       }
     }
   }
@@ -174,11 +186,12 @@ class Recommendations extends React.Component {
         }
         projects = projects.filter(el => el.categoryId === category && el.subcategory === this.state.subcategories);
       }
-      if (this.state.filterByPledgeAmt === '&#60; $1,000 pledged') { projects = projects.filter(el => el.fundingGoal < 1000); }
-      else if (this.state.filterByPledgeAmt === '$1,000 to $10,000 pledged') { projects = projects.filter(el => el.fundingGoal >= 1000 && el.fundingGoal < 10000); }
-      else if (this.state.filterByPledgeAmt === '$10,000 to $100,000 pledged') { projects = projects.filter(el => el.fundingGoal >= 10000 && el.fundingGoal < 100000); }
-      else if (this.state.filterByPledgeAmt === '$100,000 to $1,000,000 pledged') { projects = projects.filter(el => el.fundingGoal >= 100000 && el.fundingGoal < 1000000); }
-      else if (this.state.filterByPledgeAmt === '&#62; $1,000,000 pledged') { projects = projects.filter(el => el.fundingGoal >= 1000000); }
+      if (this.state.filterByGoalAmt === 'less $1,000 goal') { projects = projects.filter(el => el.fundingGoal < 1000); }
+      else if (this.state.filterByGoalAmt === '$1,000 to $10,000 goal') { projects = projects.filter(el => el.fundingGoal >= 1000 && el.fundingGoal < 10000); }
+      else if (this.state.filterByGoalAmt === '$10,000 to $100,000 goal') { projects = projects.filter(el => el.fundingGoal >= 10000 && el.fundingGoal < 100000); }
+      else if (this.state.filterByGoalAmt === '$100,000 to $1,000,000 goal') { projects = projects.filter(el => el.fundingGoal >= 100000 && el.fundingGoal < 1000000); }
+      else if (this.state.filterByGoalAmt === 'greater $1,000,000 goal') { projects = projects.filter(el => el.fundingGoal >= 1000000); }
+      if (this.state.filterByPledgeAmt)
       var users = projects.map(el => allUsers.find(user => user.id === el.userId));
       for (let i = projects.length - 2; i > (projects.length - (this.state.projectsNum * 3) - 2); i -= 3) {
         projectRowBox.push(<div className='first-three-row'>
@@ -465,20 +478,20 @@ class Recommendations extends React.Component {
                         <option value='greater $1,000,000 pledged'>&#62; $1,000,000 pledged</option>
                       </select>
                       <i className="amount-pledged-caret fas fa-caret-down"></i>
-                      <select>
-                        <option>Goal</option>
-                        <option>&#60; $1,000 goal</option>
-                        <option>$1,000 to $10,000 goal</option>
-                        <option>$10,000 to $100,000 goal</option>
-                        <option>$100,000 to $1,000,000 goal</option>
-                        <option>&#62; $1,000,000 goal</option>
+                      <select onChange={this.update('goal')} value={this.state.filterByGoalAmt}>
+                        <option value='Goal'>Goal</option>
+                        <option value='less $1,000 goal'>&#60; $1,000 goal</option>
+                        <option value='$1,000 to $10,000 goal'>$1,000 to $10,000 goal</option>
+                        <option value='$10,000 to $100,000 goal'>$10,000 to $100,000 goal</option>
+                        <option value='$100,000 to $1,000,000 goal'>$100,000 to $1,000,000 goal</option>
+                        <option value='greater $1,000,000 goal'>&#62; $1,000,000 goal</option>
                       </select>
                       <i className="goal-caret fas fa-caret-down"></i>
-                      <select>
-                        <option>% Raised</option>
-                        <option>&#60; 75% raised</option>
-                        <option>75% to 100% raised</option>
-                        <option>&#62; 100% raised</option>
+                      <select onChange={this.update('raise')} value={this.state.filterByRaised}>
+                        <option value='% Raised'>% Raised</option>
+                        <option value='less 75% raised'>&#60; 75% raised</option>
+                        <option value='75% to 100% raised'>75% to 100% raised</option>
+                        <option value='greater 100% raised'>&#62; 100% raised</option>
                       </select>
                       <i className="raised-caret fas fa-caret-down"></i>
                     </ul>
