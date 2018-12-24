@@ -28,8 +28,6 @@ class Recommendations extends React.Component {
                   categoryTitle: '',
                   subCategoryBox: 'location-none-display',
                   subcategoryBoxWidth: 50};
-    // this.showArrow = this.showArrow.bind(this);
-    // this.hideArrow = this.hideArrow.bind(this);
     this.clickSearchBar = this.clickSearchBar.bind(this);
     this.displayCategoryBox = this.displayCategoryBox.bind(this);
     this.displayPopularityBox = this.displayPopularityBox.bind(this);
@@ -122,9 +120,12 @@ class Recommendations extends React.Component {
     if (this.props.categories === undefined || this.props.categories === null) return null;
     if (this.props.users === undefined || this.props.users === null) return null;
     if (this.props.user === null || this.props.session.session === null) return <Redirect to='/login' />;
+    let allUsers = Object.values(this.props.users);
+    let categories = Object.values(this.props.categories);
+    let allProjects = Object.values(this.props.projects);
     let profile = undefined;
     let navbarWidth = '';
-    let currentProfileIcon = getState().session.id === null || getState().session.session === null ? '' : Object.values(getState().entities.users).filter(el => el.id === getState().session.id)[0].profileUrl;
+    let currentProfileIcon = getState().session.id === null || getState().session.session === null ? '' : allUsers.filter(el => el.id === getState().session.id)[0].profileUrl;
     if (getState().session.id != null) {
       profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={currentProfileIcon === '' ? 'https://i.imgur.com/jyZdRza.png' : currentProfileIcon} /></button></div>;
       navbarWidth = 'navbar-width';
@@ -132,9 +133,9 @@ class Recommendations extends React.Component {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
     let currentUserProjects = [];
-    if (Object.values(getState().entities.users)[0] != null) {
-      if (Object.values(getState().entities.users)[0].projects != null) {
-        Object.values(getState().entities.users)[0].projects.forEach(project => {
+    if (allUsers[0] != null) {
+      if (allUsers[0].projects != null) {
+        allUsers[0].projects.forEach(project => {
           if (project.user_id === getState().session.id.id) {
             currentUserProjects.push(project);
           };
@@ -142,25 +143,25 @@ class Recommendations extends React.Component {
       }
     }
     var projectRowBox = [];
-    if (Object.values(this.props.projects).length > 1 && Object.values(this.props.users).length > 2) {
-      var projects = Object.values(this.props.projects);
+    if (allProjects.length > 1 && allUsers.length > 2) {
+      var projects = allProjects;
       let category = '';
       if (this.state.categories != 'All Categories' && this.state.subcategories === '' || this.state.subcategories.includes('All of')) {
         if (this.state.categories === 'Film & Video') {
-          category = Object.values(this.props.categories).filter(el => el.name === 'Film')[0].id;
+          category = categories.filter(el => el.name === 'Film')[0].id;
         } else {
-          category = Object.values(this.props.categories).filter(el => el.name === this.state.categories)[0].id;
+          category = categories.filter(el => el.name === this.state.categories)[0].id;
         }
         projects = projects.filter(el => el.categoryId === category);
       } else if (this.state.categories != 'All Categories' && this.state.subcategories != '') {
         if (this.state.categories === 'Film & Video') {
-          category = Object.values(this.props.categories).filter(el => el.name === 'Film')[0].id;
+          category = categories.filter(el => el.name === 'Film')[0].id;
         } else {
-          category = Object.values(this.props.categories).filter(el => el.name === this.state.categories)[0].id;
+          category = categories.filter(el => el.name === this.state.categories)[0].id;
         }
         projects = projects.filter(el => el.categoryId === category && el.subcategory === this.state.subcategories);
       }
-      var users = projects.map(el => Object.values(this.props.users).find(user => user.id === el.userId));
+      var users = projects.map(el => allUsers.find(user => user.id === el.userId));
       for (let i = projects.length - 2; i > (projects.length - (this.state.projectsNum * 3) - 2); i -= 3) {
         projectRowBox.push(<div className='first-three-row'>
         {i > -1 ? <div className='recommendations-category-one-left'>
@@ -177,10 +178,11 @@ class Recommendations extends React.Component {
                   </Link>
                   <p>{projects[i] === undefined ? '' : projects[i].description}</p>
                 </div>
-                <div className='recommendations-category-one-content-author'>by <h2>{users[i] === undefined ? '' : users[i].name}</h2></div>
+                <div className='recommendations-category-one-content-author'>by <h2><Link to={`/profile/${users[i].id}`}>{users[i] === undefined ? '' : users[i].name}</Link></h2></div>
               </div>
               <div className='recommendations-category-one-content-bottom'>
-                <div className='recommendations-category-one-content-bar'>
+                <div className='recommendations-category-one-content-bar-gray'>
+                  <div style={{width: `${projects[i].fundingGoal === null ? 0 : projects[i].pledgeAmt > 100 ? 100 : Math.floor((projects[i].pledgeAmt / projects[i].fundingGoal) * 100)}%`}} className='recommendations-category-one-content-bar'></div>
                 </div>
                 <div className='recommendations-category-funding-info'>
                   <h1>${this.addCommasToNumber(projects[i].fundingGoal)} pledged</h1>
@@ -207,10 +209,11 @@ class Recommendations extends React.Component {
                   </Link>
                   <p>{projects[i - 1] === undefined ? '' : projects[i - 1].description}</p>
                 </div>
-                <div className='recommendations-category-one-content-author'>by <h2>{users[i - 1] === undefined ? '' : users[i - 1].name}</h2></div>
+                <div className='recommendations-category-one-content-author'>by <h2><Link to={`/profile/${users[i - 1].id}`}>{users[i - 1] === undefined ? '' : users[i - 1].name}</Link></h2></div>
               </div>
               <div className='recommendations-category-one-content-bottom'>
-                <div className='recommendations-category-one-content-bar'>
+                <div className='recommendations-category-one-content-bar-gray'>
+                  <div style={{width: `${projects[i - 1].fundingGoal === null ? 0 : projects[i - 1].pledgeAmt > 100 ? 100 : Math.floor((projects[i - 1].pledgeAmt / projects[i - 1].fundingGoal) * 100)}%`}} className='recommendations-category-one-content-bar'></div>
                 </div>
                 <div className='recommendations-category-funding-info'>
                   <h1>${this.addCommasToNumber(projects[i - 1].fundingGoal)} pledged</h1>
@@ -237,10 +240,11 @@ class Recommendations extends React.Component {
                   </Link>
                   <p>{projects[i - 2] === undefined ? '' : projects[i - 2].description}</p>
                 </div>
-                <div className='recommendations-category-one-content-author'>by <h2>{users[i - 2] === undefined ? '' : users[i - 2].name}</h2></div>
+                <div className='recommendations-category-one-content-author'>by <h2><Link to={`/profile/${users[i - 2].id}`}>{users[i - 2] === undefined ? '' : users[i - 2].name}</Link></h2></div>
               </div>
               <div className='recommendations-category-one-content-bottom'>
-                <div className='recommendations-category-one-content-bar'>
+                <div className='recommendations-category-one-content-bar-gray'>
+                  <div style={{width: `${projects[i - 2].fundingGoal === null ? 0 : projects[i - 2].pledgeAmt > 100 ? 100 : Math.floor((projects[i - 2].pledgeAmt / projects[i - 2].fundingGoal) * 100)}%`}} className='recommendations-category-one-content-bar'></div>
                 </div>
                 <div className='recommendations-category-funding-info'>
                   <h1>${this.addCommasToNumber(projects[i - 1].fundingGoal)} pledged</h1>
@@ -290,7 +294,7 @@ class Recommendations extends React.Component {
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.users)[0]} userId={getState().session.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={allUsers[0]} userId={getState().session.id} sessionId={getState().session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div className='recommendations-header'>
           <div className='recommendations-header-content-inner'>
             <div className='recommendations-header-content-inner-inner'>
@@ -476,41 +480,42 @@ class Recommendations extends React.Component {
                     <div className='recommendations-body-header-one'>
                       <h3>Projects for you</h3>
                       <h5>
-                        <a><div>See all {this.props.user != undefined ? Object.values(this.props.user).length : ''} live projects</div><i className={`${this.state.display} recommendations-body-arrow fas fa-long-arrow-alt-right`}></i></a>
+                        <a><div>See all {this.props.users != undefined ? allUsers.length : ''} live projects</div><i className={`${this.state.display} recommendations-body-arrow fas fa-long-arrow-alt-right`}></i></a>
                       </h5>
                     </div>
                   </div>
                   <div className='recommendations-body-two'>
                     <div className='recommendations-body-three'>
                       <div className='recommendations-body-four'>
-                        <Link to={`/users/${Object.values(this.props.users).length > 2 ? users[users.length - 1].id : ''}/projects/${projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].id : ''}/front`}>
-                          <img src={projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].imageUrl : ''} />
+                        <Link to={`/users/${allUsers.length > 2 ? users[users.length - 1].id : ''}/projects/${projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].id : ''}/front`}>
+                          <img src={projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].imageUrl : ''} />
                         </Link>
                         <div className='recommendations-body-six'>
                           <div className='recommendations-body-seven'>
                             <div className='recommendations-body-seven-header'>
-                              <Link className='recommendations-body-seven-header-inner' to={`/users/${Object.values(this.props.users).length > 2 ? users[users.length - 1].id : ''}/projects/${projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].id : ''}/front`}>{projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].title : null}</Link>
+                              <Link className='recommendations-body-seven-header-inner' to={`/users/${allUsers.length > 2 ? users[users.length - 1].id : ''}/projects/${projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].id : ''}/front`}>{projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].title : null}</Link>
                             </div>
                             <div className='recommendations-body-seven-author'>
                               <img src='https://ksr-ugc.imgix.net/assets/006/347/287/83a01d5959e63f24f2ad447b4a0797f9_original.png?ixlib=rb-1.1.0&w=20&h=20&fit=crop&v=1503090035&auto=format&frame=1&q=92&s=d66f0ce35895ac6e08f4f2592cdbc9b8'/>
-                              by <Link to={`/profile/${Object.values(this.props.users).length > 2 ? users[users.length - 1].id : ''}`}><span>{Object.values(this.props.users).length > 2 ? users[users.length - 1].name : ''}</span></Link>
+                              by <Link to={`/profile/${allUsers.length > 2 ? users[users.length - 1].id : ''}`}><span>{allUsers.length > 2 ? users[users.length - 1].name : ''}</span></Link>
                             </div>
-                            <div className='recommendations-body-seven-description'>{projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].description : ''}</div>
+                            <div className='recommendations-body-seven-description'>{projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].description : ''}</div>
                             <div className='recommendations-body-seven-category'>
                               <a><i className="fab fa-stripe-s"></i>Project We Love</a>
-                              <a><i className="far fa-square"></i>{projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].city : ''}, {projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].state : ''}</a>
-                              <a className='product-design-category'><i className="far fa-square"></i>{projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].subcategory : ''}</a>
+                              <a><i className="far fa-square"></i>{projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].city : ''}, {projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].state : ''}</a>
+                              <a className='product-design-category'><i className="far fa-square"></i>{projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].subcategory : ''}</a>
                             </div>
                           </div>
                         </div>
                         <div className='recommendations-body-eight'>
-                          <div className='recommendations-body-green-bar'>
+                          <div className='recommendations-body-gray-bar'>
+                            <div style={{width: `${projects[projects.length - 1].fundingGoal === null ? 0 : projects[projects.length - 1].pledgeAmt > 100 ? 100 : Math.floor((projects[projects.length - 1].pledgeAmt / projects[projects.length - 1].fundingGoal) * 100)}%`}} className='recommendations-body-green-bar'></div>
                           </div>
                           <ul>
                             <li><strong>2512%</strong><span>funded</span></li>
-                            <li><strong>${this.addCommasToNumber(projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].fundingGoal : '')}</strong><span>pledged</span></li>
+                            <li><strong>${this.addCommasToNumber(projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].fundingGoal : '')}</strong><span>pledged</span></li>
                             <li><strong>8,016</strong><span>backers</span></li>
-                            <li><strong>{projects != undefined && Object.values(this.props.projects).length > 1 ? projects[projects.length - 1].duration : ''}</strong><span>days to go</span></li>
+                            <li><strong>{projects != undefined && allProjects.length > 1 ? projects[projects.length - 1].duration : ''}</strong><span>days to go</span></li>
                           </ul>
                         </div>
                       </div>

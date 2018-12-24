@@ -7657,13 +7657,18 @@ strong {
 }
 
 .recommendations-body-green-bar {
-  height: 8px;
+  height: 100%;
   background-color: #009E74;
+  border-radius: 4px;
+}
+
+.recommendations-body-gray-bar {
+  height: 8px;
+  background-color: #E8E8E8;
   margin-bottom: 12px;
   border-radius: 4px;
   width: 600px;
   float: left;
-  padding-left: 20px;
   margin-left: 40px;
   margin-top: 30px;
 }
@@ -7813,9 +7818,14 @@ strong {
 }
 
 .recommendations-category-one-content-bar {
+  height: 100%;
+  background-color: #037362;
+}
+
+.recommendations-category-one-content-bar-gray {
   height: 3px;
   margin-bottom: 18px;
-  background-color: #037362;
+  background-color: #E8E8E8;
 }
 
 .recommendations-category-funding-info {
