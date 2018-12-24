@@ -1097,4 +1097,60 @@ ActiveRecord::Base.transaction do
   projectpath137 = File.join(Rails.root, 'app', "assets", "images", "d2c6d78a2bf4df32c89c36fedeca5d3c_original.jpg")
   project137.image_url.attach(io: File.open(projectpath137), filename: "d2c6d78a2bf4df32c89c36fedeca5d3c_original.jpg")
   project137.save
+  user138 = User.new(name: "POW! Pots On Wheels!", email: "powpotsonwheels@gmail.com", password: "starwars", biography: 'POW! (Pots On Wheels!) is a collaborative group of functional potters who seek to connect our love of pots with all kinds of people by bringing shows, projects, and collaborations directly to communities in our mobile gallery. We’re six working artists, and a board of experienced professionals with many years of teaching and exhibition experience between us. We partner with museums, art centers, schools, and community centers to bring POW! to communities. With the support of organizations like our fiscal sponsor the Society of Arts and Crafts (A+C), we bring the joys of clay to a broader audience.', google_analytics: "")
+  userpath138 = File.join(Rails.root, 'app', "assets", "images", "ad77ed0e8f83bbfa3be8d7c403593495_original.jpg")
+  user138.profile_url.attach(io: File.open(userpath138), filename: "ad77ed0e8f83bbfa3be8d7c403593495_original.jpg")
+  user138.save
+  project138 = Project.new(duration: 0, limit: false, user_id: user138.id, country: "the United States", title: "Pots On Wheels", description: "We're creating a mobile outreach gallery of beautiful handmade pottery: an art and education collaboration with over 100", pledge_amt: 0, eta: nil, shipping: "", city: "Boston", state: "MA", funding_goal: 20000, category_id: categories[0].id, subcategory: "Ceramics", challenges: "")
+  projectpath138 = File.join(Rails.root, 'app', "assets", "images", "689cd043f4f5d5b8eea95260bd0a5a2a_original.jpg")
+  project138.image_url.attach(io: File.open(projectpath138), filename: "689cd043f4f5d5b8eea95260bd0a5a2a_original.jpg")
+  project138.save
+  user139 = User.new(name: "Marina Villa Pardinas", email: "marinavillapardinas@gmail.com", password: "starwars", biography: '¡Hola!, me llamo Marina y soy la creadora de Matope Cerámica. Considero la cerámica como un medio de expresión infinita, como una forma de encontrarse a uno mismo y como un vehículo de creación impredecible y sorpresivo. A través de mi trabajo con este material, busco rescatar el valor de las cosas simples, de los detalles; de la tarea manual, encontrar belleza en la imperfección y en lo auténtico.', google_analytics: "")
+  userpath139 = File.join(Rails.root, 'app', "assets", "images", "ce4d3325c091b2b6f254af3cc8b3873d_original.jpg")
+  user139.profile_url.attach(io: File.open(userpath139), filename: "ce4d3325c091b2b6f254af3cc8b3873d_original.jpg")
+  user139.save
+  project139 = Project.new(duration: 0, limit: false, user_id: user139.id, country: "Mexico", title: "Handmade ceramic pieces - Matope Cerámica", description: "Ayúdame a crecer mi marca y a cumplir mi sueño. Desarrollaré una nueva línea de productos de cerámica hechos en torno.", pledge_amt: 0, eta: nil, shipping: "", city: "Mexico City", state: "Mexico", funding_goal: 110000, category_id: categories[0].id, subcategory: "Ceramics", challenges: "")
+  projectpath139 = File.join(Rails.root, 'app', "assets", "images", "5aebebe1d6d3f951fae114b17891cd69_original.jpg")
+  project139.image_url.attach(io: File.open(projectpath139), filename: "5aebebe1d6d3f951fae114b17891cd69_original.jpg")
+  project139.save
+  user140 = User.new(name: "Sarah Kersten Handmade", email: "sarahkerstenhandmade@gmail.com", password: "starwars", biography: 'Sarah Kersten is a ceramic artist working in Berkeley, CA. Inspired by what she loves and uses in her kitchen, her work is functional, durable, and beautiful. Her first project as a professional ceramicist has been the Vegetable Fermentation Jar, a piece that combines her lifelong pursuit of ceramics with her passion for the health benefits of fermentation and whole foods.', google_analytics: "")
+  userpath140 = File.join(Rails.root, 'app', "assets", "images", "dc376d40b842088ff81a04e771b6b117_original.jpg")
+  user140.profile_url.attach(io: File.open(userpath140), filename: "dc376d40b842088ff81a04e771b6b117_original.jpg")
+  user140.save
+  project140 = Project.new(duration: 0, limit: false, user_id: user140.id, country: "the United States", title: "Sarah Kersten Handmade Studio", description: "Help build a studio space for Sarah Kersten Handmade, a small ceramic production company in Berkeley, California.", pledge_amt: 0, eta: nil, shipping: "", city: "Berkeley", state: "CA", funding_goal: 30000, category_id: categories[0].id, subcategory: "Ceramics", challenges: "")
+  projectpath140 = File.join(Rails.root, 'app', "assets", "images", "0d3a7a147373577a6810226c93a62090_original.jpg")
+  project140.image_url.attach(io: File.open(projectpath140), filename: "0d3a7a147373577a6810226c93a62090_original.jpg")
+  project140.save
+  user141 = User.new(name: "Susannah Tisue", email: "susannahtisue@gmail.com", password: "starwars", biography: 'Cincinnati based artist Susannah Tisue has a degree in fine art from New York University and developed her pottery knowledge as a resident artist and faculty member at the historic Greenwich House Pottery in Manhattan. It was there that she discovered porcelain, and the beautiful effects of reduction gas firing. She lives and works in Cincinnati, Ohio, currently in a studio at Queen City Clay, alongside her furniture-maker husband (www.michaelmiritello.com) and four year old son, Theo.', google_analytics: "")
+  userpath141 = File.join(Rails.root, 'app', "assets", "images", "c36345ce521d31f776528f2f6b664205_original.jpg")
+  user141.profile_url.attach(io: File.open(userpath141), filename: "c36345ce521d31f776528f2f6b664205_original.jpg")
+  user141.save
+  project141 = Project.new(duration: 0, limit: false, user_id: user141.id, country: "the United States", title: "The Potter and the RAM", description: "I make sturdy, high-fired porcelain tableware with fine illustrations in my Brooklyn studio-- I'm looking to launch the RAM line!", pledge_amt: 0, eta: nil, shipping: "", city: "Brooklyn", state: "NY", funding_goal: 16000, category_id: categories[0].id, subcategory: "Ceramics", challenges: "")
+  projectpath141 = File.join(Rails.root, 'app', "assets", "images", "de0dfd83205f88addd0b9b38cad4ab79_original.jpg")
+  project141.image_url.attach(io: File.open(projectpath141), filename: "de0dfd83205f88addd0b9b38cad4ab79_original.jpg")
+  project141.save
+  user142 = User.new(name: "Simone Bodmer-Turner", email: "simonebodmerturner@gmail.com", password: "starwars", biography: 'SIMONE BODMER - TURNER is a ceramic artist and sculptor living and working in Brooklyn, NY. She travels annually to study with traditional clay communities in Mexico and Japan, and the styles and building methods of each places have greatly influenced her technique. She is inspired by both ancient form and method as well as midcentury design and architecture, which translates into her neutrally hued collection of handbuilt vessels and sculpture. She sells her work in a selection of New York-based interior design and fashion retailers, and is expanding within the US and internationally in 2019.', google_analytics: "")
+  userpath142 = File.join(Rails.root, 'app', "assets", "images", "12af99888ca126ffe3b22cdaef32aa2d_original.jpg")
+  user142.profile_url.attach(io: File.open(userpath142), filename: "12af99888ca126ffe3b22cdaef32aa2d_original.jpg")
+  user142.save
+  project142 = Project.new(duration: 0, limit: false, user_id: user142.id, country: "the United States", title: "Simone Bodmer-Turner : Clay Studio Buildout", description: "Building a studio space to expand production, hire extra hands, host workshops and dinner series, and allow space for sculptural work.", pledge_amt: 0, eta: nil, shipping: "", city: "Brooklyn", state: "NY", funding_goal: 25000, category_id: categories[0].id, subcategory: "Ceramics", challenges: "")
+  projectpath142 = File.join(Rails.root, 'app', "assets", "images", "2fad12393a5baff57e61c935e27817a4_original.jpg")
+  project142.image_url.attach(io: File.open(projectpath142), filename: "2fad12393a5baff57e61c935e27817a4_original.jpg")
+  project142.save
+  user143 = User.new(name: "Swoon / The Heliotrope Foundation", email: "swoontheheliotropefoundation@gmail.com", password: "starwars", biography: 'Caledonia Curry is a classically trained visual artist and printmaker who has spent the last 15 years exploring the relationship between people and their built environment. In 2015, she founded the Heliotrope Foundation, a 501(c)(3) non-profit organization, to build on the values and vision of her community-based projects. Callie’s work has been collected and shown internationally, including the Los Angeles Museum of Contemporary Art, the Museum of Modern Art in New York, the Brooklyn Museum, the Institute of Contemporary Art Boston, and the Sao Paolo Museum of Art.', google_analytics: "")
+  userpath143 = File.join(Rails.root, 'app', "assets", "images", "b1806f3f53e33cf9edfa52d734cc182e_original.jpg")
+  user143.profile_url.attach(io: File.open(userpath143), filename: "b1806f3f53e33cf9edfa52d734cc182e_original.jpg")
+  user143.save
+  project143 = Project.new(duration: 0, limit: false, user_id: user143.id, country: "the United States", title: "Braddock Tiles", description: "Join Swoon in transforming a building into a work of art, a center for creativity, and a place for new beginnings.", pledge_amt: 0, eta: nil, shipping: "", city: "North Braddock", state: "PA", funding_goal: 50000, category_id: categories[0].id, subcategory: "Ceramics", challenges: "")
+  projectpath143 = File.join(Rails.root, 'app', "assets", "images", "6fda1bea143f803c0554042da9b9a19d_original.jpg")
+  project143.image_url.attach(io: File.open(projectpath143), filename: "6fda1bea143f803c0554042da9b9a19d_original.jpg")
+  project143.save
+  user144 = User.new(name: "Henry Crissman", email: "henrycrissman@gmail.com", password: "starwars", biography: 'Henry James Haver Crissman was born August 31st 1990 in Midland, MI, the son of two veterinarians and youngest of three children. He earned a BFA in Craft/Ceramics from the College for Creative Studies in Detroit, MI in 2012, graduating with Honors and as “Senior Select”. While there he was a resident artist at Fortress Studios LLC, where he built "The Salty Dog" Detroit Noborigama wood fired kiln with the help of a successfully funded Kickstarter campaign. He was an Oxbow fellow in 2010, a summer intern at Greenwich House Pottery in 2011, received a NCECA Regina Brown Undergraduate Student Fellowship in 2012 and a 2014 NCECA Graduate Student Fellowship to conduct this very project. He now lives in Alfred, NY with his two cats, Bob and Mona, and girlfriend Virginia Rose Torrence. He is currently a Ceramics MFA candidate at Alfred University expected to graduate in 2015. Building on a background of vessel making, he is actively exploring ceramic objects and processes as a catalyst for progressive interactions in a larger public sphere. For more information please visit: http://www.HenryCrissman.com', google_analytics: "")
+  userpath144 = File.join(Rails.root, 'app', "assets", "images", "23012c2d4ed6855f9f920ca6057f8db0_original.jpg")
+  user144.profile_url.attach(io: File.open(userpath144), filename: "23012c2d4ed6855f9f920ca6057f8db0_original.jpg")
+  user144.save
+  project144 = Project.new(duration: 0, limit: false, user_id: user144.id, country: "the United States", title: "The Mobile Anagama", description: ""The Mobile Anagama" wood fired kiln on a trailer will embark on a national tour exploring ceramics as community activism!", pledge_amt: 0, eta: nil, shipping: "", city: "Alfred", state: "NY", funding_goal: 3000, category_id: categories[0].id, subcategory: "Ceramics", challenges: "")
+  projectpath144 = File.join(Rails.root, 'app', "assets", "images", "2beee1f65e5deaf336d99d02e53ff611_original.jpg")
+  project144.image_url.attach(io: File.open(projectpath144), filename: "2beee1f65e5deaf336d99d02e53ff611_original.jpg")
+  project144.save
 end
