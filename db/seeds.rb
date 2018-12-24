@@ -1149,7 +1149,7 @@ ActiveRecord::Base.transaction do
   userpath144 = File.join(Rails.root, 'app', "assets", "images", "23012c2d4ed6855f9f920ca6057f8db0_original.jpg")
   user144.profile_url.attach(io: File.open(userpath144), filename: "23012c2d4ed6855f9f920ca6057f8db0_original.jpg")
   user144.save
-  project144 = Project.new(duration: 0, limit: false, user_id: user144.id, country: "the United States", title: "The Mobile Anagama", description: ""The Mobile Anagama" wood fired kiln on a trailer will embark on a national tour exploring ceramics as community activism!", pledge_amt: 0, eta: nil, shipping: "", city: "Alfred", state: "NY", funding_goal: 3000, category_id: categories[0].id, subcategory: "Ceramics", challenges: "")
+  project144 = Project.new(duration: 0, limit: false, user_id: user144.id, country: "the United States", title: "The Mobile Anagama", description: "\"The Mobile Anagama\" wood fired kiln on a trailer will embark on a national tour exploring ceramics as community activism!", pledge_amt: 0, eta: nil, shipping: "", city: "Alfred", state: "NY", funding_goal: 3000, category_id: categories[0].id, subcategory: "Ceramics", challenges: "")
   projectpath144 = File.join(Rails.root, 'app', "assets", "images", "2beee1f65e5deaf336d99d02e53ff611_original.jpg")
   project144.image_url.attach(io: File.open(projectpath144), filename: "2beee1f65e5deaf336d99d02e53ff611_original.jpg")
   project144.save

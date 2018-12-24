@@ -96,6 +96,7 @@ class Arts extends React.Component {
     if (Object.values(getState().entities.users)[0] == null) return null;
     if (this.props.category === null || this.props.category === undefined) return null;
     if (this.props.session.session === null) return <Redirect to='/login' />;
+    let categories = Object.values(this.props.category);
     let profile = undefined;
     let navbarWidth = '';
     let currentProfileIcon = Object.values(getState().entities.users)[0] == null || getState().session.session === null ? '' : Object.values(getState().entities.users).filter(el => el.id === getState().session.id)[0].profileUrl;
@@ -111,8 +112,8 @@ class Arts extends React.Component {
     let idDance = [];
     let idPhotography = [];
     let idTheater = [];
-    if (Object.values(this.props.category).length > 0) {
-      Object.values(this.props.category).forEach(el => {
+    if (categories.length > 0) {
+      categories.forEach(el => {
         if (el.name === 'Art' || el.name === 'Dance' || el.name === 'Photography' || el.name === 'Theater') {
           artId.push(el.id);
           categoryName.push(el.name);

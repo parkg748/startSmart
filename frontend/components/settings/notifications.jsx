@@ -62,17 +62,18 @@ class Notifications extends React.Component {
 
   render() {
     if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    let loggedInUser = Object.values(this.props.user);
     let profile = undefined;
     let navbarWidth = '';
-    if (this.props.user != null && Object.values(this.props.user)[0] != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
+    if (this.props.user != null && loggedInUser[0] != null) {
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={loggedInUser[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : loggedInUser[0].profileUrl} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
     let currentUserProjects = [];
-    if (Object.values(getState().entities.users)[0].projects != null) {
-      Object.values(getState().entities.users)[0].projects.forEach(project => {
+    if (loggedInUser[0].projects != null) {
+      loggedInUser[0].projects.forEach(project => {
         if (project.user_id === getState().session.id.id) {
           currentUserProjects.push(project);
         };
@@ -82,7 +83,7 @@ class Notifications extends React.Component {
       <div>
         <SearchBar searchBar={this.state.searchBar} clickSearchBar={() => this.clickSearchBar()}/>
         <MyStuffNav navbarWidth={navbarWidth} profile={profile} clickSearchBar={() => this.clickSearchBar()}/>
-        <Modal displayProfileMenu={this.state.displayProfileMenu} user={Object.values(this.props.user).filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
+        <Modal displayProfileMenu={this.state.displayProfileMenu} user={loggedInUser.filter(el => el.id === this.props.session.id)[0]} userId={this.props.session.id} sessionId={this.props.session.id} logoutUser={(e) => this.logoutUser(e)}/>
         <div onScroll={this.handleScroll} className='edit-profile-container'>
           <div className='account-container-header'>
             <div className='account-container-header-one'>

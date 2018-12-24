@@ -88,7 +88,7 @@ class EditProfile extends React.Component {
   addWebsite() {
     let websites = this.state.websites;
     websites.push(this.state.website);
-    this.setState({websites: [...Object.values(getState().entities.users)[0].websites, ...websites]});
+    this.setState({websites: [...loggedInUser[0].websites, ...websites]});
   }
 
   deleteWebsite(idx) {
@@ -115,7 +115,7 @@ class EditProfile extends React.Component {
           processData: false
         });
     }
-    let user = Object.values(getState().entities.users)[0];
+    let user = loggedInUser[0];
     this.props.updateUser({id: getState().session.id,
                           name: this.state.name === '' ? user.name : this.state.name,
                           biography: this.state.biography === '' ? user.biography : this.state.biography,
@@ -125,34 +125,35 @@ class EditProfile extends React.Component {
 
   render() {
     if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    let loggedInUser = Object.values(this.props.user);
     let profile = undefined;
     let navbarWidth = '';
-    if (this.props.user != null && Object.values(this.props.user)[0] != null) {
-      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={Object.values(getState().entities.users)[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : Object.values(getState().entities.users)[0].profileUrl} /></button></div>;
+    if (this.props.user != null && loggedInUser[0] != null) {
+      profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={loggedInUser[0].profileUrl === '' ? 'https://i.imgur.com/jyZdRza.png' : loggedInUser[0].profileUrl} /></button></div>;
       navbarWidth = 'navbar-width';
     } else {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
     let currentUserProjects = [];
-    if (Object.values(getState().entities.users)[0].projects != null) {
-      Object.values(getState().entities.users)[0].projects.forEach(project => {
+    if (loggedInUser[0].projects != null) {
+      loggedInUser[0].projects.forEach(project => {
         if (project.user_id === getState().session.id.id) {
           currentUserProjects.push(project);
         };
       });
     }
     let pictureUploadContainer = '';
-    if (Object.values(getState().entities.users)[0].profileUrl === '') {
+    if (loggedInUser[0].profileUrl === '') {
       pictureUploadContainer = <strong>Choose an image from your computer</strong>;
     } else {
       pictureUploadContainer = <div className='edit-profile-choose-image-inner'>
-        <img src={`${Object.values(getState().entities.users)[0].profileUrl}`}/>
+        <img src={`${loggedInUser[0].profileUrl}`}/>
         <strong>Choose an image from your computer</strong>
       </div>;
     }
     let websites = [];
-    if (Object.values(getState().entities.users)[0].length > 0 && this.state.websites.length === 0) {
-      for (let i = 0; i < Object.values(getState().entities.users)[0].length; i++) {
+    if (loggedInUser[0].length > 0 && this.state.websites.length === 0) {
+      for (let i = 0; i < loggedInUser[0].length; i++) {
         websites.push(<div className='url-list'>
           {this.state.websites[i]}
           <div onClick={() => this.deleteWebsite(i)} className='url-list-times-box'>
@@ -198,7 +199,7 @@ class EditProfile extends React.Component {
                   <ul>
                     <li>
                       <span><strong>Name</strong></span>
-                      <input onChange={this.update('name')} className={`${this.state.nameGreenBorder}`} onClick={() => this.addGreenBorder('name')} type='text' defaultValue={this.state.name === '' ? Object.values(getState().entities.users)[0].name : this.state.name} />
+                      <input onChange={this.update('name')} className={`${this.state.nameGreenBorder}`} onClick={() => this.addGreenBorder('name')} type='text' defaultValue={this.state.name === '' ? loggedInUser[0].name : this.state.name} />
                       <span>Heads up: Once you launch a project, you cannot make changes to your name on StartSmart.</span>
                     </li>
                     <li>
@@ -213,7 +214,7 @@ class EditProfile extends React.Component {
                     </li>
                     <li>
                       <span><strong>Biography</strong></span>
-                      <textarea onChange={this.update('biography')} value={Object.values(getState().entities.users)[0].biography === '' ? this.state.biography : Object.values(getState().entities.users)[0].biography} className={`${this.state.biographyBlackBorder}`} onClick={() => this.addGreenBorder('biography')}></textarea>
+                      <textarea onChange={this.update('biography')} value={loggedInUser[0].biography === '' ? this.state.biography : loggedInUser[0].biography} className={`${this.state.biographyBlackBorder}`} onClick={() => this.addGreenBorder('biography')}></textarea>
                       <span>We suggest a short bio. If it's 300 characters or less it'll look great on your profile.</span>
                     </li>
                     <li>

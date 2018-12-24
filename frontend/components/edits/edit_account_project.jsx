@@ -40,6 +40,7 @@ class EditAccountProject extends React.Component {
 
   render() {
     if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    let user = Object.values(this.props.user)[0];
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null) {
@@ -49,8 +50,8 @@ class EditAccountProject extends React.Component {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
     let currentUserProjects = [];
-    if (Object.values(getState().entities.users)[0].projects != null) {
-      Object.values(getState().entities.users)[0].projects.forEach(project => {
+    if (user.projects != null) {
+      user.projects.forEach(project => {
         if (project.user_id === getState().session.id.id) {
           currentUserProjects.push(project);
         };
@@ -62,7 +63,6 @@ class EditAccountProject extends React.Component {
     let aboutYouProgress = 6;
     let accountProgress = 1;
     let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
-    let user = Object.values(this.props.user)[0];
     let completed = [];
     if (project != undefined) {
       if (project.imageUrl != '') basicsProgress--;

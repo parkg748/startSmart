@@ -75,11 +75,12 @@ class EditAboutYouProject extends React.Component {
           processData: false
         });
     }
+    let loggedInUser = Object.values(this.props.user)[0];
     const params = {id: this.props.match.params.userId,
-                      name: this.props.user ? Object.values(this.props.user)[0].name : this.state.name,
-                      biography: this.state.biography === '' ? Object.values(this.props.user)[0].biography : this.state.biography,
-                      websites: this.state.websites.length != 0 ? this.state.websites : Object.values(this.props.user)[0].websites,
-                      googleAnalytics: this.props.user ? Object.values(this.props.user)[0].google_analytics : this.state.google_analytics};
+                      name: this.props.user ? loggedInUser.name : this.state.name,
+                      biography: this.state.biography === '' ? loggedInUser.biography : this.state.biography,
+                      websites: this.state.websites.length != 0 ? this.state.websites : loggedInUser.websites,
+                      googleAnalytics: this.props.user ? loggedInUser.google_analytics : this.state.google_analytics};
     this.props.updateUser(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
   }
 
@@ -121,6 +122,7 @@ class EditAboutYouProject extends React.Component {
     if (this.props.user === null || this.props.user === undefined) return null;
     if (this.props.project === null || this.props.project === undefined) return null;
     if (this.props.user.currentUser === null) return <Redirect to='/login' />;
+    let user = Object.values(this.props.user)[0];
     const imagePreview = this.state.profileUrl ? <img src={this.state.profileUrl}/> : null;
     let profile = undefined;
     let navbarWidth = '';
@@ -131,8 +133,8 @@ class EditAboutYouProject extends React.Component {
       profile = <Link to='/login' className='login'>Sign in</Link>;
     }
     let currentUserProjects = [];
-    if (Object.values(getState().entities.users)[0].projects != null) {
-      Object.values(getState().entities.users)[0].projects.forEach(project => {
+    if (user.projects != null) {
+      user.projects.forEach(project => {
         if (project.user_id === getState().session.id.id) {
           currentUserProjects.push(project);
         };
@@ -171,7 +173,6 @@ class EditAboutYouProject extends React.Component {
     let aboutYouProgress = 6;
     let accountProgress = 1;
     let project = Object.values(this.props.project).filter(el => el.id == this.props.match.params.projectId)[0];
-    let user = Object.values(this.props.user)[0];
     let completed = [];
     if (project != undefined) {
       if (project.imageUrl != '') basicsProgress--;
@@ -241,7 +242,7 @@ class EditAboutYouProject extends React.Component {
                             <div className='profile-photo-title'>Name</div>
                             <div className='name-content-inner'>
                               <div className={`name-input ${this.state.nameBorder}`}>
-                                <input onClick={() => this.addBlackBorder('name')} onChange={this.update('name')} type='text' value={Object.values(this.props.user)[0].name} />
+                                <input onClick={() => this.addBlackBorder('name')} onChange={this.update('name')} type='text' value={user.name} />
                               </div>
                               <div className='name-description'>
                                 <p>Heads up: Once you launch a project, you cannot make changes to your name on StartSmart.</p>
