@@ -147,11 +147,13 @@ class Homepage extends React.Component {
   }
 
   render() {
-    if (Object.values(getState().entities.users)[0] == null) return null;
+    if (Object.values(this.props.user)[0] == null) return null;
     if (this.props.category === null || this.props.category === undefined) return null;
+    let allUsers = Object.values(this.props.user);
+    let allProjects = Object.values(this.props.projects)
     let profile = undefined;
     let navbarWidth = '';
-    let currentProfileIcon = Object.values(getState().entities.users)[0] == null || getState().session.session === null ? '' : Object.values(getState().entities.users).filter(el => el.id === getState().session.id)[0].profileUrl;
+    let currentProfileIcon = allUsers[0] == null || getState().session.session === null ? '' : allUsers.filter(el => el.id === getState().session.id)[0].profileUrl;
     if (getState().session.id) {
       profile = <div className='profile-circle'><button onClick={() => this.clickProfileIcon()}><img src={currentProfileIcon === '' ? 'https://i.imgur.com/jyZdRza.png' : currentProfileIcon} /></button></div>;
       navbarWidth = 'navbar-width';
@@ -176,7 +178,7 @@ class Homepage extends React.Component {
       });
     });
     let currentPictureCategory = [];
-    Object.values(getState().entities.project).forEach(project => {
+    allProjects.forEach(project => {
       if (currentCategoryId.length > 1) {
         if (project.categoryId === currentCategoryId[0] || project.categoryId === currentCategoryId[1]) {
           currentPictureCategory.push(project);
@@ -190,20 +192,17 @@ class Homepage extends React.Component {
     let projectsWeLove = [];
     let whatWereReading = [];
     while (projectsWeLove.length != 4) {
-      projectsWeLove.push(Object.values(getState().entities.project)[Math.floor(Math.random() * Math.floor(Object.values(getState().entities.project).length))]);
+      projectsWeLove.push(allProjects[Math.floor(Math.random() * Math.floor(allProjects.length))]);
     }
     while (whatWereReading.length != 6) {
-      whatWereReading.push(Object.values(getState().entities.project)[Math.floor(Math.random() * Math.floor(Object.values(getState().entities.project).length))]);
+      whatWereReading.push(allProjects[Math.floor(Math.random() * Math.floor(allProjects.length))]);
     }
     let firstProjectPicture = '';
-    if (Object.values(getState().entities.users).length > 2 && currentPictureCategory.length != 0) {
-      firstProjectPicture = Object.values(getState().entities.users).filter(el => el.id === currentPictureCategory.slice(-1)[0].userId)[0].name;
+    if (allUsers.length > 2 && currentPictureCategory.length != 0) {
+      firstProjectPicture = allUsers.filter(el => el.id === currentPictureCategory.slice(-1)[0].userId)[0].name;
     } else {
-      firstProjectPicture = Object.values(getState().entities.users)[0].name;
+      firstProjectPicture = allUsers[0].name;
     }
-    // if (Object.values(this.props.user).length > 1) {
-    //   let firstProjectUser = this.props.user.filter(user => user.id === currentPictureCategory[0].userId)[0].name;
-    // }
     var firstCurrentPictureCategory = '';
     var secondCurrentPictureCategory = '';
     var thirdCurrentPictureCategory = '';
@@ -211,20 +210,20 @@ class Homepage extends React.Component {
     var fifthCurrentPictureCategory = '';
     currentPictureCategory.forEach((el, idx) => {
       if (currentPictureCategory.length != 0) {
-        if (Object.values(getState().entities.users).length === 2) {
+        if (allUsers.length === 2) {
           if (idx === 0) {
-            fifthCurrentPictureCategory = Object.values(getState().entities.users).id;
+            fifthCurrentPictureCategory = allUsers.id;
           } else if (idx === 1) {
-            fourthCurrentPictureCategory = Object.values(getState().entities.users).id;
+            fourthCurrentPictureCategory = allUsers.id;
           } else if (idx === 2) {
-            thirdCurrentPictureCategory = Object.values(getState().entities.users).id;
+            thirdCurrentPictureCategory = allUsers.id;
           } else if (idx === 3) {
-            secondCurrentPictureCategory = Object.values(getState().entities.users).id;
+            secondCurrentPictureCategory = allUsers.id;
           } else if (idx === 4) {
-            firstCurrentPictureCategory = Object.values(getState().entities.users).id;
+            firstCurrentPictureCategory = allUsers.id;
           }
         } else {
-          if (Object.values(getState().entities.users).length === 1) {
+          if (allUsers.length === 1) {
             firstCurrentPictureCategory = '';
             secondCurrentPictureCategory = '';
             thirdCurrentPictureCategory = '';
@@ -232,15 +231,15 @@ class Homepage extends React.Component {
             fifthCurrentPictureCategory = '';
           } else {
             if (idx === 0) {
-              fifthCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-5)[0].userId)[0].id;
+              fifthCurrentPictureCategory = allUsers.filter(el => el.id == currentPictureCategory.slice(-5)[0].userId)[0].id;
             } else if (idx === 1) {
-              fourthCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-4)[0].userId)[0].id;
+              fourthCurrentPictureCategory = allUsers.filter(el => el.id == currentPictureCategory.slice(-4)[0].userId)[0].id;
             } else if (idx === 2) {
-              thirdCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-3)[0].userId)[0].id;
+              thirdCurrentPictureCategory = allUsers.filter(el => el.id == currentPictureCategory.slice(-3)[0].userId)[0].id;
             } else if (idx === 3) {
-              secondCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-2)[0].userId)[0].id;
+              secondCurrentPictureCategory = allUsers.filter(el => el.id == currentPictureCategory.slice(-2)[0].userId)[0].id;
             } else if (idx === 4) {
-              firstCurrentPictureCategory = Object.values(getState().entities.users).filter(el => el.id == currentPictureCategory.slice(-1)[0].userId)[0].id;
+              firstCurrentPictureCategory = allUsers.filter(el => el.id == currentPictureCategory.slice(-1)[0].userId)[0].id;
             }
           }
         }
@@ -258,18 +257,18 @@ class Homepage extends React.Component {
     var fourthProjectsWeLove = '';
     projectsWeLove.forEach((el, idx) => {
       if (projectsWeLove.length != 0) {
-        if (Object.values(getState().entities.users).length === 2) {
+        if (allUsers.length === 2) {
           if (idx === 0) {
-            fourthProjectsWeLove = Object.values(getState().entities.users).id;
+            fourthProjectsWeLove = allUsers.id;
           } else if (idx === 1) {
-            thirdProjectsWeLove = Object.values(getState().entities.users).id;
+            thirdProjectsWeLove = allUsers.id;
           } else if (idx === 2) {
-            secondProjectsWeLove = Object.values(getState().entities.users).id;
+            secondProjectsWeLove = allUsers.id;
           } else if (idx === 3) {
-            firstProjectsWeLove = Object.values(getState().entities.users).id;
+            firstProjectsWeLove = allUsers.id;
           }
         } else {
-          if (Object.values(getState().entities.users).length === 1) {
+          if (allUsers.length === 1) {
             firstProjectsWeLove = '';
             secondProjectsWeLove = '';
             thirdProjectsWeLove = '';
@@ -277,13 +276,13 @@ class Homepage extends React.Component {
           } else {
             if (projectsWeLove[0] != undefined) {
               if (idx === 0) {
-                fourthProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[3].userId)[0].id;
+                fourthProjectsWeLove = allUsers.filter(el => el.id == projectsWeLove[3].userId)[0].id;
               } else if (idx === 1) {
-                thirdProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[2].userId)[0].id;
+                thirdProjectsWeLove = allUsers.filter(el => el.id == projectsWeLove[2].userId)[0].id;
               } else if (idx === 2) {
-                secondProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[1].userId)[0].id;
+                secondProjectsWeLove = allUsers.filter(el => el.id == projectsWeLove[1].userId)[0].id;
               } else if (idx === 3) {
-                firstProjectsWeLove = Object.values(getState().entities.users).filter(el => el.id == projectsWeLove[0].userId)[0].id
+                firstProjectsWeLove = allUsers.filter(el => el.id == projectsWeLove[0].userId)[0].id
               }
             }
           }
@@ -303,22 +302,22 @@ class Homepage extends React.Component {
     var sixthWhatWereReading = '';
     whatWereReading.forEach((el, idx) => {
       if (whatWereReading.length != 0) {
-        if (Object.values(getState().entities.users).length === 2) {
+        if (allUsers.length === 2) {
           if (idx === 0) {
-            sixthWhatWereReading = Object.values(getState().entities.users).id;
+            sixthWhatWereReading = allUsers.id;
           } else if (idx === 1) {
-            fifthWhatWereReading = Object.values(getState().entities.users).id;
+            fifthWhatWereReading = allUsers.id;
           } else if (idx === 2) {
-            fourthWhatWereReading = Object.values(getState().entities.users).id;
+            fourthWhatWereReading = allUsers.id;
           } else if (idx === 3) {
-            thirdWhatWereReading = Object.values(getState().entities.users).id;
+            thirdWhatWereReading = allUsers.id;
           } else if (idx === 4) {
-            secondWhatWereReading = Object.values(getState().entities.users).id;
+            secondWhatWereReading = allUsers.id;
           } else if (idx === 5) {
-            firstWhatWereReading = Object.values(getState().entities.users).id;
+            firstWhatWereReading = allUsers.id;
           }
         } else {
-          if (Object.values(getState().entities.users).length === 1) {
+          if (allUsers.length === 1) {
             firstWhatWereReading = '';
             secondWhatWereReading = '';
             thirdWhatWereReading = '';
@@ -328,17 +327,17 @@ class Homepage extends React.Component {
           } else {
             if (whatWereReading[0] != undefined) {
               if (idx === 0) {
-                sixthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[5].userId)[0].id
+                sixthWhatWereReading = allUsers.filter(el => el.id == whatWereReading[5].userId)[0].id
               } else if (idx === 1) {
-                fifthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[4].userId)[0].id;
+                fifthWhatWereReading = allUsers.filter(el => el.id == whatWereReading[4].userId)[0].id;
               } else if (idx === 2) {
-                fourthWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[3].userId)[0].id;
+                fourthWhatWereReading = allUsers.filter(el => el.id == whatWereReading[3].userId)[0].id;
               } else if (idx === 3) {
-                thirdWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[2].userId)[0].id;
+                thirdWhatWereReading = allUsers.filter(el => el.id == whatWereReading[2].userId)[0].id;
               } else if (idx === 4) {
-                secondWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[1].userId)[0].id;
+                secondWhatWereReading = allUsers.filter(el => el.id == whatWereReading[1].userId)[0].id;
               } else if (idx === 5) {
-                firstWhatWereReading = Object.values(getState().entities.users).filter(el => el.id == whatWereReading[0].userId)[0].id
+                firstWhatWereReading = allUsers.filter(el => el.id == whatWereReading[0].userId)[0].id
               }
             }
           }
