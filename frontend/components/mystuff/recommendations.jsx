@@ -12,6 +12,7 @@ class Recommendations extends React.Component {
                   searchBar: 'search-bar-close',
                   projectsNum: 2,
                   categories: 'All Categories',
+                  filter: '',
                   popularity: 'Magic',
                   earth: 'Earth',
                   subcategories: '',
@@ -21,6 +22,7 @@ class Recommendations extends React.Component {
                   categoryBox: 'location-none-display',
                   popularityBox: 'location-none-display',
                   earthBox: 'location-none-display',
+                  filterBox: 'location-none-display',
                   categoryBoxWidth: 298,
                   categoryTitleWidth: 100,
                   categoryTitle: '',
@@ -32,12 +34,25 @@ class Recommendations extends React.Component {
     this.displayCategoryBox = this.displayCategoryBox.bind(this);
     this.displayPopularityBox = this.displayPopularityBox.bind(this);
     this.displayEarthBox = this.displayEarthBox.bind(this);
+    this.displayFilterBox = this.displayFilterBox.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchAllUsers();
+  }
+
+  displayFilterBox(type) {
+    if (type === 'open') {
+      if (this.state.filterBox === 'location-none-display') {
+        this.setState({filterBox: ''});
+      } else {
+        this.setState({filterBox: 'location-none-display'});
+      }
+    } else {
+      this.setState({filter: type});
+    }
   }
 
   displayCategoryBox(type) {
@@ -395,7 +410,59 @@ class Recommendations extends React.Component {
                 </div>
               </div>
               <div className='filter-section'>
-                <a>More filters</a>
+                <a onClick={() => this.displayFilterBox('open')}>More filters</a>
+                <ul className={`${this.state.filterBox}`}>
+                  <div className='earth-search-bar'>
+                    <div className='earth-search-bar-box'>
+                      <input type='text' placeholder='3D, Food Trucks, Dogs, ...'/>
+                      <div className='filter-search-bar-icon'>
+                        <i className="fas fa-search"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='recommendations-second-box-category-list'>
+                    <li className={this.state.filter === 'Recommended for you' ? 'green-font-color' : ''} onClick={() => this.displayFilterBox('Recommended for you')}>Recommended for you</li>
+                    <li className={this.state.filter === 'Projects We Love' ? 'green-font-color' : ''} onClick={() => this.displayFilterBox('Projects We Love')}>Projects We Love</li>
+                    <li className={this.state.filter === 'Saved projects' ? 'green-font-color' : ''} onClick={() => this.displayFilterBox('Saved projects')}>Saved projects</li>
+                    <li className={this.state.filter === 'Following' ? 'green-font-color' : ''} onClick={() => this.displayFilterBox('Following')}>Following</li>
+                    <li className={this.state.filter === 'Projects I\'ve backed' ? 'green-font-color' : ''} onClick={() => this.displayFilterBox('Projects I\'ve backed')}>Projects I've backed</li>
+                  </div>
+                  <div className='recommendations-second-box-category-list blue-font'>
+                    <ul>
+                      <select className='black-border'>
+                        <option>All projects</option>
+                        <option>Live projects</option>
+                        <option>Successful projects</option>
+                      </select>
+                      <i className="all-projects-caret fas fa-caret-down"></i>
+                      <select>
+                        <option>Amount Pledged</option>
+                        <option>&#60; $1,000 pledged</option>
+                        <option>$1,000 to $10,000 pledged</option>
+                        <option>$10,000 to $100,000 pledged</option>
+                        <option>$100,000 to $1,000,000 pledged</option>
+                        <option>&#62; $1,000,000 pledged</option>
+                      </select>
+                      <i className="amount-pledged-caret fas fa-caret-down"></i>
+                      <select>
+                        <option>Goal</option>
+                        <option>&#60; $1,000 goal</option>
+                        <option>$1,000 to $10,000 goal</option>
+                        <option>$10,000 to $100,000 goal</option>
+                        <option>$100,000 to $1,000,000 goal</option>
+                        <option>&#62; $1,000,000 goal</option>
+                      </select>
+                      <i className="goal-caret fas fa-caret-down"></i>
+                      <select>
+                        <option>% Raised</option>
+                        <option>&#60; 75% raised</option>
+                        <option>75% to 100% raised</option>
+                        <option>&#62; 100% raised</option>
+                      </select>
+                      <i className="raised-caret fas fa-caret-down"></i>
+                    </ul>
+                  </div>
+                </ul>
               </div>
             </div>
           </div>

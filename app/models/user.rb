@@ -42,5 +42,14 @@ class User < ApplicationRecord
     through: :backings,
     source: :project
 
+  # has_many :receiving_comments,
+  #   primary_key: :id,
+  #   foreign_key: :user_id,
+  #   class_name: 'Comment'
+  #
+  # has_many :giving_comments,
+  #   through: :backed_projects,
+  #   source: :comments
+
   has_one_attached :profile_url
 end

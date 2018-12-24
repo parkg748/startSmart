@@ -7080,6 +7080,89 @@ strong {
   color: #009E74;
 }
 
+.filter-section ul {
+  height: fit-content;
+  width: 540px;
+  border: 1px solid black;
+  background-color: white;
+  z-index: 4;
+  top: 40px;
+  display: flex;
+  flex-flow: wrap;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+}
+
+.recommendations-second-box-category-list ul {
+  width: 100%;
+  border: none;
+  position: initial;
+}
+
+.all-projects-caret {
+  color: #656969;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.amount-pledged-caret {
+  color: #656969;
+  position: absolute;
+  top: 90px;
+  right: 30px;
+}
+
+.goal-caret {
+  color: #656969;
+  position: absolute;
+  top: 160px;
+  right: 30px;
+}
+
+.raised-caret {
+  color: #656969;
+  position: absolute;
+  top: 230px;
+  right: 30px;
+}
+
+.recommendations-second-box-category-list select {
+  padding: 12px 12px 12px 18px;
+  color: #656969;
+  border: none;
+  font-size: 14px;
+  font-weight: 100;
+  -webkit-appearance: none;
+  width: 94%;
+  border-radius: 0;
+  background-color: white;
+  margin-bottom: 14px;
+  height: 56px;
+  box-shadow: #DCDEDD 0 2px 5px;
+  cursor: pointer;
+}
+
+.recommendations-second-box-category-list option {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.filter-section li {
+  padding: 6px 18px;
+  height: 24px;
+  width: 87%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 100;
+}
+
+.filter-section li:hover {
+  color: #009E74;
+}
+
 .blue-font {
   color: #2752ff;
 }
@@ -7093,6 +7176,7 @@ strong {
 .earth-search-bar-box {
   height: 100%;
   display: flex;
+  position: relative;
 }
 
 .earth-search-bar-icon {
@@ -7104,6 +7188,18 @@ strong {
   justify-content: center;
   align-items: center;
   font-size: 20px;
+}
+
+.filter-search-bar-icon {
+  width: 60px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .earth-search-bar input {
@@ -7151,7 +7247,8 @@ strong {
 .recommendations-second-box-category-list {
   display: flex;
   flex-flow: column;
-  width: 50%
+  width: 50%;
+  position: relative;
 }
 
 .select-your-second-category {
@@ -7356,6 +7453,7 @@ strong {
 .filter-section {
   height: 24px;
   margin-top: 30px;
+  position: relative;
 }
 
 .filter-section a {

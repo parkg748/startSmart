@@ -23,6 +23,11 @@ class Project < ApplicationRecord
   has_many :backers,
     through: :backings,
     source: :user
-    
+
+  # has_many :comments
+  #   primary_key: :id,
+  #   foreign_key: :project_id,
+  #   class_name: 'Comment'
+
   has_one_attached :image_url
 end
