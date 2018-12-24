@@ -13,11 +13,14 @@ class Recommendations extends React.Component {
                   projectsNum: 2,
                   categories: 'All Categories',
                   popularity: 'Magic',
+                  earth: 'Earth',
                   subcategories: '',
                   categoryBorder: '',
                   popularityBorder: '',
+                  earthBorder: '',
                   categoryBox: 'location-none-display',
                   popularityBox: 'location-none-display',
+                  earthBox: 'location-none-display',
                   categoryBoxWidth: 298,
                   categoryTitleWidth: 100,
                   categoryTitle: '',
@@ -28,6 +31,7 @@ class Recommendations extends React.Component {
     this.clickSearchBar = this.clickSearchBar.bind(this);
     this.displayCategoryBox = this.displayCategoryBox.bind(this);
     this.displayPopularityBox = this.displayPopularityBox.bind(this);
+    this.displayEarthBox = this.displayEarthBox.bind(this);
   }
 
   componentDidMount() {
@@ -57,6 +61,14 @@ class Recommendations extends React.Component {
       this.setState({popularityBorder: 'black-border', popularityBox: ''});
     } else if (type === 'Magic' || type === 'Popularity' || type === 'Newest' || type === 'End Date' || type === 'Most Funded' || type === 'Most Backed' || type === 'Newest') {
       this.setState({popularity: type, popularityBox: 'location-none-display', popularityBorder: ''});
+    }
+  }
+
+  displayEarthBox(type) {
+    if (type === 'display') {
+      this.setState({earthBorder: 'black-border', earthBox: ''});
+    } else {
+      this.setState({earth: type, earthBox: 'location-none-display', earthBorder: ''});
     }
   }
 
@@ -341,8 +353,8 @@ class Recommendations extends React.Component {
                     </div>
                     <span className='on-recommendations'>on</span>
                     <div className='recommendations-third-box'>
-                      <div className='select-your-third-category'>Earth</div>
-                      <ul>
+                      <div onClick={() => this.displayEarthBox('display')} className={`select-your-third-category ${this.state.earthBorder}`}>{this.state.earth}</div>
+                      <ul className={`${this.state.earthBox}`}>
                         <div className='earth-search-bar'>
                           <div className='earth-search-bar-box'>
                             <input type='text' placeholder='Search by city, state, country, ...'/>
@@ -354,7 +366,7 @@ class Recommendations extends React.Component {
                         <h5>BROADER LOCATIONS</h5>
                         <h5>NEARBY LOCATIONS</h5>
                         <div className='recommendations-second-box-category-list'>
-                          <li>Earth</li>
+                          <li className={this.state.earth === 'Earth' ? 'green-font-color' : ''} onClick={() => this.displayEarthBox('Earth')}>Earth</li>
                           <li>United States</li>
                           <li>California, US</li>
                           <li>Los Angeles, CA</li>
