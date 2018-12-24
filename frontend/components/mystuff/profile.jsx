@@ -156,6 +156,7 @@ class Profile extends React.Component {
     if (this.props.user.currentUser === null) return <Redirect to='/login' />;
     let profileUser = Object.values(this.props.user).filter(el => el.id == this.props.match.params.userId)[0];
     let loggedInUser = Object.values(this.props.user).filter(el => el.id === this.props.sessionId)[0];
+    let profileUserProjects = Object.values(this.props.projects).filter(el => el.userId == this.props.match.params.userId);
     let profile = undefined;
     let navbarWidth = '';
     if (this.props.user != null && Object.values(this.props.user)[0] != null) {
@@ -182,7 +183,7 @@ class Profile extends React.Component {
     } else if (this.state.profileView === 'backed') {
       currentProfileBody = <ProfileBacked backedProjects={profileUser != undefined ? profileUser.backedProjects : []} />;
     } else if (this.state.profileView === 'created') {
-      currentProfileBody = <ProfileCreated projects={Object.values(this.props.projects).filter(el => el.userId == this.props.match.params.userId)} user={profileUser} />;
+      currentProfileBody = <ProfileCreated projects={profileUserProjects} user={profileUser} />;
     } //else if (this.state.profileView === 'comments') {
       // currentProfileBody = <Comments content={content} styles={styles} onClick={this.state.onClick} />;
     // }
@@ -210,7 +211,7 @@ class Profile extends React.Component {
                   </div>
                   <div className='profile-container-seven'>
                     <h2>{profileUser != undefined ? profileUser.name : ''}</h2>
-                    <p>Backed 0 projects · <Link className='preparing-for-project-link' to='/'>{Object.values(this.props.projects).length != 0 && Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0] != undefined ? `${Object.values(this.props.projects).filter(el => el.userId == this.props.match.params.userId)[0].city}, ${Object.values(this.props.projects).filter(el => el.userId == this.props.match.params.userId)[0].state}` : ''}</Link> · Joined {Object.values(this.props.user)[0].projects != null ? userCreatedMonth : ''} {Object.values(this.props.user)[0].projects != null ? userCreatedYear : ''}</p>
+                    <p>Backed 0 projects · <Link className='preparing-for-project-link' to='/'>{Object.values(this.props.projects).length != 0 && Object.values(this.props.projects).filter(el => el.userId === this.props.sessionId)[0] != undefined ? `${profileUserProjects[0].city}, ${profileUserProjects[0].state}` : ''}</Link> · Joined {Object.values(this.props.user)[0].projects != null ? userCreatedMonth : ''} {Object.values(this.props.user)[0].projects != null ? userCreatedYear : ''}</p>
                   </div>
                 </div>
                 <div className="pieBackground">
@@ -288,8 +289,8 @@ class Profile extends React.Component {
                     <div className={`${this.state.greenBar}`}></div>
                     <ul>
                       <li onClick={() => this.displayProfileSection('about')} className={`${this.state.about}`}>About</li>
-                      <li onClick={() => this.displayProfileSection('backed')} className={`${this.state.backed}`}>Backed<span>0</span></li>
-                      <li onClick={() => this.displayProfileSection('created')} className={`${this.state.created}`}>Created<span>6</span></li>
+                      <li onClick={() => this.displayProfileSection('backed')} className={`${this.state.backed}`}>Backed<span>{profileUser != undefined ? profileUser.backedProjects.length : 0}</span></li>
+                      <li onClick={() => this.displayProfileSection('created')} className={`${this.state.created}`}>Created<span>{profileUserProjects.length}</span></li>
                       <li onClick={() => this.displayProfileSection('comments')} className={`${this.state.comments}`}>Comments<span className='three-hundred-digits'>204</span></li>
                     </ul>
                   </div>

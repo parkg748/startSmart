@@ -22,6 +22,13 @@ function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSave
     thirdProject = projects.slice(-3)[0];
     fourthProject = projects.slice(-4)[0];
   }
+  let bar = '';
+  if (firstProject.fundingGoal === null) {
+    bar = 0;
+  } else {
+    bar = Math.floor((firstProject.pledgeAmt / firstProject.fundingGoal) * 100);
+    if (bar > 100) bar = 100;
+  }
   return (
     <div className='featured-project-recommended'>
       <div className='featured-project-recommended-inner'>
@@ -33,7 +40,7 @@ function FeaturedProjects({ mainHeart, mainHeartFill, projects, users, addToSave
           <div id='category-recommended-remind-me-first'>Remind Me</div>
           <Link to={`/users/${firstUser.id}/projects/${firstProject.id}/front`}><img src={firstProject.imageUrl}/></Link>
           <div className='featured-project-recommended-left-gray-bar'>
-            <div className='featured-project-recommended-left-green-bar'></div>
+            <div className='featured-project-recommended-left-green-bar' style={{width: `${bar}%`}}></div>
           </div>
           <Link to={`/users/${firstUser.id}/projects/${firstProject.id}/front`}><h1>{firstProject.title}</h1></Link>
           <p>{firstProject.description}</p>
