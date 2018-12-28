@@ -227,6 +227,9 @@ class EditProject extends React.Component {
      };
     var input = this.inputRef;
     var autocomplete = new google.maps.places.Autocomplete(input, options);
+    autocomplete.addListener('place_changed', () => {
+      const place = autocomplete.getPlace();
+    });
   }
 
   render() {
