@@ -11,7 +11,9 @@ export default (state = _nullSession, action) => {
     case RECEIVE_ALL_USERS:
       return Object.assign(action.users);
     case RECEIVE_CURRENT_USER:
-      return Object.values(newState).filter(el => el.id === action.session.id)[0];
+      let user = Object.values(newState).filter(el => el.id === action.user.session.id)[0];
+      newState[action.user.session.id] = user;
+      return Object.assign({}, newState);
     case LOGOUT_CURRENT_USER:
       return Object.assign({}, {currentUser: null});
     default:
