@@ -152,7 +152,6 @@ class Homepage extends React.Component {
   }
 
   render() {
-    debugger;
     if (Object.values(this.props.category).length < 2 || Object.values(this.props.projects).length < 2) return null;
     let allUsers = Object.values(this.props.user);
     let allProjects = Object.values(this.props.projects);

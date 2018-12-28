@@ -222,17 +222,20 @@ class EditProject extends React.Component {
 
   startAutocomplete() {
     var options = {
-      types: ['(cities)'],
-      componentRestrictions: {country: "us"}
+      types: ['(cities)']
      };
     var input = this.inputRef;
     var autocomplete = new google.maps.places.Autocomplete(input, options);
     autocomplete.addListener('place_changed', () => {
       const place = autocomplete.getPlace();
+      let location = place.formatted_address.split(', ');
+      this.setState({ city: location[0], state: location[1] });
     });
   }
 
   render() {
+    
+
     if(!this.props.project){
       return null
     }
