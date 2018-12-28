@@ -86,14 +86,16 @@ class Homepage extends React.Component {
     }
   }
 
-  addToSavedProjects(idx, heart) {
+  addToSavedProjects(idx, heart, savedProject) {
     if (idx === '') return;
-    let savedProjects = getState().entities.users.filter(el => el.id === getState().session.id)[0].savedProjects;
+    debugger;
+    let savedProjects = savedProject;
     savedProjects.push(idx);
     if (heart === 'first-heart' && this.state.firstHeart === 'category-contents-right-heart-id-first') {
       this.setState({firstHeart: 'category-contents-right-heart-id-first-red', firstHeartFill: 'fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
     } else if (heart === 'second-heart' && this.state.secondHeart === 'category-contents-right-heart far') {
-      this.setState({secondHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
+      this.setState({secondHeart: 'category-contents-right-heart-red fas'});
+      this.props.updateUser({ id: getState().session.id, savedProjects: savedProjects });
     } else if (heart === 'third-heart' && this.state.thirdHeart === 'category-contents-right-heart far') {
       this.setState({thirdHeart: 'category-contents-right-heart-red fas'}).then(() => this.props.updateUser({id: getState().session.id, saved_projects: savedProjects}));
     } else if (heart === 'fourth-heart' && this.state.fourthHeart === 'category-contents-right-heart far') {
@@ -384,7 +386,7 @@ class Homepage extends React.Component {
         <div className='category-contents-right-body'>
           <ul>
             <li>
-              <div id="category-contents-right-heart-id" onClick={() => this.addToSavedProjects(currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].id : '', 'second-heart')}><i className={`${this.state.secondHeart} fa-heart`}></i></div>
+              <div id="category-contents-right-heart-id" onClick={() => this.addToSavedProjects(currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].id : '', 'second-heart', allUsers.filter(el => el.id === this.props.sessionId)[0].savedProjects)}><i className={`${this.state.secondHeart} fa-heart`}></i></div>
               {this.state.secondHeart === 'category-contents-right-heart far' ? <div id='category-contents-remind-me'>Remind Me</div> : <div id='category-contents-saved'>Saved</div>}
               <Link className='category-contents-right-body-inner' to={`/users/${secondCurrentPictureCategory}/projects/${currentPictureCategory.length != 0 ? currentPictureCategory.slice(-2)[0].id : ''}/front`}>
                 <img src={currentPictureCategory.length > 1 ? currentPictureCategory.slice(-2)[0].imageUrl : ''}/>
