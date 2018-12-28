@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect, Link} from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import Modal from './modal';
 import MyStuffNav from './mystuff/mystuff_nav';
 import SearchBar from './search_bar';
@@ -152,6 +152,7 @@ class Homepage extends React.Component {
   }
 
   render() {
+    if (this.props.user.user === null) return <Redirect to='/login'/>
     if (Object.values(this.props.category).length < 2 || Object.values(this.props.projects).length < 2) return null;
     let allUsers = Object.values(this.props.user);
     let allProjects = Object.values(this.props.projects);

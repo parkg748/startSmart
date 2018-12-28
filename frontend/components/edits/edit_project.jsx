@@ -45,24 +45,25 @@ class EditProject extends React.Component {
       durationInput: '',
       fundingGoalInput: '',
       categoryInput: '',
-      subcategoryInput: ''
+      subcategoryInput: '',
+      locationTF: true
     };
     this.addCollaborators = this.addCollaborators.bind(this);
-    this.addItem = this.addItem.bind(this);
-    this.closeAddItemForm = this.closeAddItemForm.bind(this);
+    this.toggleItem = this.toggleItem.bind(this);
     this.clickProfileIcon = this.clickProfileIcon.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.onChange = this.onChange.bind(this);
     this.showCalendar = this.showCalendar.bind(this);
     this.addBlackBorder = this.addBlackBorder.bind(this);
     this.addBlackBorderToInput = this.addBlackBorderToInput.bind(this);
+    this.toggleLocationInput = this.toggleLocationInput.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchProject(this.props.match.params.userId, this.props.match.params.projectId);
     this.props.fetchUser(this.props.match.params.userId);
-    setTimeout(this.startAutocomplete.bind(this), 5000);
+    setTimeout(this.startAutocomplete.bind(this), 1000);
   }
 
   fetchCities(input) {
@@ -124,18 +125,23 @@ class EditProject extends React.Component {
           processData: false
         });
     }
+    let project = Object.values(this.props.project)[0];
     const params = {id: this.props.match.params.projectId,
-                      title: this.state.title === '' ? Object.values(getState().entities.project)[0].title : this.state.title,
-                      description: this.state.description === '' ? Object.values(getState().entities.project)[0].description : this.state.description,
-                      category_id: this.state.category_id === '' ? Object.values(getState().entities.project)[0].categoryId : this.state.category_id,
-                      subcategory: this.state.subcategory === 'your-category' ? Object.values(getState().entities.project)[0].subcategory : this.state.subcategory,
-                      city: this.state.city === '' ? Object.values(getState().entities.project)[0].city : this.state.city,
-                      state: this.state.state === '' ? Object.values(getState().entities.project)[0].state : this.state.state,
-                      duration: this.state.duration === 30 ? Object.values(getState().entities.project)[0].duration : this.state.duration,
-                      funding_goal: this.state.funding_goal === '€0' ? Object.values(this.props.project)[0].fundingGoal : this.state.funding_goal,
+                      title: this.state.title === '' ? project.title : this.state.title,
+                      description: this.state.description === '' ? project.description : this.state.description,
+                      category_id: this.state.category_id === '' ? project.categoryId : this.state.category_id,
+                      subcategory: this.state.subcategory === 'your-category' ? project.subcategory : this.state.subcategory,
+                      city: this.state.city === '' ? project.city : this.state.city,
+                      state: this.state.state === '' ? project.state : this.state.state,
+                      duration: this.state.duration === 30 ? project.duration : this.state.duration,
+                      funding_goal: this.state.funding_goal === '€0' ? project.fundingGoal : this.state.funding_goal,
                       eta: new Date(`${this.state.finalDate[0]}-${this.state.finalDate[1]}-${this.state.finalDate[2]} ${this.state.time}`),
                       time: this.state.time};
     this.props.updateProject(params).then(() => this.props.history.push(`/users/${this.props.match.params.userId}/projects/${this.props.match.params.projectId}`));
+  }
+
+  toggleLocationInput() {
+    this.setState({ locationTF: false });
   }
 
   changeProjectPage(idx) {
@@ -165,12 +171,12 @@ class EditProject extends React.Component {
     this.props.updateProject(this.state).then(() => this.props.history.push(`/users/${this.props.user_id}/projects/${this.props.project_id}/basics`));
   }
 
-  addItem() {
-    this.setState({addItem: 'js-modal-open-basic', addBackground: 'is-open'});
-  }
-
-  closeAddItemForm() {
-    this.setState({addItem: 'js-modal-close', addBackground: ''});
+  toggleItem(type) {
+    if (type === 'add') {
+      this.setState({ addItem: 'js-modal-open-basic', addBackground: 'is-open' });
+    } else {
+      this.setState({ addItem: 'js-modal-close', addBackground: '' });
+    }
   }
 
   showCalendar(view) {
@@ -206,11 +212,6 @@ class EditProject extends React.Component {
       }
     } else if (field === 'subcategory') {
       this.setState({[field]: e.target.value});
-    } else if (field === 'city') {
-      console.log(e.target.value)
-      let city = e.target.value.split(', ')[0];
-      let state = e.target.value.split(', ')[1];
-      this.setState({city: city, state: state});
     } else if (field === 'time') {
       if (this.state.finalDate.length === 0) {
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -229,12 +230,12 @@ class EditProject extends React.Component {
     autocomplete.addListener('place_changed', () => {
       const place = autocomplete.getPlace();
       let location = place.formatted_address.split(', ');
-      this.setState({ city: location[0], state: location[1] });
+      this.setState({ city: location[0], state: location[1], locationTF: true });
     });
   }
 
   render() {
-    
+    const { locationTF, city, state } = this.state;
 
     if(!this.props.project){
       return null
@@ -403,10 +404,15 @@ class EditProject extends React.Component {
                           <div className='location-box'>
                             <div className='location-content'>
                               <div className='project-image-inner-title'>Location</div>
-                              <div className={`location-input ${this.state.locationInput}`}>
+                              {((city != '' && state != '') || (project.city != '' && project.state != '')) && locationTF ? <div className='edit-basic-location-dropdown'>
+                                <span>{city === '' ? project.city : city}, {state === '' ? project.state : state}</span>
+                                <div onClick={() => this.toggleLocationInput()} className='your-location-dropdown-close'>
+                                  <i className="your-location-button fas fa-times"></i>
+                                </div>
+                              </div> : <div className={`location-input ${this.state.locationInput}`}>
                                 <i className="location-search fas fa-search"></i>
-                                <input onClick={() => this.addBlackBorderToInput('location')} onChange={this.update('city')} ref={ref => this.inputRef = ref} type='text' className='form-control' name='term' id='search-term' placeholder=''/>
-                              </div>
+                                <input onClick={() => this.addBlackBorderToInput('location')} ref={ref => this.inputRef = ref} type='text' className='form-control' name='term' id='search-term' placeholder=''/>
+                              </div>}
                             </div>
                           </div>
                           <FundingDuration showCalendar={this.showCalendar} update={(e) => this.update(e)} calendar={calendar} duration={Object.values(getState().entities.project)[0].duration === 0 ? this.state.duration : Object.values(getState().entities.project)[0].duration} durationInput={this.state.durationInput} addBlackBorder={() => this.addBlackBorderToInput('duration')} />
@@ -418,7 +424,7 @@ class EditProject extends React.Component {
                                 <div className='funding-goal-disclaimer'>
                                   <p className='funding-goal-disclaimer-one'>Funding on StartSmart is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
                                   <p className='funding-goal-disclaimer-two'>If your project is successfully funded, the following fees will be collected from your funding total: StartSmart's 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.</p>
-                                  <p className='funding-goal-disclaimer-three'><button onClick={() => this.addItem()}>View fees breakdown</button></p>
+                                  <p className='funding-goal-disclaimer-three'><button onClick={() => this.toggleItem('add')}>View fees breakdown</button></p>
                                 </div>
                               </div>
                             </div>
@@ -489,7 +495,7 @@ class EditProject extends React.Component {
           <div className='fee-breakdown'>
             <div className='fee-breakdown-one'>Fees</div>
           </div>
-          <button onClick={() => this.closeAddItemForm()}><i className="js-modal-close-button fas fa-times"></i></button>
+          <button onClick={() => this.toggleItem('close')}><i className="js-modal-close-button fas fa-times"></i></button>
           <div className='fee-breakdown-two'>
             <div className='fee-breakdown-three'>
               <p>If your project is successfully funded, the following fees will be collected from your funding total: StartSmart's 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.</p>
